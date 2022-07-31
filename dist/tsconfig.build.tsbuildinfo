@@ -3702,8 +3702,8 @@
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "2b71e1f255bf1e12837859bb3d709d934be2ca51e06c8dabf4121f5343c92100",
-        "signature": "040342cad7dc7900f3904a51e26a6efa6fb1ab47ffb4eb1db7c75d175e0edc38",
+        "version": "b2118fe4d26f9e9660e1478df42459a5f5706311c7df20b8fcbe456e0690bc00",
+        "signature": "e2c627d316faeeacd6cd12773e99e01d8ae8d00e8cc58feccb7639e53afe56a0",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts": {

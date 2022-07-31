@@ -30,6 +30,14 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             return e.message;
         }
     }
+    async apkVersion() {
+        try {
+            return process.env.APK_URL;
+        }
+        catch (e) {
+            return e.message;
+        }
+    }
 };
 __decorate([
     common_1.Post('/callback'),
@@ -38,6 +46,12 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "getHello", null);
+__decorate([
+    common_1.Get('/checkVersion'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "apkVersion", null);
 AppController = __decorate([
     common_1.Controller(),
     __metadata("design:paramtypes", [app_service_1.AppService])
