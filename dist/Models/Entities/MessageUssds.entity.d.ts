@@ -7,6 +7,7 @@ export declare class MessageUssds extends BaseEntity {
     updatedAt: Date | null;
     isMatched: number;
     sousServicesId: number;
+    phonesId: number;
     state: 'ACTIVED' | 'INACTIVED' | 'DELETED';
     sousServices: SousServices;
 }

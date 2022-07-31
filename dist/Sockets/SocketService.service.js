@@ -63,15 +63,16 @@ let SocketServiceService = class SocketServiceService {
         const sms = new DtoMessageUssds_1.DtoMessageUssds();
         sms.content = (_a = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _a === void 0 ? void 0 : _a.content;
         sms.createdAt = new Date();
-        const resMessage = await MessageUssds_entity_1.MessageUssds.insert(sms);
-        console.log('SMS INSERT', resMessage);
-        sms.id = resMessage.raw.insertId;
         let infoTransaction;
         const phone = await Phones_entity_1.Phones.findOne({
             where: {
                 number: typeorm_1.Equal(socketBody.room),
             },
         });
+        sms.phonesId = phone.id;
+        const resMessage = await MessageUssds_entity_1.MessageUssds.insert(sms);
+        console.log('SMS INSERT', resMessage);
+        sms.id = resMessage.raw.insertId;
         console.log('Phone', phone.number);
         const sousServicesPhones = await SousServicesPhones_entity_1.SousServicesPhones.find({
             where: {

@@ -39,6 +39,10 @@ __decorate([
     __metadata("design:type", Number)
 ], MessageUssds.prototype, "sousServicesId", void 0);
 __decorate([
+    typeorm_1.Column('int', { name: 'phones_id', nullable: true }),
+    __metadata("design:type", Number)
+], MessageUssds.prototype, "phonesId", void 0);
+__decorate([
     typeorm_1.Column('enum', {
         name: 'state',
         enum: ['ACTIVED', 'INACTIVED', 'DELETED'],
@@ -56,6 +60,7 @@ __decorate([
 ], MessageUssds.prototype, "sousServices", void 0);
 MessageUssds = __decorate([
     typeorm_1.Index('fk_message_ussds_sous_services1_idx', ['sousServicesId'], {}),
+    typeorm_1.Index('fk_message_ussds_phones_id1_idx', ['phonesId'], {}),
     typeorm_1.Entity('message_ussds', { schema: 'simbot_db' })
 ], MessageUssds);
 exports.MessageUssds = MessageUssds;

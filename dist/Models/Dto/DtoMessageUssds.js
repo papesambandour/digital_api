@@ -36,6 +36,10 @@ __decorate([
 __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", Number)
+], DtoMessageUssds.prototype, "phonesId", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
 ], DtoMessageUssds.prototype, "isMatched", void 0);
 __decorate([
     swagger_1.ApiProperty(),

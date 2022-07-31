@@ -4407,8 +4407,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/messageussds.entity.ts": {
-        "version": "3caafaafccab942e5d7f05b4cb33380f90194712d3b96c8b0e00e5f8e827a8d3",
-        "signature": "bf9251b06a0c73382f73fcd2813442f6ce5c449f4588dba9700310d6d8cc3696",
+        "version": "eed2fc3569ca0a4e859fafe39aedff68869f2ae404c2185cf87e04d5a25d591b",
+        "signature": "312f0d117efe96ed05db67781bc42aa2ba389e675de71869012a223612e98947",
         "affectsGlobalScope": false
       },
       "../src/models/entities/sousservicesparteners.entity.ts": {
@@ -4512,8 +4512,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtomessageussds.ts": {
-        "version": "d2fd0746373f3013d95606f979eea5d9a488374a78a9b5aa57b553a47f76bffd",
-        "signature": "b0aaf8775a4fc24f5e155ee2fac56f830bde0da4f91d38649492c3c2a9fe1815",
+        "version": "f309cd5692095646e54f436a30ca9edce8f003c62ea074bb081ac854cbe42723",
+        "signature": "a4a1ad0ebf7c0d68845f0e503262c433c818259281008ea9d0b38c0304474d71",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtooperationphones.ts": {
@@ -4527,7 +4527,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "39706e9e32ac49cff225f7457d1d29b7afd7d9b248de3353f8412e8a8be8bbe4",
+        "version": "a73849d4d610d60bcc358d6411cfb966009d8f3009a3887974f0bc798795c33f",
         "signature": "855004d90eb9d18f7460d070d57d6fc1e344dbdef7c0a5aba71865b849ad2863",
         "affectsGlobalScope": false
       },
