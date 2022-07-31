@@ -32,7 +32,10 @@ let AppController = class AppController extends Controller_1.ControllerBase {
     }
     async apkVersion() {
         try {
-            return JSON.parse(Buffer.from(process.env.APK_URL, 'base64').toString('utf-8'));
+            return {
+                latest: process.env.APK_VERSION,
+                url: process.env.APK_URL,
+            };
         }
         catch (e) {
             return e.message;
