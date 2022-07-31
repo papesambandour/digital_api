@@ -1,0 +1,130 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ApiServiceController = void 0;
+const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
+const ResponseDecorateur_1 = require("../../Models/Decorateurs/ResponseDecorateur");
+const OperationOutDto_1 = require("./dto/OperationOutDto");
+const OperationInDto_1 = require("./dto/OperationInDto");
+const OperationBadParamsDto_1 = require("./dto/OperationBadParamsDto");
+const ResponseHttpPaginationDecorateur_1 = require("../../Models/Decorateurs/ResponseHttpPaginationDecorateur");
+const DtoTransactions_1 = require("../../Models/Dto/DtoTransactions");
+const ResponseDetailsDecorateur_1 = require("../../Models/Decorateurs/ResponseDetailsDecorateur");
+const ResponseForbidenDecorateur_1 = require("../../Models/Decorateurs/ResponseForbidenDecorateur");
+const ResponseForbidden_1 = require("../../Models/Response/ResponseForbidden");
+const ResponseHttp_1 = require("../../Models/Response/ResponseHttp");
+const PaginatedDto_1 = require("../../Models/Response/PaginatedDto");
+const Controller_1 = require("../Controller");
+const api_service_service_1 = require("./api-service.service");
+const OperationDictionaryDto_1 = require("./dto/OperationDictionaryDto");
+const ResponseHttpDefaultData_1 = require("../../Models/Response/ResponseHttpDefaultData");
+let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
+    constructor(apiServiceService) {
+        super();
+        this.apiServiceService = apiServiceService;
+    }
+    async operation(operationInDto) {
+        const isNotValid = await this.validator(this.getInstanceObject(operationInDto, new OperationInDto_1.OperationInDto()));
+        if (isNotValid) {
+            return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotValid, '', true);
+        }
+        const isNotValidLevel2 = await this.apiServiceService.validatorCustomApi(operationInDto);
+        if (isNotValidLevel2) {
+            return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotValidLevel2, '', true);
+        }
+        const isNotConform = this.apiServiceService.allDataIsOk();
+        if (isNotConform) {
+            return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotConform, '', true);
+        }
+        const phone = await this.apiServiceService.loadBalancingPhone();
+        console.log('phone', phone);
+        if (!phone) {
+            return this.response(this.CODE_HTTP.SERVICE_DOWN, {
+                codeService: ['Le services est indisponible pour le moment(pho)'],
+            }, '', true);
+        }
+        const transaction = await this.apiServiceService.initTransaction(phone);
+        const callPhone = await this.apiServiceService.callCall(phone, transaction);
+        if (!callPhone) {
+            return this.response(this.CODE_HTTP.SERVICE_DOWN, {
+                codeService: ['Le services est indisponible pour le moment(pho-2)'],
+            }, '', true);
+        }
+        return this.response(this.CODE_HTTP.OPERATION_SUCCESS, this.apiServiceService.responseOperation(transaction));
+    }
+    async transaction(id) {
+        return {
+            msg: 'Acces',
+        };
+    }
+    async transactions() {
+        return {
+            message: 'List Transaction',
+        };
+    }
+    async dictionary() {
+        return this.response(this.CODE_HTTP.OK, this.getCodeOperation());
+    }
+};
+__decorate([
+    common_1.Post('operation'),
+    ResponseDecorateur_1.ResponseDecorateur(OperationOutDto_1.OperationOutDto, 201, "Ce Services permet d'effectué tous les operations que offres Simbox "),
+    ResponseDecorateur_1.ResponseDecorateur(OperationBadParamsDto_1.OperationBadParamsDto, 400, 'Les parametres envoyés sont invalides'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [OperationInDto_1.OperationInDto]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "operation", null);
+__decorate([
+    common_1.Get('transactions/:id'),
+    ResponseDetailsDecorateur_1.ResponseDetailsDecorateur(DtoTransactions_1.DtoTransactions),
+    ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
+    __param(0, common_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "transaction", null);
+__decorate([
+    common_1.Get('transactions'),
+    ResponseHttpPaginationDecorateur_1.ResponseHttpPaginationDecorateur(DtoTransactions_1.DtoTransactions),
+    ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "transactions", null);
+__decorate([
+    common_1.Get('dictionary'),
+    ResponseDecorateur_1.ResponseDecorateur(OperationDictionaryDto_1.OperationDictionaryDto, 200, '', true),
+    ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "dictionary", null);
+ApiServiceController = __decorate([
+    common_1.Controller('api-services'),
+    swagger_1.ApiExtraModels(...[
+        ResponseHttp_1.ResponseHttp,
+        PaginatedDto_1.PaginatedDto,
+        OperationOutDto_1.OperationOutDto,
+        OperationBadParamsDto_1.OperationBadParamsDto,
+        DtoTransactions_1.DtoTransactions,
+        OperationDictionaryDto_1.OperationDictionaryDto,
+        ResponseHttpDefaultData_1.ResponseHttpDefaultData,
+    ]),
+    swagger_1.ApiTags('Api Services Parteneurs'),
+    __metadata("design:paramtypes", [api_service_service_1.ApiServiceService])
+], ApiServiceController);
+exports.ApiServiceController = ApiServiceController;
+//# sourceMappingURL=api-service.controller.js.map

@@ -1,0 +1,23 @@
+import { HttpService } from '@nestjs/common';
+import { Transactions } from '../Models/Entities/Transactions.entity';
+import { EnumActivitiesPhones, StatusEnum } from '../Models/Entities/Enum.entity';
+import { Server, Socket } from 'socket.io';
+import { InfoTransaction, PositionKey } from '../Models/Custom/SocketModels';
+import { SocketBodyFinish, SocketBodyMessage } from '../Models/MobileSocket/SocketModel';
+import { HelperService } from '../helper.service';
+export declare class SocketServiceService {
+    private httpService;
+    private helper;
+    constructor(httpService: HttpService, helper: HelperService);
+    leaveRoom(client: Socket, room: string): Promise<void>;
+    smsReceived(client: Socket, socketBody: SocketBodyMessage): Promise<boolean>;
+    getTransactionById(transactionId: number): Promise<Transactions>;
+    finishExecUssd(client: Socket, socketBodyFinish: SocketBodyFinish): Promise<boolean>;
+    joinRoom(client: Socket, room: string): Promise<boolean>;
+    afterInit(server: Server): void;
+    handleDisconnect(client: Socket): void;
+    handleConnection(client: Socket, ...args: any[]): void;
+    sendCallBack(transactionId: number, statut: StatusEnum): Promise<any>;
+    activityPhone(phonesId: number, activity: EnumActivitiesPhones): Promise<void>;
+    getInfoTransaction(messageContent: string, regexMessage: string, positionKey: PositionKey, valideLengh: number): InfoTransaction;
+}
