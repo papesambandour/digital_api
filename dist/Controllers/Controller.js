@@ -9,6 +9,10 @@ class ControllerBase {
                 code: 200,
                 msg: 'Donnés disponible',
             },
+            OK_OPERATION: {
+                code: 2000,
+                msg: 'Successfully operation',
+            },
             NOTFOUND: {
                 code: 404,
                 msg: "Les ressources demandés n'existent pas",
@@ -55,6 +59,7 @@ class ControllerBase {
             },
         };
         this.CODE_HTTP = {
+            OK_OPERATION: 'OK_OPERATION',
             OK: 'OK',
             NOTFOUND: 'NOTFOUND',
             CREATED: 'CREATED',

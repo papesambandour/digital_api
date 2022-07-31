@@ -1,6 +1,6 @@
 import { OperationInDto } from './dto/OperationInDto';
 import { PartenerComptes } from '../../Models/Entities/PartenerComptes.entity';
-import { Connection } from "typeorm";
+import { Connection } from 'typeorm';
 import { SousServices } from '../../Models/Entities/SousServices.entity';
 import { SousServicesParteners } from '../../Models/Entities/SousServicesParteners.entity';
 import { Parteners } from '../../Models/Entities/Parteners.entity';
@@ -60,4 +60,5 @@ export declare class ApiServiceService {
     };
     operationPartnerDoTransaction(transaction: Transactions): Promise<void>;
     operationPartnerCancelTransaction(transaction: Transactions): Promise<void>;
+    getPartner(headers: any): Promise<PartenerComptes>;
 }

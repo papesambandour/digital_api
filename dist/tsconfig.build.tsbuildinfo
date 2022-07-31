@@ -3697,8 +3697,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/controller.ts": {
-        "version": "844cbdcfeaa1a6fe91cdbedbb6915b4dc30eab191142b8f04e0fdb93384f0c71",
-        "signature": "1452fd7acfe054247f9256c16c966f077612189beaf4ffdee7a8caec1d8ebcf4",
+        "version": "674b9fbbaa54da3819e389cc5acc5acfe1b50fbaf9fbad34232db85319100852",
+        "signature": "c9fd62aed81dc2101f583e1d57b0060dcbcdd7a48f545c2f55a5f3ea7116b0e7",
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
@@ -4557,8 +4557,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "0c5a716174360765267a7d3145b4a5a16e637158b5bf3437bf1af1672c2812e8",
-        "signature": "d7bb93c8d9b9ec4009ec6cffb94f0593d8598b99392749d419c3d4b2aa75c19b",
+        "version": "07e2254a67afa9b4598e10ac923c273b9b5c9b93742c2c0b939b84ad4a2e0864",
+        "signature": "aa9986726b171c04cce360678a97e3fc56a50157b2d94b5a4d17ed46cf575ed6",
         "affectsGlobalScope": false
       },
       "../src/models/response/responsehttp.ts": {
@@ -4611,9 +4611,14 @@
         "signature": "c3e069df382ffab30933ceca6d039b251c7c70e5709d37feba15a281a63ac81e",
         "affectsGlobalScope": false
       },
+      "../src/models/dto/dtobalance.ts": {
+        "version": "5a52d3df85ccd52fb03552d96d0ee820afc35c973b190e66a775e283ffc639b4",
+        "signature": "ba8815529cee9690a805b60ea2fb715bcfe51cbab3abf50aaf9f632de402d1f2",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "c985889b495e7cf816bf38eb0fea62c756e9f901d6ae1a76316d136ff79678d1",
-        "signature": "14df385420a3e84d8f0b7a6031ed82e87514a98e658a950cd1189279bea5c995",
+        "version": "e8528730b84d82c38876a738a867d3e9ea98556b3476c622224856b6a326f267",
+        "signature": "bba914cf05a80b22cb1a0a7ec9e793bae88f7e22309da171e1a84e251f0a21aa",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.module.ts": {
@@ -9690,7 +9695,9 @@
         "../src/models/decorateurs/responsedetailsdecorateur.ts",
         "../src/models/decorateurs/responseforbidendecorateur.ts",
         "../src/models/decorateurs/responsehttppaginationdecorateur.ts",
+        "../src/models/dto/dtobalance.ts",
         "../src/models/dto/dtotransactions.ts",
+        "../src/models/entities/partenercomptes.entity.ts",
         "../src/models/response/paginateddto.ts",
         "../src/models/response/responseforbidden.ts",
         "../src/models/response/responsehttp.ts",
@@ -9821,6 +9828,9 @@
       "../src/models/dto/dtoactivitiesphones.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../src/models/entities/enum.entity.ts"
+      ],
+      "../src/models/dto/dtobalance.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts"
       ],
       "../src/models/dto/dtocategoriesservices.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts"

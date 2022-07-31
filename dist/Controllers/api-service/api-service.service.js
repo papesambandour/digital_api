@@ -498,6 +498,14 @@ let ApiServiceService = class ApiServiceService {
             transaction: true,
         });
     }
+    async getPartner(headers) {
+        return await PartenerComptes_entity_1.PartenerComptes.findOne({
+            where: {
+                appKey: typeorm_1.Equal(headers === null || headers === void 0 ? void 0 : headers.secretkey),
+            },
+            relations: ['parteners'],
+        });
+    }
 };
 ApiServiceService = __decorate([
     common_1.Injectable({

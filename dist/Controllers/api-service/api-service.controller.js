@@ -30,6 +30,7 @@ const Controller_1 = require("../Controller");
 const api_service_service_1 = require("./api-service.service");
 const OperationDictionaryDto_1 = require("./dto/OperationDictionaryDto");
 const ResponseHttpDefaultData_1 = require("../../Models/Response/ResponseHttpDefaultData");
+const DtoBalance_1 = require("../../Models/Dto/DtoBalance");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService) {
         super();
@@ -77,6 +78,16 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
     async dictionary() {
         return this.response(this.CODE_HTTP.OK, this.getCodeOperation());
     }
+    async balance(headers) {
+        const partnerAccoune = await this.apiServiceService.getPartner(headers);
+        if (!partnerAccoune) {
+            return this.response(this.CODE_HTTP.OPERATION_AUTH_NEED, { secreteKey: 'Invalide secrete key' }, '', true);
+        }
+        return this.response(this.CODE_HTTP.OK_OPERATION, {
+            currency: 'XOF',
+            balance: partnerAccoune.parteners.solde,
+        });
+    }
 };
 __decorate([
     common_1.Post('operation'),
@@ -112,6 +123,15 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "dictionary", null);
+__decorate([
+    common_1.Get('balance'),
+    ResponseDecorateur_1.ResponseDecorateur(DtoBalance_1.DtoBalance, 200, '', false),
+    ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
+    __param(0, common_1.Headers()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "balance", null);
 ApiServiceController = __decorate([
     common_1.Controller('api-services'),
     swagger_1.ApiExtraModels(...[
@@ -123,7 +143,7 @@ ApiServiceController = __decorate([
         OperationDictionaryDto_1.OperationDictionaryDto,
         ResponseHttpDefaultData_1.ResponseHttpDefaultData,
     ]),
-    swagger_1.ApiTags('Api Services Parteneurs'),
+    swagger_1.ApiTags('Api Services Partners'),
     __metadata("design:paramtypes", [api_service_service_1.ApiServiceService])
 ], ApiServiceController);
 exports.ApiServiceController = ApiServiceController;

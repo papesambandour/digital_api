@@ -8,6 +8,7 @@ export declare class ControllerBase {
     paginate(data: any): any;
     private CODE_HTTP_OBJECT;
     CODE_HTTP: {
+        OK_OPERATION: string;
         OK: string;
         NOTFOUND: string;
         CREATED: string;
