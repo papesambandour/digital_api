@@ -4522,7 +4522,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "aa172407640bf2aa19bd95f9f41cf6ad6d3fa713e2e092829f3a0383ddd1156e",
+        "version": "9abe93a43527009673fb519ec2cdf13e93210025d105a3f4d6324e37221ce1a3",
         "signature": "c4ad1494fcfc033dfa9911a00906aae69314ca345966fd2e5f822d36170507d6",
         "affectsGlobalScope": false
       },
@@ -4557,7 +4557,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "07e2254a67afa9b4598e10ac923c273b9b5c9b93742c2c0b939b84ad4a2e0864",
+        "version": "06e7d1dae15ab759fd678041ed36790a9e88642bbe41e12c0c7975501eead290",
         "signature": "aa9986726b171c04cce360678a97e3fc56a50157b2d94b5a4d17ed46cf575ed6",
         "affectsGlobalScope": false
       },

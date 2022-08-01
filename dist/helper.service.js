@@ -32,7 +32,7 @@ let HelperService = class HelperService {
     async operationPhone(phone, amount, typeOperation, comment, operationId = null, operation = Enum_entity_1.OperationEnumPhone.TRANSACTION) {
         const operationPhones = new DtoOperationPhones_1.DtoOperationPhones();
         operationPhones.commentaire = comment;
-        operationPhones.amount = amount;
+        operationPhones.amount = Math.abs(amount);
         operationPhones.statut = Enum_entity_1.StatusEnum.SUCCESS;
         operationPhones.createdAt = new Date();
         operationPhones.dateCreation = new Date();
