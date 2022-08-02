@@ -341,7 +341,11 @@ let ApiServiceService = class ApiServiceService {
             query += `ORDER BY RAND() LIMIT 1;`;
             let res = await this.connection.query(query);
             this.phone = res = (res === null || res === void 0 ? void 0 : res.length) ? res[0] : null;
-            if (res) {
+            Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id] = Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id] || {
+                used: false,
+            };
+            if (res && !Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id]['used']) {
+                Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id]['used'] = true;
                 this.disablePhone(res.id).then((value) => value);
                 resolve(res);
             }
@@ -351,7 +355,8 @@ let ApiServiceService = class ApiServiceService {
                     await this.waitSome(1);
                     res = await this.connection.query(query);
                     this.phone = res = (res === null || res === void 0 ? void 0 : res.length) ? res[0] : null;
-                    if (res) {
+                    if (res && !Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id]['used']) {
+                        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id]['used'] = true;
                         this.disablePhone(res.id).then((value) => value);
                         resolve(res);
                         break;
@@ -371,6 +376,7 @@ let ApiServiceService = class ApiServiceService {
     async activePhone(phoneId) {
         const query = `UPDATE phones set phone_state= '${Enum_entity_1.PhoneState.UNUSED}' , last_unused= '${this.mysqlDate(new Date())}'  where id = ${phoneId}`;
         this.connection.query(query).then((value) => console.log(value));
+        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phoneId]['used'] = true;
     }
     async disablePhone(phoneId) {
         const query = `UPDATE phones set phone_state= '${Enum_entity_1.PhoneState.USED}', last_used= '${this.mysqlDate(new Date())}' where id = ${phoneId}`;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
+exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
 var StateEnum;
 (function (StateEnum) {
     StateEnum["ACTIVED"] = "ACTIVED";
@@ -76,7 +76,11 @@ var TypeEvenEnum;
 exports.CONSTANT = {
     TIME_OUT_PHONE_SECOND: 30,
     LIMIT_TIME_TRANSACTION: 15,
-    WAIT_SOCKET_PHONE: 30,
+    WAIT_SOCKET_PHONE: 60,
     MAX_TIME_VALIDATION_TRX: 1,
 };
+class PHONES_HOLDERS {
+}
+exports.PHONES_HOLDERS = PHONES_HOLDERS;
+PHONES_HOLDERS.AVALABLITY = {};
 //# sourceMappingURL=Enum.entity.js.map

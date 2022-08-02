@@ -40,7 +40,11 @@ __decorate([
     __metadata("design:type", Date)
 ], Modules.prototype, "createdAt", void 0);
 __decorate([
-    typeorm_1.Column('datetime', { name: 'updated_at', nullable: true }),
+    typeorm_1.Column('datetime', {
+        name: 'updated_at',
+        nullable: true,
+        onUpdate: 'CURRENT_TIMESTAMP',
+    }),
     __metadata("design:type", Date)
 ], Modules.prototype, "updatedAt", void 0);
 __decorate([

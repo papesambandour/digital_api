@@ -8,7 +8,7 @@ export declare class Country extends BaseEntity {
     capital: string;
     code: string;
     state: 'ACTIVED' | 'INACTIVED' | 'DELETED';
-    updatedAt: Date;
+    updatedAt: Date | null;
     createdAt: Date | null;
     operators: Operators[];
 }

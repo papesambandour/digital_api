@@ -65,3 +65,6 @@ export declare const CONSTANT: {
     WAIT_SOCKET_PHONE: number;
     MAX_TIME_VALIDATION_TRX: number;
 };
+export declare class PHONES_HOLDERS {
+    static AVALABLITY: {};
+}
