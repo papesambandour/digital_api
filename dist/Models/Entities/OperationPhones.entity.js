@@ -104,6 +104,24 @@ __decorate([
     __metadata("design:type", Number)
 ], OperationPhones.prototype, "soldeAfter", void 0);
 __decorate([
+    typeorm_1.Column('double', {
+        name: 'solde_api_before',
+        precision: 17,
+        scale: 4,
+        default: '0.0000',
+    }),
+    __metadata("design:type", Number)
+], OperationPhones.prototype, "soldeApiBefor", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'solde_api_after',
+        precision: 17,
+        scale: 4,
+        default: '0.0000',
+    }),
+    __metadata("design:type", Number)
+], OperationPhones.prototype, "soldeApiAfter", void 0);
+__decorate([
     typeorm_1.ManyToOne(() => OperationPhones_1, (operationPhones) => operationPhones.operationPhones, { onDelete: 'NO ACTION', onUpdate: 'NO ACTION' }),
     typeorm_1.JoinColumn([{ name: 'operation_phones_id', referencedColumnName: 'id' }]),
     __metadata("design:type", OperationPhones)

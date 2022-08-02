@@ -1,6 +1,6 @@
 import { BaseEntity } from 'typeorm';
 import { Phones } from './Phones.entity';
-import { OperationEnumPhone } from "./Enum.entity";
+import { OperationEnumPhone } from './Enum.entity';
 export declare class OperationPhones extends BaseEntity {
     id: number;
     commentaire: string | null;
@@ -20,6 +20,8 @@ export declare class OperationPhones extends BaseEntity {
     operationPhonesId: number | null;
     soldeBefor: number;
     soldeAfter: number;
+    soldeApiBefor: number;
+    soldeApiAfter: number;
     operationPhones_2: OperationPhones;
     operationPhones: OperationPhones[];
     phones: Phones;

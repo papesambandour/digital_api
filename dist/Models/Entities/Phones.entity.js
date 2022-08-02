@@ -35,6 +35,16 @@ __decorate([
     __metadata("design:type", Number)
 ], Phones.prototype, "solde", void 0);
 __decorate([
+    typeorm_1.Column('double', {
+        name: 'solde_api',
+        comment: 'Solde fourni par le provider ',
+        precision: 17,
+        scale: 4,
+        default: '0.0000',
+    }),
+    __metadata("design:type", Number)
+], Phones.prototype, "soldeApi", void 0);
+__decorate([
     typeorm_1.Column('varchar', {
         name: 'number',
         unique: true,

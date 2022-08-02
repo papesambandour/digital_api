@@ -29,7 +29,7 @@ let HelperService = class HelperService {
     async setSoldeTable(value, tableName, id, field) {
         return this.connection.query(`update ${tableName} set ${field} =  ${field} + ${value} where id=${id}`);
     }
-    async operationPhone(phone, amount, typeOperation, comment, operationId = null, operation = Enum_entity_1.OperationEnumPhone.TRANSACTION) {
+    async operationPhone(phone, soldeApi, amount, typeOperation, comment, operationId = null, operation = Enum_entity_1.OperationEnumPhone.TRANSACTION) {
         const operationPhones = new DtoOperationPhones_1.DtoOperationPhones();
         operationPhones.commentaire = comment;
         operationPhones.amount = Math.abs(amount);
@@ -44,6 +44,8 @@ let HelperService = class HelperService {
         operationPhones.operationPhonesId = operationId;
         operationPhones.soldeBefor = phone.solde;
         operationPhones.soldeAfter = phone.solde + amount;
+        operationPhones.soldeApiBefor = phone.soldeApi;
+        operationPhones.soldeApiAfter = soldeApi;
         await OperationPhones_entity_1.OperationPhones.insert(operationPhones, {
             transaction: true,
         });

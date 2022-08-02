@@ -74,8 +74,8 @@ var TypeEvenEnum;
     TypeEvenEnum["NO_SERVICE_CONFIGURE_TO_PHONE"] = "NO_SERVICE_CONFIGURE_TO_PHONE";
 })(TypeEvenEnum = exports.TypeEvenEnum || (exports.TypeEvenEnum = {}));
 exports.CONSTANT = {
-    TIME_OUT_PHONE_SECOND: 15,
-    LIMIT_TIME_TRANSACTION: 1,
-    WAIT_SOCKET_PHONE: 20,
+    TIME_OUT_PHONE_SECOND: 30,
+    LIMIT_TIME_TRANSACTION: 15,
+    WAIT_SOCKET_PHONE: 30,
 };
 //# sourceMappingURL=Enum.entity.js.map

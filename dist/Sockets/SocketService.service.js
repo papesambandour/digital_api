@@ -137,7 +137,7 @@ let SocketServiceService = class SocketServiceService {
                     });
                     if (infoTransaction.sousService.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {
                         await this.helper.setSoldeTable(-transaction.amount, 'phones', phone.id, 'solde');
-                        await this.helper.operationPhone(phone, -transaction.amount, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
+                        await this.helper.operationPhone(phone, infoTransaction.new_balance, -transaction.amount, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
                     }
                     else if (infoTransaction.sousService.typeOperation ==
                         Enum_entity_1.TypeOperationEnum.CREDIT) {
@@ -145,7 +145,7 @@ let SocketServiceService = class SocketServiceService {
                             transaction.feeAmount +
                             transaction.commissionAmount, 'parteners', transaction.partenersId, 'solde');
                         await this.helper.setSoldeTable(transaction.amount, 'phones', phone.id, 'solde');
-                        await this.helper.operationPhone(phone, transaction.amount, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
+                        await this.helper.operationPhone(phone, infoTransaction.new_balance, transaction.amount, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
                     }
                     else {
                         await this.helper.notifyAdmin(`Le service ${infoTransaction.sousService.name} est mal configuré le type d'operation(${infoTransaction.sousService.typeOperation}) est  non pris en charge `, Enum_entity_1.TypeEvenEnum.NO_MATCH_SMS, infoTransaction.sousService);

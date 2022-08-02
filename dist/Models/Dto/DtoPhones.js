@@ -20,6 +20,10 @@ __decorate([
 __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", Number)
+], DtoPhones.prototype, "soldeApi", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
 ], DtoPhones.prototype, "solde", void 0);
 __decorate([
     swagger_1.ApiProperty(),

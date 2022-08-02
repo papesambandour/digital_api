@@ -1,5 +1,6 @@
 export declare class DtoPhones {
     id: number;
+    soldeApi: number;
     solde: number;
     number: string;
     uid: string;

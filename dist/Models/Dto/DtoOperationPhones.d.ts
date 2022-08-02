@@ -1,4 +1,4 @@
-import { OperationEnumPhone } from "../Entities/Enum.entity";
+import { OperationEnumPhone } from '../Entities/Enum.entity';
 export declare class DtoOperationPhones {
     id: number;
     commentaire: string | null;
@@ -18,4 +18,6 @@ export declare class DtoOperationPhones {
     operationPhonesId: number | null;
     soldeBefor: number;
     soldeAfter: number;
+    soldeApiBefor: number;
+    soldeApiAfter: number;
 }

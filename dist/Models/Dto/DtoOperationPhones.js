@@ -86,5 +86,13 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", Number)
 ], DtoOperationPhones.prototype, "soldeAfter", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], DtoOperationPhones.prototype, "soldeApiBefor", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], DtoOperationPhones.prototype, "soldeApiAfter", void 0);
 exports.DtoOperationPhones = DtoOperationPhones;
 //# sourceMappingURL=DtoOperationPhones.js.map

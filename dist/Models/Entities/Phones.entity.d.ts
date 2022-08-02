@@ -9,6 +9,7 @@ import { PhoneState } from './Enum.entity';
 export declare class Phones extends BaseEntity {
     id: number;
     solde: number;
+    soldeApi: number;
     number: string;
     codeSecret: string;
     pin: string;
