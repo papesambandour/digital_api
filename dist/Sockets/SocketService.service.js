@@ -138,7 +138,7 @@ let SocketServiceService = class SocketServiceService {
                     if (infoTransaction.sousService.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {
                         await this.helper.setSoldeTable(-transaction.amount, 'phones', phone.id, 'solde');
                         if (+infoTransaction.sousService.hasSoldeApi) {
-                            await this.helper.setSoldeTable(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
+                            await this.helper.setSoldeTableFromValue(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
                         }
                         await this.helper.operationPhone(phone, infoTransaction.new_balance, -transaction.amount, transaction.id, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
                     }
@@ -149,7 +149,7 @@ let SocketServiceService = class SocketServiceService {
                             transaction.commissionAmount, 'parteners', transaction.partenersId, 'solde');
                         await this.helper.setSoldeTable(transaction.amount, 'phones', phone.id, 'solde');
                         if (+infoTransaction.sousService.hasSoldeApi) {
-                            await this.helper.setSoldeTable(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
+                            await this.helper.setSoldeTableFromValue(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
                         }
                         await this.helper.operationPhone(phone, infoTransaction.new_balance, transaction.amount, transaction.id, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
                     }

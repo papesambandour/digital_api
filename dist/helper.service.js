@@ -29,6 +29,9 @@ let HelperService = class HelperService {
     async setSoldeTable(value, tableName, id, field) {
         return this.connection.query(`update ${tableName} set ${field} =  ${field} + ${value} where id=${id}`);
     }
+    async setSoldeTableFromValue(value, tableName, id, field) {
+        return this.connection.query(`update ${tableName} set ${field} =  ${value} where id=${id}`);
+    }
     async operationPhone(phone, soldeApi, amount, transactionId, typeOperation, comment, operationId = null, operation = Enum_entity_1.OperationEnumPhone.TRANSACTION) {
         const operationPhones = new DtoOperationPhones_1.DtoOperationPhones();
         operationPhones.commentaire = comment;
