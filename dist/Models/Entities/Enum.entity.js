@@ -77,5 +77,6 @@ exports.CONSTANT = {
     TIME_OUT_PHONE_SECOND: 30,
     LIMIT_TIME_TRANSACTION: 15,
     WAIT_SOCKET_PHONE: 30,
+    MAX_TIME_VALIDATION_TRX: 1,
 };
 //# sourceMappingURL=Enum.entity.js.map

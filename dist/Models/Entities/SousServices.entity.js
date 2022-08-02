@@ -30,7 +30,7 @@ __decorate([
     __metadata("design:type", Number)
 ], SousServices.prototype, "needPhone", void 0);
 __decorate([
-    typeorm_1.Column('tinyint', { name: 'need_phone', default: 1 }),
+    typeorm_1.Column('tinyint', { name: 'has_solde_api', default: 1 }),
     __metadata("design:type", Number)
 ], SousServices.prototype, "hasSoldeApi", void 0);
 __decorate([

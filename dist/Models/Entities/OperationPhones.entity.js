@@ -14,6 +14,7 @@ exports.OperationPhones = void 0;
 const typeorm_1 = require("typeorm");
 const Phones_entity_1 = require("./Phones.entity");
 const Enum_entity_1 = require("./Enum.entity");
+const Transactions_entity_1 = require("./Transactions.entity");
 let OperationPhones = OperationPhones_1 = class OperationPhones extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -91,7 +92,7 @@ __decorate([
     typeorm_1.Column('int', {
         name: 'operation_phones_id',
         nullable: true,
-        comment: 'Le transaction ',
+        comment: 'Pour une annulation ',
     }),
     __metadata("design:type", Number)
 ], OperationPhones.prototype, "operationPhonesId", void 0);
@@ -122,6 +123,14 @@ __decorate([
     __metadata("design:type", Number)
 ], OperationPhones.prototype, "soldeApiAfter", void 0);
 __decorate([
+    typeorm_1.Column('int', {
+        name: 'transactions_id',
+        nullable: true,
+        comment: 'Id transaction ',
+    }),
+    __metadata("design:type", Number)
+], OperationPhones.prototype, "transactionsId", void 0);
+__decorate([
     typeorm_1.ManyToOne(() => OperationPhones_1, (operationPhones) => operationPhones.operationPhones, { onDelete: 'NO ACTION', onUpdate: 'NO ACTION' }),
     typeorm_1.JoinColumn([{ name: 'operation_phones_id', referencedColumnName: 'id' }]),
     __metadata("design:type", OperationPhones)
@@ -138,7 +147,13 @@ __decorate([
     typeorm_1.JoinColumn([{ name: 'phones_id', referencedColumnName: 'id' }]),
     __metadata("design:type", Phones_entity_1.Phones)
 ], OperationPhones.prototype, "phones", void 0);
+__decorate([
+    typeorm_1.ManyToOne(() => Transactions_entity_1.Transactions, (transactions) => transactions.operationPhones, { onDelete: 'NO ACTION', onUpdate: 'NO ACTION' }),
+    typeorm_1.JoinColumn([{ name: 'transactions_id', referencedColumnName: 'id' }]),
+    __metadata("design:type", Transactions_entity_1.Transactions)
+], OperationPhones.prototype, "transactions", void 0);
 OperationPhones = OperationPhones_1 = __decorate([
+    typeorm_1.Index('fk_operation_phones_transactions1_idx', ['transactionsId'], {}),
     typeorm_1.Index('fk_operation_phones_operation_phones1_idx', ['operationPhonesId'], {}),
     typeorm_1.Index('fk_operation_phones_phones1_idx', ['phonesId'], {}),
     typeorm_1.Entity('operation_phones', { schema: 'simbot_db' })

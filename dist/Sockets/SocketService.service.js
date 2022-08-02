@@ -100,7 +100,7 @@ let SocketServiceService = class SocketServiceService {
                     }
                 }
                 const dataLimit = new Date();
-                dataLimit.setDate(dataLimit.getDate() - 1);
+                dataLimit.setDate(dataLimit.getDate() - Enum_entity_1.CONSTANT.MAX_TIME_VALIDATION_TRX);
                 if (infoTransaction) {
                     const transaction = await Transactions_entity_1.Transactions.findOne({
                         where: {
@@ -140,7 +140,7 @@ let SocketServiceService = class SocketServiceService {
                         if (+infoTransaction.sousService.hasSoldeApi) {
                             await this.helper.setSoldeTable(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
                         }
-                        await this.helper.operationPhone(phone, infoTransaction.new_balance, -transaction.amount, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
+                        await this.helper.operationPhone(phone, infoTransaction.new_balance, -transaction.amount, transaction.id, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
                     }
                     else if (infoTransaction.sousService.typeOperation ==
                         Enum_entity_1.TypeOperationEnum.CREDIT) {
@@ -151,7 +151,7 @@ let SocketServiceService = class SocketServiceService {
                         if (+infoTransaction.sousService.hasSoldeApi) {
                             await this.helper.setSoldeTable(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
                         }
-                        await this.helper.operationPhone(phone, infoTransaction.new_balance, transaction.amount, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
+                        await this.helper.operationPhone(phone, infoTransaction.new_balance, transaction.amount, transaction.id, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
                     }
                     else {
                         await this.helper.notifyAdmin(`Le service ${infoTransaction.sousService.name} est mal configuré le type d'operation(${infoTransaction.sousService.typeOperation}) est  non pris en charge `, Enum_entity_1.TypeEvenEnum.NO_MATCH_SMS, infoTransaction.sousService);

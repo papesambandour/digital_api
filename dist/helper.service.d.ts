@@ -6,5 +6,5 @@ export declare class HelperService {
     constructor(connection: Connection);
     notifyAdmin(message: string, typeEvent: TypeEvenEnum, data?: {}): Promise<void>;
     setSoldeTable(value: number, tableName: string, id: number, field: string): Promise<any>;
-    operationPhone(phone: Phones, soldeApi: number, amount: number, typeOperation: TypeOperationEnum, comment: string, operationId?: number | null, operation?: OperationEnumPhone): Promise<void>;
+    operationPhone(phone: Phones, soldeApi: number, amount: number, transactionId: number, typeOperation: TypeOperationEnum, comment: string, operationId?: number | null, operation?: OperationEnumPhone): Promise<void>;
 }

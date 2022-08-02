@@ -63,4 +63,5 @@ export declare const CONSTANT: {
     TIME_OUT_PHONE_SECOND: number;
     LIMIT_TIME_TRANSACTION: number;
     WAIT_SOCKET_PHONE: number;
+    MAX_TIME_VALIDATION_TRX: number;
 };

@@ -5,6 +5,7 @@ import { PartenerComptes } from './PartenerComptes.entity';
 import { Phones } from './Phones.entity';
 import { SousServices } from './SousServices.entity';
 import { UssdExecutionMessages } from './UssdExecutionMessages.entity';
+import { OperationPhones } from "./OperationPhones.entity";
 export declare class Transactions extends BaseEntity {
     id: number;
     typeOperation: 'DEBIT' | 'CREDIT';
@@ -50,4 +51,5 @@ export declare class Transactions extends BaseEntity {
     phones: Phones;
     sousServices: SousServices;
     ussdExecutionMessage: UssdExecutionMessages[];
+    operationPhones: OperationPhones[];
 }

@@ -25,6 +25,10 @@ __decorate([
 __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", Number)
+], DtoOperationPhones.prototype, "transactionsId", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
 ], DtoOperationPhones.prototype, "amount", void 0);
 __decorate([
     swagger_1.ApiProperty(),
