@@ -3,7 +3,7 @@ import { Transactions } from '../Models/Entities/Transactions.entity';
 import { EnumActivitiesPhones, StatusEnum } from '../Models/Entities/Enum.entity';
 import { Server, Socket } from 'socket.io';
 import { InfoTransaction, PositionKey } from '../Models/Custom/SocketModels';
-import { SocketBodyFinish, SocketBodyMessage } from '../Models/MobileSocket/SocketModel';
+import { SocketBodyMessage } from '../Models/MobileSocket/SocketModel';
 import { HelperService } from '../helper.service';
 export declare class SocketServiceService {
     private httpService;
@@ -12,7 +12,6 @@ export declare class SocketServiceService {
     leaveRoom(client: Socket, room: string): Promise<void>;
     smsReceived(client: Socket, socketBody: SocketBodyMessage): Promise<boolean>;
     getTransactionById(transactionId: number): Promise<Transactions>;
-    finishExecUssd(client: Socket, socketBodyFinish: SocketBodyFinish): Promise<boolean>;
     joinRoom(client: Socket, room: string): Promise<boolean>;
     afterInit(server: Server): void;
     handleDisconnect(client: Socket): void;

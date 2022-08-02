@@ -19,6 +19,14 @@ __decorate([
 ], DtoSousServices.prototype, "id", void 0);
 __decorate([
     swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], DtoSousServices.prototype, "needPhone", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], DtoSousServices.prototype, "hasSoldeApi", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], DtoSousServices.prototype, "name", void 0);
 __decorate([

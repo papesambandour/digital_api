@@ -4467,8 +4467,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/sousservices.entity.ts": {
-        "version": "6dd2048329d8f289da34036a466b3391b7fd754014a1fbfd6af44fd9a6dd3aec",
-        "signature": "edf7c8395309e1bb363e536799ca80e308b0f9470d5a6bc5a46381c99fea4991",
+        "version": "b37a28d56bf677a4b7ab003bb9f95048bd24b16433ec67c2656a2bbfbc3b6d1c",
+        "signature": "08a3b7f0738ce08d87e6c69ec81adca03a6c035828170974987b37e1dd0b8ac0",
         "affectsGlobalScope": false
       },
       "../src/models/entities/commission.entity.ts": {
@@ -4527,8 +4527,8 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "d85b80058f1562d3301cbcad4de457265feb4cdde787e9dc8c3bedf8a029eda1",
-        "signature": "855004d90eb9d18f7460d070d57d6fc1e344dbdef7c0a5aba71865b849ad2863",
+        "version": "7672e1ba176531136052bf95d04a88d0e75e1dbf79f5011f02dc018cb3be8e70",
+        "signature": "db2af085d78f61b0a188ea773d9d6fcac7b2043ac3b651e6f6cd3ec9e51f53d2",
         "affectsGlobalScope": false
       },
       "../src/sockets/sockets.gateway.ts": {
@@ -4932,8 +4932,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtosousservices.ts": {
-        "version": "765dfd4be77d13dd52c535f9f4db76d493ed523f63ccf7cfb0a8f4017882e72b",
-        "signature": "de48c9f88772227bb02342170990568ed2644ec3780f869fc7a46938e6856887",
+        "version": "cbdab22569082aed23272ff007778271fcaf72c6508075a2571d8e46409eef56",
+        "signature": "0d98e89218b7e0eaff8d93cab6c1e748686c8e9381de728493b020a08b95375d",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtosousservicesparteners.ts": {

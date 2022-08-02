@@ -6,9 +6,11 @@ import { SousServicesPhones } from './SousServicesPhones.entity';
 import { Services } from './Services.entity';
 import { TypeServices } from './TypeServices.entity';
 import { Transactions } from './Transactions.entity';
-import { TypeOperationEnum } from "./Enum.entity";
+import { TypeOperationEnum } from './Enum.entity';
 export declare class SousServices extends BaseEntity {
     id: number;
+    needPhone: number;
+    hasSoldeApi: number;
     name: string;
     ussdCode: string;
     regexMessageValidation: string;

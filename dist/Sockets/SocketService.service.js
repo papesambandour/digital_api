@@ -137,6 +137,9 @@ let SocketServiceService = class SocketServiceService {
                     });
                     if (infoTransaction.sousService.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {
                         await this.helper.setSoldeTable(-transaction.amount, 'phones', phone.id, 'solde');
+                        if (+infoTransaction.sousService.hasSoldeApi) {
+                            await this.helper.setSoldeTable(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
+                        }
                         await this.helper.operationPhone(phone, infoTransaction.new_balance, -transaction.amount, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
                     }
                     else if (infoTransaction.sousService.typeOperation ==
@@ -145,6 +148,9 @@ let SocketServiceService = class SocketServiceService {
                             transaction.feeAmount +
                             transaction.commissionAmount, 'parteners', transaction.partenersId, 'solde');
                         await this.helper.setSoldeTable(transaction.amount, 'phones', phone.id, 'solde');
+                        if (+infoTransaction.sousService.hasSoldeApi) {
+                            await this.helper.setSoldeTable(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
+                        }
                         await this.helper.operationPhone(phone, infoTransaction.new_balance, transaction.amount, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
                     }
                     else {
@@ -173,40 +179,6 @@ let SocketServiceService = class SocketServiceService {
             },
             relations: ['sousServices'],
         });
-    }
-    async finishExecUssd(client, socketBodyFinish) {
-        try {
-            socketBodyFinish = JSON.parse(socketBodyFinish + '');
-        }
-        catch (e) {
-            console.log(`Message erreur from Sim USSD`, socketBodyFinish.toString());
-            return false;
-        }
-        console.log('ussdMesage-', socketBodyFinish);
-        let trx;
-        if (socketBodyFinish.transactionId &&
-            socketBodyFinish.transactionId !== 'null') {
-            trx = await this.getTransactionById(+socketBodyFinish.transactionId);
-            if (socketBodyFinish.data.indexOf(trx.sousServices.messageRetourUssd) != -1) {
-                await Transactions_entity_1.Transactions.update(socketBodyFinish.transactionId, {
-                    statut: Enum_entity_1.StatusEnum.PROCESSING,
-                    dateProcessing: new Date(),
-                });
-            }
-            else {
-                await Transactions_entity_1.Transactions.update(socketBodyFinish === null || socketBodyFinish === void 0 ? void 0 : socketBodyFinish.transactionId, {
-                    statut: Enum_entity_1.StatusEnum.FAILLED,
-                    dateFailled: new Date(),
-                    errorMessage: socketBodyFinish.data,
-                });
-                this.sendCallBack(+socketBodyFinish.transactionId, Enum_entity_1.StatusEnum.FAILLED).then((data) => {
-                    console.log('Res callback', data);
-                });
-            }
-        }
-        else {
-            console.log('No mached message USSD');
-        }
     }
     async joinRoom(client, room) {
         var _a, _b;

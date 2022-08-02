@@ -1,5 +1,7 @@
 export declare class DtoSousServices {
     id: number;
+    needPhone: number;
+    hasSoldeApi: number;
     name: string;
     ussdCode: string;
     regexMessageValidation: string;

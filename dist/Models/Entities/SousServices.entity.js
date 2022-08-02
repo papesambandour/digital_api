@@ -26,6 +26,14 @@ __decorate([
     __metadata("design:type", Number)
 ], SousServices.prototype, "id", void 0);
 __decorate([
+    typeorm_1.Column('tinyint', { name: 'need_phone', default: 1 }),
+    __metadata("design:type", Number)
+], SousServices.prototype, "needPhone", void 0);
+__decorate([
+    typeorm_1.Column('tinyint', { name: 'need_phone', default: 1 }),
+    __metadata("design:type", Number)
+], SousServices.prototype, "hasSoldeApi", void 0);
+__decorate([
     typeorm_1.Column('varchar', { name: 'name', length: 255 }),
     __metadata("design:type", String)
 ], SousServices.prototype, "name", void 0);
