@@ -283,7 +283,7 @@ let ApiServiceService = class ApiServiceService {
             transaction: true,
         });
         this.transactionId = transaction.id = saveTransactions.raw.insertId;
-        await this.operationPartnerDoTransaction(transaction);
+        this.operationPartnerDoTransaction(transaction).then((value) => value);
         return transaction;
     }
     generateTransactionId() {

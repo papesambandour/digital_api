@@ -115,9 +115,6 @@ let SocketServiceService = class SocketServiceService {
                             createdAt: 'DESC',
                         },
                     });
-                    if (!transaction) {
-                        return false;
-                    }
                     console.log('Transaction filter', {
                         amount: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount,
                         phone: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.phone,
@@ -128,6 +125,10 @@ let SocketServiceService = class SocketServiceService {
                         sousservice: infoTransaction.sousService,
                         sms: sms,
                     });
+                    if (!transaction) {
+                        console.log('Transaction not match', infoTransaction);
+                        return false;
+                    }
                     await Transactions_entity_1.Transactions.update(transaction.id, {
                         dateSuccess: new Date(),
                         statut: Enum_entity_1.StatusEnum.SUCCESS,
