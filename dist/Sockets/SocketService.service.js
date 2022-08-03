@@ -115,6 +115,9 @@ let SocketServiceService = class SocketServiceService {
                             createdAt: 'DESC',
                         },
                     });
+                    if (!transaction) {
+                        return false;
+                    }
                     console.log('Transaction filter', {
                         amount: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount,
                         phone: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.phone,

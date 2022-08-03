@@ -353,7 +353,7 @@ let ApiServiceService = class ApiServiceService {
             }
             else {
                 for (let i = 0; i < Enum_entity_1.CONSTANT.TIME_OUT_PHONE_SECOND; i++) {
-                    console.log('WAITING PHONE', i);
+                    console.log('WAITING PHONE', i, Enum_entity_1.PHONES_HOLDERS.AVALABLITY);
                     await this.waitSome(3);
                     res = await this.connection.query(query);
                     this.phone = res = (res === null || res === void 0 ? void 0 : res.length) ? res[0] : null;
@@ -382,9 +382,9 @@ let ApiServiceService = class ApiServiceService {
         });
     }
     async activePhone(phoneId) {
+        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phoneId]['used'] = false;
         const query = `UPDATE phones set phone_state= '${Enum_entity_1.PhoneState.UNUSED}' , last_unused= '${this.mysqlDate(new Date())}'  where id = ${phoneId}`;
         this.connection.query(query).then((value) => console.log(value));
-        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phoneId]['used'] = true;
     }
     async disablePhone(phoneId) {
         const query = `UPDATE phones set phone_state= '${Enum_entity_1.PhoneState.USED}', last_used= '${this.mysqlDate(new Date())}' where id = ${phoneId}`;

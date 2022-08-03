@@ -4527,7 +4527,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "4bcd69980d6928807f0a55b004c6475ffd5ad92dd2bf243e0a54608c0fdbfe4c",
+        "version": "c7b794cafaf571a80b303dc717748b6a7dc2fa0f79efec79308f6907939116ef",
         "signature": "db2af085d78f61b0a188ea773d9d6fcac7b2043ac3b651e6f6cd3ec9e51f53d2",
         "affectsGlobalScope": false
       },
@@ -4557,7 +4557,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "02e22b38365726fa8e764bcbd92baaf13f3819dd6f72bff801fbec4e108e33cd",
+        "version": "556be8122bdd63b156056e13f7e1ae4011b95fb8c90b6177ac1fb927856d29ef",
         "signature": "aa9986726b171c04cce360678a97e3fc56a50157b2d94b5a4d17ed46cf575ed6",
         "affectsGlobalScope": false
       },
