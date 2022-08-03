@@ -427,17 +427,19 @@ let ApiServiceService = class ApiServiceService {
         let ussdCode = this.getUssDCode(this.sousServices.ussdCode, phone);
         ussdCode += `-${transaction.id}`;
         const socket = sockets_gateway_1.SocketsGateway.getSocket(phone.number);
+        let clearId;
         if (socket) {
             return new Promise(async (resolve) => {
                 console.log('SOCKET', socket);
                 socket.on('finishExecUssd', async (data) => {
+                    clearTimeout(clearId);
                     console.log('DATA_SOCKET', data);
                     socket.removeAllListeners('finishExecUssd');
                     resolve(await this.finishExecUssd(data));
                     this.activePhone(this.phone.id).then((value) => value);
                 });
                 socket.emit('execUssd', ussdCode);
-                setTimeout(() => {
+                clearId = setTimeout(() => {
                     console.log('WAIT RETOUR USSD');
                     resolve(true);
                     this.activePhone(this.phone.id).then((value) => value);
