@@ -341,9 +341,11 @@ let ApiServiceService = class ApiServiceService {
             query += `ORDER BY RAND() LIMIT 1;`;
             let res = await this.connection.query(query);
             this.phone = res = (res === null || res === void 0 ? void 0 : res.length) ? res[0] : null;
-            Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id] = Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id] || {
-                used: false,
-            };
+            if (this.phone) {
+                Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id] = Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id] || {
+                    used: false,
+                };
+            }
             if (res && !Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id]['used']) {
                 Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id]['used'] = true;
                 this.disablePhone(res.id).then((value) => value);
@@ -352,9 +354,15 @@ let ApiServiceService = class ApiServiceService {
             else {
                 for (let i = 0; i < Enum_entity_1.CONSTANT.TIME_OUT_PHONE_SECOND; i++) {
                     console.log('WAITING PHONE', i);
-                    await this.waitSome(1);
+                    await this.waitSome(3);
                     res = await this.connection.query(query);
                     this.phone = res = (res === null || res === void 0 ? void 0 : res.length) ? res[0] : null;
+                    if (this.phone) {
+                        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id] = Enum_entity_1.PHONES_HOLDERS
+                            .AVALABLITY[this.phone.id] || {
+                            used: false,
+                        };
+                    }
                     if (res && !Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id]['used']) {
                         Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id]['used'] = true;
                         this.disablePhone(res.id).then((value) => value);
