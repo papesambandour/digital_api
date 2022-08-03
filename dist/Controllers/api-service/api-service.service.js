@@ -383,7 +383,7 @@ let ApiServiceService = class ApiServiceService {
         });
     }
     async activePhone(phoneId) {
-        await this.waitSome(1.5);
+        await this.waitSome(3);
         Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phoneId]['used'] = false;
         const query = `UPDATE phones set phone_state= '${Enum_entity_1.PhoneState.UNUSED}' , last_unused= '${this.mysqlDate(new Date())}'  where id = ${phoneId}`;
         this.connection.query(query).then((value) => console.log(value));
@@ -419,6 +419,7 @@ let ApiServiceService = class ApiServiceService {
             return true;
         }
         else {
+            await this.connection.query(`update transactions set date_processing= '${this.mysqlDate(new Date())}' where id= ${this.transactionId} AND statut <> '${Enum_entity_1.StatusEnum.SUCCESS}'`);
             return true;
         }
     }

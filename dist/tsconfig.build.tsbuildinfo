@@ -4557,7 +4557,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "5487cb28580e06c42fd29f0d550ce26d187d7ce3f287c7ab9cafa3c06f2c0782",
+        "version": "767639e8a25613172ef99b26791f69309f5149e49c4371949719f56fa37b16d6",
         "signature": "aa9986726b171c04cce360678a97e3fc56a50157b2d94b5a4d17ed46cf575ed6",
         "affectsGlobalScope": false
       },
