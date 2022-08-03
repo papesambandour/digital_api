@@ -419,19 +419,6 @@ let ApiServiceService = class ApiServiceService {
             return true;
         }
         else {
-            if (socketBodyFinish.state === 'FAILED') {
-                await Transactions_entity_1.Transactions.update(this.transactionId, {
-                    statut: Enum_entity_1.StatusEnum.FAILLED,
-                    dateFailled: new Date(),
-                    errorMessage: 'Une Erreur Est survenue !!!',
-                });
-                await this.operationPartnerCancelTransaction(await Transactions_entity_1.Transactions.findOne({
-                    where: {
-                        id: this.transactionId,
-                    },
-                }));
-                return false;
-            }
             return true;
         }
     }
