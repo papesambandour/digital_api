@@ -3027,7 +3027,7 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "bf452dbe287d05c73ae1540b22d85d3ff62aa96a8108466e4f9fa98fbc4ea46a",
+        "version": "6aa521badbb18f83f89542666bf627123ac60ab7a097064935cb946d1ab918c4",
         "signature": "e28a5f6b5629d102532f80398582de99c6f9f0eea1e1f10d464622bef6dfc102",
         "affectsGlobalScope": false
       },
@@ -4557,7 +4557,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "0906d9ef8b5ee56a3022534afb72c085ffbf5653b01ee35883572d3ebfa53eac",
+        "version": "5487cb28580e06c42fd29f0d550ce26d187d7ce3f287c7ab9cafa3c06f2c0782",
         "signature": "aa9986726b171c04cce360678a97e3fc56a50157b2d94b5a4d17ed46cf575ed6",
         "affectsGlobalScope": false
       },
