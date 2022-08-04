@@ -1,7 +1,9 @@
+import { HttpService } from '@nestjs/common';
 import { OperationInDto } from './dto/OperationInDto';
 import { PartenerComptes } from '../../Models/Entities/PartenerComptes.entity';
 import { Connection } from 'typeorm';
 import { SousServices } from '../../Models/Entities/SousServices.entity';
+import { StatusEnum } from '../../Models/Entities/Enum.entity';
 import { SousServicesParteners } from '../../Models/Entities/SousServicesParteners.entity';
 import { Parteners } from '../../Models/Entities/Parteners.entity';
 import { Commission } from '../../Models/Entities/Commission.entity';
@@ -15,7 +17,8 @@ import { HelperService } from '../../helper.service';
 export declare class ApiServiceService {
     private readonly connection;
     private helper;
-    constructor(connection: Connection, helper: HelperService);
+    private httpService;
+    constructor(connection: Connection, helper: HelperService, httpService: HttpService);
     setSoldeTable(value: number, tableName: string, id: number, field?: string): Promise<any>;
     comptePartner: PartenerComptes;
     partner: Parteners;
@@ -61,4 +64,5 @@ export declare class ApiServiceService {
     operationPartnerDoTransaction(transaction: Transactions): Promise<void>;
     operationPartnerCancelTransaction(transaction: Transactions): Promise<void>;
     getPartner(headers: any): Promise<PartenerComptes>;
+    sendCallBack(transactionId: number, statut: StatusEnum): Promise<any>;
 }

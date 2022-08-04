@@ -17,7 +17,12 @@ ApiServiceModule = __decorate([
     common_1.Module({
         exports: [],
         controllers: [api_service_controller_1.ApiServiceController],
-        imports: [],
+        imports: [
+            common_1.HttpModule.register({
+                timeout: 60000,
+                maxRedirects: 5,
+            }),
+        ],
         providers: [api_service_service_1.ApiServiceService, helper_service_1.HelperService],
     })
 ], ApiServiceModule);

@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "6aa521badbb18f83f89542666bf627123ac60ab7a097064935cb946d1ab918c4",
-        "signature": "e28a5f6b5629d102532f80398582de99c6f9f0eea1e1f10d464622bef6dfc102",
+        "version": "2369b604dd8969fdf95b5827b881f2db4d3afcff4d6d870b4724b361a6ad92d0",
+        "signature": "26dbe836ecc21d5e1c2f9c3365b2ba15ec767f7f287321f9eab2171f7df42202",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4497,8 +4497,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "f3ee4647cb5ded0b443a414f7b4e1fed8c5551f5ac62160885a1713fa14e10ee",
-        "signature": "82e4886d00816fb25799dac44eaa303e3d90df431364ea6d91b492bfd5c4ed64",
+        "version": "ca3310df6e6bc4e94bb23184a9220ee551e5698cb066b703b3aa6f6b13d20eeb",
+        "signature": "34d6812167e72480ee213ad6f63a5dc8148035f2206e055cfe599abb35c1573b",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtoactivitiesphones.ts": {
@@ -4527,7 +4527,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "75c24cbf646e88d4b8018f13e193101f2e6b1cdb8620eb5120a47ea80eef2da7",
+        "version": "2d507d60461279fe4b17ed95bc83e463bfdae60a28083aae5ee56e8ab736fda4",
         "signature": "db2af085d78f61b0a188ea773d9d6fcac7b2043ac3b651e6f6cd3ec9e51f53d2",
         "affectsGlobalScope": false
       },
@@ -4557,8 +4557,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "2958a56ca267239d10021d5f96d4d8139cf848edf563f3e940eaf92e94868294",
-        "signature": "aa9986726b171c04cce360678a97e3fc56a50157b2d94b5a4d17ed46cf575ed6",
+        "version": "63b4dc26ede135234baa390e0912c1f6b2306cdc358779694211cd987c1675b5",
+        "signature": "a0422099b19d9083bde995ca97dcdc376c68262f5f2d8f3f5d43fac6444f25e5",
         "affectsGlobalScope": false
       },
       "../src/models/response/responsehttp.ts": {
@@ -4622,7 +4622,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.module.ts": {
-        "version": "edbb43b777e48148829334849568056762377743ec5b8aa190f7cc6c20d2b5af",
+        "version": "25e617fac5fd921970d56da9727e907096e5d048a4fdb4fc71e8b5f2cf7044d0",
         "signature": "622f5703fb298ffab0ec97803bb18f89a7c363d1d8cd8b11ef37cf122819523c",
         "affectsGlobalScope": false
       },
@@ -10021,6 +10021,7 @@
       ],
       "../src/models/entities/transactions.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/enum.entity.ts",
         "../src/models/entities/operationparteners.entity.ts",
         "../src/models/entities/operationphones.entity.ts",
         "../src/models/entities/partenercomptes.entity.ts",
@@ -14061,11 +14062,13 @@
         "../src/controllers/controller.ts"
       ],
       "../src/controllers/api-service/api-service.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/helper.service.ts",
         "../src/models/dto/dtotransactions.ts",
         "../src/models/entities/commission.entity.ts",
+        "../src/models/entities/enum.entity.ts",
         "../src/models/entities/operators.entity.ts",
         "../src/models/entities/partenercomptes.entity.ts",
         "../src/models/entities/parteners.entity.ts",
@@ -14246,6 +14249,7 @@
       ],
       "../src/models/entities/transactions.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/enum.entity.ts",
         "../src/models/entities/operationparteners.entity.ts",
         "../src/models/entities/operationphones.entity.ts",
         "../src/models/entities/partenercomptes.entity.ts",

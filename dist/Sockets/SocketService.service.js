@@ -102,6 +102,7 @@ let SocketServiceService = class SocketServiceService {
                 const dataLimit = new Date();
                 dataLimit.setDate(dataLimit.getDate() - Enum_entity_1.CONSTANT.MAX_TIME_VALIDATION_TRX);
                 if (infoTransaction) {
+                    let sendCallback = true;
                     const transaction = await Transactions_entity_1.Transactions.findOne({
                         where: {
                             amount: typeorm_1.Equal(infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount),
@@ -129,10 +130,15 @@ let SocketServiceService = class SocketServiceService {
                         console.log('Transaction not match', infoTransaction);
                         return false;
                     }
+                    if (transaction.preStatut === Enum_entity_1.StatusEnum.SUCCESS) {
+                        sendCallback = false;
+                    }
                     await Transactions_entity_1.Transactions.update(transaction.id, {
                         dateSuccess: new Date(),
                         statut: Enum_entity_1.StatusEnum.SUCCESS,
+                        preStatut: Enum_entity_1.StatusEnum.SUCCESS,
                         message: sms === null || sms === void 0 ? void 0 : sms.content,
+                        statutSmsResponse: Enum_entity_1.EnumValidationStatus.SUCCESS,
                         sousServiceTransactionId: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.transactionId,
                     });
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
@@ -160,9 +166,11 @@ let SocketServiceService = class SocketServiceService {
                     else {
                         await this.helper.notifyAdmin(`Le service ${infoTransaction.sousService.name} est mal configuré le type d'operation(${infoTransaction.sousService.typeOperation}) est  non pris en charge `, Enum_entity_1.TypeEvenEnum.NO_MATCH_SMS, infoTransaction.sousService);
                     }
-                    this.sendCallBack(transaction.id, Enum_entity_1.StatusEnum.SUCCESS).then((data) => {
-                        console.log('Res callback', data);
-                    });
+                    if (sendCallback) {
+                        this.sendCallBack(transaction.id, Enum_entity_1.StatusEnum.SUCCESS).then((data) => {
+                            console.log('Res callback', data);
+                        });
+                    }
                 }
                 else {
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {

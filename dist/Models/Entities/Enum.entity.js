@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
+exports.EnumCodeUssdResponse = exports.EnumValidationStatus = exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
 var StateEnum;
 (function (StateEnum) {
     StateEnum["ACTIVED"] = "ACTIVED";
@@ -83,4 +83,17 @@ class PHONES_HOLDERS {
 }
 exports.PHONES_HOLDERS = PHONES_HOLDERS;
 PHONES_HOLDERS.AVALABLITY = {};
+var EnumValidationStatus;
+(function (EnumValidationStatus) {
+    EnumValidationStatus["SUCCESS"] = "SUCCESS";
+    EnumValidationStatus["NO_SET"] = "NO_SET";
+    EnumValidationStatus["TIME_OUT"] = "TIME_OUT";
+})(EnumValidationStatus = exports.EnumValidationStatus || (exports.EnumValidationStatus = {}));
+var EnumCodeUssdResponse;
+(function (EnumCodeUssdResponse) {
+    EnumCodeUssdResponse["SUCCESS"] = "SUCCESS";
+    EnumCodeUssdResponse["ERROR"] = "ERROR";
+    EnumCodeUssdResponse["NO_SET"] = "NO_SET";
+    EnumCodeUssdResponse["TIME_OUT"] = "TIME_OUT";
+})(EnumCodeUssdResponse = exports.EnumCodeUssdResponse || (exports.EnumCodeUssdResponse = {}));
 //# sourceMappingURL=Enum.entity.js.map

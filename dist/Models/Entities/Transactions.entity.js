@@ -18,6 +18,7 @@ const Phones_entity_1 = require("./Phones.entity");
 const SousServices_entity_1 = require("./SousServices.entity");
 const UssdExecutionMessages_entity_1 = require("./UssdExecutionMessages.entity");
 const OperationPhones_entity_1 = require("./OperationPhones.entity");
+const Enum_entity_1 = require("./Enum.entity");
 let Transactions = class Transactions extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -28,6 +29,23 @@ __decorate([
     typeorm_1.Column('enum', { name: 'type_operation', enum: ['DEBIT', 'CREDIT'] }),
     __metadata("design:type", String)
 ], Transactions.prototype, "typeOperation", void 0);
+__decorate([
+    typeorm_1.Column('enum', {
+        name: 'code_ussd_response',
+        enum: Enum_entity_1.EnumCodeUssdResponse,
+        default: Enum_entity_1.EnumCodeUssdResponse.NO_SET,
+        comment: 'Le code ussd response. Permet de savoir si le ussd a envoyer un code derreur ou un code success',
+    }),
+    __metadata("design:type", String)
+], Transactions.prototype, "codeUssdResponse", void 0);
+__decorate([
+    typeorm_1.Column('tinyint', {
+        name: 'ussd_response_match',
+        default: 0,
+        comment: 'Permet de savoir si la reponse USSD correspond a celui dans la base pour le service',
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "ussdResponseMatch", void 0);
 __decorate([
     typeorm_1.Column('int', { name: 'sous_services_id' }),
     __metadata("design:type", Number)
@@ -85,6 +103,33 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "statut", void 0);
 __decorate([
+    typeorm_1.Column('enum', {
+        name: 'pre_statut',
+        enum: ['SUCCESS', 'PENDING', 'PROCESSING', 'FAILLED', 'CANCELED'],
+        default: 'PENDING',
+        comment: 'Permet demettre un statut temporel qui a la meme valeur que stut. Mais on peut faire une reclamation dessus',
+    }),
+    __metadata("design:type", String)
+], Transactions.prototype, "preStatut", void 0);
+__decorate([
+    typeorm_1.Column('enum', {
+        name: 'statut_ussd_response',
+        enum: Enum_entity_1.EnumValidationStatus,
+        default: Enum_entity_1.EnumValidationStatus.NO_SET,
+        comment: 'Permet de savoir si le tephone a repondu ou pas . Si oui cest a success. oubien a time out',
+    }),
+    __metadata("design:type", String)
+], Transactions.prototype, "statutUssdResponse", void 0);
+__decorate([
+    typeorm_1.Column('enum', {
+        name: 'statut_sms_response',
+        enum: Enum_entity_1.EnumValidationStatus,
+        default: Enum_entity_1.EnumValidationStatus.NO_SET,
+        comment: 'Donne le status de validation par sms. Si cest a success on ne peut plus contester ce transaction',
+    }),
+    __metadata("design:type", String)
+], Transactions.prototype, "statutSmsResponse", void 0);
+__decorate([
     typeorm_1.Column('datetime', {
         name: 'date_creation',
         nullable: true,
@@ -100,6 +145,14 @@ __decorate([
     }),
     __metadata("design:type", Date)
 ], Transactions.prototype, "dateSuccess", void 0);
+__decorate([
+    typeorm_1.Column('datetime', {
+        name: 'date_pre_success',
+        nullable: true,
+        comment: 'Date de pres succès succès de la transaction',
+    }),
+    __metadata("design:type", Date)
+], Transactions.prototype, "datePreSuccess", void 0);
 __decorate([
     typeorm_1.Column('datetime', {
         name: 'date_canceled',

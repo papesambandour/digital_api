@@ -68,3 +68,14 @@ export declare const CONSTANT: {
 export declare class PHONES_HOLDERS {
     static AVALABLITY: {};
 }
+export declare enum EnumValidationStatus {
+    SUCCESS = "SUCCESS",
+    NO_SET = "NO_SET",
+    TIME_OUT = "TIME_OUT"
+}
+export declare enum EnumCodeUssdResponse {
+    SUCCESS = "SUCCESS",
+    ERROR = "ERROR",
+    NO_SET = "NO_SET",
+    TIME_OUT = "TIME_OUT"
+}

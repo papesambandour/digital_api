@@ -31,9 +31,10 @@ const typeorm_2 = require("@nestjs/typeorm");
 const helper_service_1 = require("../../helper.service");
 const UssdExecutionMessages_entity_1 = require("../../Models/Entities/UssdExecutionMessages.entity");
 let ApiServiceService = class ApiServiceService {
-    constructor(connection, helper) {
+    constructor(connection, helper, httpService) {
         this.connection = connection;
         this.helper = helper;
+        this.httpService = httpService;
         this.comptePartner = null;
         this.partner = null;
         this.sousServices = null;
@@ -415,11 +416,34 @@ let ApiServiceService = class ApiServiceService {
         const regex = new RegExp(this.sousServices.messageRetourUssd);
         if (regex.test(socketBodyFinish.data)) {
             console.log('USS RETOUR MATCHED');
-            await this.connection.query(`update transactions set statut = '${Enum_entity_1.StatusEnum.PROCESSING}', date_processing= '${this.mysqlDate(new Date())}' where id= ${this.transactionId} AND statut <> '${Enum_entity_1.StatusEnum.SUCCESS}'`);
+            await this.connection.query(`update transactions set statut = '${Enum_entity_1.StatusEnum.PROCESSING}',
+         pre_statut= '${Enum_entity_1.StatusEnum.SUCCESS}' ,
+         ussd_response_match= 1 ,
+         statut_ussd_response= '${Enum_entity_1.EnumValidationStatus.SUCCESS}' ,
+         code_ussd_response= '${Enum_entity_1.EnumCodeUssdResponse.SUCCESS}' ,
+         date_processing= '${this.mysqlDate(new Date())}' ,
+         date_pre_success= '${this.mysqlDate(new Date())}' 
+        where id= ${this.transactionId} AND statut <> '${Enum_entity_1.StatusEnum.SUCCESS}'`);
+            this.sendCallBack(this.transactionId, Enum_entity_1.StatusEnum.SUCCESS).then((value) => {
+                console.log('Callback sucees in match ussd response', value);
+            });
             return true;
         }
         else {
-            await this.connection.query(`update transactions set date_processing= '${this.mysqlDate(new Date())}' where id= ${this.transactionId} AND statut <> '${Enum_entity_1.StatusEnum.SUCCESS}'`);
+            const statutUssdResponse = socketBodyFinish.state === 'FAILED'
+                ? Enum_entity_1.EnumCodeUssdResponse.ERROR
+                : Enum_entity_1.EnumCodeUssdResponse.SUCCESS;
+            await this.connection.query(`update transactions set date_processing= '${this.mysqlDate(new Date())}' ,
+      date_pre_success= '${this.mysqlDate(new Date())}' ,
+      code_ussd_response= '${statutUssdResponse}' ,
+       ussd_response_match= 0 ,
+       statut_ussd_response= '${Enum_entity_1.EnumValidationStatus.SUCCESS}' ,
+       statut= '${Enum_entity_1.StatusEnum.PROCESSING}' ,
+       pre_statut= '${Enum_entity_1.StatusEnum.SUCCESS}' 
+       where id= ${this.transactionId} AND statut <> '${Enum_entity_1.StatusEnum.SUCCESS}'`);
+            this.sendCallBack(this.transactionId, Enum_entity_1.StatusEnum.SUCCESS).then((value) => {
+                console.log('Callback succes in no matched ussd response', value);
+            });
             return true;
         }
     }
@@ -441,6 +465,14 @@ let ApiServiceService = class ApiServiceService {
                 socket.emit('execUssd', ussdCode);
                 clearId = setTimeout(() => {
                     console.log('WAIT RETOUR USSD');
+                    this.connection
+                        .query(`update transactions set 
+         pre_statut= '${Enum_entity_1.StatusEnum.PROCESSING}' ,
+         ussd_response_match= 0 ,
+         statut_ussd_response= '${Enum_entity_1.EnumValidationStatus.TIME_OUT}' ,
+         code_ussd_response= '${Enum_entity_1.EnumCodeUssdResponse.TIME_OUT}' 
+          where id= ${this.transactionId} AND statut <> '${Enum_entity_1.StatusEnum.SUCCESS}'`)
+                        .then((value) => value);
                     resolve(true);
                     this.activePhone(this.phone.id).then((value) => value);
                 }, Enum_entity_1.CONSTANT.WAIT_SOCKET_PHONE * 1000);
@@ -534,6 +566,63 @@ let ApiServiceService = class ApiServiceService {
             relations: ['parteners'],
         });
     }
+    async sendCallBack(transactionId, statut) {
+        const transaction = await Transactions_entity_1.Transactions.findOne({
+            where: {
+                id: typeorm_1.Equal(transactionId),
+            },
+        });
+        if (!transaction) {
+            console.log('Pas de transaction');
+            return false;
+        }
+        let data = {};
+        try {
+            data = JSON.parse(transaction.data);
+        }
+        catch (e) {
+            data = {};
+        }
+        const dataSended = {
+            code: 2000,
+            msg: transaction.commentaire,
+            error: false,
+            status: statut,
+            transaction: {
+                phone: transaction.phone,
+                amount: transaction.amount,
+                codeService: transaction.codeSousService,
+                nameService: transaction.sousServiceName,
+                commission: transaction.commissionAmount,
+                transactionId: transaction.transactionId,
+                status: statut,
+                externalTransactionId: transaction.externalTransactionId,
+                callbackUrl: transaction.urlIpn,
+                data: data,
+            },
+        };
+        try {
+            const dataResponse = await this.httpService
+                .post(transaction.urlIpn, dataSended)
+                .toPromise();
+            await Transactions_entity_1.Transactions.update(transaction.id, {
+                dataSended: JSON.stringify(dataSended),
+                dataResponseCallback: `Code Statut=>${dataResponse.status} | ` +
+                    dataResponse.data.toString(),
+                callbackIsSend: 1,
+            });
+            return dataResponse.data;
+        }
+        catch (e) {
+            console.log('Erreur callback');
+            await Transactions_entity_1.Transactions.update(transaction.id, {
+                dataSended: JSON.stringify(dataSended),
+                dataResponseCallback: e === null || e === void 0 ? void 0 : e.message,
+                callbackIsSend: 2,
+            });
+            return e.message || 'error';
+        }
+    }
 };
 ApiServiceService = __decorate([
     common_1.Injectable({
@@ -541,7 +630,8 @@ ApiServiceService = __decorate([
     }),
     __param(0, typeorm_2.InjectConnection()),
     __metadata("design:paramtypes", [typeorm_1.Connection,
-        helper_service_1.HelperService])
+        helper_service_1.HelperService,
+        common_1.HttpService])
 ], ApiServiceService);
 exports.ApiServiceService = ApiServiceService;
 //# sourceMappingURL=api-service.service.js.map

@@ -5,10 +5,13 @@ import { PartenerComptes } from './PartenerComptes.entity';
 import { Phones } from './Phones.entity';
 import { SousServices } from './SousServices.entity';
 import { UssdExecutionMessages } from './UssdExecutionMessages.entity';
-import { OperationPhones } from "./OperationPhones.entity";
+import { OperationPhones } from './OperationPhones.entity';
+import { EnumCodeUssdResponse, EnumValidationStatus } from './Enum.entity';
 export declare class Transactions extends BaseEntity {
     id: number;
     typeOperation: 'DEBIT' | 'CREDIT';
+    codeUssdResponse: EnumCodeUssdResponse;
+    ussdResponseMatch: number;
     sousServicesId: number;
     phonesId: number | null;
     partenerComptesId: number;
@@ -20,8 +23,12 @@ export declare class Transactions extends BaseEntity {
     updatedAt: Date | null;
     state: 'ACTIVED' | 'INACTIVED' | 'DELETED';
     statut: 'SUCCESS' | 'PENDING' | 'PROCESSING' | 'FAILLED' | 'CANCELED';
+    preStatut: 'SUCCESS' | 'PENDING' | 'PROCESSING' | 'FAILLED' | 'CANCELED';
+    statutUssdResponse: EnumValidationStatus;
+    statutSmsResponse: EnumValidationStatus;
     dateCreation: Date | null;
     dateSuccess: Date | null;
+    datePreSuccess: Date | null;
     dateCanceled: Date | null;
     dateProcessing: Date | null;
     dateFailled: Date | null;
