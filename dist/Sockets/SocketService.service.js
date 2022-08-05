@@ -167,7 +167,7 @@ let SocketServiceService = class SocketServiceService {
                     else {
                         await this.helper.notifyAdmin(`Le service ${infoTransaction.sousService.name} est mal configuré le type d'operation(${infoTransaction.sousService.typeOperation}) est  non pris en charge `, Enum_entity_1.TypeEvenEnum.NO_MATCH_SMS, infoTransaction.sousService);
                     }
-                    if (sendCallback) {
+                    if (sendCallback && transaction.callbackIsSend == 0) {
                         this.sendCallBack(transaction.id, Enum_entity_1.StatusEnum.SUCCESS).then((data) => {
                             console.log('Res callback', data);
                         });
