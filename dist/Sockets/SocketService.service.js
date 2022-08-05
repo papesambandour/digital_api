@@ -45,7 +45,7 @@ let SocketServiceService = class SocketServiceService {
         sockets_gateway_1.SocketsGateway.socket.to(room).emit('leaveRoom', phone);
     }
     async smsReceived(client, socketBody) {
-        var _a, _b, _c, _d;
+        var _a, _b, _c, _d, _e;
         try {
             socketBody = JSON.parse(socketBody.toString());
         }
@@ -70,7 +70,16 @@ let SocketServiceService = class SocketServiceService {
             },
         });
         sms.phonesId = phone.id;
-        const resMessage = await MessageUssds_entity_1.MessageUssds.insert(sms);
+        let resMessage;
+        try {
+            resMessage = await MessageUssds_entity_1.MessageUssds.insert(sms);
+            if (!((_b = resMessage === null || resMessage === void 0 ? void 0 : resMessage.raw) === null || _b === void 0 ? void 0 : _b.insertId)) {
+                return;
+            }
+        }
+        catch (e) {
+            return;
+        }
         console.log('SMS INSERT', resMessage);
         sms.id = resMessage.raw.insertId;
         console.log('Phone', phone.number);
@@ -107,7 +116,7 @@ let SocketServiceService = class SocketServiceService {
                         where: {
                             amount: typeorm_1.Equal(infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount),
                             phone: typeorm_1.Equal(infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.phone),
-                            sousServicesId: typeorm_1.Equal((_b = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _b === void 0 ? void 0 : _b.id),
+                            sousServicesId: typeorm_1.Equal((_c = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _c === void 0 ? void 0 : _c.id),
                             statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
                             phonesId: typeorm_1.Equal(phone.id),
                             createdAt: typeorm_1.MoreThanOrEqual(dataLimit),
@@ -119,7 +128,7 @@ let SocketServiceService = class SocketServiceService {
                     console.log('Transaction filter', {
                         amount: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount,
                         phone: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.phone,
-                        sousServicesId: (_c = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _c === void 0 ? void 0 : _c.id,
+                        sousServicesId: (_d = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _d === void 0 ? void 0 : _d.id,
                         statut: [Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING],
                         phonesId: phone.id,
                         createdAt: dataLimit,
@@ -142,7 +151,7 @@ let SocketServiceService = class SocketServiceService {
                         sousServiceTransactionId: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.transactionId,
                     });
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
-                        sousServicesId: (_d = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _d === void 0 ? void 0 : _d.id,
+                        sousServicesId: (_e = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _e === void 0 ? void 0 : _e.id,
                         transactionsId: transaction.id,
                         isMatched: 1,
                     });
@@ -300,8 +309,10 @@ let SocketServiceService = class SocketServiceService {
                 .toPromise();
             await Transactions_entity_1.Transactions.update(transaction.id, {
                 dataSended: JSON.stringify(dataSended),
-                dataResponseCallback: `Code Statut=>${dataResponse.status} | ` +
-                    dataResponse.data.toString(),
+                dataResponseCallback: JSON.stringify({
+                    statusCode: dataResponse.status,
+                    data: dataResponse.data.toString(),
+                }),
                 callbackIsSend: 1,
             });
             return dataResponse.data;

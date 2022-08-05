@@ -27,7 +27,7 @@ __decorate([
     __metadata("design:type", Number)
 ], MessageUssds.prototype, "transactionsId", void 0);
 __decorate([
-    typeorm_1.Column('longtext', { name: 'content', nullable: true }),
+    typeorm_1.Column({ type: 'varchar', length: 500, name: 'content', nullable: true }),
     __metadata("design:type", String)
 ], MessageUssds.prototype, "content", void 0);
 __decorate([
@@ -81,6 +81,11 @@ __decorate([
 MessageUssds = __decorate([
     typeorm_1.Index('fk_message_ussds_sous_services1_idx', ['sousServicesId'], {}),
     typeorm_1.Index('fk_message_ussds_phones_id1_idx', ['phonesId'], {}),
+    typeorm_1.Unique('unique_content_created_at_phones_id', [
+        'content',
+        'createdAt',
+        'phonesId',
+    ]),
     typeorm_1.Entity('message_ussds', { schema: 'simbot_db' })
 ], MessageUssds);
 exports.MessageUssds = MessageUssds;
