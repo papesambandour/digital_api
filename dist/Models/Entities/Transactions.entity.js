@@ -19,6 +19,7 @@ const SousServices_entity_1 = require("./SousServices.entity");
 const UssdExecutionMessages_entity_1 = require("./UssdExecutionMessages.entity");
 const OperationPhones_entity_1 = require("./OperationPhones.entity");
 const Enum_entity_1 = require("./Enum.entity");
+const MessageUssds_entity_1 = require("./MessageUssds.entity");
 let Transactions = class Transactions extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -342,6 +343,10 @@ __decorate([
     typeorm_1.OneToMany(() => OperationPhones_entity_1.OperationPhones, (operationPhones) => operationPhones.transactions),
     __metadata("design:type", Array)
 ], Transactions.prototype, "operationPhones", void 0);
+__decorate([
+    typeorm_1.OneToMany(() => MessageUssds_entity_1.MessageUssds, (messagesUssds) => messagesUssds.transactions),
+    __metadata("design:type", Array)
+], Transactions.prototype, "messagesUssds", void 0);
 Transactions = __decorate([
     typeorm_1.Index('fk_transactions_partener_comptes1_idx', ['partenerComptesId'], {}),
     typeorm_1.Index('fk_transactions_parteners1_idx', ['partenersId'], {}),

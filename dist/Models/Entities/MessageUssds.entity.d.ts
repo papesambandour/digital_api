@@ -1,7 +1,9 @@
 import { BaseEntity } from 'typeorm';
 import { SousServices } from './SousServices.entity';
+import { Transactions } from './Transactions.entity';
 export declare class MessageUssds extends BaseEntity {
     id: number;
+    transactionsId: number | null;
     content: string | null;
     createdAt: Date;
     updatedAt: Date | null;
@@ -10,4 +12,5 @@ export declare class MessageUssds extends BaseEntity {
     phonesId: number;
     state: 'ACTIVED' | 'INACTIVED' | 'DELETED';
     sousServices: SousServices;
+    transactions: Transactions;
 }

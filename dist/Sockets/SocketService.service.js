@@ -143,6 +143,7 @@ let SocketServiceService = class SocketServiceService {
                     });
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
                         sousServicesId: (_d = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _d === void 0 ? void 0 : _d.id,
+                        transactionsId: transaction.id,
                         isMatched: 1,
                     });
                     if (infoTransaction.sousService.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {

@@ -19,6 +19,10 @@ __decorate([
 ], DtoMessageUssds.prototype, "id", void 0);
 __decorate([
     swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], DtoMessageUssds.prototype, "transactionsId", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], DtoMessageUssds.prototype, "content", void 0);
 __decorate([

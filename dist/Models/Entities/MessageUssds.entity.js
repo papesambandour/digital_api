@@ -12,12 +12,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MessageUssds = void 0;
 const typeorm_1 = require("typeorm");
 const SousServices_entity_1 = require("./SousServices.entity");
+const Transactions_entity_1 = require("./Transactions.entity");
 let MessageUssds = class MessageUssds extends typeorm_1.BaseEntity {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),
     __metadata("design:type", Number)
 ], MessageUssds.prototype, "id", void 0);
+__decorate([
+    typeorm_1.Column('int', {
+        name: 'transactions_id',
+        nullable: true,
+    }),
+    __metadata("design:type", Number)
+], MessageUssds.prototype, "transactionsId", void 0);
 __decorate([
     typeorm_1.Column('longtext', { name: 'content', nullable: true }),
     __metadata("design:type", String)
@@ -62,6 +70,14 @@ __decorate([
     typeorm_1.JoinColumn([{ name: 'sous_services_id', referencedColumnName: 'id' }]),
     __metadata("design:type", SousServices_entity_1.SousServices)
 ], MessageUssds.prototype, "sousServices", void 0);
+__decorate([
+    typeorm_1.ManyToOne(() => Transactions_entity_1.Transactions, (transactions) => transactions.messagesUssds, {
+        onDelete: 'NO ACTION',
+        onUpdate: 'NO ACTION',
+    }),
+    typeorm_1.JoinColumn([{ name: 'transactions_id', referencedColumnName: 'id' }]),
+    __metadata("design:type", Transactions_entity_1.Transactions)
+], MessageUssds.prototype, "transactions", void 0);
 MessageUssds = __decorate([
     typeorm_1.Index('fk_message_ussds_sous_services1_idx', ['sousServicesId'], {}),
     typeorm_1.Index('fk_message_ussds_phones_id1_idx', ['phonesId'], {}),

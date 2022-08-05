@@ -7,6 +7,7 @@ import { SousServices } from './SousServices.entity';
 import { UssdExecutionMessages } from './UssdExecutionMessages.entity';
 import { OperationPhones } from './OperationPhones.entity';
 import { EnumCodeUssdResponse, EnumValidationStatus } from './Enum.entity';
+import { MessageUssds } from "./MessageUssds.entity";
 export declare class Transactions extends BaseEntity {
     id: number;
     typeOperation: 'DEBIT' | 'CREDIT';
@@ -59,4 +60,5 @@ export declare class Transactions extends BaseEntity {
     sousServices: SousServices;
     ussdExecutionMessage: UssdExecutionMessages[];
     operationPhones: OperationPhones[];
+    messagesUssds: MessageUssds[];
 }

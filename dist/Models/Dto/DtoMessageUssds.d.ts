@@ -1,5 +1,6 @@
 export declare class DtoMessageUssds {
     id: number;
+    transactionsId: number | null;
     content: string | null;
     createdAt: Date;
     updatedAt: Date | null;
