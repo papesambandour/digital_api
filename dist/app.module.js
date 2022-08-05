@@ -36,6 +36,9 @@ AppModule = __decorate([
                 entities: [__dirname + '/**/*.entity{.ts,.js}'],
                 synchronize: true,
                 autoLoadEntities: true,
+                extra: {
+                    connectionLimit: +process.env.POOL_CONNECTION_LIMIT || 10,
+                },
             }),
             services_module_1.ServicesModule,
             api_service_module_1.ApiServiceModule,
