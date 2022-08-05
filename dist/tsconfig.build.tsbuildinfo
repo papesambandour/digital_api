@@ -4557,7 +4557,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "63b4dc26ede135234baa390e0912c1f6b2306cdc358779694211cd987c1675b5",
+        "version": "d721d17cfeba3cba015df2d34811643a393ec24b6fc0e03d2a2da4295922542f",
         "signature": "a0422099b19d9083bde995ca97dcdc376c68262f5f2d8f3f5d43fac6444f25e5",
         "affectsGlobalScope": false
       },
@@ -4626,9 +4626,14 @@
         "signature": "622f5703fb298ffab0ec97803bb18f89a7c363d1d8cd8b11ef37cf122819523c",
         "affectsGlobalScope": false
       },
+      "../src/bootstrap.service.ts": {
+        "version": "120d6d026f7898bdc13ad605831249df0a3e02b9523cc4297504314280662e98",
+        "signature": "9f0184c738c8f1dfd0efb5e2a1970127389a859fdd7f565e9bb682bd8e8cc9c8",
+        "affectsGlobalScope": false
+      },
       "../src/app.module.ts": {
-        "version": "a8d4c0b31257332ab9a1787214107e2761a383dd681d49002f69e2414031e21b",
-        "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
+        "version": "d5e11d0a054c9c7856d00313b8118869f4f4ef7405fb3baa55e5efe34ec9a6b7",
+        "signature": "22066569de7d8de9b5d783cf47c83e47fea5b20a7a1502f1d1ebc423e88477e9",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/platform-express/interfaces/serve-static-options.interface.d.ts": {
@@ -9671,6 +9676,7 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../src/app.controller.ts",
         "../src/app.service.ts",
+        "../src/bootstrap.service.ts",
         "../src/controllers/api-service/api-service.module.ts",
         "../src/filters/httpexceptionfilter.ts",
         "../src/helper.service.ts",
@@ -9681,6 +9687,11 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/models/entities/actions.entity.ts",
         "../src/services/httpcrud.service.ts"
+      ],
+      "../src/bootstrap.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts"
       ],
       "../src/controllers/api-service/api-service.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -14055,8 +14066,15 @@
         "../src/app.service.ts",
         "../src/controllers/controller.ts"
       ],
+      "../src/app.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/bootstrap.service.ts"
+      ],
       "../src/app.service.ts": [
         "../src/services/httpcrud.service.ts"
+      ],
+      "../src/bootstrap.service.ts": [
+        "../node_modules/typeorm/index.d.ts"
       ],
       "../src/controllers/api-service/api-service.controller.ts": [
         "../src/controllers/api-service/api-service.service.ts",
