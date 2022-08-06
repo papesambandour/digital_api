@@ -17,20 +17,22 @@ exports.BootstrapService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
-const Phones_entity_1 = require("./Models/Entities/Phones.entity");
 let BootstrapService = BootstrapService_1 = class BootstrapService {
     constructor(connection) {
         this.connection = connection;
     }
     async init() {
         this.redefineLog();
-        console.log('Init app', 'Ok', await Phones_entity_1.Phones.find());
+        console.log('Init app');
         await this.connection.query(`update phones set phone_state = 'UNUSED' , socket = 'DISCONNECTED'`);
     }
     redefineLog() {
         if (process.env.MODE != 'dev') {
             console.log = (...args) => {
-                BootstrapService_1.logger.log(JSON.stringify(args));
+                try {
+                    BootstrapService_1.logger.log(JSON.stringify(args));
+                }
+                catch (e) { }
             };
             console.error = (...args) => {
                 try {

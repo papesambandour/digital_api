@@ -4627,8 +4627,8 @@
         "affectsGlobalScope": false
       },
       "../src/bootstrap.service.ts": {
-        "version": "a02b49db177518de10a1495906d1e5a26b39f68ba96442a9f979e277d74c4a8a",
-        "signature": "89577da04e2776d7bca45d3a7d8b8abfee942b8174c9cc2b5cd92a8d4d919483",
+        "version": "4aa05c3f0f2681168cd821889951dad3f12015331ce9cf5aee2fa9c04f2e9b8d",
+        "signature": "9d2b39bab034173b9627adc572c1bfa0c3059268e7b0156f5cbbb8d086236a8b",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
@@ -9691,9 +9691,7 @@
       "../src/bootstrap.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
-        "../node_modules/typeorm/index.d.ts",
-        "../src/models/entities/phones.entity.ts",
-        "../src/sockets/sockets.gateway.ts"
+        "../node_modules/typeorm/index.d.ts"
       ],
       "../src/controllers/api-service/api-service.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",

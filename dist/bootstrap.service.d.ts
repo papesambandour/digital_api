@@ -1,4 +1,4 @@
-import { Logger } from "@nestjs/common";
+import { Logger } from '@nestjs/common';
 import { Connection } from 'typeorm';
 export declare class BootstrapService {
     private readonly connection;
