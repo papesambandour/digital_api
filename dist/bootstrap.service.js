@@ -11,40 +11,68 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var BootstrapService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BootstrapService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
-let BootstrapService = class BootstrapService {
+const Phones_entity_1 = require("./Models/Entities/Phones.entity");
+let BootstrapService = BootstrapService_1 = class BootstrapService {
     constructor(connection) {
         this.connection = connection;
     }
     async init() {
-        console.log('Init app');
-        await this.connection.query(`update phones set phone_state = 'UNUSED' , socket = 'DISCONNECTED'`);
         this.redefineLog();
+        console.log('Init app', 'Ok', await Phones_entity_1.Phones.find());
+        await this.connection.query(`update phones set phone_state = 'UNUSED' , socket = 'DISCONNECTED'`);
     }
     redefineLog() {
         if (process.env.MODE != 'dev') {
-            console.log = () => {
+            console.log = (...args) => {
+                BootstrapService_1.logger.log(JSON.stringify(args));
             };
-            console.error = () => {
+            console.error = (...args) => {
+                try {
+                    BootstrapService_1.logger.log(JSON.stringify(args));
+                }
+                catch (e) { }
             };
-            console.table = () => {
+            console.table = (...args) => {
+                try {
+                    BootstrapService_1.logger.log(JSON.stringify(args));
+                }
+                catch (e) { }
             };
-            console.info = () => {
+            console.info = (...args) => {
+                try {
+                    BootstrapService_1.logger.log(JSON.stringify(args));
+                }
+                catch (e) { }
             };
-            console.debug = () => {
+            console.debug = (...args) => {
+                try {
+                    BootstrapService_1.logger.log(JSON.stringify(args));
+                }
+                catch (e) { }
             };
-            console.trace = () => {
+            console.trace = (...args) => {
+                try {
+                    BootstrapService_1.logger.log(JSON.stringify(args));
+                }
+                catch (e) { }
             };
-            console.warn = () => {
+            console.warn = (...args) => {
+                try {
+                    BootstrapService_1.logger.log(JSON.stringify(args));
+                }
+                catch (e) { }
             };
         }
     }
 };
-BootstrapService = __decorate([
+BootstrapService.logger = new common_1.Logger('INTECH_API_LOGS');
+BootstrapService = BootstrapService_1 = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectConnection()),
     __metadata("design:paramtypes", [typeorm_2.Connection])
