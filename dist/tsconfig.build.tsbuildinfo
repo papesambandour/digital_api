@@ -3027,7 +3027,7 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "2369b604dd8969fdf95b5827b881f2db4d3afcff4d6d870b4724b361a6ad92d0",
+        "version": "96abfdeb6df6776b4001d78be46d76994484a5b11177dc6bf3945889b4a01624",
         "signature": "26dbe836ecc21d5e1c2f9c3365b2ba15ec767f7f287321f9eab2171f7df42202",
         "affectsGlobalScope": false
       },
