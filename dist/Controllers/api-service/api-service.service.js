@@ -385,7 +385,7 @@ let ApiServiceService = class ApiServiceService {
         });
     }
     async activePhone(phoneId) {
-        await this.waitSome(0.5);
+        await this.waitSome(1.5);
         Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phoneId]['used'] = false;
         const query = `UPDATE phones set phone_state= '${Enum_entity_1.PhoneState.UNUSED}' , last_unused= '${this.mysqlDate(new Date())}'  where id = ${phoneId}`;
         this.connection.query(query).then((value) => console.log(value));
@@ -568,7 +568,6 @@ let ApiServiceService = class ApiServiceService {
         });
     }
     async sendCallBack(transactionId, statut) {
-        var _a, _b;
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
                 id: typeorm_1.Equal(transactionId),
@@ -612,7 +611,7 @@ let ApiServiceService = class ApiServiceService {
                 dataSended: JSON.stringify(dataSended),
                 dataResponseCallback: JSON.stringify({
                     statusCode: dataResponse.status,
-                    data: (_b = (_a = Utils.inspect(dataResponse.data)) === null || _a === void 0 ? void 0 : _a.toString()) === null || _b === void 0 ? void 0 : _b.replace(/\n/gi, '\n'),
+                    data: Utils.inspect(dataResponse.data),
                 }),
                 callbackIsSend: 1,
                 callbackSendedAt: new Date(),

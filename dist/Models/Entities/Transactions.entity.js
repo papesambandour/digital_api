@@ -91,7 +91,6 @@ __decorate([
     typeorm_1.Column('datetime', {
         name: 'callback_sended_at',
         nullable: true,
-        onUpdate: 'CURRENT_TIMESTAMP',
     }),
     __metadata("design:type", Date)
 ], Transactions.prototype, "callbackSendedAt", void 0);

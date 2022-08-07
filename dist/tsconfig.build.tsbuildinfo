@@ -4497,7 +4497,7 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "1700a93ed2d6f3ab8f26d181c562140b10a7a3c38adfb92d1a0b843c225da80f",
+        "version": "afc9a657f3455bc23be8a38b9d3b6613143e6ab7d41261e34edd2673d6d352aa",
         "signature": "995907e29e3f68771795014d1d53e875e17ddff02ffac09ef04df5e41cd78a93",
         "affectsGlobalScope": false
       },
@@ -4527,7 +4527,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "3929e681d49a83042354c70bfb102d42226eb4cf3353c25f3991873bd1cbf3d8",
+        "version": "984b3cded5444b5b8215b28f3a88669e107ddde7d7dc0074c48bf957a64fb112",
         "signature": "db2af085d78f61b0a188ea773d9d6fcac7b2043ac3b651e6f6cd3ec9e51f53d2",
         "affectsGlobalScope": false
       },
@@ -4557,7 +4557,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "1495665dd77e03500f1c09dfd36d3ff47c25f80f51c0a80f4d6e7829a2e6aab6",
+        "version": "ab553de5abf5473540c85df2996ee806a3c01138e75998b58e6a044c4b1b7fb0",
         "signature": "a0422099b19d9083bde995ca97dcdc376c68262f5f2d8f3f5d43fac6444f25e5",
         "affectsGlobalScope": false
       },
