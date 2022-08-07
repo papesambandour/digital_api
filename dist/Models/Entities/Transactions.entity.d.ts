@@ -22,6 +22,7 @@ export declare class Transactions extends BaseEntity {
     feeAmount: number;
     createdAt: Date;
     updatedAt: Date | null;
+    callbackSendedAt: Date | null;
     state: 'ACTIVED' | 'INACTIVED' | 'DELETED';
     statut: 'SUCCESS' | 'PENDING' | 'PROCESSING' | 'FAILLED' | 'CANCELED';
     preStatut: 'SUCCESS' | 'PENDING' | 'PROCESSING' | 'FAILLED' | 'CANCELED';

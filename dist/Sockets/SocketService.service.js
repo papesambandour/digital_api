@@ -24,6 +24,7 @@ const MessageUssds_entity_1 = require("../Models/Entities/MessageUssds.entity");
 const SousServicesPhones_entity_1 = require("../Models/Entities/SousServicesPhones.entity");
 const SousServices_entity_1 = require("../Models/Entities/SousServices.entity");
 const helper_service_1 = require("../helper.service");
+const util_1 = require("util");
 let SocketServiceService = class SocketServiceService {
     constructor(httpService, helper) {
         this.httpService = httpService;
@@ -311,9 +312,10 @@ let SocketServiceService = class SocketServiceService {
                 dataSended: JSON.stringify(dataSended),
                 dataResponseCallback: JSON.stringify({
                     statusCode: dataResponse.status,
-                    data: dataResponse.data.toString(),
+                    data: util_1.default.inspect(dataResponse.data),
                 }),
                 callbackIsSend: 1,
+                callbackSendedAt: new Date(),
             });
             return dataResponse.data;
         }

@@ -30,6 +30,7 @@ const sockets_gateway_1 = require("../../Sockets/sockets.gateway");
 const typeorm_2 = require("@nestjs/typeorm");
 const helper_service_1 = require("../../helper.service");
 const UssdExecutionMessages_entity_1 = require("../../Models/Entities/UssdExecutionMessages.entity");
+const Utils = require("util");
 let ApiServiceService = class ApiServiceService {
     constructor(connection, helper, httpService) {
         this.connection = connection;
@@ -608,9 +609,12 @@ let ApiServiceService = class ApiServiceService {
                 .toPromise();
             await Transactions_entity_1.Transactions.update(transaction.id, {
                 dataSended: JSON.stringify(dataSended),
-                dataResponseCallback: `Code Statut=>${dataResponse.status} | ` +
-                    dataResponse.data.toString(),
+                dataResponseCallback: JSON.stringify({
+                    statusCode: dataResponse.status,
+                    data: Utils.inspect(dataResponse.data),
+                }),
                 callbackIsSend: 1,
+                callbackSendedAt: new Date(),
             });
             return dataResponse.data;
         }

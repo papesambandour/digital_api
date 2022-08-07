@@ -4497,8 +4497,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "d1df0d4e7cd0a54cf0cb65f34715fc8f4b2e2ee52720b63a785ac5f5f54580b9",
-        "signature": "4cb74b431be1c92a60071b2b7e56d545b773341ee372957eb501a1e319d07c5c",
+        "version": "1700a93ed2d6f3ab8f26d181c562140b10a7a3c38adfb92d1a0b843c225da80f",
+        "signature": "995907e29e3f68771795014d1d53e875e17ddff02ffac09ef04df5e41cd78a93",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtoactivitiesphones.ts": {
@@ -4527,7 +4527,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "27cbee4175123fe42048561e04bf75d29bbf7d5b1c96f576017c124b027f82e5",
+        "version": "984b3cded5444b5b8215b28f3a88669e107ddde7d7dc0074c48bf957a64fb112",
         "signature": "db2af085d78f61b0a188ea773d9d6fcac7b2043ac3b651e6f6cd3ec9e51f53d2",
         "affectsGlobalScope": false
       },
@@ -4557,7 +4557,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "a613abed4a5735f643d27ca15c22b75aa5004b48aca7095b331bd96ad8ad07c6",
+        "version": "6c1055f1bb9043ae0f24cd7b45fa7c80ec0df286b318298070573f1e821465ac",
         "signature": "a0422099b19d9083bde995ca97dcdc376c68262f5f2d8f3f5d43fac6444f25e5",
         "affectsGlobalScope": false
       },
@@ -9723,6 +9723,7 @@
       "../src/controllers/api-service/api-service.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/helper.service.ts",
@@ -10122,6 +10123,7 @@
       ],
       "../src/sockets/socketservice.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
         "../node_modules/socket.io/dist/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/helper.service.ts",
