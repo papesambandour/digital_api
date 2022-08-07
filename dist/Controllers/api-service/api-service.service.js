@@ -601,6 +601,7 @@ let ApiServiceService = class ApiServiceService {
                 data: data,
             },
         };
+        await this.waitSome(5);
         try {
             const dataResponse = await this.httpService
                 .post(transaction.urlIpn, dataSended)
