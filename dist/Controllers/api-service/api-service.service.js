@@ -568,6 +568,7 @@ let ApiServiceService = class ApiServiceService {
         });
     }
     async sendCallBack(transactionId, statut) {
+        var _a, _b;
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
                 id: typeorm_1.Equal(transactionId),
@@ -611,7 +612,7 @@ let ApiServiceService = class ApiServiceService {
                 dataSended: JSON.stringify(dataSended),
                 dataResponseCallback: JSON.stringify({
                     statusCode: dataResponse.status,
-                    data: Utils.inspect(dataResponse.data),
+                    data: (_b = (_a = Utils.inspect(dataResponse.data)) === null || _a === void 0 ? void 0 : _a.toString()) === null || _b === void 0 ? void 0 : _b.replace(/\n/gi, '\n'),
                 }),
                 callbackIsSend: 1,
                 callbackSendedAt: new Date(),

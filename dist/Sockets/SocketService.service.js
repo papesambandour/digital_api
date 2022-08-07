@@ -270,6 +270,7 @@ let SocketServiceService = class SocketServiceService {
         sockets_gateway_1.SocketsGateway.logger.log(`Client connected: ${client.id} from ${(_b = (_a = client === null || client === void 0 ? void 0 : client.handshake) === null || _a === void 0 ? void 0 : _a.query) === null || _b === void 0 ? void 0 : _b.device}`);
     }
     async sendCallBack(transactionId, statut) {
+        var _a, _b;
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
                 id: typeorm_1.Equal(transactionId),
@@ -312,7 +313,7 @@ let SocketServiceService = class SocketServiceService {
                 dataSended: JSON.stringify(dataSended),
                 dataResponseCallback: JSON.stringify({
                     statusCode: dataResponse.status,
-                    data: util_1.default.inspect(dataResponse.data),
+                    data: (_b = (_a = util_1.default.inspect(dataResponse.data)) === null || _a === void 0 ? void 0 : _a.toString()) === null || _b === void 0 ? void 0 : _b.replace(/\n/gi, '\n'),
                 }),
                 callbackIsSend: 1,
                 callbackSendedAt: new Date(),
