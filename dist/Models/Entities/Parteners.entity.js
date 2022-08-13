@@ -54,6 +54,15 @@ __decorate([
 ], Parteners.prototype, "solde", void 0);
 __decorate([
     typeorm_1.Column('double', {
+        name: 'solde_commission',
+        precision: 17,
+        scale: 4,
+        default: '0.0000',
+    }),
+    __metadata("design:type", Number)
+], Parteners.prototype, "soldeCommission", void 0);
+__decorate([
+    typeorm_1.Column('double', {
         name: 'amount_reserved',
         precision: 17,
         scale: 4,

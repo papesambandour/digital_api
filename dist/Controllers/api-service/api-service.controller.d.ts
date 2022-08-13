@@ -1,9 +1,11 @@
 import { OperationInDto } from './dto/OperationInDto';
 import { ControllerBase } from '../Controller';
 import { ApiServiceService } from './api-service.service';
+import { HelperService } from '../../helper.service';
 export declare class ApiServiceController extends ControllerBase {
     private readonly apiServiceService;
-    constructor(apiServiceService: ApiServiceService);
+    private readonly helper;
+    constructor(apiServiceService: ApiServiceService, helper: HelperService);
     operation(operationInDto: OperationInDto): Promise<{
         code: number;
         msg: any;

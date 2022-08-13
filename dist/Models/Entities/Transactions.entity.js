@@ -27,7 +27,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column('enum', { name: 'type_operation', enum: ['DEBIT', 'CREDIT'] }),
+    typeorm_1.Column('enum', { name: 'type_operation', enum: Enum_entity_1.TypeOperationEnum }),
     __metadata("design:type", String)
 ], Transactions.prototype, "typeOperation", void 0);
 __decorate([
@@ -64,9 +64,22 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "partenersId", void 0);
 __decorate([
+    typeorm_1.Column('tinyint', { name: 'is_solde_commission', default: 0 }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "isSoldeCommission", void 0);
+__decorate([
     typeorm_1.Column('double', { name: 'solde', precision: 17, scale: 4 }),
     __metadata("design:type", Number)
 ], Transactions.prototype, "solde", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'solde_commission',
+        precision: 17,
+        scale: 4,
+        default: '0.0000',
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "soldeCommission", void 0);
 __decorate([
     typeorm_1.Column('double', { name: 'commission_amount', precision: 17, scale: 4 }),
     __metadata("design:type", Number)
@@ -75,6 +88,42 @@ __decorate([
     typeorm_1.Column('double', { name: 'fee_amount', precision: 17, scale: 4 }),
     __metadata("design:type", Number)
 ], Transactions.prototype, "feeAmount", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'commission_amount_psp',
+        precision: 17,
+        scale: 4,
+        default: '0.0000',
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "commissionAmountPsp", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'fee_amount_psp',
+        precision: 17,
+        scale: 4,
+        default: '0.0000',
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "feeAmountPsn", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'commission_amount_owner',
+        precision: 17,
+        scale: 4,
+        default: '0.0000',
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "commissionAmountOwner", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'fee_amount_owner',
+        precision: 17,
+        scale: 4,
+        default: '0.0000',
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "feeAmountOwner", void 0);
 __decorate([
     typeorm_1.Column('datetime', { name: 'created_at' }),
     __metadata("design:type", Date)
@@ -309,6 +358,30 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], Transactions.prototype, "callbackIsSend", void 0);
+__decorate([
+    typeorm_1.Column('tinyint', {
+        name: 'need_check_transaction',
+        default: 0,
+        comment: '0: recoit un ipn, 1: pas doit appeler manuellement checkStatusTransaction',
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "needCheckTransaction", void 0);
+__decorate([
+    typeorm_1.Column('tinyint', {
+        name: 'callback_ready',
+        default: 0,
+        comment: '0: recoit un ipn, 1: task can send ipn',
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "callbackReady", void 0);
+__decorate([
+    typeorm_1.Column('datetime', { name: 'next_send_callback_date', nullable: true }),
+    __metadata("design:type", Date)
+], Transactions.prototype, "nextSendCallbackDate", void 0);
+__decorate([
+    typeorm_1.Column('text', { name: 'check_transaction_response', nullable: true }),
+    __metadata("design:type", String)
+], Transactions.prototype, "checkTransactionResponse", void 0);
 __decorate([
     typeorm_1.OneToMany(() => OperationParteners_entity_1.OperationParteners, (operationParteners) => operationParteners.transactions),
     __metadata("design:type", Array)

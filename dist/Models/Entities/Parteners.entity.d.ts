@@ -11,6 +11,7 @@ export declare class Parteners extends BaseEntity {
     updatedAt: Date | null;
     state: 'ACTIVED' | 'INACTIVED' | 'DELETED';
     solde: number;
+    soldeCommission: number;
     amountReserved: number;
     name: string;
     phone: string;

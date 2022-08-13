@@ -1,7 +1,7 @@
-import { INestApplicationContext } from "@nestjs/common";
-import { AbstractWsAdapter, MessageMappingProperties } from "@nestjs/websockets";
-import { Observable } from "rxjs";
-import { CustomOrigin } from "@nestjs/common/interfaces/external/cors-options.interface";
+import { INestApplicationContext } from '@nestjs/common';
+import { AbstractWsAdapter, MessageMappingProperties } from '@nestjs/websockets';
+import { Observable } from 'rxjs';
+import { CustomOrigin } from '@nestjs/common/interfaces/external/cors-options.interface';
 export declare class SocketIoAdapter extends AbstractWsAdapter {
     private corsOrigin?;
     constructor(appOrHttpServer?: INestApplicationContext | any, corsOrigin?: boolean | string | RegExp | (string | RegExp)[] | CustomOrigin);

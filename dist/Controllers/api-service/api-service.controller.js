@@ -31,12 +31,16 @@ const api_service_service_1 = require("./api-service.service");
 const OperationDictionaryDto_1 = require("./dto/OperationDictionaryDto");
 const ResponseHttpDefaultData_1 = require("../../Models/Response/ResponseHttpDefaultData");
 const DtoBalance_1 = require("../../Models/Dto/DtoBalance");
+const helper_service_1 = require("../../helper.service");
+const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
-    constructor(apiServiceService) {
+    constructor(apiServiceService, helper) {
         super();
         this.apiServiceService = apiServiceService;
+        this.helper = helper;
     }
     async operation(operationInDto) {
+        var _a;
         const isNotValid = await this.validator(this.getInstanceObject(operationInDto, new OperationInDto_1.OperationInDto()));
         if (isNotValid) {
             return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotValid, '', true);
@@ -49,21 +53,17 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         if (isNotConform) {
             return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotConform, '', true);
         }
-        const phone = await this.apiServiceService.loadBalancingPhone();
-        console.log('phone', phone);
-        if (!phone) {
-            return this.response(this.CODE_HTTP.SERVICE_DOWN, {
-                codeService: ['Le services est indisponible pour le moment(pho)'],
-            }, '', true);
+        const apiManager = await this.helper.getApiManagerInterface(operationInDto.codeService, this.apiServiceService);
+        const response = await apiManager.initTransaction({
+            dto: operationInDto,
+        });
+        console.log('TRID', response);
+        await this.helper.setIsCallbackReadyValue((_a = response.transaction) === null || _a === void 0 ? void 0 : _a.id);
+        if (response.status === Enum_entity_1.StatusEnum.FAILLED && response.refundOnFailed) {
+            await this.helper.operationPartnerCancelTransaction(response.transaction);
         }
-        const transaction = await this.apiServiceService.initTransaction(phone);
-        const callPhone = await this.apiServiceService.callCall(phone, transaction);
-        if (!callPhone) {
-            return this.response(this.CODE_HTTP.SERVICE_DOWN, {
-                codeService: ['Le services est indisponible pour le moment(pho-2)'],
-            }, '', true);
-        }
-        return this.response(this.CODE_HTTP.OPERATION_SUCCESS, this.apiServiceService.responseOperation(transaction));
+        this.helper.updateApiBalance(apiManager, response.usedPhoneId).then();
+        return this.response(response.codeHttp, this.apiServiceService.responseOperation(response, operationInDto), response.partnerMessage, response.codeHttp !== Controller_1.CODE_HTTP.OK_OPERATION);
     }
     async transaction(id) {
         return {
@@ -144,7 +144,8 @@ ApiServiceController = __decorate([
         ResponseHttpDefaultData_1.ResponseHttpDefaultData,
     ]),
     swagger_1.ApiTags('Api Services Partners'),
-    __metadata("design:paramtypes", [api_service_service_1.ApiServiceService])
+    __metadata("design:paramtypes", [api_service_service_1.ApiServiceService,
+        helper_service_1.HelperService])
 ], ApiServiceController);
 exports.ApiServiceController = ApiServiceController;
 //# sourceMappingURL=api-service.controller.js.map

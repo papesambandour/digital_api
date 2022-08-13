@@ -1,5 +1,5 @@
 import { BaseEntity } from 'typeorm';
-import { Services } from "./Services.entity";
+import { Services } from './Services.entity';
 export declare class CategoriesServices extends BaseEntity {
     id: number;
     name: string;

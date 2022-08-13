@@ -11,6 +11,9 @@ const common_1 = require("@nestjs/common");
 const api_service_service_1 = require("./api-service.service");
 const api_service_controller_1 = require("./api-service.controller");
 const helper_service_1 = require("../../helper.service");
+const send_callback_task_service_1 = require("./send-callback-task/send-callback-task.service");
+const check_transaction_status_cron_service_1 = require("./check-transaction-status-cron/check-transaction-status-cron.service");
+const wave_money_sn_cash_out_api_manager_service_1 = require("./wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service");
 let ApiServiceModule = class ApiServiceModule {
 };
 ApiServiceModule = __decorate([
@@ -23,7 +26,13 @@ ApiServiceModule = __decorate([
                 maxRedirects: 5,
             }),
         ],
-        providers: [api_service_service_1.ApiServiceService, helper_service_1.HelperService],
+        providers: [
+            api_service_service_1.ApiServiceService,
+            helper_service_1.HelperService,
+            send_callback_task_service_1.SendCallbackTaskService,
+            check_transaction_status_cron_service_1.CheckTransactionStatusCronService,
+            wave_money_sn_cash_out_api_manager_service_1.WaveMoneySnCashOutApiManagerService,
+        ],
     })
 ], ApiServiceModule);
 exports.ApiServiceModule = ApiServiceModule;

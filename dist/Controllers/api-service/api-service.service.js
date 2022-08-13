@@ -24,13 +24,8 @@ const Commission_entity_1 = require("../../Models/Entities/Commission.entity");
 const Transactions_entity_1 = require("../../Models/Entities/Transactions.entity");
 const Operators_entity_1 = require("../../Models/Entities/Operators.entity");
 const Services_entity_1 = require("../../Models/Entities/Services.entity");
-const DtoOperationParteners_1 = require("../../Models/Dto/DtoOperationParteners");
-const OperationParteners_entity_1 = require("../../Models/Entities/OperationParteners.entity");
-const sockets_gateway_1 = require("../../Sockets/sockets.gateway");
 const typeorm_2 = require("@nestjs/typeorm");
 const helper_service_1 = require("../../helper.service");
-const UssdExecutionMessages_entity_1 = require("../../Models/Entities/UssdExecutionMessages.entity");
-const Utils = require("util");
 let ApiServiceService = class ApiServiceService {
     constructor(connection, helper, httpService) {
         this.connection = connection;
@@ -43,11 +38,16 @@ let ApiServiceService = class ApiServiceService {
         this.comission = null;
         this.feeAmount = 0;
         this.commissionAmount = 0;
+        this.feeAmountPsp = 0;
+        this.commissionAmountPsp = 0;
+        this.isSoldeComm = false;
     }
     async setSoldeTable(value, tableName, id, field = 'solde') {
         console.log('RELEVE-api', ` ${tableName} set ${field} =  ${field} + ${value} where id=${id}`);
         if (this.sousServices.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {
-            return this.connection.query(`update ${tableName} set ${field} =  ${field} + ${value} where id=${id}`);
+            return this.connection.query(`update ${tableName}
+                 set ${field} = ${field} + ${value}
+                 where id = ${id}`);
         }
     }
     initFeeCommission(commission, amount) {
@@ -86,10 +86,12 @@ let ApiServiceService = class ApiServiceService {
         this.commissionAmount = amountCommssion;
     }
     async validatorCustomApi(operationInDto) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
         const msg = {
             apiKey: [],
             codeService: [],
+            errorRedirectUrl: [],
+            successRedirectUrl: [],
             amount: [],
             callbackUrl: [],
             phone: [],
@@ -152,21 +154,29 @@ let ApiServiceService = class ApiServiceService {
             }
         }
         if (+((_h = this === null || this === void 0 ? void 0 : this.partner) === null || _h === void 0 ? void 0 : _h.solde) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
-            asError = true;
-            msg.apiKey.push('Le solde global du partenaire est infusisant pour effectuer cette operation');
+            if (+((_j = this === null || this === void 0 ? void 0 : this.partner) === null || _j === void 0 ? void 0 : _j.soldeCommission) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
+                asError = true;
+                msg.apiKey.push('Le solde global du partenaire est infusisant pour effectuer cette operation');
+            }
+            else {
+                this.isSoldeComm = true;
+            }
+        }
+        else {
+            this.isSoldeComm = false;
         }
         if ((this === null || this === void 0 ? void 0 : this.partner) && (this === null || this === void 0 ? void 0 : this.sousServices)) {
             this.comission = await Commission_entity_1.Commission.findOne({
                 where: [
                     {
-                        sousServicesId: (_j = this === null || this === void 0 ? void 0 : this.sousServices) === null || _j === void 0 ? void 0 : _j.id,
-                        partenersId: ((_k = this === null || this === void 0 ? void 0 : this.partner) === null || _k === void 0 ? void 0 : _k.id) || ((_l = this === null || this === void 0 ? void 0 : this.sousServices) === null || _l === void 0 ? void 0 : _l.id),
+                        sousServicesId: (_k = this === null || this === void 0 ? void 0 : this.sousServices) === null || _k === void 0 ? void 0 : _k.id,
+                        partenersId: ((_l = this === null || this === void 0 ? void 0 : this.partner) === null || _l === void 0 ? void 0 : _l.id) || ((_m = this === null || this === void 0 ? void 0 : this.sousServices) === null || _m === void 0 ? void 0 : _m.id),
                         amountStart: typeorm_1.LessThanOrEqual(+(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)),
                         amountEnd: typeorm_1.MoreThanOrEqual(+(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)),
                     },
                     {
                         sousServicesId: this.sousServices.id,
-                        partenersId: ((_m = this === null || this === void 0 ? void 0 : this.partner) === null || _m === void 0 ? void 0 : _m.id) || ((_o = this === null || this === void 0 ? void 0 : this.sousServices) === null || _o === void 0 ? void 0 : _o.id),
+                        partenersId: ((_o = this === null || this === void 0 ? void 0 : this.partner) === null || _o === void 0 ? void 0 : _o.id) || ((_p = this === null || this === void 0 ? void 0 : this.sousServices) === null || _p === void 0 ? void 0 : _p.id),
                         amountStart: typeorm_1.LessThanOrEqual(+operationInDto.amount),
                         amountEnd: typeorm_1.Equal('-1'),
                     },
@@ -183,23 +193,35 @@ let ApiServiceService = class ApiServiceService {
         if (this === null || this === void 0 ? void 0 : this.sousServices) {
             this.service = await Services_entity_1.Services.findOne(this.sousServices.servicesId);
             this.operator = await Operators_entity_1.Operators.findOne(this.service.operatorsId);
+            this.initFeePartner(this.sousServices, +operationInDto.amount);
             const regexPhone = new RegExp(this.sousServices.regexPhone);
             if (!operationInDto.phone.match(regexPhone)) {
                 asError = true;
                 msg.phone.push('Le numero est incorrecte');
             }
-            if (!this.sousServices.ussdCode ||
-                !this.sousServices.regexMessageValidation ||
-                !this.sousServices.positionValidationIndex ||
-                !this.sousServices.validLength) {
+            if (this.sousServices.needPhone &&
+                (!this.sousServices.ussdCode ||
+                    !this.sousServices.regexMessageValidation ||
+                    !this.sousServices.positionValidationIndex ||
+                    !this.sousServices.validLength)) {
                 asError = true;
                 msg.codeService.push("Le service n'est pas configurer complètement");
+            }
+            if (this.sousServices.code === Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_OUT) {
+                if (!operationInDto.successRedirectUrl) {
+                    asError = true;
+                    msg.successRedirectUrl.push('Le  champs successRedirectUrl est obligatoire pour ce service');
+                }
+                if (!operationInDto.errorRedirectUrl) {
+                    asError = true;
+                    msg.errorRedirectUrl.push('Le  champs errorRedirectUrl est obligatoire pour ce service');
+                }
             }
         }
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
                 externalTransactionId: typeorm_1.Equal(operationInDto.externalTransactionId),
-                partenerComptesId: typeorm_1.Equal(((_p = this === null || this === void 0 ? void 0 : this.comptePartner) === null || _p === void 0 ? void 0 : _p.id) || 0),
+                partenerComptesId: typeorm_1.Equal(((_q = this === null || this === void 0 ? void 0 : this.comptePartner) === null || _q === void 0 ? void 0 : _q.id) || 0),
             },
         });
         if (transaction) {
@@ -207,7 +229,7 @@ let ApiServiceService = class ApiServiceService {
             msg.apiKey.push('Duplication du external transaction ID');
         }
         const dateTransaction = new Date();
-        dateTransaction.setMinutes(dateTransaction.getMinutes() - Enum_entity_1.CONSTANT.LIMIT_TIME_TRANSACTION);
+        dateTransaction.setMinutes(dateTransaction.getMinutes() - Enum_entity_1.CONSTANT.LIMIT_TIME_TRANSACTION());
         const transactionTime = await Transactions_entity_1.Transactions.findOne({
             where: {
                 amount: typeorm_1.Equal(operationInDto.amount),
@@ -250,44 +272,6 @@ let ApiServiceService = class ApiServiceService {
             '(\\#[-a-z\\d_]*)?$', 'i');
         return !!pattern.test(str);
     }
-    async initTransaction(phone) {
-        const transaction = new Transactions_entity_1.Transactions();
-        transaction.codeSousService = this.sousServices.code;
-        transaction.phonesId = phone.id;
-        transaction.telephoneNumberService = phone.number;
-        transaction.partenerComptesId = this.comptePartner.id;
-        transaction.partnerCompteName = this.comptePartner.name;
-        transaction.partenersId = this.partner.id;
-        transaction.sousServicesId = this.sousServices.id;
-        transaction.data = JSON.stringify(this.operationInDto.data);
-        transaction.statut = Enum_entity_1.StatusEnum.PENDING;
-        transaction.partenerName = this.partner.name;
-        transaction.createdAt = new Date();
-        transaction.dateCreation = new Date();
-        transaction.phone = this.operationInDto.phone;
-        transaction.amount = this.operationInDto.amount;
-        transaction.urlIpn = this.operationInDto.callbackUrl;
-        transaction.serviceName = this.service.name;
-        transaction.sousServiceName = this.sousServices.name;
-        transaction.commissionAmount = this.commissionAmount;
-        transaction.feeAmount = this.feeAmount;
-        transaction.operateurName = this.operator.name;
-        transaction.solde =
-            this.partner.solde -
-                this.operationInDto.amount -
-                this.feeAmount +
-                this.commissionAmount;
-        transaction.typeOperation = this.sousServices.typeOperation;
-        transaction.transactionId = this.generateTransactionId();
-        transaction.externalTransactionId = this.operationInDto.externalTransactionId;
-        transaction.commentaire = `Opération de  ${this.sousServices.typeOperation} par  ${this.sousServices.name} ${this.operator.name}`;
-        const saveTransactions = await Transactions_entity_1.Transactions.insert(transaction, {
-            transaction: true,
-        });
-        this.transactionId = transaction.id = saveTransactions.raw.insertId;
-        this.operationPartnerDoTransaction(transaction).then((value) => value);
-        return transaction;
-    }
     generateTransactionId() {
         return Math.random().toString().substr(5, 25);
     }
@@ -329,235 +313,19 @@ let ApiServiceService = class ApiServiceService {
         }
         return false;
     }
-    async loadBalancingPhone() {
-        return new Promise(async (resolve) => {
-            let query = `SELECT phones.* FROM phones , sous_services_phones
-                    where phones.id  = sous_services_phones.phones_id
-                    AND sous_services_phones.sous_services_id = '${this.sousServices.id}' 
-                    AND phones.state = '${Enum_entity_1.StateEnum.ACTIVED}' 
-                    AND phones.socket = '${Enum_entity_1.SocketState.CONNECTED}'
-                    AND phones.phone_state = '${Enum_entity_1.PhoneState.UNUSED}'
-                    AND phones.services_id = ${this.service.id}`;
-            if (this.sousServices.typeOperation === Enum_entity_1.TypeOperationEnum.DEBIT) {
-                query += ` AND phones.solde >= ${this.operationInDto.amount} `;
-            }
-            query += `ORDER BY RAND() LIMIT 1;`;
-            let res = await this.connection.query(query);
-            this.phone = res = (res === null || res === void 0 ? void 0 : res.length) ? res[0] : null;
-            if (this.phone) {
-                Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id] = Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id] || {
-                    used: false,
-                };
-            }
-            if (res && !Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id]['used']) {
-                Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id]['used'] = true;
-                this.disablePhone(res.id).then((value) => value);
-                resolve(res);
-            }
-            else {
-                for (let i = 0; i < Enum_entity_1.CONSTANT.TIME_OUT_PHONE_SECOND; i++) {
-                    console.log('WAITING PHONE', i, Enum_entity_1.PHONES_HOLDERS.AVALABLITY);
-                    await this.waitSome(2);
-                    res = await this.connection.query(query);
-                    this.phone = res = (res === null || res === void 0 ? void 0 : res.length) ? res[0] : null;
-                    if (this.phone) {
-                        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id] = Enum_entity_1.PHONES_HOLDERS
-                            .AVALABLITY[this.phone.id] || {
-                            used: false,
-                        };
-                    }
-                    if (res && !Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id]['used']) {
-                        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.phone.id]['used'] = true;
-                        this.disablePhone(res.id).then((value) => value);
-                        resolve(res);
-                        break;
-                    }
-                }
-                resolve(null);
-            }
-        });
-    }
-    async waitSome(seconde) {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(true);
-            }, seconde * 1000);
-        });
-    }
-    async activePhone(phoneId) {
-        await this.waitSome(3);
-        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phoneId]['used'] = false;
-        const query = `UPDATE phones set phone_state= '${Enum_entity_1.PhoneState.UNUSED}' , last_unused= '${this.mysqlDate(new Date())}'  where id = ${phoneId}`;
-        this.connection.query(query).then((value) => console.log(value));
-    }
-    async disablePhone(phoneId) {
-        const query = `UPDATE phones set phone_state= '${Enum_entity_1.PhoneState.USED}', last_used= '${this.mysqlDate(new Date())}' where id = ${phoneId}`;
-        this.connection.query(query).then((value) => console.log(value));
-    }
-    mysqlDate(d) {
-        return d.toISOString().substr(0, 19).replace('T', ' ');
-    }
-    async finishExecUssd(socketBodyFinish) {
-        try {
-            socketBodyFinish = JSON.parse(socketBodyFinish + '');
-        }
-        catch (e) {
-            console.log(`Message erreur from Sim USSD`, socketBodyFinish.toString());
-            return true;
-        }
-        UssdExecutionMessages_entity_1.UssdExecutionMessages.insert({
-            transationsId: this.transactionId,
-            phonesId: this.phone.id,
-            createdAt: new Date(),
-            updatedAt: new Date(),
-            message: JSON.stringify(socketBodyFinish),
-            state: Enum_entity_1.StateEnum.ACTIVED,
-        }).then((value) => value);
-        console.log('ussdMesage-', socketBodyFinish);
-        const regex = new RegExp(this.sousServices.messageRetourUssd);
-        if (regex.test(socketBodyFinish.data)) {
-            console.log('USS RETOUR MATCHED');
-            await this.connection.query(`update transactions set statut = '${Enum_entity_1.StatusEnum.PROCESSING}',
-         pre_statut= '${Enum_entity_1.StatusEnum.SUCCESS}' ,
-         ussd_response_match= 1 ,
-         statut_ussd_response= '${Enum_entity_1.EnumValidationStatus.SUCCESS}' ,
-         code_ussd_response= '${Enum_entity_1.EnumCodeUssdResponse.SUCCESS}' ,
-         date_processing= '${this.mysqlDate(new Date())}' ,
-         date_pre_success= '${this.mysqlDate(new Date())}' 
-        where id= ${this.transactionId} AND statut <> '${Enum_entity_1.StatusEnum.SUCCESS}'`);
-            this.sendCallBack(this.transactionId, Enum_entity_1.StatusEnum.SUCCESS).then((value) => {
-                console.log('Callback sucees in match ussd response', value);
-            });
-            return true;
-        }
-        else {
-            const statutUssdResponse = socketBodyFinish.state === 'FAILED'
-                ? Enum_entity_1.EnumCodeUssdResponse.ERROR
-                : Enum_entity_1.EnumCodeUssdResponse.SUCCESS;
-            await this.connection.query(`update transactions set date_processing= '${this.mysqlDate(new Date())}' ,
-      date_pre_success= '${this.mysqlDate(new Date())}' ,
-      code_ussd_response= '${statutUssdResponse}' ,
-       ussd_response_match= 0 ,
-       statut_ussd_response= '${Enum_entity_1.EnumValidationStatus.SUCCESS}' ,
-       statut= '${Enum_entity_1.StatusEnum.PROCESSING}' ,
-       pre_statut= '${Enum_entity_1.StatusEnum.SUCCESS}' 
-       where id= ${this.transactionId} AND statut <> '${Enum_entity_1.StatusEnum.SUCCESS}'`);
-            this.sendCallBack(this.transactionId, Enum_entity_1.StatusEnum.SUCCESS).then((value) => {
-                console.log('Callback succes in no matched ussd response', value);
-            });
-            return true;
-        }
-    }
-    async callCall(phone, transaction) {
-        let ussdCode = this.getUssDCode(this.sousServices.ussdCode, phone);
-        ussdCode += `-${transaction.id}`;
-        const socket = sockets_gateway_1.SocketsGateway.getSocket(phone.number);
-        let clearId;
-        if (socket) {
-            return new Promise(async (resolve) => {
-                console.log('SOCKET', socket);
-                socket.on('finishExecUssd', async (data) => {
-                    clearTimeout(clearId);
-                    console.log('DATA_SOCKET', data);
-                    socket.removeAllListeners('finishExecUssd');
-                    resolve(await this.finishExecUssd(data));
-                    this.activePhone(this.phone.id).then((value) => value);
-                });
-                socket.emit('execUssd', ussdCode);
-                clearId = setTimeout(() => {
-                    console.log('WAIT RETOUR USSD');
-                    this.connection
-                        .query(`update transactions set 
-         pre_statut= '${Enum_entity_1.StatusEnum.PROCESSING}' ,
-         ussd_response_match= 0 ,
-         statut_ussd_response= '${Enum_entity_1.EnumValidationStatus.TIME_OUT}' ,
-         code_ussd_response= '${Enum_entity_1.EnumCodeUssdResponse.TIME_OUT}' 
-          where id= ${this.transactionId} AND statut <> '${Enum_entity_1.StatusEnum.SUCCESS}'`)
-                        .then((value) => value);
-                    resolve(true);
-                    this.activePhone(this.phone.id).then((value) => value);
-                }, Enum_entity_1.CONSTANT.WAIT_SOCKET_PHONE * 1000);
-                console.log('SOCKET CALL', ussdCode);
-            });
-        }
-        console.log('SOCKET INJOIGNABLE');
-        this.activePhone(this.phone.id).then((value) => value);
-        await Transactions_entity_1.Transactions.update(transaction.id, {
-            statut: Enum_entity_1.StatusEnum.FAILLED,
-            errorMessage: 'Telephone injoignable',
-            dateFailled: new Date(),
-        });
-        await this.operationPartnerCancelTransaction(transaction);
-        return false;
-    }
-    getUssDCode(regexCodeUss, phone) {
-        return regexCodeUss
-            .replace('amount', String(this.operationInDto.amount))
-            .replace('number', this.operationInDto.phone)
-            .replace('code', phone.codeSecret);
-    }
-    responseOperation(transaction) {
+    responseOperation(response, operationInDto) {
+        var _a, _b;
         return {
-            phone: transaction.phone,
-            amount: transaction.amount,
-            codeService: transaction.codeSousService,
-            transactionId: transaction.transactionId,
-            status: transaction.statut,
-            externalTransactionId: transaction.externalTransactionId,
-            callbackUrl: transaction.urlIpn,
+            phone: operationInDto.phone,
+            amount: operationInDto.amount,
+            codeService: operationInDto.codeService,
+            transactionId: (response === null || response === void 0 ? void 0 : response.transactionId) || null,
+            status: response.status,
+            externalTransactionId: operationInDto.externalTransactionId,
+            callbackUrl: operationInDto.callbackUrl,
+            deep_link_url: (_a = response === null || response === void 0 ? void 0 : response['data']) === null || _a === void 0 ? void 0 : _a.url,
+            notification_message: (_b = response === null || response === void 0 ? void 0 : response['data']) === null || _b === void 0 ? void 0 : _b.message,
         };
-    }
-    async operationPartnerDoTransaction(transaction) {
-        await this.setSoldeTable(-this.operationInDto.amount +
-            -transaction.feeAmount +
-            transaction.commissionAmount, 'parteners', this.partner.id);
-        const operationParteners = new DtoOperationParteners_1.DtoOperationParteners();
-        operationParteners.commentaire = transaction === null || transaction === void 0 ? void 0 : transaction.commentaire;
-        operationParteners.amount = transaction.amount;
-        operationParteners.typeOperation = transaction.typeOperation;
-        operationParteners.statut = Enum_entity_1.StatusEnum.SUCCESS;
-        operationParteners.partenersId = this.partner.id;
-        operationParteners.partenersId = this.partner.id;
-        operationParteners.transactionsId = transaction.id;
-        operationParteners.soldeBefor = this.partner.solde;
-        operationParteners.soldeAfter =
-            this.partner.solde -
-                transaction.amount -
-                transaction.feeAmount +
-                transaction.commissionAmount;
-        operationParteners.fee = transaction.feeAmount;
-        operationParteners.commission = transaction.commissionAmount;
-        operationParteners.createdAt = new Date();
-        operationParteners.operation = Enum_entity_1.OperationEnum.TRANSACTION;
-        await OperationParteners_entity_1.OperationParteners.insert(operationParteners, {
-            transaction: true,
-        });
-    }
-    async operationPartnerCancelTransaction(transaction) {
-        await this.setSoldeTable(this.operationInDto.amount +
-            transaction.feeAmount +
-            -transaction.commissionAmount, 'parteners', this.partner.id);
-        const operationParteners = new DtoOperationParteners_1.DtoOperationParteners();
-        operationParteners.commentaire = `Annulation  ${this.sousServices.name} pour l'opérateur ${this.operator.name}`;
-        operationParteners.amount = transaction.amount;
-        operationParteners.typeOperation = Enum_entity_1.TypeOperationEnum.CREDIT;
-        operationParteners.statut = Enum_entity_1.StatusEnum.SUCCESS;
-        operationParteners.partenersId = this.partner.id;
-        operationParteners.partenersId = this.partner.id;
-        operationParteners.transactionsId = transaction.id;
-        operationParteners.soldeBefor =
-            this.partner.solde -
-                transaction.amount -
-                transaction.feeAmount +
-                transaction.commissionAmount;
-        operationParteners.soldeAfter = this.partner.solde;
-        operationParteners.fee = transaction.feeAmount;
-        operationParteners.commission = transaction.commissionAmount;
-        operationParteners.createdAt = new Date();
-        operationParteners.operation = Enum_entity_1.OperationEnum.ANNULATION_TRANSACTION;
-        await OperationParteners_entity_1.OperationParteners.insert(operationParteners, {
-            transaction: true,
-        });
     }
     async getPartner(headers) {
         return await PartenerComptes_entity_1.PartenerComptes.findOne({
@@ -567,66 +335,12 @@ let ApiServiceService = class ApiServiceService {
             relations: ['parteners'],
         });
     }
-    async sendCallBack(transactionId, statut) {
-        const transaction = await Transactions_entity_1.Transactions.findOne({
-            where: {
-                id: typeorm_1.Equal(transactionId),
-            },
-        });
-        if (!transaction) {
-            console.log('Pas de transaction');
-            return false;
-        }
-        let data = {};
-        try {
-            data = JSON.parse(transaction.data);
-        }
-        catch (e) {
-            data = {};
-        }
-        const dataSended = {
-            code: 2000,
-            msg: transaction.commentaire,
-            error: false,
-            status: statut,
-            transaction: {
-                phone: transaction.phone,
-                amount: transaction.amount,
-                codeService: transaction.codeSousService,
-                nameService: transaction.sousServiceName,
-                commission: transaction.commissionAmount,
-                transactionId: transaction.transactionId,
-                status: statut,
-                externalTransactionId: transaction.externalTransactionId,
-                callbackUrl: transaction.urlIpn,
-                data: data,
-            },
-        };
-        await this.waitSome(5);
-        try {
-            const dataResponse = await this.httpService
-                .post(transaction.urlIpn, dataSended)
-                .toPromise();
-            await Transactions_entity_1.Transactions.update(transaction.id, {
-                dataSended: JSON.stringify(dataSended),
-                dataResponseCallback: JSON.stringify({
-                    statusCode: dataResponse.status,
-                    data: Utils.inspect(dataResponse.data),
-                }),
-                callbackIsSend: 1,
-                callbackSendedAt: new Date(),
-            });
-            return dataResponse.data;
-        }
-        catch (e) {
-            console.log('Erreur callback');
-            await Transactions_entity_1.Transactions.update(transaction.id, {
-                dataSended: JSON.stringify(dataSended),
-                dataResponseCallback: e === null || e === void 0 ? void 0 : e.message,
-                callbackIsSend: 2,
-            });
-            return e.message || 'error';
-        }
+    initFeePartner(sousServices, amount) {
+        this.feeAmountPsp =
+            ((sousServices === null || sousServices === void 0 ? void 0 : sousServices.tauxFee) * amount) / 100 + +(sousServices === null || sousServices === void 0 ? void 0 : sousServices.amountFee);
+        this.commissionAmountPsp =
+            (+(sousServices === null || sousServices === void 0 ? void 0 : sousServices.tauxCommission) * amount) / 100 +
+                +(sousServices === null || sousServices === void 0 ? void 0 : sousServices.amountCommission);
     }
 };
 ApiServiceService = __decorate([

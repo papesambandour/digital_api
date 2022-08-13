@@ -6,4 +6,7 @@ export declare class OperationInDto {
     callbackUrl: string;
     data: string;
     apiKey: string;
+    sender?: string;
+    successRedirectUrl?: string;
+    errorRedirectUrl?: string;
 }

@@ -8,11 +8,11 @@ export declare class OptionsFilter {
     set size(size: number | undefined);
 }
 export declare class HelperService {
-    private parseWhereOr;
-    private parseWhere;
     parseOrder(queryOrder?: string): {
         [x: string]: string;
     };
     getOptionFilterModel(request: any): OptionsFilter;
     paginate(data: any, total: number, options: OptionsFilter): PaginatedDto<any>;
+    private parseWhereOr;
+    private parseWhere;
 }

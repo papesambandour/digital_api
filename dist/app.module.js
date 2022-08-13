@@ -22,6 +22,7 @@ const sockets_module_1 = require("./Sockets/sockets.module");
 const api_service_module_1 = require("./Controllers/api-service/api-service.module");
 const helper_service_1 = require("./helper.service");
 const bootstrap_service_1 = require("./bootstrap.service");
+const schedule_1 = require("@nestjs/schedule");
 let AppModule = class AppModule {
     constructor(bootstrapService) {
         this.bootstrapService = bootstrapService;
@@ -45,7 +46,7 @@ AppModule = __decorate([
                 password: process.env.DATABASE_PASSWORD,
                 database: process.env.DATABASE_NAME,
                 entities: [__dirname + '/**/*.entity{.ts,.js}'],
-                synchronize: true,
+                synchronize: process.env.SYNC_DATABASE === 'SYNC',
                 autoLoadEntities: true,
                 extra: {
                     connectionLimit: +process.env.POOL_CONNECTION_LIMIT || 10,
@@ -54,6 +55,11 @@ AppModule = __decorate([
             services_module_1.ServicesModule,
             api_service_module_1.ApiServiceModule,
             sockets_module_1.SocketsModule,
+            schedule_1.ScheduleModule.forRoot(),
+            common_1.HttpModule.register({
+                timeout: 60000,
+                maxRedirects: 5,
+            }),
         ],
         controllers: [app_controller_1.AppController],
         providers: [

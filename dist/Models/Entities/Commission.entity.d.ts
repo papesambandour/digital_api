@@ -1,4 +1,4 @@
-import { BaseEntity } from "typeorm";
+import { BaseEntity } from 'typeorm';
 import { Parteners } from './Parteners.entity';
 import { SousServices } from './SousServices.entity';
 export declare class Commission extends BaseEntity {

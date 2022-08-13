@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EnumCodeUssdResponse = exports.EnumValidationStatus = exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
+exports.SOUS_SERVICE_ENUM = exports.EnumCodeUssdResponse = exports.EnumValidationStatus = exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
 var StateEnum;
 (function (StateEnum) {
     StateEnum["ACTIVED"] = "ACTIVED";
@@ -72,12 +72,18 @@ var TypeEvenEnum;
     TypeEvenEnum["UNUSED"] = "UNUSED";
     TypeEvenEnum["NO_MATCH_SMS"] = "NO_MATCH_SMS";
     TypeEvenEnum["NO_SERVICE_CONFIGURE_TO_PHONE"] = "NO_SERVICE_CONFIGURE_TO_PHONE";
+    TypeEvenEnum["NO_TYPE_OPEARTION_MATCH"] = "NO_TYPE_OPEARTION_MATCH";
 })(TypeEvenEnum = exports.TypeEvenEnum || (exports.TypeEvenEnum = {}));
 exports.CONSTANT = {
-    TIME_OUT_PHONE_SECOND: 20,
-    LIMIT_TIME_TRANSACTION: 15,
-    WAIT_SOCKET_PHONE: 30,
-    MAX_TIME_VALIDATION_TRX: 1,
+    TIME_OUT_PHONE_SECOND: () => parseInt(process.env.TIME_OUT_PHONE_SECOND) || 20,
+    LIMIT_TIME_TRANSACTION: () => parseInt(process.env.LIMIT_TIME_TRANSACTION) || 15,
+    WAIT_SOCKET_PHONE: () => parseInt(process.env.WAIT_SOCKET_PHONE) || 30,
+    MAX_TIME_VALIDATION_TRX: () => parseInt(process.env.MAX_TIME_VALIDATION_TRX) || 1,
+    MAX_RETRY_CALLBACK: () => parseInt(process.env.MAX_RETRY_CALLBACK),
+    WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE: () => parseInt(process.env.WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE),
+    CALLBACK_CONCURENCY_SEND: () => parseInt(process.env.CALLBACK_CONCURENCY_SEND),
+    CHECK_TRANSACTION_CONCURENCY_SEND: () => parseInt(process.env.CHECK_TRANSACTION_CONCURENCY_SEND),
+    APP_INTERNAL_URL: () => process.env.APP_INTERNAL_URL,
 };
 class PHONES_HOLDERS {
 }
@@ -96,4 +102,8 @@ var EnumCodeUssdResponse;
     EnumCodeUssdResponse["NO_SET"] = "NO_SET";
     EnumCodeUssdResponse["TIME_OUT"] = "TIME_OUT";
 })(EnumCodeUssdResponse = exports.EnumCodeUssdResponse || (exports.EnumCodeUssdResponse = {}));
+var SOUS_SERVICE_ENUM;
+(function (SOUS_SERVICE_ENUM) {
+    SOUS_SERVICE_ENUM["WAVE_SN_API_CASH_OUT"] = "WAVE_SN_API_CASH_OUT";
+})(SOUS_SERVICE_ENUM = exports.SOUS_SERVICE_ENUM || (exports.SOUS_SERVICE_ENUM = {}));
 //# sourceMappingURL=Enum.entity.js.map

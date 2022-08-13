@@ -108,6 +108,24 @@ __decorate([
     __metadata("design:type", Number)
 ], OperationParteners.prototype, "commission", void 0);
 __decorate([
+    typeorm_1.Column('double', {
+        name: 'fee_owner',
+        precision: 17,
+        scale: 4,
+        default: '0.0000',
+    }),
+    __metadata("design:type", Number)
+], OperationParteners.prototype, "feeOwner", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'commission_owner',
+        precision: 17,
+        scale: 4,
+        default: '0.0000',
+    }),
+    __metadata("design:type", Number)
+], OperationParteners.prototype, "commissionOwner", void 0);
+__decorate([
     typeorm_1.Column('double', { name: 'solde_befor', precision: 17, scale: 4 }),
     __metadata("design:type", Number)
 ], OperationParteners.prototype, "soldeBefor", void 0);
@@ -115,6 +133,15 @@ __decorate([
     typeorm_1.Column('double', { name: 'solde_after', precision: 17, scale: 4 }),
     __metadata("design:type", Number)
 ], OperationParteners.prototype, "soldeAfter", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'deposit_amount',
+        precision: 17,
+        scale: 4,
+        default: 0,
+    }),
+    __metadata("design:type", Number)
+], OperationParteners.prototype, "depositAmount", void 0);
 __decorate([
     typeorm_1.ManyToOne(() => Parteners_entity_1.Parteners, (parteners) => parteners.operationParteners, {
         onDelete: 'NO ACTION',

@@ -3,8 +3,8 @@ import { ServiceBotService } from './ServiceBot.service';
 export declare class HttpCrudService {
     repository: any;
     serviceBot: ServiceBotService;
-    private connection;
     queryRunner: any;
+    private connection;
     constructor(repository?: any);
     create(createDto: any): Promise<any>;
     findAll(): Promise<any>;

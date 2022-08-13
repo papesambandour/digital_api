@@ -1,0 +1,1 @@
+{"version":3,"file":"config.js","sourceRoot":"","sources":["../../../src/sdk/Wave/config.ts"],"names":[],"mappings":";;;AAAO,MAAM,qBAAqB,GAAG,GAAG,EAAE;IACxC,OAAO;QACL,SAAS,EAAE,OAAO,CAAC,GAAG,CAAC,eAAe;QACtC,QAAQ,EAAE,OAAO,CAAC,GAAG,CAAC,cAAc;QACpC,aAAa,EAAE,OAAO,CAAC,GAAG,CAAC,oBAAoB;KAChD,CAAC;AACJ,CAAC,CAAC;AANW,QAAA,qBAAqB,yBAMhC"}

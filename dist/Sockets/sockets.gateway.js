@@ -19,6 +19,12 @@ let SocketsGateway = class SocketsGateway {
     constructor(socketServiceService) {
         this.socketServiceService = socketServiceService;
     }
+    static getSocket(room) {
+        var _a;
+        console.log('this.socket.sockets');
+        const sockets = this.socket.sockets;
+        return sockets.get((_a = this.socketInternals.find((socket) => socket.room == room)) === null || _a === void 0 ? void 0 : _a.id);
+    }
     async smsReceivedPhone(client, socketBody) {
         await this.socketServiceService.smsReceived(client, socketBody);
     }
@@ -36,12 +42,6 @@ let SocketsGateway = class SocketsGateway {
     }
     handleConnection(client, ...args) {
         this.socketServiceService.handleConnection(client, args);
-    }
-    static getSocket(room) {
-        var _a;
-        console.log('this.socket.sockets');
-        const sockets = this.socket.sockets;
-        return sockets.get((_a = this.socketInternals.find((socket) => socket.room == room)) === null || _a === void 0 ? void 0 : _a.id);
     }
 };
 SocketsGateway.logger = new common_1.Logger('SocketsGateway');

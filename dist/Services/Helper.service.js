@@ -25,6 +25,40 @@ class OptionsFilter {
 }
 exports.OptionsFilter = OptionsFilter;
 let HelperService = class HelperService {
+    parseOrder(queryOrder = '') {
+        const order = queryOrder.toString().split(',');
+        if (order.length === 2) {
+            if (['ASC', 'DESC'].includes(order[1].toUpperCase())) {
+                return {
+                    [order[0]]: order[1].toUpperCase(),
+                };
+            }
+        }
+    }
+    getOptionFilterModel(request) {
+        var _a, _b, _c, _d, _e, _f, _g;
+        const option = new OptionsFilter();
+        option.page = +((_a = request === null || request === void 0 ? void 0 : request.query) === null || _a === void 0 ? void 0 : _a.page) || 1;
+        --option.page;
+        option.size = +((_b = request === null || request === void 0 ? void 0 : request.query) === null || _b === void 0 ? void 0 : _b.size) || 10;
+        option.order = this.parseOrder((_c = request === null || request === void 0 ? void 0 : request.query) === null || _c === void 0 ? void 0 : _c.order);
+        if ((_d = request === null || request === void 0 ? void 0 : request.query) === null || _d === void 0 ? void 0 : _d.where) {
+            option.where = this.parseWhere((_e = request === null || request === void 0 ? void 0 : request.query) === null || _e === void 0 ? void 0 : _e.where) || null;
+        }
+        if ((_f = request === null || request === void 0 ? void 0 : request.query) === null || _f === void 0 ? void 0 : _f.whereOr) {
+            option.where = this.parseWhereOr((_g = request === null || request === void 0 ? void 0 : request.query) === null || _g === void 0 ? void 0 : _g.whereOr) || null;
+        }
+        return option;
+    }
+    paginate(data, total, options) {
+        return {
+            totalItem: total || 0,
+            size: +(options === null || options === void 0 ? void 0 : options.take) || 10,
+            page: +(options === null || options === void 0 ? void 0 : options.skip) + 1,
+            totalPage: Math.ceil(total / (options === null || options === void 0 ? void 0 : options.take)),
+            results: data,
+        };
+    }
     parseWhereOr(queryWhere = '') {
         console.log(queryWhere);
         const queries = queryWhere.toString().split(',');
@@ -114,40 +148,6 @@ let HelperService = class HelperService {
         }
         console.log(oneFilter);
         return oneFilter;
-    }
-    parseOrder(queryOrder = '') {
-        const order = queryOrder.toString().split(',');
-        if (order.length === 2) {
-            if (['ASC', 'DESC'].includes(order[1].toUpperCase())) {
-                return {
-                    [order[0]]: order[1].toUpperCase(),
-                };
-            }
-        }
-    }
-    getOptionFilterModel(request) {
-        var _a, _b, _c, _d, _e, _f, _g;
-        const option = new OptionsFilter();
-        option.page = +((_a = request === null || request === void 0 ? void 0 : request.query) === null || _a === void 0 ? void 0 : _a.page) || 1;
-        --option.page;
-        option.size = +((_b = request === null || request === void 0 ? void 0 : request.query) === null || _b === void 0 ? void 0 : _b.size) || 10;
-        option.order = this.parseOrder((_c = request === null || request === void 0 ? void 0 : request.query) === null || _c === void 0 ? void 0 : _c.order);
-        if ((_d = request === null || request === void 0 ? void 0 : request.query) === null || _d === void 0 ? void 0 : _d.where) {
-            option.where = this.parseWhere((_e = request === null || request === void 0 ? void 0 : request.query) === null || _e === void 0 ? void 0 : _e.where) || null;
-        }
-        if ((_f = request === null || request === void 0 ? void 0 : request.query) === null || _f === void 0 ? void 0 : _f.whereOr) {
-            option.where = this.parseWhereOr((_g = request === null || request === void 0 ? void 0 : request.query) === null || _g === void 0 ? void 0 : _g.whereOr) || null;
-        }
-        return option;
-    }
-    paginate(data, total, options) {
-        return {
-            totalItem: total || 0,
-            size: +(options === null || options === void 0 ? void 0 : options.take) || 10,
-            page: +(options === null || options === void 0 ? void 0 : options.skip) + 1,
-            totalPage: Math.ceil(total / (options === null || options === void 0 ? void 0 : options.take)),
-            results: data,
-        };
     }
 };
 HelperService = __decorate([

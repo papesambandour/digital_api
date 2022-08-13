@@ -24,7 +24,6 @@ const MessageUssds_entity_1 = require("../Models/Entities/MessageUssds.entity");
 const SousServicesPhones_entity_1 = require("../Models/Entities/SousServicesPhones.entity");
 const SousServices_entity_1 = require("../Models/Entities/SousServices.entity");
 const helper_service_1 = require("../helper.service");
-const util_1 = require("util");
 let SocketServiceService = class SocketServiceService {
     constructor(httpService, helper) {
         this.httpService = httpService;
@@ -110,9 +109,8 @@ let SocketServiceService = class SocketServiceService {
                     }
                 }
                 const dataLimit = new Date();
-                dataLimit.setDate(dataLimit.getDate() - Enum_entity_1.CONSTANT.MAX_TIME_VALIDATION_TRX);
+                dataLimit.setDate(dataLimit.getDate() - Enum_entity_1.CONSTANT.MAX_TIME_VALIDATION_TRX());
                 if (infoTransaction) {
-                    let sendCallback = true;
                     const transaction = await Transactions_entity_1.Transactions.findOne({
                         where: {
                             amount: typeorm_1.Equal(infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount),
@@ -140,9 +138,6 @@ let SocketServiceService = class SocketServiceService {
                         console.log('Transaction not match', infoTransaction);
                         return false;
                     }
-                    if (transaction.preStatut === Enum_entity_1.StatusEnum.SUCCESS) {
-                        sendCallback = false;
-                    }
                     await Transactions_entity_1.Transactions.update(transaction.id, {
                         dateSuccess: new Date(),
                         statut: Enum_entity_1.StatusEnum.SUCCESS,
@@ -157,31 +152,23 @@ let SocketServiceService = class SocketServiceService {
                         isMatched: 1,
                     });
                     if (infoTransaction.sousService.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {
-                        await this.helper.setSoldeTable(-transaction.amount, 'phones', phone.id, 'solde');
                         if (+infoTransaction.sousService.hasSoldeApi) {
                             await this.helper.setSoldeTableFromValue(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
                         }
-                        await this.helper.operationPhone(phone, infoTransaction.new_balance, -transaction.amount, transaction.id, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
                     }
                     else if (infoTransaction.sousService.typeOperation ==
                         Enum_entity_1.TypeOperationEnum.CREDIT) {
-                        await this.helper.setSoldeTable(transaction.amount -
-                            transaction.feeAmount +
-                            transaction.commissionAmount, 'parteners', transaction.partenersId, 'solde');
-                        await this.helper.setSoldeTable(transaction.amount, 'phones', phone.id, 'solde');
+                        await this.helper.setSoldeTableOnly(transaction.amount - transaction.feeAmount, 'parteners', transaction.partenersId, 'solde');
+                        await this.helper.setSoldeTableOnly(transaction.amount, 'phones', phone.id, 'solde');
                         if (+infoTransaction.sousService.hasSoldeApi) {
                             await this.helper.setSoldeTableFromValue(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
                         }
                         await this.helper.operationPhone(phone, infoTransaction.new_balance, transaction.amount, transaction.id, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
                     }
                     else {
-                        await this.helper.notifyAdmin(`Le service ${infoTransaction.sousService.name} est mal configuré le type d'operation(${infoTransaction.sousService.typeOperation}) est  non pris en charge `, Enum_entity_1.TypeEvenEnum.NO_MATCH_SMS, infoTransaction.sousService);
+                        await this.helper.notifyAdmin(`Le service ${infoTransaction.sousService.name} est mal configuré le type d'operation(${infoTransaction.sousService.typeOperation}) est  non pris en charge `, Enum_entity_1.TypeEvenEnum.NO_TYPE_OPEARTION_MATCH, infoTransaction.sousService);
                     }
-                    if (sendCallback && transaction.callbackIsSend == 0) {
-                        this.sendCallBack(transaction.id, Enum_entity_1.StatusEnum.SUCCESS).then((data) => {
-                            console.log('Res callback', data);
-                        });
-                    }
+                    await this.helper.setIsCallbackReadyValue(transaction.id);
                 }
                 else {
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
@@ -194,14 +181,6 @@ let SocketServiceService = class SocketServiceService {
         else {
             await this.helper.notifyAdmin(`Le phone ${phone.number} est en marche sans service configuré`, Enum_entity_1.TypeEvenEnum.NO_SERVICE_CONFIGURE_TO_PHONE);
         }
-    }
-    async getTransactionById(transactionId) {
-        return await Transactions_entity_1.Transactions.findOne({
-            where: {
-                id: typeorm_1.Equal(transactionId),
-            },
-            relations: ['sousServices'],
-        });
     }
     async joinRoom(client, room) {
         var _a, _b;
@@ -268,66 +247,6 @@ let SocketServiceService = class SocketServiceService {
         var _a, _b;
         console.log('args', args);
         sockets_gateway_1.SocketsGateway.logger.log(`Client connected: ${client.id} from ${(_b = (_a = client === null || client === void 0 ? void 0 : client.handshake) === null || _a === void 0 ? void 0 : _a.query) === null || _b === void 0 ? void 0 : _b.device}`);
-    }
-    async sendCallBack(transactionId, statut) {
-        const transaction = await Transactions_entity_1.Transactions.findOne({
-            where: {
-                id: typeorm_1.Equal(transactionId),
-            },
-        });
-        if (!transaction) {
-            console.log('Pas de transaction');
-            return false;
-        }
-        let data = {};
-        try {
-            data = JSON.parse(transaction.data);
-        }
-        catch (e) {
-            data = {};
-        }
-        const dataSended = {
-            code: 2000,
-            msg: transaction.commentaire,
-            error: false,
-            status: statut,
-            transaction: {
-                phone: transaction.phone,
-                amount: transaction.amount,
-                codeService: transaction.codeSousService,
-                nameService: transaction.sousServiceName,
-                commission: transaction.commissionAmount,
-                transactionId: transaction.transactionId,
-                status: statut,
-                externalTransactionId: transaction.externalTransactionId,
-                callbackUrl: transaction.urlIpn,
-                data: data,
-            },
-        };
-        try {
-            const dataResponse = await this.httpService
-                .post(transaction.urlIpn, dataSended)
-                .toPromise();
-            await Transactions_entity_1.Transactions.update(transaction.id, {
-                dataSended: JSON.stringify(dataSended),
-                dataResponseCallback: JSON.stringify({
-                    statusCode: dataResponse.status,
-                    data: util_1.default.inspect(dataResponse.data),
-                }),
-                callbackIsSend: 1,
-                callbackSendedAt: new Date(),
-            });
-            return dataResponse.data;
-        }
-        catch (e) {
-            console.log('Erreur callback');
-            await Transactions_entity_1.Transactions.update(transaction.id, {
-                dataSended: JSON.stringify(dataSended),
-                dataResponseCallback: e === null || e === void 0 ? void 0 : e.message,
-                callbackIsSend: 2,
-            });
-            return e.message || 'error';
-        }
     }
     async activityPhone(phonesId, activity) {
         const activityPhone = new DtoActivitiesPhones_1.DtoActivitiesPhones();

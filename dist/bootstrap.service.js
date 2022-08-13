@@ -24,7 +24,12 @@ let BootstrapService = BootstrapService_1 = class BootstrapService {
     async init() {
         this.redefineLog();
         console.log('Init app');
-        await this.connection.query(`update phones set phone_state = 'UNUSED' , socket = 'DISCONNECTED'`);
+        try {
+            await this.connection.query(`update phones
+       set phone_state = 'UNUSED',
+           socket      = 'DISCONNECTED'`);
+        }
+        catch (e) { }
     }
     redefineLog() {
         if (process.env.MODE != 'dev') {

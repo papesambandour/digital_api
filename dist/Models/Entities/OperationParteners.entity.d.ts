@@ -21,8 +21,11 @@ export declare class OperationParteners extends BaseEntity {
     operation: OperationEnum;
     fee: number;
     commission: number;
+    feeOwner: number;
+    commissionOwner: number;
     soldeBefor: number;
     soldeAfter: number;
+    depositAmount: number;
     parteners: Parteners;
     transactions: Transactions;
 }

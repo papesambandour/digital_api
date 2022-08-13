@@ -57,13 +57,19 @@ export declare enum TypeEvenEnum {
     SOLD_OUT_PHONE = "SOLD_OUT_PHONE",
     UNUSED = "UNUSED",
     NO_MATCH_SMS = "NO_MATCH_SMS",
-    NO_SERVICE_CONFIGURE_TO_PHONE = "NO_SERVICE_CONFIGURE_TO_PHONE"
+    NO_SERVICE_CONFIGURE_TO_PHONE = "NO_SERVICE_CONFIGURE_TO_PHONE",
+    NO_TYPE_OPEARTION_MATCH = "NO_TYPE_OPEARTION_MATCH"
 }
 export declare const CONSTANT: {
-    TIME_OUT_PHONE_SECOND: number;
-    LIMIT_TIME_TRANSACTION: number;
-    WAIT_SOCKET_PHONE: number;
-    MAX_TIME_VALIDATION_TRX: number;
+    TIME_OUT_PHONE_SECOND: () => number;
+    LIMIT_TIME_TRANSACTION: () => number;
+    WAIT_SOCKET_PHONE: () => number;
+    MAX_TIME_VALIDATION_TRX: () => number;
+    MAX_RETRY_CALLBACK: () => number;
+    WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE: () => number;
+    CALLBACK_CONCURENCY_SEND: () => number;
+    CHECK_TRANSACTION_CONCURENCY_SEND: () => number;
+    APP_INTERNAL_URL: () => string;
 };
 export declare class PHONES_HOLDERS {
     static AVALABLITY: {};
@@ -78,4 +84,7 @@ export declare enum EnumCodeUssdResponse {
     ERROR = "ERROR",
     NO_SET = "NO_SET",
     TIME_OUT = "TIME_OUT"
+}
+export declare enum SOUS_SERVICE_ENUM {
+    WAVE_SN_API_CASH_OUT = "WAVE_SN_API_CASH_OUT"
 }

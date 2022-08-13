@@ -157,6 +157,150 @@ __decorate([
     __metadata("design:type", Number)
 ], SousServices.prototype, "typeServicesId", void 0);
 __decorate([
+    typeorm_1.Column('varchar', {
+        name: 'api_manager_class_name',
+        length: 255,
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "apiManagerClassName", void 0);
+__decorate([
+    typeorm_1.Column('varchar', {
+        name: 'api_manager_namespace',
+        length: 255,
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "apiManagerNamespace", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'amount_commssion',
+        nullable: false,
+        default: 0,
+        precision: 17,
+        scale: 4,
+    }),
+    __metadata("design:type", Number)
+], SousServices.prototype, "amountCommission", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'taux_commission',
+        nullable: false,
+        default: 0,
+        precision: 17,
+        scale: 4,
+    }),
+    __metadata("design:type", Number)
+], SousServices.prototype, "tauxCommission", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'taux_fee',
+        nullable: false,
+        default: 0,
+        precision: 17,
+        scale: 4,
+    }),
+    __metadata("design:type", Number)
+], SousServices.prototype, "tauxFee", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'amount_fee',
+        nullable: false,
+        default: 0,
+        precision: 17,
+        scale: 4,
+    }),
+    __metadata("design:type", Number)
+], SousServices.prototype, "amountFee", void 0);
+__decorate([
+    typeorm_1.Column('int', { name: 'pending_timeout', default: -1 }),
+    __metadata("design:type", Number)
+], SousServices.prototype, "pendingTimeout", void 0);
+__decorate([
+    typeorm_1.Column('enum', {
+        name: 'pre_status_error_type',
+        enum: [
+            'PENDING_ON_ERROR',
+            'FAILED_ON_ERROR',
+            'SUCCESS_ON_ERROR',
+            'PROCESSING_ON_ERROR',
+        ],
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "preStatusErrorType", void 0);
+__decorate([
+    typeorm_1.Column('enum', {
+        name: 'status_error_type',
+        enum: [
+            'PROCESSING_ON_ERROR',
+            'SUCCESS_ON_ERROR',
+            'PENDING_ON_ERROR',
+            'FAILED_ON_ERROR',
+        ],
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "statusErrorType", void 0);
+__decorate([
+    typeorm_1.Column('enum', {
+        name: 'pre_status_success_type',
+        enum: ['PENDING_ON_SUCCESS', 'SUCCESS_ON_SUCCESS', 'PROCESSING_ON_SUCCESS'],
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "preStatusSuccessType", void 0);
+__decorate([
+    typeorm_1.Column('enum', {
+        name: 'status_success_type',
+        enum: ['PENDING_ON_SUCCESS', 'SUCCESS_ON_SUCCESS', 'PROCESSING_ON_SUCCESS'],
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "statusSuccessType", void 0);
+__decorate([
+    typeorm_1.Column('enum', {
+        name: 'pre_status_timeout_type',
+        enum: [
+            'PENDING_ON_TIMEOUT',
+            'SUCCESS_ON_TIMEOUT',
+            'PROCESSING_ON_TIMEOUT',
+            'FAILED_ON_TIMEOUT',
+        ],
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "preStatusTimeOutType", void 0);
+__decorate([
+    typeorm_1.Column('enum', {
+        name: 'status_timeout_type',
+        enum: [
+            'PENDING_ON_TIMEOUT',
+            'SUCCESS_ON_TIMEOUT',
+            'PROCESSING_ON_TIMEOUT',
+            'FAILED_ON_TIMEOUT',
+        ],
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "statusTimeOutType", void 0);
+__decorate([
+    typeorm_1.Column('varchar', {
+        name: 'when_pre_status_for_callback',
+        length: 255,
+        default: 'SUCCESS',
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "whenPreStatusForCallback", void 0);
+__decorate([
+    typeorm_1.Column('varchar', {
+        name: 'when_status_for_callback',
+        length: 255,
+        default: 'SUCCESS',
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "whenStatusForCallback", void 0);
+__decorate([
     typeorm_1.OneToMany(() => Commission_entity_1.Commission, (commission) => commission.sousServices),
     __metadata("design:type", Array)
 ], SousServices.prototype, "commissions", void 0);

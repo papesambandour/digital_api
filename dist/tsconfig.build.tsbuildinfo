@@ -3017,8 +3017,8 @@
         "affectsGlobalScope": false
       },
       "../src/services/helper.service.ts": {
-        "version": "067f5800bdf0e5d240a74abb32f541e8c2ddac4ee4259e700b1b9f6ea4d99a26",
-        "signature": "aaa60974057aa830c5c5764f57109357ca8d147365e7a54fa31c71f542bb4af1",
+        "version": "c66b811b2da3203672084ffbfbee17836f333d1fcb7f2ecc945c5de3089539c1",
+        "signature": "6abcb0284ef77baeba9b127f8dc8e76ac06511c3706a1740965d64f3c63ec093",
         "affectsGlobalScope": false
       },
       "../src/services/servicebot.service.ts": {
@@ -3027,13 +3027,13 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "96abfdeb6df6776b4001d78be46d76994484a5b11177dc6bf3945889b4a01624",
-        "signature": "26dbe836ecc21d5e1c2f9c3365b2ba15ec767f7f287321f9eab2171f7df42202",
+        "version": "614736cab132d78f517c4d2082ed8e337db85b21aeef1addb01c055561797cfc",
+        "signature": "dbca21fe4b48c28f316cbf9810609ff1c129eb534a7c7dcb6a199070cad365a6",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
-        "version": "7e021ffc90b222eaba84a4af786b91f8c6f756c220045f2aca05891a6792492b",
-        "signature": "09baa7cd1fd0b13864a703ddba36cedd5c5943e59eeead031eaee87adcafda79",
+        "version": "1c0b57adf39e5217c1c1e53ab95969d7a05fe958629d9e19acda594499777375",
+        "signature": "2ed5c35d9c67a50805222ac79df76f832e95a39ce9bcf3152a64e3223dc9e75d",
         "affectsGlobalScope": false
       },
       "../src/models/entities/plateforme.entity.ts": {
@@ -3042,27 +3042,27 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/users.entity.ts": {
-        "version": "2ddf19f3231f6240732b5f913d01e9df0e9fad0f63cdbb88e10daba57312a8cd",
+        "version": "c225b9a32a6f5c1c8edd55003da3a4e006468d5a7b5dd3eaef4fab34f4113bc4",
         "signature": "ee7d4b60089d18d09d87bf1f04959cb7718e1db011342d858ccc40d26d7f0748",
         "affectsGlobalScope": false
       },
       "../src/models/entities/profils.entity.ts": {
-        "version": "9a4b12a3aff6d6ccc11ed0b2c603bd4ae1db56d7b79838f5c0f3d7cb487f582e",
+        "version": "db588bb27f3537b00d27f89a068069b5211f20f919d0277e198d0432bf05ca96",
         "signature": "c0dbd6d716470b56cd2aca4814904ee40c9204b5341dca0a11ee2eda2d56464d",
         "affectsGlobalScope": false
       },
       "../src/models/entities/actionsprofils.entity.ts": {
-        "version": "b4f1a69bffbd2b815cc89837974d8a7fb8a63f92ed1483feacb0167bd8ffcf46",
+        "version": "7caff8ea69f94372902cfce2b64f3856bc2608dbcddcba57fa6accd6f6561798",
         "signature": "93d297ba523fd50b98ccd38fe6f217a41a3f9f7f772510c7f2120c7885ddae34",
         "affectsGlobalScope": false
       },
       "../src/models/entities/modules.entity.ts": {
-        "version": "847535406569b48b8b139110f7f83a9a3b2997a1087f46ba40f9c8fb264df39b",
+        "version": "61537abb2704883296ce33e0fdc2c23bcc020fd3f78d741a80dfd7f88f62bdcb",
         "signature": "e0b9368c96ac8743fa4d5a98e5fda0943a18ff589b1b7abc49f526134e8c1b26",
         "affectsGlobalScope": false
       },
       "../src/models/entities/actions.entity.ts": {
-        "version": "501af2d527137113d81d26a51ab5451c649e4af6cf74c87cd4203f364a6c542e",
+        "version": "f14172ce8c483e1ff0a051e37023cb94a999c3336a76a72b4b1c282e2a8e4532",
         "signature": "3cf889d75703936ac16d5a97241ea50bcfc6498e7ea122e859a5e1799e9a8e6e",
         "affectsGlobalScope": false
       },
@@ -3697,12 +3697,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/controller.ts": {
-        "version": "674b9fbbaa54da3819e389cc5acc5acfe1b50fbaf9fbad34232db85319100852",
-        "signature": "c9fd62aed81dc2101f583e1d57b0060dcbcdd7a48f545c2f55a5f3ea7116b0e7",
+        "version": "ab41f81a5b522df801314c2fb00c70e28afd734d622774012a1b21d74a9b11c8",
+        "signature": "dcacb00f84a35f4bea6779d1bb8e5874a73f6044683464916cc073bbb42346fb",
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "f2e2bc7b2e039ef0529837fc6ac03dd4fc01e1a1e0b9e2fb125263ce73e3d7b8",
+        "version": "1eab13eaab1c948d73aacd43ac2c9192dee6b0eaf32d174d5488153dee36c318",
         "signature": "e2c627d316faeeacd6cd12773e99e01d8ae8d00e8cc58feccb7639e53afe56a0",
         "affectsGlobalScope": false
       },
@@ -3997,8 +3997,8 @@
         "affectsGlobalScope": false
       },
       "../src/filters/httpexceptionfilter.ts": {
-        "version": "5465b4271f0ac0451fe4b62b6a2f98063900455019215e63a1a1c670ec0e886f",
-        "signature": "1f5be100409cda73c9481f1581cf8c4ad069213dcdef74e2ff7887f359ee385c",
+        "version": "32540ec8aca40e7a32f569e0e718263a221857afc9ba32ae6fdd2040fa28530d",
+        "signature": "ef007649b7f0e9e1067a8f34f12547a8053ebe557c38889b17300d5689acbf3d",
         "affectsGlobalScope": false
       },
       "../src/services/services.module.ts": {
@@ -4407,98 +4407,98 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/messageussds.entity.ts": {
-        "version": "1e17c9d74aa08159002404f01d81e156dc580b6d0f22f7d045e972a3ca0a880b",
+        "version": "3aa9ab2d5268ca8a8ebe35d31ade47e0e790570b308de470600afa040dc3b6f3",
         "signature": "8b9e48e3ff4bee8f1ecceecc72286362937f1aa08a83c0ca6887f304abc3eb24",
         "affectsGlobalScope": false
       },
       "../src/models/entities/sousservicesparteners.entity.ts": {
-        "version": "896cee81971395f05ad63edb31b5040d16b26adb4a6eaab93532477a27cd0795",
+        "version": "06a7a0132b026a65069a8968bc220cc886a992ff98570de4764bdc89336e215d",
         "signature": "8a1d58a0b0449f02301c4f6d06316c797661c71f0bc6de306304abe33d3f0d24",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
-        "version": "2bfedc80a908772fbc3ed3d2d52746ef451e5f82aadbc4e79373648fb0c1d0be",
+        "version": "8b97da0ecc04826a4dfe4f418243191ee18d4207d638a3129e83d418b673c6bb",
         "signature": "f36a78e3d6db4d4fe7f43f9764da78206509ef936620db73d1d429137fcad795",
         "affectsGlobalScope": false
       },
       "../src/models/entities/country.entity.ts": {
-        "version": "0fc660cec2cfd3a294172a7b685e8a53fbf5b2f9781f714d015c4c5a37a4e237",
+        "version": "bf4566180edfe9c5ae7a4d16db1a5b43df3359b543078cce4ac5ae84f760f46f",
         "signature": "cba6a24635ee2698f6fc9a9061916ebc0251f9fd02ef33a4fcf0c1e385121ae6",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operators.entity.ts": {
-        "version": "136837888ecff36ba9b17522c0fe1faa7b0ab9107b53992872ac664011dff604",
+        "version": "2b0098d33d3b5999b7bf4b8b73748321ad1a7f21648f552a50c02b474276dba1",
         "signature": "6f4dbc89e8c5c42c8260bf85814f9ce81a8510302040e2e9d06386a769f50f13",
         "affectsGlobalScope": false
       },
       "../src/models/entities/categoriesservices.entity.ts": {
-        "version": "38e0a9c7131f218f2969b7f375a52dc85293a9c148d2951175c4542cea47ba1e",
-        "signature": "81778e54634e1b3dc832be331f6a3530e080a470c13e4cacead7b2d051e1e0ea",
+        "version": "1481a89aacc81b7dc0d4110fa12d7157a23c0633b0b28ddd4357350eda44530e",
+        "signature": "c78a5c348019645ead71c75c9b58189c615921ae1ae6e3e7b8cef8ccd3cc9c13",
         "affectsGlobalScope": false
       },
       "../src/models/entities/services.entity.ts": {
-        "version": "9d22f8b07ac7398181101c0598569767814e7a6c1df6c4f27420954bd434edc3",
+        "version": "07fe52deaa05ba3f3d0912ba9841e6408b1e639e0206cca1a2202a6f63ec3938",
         "signature": "4228c60649e0c8faf9fdd609030187e2668b115b8d76fc58ae33bc070ceb274a",
         "affectsGlobalScope": false
       },
       "../src/models/entities/activitiesphones.entity.ts": {
-        "version": "fd11f1d1036df4ee803d0f6be19127bd353ead057785f7c9b6b9fce61c3a663e",
+        "version": "9e3a8e23b0c8d24e7b8997afe93e52ef6cf52ae70843cc6f1973a3539e9931dd",
         "signature": "06d02dca8666bc53e54a425bfe031f56d19928d6895a17596475f26718249106",
         "affectsGlobalScope": false
       },
       "../src/models/entities/ussdexecutionmessages.entity.ts": {
-        "version": "ff092f6f6a88629a9149f6819c669a480eb27d5c0c399f2029125884bb4802c9",
+        "version": "53992bed201cdf6417a9a5b06a386687125e86096b5a165f2d0c8a8ac58ce178",
         "signature": "6c089dac619b032310f831ccbd3092383e66812e084e533b0f41d0b65f1fee6f",
         "affectsGlobalScope": false
       },
       "../src/models/entities/phones.entity.ts": {
-        "version": "9f4fbe918e1e2534c1763bedf6fe5e7657308f0912d266284512df10f5de6d80",
+        "version": "913faf74dd8926aa6e2cff5ff069f48518d30b9533a161f76b4d7ab2a8554bd9",
         "signature": "7881839fb81be10fd41f9b48297374148fdb74fa93f68264ac8990e74fde343c",
         "affectsGlobalScope": false
       },
       "../src/models/entities/sousservicesphones.entity.ts": {
-        "version": "e244f8c61943b66758b3c38a194442f60a3de95411d8b31b6d2ec89e3b23a624",
+        "version": "2fddb109d64584a266ae8a50d090d51d59ba06c428109972bea464dc8ef940f6",
         "signature": "ff76e853eb654bcf25706fa8d904a0c54701990476cb56b775beb0f2550e684c",
         "affectsGlobalScope": false
       },
       "../src/models/entities/typeservices.entity.ts": {
-        "version": "948e204462316a5cde04514c210e8a2e22054032555bbe2502f3af2a2b6ceaa0",
+        "version": "cfb378ece0d44cf3efaaf50cf25c5a246b97867e1ad228d9c4da71ecdc6bc1d3",
         "signature": "e4c8ac83dd79dcbb3e96c4fdb12a968e805637537f33bc9a941dc8a50f368393",
         "affectsGlobalScope": false
       },
       "../src/models/entities/sousservices.entity.ts": {
-        "version": "5f4e28f77f94f38aa4b237e5d793cdf1727041a78e6f9588810baaddf2373b59",
-        "signature": "08a3b7f0738ce08d87e6c69ec81adca03a6c035828170974987b37e1dd0b8ac0",
+        "version": "f4bc491e017e1db178ef7ca921fa65488b9c5bfffee7ba24e5b0006bfdc0ab92",
+        "signature": "d626adde1b032ceeab1b4fa1c25aec3bc86e50f19e58bb6b1fefe79e71724869",
         "affectsGlobalScope": false
       },
       "../src/models/entities/commission.entity.ts": {
-        "version": "0319887d9dc2ac79020d1d6debc13eb17338bc2ca64c08a9d8fccca759be9431",
-        "signature": "5a69755059a72aaab364f436c275450746afd995b7f521e1a356780b406614be",
+        "version": "0da84dd0fb2f33c6871854f274fd09ab623ff27ac8417b54e73012d0879002a8",
+        "signature": "217aeb4a75ace0ed4fdc2d8190c60a5c6d6eeec96a08cf29ec8afc59bb7abca6",
         "affectsGlobalScope": false
       },
       "../src/models/entities/partenercomptes.entity.ts": {
-        "version": "fcf94dbfab6154a4995baed7e5c471986855d1d9e0b0fb9f7079fcd7c2c5ff6f",
+        "version": "70461ba9602c0d42534c87b2e8e65cda137f07b688264e11a2cf940c90ff1478",
         "signature": "87ce52f0227519135108a3a430126f9c08472f8da3415f454ae838a75dda1c91",
         "affectsGlobalScope": false
       },
       "../src/models/entities/partenersettings.entity.ts": {
-        "version": "492aacafaca7ec6cb1cc2560b433c22efb591ca876a862d385c762826e6e81c8",
+        "version": "bf5585ae2fb0a8ab50475d2aeddd84a63f5dc02d2d1ad724567db01e671320ae",
         "signature": "126ba27cc354d94131cf472c9f7a9e2f47139ccbc99cf8098c8ebc930ca7757f",
         "affectsGlobalScope": false
       },
       "../src/models/entities/parteners.entity.ts": {
-        "version": "9e2d888f9f923be2e7c6872488dfcdcaa8122ed7639a58afa2dd282624304096",
-        "signature": "d75da58515f3d271d095f1dd7415f4c336dcbfe33560d1f6b0c3628367aa5109",
+        "version": "3e7a50e9d44193303add4c4907ccebc766602208c0fa4f788b273551f3ddb55f",
+        "signature": "5a83ea7df9287eeb35770b43aafc60869fab30f10bf7edca347b2afa32c86786",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationparteners.entity.ts": {
-        "version": "101fc6626fc4d1e34dde00d61af31f8e56dfa33ca5b810470545aceefe0a9594",
-        "signature": "eaed3601c5518de20c270b3ce1c79850e0bfa13048b4b259430cc2a693318c12",
+        "version": "ace045be1472fc7b9dc303b2106195696e7facdea1a1e76a3c9f17c733baeff0",
+        "signature": "ede0e3f26af7d6ccea1403077232b57f3cd849877e9652dd3153556ed98ddbae",
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "afc9a657f3455bc23be8a38b9d3b6613143e6ab7d41261e34edd2673d6d352aa",
-        "signature": "995907e29e3f68771795014d1d53e875e17ddff02ffac09ef04df5e41cd78a93",
+        "version": "d8d2cf31cbf229efc10bf353d56a4e28a9e9ad0afd5900576e8f9bb160686fa6",
+        "signature": "4b62333f8e6e6da1c85a269cfa1d43bacd56585bd87a4c137ad464128a5f6a14",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtoactivitiesphones.ts": {
@@ -4507,58 +4507,103 @@
         "affectsGlobalScope": false
       },
       "../src/models/custom/socketmodels.ts": {
-        "version": "cd647ab7ce449c39e669928874fec0e4b3dc7d0cddc235ea13bee1f7ff8f42c1",
+        "version": "15a1855579cd67ef5a18f67d48f492876cd3983fc07f3f80cd0932e31fbfb379",
         "signature": "80a86e3cc2b960819ce20b364a9f15574ed9f67d92e3708c1f0c395ebb21efd8",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtomessageussds.ts": {
-        "version": "4097cdf02ad1c82e55a8ac223b79b515eee085473365c9b5c501a2026c661841",
+        "version": "400bcacbadd99bbfa0ce9ae376962baf1433016bee8c7f40bd90e836d504f1f7",
         "signature": "f2cb275d385bed17aa32990bff5e4026f715d5edf9e7fc2ed6a995691ffd5ca5",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtooperationphones.ts": {
-        "version": "eca98286176e55e3de98041e904293f9c1251708f1aca73031b6d81b3e634cd0",
+        "version": "ede2363c9b815338f80aaf64aed7d320ae4672de1741ea232e08edeceb0ebb67",
         "signature": "66b524b6c3cbf013b2c1885f6a48d672cf8992def6ff2440db11ae3b9e6dc0f5",
         "affectsGlobalScope": false
       },
+      "../src/controllers/api-service/dto/operationindto.ts": {
+        "version": "9f71f341bd6c582923a24985df16e3bf7dbf0ac28ec23b198bfb257b117f0ada",
+        "signature": "73d5c914595c96b0b2295d326a74dad7bc9d8ed42c8dbb3c0a2336c7704d3518",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/dto/operationoutdto.ts": {
+        "version": "34a4e1abe8b8580e17d34011fdcceea121f6ce053469bb3716690d5917748966",
+        "signature": "733d5b9d83fa26f936410c222bd99cb408a47598c6a094367420ab50db164edb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/range-parser/index.d.ts": {
+        "version": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
+        "signature": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/qs/index.d.ts": {
+        "version": "98437d5a640b67c41534f0de2dcb64c75433dcdff54ff8f8432e613663619a2e",
+        "signature": "98437d5a640b67c41534f0de2dcb64c75433dcdff54ff8f8432e613663619a2e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/express-serve-static-core/index.d.ts": {
+        "version": "e41a1ce538d71d5a3389b7fc2e39c15a4972f0d4cb14bf2fe8cda8c361150028",
+        "signature": "e41a1ce538d71d5a3389b7fc2e39c15a4972f0d4cb14bf2fe8cda8c361150028",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/@types/mime/index.d.ts": {
+        "version": "84e3bbd6f80983d468260fdbfeeb431cc81f7ea98d284d836e4d168e36875e86",
+        "signature": "84e3bbd6f80983d468260fdbfeeb431cc81f7ea98d284d836e4d168e36875e86",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/serve-static/index.d.ts": {
+        "version": "3b02517f9be71f255eadab9892406055d069167891f1e1ea16c96c4ff1ddda01",
+        "signature": "3b02517f9be71f255eadab9892406055d069167891f1e1ea16c96c4ff1ddda01",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/connect/index.d.ts": {
+        "version": "81c14b89fa607b86dd726e2e3e91360cf8155ce97468404324d404a5bd65b2eb",
+        "signature": "81c14b89fa607b86dd726e2e3e91360cf8155ce97468404324d404a5bd65b2eb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/body-parser/index.d.ts": {
+        "version": "ebddbd167c2fabd0151f50e5df94ca6d845149c47521280d8867afe3429dd078",
+        "signature": "ebddbd167c2fabd0151f50e5df94ca6d845149c47521280d8867afe3429dd078",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/express/index.d.ts": {
+        "version": "3b05c396564e51753e921e1cc4aae1cf7cd9be53c891cf2e81fa29f11c0bd373",
+        "signature": "3b05c396564e51753e921e1cc4aae1cf7cd9be53c891cf2e81fa29f11c0bd373",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/api-service.service.ts": {
+        "version": "1929b3bae34acdf119787acf0d78ef63bcbf8a4efaa21234e290f253f149d3cd",
+        "signature": "47d51941ae87003847746fc65970194f4afc55c57d5de58aef3bf94332b8e077",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
+        "version": "c4922d60d96c5d4615116981b5f04c6e8d6a71e2ab601a804a1ae83bb9223ff8",
+        "signature": "27b137acae4a2fab78a737de943c25fe7e685f2eda641a41b7bec91312e4be89",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtooperationparteners.ts": {
+        "version": "62025e5f58a528d693565a345dc3b681bfdc893ac4e859afed8eae1ffba70dbd",
+        "signature": "b039db3ac1946294922c0074f75ab6f49d15cb6dca0e0ada406e67437db48745",
+        "affectsGlobalScope": false
+      },
       "../src/helper.service.ts": {
-        "version": "a706ff40fabd603e3419e7f0b424c20a59fba4e26d3f5b66ef359dd2b4372729",
-        "signature": "22025405b5e96ce36c5d606533744a16ea4f7959c56c35f1b10fa8887d0d7fca",
+        "version": "477f619abb0cd2c2da22f2d0fdadde2bb153ad85223339c3b1dd5bac1dc9f5d5",
+        "signature": "432eb3974d2323ee82c8057040d934c3be96503cf47401084f37e0971a62b011",
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "984b3cded5444b5b8215b28f3a88669e107ddde7d7dc0074c48bf957a64fb112",
-        "signature": "db2af085d78f61b0a188ea773d9d6fcac7b2043ac3b651e6f6cd3ec9e51f53d2",
+        "version": "052417c231729a95efdb58404d344d49b2302d28364cc1c70af60766caa38906",
+        "signature": "e43afb687423f2026bf4b4cfe7eb3a578de53de35aba6bd1c1b17571791d3ca9",
         "affectsGlobalScope": false
       },
       "../src/sockets/sockets.gateway.ts": {
-        "version": "160b854760e9aa9cd2fe212e26f441782d53c0009255db504fd5fdbcbaa7fa82",
-        "signature": "d6004ccd93c69bbd445039cab1d4cf493494f621681e3dd1e627163c3973feb7",
+        "version": "54dae93178524b353d4b173470abf413718fc8cc01739f62303e62949e688edd",
+        "signature": "8a52bca14e245ddc4ae08e4fe6da22f6715a904f9a9cc71d06984b4647f9fe80",
         "affectsGlobalScope": false
       },
       "../src/sockets/sockets.module.ts": {
         "version": "84362b09b369a6cf83a86bbd057cbe50d15b3399776831a3f738a81290f00fa9",
         "signature": "6ade41cfc63e3f69b5d9e7715c247df26f9d407e10bd79f07afa6b29ba50e4bd",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "52fbf56ebd3e5874ec3b9b92d28c4d72221e0739752f365293b2392422d35725",
-        "signature": "d9cd7f590730396a57cfba7537c61b92bd0717908450da4f32fcc581c7b1b835",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtotransactions.ts": {
-        "version": "11d3fbd3d0183a3b3a52308e425451d02b26d99461616863235b8c4a5496432c",
-        "signature": "8910b6acaaffdf8e57af08d6918b29b63210016a66e4f2a164040b1b0c3b02ad",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtooperationparteners.ts": {
-        "version": "c349a04c2258d0f7455d81066858e4fd6777ce7c712fc0a498e81365dcaed093",
-        "signature": "b039db3ac1946294922c0074f75ab6f49d15cb6dca0e0ada406e67437db48745",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/api-service.service.ts": {
-        "version": "d68c89f9fe9ee2984811f21e4715af4c24856dee853fd0733086bc9ac3ae6727",
-        "signature": "a0422099b19d9083bde995ca97dcdc376c68262f5f2d8f3f5d43fac6444f25e5",
         "affectsGlobalScope": false
       },
       "../src/models/response/responsehttp.ts": {
@@ -4576,19 +4621,19 @@
         "signature": "0febba976f2feb928441d9ddb284c4aa69b2718a91cace951e66930a9df2bba4",
         "affectsGlobalScope": false
       },
-      "../src/controllers/api-service/dto/operationoutdto.ts": {
-        "version": "2f8984efe720df235ff0c05eccc55156ed75ccfa735e6003d549e4054d7c7888",
-        "signature": "0410c3ea4fdc737ed6efec8d590943873ec9a1f94755938d19b3e2cfc3dbee37",
-        "affectsGlobalScope": false
-      },
       "../src/controllers/api-service/dto/operationbadparamsdto.ts": {
-        "version": "43f6b75d72e4644a9c69f37b8197ef778b58317261fa0c0d7f06e88480eed415",
+        "version": "76e95e90e13a823bda07d45a33dc091827ab3a2b94d78206b101811b49fabaf3",
         "signature": "18eaf211e90b899b037d4cea73e38c14aa23807ddbd6ec4b960f425d11283a50",
         "affectsGlobalScope": false
       },
       "../src/models/decorateurs/responsehttppaginationdecorateur.ts": {
         "version": "19796010095c74da0de61bd0103f9dec18affe16b518be106f45e93a637d07c7",
         "signature": "0a9d1f3028f8c0f287e3554ef340260ccc043cb245fbc36eb51a2116d10ea12b",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtotransactions.ts": {
+        "version": "0e9b0d41ec3730889e1223c9dfe1ae5c557886b382693c5547788323974705cf",
+        "signature": "8910b6acaaffdf8e57af08d6918b29b63210016a66e4f2a164040b1b0c3b02ad",
         "affectsGlobalScope": false
       },
       "../src/models/decorateurs/responsedetailsdecorateur.ts": {
@@ -4607,32 +4652,177 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationdictionarydto.ts": {
-        "version": "ed387ef7a9002d6021886598398fecfeeeaf8eaadbe238e51268cc63dff474d5",
+        "version": "0c7482664a14de25c4d30800b8062c39f9d3ba34877b81207e36c7672349c199",
         "signature": "c3e069df382ffab30933ceca6d039b251c7c70e5709d37feba15a281a63ac81e",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtobalance.ts": {
-        "version": "5a52d3df85ccd52fb03552d96d0ee820afc35c973b190e66a775e283ffc639b4",
+        "version": "76cb400b8d676577402fed08ae0ddab75956c1f397bda3fbc75228df89a836cc",
         "signature": "ba8815529cee9690a805b60ea2fb715bcfe51cbab3abf50aaf9f632de402d1f2",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "e8528730b84d82c38876a738a867d3e9ea98556b3476c622224856b6a326f267",
-        "signature": "bba914cf05a80b22cb1a0a7ec9e793bae88f7e22309da171e1a84e251f0a21aa",
+        "version": "cb90df18274201ea63df4cc7b38308ab4cf0422f5f5f72e7177f0492fe109b1b",
+        "signature": "6c7f940e832da38d5b3ef5d647bb75669902362b0a05962a818e232042e58f9a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
+        "version": "64421c66dcd1ec7b5f7a79f9869a6c4e2090d031105fa70324b74db914423f97",
+        "signature": "64421c66dcd1ec7b5f7a79f9869a6c4e2090d031105fa70324b74db914423f97",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/schedule/dist/enums/index.d.ts": {
+        "version": "68065ce3af3ef8599af8338068cf336be35249eff281ee393186a0ef40db3abf",
+        "signature": "68065ce3af3ef8599af8338068cf336be35249eff281ee393186a0ef40db3abf",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/schedule/dist/decorators/cron.decorator.d.ts": {
+        "version": "2d75eeb207154a3ab8c236912448a1705804ad2f1a39886fac66ad0c6859afc3",
+        "signature": "2d75eeb207154a3ab8c236912448a1705804ad2f1a39886fac66ad0c6859afc3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/schedule/dist/decorators/interval.decorator.d.ts": {
+        "version": "cb4fd64874f7dd8138fe5ce32b800d17832bbb40e029067041623d62d65909f0",
+        "signature": "cb4fd64874f7dd8138fe5ce32b800d17832bbb40e029067041623d62d65909f0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/schedule/dist/decorators/timeout.decorator.d.ts": {
+        "version": "729a04234eb9e138f78e9f45f24998d37758e57a2f78374e24d4ac66be2cb746",
+        "signature": "729a04234eb9e138f78e9f45f24998d37758e57a2f78374e24d4ac66be2cb746",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/schedule/dist/decorators/index.d.ts": {
+        "version": "4e5f1234308de112f09920e0a0b99f35a9780b3abbc13a84445f32a490d0bb87",
+        "signature": "4e5f1234308de112f09920e0a0b99f35a9780b3abbc13a84445f32a490d0bb87",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/schedule/dist/schedule.module.d.ts": {
+        "version": "a8a3b336f10078fb021c597d024a5526f2e72d81a349667db1a5cb5e9db8832c",
+        "signature": "a8a3b336f10078fb021c597d024a5526f2e72d81a349667db1a5cb5e9db8832c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/luxon/src/zone.d.ts": {
+        "version": "45938045285af93edb0065d83c44410e18b34fd1285b5ce46e025a46d5042a46",
+        "signature": "45938045285af93edb0065d83c44410e18b34fd1285b5ce46e025a46d5042a46",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/luxon/src/misc.d.ts": {
+        "version": "52ed17fe2c0a4bb27a4f13e99234b3d1f364dc27f9bd7964946d5ec62792a0cc",
+        "signature": "52ed17fe2c0a4bb27a4f13e99234b3d1f364dc27f9bd7964946d5ec62792a0cc",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/luxon/src/duration.d.ts": {
+        "version": "347c99f9511fb30c62af9a051ac54ac1a4b851f73cd9f5b0834ba2d2d4006c45",
+        "signature": "347c99f9511fb30c62af9a051ac54ac1a4b851f73cd9f5b0834ba2d2d4006c45",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/luxon/src/interval.d.ts": {
+        "version": "2f007f7338e8e2fe4691511ab9564fa8924d2ed4294f195bc4848a43bba8c004",
+        "signature": "2f007f7338e8e2fe4691511ab9564fa8924d2ed4294f195bc4848a43bba8c004",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/luxon/src/datetime.d.ts": {
+        "version": "bc023eb1ae2169ca909c728614935eeff39d1654b08389033e04963d25f104a7",
+        "signature": "bc023eb1ae2169ca909c728614935eeff39d1654b08389033e04963d25f104a7",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/luxon/src/info.d.ts": {
+        "version": "ed4be5a31cd8dbb8e31ccde91e7b8c1552eb191c4787d19ed028763577674772",
+        "signature": "ed4be5a31cd8dbb8e31ccde91e7b8c1552eb191c4787d19ed028763577674772",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/luxon/src/settings.d.ts": {
+        "version": "d40e7cb322841e538e686b8a39f05e8b3e0b6d5b7c6687efa69f0cbf9124c4ec",
+        "signature": "d40e7cb322841e538e686b8a39f05e8b3e0b6d5b7c6687efa69f0cbf9124c4ec",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/luxon/src/luxon.d.ts": {
+        "version": "c5641bb951da5d5252e7d8a806ec3c84f42555b5bd6a0879dbf1c7df1b8bd850",
+        "signature": "c5641bb951da5d5252e7d8a806ec3c84f42555b5bd6a0879dbf1c7df1b8bd850",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/luxon/index.d.ts": {
+        "version": "501df3ff1166189ef3611db2d498048e6d6783eb8c4ae29d04d79f6caef0308a",
+        "signature": "501df3ff1166189ef3611db2d498048e6d6783eb8c4ae29d04d79f6caef0308a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/cron/index.d.ts": {
+        "version": "0fbbc989ca5a9cb73731434e80741eef2695cf35fb53d384808a0ab2d6732fcc",
+        "signature": "0fbbc989ca5a9cb73731434e80741eef2695cf35fb53d384808a0ab2d6732fcc",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/schedule/dist/scheduler.registry.d.ts": {
+        "version": "4b308aac57309d2670ed3e8de27593991b0822f47ef2134a34d502379a105e5b",
+        "signature": "4b308aac57309d2670ed3e8de27593991b0822f47ef2134a34d502379a105e5b",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/schedule/dist/index.d.ts": {
+        "version": "0e00d55a00ecd78664a623d02a3cc73cd5cd5074fd0195be57ef1a1f5a9c9305",
+        "signature": "0e00d55a00ecd78664a623d02a3cc73cd5cd5074fd0195be57ef1a1f5a9c9305",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/schedule/index.d.ts": {
+        "version": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
+        "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": {
+        "version": "3b01b9ac8f7e80604db66cbccd472e5f62828ec2b7388903f4159f66f4781ff5",
+        "signature": "a879c83899423132c0ac21bd0ba9ee682f54620ef7d17aad3dec926c04ce5286",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": {
+        "version": "421f2ee6b1042651c1d0dfbfaba302e7f77efeaa6ab33f6bd9ff72b29c994073",
+        "signature": "12ca33b128a7ed7c2ce40a2250a6f59a145c6749722fc06ae9eeea929f2baed8",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/wave/config.ts": {
+        "version": "cfba50569f0502cba063edfd43d7a29ff92dc24cd6156176bd6bae62e9ece078",
+        "signature": "314db75b54238cbb76d1ee08b2b7b64eca55306f4a51753cbbc5c05407ff2185",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/moment/ts3.1-typings/moment.d.ts": {
+        "version": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
+        "signature": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/orange/config.ts": {
+        "version": "991527ebffe778ba7e5d9e3d91288f9211cc8ad63f1c58b7f2c815c9effdba95",
+        "signature": "4eaf566317ba2c0314c9b5294edabc10b3ff7c8a7eac78e49df93e539f69fc0f",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/orange/providerorangemoneyapi.ts": {
+        "version": "486ee07fa51488722807cf21027f951336a2c258f52551b8af378826c6d05574",
+        "signature": "aa79894b792afbd62544694ed65abd3e6b67f71586aa8efdea362ad77dcce423",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
+        "version": "1ee7e7cd136d330e40897bb4c45591905ad9d99555325bed602186952199019c",
+        "signature": "6cf3516f90f4c2bc06541a0d1612d084b995ad8a2e23410c11eb37a5094c3962",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/wave/waveapiprovider.ts": {
+        "version": "545e7d80d522583048e1feeb57a6b072664c3b97d7d9c971ea99ec9c83d4b31c",
+        "signature": "6d88c2ee5472261db3e3b587f8645b725fa68263ea5d5cf06284873a6f57ce7f",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": {
+        "version": "f5a1bf1bbc7043084bf073528997acb59feba30d3adb7a4a1e39bb9031cfa887",
+        "signature": "014377727be6de5fc4bb81190f65b1ab5f096909e055d8bf6bb93b807249e692",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.module.ts": {
-        "version": "25e617fac5fd921970d56da9727e907096e5d048a4fdb4fc71e8b5f2cf7044d0",
+        "version": "9941a803c119947af73b485e0886cfb4874c5052874962dc833dde2fa0f9c218",
         "signature": "622f5703fb298ffab0ec97803bb18f89a7c363d1d8cd8b11ef37cf122819523c",
         "affectsGlobalScope": false
       },
       "../src/bootstrap.service.ts": {
-        "version": "4aa05c3f0f2681168cd821889951dad3f12015331ce9cf5aee2fa9c04f2e9b8d",
+        "version": "354dbf964a725c58703d6d50244527dc3007afdb697bf1be5db9d87b33ecf025",
         "signature": "9d2b39bab034173b9627adc572c1bfa0c3059268e7b0156f5cbbb8d086236a8b",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "d5e11d0a054c9c7856d00313b8118869f4f4ef7405fb3baa55e5efe34ec9a6b7",
+        "version": "1aa414dbbd598100fdaafd339517d742189e62cce9263972aea4cfc59799d792",
         "signature": "22066569de7d8de9b5d783cf47c83e47fea5b20a7a1502f1d1ebc423e88477e9",
         "affectsGlobalScope": false
       },
@@ -4717,7 +4907,7 @@
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "f577525a79deeb31f07d9523e3cd5acd21428df9f09fd83ab4738a5365253d16",
+        "version": "aa14d2afa691270878868e88820d128098965c1c5b735769cccda0c949d80331",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -4832,8 +5022,23 @@
         "affectsGlobalScope": false
       },
       "../src/adapters/redis-io.adapter.ts": {
-        "version": "3c4610db87c1ee8c08716c931ca0714ee61772c2c51824def6d9e2b49922927e",
+        "version": "097373920c1b813adc3ef59b080b0f3d7f685b203d59db1212d056dc1177591a",
         "signature": "533323cd94e1572846e857defd72ed03de058fd0baaab06cf17736f7a954f6c0",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/orange-money-sn-cash-in-api-manager/orange-money-sn-cash-in-api-manager.service.ts": {
+        "version": "0c14f1db4ebcd35665ca2e052ff69ea5a3641b40d2f36affd291dcbb67fd43b3",
+        "signature": "e49ea4e077e6e1a4297a8e6318ebf6eb75a1077786770947235afe9353fcd0a9",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/orange-money-sn-cash-out-api-manager/orange-money-sn-cash-out-api-manager.service.ts": {
+        "version": "10214b6596f9aa7268f44e5d1dfe5417a3f1f5fee4f4b127c0262b3135e95617",
+        "signature": "b683f19c16f076f51da09f1968e6c4b300ebb3b05551e37f0b01bf65f599a61e",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
+        "version": "278e8633b5f91344085318dadf1b8f26bafd263837b313ca7ac0373b4827a486",
+        "signature": "30b8bf547bd04c436f0051dc5b85d4634c0f7ab25909155600e8380ac5d728e4",
         "affectsGlobalScope": false
       },
       "../src/exceptions/httpexceptionhandler.ts": {
@@ -4867,97 +5072,97 @@
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtoactions.ts": {
-        "version": "fca7f95feb83faac7a34f9c41e46620c4dc20bb304689f0e29b0d8b295e2a2ef",
+        "version": "33e60e76565131fef1185d2e2dd691a0554da7249969c2f9689a008ea9b909b1",
         "signature": "8a8d0c3ab34e83ce72a5a49b56c2461c84bdb36e005523b3caa15a929d4ff9c6",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtoactionsprofils.ts": {
-        "version": "e2983abc473502def4311c79e0de3072f9f13c4f48fe76a08e5f4c1b6ad1b535",
+        "version": "94a453970c0b1249099ba98815e225a33a80ecbf603594d1f52357820488ee52",
         "signature": "92b0a03ed8fac6896ebc1ae0985596b346e40c132ee01a80402614881fde0dd2",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtocategoriesservices.ts": {
-        "version": "21cac6c2b47b70bc0ff3a91f37ca1eef7b87e100dc61500877a846066e9b58cc",
+        "version": "500664c7321af3363eb841982b2029ab5043ca4ec06b63b4a4176c32cd7b3ee5",
         "signature": "3f3f96c1ec976ae3c5e5b797ecf56a97abe9fcbee022b57c0bd4968a42430fa2",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtocommission.ts": {
-        "version": "99e9f63d62272d77e0ad4bc77109dcf26179bfedfc06a7d6f9dfb5caf44e9a72",
+        "version": "7881b8d485d9fcd793e92ccc4051f5d6f8fcad3d7c80e0b26234911ca2a6701e",
         "signature": "ec529413c7c31fcdbb3a5deafdd900f3026064f57ef7b4e6085f045605f69841",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtocountry.ts": {
-        "version": "02bb6447dc300a4fcf48f042d2a42d532b508911e8aaacb10201f4c481088897",
+        "version": "276111f1366a69b8d82e989cb97fc8ee6bf8c76a7972bb69ef64727d7a25175c",
         "signature": "e5fffdbda85b3f2b68b6e2c17e2b0ec5db95582b0453f91397f2c9f540e5650f",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtomodules.ts": {
-        "version": "fe5a619f44076304a88e3eb31b6a8515150abbef9779b7dcbad09ae3a732b649",
+        "version": "0076b7d60a2dd10ab8ae2fbfc40b57d634e7cbe1ac7a5b5f4abc68db9ed84760",
         "signature": "57858b0cef1a91f16327484a0e5dde6785bb2e8b81aecde4c234d2901e431626",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtooperators.ts": {
-        "version": "1d683dfe32fccd940e033035bcd102870e405968015f8009375ee9d8fffcc42e",
+        "version": "37d8effa0f532b24744edb350233f703f4bf888d3b09344fdc484ce0567c33d4",
         "signature": "2d82d85dc317ec9ccee4ef5e57e8e361ce717c3c55d883e194fa323d69ec9d64",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtopartenercomptes.ts": {
-        "version": "2d76571319d84552e96812ffde913977fb9d4093cc04bac7de60861d77033830",
+        "version": "2bf1edf5c8ec48ee32cce601ebc270273bd646ee4ffff83f5ef5f29fbc8f546b",
         "signature": "e5369e7251487fd8007934d6750037dbc6814119b7a72e80d1b138e64619661e",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtopartenersettings.ts": {
-        "version": "70afc1f0707e665de905aee39b09b38f0489cc5d97ca74dd321fbe1adf0ea1b8",
+        "version": "52800f0cc49ed2de2c53d6f8bbdae595414346ca98e37cd9c9d1a7671f2be4fd",
         "signature": "da92f29494c319fdefe1f6bef326ec9d67d298f498aa854dfb822da3c74e9005",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtoparteners.ts": {
-        "version": "7d3701397474ed29991cf2e85590023c9f9d19904eb0c92d2a2218b18c0663a7",
+        "version": "3e80193f2ff40f7c337834a462971fee8c0061ea7855fd06b22e14f93cfeff10",
         "signature": "f04417798f8dd30bba6a5d158c2f6be54976fdbd00bc9507307791001bcef856",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtophones.ts": {
-        "version": "8f0d0263997c8548c1915db6c06486bc3a9f38e545f4e0fcfef4204cfa5e49fa",
+        "version": "f13136d8e31b436a8d40fcb7bd61a86988f1c2579707044ed75ff584551628f9",
         "signature": "c30c613279b044c070bf505835314b1127468657c34093b41f5b8d311406b5ec",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtoplateforme.ts": {
-        "version": "53a6a646d8716fdfc3fbcf551ca57547e7932c476fa6f7fc4f6fbea567b88d98",
+        "version": "fc4af67007da0a91b190d868f3ad4ac4a9df61398e1d3c9e99140e1644668db3",
         "signature": "3da57731970e64fcf511a1a0ac2917b6c6a95fc003c26f2f23ff5c67b3eccbdb",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtoprofils.ts": {
-        "version": "37de0d7b7c7a16dea8f5ef1b0c6406221cc4f556b9f3f55e211e29c87414df61",
+        "version": "dafa4c3291919b27492310159e42f9804276dbbc6db6a161adefbcb7986cb864",
         "signature": "55228ef6d71bf72d1a75ee20e510c071ca3a3527e59b85137a7e66ab82e0cfd2",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtoservices.ts": {
-        "version": "960fc2188b159cf80506d3b857b6a6b7593340865679f958079eb903be3f71de",
+        "version": "d84d8ab9746331467ff544aa0544f040c9c8138afb984b19daff4dfccf4d45f7",
         "signature": "74294b34aa56bc5b1a3c598ac6dccb84bd75469a23b02d1f21dadf44b910c02a",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtosousservices.ts": {
-        "version": "cbdab22569082aed23272ff007778271fcaf72c6508075a2571d8e46409eef56",
+        "version": "58d3da78ad8db82e0304c0b052ffba427dd3f78846e417edae07477dca281b22",
         "signature": "0d98e89218b7e0eaff8d93cab6c1e748686c8e9381de728493b020a08b95375d",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtosousservicesparteners.ts": {
-        "version": "8cf0be7dac3d63919fe9ae01897cae614141acf28e04cde258b368fc229450e7",
+        "version": "985b084166fcf7d2a00e800271458c3d492aff89946ea870ab5409cc6620ea20",
         "signature": "56f60d75432c5830572cd330f29b0e1e990ce54a792b5a92f70b3853d5daa534",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtosousservicesphones.ts": {
-        "version": "4ff89a3f1a99e44db6c3bac40a61143360d334b906f9e0d46d807f158ed09930",
+        "version": "a48a27ba1f8656d37c39c66b57ba023f025ced383006495cdd13a11a73d42885",
         "signature": "453f3481df6b4f4dc793828de1dca814579f6051dd6bb77eae088ada2a081e1c",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtotypeservices.ts": {
-        "version": "77237355beb3499ae5772cc626a05790673f33fcbbdaaab8e5f00026e09a975e",
+        "version": "4762b97c9d837a854110239a149fab6579d00af8bd0ffc069842badfa788a802",
         "signature": "297a2833ad21ebe8365da0ff45011cbefa52e099632d30168b008e2cc3525fb1",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtousers.ts": {
-        "version": "37bcd3da37c7d3f801966f9427837b13230a03329225004fe44ca6e61a45225b",
+        "version": "d39212a97c3f01aabcf7f4f199ccc4f895cc48a2fa1917b849d97557edf0c463",
         "signature": "aba221522694584037e737756acbfd4bef53659069cbf1cd9a4cd9ef01337ebf",
         "affectsGlobalScope": false
       },
@@ -5507,8 +5712,8 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socket-io.adapter.ts": {
-        "version": "eea5e6548d23e313b17fd13363c67cfface845c5b5ea6e81faf994dd8147d8e0",
-        "signature": "232e95f3e8cb2f19d287eee5e03ada78ce5cb9b956b6fc5e04662335f6d7e2ba",
+        "version": "1201a884b7fc63eed3053462443d2bff31fada28b1040c4cf9146bc5c83f675c",
+        "signature": "a52320f73868625a41c94e39993c101b85dd957993928bbd1856d97ddf7f896d",
         "affectsGlobalScope": false
       },
       "../node_modules/@babel/types/lib/index.d.ts": {
@@ -5539,16 +5744,6 @@
       "../node_modules/@types/babel__core/index.d.ts": {
         "version": "6f1d39d26959517da3bd105c552eded4c34702705c64d75b03f54d864b6e41c2",
         "signature": "6f1d39d26959517da3bd105c552eded4c34702705c64d75b03f54d864b6e41c2",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/connect/index.d.ts": {
-        "version": "81c14b89fa607b86dd726e2e3e91360cf8155ce97468404324d404a5bd65b2eb",
-        "signature": "81c14b89fa607b86dd726e2e3e91360cf8155ce97468404324d404a5bd65b2eb",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/body-parser/index.d.ts": {
-        "version": "ebddbd167c2fabd0151f50e5df94ca6d845149c47521280d8867afe3429dd078",
-        "signature": "ebddbd167c2fabd0151f50e5df94ca6d845149c47521280d8867afe3429dd078",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/cookiejar/index.d.ts": {
@@ -5584,36 +5779,6 @@
       "../node_modules/@types/eslint-scope/index.d.ts": {
         "version": "274bda283ef15f4205603ca9967313fc013aa77ae89f2cbeab5fbd51439e96ed",
         "signature": "274bda283ef15f4205603ca9967313fc013aa77ae89f2cbeab5fbd51439e96ed",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/range-parser/index.d.ts": {
-        "version": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
-        "signature": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/qs/index.d.ts": {
-        "version": "98437d5a640b67c41534f0de2dcb64c75433dcdff54ff8f8432e613663619a2e",
-        "signature": "98437d5a640b67c41534f0de2dcb64c75433dcdff54ff8f8432e613663619a2e",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/express-serve-static-core/index.d.ts": {
-        "version": "e41a1ce538d71d5a3389b7fc2e39c15a4972f0d4cb14bf2fe8cda8c361150028",
-        "signature": "e41a1ce538d71d5a3389b7fc2e39c15a4972f0d4cb14bf2fe8cda8c361150028",
-        "affectsGlobalScope": true
-      },
-      "../node_modules/@types/mime/index.d.ts": {
-        "version": "84e3bbd6f80983d468260fdbfeeb431cc81f7ea98d284d836e4d168e36875e86",
-        "signature": "84e3bbd6f80983d468260fdbfeeb431cc81f7ea98d284d836e4d168e36875e86",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/serve-static/index.d.ts": {
-        "version": "3b02517f9be71f255eadab9892406055d069167891f1e1ea16c96c4ff1ddda01",
-        "signature": "3b02517f9be71f255eadab9892406055d069167891f1e1ea16c96c4ff1ddda01",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/express/index.d.ts": {
-        "version": "3b05c396564e51753e921e1cc4aae1cf7cd9be53c891cf2e81fa29f11c0bd373",
-        "signature": "3b05c396564e51753e921e1cc4aae1cf7cd9be53c891cf2e81fa29f11c0bd373",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/graceful-fs/index.d.ts": {
@@ -6580,6 +6745,29 @@
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/index.d.ts"
       ],
+      "../node_modules/@nestjs/schedule/dist/decorators/index.d.ts": [
+        "../node_modules/@nestjs/schedule/dist/decorators/cron.decorator.d.ts",
+        "../node_modules/@nestjs/schedule/dist/decorators/interval.decorator.d.ts",
+        "../node_modules/@nestjs/schedule/dist/decorators/timeout.decorator.d.ts"
+      ],
+      "../node_modules/@nestjs/schedule/dist/enums/index.d.ts": [
+        "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts"
+      ],
+      "../node_modules/@nestjs/schedule/dist/index.d.ts": [
+        "../node_modules/@nestjs/schedule/dist/decorators/index.d.ts",
+        "../node_modules/@nestjs/schedule/dist/enums/index.d.ts",
+        "../node_modules/@nestjs/schedule/dist/schedule.module.d.ts",
+        "../node_modules/@nestjs/schedule/dist/scheduler.registry.d.ts"
+      ],
+      "../node_modules/@nestjs/schedule/dist/schedule.module.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts"
+      ],
+      "../node_modules/@nestjs/schedule/dist/scheduler.registry.d.ts": [
+        "../node_modules/@types/cron/index.d.ts"
+      ],
+      "../node_modules/@nestjs/schedule/index.d.ts": [
+        "../node_modules/@nestjs/schedule/dist/index.d.ts"
+      ],
       "../node_modules/@nestjs/swagger/dist/decorators/api-body.decorator.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/swagger/dist/interfaces/open-api-spec.interface.d.ts",
@@ -6810,6 +6998,11 @@
       "../node_modules/@types/cors/index.d.ts": [
         "../node_modules/@types/node/http.d.ts"
       ],
+      "../node_modules/@types/cron/index.d.ts": [
+        "../node_modules/@types/luxon/index.d.ts",
+        "../node_modules/@types/node/child_process.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
       "../node_modules/@types/eslint-scope/index.d.ts": [
         "../node_modules/@types/eslint/index.d.ts",
         "../node_modules/@types/estree/index.d.ts"
@@ -6849,6 +7042,39 @@
       "../node_modules/@types/jest/index.d.ts": [
         "../node_modules/jest-diff/build/index.d.ts",
         "../node_modules/pretty-format/build/index.d.ts"
+      ],
+      "../node_modules/@types/luxon/index.d.ts": [
+        "../node_modules/@types/luxon/src/luxon.d.ts"
+      ],
+      "../node_modules/@types/luxon/src/datetime.d.ts": [
+        "../node_modules/@types/luxon/index.d.ts",
+        "../node_modules/@types/luxon/src/duration.d.ts",
+        "../node_modules/@types/luxon/src/interval.d.ts",
+        "../node_modules/@types/luxon/src/zone.d.ts"
+      ],
+      "../node_modules/@types/luxon/src/duration.d.ts": [
+        "../node_modules/@types/luxon/src/datetime.d.ts",
+        "../node_modules/@types/luxon/src/misc.d.ts"
+      ],
+      "../node_modules/@types/luxon/src/info.d.ts": [
+        "../node_modules/@types/luxon/src/misc.d.ts",
+        "../node_modules/@types/luxon/src/zone.d.ts"
+      ],
+      "../node_modules/@types/luxon/src/interval.d.ts": [
+        "../node_modules/@types/luxon/src/datetime.d.ts",
+        "../node_modules/@types/luxon/src/duration.d.ts"
+      ],
+      "../node_modules/@types/luxon/src/luxon.d.ts": [
+        "../node_modules/@types/luxon/src/datetime.d.ts",
+        "../node_modules/@types/luxon/src/duration.d.ts",
+        "../node_modules/@types/luxon/src/info.d.ts",
+        "../node_modules/@types/luxon/src/interval.d.ts",
+        "../node_modules/@types/luxon/src/misc.d.ts",
+        "../node_modules/@types/luxon/src/settings.d.ts",
+        "../node_modules/@types/luxon/src/zone.d.ts"
+      ],
+      "../node_modules/@types/luxon/src/settings.d.ts": [
+        "../node_modules/@types/luxon/src/zone.d.ts"
       ],
       "../node_modules/@types/node/assert.d.ts": [
         "../node_modules/@types/node/assert.d.ts"
@@ -9673,6 +9899,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/config/index.d.ts",
         "../node_modules/@nestjs/core/index.d.ts",
+        "../node_modules/@nestjs/schedule/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../src/app.controller.ts",
         "../src/app.service.ts",
@@ -9693,22 +9920,40 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts"
       ],
+      "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/express/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/controllers/api-service/api-service.service.ts",
+        "../src/controllers/api-service/dto/operationindto.ts",
+        "../src/controllers/api-service/dto/operationoutdto.ts",
+        "../src/controllers/controller.ts",
+        "../src/helper.service.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/phones.entity.ts",
+        "../src/models/entities/sousservices.entity.ts",
+        "../src/models/entities/transactions.entity.ts"
+      ],
       "../src/controllers/api-service/api-service.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/swagger/index.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/api-service.service.ts",
         "../src/controllers/api-service/dto/operationbadparamsdto.ts",
         "../src/controllers/api-service/dto/operationdictionarydto.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/controllers/api-service/dto/operationoutdto.ts",
         "../src/controllers/controller.ts",
+        "../src/helper.service.ts",
         "../src/models/decorateurs/responsedecorateur.ts",
         "../src/models/decorateurs/responsedetailsdecorateur.ts",
         "../src/models/decorateurs/responseforbidendecorateur.ts",
         "../src/models/decorateurs/responsehttppaginationdecorateur.ts",
         "../src/models/dto/dtobalance.ts",
         "../src/models/dto/dtotransactions.ts",
+        "../src/models/entities/enum.entity.ts",
         "../src/models/entities/partenercomptes.entity.ts",
+        "../src/models/entities/phones.entity.ts",
         "../src/models/response/paginateddto.ts",
         "../src/models/response/responseforbidden.ts",
         "../src/models/response/responsehttp.ts",
@@ -9718,20 +9963,21 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/controllers/api-service/api-service.controller.ts",
         "../src/controllers/api-service/api-service.service.ts",
+        "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts",
+        "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts",
+        "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts",
+        "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts",
         "../src/helper.service.ts"
       ],
       "../src/controllers/api-service/api-service.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/helper.service.ts",
-        "../src/models/dto/dtooperationparteners.ts",
-        "../src/models/dto/dtotransactions.ts",
         "../src/models/entities/commission.entity.ts",
         "../src/models/entities/enum.entity.ts",
-        "../src/models/entities/operationparteners.entity.ts",
         "../src/models/entities/operators.entity.ts",
         "../src/models/entities/partenercomptes.entity.ts",
         "../src/models/entities/parteners.entity.ts",
@@ -9739,10 +9985,17 @@
         "../src/models/entities/services.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/sousservicesparteners.entity.ts",
-        "../src/models/entities/transactions.entity.ts",
-        "../src/models/entities/ussdexecutionmessages.entity.ts",
-        "../src/models/mobilesocket/socketmodel.ts",
-        "../src/sockets/sockets.gateway.ts"
+        "../src/models/entities/transactions.entity.ts"
+      ],
+      "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/schedule/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/helper.service.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/transactions.entity.ts"
       ],
       "../src/controllers/api-service/dto/operationbadparamsdto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts"
@@ -9756,8 +10009,55 @@
       ],
       "../src/controllers/api-service/dto/operationoutdto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
-        "../node_modules/class-validator/types/index.d.ts",
         "../src/models/entities/enum.entity.ts"
+      ],
+      "../src/controllers/api-service/orange-money-sn-cash-in-api-manager/orange-money-sn-cash-in-api-manager.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/sdk/orange/providerorangemoneyapi.ts"
+      ],
+      "../src/controllers/api-service/orange-money-sn-cash-out-api-manager/orange-money-sn-cash-out-api-manager.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/sdk/orange/providerorangemoneyapi.ts"
+      ],
+      "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/schedule/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/helper.service.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/transactions.entity.ts"
+      ],
+      "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/phones.entity.ts",
+        "../src/models/entities/transactions.entity.ts",
+        "../src/models/entities/ussdexecutionmessages.entity.ts",
+        "../src/models/mobilesocket/socketmodel.ts",
+        "../src/sockets/sockets.gateway.ts"
+      ],
+      "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/sdk/wave/config.ts",
+        "../src/sdk/wave/waveapiprovider.ts"
+      ],
+      "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/sdk/orange/providerorangemoneyapi.ts",
+        "../src/sdk/wave/config.ts",
+        "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/controllers/controller.ts": [
         "../node_modules/class-validator/types/index.d.ts"
@@ -9771,11 +10071,20 @@
       "../src/helper.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/api-service/api-service.service.ts",
+        "../src/models/dto/dtooperationparteners.ts",
         "../src/models/dto/dtooperationphones.ts",
         "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/operationparteners.entity.ts",
         "../src/models/entities/operationphones.entity.ts",
-        "../src/models/entities/phones.entity.ts"
+        "../src/models/entities/operators.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/models/entities/phones.entity.ts",
+        "../src/models/entities/sousservices.entity.ts",
+        "../src/models/entities/transactions.entity.ts"
       ],
       "../src/main.ts": [
         "../node_modules/@nestjs/core/index.d.ts",
@@ -10055,7 +10364,6 @@
       ],
       "../src/models/entities/ussdexecutionmessages.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
-        "../src/models/entities/enum.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
@@ -10076,6 +10384,23 @@
       ],
       "../src/models/response/responsehttpdefaultdata.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts"
+      ],
+      "../src/sdk/orange/providerorangemoneyapi.ts": [
+        "../node_modules/@types/node/crypto.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/sdk/orange/config.ts"
+      ],
+      "../src/sdk/wave/waveapiprovider.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/moment/ts3.1-typings/moment.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/sdk/wave/config.ts"
       ],
       "../src/services/helper.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -10980,6 +11305,29 @@
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/index.d.ts"
       ],
+      "../node_modules/@nestjs/schedule/dist/decorators/index.d.ts": [
+        "../node_modules/@nestjs/schedule/dist/decorators/cron.decorator.d.ts",
+        "../node_modules/@nestjs/schedule/dist/decorators/interval.decorator.d.ts",
+        "../node_modules/@nestjs/schedule/dist/decorators/timeout.decorator.d.ts"
+      ],
+      "../node_modules/@nestjs/schedule/dist/enums/index.d.ts": [
+        "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts"
+      ],
+      "../node_modules/@nestjs/schedule/dist/index.d.ts": [
+        "../node_modules/@nestjs/schedule/dist/decorators/index.d.ts",
+        "../node_modules/@nestjs/schedule/dist/enums/index.d.ts",
+        "../node_modules/@nestjs/schedule/dist/schedule.module.d.ts",
+        "../node_modules/@nestjs/schedule/dist/scheduler.registry.d.ts"
+      ],
+      "../node_modules/@nestjs/schedule/dist/schedule.module.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts"
+      ],
+      "../node_modules/@nestjs/schedule/dist/scheduler.registry.d.ts": [
+        "../node_modules/@types/cron/index.d.ts"
+      ],
+      "../node_modules/@nestjs/schedule/index.d.ts": [
+        "../node_modules/@nestjs/schedule/dist/index.d.ts"
+      ],
       "../node_modules/@nestjs/swagger/dist/decorators/api-body.decorator.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/swagger/dist/interfaces/open-api-spec.interface.d.ts",
@@ -11210,6 +11558,11 @@
       "../node_modules/@types/cors/index.d.ts": [
         "../node_modules/@types/node/http.d.ts"
       ],
+      "../node_modules/@types/cron/index.d.ts": [
+        "../node_modules/@types/luxon/index.d.ts",
+        "../node_modules/@types/node/child_process.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
       "../node_modules/@types/eslint-scope/index.d.ts": [
         "../node_modules/@types/eslint/index.d.ts",
         "../node_modules/@types/estree/index.d.ts"
@@ -11249,6 +11602,39 @@
       "../node_modules/@types/jest/index.d.ts": [
         "../node_modules/jest-diff/build/index.d.ts",
         "../node_modules/pretty-format/build/index.d.ts"
+      ],
+      "../node_modules/@types/luxon/index.d.ts": [
+        "../node_modules/@types/luxon/src/luxon.d.ts"
+      ],
+      "../node_modules/@types/luxon/src/datetime.d.ts": [
+        "../node_modules/@types/luxon/index.d.ts",
+        "../node_modules/@types/luxon/src/duration.d.ts",
+        "../node_modules/@types/luxon/src/interval.d.ts",
+        "../node_modules/@types/luxon/src/zone.d.ts"
+      ],
+      "../node_modules/@types/luxon/src/duration.d.ts": [
+        "../node_modules/@types/luxon/src/datetime.d.ts",
+        "../node_modules/@types/luxon/src/misc.d.ts"
+      ],
+      "../node_modules/@types/luxon/src/info.d.ts": [
+        "../node_modules/@types/luxon/src/misc.d.ts",
+        "../node_modules/@types/luxon/src/zone.d.ts"
+      ],
+      "../node_modules/@types/luxon/src/interval.d.ts": [
+        "../node_modules/@types/luxon/src/datetime.d.ts",
+        "../node_modules/@types/luxon/src/duration.d.ts"
+      ],
+      "../node_modules/@types/luxon/src/luxon.d.ts": [
+        "../node_modules/@types/luxon/src/datetime.d.ts",
+        "../node_modules/@types/luxon/src/duration.d.ts",
+        "../node_modules/@types/luxon/src/info.d.ts",
+        "../node_modules/@types/luxon/src/interval.d.ts",
+        "../node_modules/@types/luxon/src/misc.d.ts",
+        "../node_modules/@types/luxon/src/settings.d.ts",
+        "../node_modules/@types/luxon/src/zone.d.ts"
+      ],
+      "../node_modules/@types/luxon/src/settings.d.ts": [
+        "../node_modules/@types/luxon/src/zone.d.ts"
       ],
       "../node_modules/@types/node/assert.d.ts": [
         "../node_modules/@types/node/assert.d.ts"
@@ -14079,28 +14465,63 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/typeorm/index.d.ts"
       ],
+      "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/express/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/controllers/api-service/api-service.service.ts",
+        "../src/controllers/api-service/dto/operationindto.ts",
+        "../src/controllers/api-service/dto/operationoutdto.ts",
+        "../src/helper.service.ts",
+        "../src/models/entities/phones.entity.ts",
+        "../src/models/entities/transactions.entity.ts"
+      ],
       "../src/controllers/api-service/api-service.controller.ts": [
         "../src/controllers/api-service/api-service.service.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
-        "../src/controllers/controller.ts"
+        "../src/controllers/controller.ts",
+        "../src/helper.service.ts"
       ],
       "../src/controllers/api-service/api-service.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/helper.service.ts",
-        "../src/models/dto/dtotransactions.ts",
         "../src/models/entities/commission.entity.ts",
-        "../src/models/entities/enum.entity.ts",
         "../src/models/entities/operators.entity.ts",
         "../src/models/entities/partenercomptes.entity.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/services.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
-        "../src/models/entities/sousservicesparteners.entity.ts",
+        "../src/models/entities/sousservicesparteners.entity.ts"
+      ],
+      "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": [
+        "../node_modules/@nestjs/schedule/index.d.ts",
+        "../src/helper.service.ts"
+      ],
+      "../src/controllers/api-service/orange-money-sn-cash-in-api-manager/orange-money-sn-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/orange-money-sn-cash-out-api-manager/orange-money-sn-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": [
+        "../node_modules/@nestjs/schedule/index.d.ts",
+        "../src/helper.service.ts"
+      ],
+      "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/models/entities/phones.entity.ts",
         "../src/models/entities/transactions.entity.ts",
         "../src/models/mobilesocket/socketmodel.ts"
+      ],
+      "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/exceptions/httpexceptionhandler.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
@@ -14109,9 +14530,14 @@
         "../node_modules/@nestjs/common/index.d.ts"
       ],
       "../src/helper.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/api-service/api-service.service.ts",
         "../src/models/entities/enum.entity.ts",
-        "../src/models/entities/phones.entity.ts"
+        "../src/models/entities/phones.entity.ts",
+        "../src/models/entities/sousservices.entity.ts",
+        "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/custom/socketmodels.ts": [
         "../src/models/entities/sousservices.entity.ts"
@@ -14300,6 +14726,13 @@
       "../src/models/interfaces/httpcrudinterface.ts": [
         "../src/models/response/paginateddto.ts"
       ],
+      "../src/sdk/orange/providerorangemoneyapi.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/sdk/wave/waveapiprovider.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts"
+      ],
       "../src/services/helper.service.ts": [
         "../src/models/response/paginateddto.ts"
       ],
@@ -14329,7 +14762,6 @@
         "../src/helper.service.ts",
         "../src/models/custom/socketmodels.ts",
         "../src/models/entities/enum.entity.ts",
-        "../src/models/entities/transactions.entity.ts",
         "../src/models/mobilesocket/socketmodel.ts"
       ]
     },

@@ -61,5 +61,29 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "apiKey", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsOptional(),
+    class_validator_1.IsString({
+        message: 'Le sender doit être un un string',
+    }),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "sender", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsOptional(),
+    class_validator_1.IsUrl({}, {
+        message: 'successRedirectUrl doit être un URL',
+    }),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "successRedirectUrl", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsUrl({}, {
+        message: 'errorRedirectUrl doit être un URL',
+    }),
+    class_validator_1.IsOptional(),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "errorRedirectUrl", void 0);
 exports.OperationInDto = OperationInDto;
 //# sourceMappingURL=OperationInDto.js.map
