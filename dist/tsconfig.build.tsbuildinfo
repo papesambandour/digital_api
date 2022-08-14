@@ -4147,7 +4147,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "912d8d252cd074300c96b6940d4f5d853ad7a80593804fd4fee1d09a85df2b73",
+        "version": "2baaae6bb011522b016f410d0e9bedee2655d0f7f2a4b1e8cddac24e59cce2bc",
         "signature": "7306a2fafba86547fb6633af09dab2a9889fda6e751cf1e3577a72265174c68c",
         "affectsGlobalScope": false
       },

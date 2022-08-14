@@ -51,8 +51,14 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             return res.send('');
         }
         if (transaction.statut !== Enum_entity_1.StatusEnum.PROCESSING) {
-            console.log('here 2');
-            return res.redirect(transaction.errorRedirectUrl || process.env.APP_INTERNAL_URL);
+            if (transaction.statut === Enum_entity_1.StatusEnum.SUCCESS) {
+                console.log('here 2');
+                return res.redirect(transaction.successRedirectUrl || process.env.APP_INTERNAL_URL);
+            }
+            else {
+                console.log('here 2');
+                return res.redirect(transaction.errorRedirectUrl || process.env.APP_INTERNAL_URL);
+            }
         }
         console.log('here', transaction.deepLinkUrl);
         const link = transaction.deepLinkUrl;
