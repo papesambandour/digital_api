@@ -4786,18 +4786,8 @@
         "signature": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
         "affectsGlobalScope": false
       },
-      "../src/sdk/orange/config.ts": {
-        "version": "991527ebffe778ba7e5d9e3d91288f9211cc8ad63f1c58b7f2c815c9effdba95",
-        "signature": "4eaf566317ba2c0314c9b5294edabc10b3ff7c8a7eac78e49df93e539f69fc0f",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/orange/providerorangemoneyapi.ts": {
-        "version": "fa689a493aee6f211edfa16ff028db7b1c49c6461d9c2e227806c1b1d490170d",
-        "signature": "aa79894b792afbd62544694ed65abd3e6b67f71586aa8efdea362ad77dcce423",
-        "affectsGlobalScope": false
-      },
       "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "f950b4d07574baff5d1203f52577dc9722e9e16ff781488a48d1c45490e5b1ed",
+        "version": "f8ff560d30bad3fc925157587e4b162f2bdff6f15b836b79933f266c54f81f7c",
         "signature": "6cf3516f90f4c2bc06541a0d1612d084b995ad8a2e23410c11eb37a5094c3962",
         "affectsGlobalScope": false
       },
@@ -5024,6 +5014,16 @@
       "../src/adapters/redis-io.adapter.ts": {
         "version": "097373920c1b813adc3ef59b080b0f3d7f685b203d59db1212d056dc1177591a",
         "signature": "533323cd94e1572846e857defd72ed03de058fd0baaab06cf17736f7a954f6c0",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/orange/config.ts": {
+        "version": "991527ebffe778ba7e5d9e3d91288f9211cc8ad63f1c58b7f2c815c9effdba95",
+        "signature": "4eaf566317ba2c0314c9b5294edabc10b3ff7c8a7eac78e49df93e539f69fc0f",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/orange/providerorangemoneyapi.ts": {
+        "version": "fa689a493aee6f211edfa16ff028db7b1c49c6461d9c2e227806c1b1d490170d",
+        "signature": "aa79894b792afbd62544694ed65abd3e6b67f71586aa8efdea362ad77dcce423",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/orange-money-sn-cash-in-api-manager/orange-money-sn-cash-in-api-manager.service.ts": {
@@ -10059,7 +10059,6 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/controller.ts",
-        "../src/sdk/orange/providerorangemoneyapi.ts",
         "../src/sdk/wave/config.ts",
         "../src/sdk/wave/waveapiprovider.ts"
       ],

@@ -56,7 +56,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
         if (checkout === null || checkout === void 0 ? void 0 : checkout.success) {
             transaction.message = JSON.stringify(checkout);
             transaction.needCheckTransaction = 1;
-            transaction.deepLinkUrl = `wave://capture/${checkout.deep_link_url}`;
+            transaction.deepLinkUrl = `wave://capture/${checkout.wave_launch_url}`;
             transaction.successRedirectUrl = params.dto.successRedirectUrl;
             transaction.errorRedirectUrl = params.dto.errorRedirectUrl;
             await transaction.save();
