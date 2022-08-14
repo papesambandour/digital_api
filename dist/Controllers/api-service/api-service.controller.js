@@ -59,10 +59,10 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         });
         console.log('TRID', response);
         await this.helper.setIsCallbackReadyValue((_a = response.transaction) === null || _a === void 0 ? void 0 : _a.id);
+        this.helper.updateApiBalance(apiManager, response.usedPhoneId).then();
         if (response.status === Enum_entity_1.StatusEnum.FAILLED && response.refundOnFailed) {
             await this.helper.operationPartnerCancelTransaction(response.transaction);
         }
-        this.helper.updateApiBalance(apiManager, response.usedPhoneId).then();
         return this.response(response.codeHttp, this.apiServiceService.responseOperation(response, operationInDto), response.partnerMessage, response.codeHttp !== Controller_1.CODE_HTTP.OK_OPERATION);
     }
     async transaction(id) {

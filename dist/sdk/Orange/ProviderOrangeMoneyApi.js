@@ -4,7 +4,7 @@ const rp = require("request-promise");
 const crypto = require("crypto");
 const config_1 = require("./config");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
-const util_1 = require("util");
+const Utils = require("util");
 const Controller_1 = require("../../Controllers/Controller");
 class ProviderOrangeMoneyApi {
     constructor(args) {
@@ -501,7 +501,7 @@ class ProviderOrangeMoneyApi {
                 params.transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
                 params.transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
                 params.transaction.needCheckTransaction = 0;
-                params.transaction.checkTransactionResponse = util_1.default.inspect(response.apiResponse);
+                params.transaction.checkTransactionResponse = Utils.inspect(response.apiResponse);
                 await params.transaction.save();
                 await apiManager.helper.setIsCallbackReadyValue(params.transaction.id);
                 apiManager.helper
@@ -514,17 +514,20 @@ class ProviderOrangeMoneyApi {
             }
             else if (response.transaction_check_status === 'pending') {
                 console.log('transaction still pending');
-                params.transaction.checkTransactionResponse = util_1.default.inspect(response.apiResponse);
+                params.transaction.checkTransactionResponse = Utils.inspect(response.apiResponse);
                 await params.transaction.save();
             }
             else {
                 console.log('transaction failed');
-                params.transaction.checkTransactionResponse = util_1.default.inspect(response.apiResponse);
+                params.transaction.checkTransactionResponse = Utils.inspect(response.apiResponse);
                 params.transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
                 params.transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
                 params.transaction.needCheckTransaction = 0;
                 await params.transaction.save();
                 await apiManager.helper.setIsCallbackReadyValue(params.transaction.id);
+                apiManager.helper
+                    .updateApiBalance(apiManager, params.transaction.phonesId)
+                    .then();
                 await apiManager.helper.operationPartnerCancelTransaction(params.transaction);
                 return Object.assign({
                     status: 'FAILLED',
@@ -533,7 +536,7 @@ class ProviderOrangeMoneyApi {
             }
         }
         else {
-            params.transaction.checkTransactionResponse = util_1.default.inspect(response.apiResponse);
+            params.transaction.checkTransactionResponse = Utils.inspect(response.apiResponse);
             await params.transaction.save();
             return Object.assign({
                 status: 'FAILLED',

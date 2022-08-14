@@ -191,6 +191,10 @@ class WaveApiProvider {
                 params.transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
                 params.transaction.needCheckTransaction = 0;
                 await params.transaction.save();
+                await apiManagerService.helper.setIsCallbackReadyValue(params.transaction.id);
+                apiManagerService.helper
+                    .updateApiBalance(apiManagerService, params.transaction.phonesId)
+                    .then();
                 await apiManagerService.helper.operationPartnerCancelTransaction(params.transaction);
                 return Object.assign({
                     status: 'FAILLED',

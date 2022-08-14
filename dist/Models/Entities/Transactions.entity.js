@@ -383,6 +383,18 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "checkTransactionResponse", void 0);
 __decorate([
+    typeorm_1.Column('text', { name: 'deep_link_url', nullable: true }),
+    __metadata("design:type", String)
+], Transactions.prototype, "deepLinkUrl", void 0);
+__decorate([
+    typeorm_1.Column('text', { name: 'success_redirect_url', nullable: true }),
+    __metadata("design:type", String)
+], Transactions.prototype, "successRedirectUrl", void 0);
+__decorate([
+    typeorm_1.Column('text', { name: 'error_redirect_url', nullable: true }),
+    __metadata("design:type", String)
+], Transactions.prototype, "errorRedirectUrl", void 0);
+__decorate([
     typeorm_1.OneToMany(() => OperationParteners_entity_1.OperationParteners, (operationParteners) => operationParteners.transactions),
     __metadata("design:type", Array)
 ], Transactions.prototype, "operationParteners", void 0);

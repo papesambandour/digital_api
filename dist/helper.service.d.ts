@@ -19,6 +19,7 @@ export declare class HelperService {
     mysqlDate(d: Date): string;
     getApiManagerInterface(codeService: string, apiService: ApiServiceService): Promise<ApiManagerInterface>;
     getTransactionById(transactionId: number): Promise<Transactions>;
+    getTransactionByGeneratedId(transactionId: string): Promise<Transactions>;
     setIsCallbackReadyValue(transactionId: any): Promise<void>;
     sendCallBack(transaction: Transactions): Promise<any>;
     private static addMinuteToDate;
@@ -27,9 +28,11 @@ export declare class HelperService {
     operationPartnerCancelTransaction(transaction: Transactions): Promise<void>;
     updateApiBalance(apiManager: ApiManagerInterface, usedPhoneId: number): Promise<void>;
     base64(str: any): Promise<string>;
-    sendSms(to: string[], message: string, sender: string): Promise<void>;
+    sendSms(tos: string[], message: string, sender: string): Promise<void>;
     getStatusAfterExec(execResult: 'success' | 'timeout' | 'failed', service: SousServices): {
         preStatus: any;
         status: any;
     };
+    checkServiceConfig(): Promise<void>;
+    private disableSousService;
 }

@@ -17,13 +17,16 @@ exports.BootstrapService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
+const helper_service_1 = require("./helper.service");
 let BootstrapService = BootstrapService_1 = class BootstrapService {
-    constructor(connection) {
+    constructor(connection, helper) {
         this.connection = connection;
+        this.helper = helper;
     }
     async init() {
         this.redefineLog();
         console.log('Init app');
+        await this.helper.checkServiceConfig();
         try {
             await this.connection.query(`update phones
        set phone_state = 'UNUSED',
@@ -82,7 +85,8 @@ BootstrapService.logger = new common_1.Logger('INTECH_API_LOGS');
 BootstrapService = BootstrapService_1 = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectConnection()),
-    __metadata("design:paramtypes", [typeorm_2.Connection])
+    __metadata("design:paramtypes", [typeorm_2.Connection,
+        helper_service_1.HelperService])
 ], BootstrapService);
 exports.BootstrapService = BootstrapService;
 //# sourceMappingURL=bootstrap.service.js.map

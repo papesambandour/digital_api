@@ -238,6 +238,7 @@ let ApiServiceService = class ApiServiceService {
             where: {
                 amount: typeorm_1.Equal(operationInDto.amount),
                 phone: typeorm_1.Equal(operationInDto.phone),
+                codeSousService: typeorm_1.Equal(operationInDto.codeService),
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
                 createdAt: typeorm_1.MoreThanOrEqual(dateTransaction),
             },

@@ -64,6 +64,9 @@ export declare class Transactions extends BaseEntity {
     callbackReady: number;
     nextSendCallbackDate: Date;
     checkTransactionResponse: string;
+    deepLinkUrl: string;
+    successRedirectUrl: string;
+    errorRedirectUrl: string;
     operationParteners: OperationParteners[];
     parteners: Parteners;
     partenerComptes: PartenerComptes;

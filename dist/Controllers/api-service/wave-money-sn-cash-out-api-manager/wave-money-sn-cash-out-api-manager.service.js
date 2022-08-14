@@ -47,7 +47,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
         if (checkout) {
             checkout.success = !!(checkout === null || checkout === void 0 ? void 0 : checkout.wave_launch_url);
         }
-        const statues = this.helper.getStatusAfterExec(checkout === null || checkout === void 0 ? void 0 : checkout.success, this.apiService.sousServices);
+        const statues = this.helper.getStatusAfterExec('success', this.apiService.sousServices);
         console.log(checkout, 'sttaus', statues);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
@@ -56,9 +56,13 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
         if (checkout === null || checkout === void 0 ? void 0 : checkout.success) {
             transaction.message = JSON.stringify(checkout);
             transaction.needCheckTransaction = 1;
+            transaction.deepLinkUrl = `wave://capture/${checkout.deep_link_url}`;
+            transaction.successRedirectUrl = params.dto.successRedirectUrl;
+            transaction.errorRedirectUrl = params.dto.errorRedirectUrl;
             await transaction.save();
             console.log('Send OKK');
-            const messageNotification = `Bonjour, cliquez sur le lien suivant pour valider la transaction de ${transaction.amount}. ${checkout.wave_launch_url}\n(Expire dans 15 minutes)\nBy InTech`;
+            const deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
+            const messageNotification = `Bonjour, cliquez sur le lien suivant pour valider la transaction de ${transaction.amount} cfa.\n${deepLink}\n(Expire dans 15 minutes)\nBy InTech`;
             this.helper
                 .sendSms([`+221${params.dto.phone}`], messageNotification, 'Pay WAVE')
                 .then();
@@ -72,7 +76,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
                 data: {
                     message: messageNotification,
                     amount: transaction.amount,
-                    url: checkout.wave_launch_url,
+                    url: deepLink,
                 },
             }, baseResponse);
         }

@@ -35,6 +35,8 @@ let HelperService = HelperService_1 = class HelperService {
     }
     async notifyAdmin(message, typeEvent, data = {}) {
         console.log(`CONTACTA ADMIN TO ${message} for EVEN : ${typeEvent}. Data:`, data);
+        if (process.env.MODE === 'production') {
+        }
     }
     async setSoldeTableOnly(value, tableName, id, field) {
         return this.connection.query(`update ${tableName} set ${field} =  ${field} + ${value} where id=${id}`);
@@ -102,6 +104,14 @@ let HelperService = HelperService_1 = class HelperService {
                 id: typeorm_2.Equal(transactionId),
             },
             relations: ['sousServices'],
+        });
+    }
+    async getTransactionByGeneratedId(transactionId) {
+        return await Transactions_entity_1.Transactions.findOne({
+            where: {
+                transactionId: typeorm_2.Equal(transactionId),
+            },
+            relations: [],
         });
     }
     async setIsCallbackReadyValue(transactionId) {
@@ -301,8 +311,17 @@ let HelperService = HelperService_1 = class HelperService {
         const buff = Buffer.from(str);
         return buff.toString('base64');
     }
-    async sendSms(to, message, sender) {
-        console.log('sending smss to ', to);
+    async sendSms(tos, message, sender) {
+        console.log('sending smss to ', tos);
+        const response = await this.httpService
+            .post('https://gateway.intechsms.sn/api/send-sms', {
+            app_key: process.env.SMS_API_KEY,
+            sender: sender,
+            content: message,
+            msisdn: tos,
+        })
+            .toPromise();
+        console.log(response.data);
     }
     getStatusAfterExec(execResult, service) {
         let preStatus = null;
@@ -401,6 +420,57 @@ let HelperService = HelperService_1 = class HelperService {
             preStatus: preStatus,
             status: status,
         };
+    }
+    async checkServiceConfig() {
+        const correctServiceConfig = require('../service.config.json');
+        const mismatch = {};
+        const columnInfo = this.connection.getMetadata('SousServices').columns;
+        const uniform = (value) => {
+            if (value !== null && value !== undefined) {
+                return String(value).replace('.0000', '').replace('.0000', '');
+            }
+            return null;
+        };
+        for (const serviceConfig of correctServiceConfig) {
+            const dbService = await SousServices_entity_1.SousServices.findOne({
+                where: {
+                    code: typeorm_2.Equal(serviceConfig.code),
+                },
+            });
+            console.log(dbService);
+            for (const key in serviceConfig) {
+                if (serviceConfig.hasOwnProperty(key)) {
+                    const column = columnInfo.find((c) => c.givenDatabaseName === key);
+                    if (uniform(serviceConfig[key]) !==
+                        uniform(dbService[column.propertyName])) {
+                        console.log(column.givenDatabaseName, 'mapped to => ', column.propertyName, serviceConfig[key], dbService[column.propertyName], 'failed');
+                        mismatch[serviceConfig.code] = mismatch[serviceConfig.code] || [];
+                        mismatch[serviceConfig.code].push({
+                            field: key,
+                            dbValue: dbService[key],
+                            fileValue: serviceConfig[key],
+                        });
+                        this.disableSousService(dbService.id, `Le service ${dbService.name} n'est pas bien configuré`, Enum_entity_1.TypeEvenEnum.SERVICE_CONFIG_MISMATCH).then();
+                    }
+                }
+            }
+            if (Object.keys(mismatch).length > 0) {
+                console.log('---- START SERVICE CONFIG MISMATCH -----');
+                console.log(mismatch);
+                console.log('---- END SERVICE CONFIG MISMATCH -----');
+            }
+            else {
+                console.log('ALL SERVICE ARE WELL CONFIGURED');
+            }
+        }
+    }
+    async disableSousService(serviceId, message, type) {
+        await Transactions_entity_1.Transactions.update(serviceId, {
+            state: Enum_entity_1.StateEnum.INACTIVED,
+        });
+        if (message) {
+            this.notifyAdmin(message, type).then();
+        }
     }
 };
 HelperService = HelperService_1 = __decorate([

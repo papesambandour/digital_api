@@ -16,10 +16,13 @@ exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("./app.service");
 const Controller_1 = require("./Controllers/Controller");
+const helper_service_1 = require("./helper.service");
+const Enum_entity_1 = require("./Models/Entities/Enum.entity");
 let AppController = class AppController extends Controller_1.ControllerBase {
-    constructor(appService) {
+    constructor(appService, helper) {
         super();
         this.appService = appService;
+        this.helper = helper;
     }
     async getHello(request) {
         try {
@@ -41,6 +44,22 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             return e.message;
         }
     }
+    async deepLink(transactionId, res) {
+        console.log('in deep link method');
+        const transaction = await this.helper.getTransactionByGeneratedId(transactionId);
+        if (!transaction || !transaction.deepLinkUrl) {
+            return res.send('');
+        }
+        if (transaction.statut !== Enum_entity_1.StatusEnum.PROCESSING) {
+            console.log('here 2');
+            return res.redirect(transaction.errorRedirectUrl || process.env.APP_INTERNAL_URL);
+        }
+        console.log('here', transaction.deepLinkUrl);
+        const link = transaction.deepLinkUrl;
+        return res.render('deep', {
+            link,
+        });
+    }
 };
 __decorate([
     common_1.Post('/callback'),
@@ -55,9 +74,18 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "apkVersion", null);
+__decorate([
+    common_1.Get('deep/:transactionId'),
+    __param(0, common_1.Param('transactionId')),
+    __param(1, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "deepLink", null);
 AppController = __decorate([
     common_1.Controller(),
-    __metadata("design:paramtypes", [app_service_1.AppService])
+    __metadata("design:paramtypes", [app_service_1.AppService,
+        helper_service_1.HelperService])
 ], AppController);
 exports.AppController = AppController;
 //# sourceMappingURL=app.controller.js.map

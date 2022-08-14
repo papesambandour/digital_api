@@ -73,6 +73,7 @@ var TypeEvenEnum;
     TypeEvenEnum["NO_MATCH_SMS"] = "NO_MATCH_SMS";
     TypeEvenEnum["NO_SERVICE_CONFIGURE_TO_PHONE"] = "NO_SERVICE_CONFIGURE_TO_PHONE";
     TypeEvenEnum["NO_TYPE_OPEARTION_MATCH"] = "NO_TYPE_OPEARTION_MATCH";
+    TypeEvenEnum["SERVICE_CONFIG_MISMATCH"] = "SERVICE_CONFIG_MISMATCH";
 })(TypeEvenEnum = exports.TypeEvenEnum || (exports.TypeEvenEnum = {}));
 exports.CONSTANT = {
     TIME_OUT_PHONE_SECOND: () => parseInt(process.env.TIME_OUT_PHONE_SECOND) || 20,

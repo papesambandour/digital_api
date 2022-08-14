@@ -39,6 +39,7 @@
     "@nestjs/websockets": "^7.6.15",
     "@types/cron": "^2.0.0",
     "class-validator": "^0.13.1",
+    "hbs": "^4.2.0",
     "husky": "^4.3.7",
     "moment": "^2.29.4",
     "moneysafe": "^2.2.1",

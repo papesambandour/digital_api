@@ -48,7 +48,6 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
         transaction.preStatut = statues['preStatus'];
         transaction.sousServiceTransactionId = response.reference;
         await transaction.save();
-        await this.helper.setIsCallbackReadyValue(transaction.id);
         if (response.success) {
             transaction.message = JSON.stringify(response.fullResponse);
             transaction.needCheckTransaction = 1;
