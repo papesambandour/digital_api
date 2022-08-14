@@ -4787,7 +4787,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "f8ff560d30bad3fc925157587e4b162f2bdff6f15b836b79933f266c54f81f7c",
+        "version": "d8edfd4f37b354ebe50c965c721fb70bd78f4b2bd1532041acca5c3fa0252db0",
         "signature": "6cf3516f90f4c2bc06541a0d1612d084b995ad8a2e23410c11eb37a5094c3962",
         "affectsGlobalScope": false
       },
@@ -4797,7 +4797,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": {
-        "version": "7a784268942820c06470333af354e85796affe03cc15e1f23eefb70e5b025ccc",
+        "version": "0ebfefb01f49d115b49fe927e10260b2c3edd8eb90a2ab51de760bb80280a239",
         "signature": "014377727be6de5fc4bb81190f65b1ab5f096909e055d8bf6bb93b807249e692",
         "affectsGlobalScope": false
       },
@@ -5027,17 +5027,17 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/orange-money-sn-cash-in-api-manager/orange-money-sn-cash-in-api-manager.service.ts": {
-        "version": "0c14f1db4ebcd35665ca2e052ff69ea5a3641b40d2f36affd291dcbb67fd43b3",
+        "version": "1e6a71196cd99219cc608c5d583dd38490750d283ca13f28724afc5de1dd5e3c",
         "signature": "e49ea4e077e6e1a4297a8e6318ebf6eb75a1077786770947235afe9353fcd0a9",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/orange-money-sn-cash-out-api-manager/orange-money-sn-cash-out-api-manager.service.ts": {
-        "version": "10214b6596f9aa7268f44e5d1dfe5417a3f1f5fee4f4b127c0262b3135e95617",
+        "version": "6df53c792b7ee4157ac19c45bd82684f23d6080066841e55ca744fe57ff2feda",
         "signature": "b683f19c16f076f51da09f1968e6c4b300ebb3b05551e37f0b01bf65f599a61e",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "278e8633b5f91344085318dadf1b8f26bafd263837b313ca7ac0373b4827a486",
+        "version": "8905fead17b7ce819f8ca91116e9a88cc352270196b1ed598838acb542d85a10",
         "signature": "30b8bf547bd04c436f0051dc5b85d4634c0f7ab25909155600e8380ac5d728e4",
         "affectsGlobalScope": false
       },
@@ -10016,16 +10016,12 @@
         "../src/models/entities/enum.entity.ts"
       ],
       "../src/controllers/api-service/orange-money-sn-cash-in-api-manager/orange-money-sn-cash-in-api-manager.service.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/controller.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/sdk/orange/providerorangemoneyapi.ts"
       ],
       "../src/controllers/api-service/orange-money-sn-cash-out-api-manager/orange-money-sn-cash-out-api-manager.service.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/controller.ts",
         "../src/models/entities/enum.entity.ts",
@@ -10052,6 +10048,7 @@
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/controller.ts",
+        "../src/models/entities/enum.entity.ts",
         "../src/sdk/wave/config.ts",
         "../src/sdk/wave/waveapiprovider.ts"
       ],
@@ -10059,6 +10056,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/controller.ts",
+        "../src/models/entities/enum.entity.ts",
         "../src/sdk/wave/config.ts",
         "../src/sdk/wave/waveapiprovider.ts"
       ],

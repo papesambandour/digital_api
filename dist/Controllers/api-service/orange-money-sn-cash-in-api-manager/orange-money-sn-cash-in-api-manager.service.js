@@ -4,6 +4,7 @@ exports.OrangeMoneySnCashInApiManagerService = void 0;
 const api_manager_interface_service_1 = require("../api-manager-interface/api-manager-interface.service");
 const ProviderOrangeMoneyApi_1 = require("../../../sdk/Orange/ProviderOrangeMoneyApi");
 const Controller_1 = require("../../Controller");
+const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 class OrangeMoneySnCashInApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return ProviderOrangeMoneyApi_1.default.apiManagerCheckStatusTransaction(this, params);
@@ -26,7 +27,7 @@ class OrangeMoneySnCashInApiManagerService extends api_manager_interface_service
         };
         if (!api) {
             return Object.assign({
-                status: 'FAILLED',
+                status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.SERVICE_DOWN,
                 partnerMessage: api_manager_interface_service_1.MANAGER_INIT_DOWN_MESSAGE,
             }, baseResponse);
@@ -50,7 +51,7 @@ class OrangeMoneySnCashInApiManagerService extends api_manager_interface_service
             await transaction.save();
             console.log('Send OKK');
             return Object.assign({
-                status: 'SUCCESS',
+                status: Enum_entity_1.StatusEnum.PENDING,
                 codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
                 partnerMessage: api_manager_interface_service_1.MANAGER_INIT_CASH_IN_SUCCESS_MESSAGE,
                 transaction: transaction,
@@ -63,7 +64,7 @@ class OrangeMoneySnCashInApiManagerService extends api_manager_interface_service
             transaction.errorMessage = JSON.stringify(response.apiResponse);
             await transaction.save();
             return Object.assign({
-                status: 'FAILLED',
+                status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.SERVICE_DOWN,
                 partnerMessage: ProviderOrangeMoneyApi_1.default.getMessageFromCode(response.code),
                 transaction: transaction,

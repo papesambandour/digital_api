@@ -19,7 +19,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         };
         if (!phone) {
             return Object.assign({
-                status: 'FAILLED',
+                status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.SERVICE_DOWN,
                 partnerMessage: api_manager_interface_service_1.MANAGER_INIT_DOWN_MESSAGE,
             }, baseResponse);
@@ -28,7 +28,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         const callPhone = await this.callCall(phone, transaction);
         if (!callPhone) {
             return Object.assign({
-                status: 'FAILLED',
+                status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.SERVICE_DOWN,
                 transaction: transaction,
                 transactionId: transaction.transactionId,
@@ -38,7 +38,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             }, baseResponse);
         }
         return Object.assign({
-            status: 'SUCCESS',
+            status: Enum_entity_1.StatusEnum.PENDING,
             codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
             partnerMessage: api_manager_interface_service_1.MANAGER_INIT_CASH_IN_SUCCESS_MESSAGE,
             transaction: transaction,

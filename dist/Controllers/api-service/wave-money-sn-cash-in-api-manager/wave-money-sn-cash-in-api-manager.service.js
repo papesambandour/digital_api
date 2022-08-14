@@ -5,6 +5,7 @@ const api_manager_interface_service_1 = require("../api-manager-interface/api-ma
 const Controller_1 = require("../../Controller");
 const config_1 = require("../../../sdk/Wave/config");
 const WaveApiProvider_1 = require("../../../sdk/Wave/WaveApiProvider");
+const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return await this.notImplementedYet(params);
@@ -54,7 +55,7 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
             await transaction.save();
             console.log('Send OKK');
             return Object.assign({
-                status: 'SUCCESS',
+                status: Enum_entity_1.StatusEnum.PENDING,
                 codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
                 partnerMessage: api_manager_interface_service_1.MANAGER_INIT_CASH_IN_SUCCESS_MESSAGE,
                 transaction: transaction,
@@ -66,7 +67,7 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
             transaction.errorMessage = JSON.stringify(response.fullResponse);
             await transaction.save();
             return Object.assign({
-                status: 'FAILLED',
+                status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.SERVICE_DOWN,
                 partnerMessage: response.message,
                 transaction: transaction,
