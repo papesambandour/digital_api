@@ -529,7 +529,7 @@ let HelperService = class HelperService {
         await Transactions_entity_1.Transactions.update(transaction.id, transactionData);
         const operationParteners = await OperationParteners_entity_1.OperationParteners.findOne({
             where: {
-                transactionsId: typeorm_2.Equal(transaction),
+                transactionsId: typeorm_2.Equal(transaction.id),
             },
             order: {
                 id: 'DESC',
