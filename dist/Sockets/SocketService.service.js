@@ -145,6 +145,7 @@ let SocketServiceService = class SocketServiceService {
                         message: sms === null || sms === void 0 ? void 0 : sms.content,
                         statutSmsResponse: Enum_entity_1.EnumValidationStatus.SUCCESS,
                         sousServiceTransactionId: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.transactionId,
+                        transactionIsFinish: 1,
                     });
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
                         sousServicesId: (_e = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _e === void 0 ? void 0 : _e.id,

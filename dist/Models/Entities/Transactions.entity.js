@@ -395,6 +395,30 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "errorRedirectUrl", void 0);
 __decorate([
+    typeorm_1.Column('tinyint', {
+        name: 'transaction_is_finish',
+        default: 0,
+        comment: '0: non , 1: yes',
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "transactionIsFinish", void 0);
+__decorate([
+    typeorm_1.Column('tinyint', {
+        name: 'reached_timeout',
+        comment: '0: non , 1: yes',
+        default: 0,
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "reachedTimeout", void 0);
+__decorate([
+    typeorm_1.Column('datetime', {
+        name: 'timeout_at',
+        nullable: true,
+        comment: 'Expiration date of payment',
+    }),
+    __metadata("design:type", Date)
+], Transactions.prototype, "timeOutAt", void 0);
+__decorate([
     typeorm_1.OneToMany(() => OperationParteners_entity_1.OperationParteners, (operationParteners) => operationParteners.transactions),
     __metadata("design:type", Array)
 ], Transactions.prototype, "operationParteners", void 0);

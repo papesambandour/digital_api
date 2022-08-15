@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var HelperService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HelperService = void 0;
 const common_1 = require("@nestjs/common");
@@ -28,7 +27,7 @@ const DtoOperationParteners_1 = require("./Models/Dto/DtoOperationParteners");
 const OperationParteners_entity_1 = require("./Models/Entities/OperationParteners.entity");
 const Parteners_entity_1 = require("./Models/Entities/Parteners.entity");
 const Operators_entity_1 = require("./Models/Entities/Operators.entity");
-let HelperService = HelperService_1 = class HelperService {
+let HelperService = class HelperService {
     constructor(connection, httpService) {
         this.connection = connection;
         this.httpService = httpService;
@@ -140,6 +139,21 @@ let HelperService = HelperService_1 = class HelperService {
             await transaction.save();
         }
     }
+    async setTimeOutDate(transactionId) {
+        if (!transactionId) {
+            console.log('no transactionId to set setIsCallbackReadyValue');
+            return;
+        }
+        const transaction = await this.getTransactionById(transactionId);
+        if (!transaction) {
+            console.log('no transaction to set setIsCallbackReadyValue');
+            return;
+        }
+        if (transaction.sousServices.pendingTimeout != -1) {
+            transaction.timeOutAt = this.addMinuteToDate(new Date(), transaction.sousServices.pendingTimeout);
+            await transaction.save();
+        }
+    }
     async sendCallBack(transaction) {
         let data = {};
         try {
@@ -191,12 +205,12 @@ let HelperService = HelperService_1 = class HelperService {
                 dataSended: JSON.stringify(dataSended),
                 dataResponseCallback: e === null || e === void 0 ? void 0 : e.message,
                 callbackIsSend: 2,
-                nextSendCallbackDate: HelperService_1.addMinuteToDate(new Date(), Enum_entity_1.CONSTANT.WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE()),
+                nextSendCallbackDate: this.addMinuteToDate(new Date(), Enum_entity_1.CONSTANT.WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE()),
             });
             return e.message || 'error';
         }
     }
-    static addMinuteToDate(date, minutes) {
+    addMinuteToDate(date, minutes) {
         const newDate = new Date(date);
         newDate.setMinutes(newDate.getMinutes() + minutes);
         return newDate;
@@ -228,13 +242,20 @@ let HelperService = HelperService_1 = class HelperService {
         operationParteners.commentaire = transaction === null || transaction === void 0 ? void 0 : transaction.commentaire;
         operationParteners.amount = transaction.amount;
         operationParteners.typeOperation = transaction.typeOperation;
-        operationParteners.statut = Enum_entity_1.StatusEnum.SUCCESS;
         operationParteners.partenersId = partner.id;
         operationParteners.partenersId = partner.id;
         operationParteners.transactionsId = transaction.id;
         operationParteners.soldeBefor = partner.solde;
-        operationParteners.soldeAfter =
-            partner.solde - transaction.amount - transaction.feeAmount;
+        if (transaction.typeOperation === Enum_entity_1.TypeOperationEnum.CREDIT) {
+            operationParteners.soldeAfter =
+                partner.solde + transaction.amount - transaction.feeAmount;
+            operationParteners.statut = Enum_entity_1.StatusEnum.PENDING;
+        }
+        else if (transaction.typeOperation === Enum_entity_1.TypeOperationEnum.DEBIT) {
+            operationParteners.soldeAfter =
+                partner.solde - transaction.amount - transaction.feeAmount;
+            operationParteners.statut = Enum_entity_1.StatusEnum.SUCCESS;
+        }
         operationParteners.fee = transaction.feeAmount;
         operationParteners.commission = transaction.commissionAmount;
         operationParteners.createdAt = new Date();
@@ -255,46 +276,59 @@ let HelperService = HelperService_1 = class HelperService {
             console.log('No transaction for operation cancel');
             return;
         }
-        const sousService = await SousServices_entity_1.SousServices.findOne({
-            where: {
-                id: typeorm_2.Equal(transaction.sousServicesId),
-            },
-            relations: ['services'],
-        });
-        const operator = await Operators_entity_1.Operators.findOne(sousService.services.operatorsId);
-        const partner = await Parteners_entity_1.Parteners.findOne({
-            where: {
-                id: typeorm_2.Equal(transaction.partenersId),
-            },
-        });
-        await this.setSoldeTableForDebitOnly(sousService, transaction.amount + transaction.feeAmount, 'parteners', partner.id, transaction.isSoldeCommission ? 'solde_commission' : 'solde');
-        if (!transaction.isSoldeCommission) {
-            await this.setSoldeTableForDebitOnly(sousService, -transaction.commissionAmount, 'parteners', partner.id, 'solde_commission');
+        if (transaction.transactionIsFinish) {
+            console.log('transaction already cancel');
+            return false;
         }
-        const operationParteners = new DtoOperationParteners_1.DtoOperationParteners();
-        operationParteners.commentaire = `Annulation  ${sousService.name} pour l'opérateur ${operator.name}`;
-        operationParteners.amount = transaction.amount;
-        operationParteners.typeOperation = Enum_entity_1.TypeOperationEnum.CREDIT;
-        operationParteners.statut = Enum_entity_1.StatusEnum.SUCCESS;
-        operationParteners.partenersId = partner.id;
-        operationParteners.partenersId = partner.id;
-        operationParteners.transactionsId = transaction.id;
-        operationParteners.soldeBefor = partner.solde;
-        operationParteners.soldeAfter =
-            partner.solde + transaction.amount + transaction.feeAmount;
-        operationParteners.fee = transaction.feeAmount;
-        operationParteners.commission = transaction.commissionAmount;
-        operationParteners.createdAt = new Date();
-        operationParteners.operation = Enum_entity_1.OperationEnum.ANNULATION_TRANSACTION;
-        await OperationParteners_entity_1.OperationParteners.insert(operationParteners, {
-            transaction: true,
-        });
-        if (transaction.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {
-            const phone = await Phones_entity_1.Phones.findOne({
-                where: { id: typeorm_2.Equal(transaction.phonesId) },
+        const transactionData = {
+            dateCanceled: new Date(),
+            transactionIsFinish: 1,
+            message: 'Transaction annuler',
+            errorMessage: 'Transaction annuler',
+        };
+        await Transactions_entity_1.Transactions.update(transaction.id, transactionData);
+        if (transaction.typeOperation === Enum_entity_1.TypeOperationEnum.DEBIT) {
+            const sousService = await SousServices_entity_1.SousServices.findOne({
+                where: {
+                    id: typeorm_2.Equal(transaction.sousServicesId),
+                },
+                relations: ['services'],
             });
-            await this.operationPhone(phone, phone.soldeApi, transaction.amount, transaction.id, transaction.typeOperation, `Annulation  ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`, null, Enum_entity_1.OperationEnumPhone.ANNULATION_TRANSACTION);
-            await this.setSoldeTableOnly(+transaction.amount, 'phones', transaction.phonesId, 'solde');
+            const operator = await Operators_entity_1.Operators.findOne(sousService.services.operatorsId);
+            const partner = await Parteners_entity_1.Parteners.findOne({
+                where: {
+                    id: typeorm_2.Equal(transaction.partenersId),
+                },
+            });
+            await this.setSoldeTableForDebitOnly(sousService, transaction.amount + transaction.feeAmount, 'parteners', partner.id, transaction.isSoldeCommission ? 'solde_commission' : 'solde');
+            if (!transaction.isSoldeCommission) {
+                await this.setSoldeTableForDebitOnly(sousService, -transaction.commissionAmount, 'parteners', partner.id, 'solde_commission');
+            }
+            const operationParteners = new DtoOperationParteners_1.DtoOperationParteners();
+            operationParteners.commentaire = `Annulation  ${sousService.name} pour l'opérateur ${operator.name}`;
+            operationParteners.amount = transaction.amount;
+            operationParteners.typeOperation = Enum_entity_1.TypeOperationEnum.CREDIT;
+            operationParteners.statut = Enum_entity_1.StatusEnum.SUCCESS;
+            operationParteners.partenersId = partner.id;
+            operationParteners.partenersId = partner.id;
+            operationParteners.transactionsId = transaction.id;
+            operationParteners.soldeBefor = partner.solde;
+            operationParteners.soldeAfter =
+                partner.solde + transaction.amount + transaction.feeAmount;
+            operationParteners.fee = transaction.feeAmount;
+            operationParteners.commission = transaction.commissionAmount;
+            operationParteners.createdAt = new Date();
+            operationParteners.operation = Enum_entity_1.OperationEnum.ANNULATION_TRANSACTION;
+            await OperationParteners_entity_1.OperationParteners.insert(operationParteners, {
+                transaction: true,
+            });
+            if (transaction.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {
+                const phone = await Phones_entity_1.Phones.findOne({
+                    where: { id: typeorm_2.Equal(transaction.phonesId) },
+                });
+                await this.operationPhone(phone, phone.soldeApi, transaction.amount, transaction.id, transaction.typeOperation, `Annulation  ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`, null, Enum_entity_1.OperationEnumPhone.ANNULATION_TRANSACTION);
+                await this.setSoldeTableOnly(+transaction.amount, 'phones', transaction.phonesId, 'solde');
+            }
         }
     }
     async updateApiBalance(apiManager, usedPhoneId) {
@@ -437,6 +471,15 @@ let HelperService = HelperService_1 = class HelperService {
                     code: typeorm_2.Equal(serviceConfig.code),
                 },
             });
+            if (!dbService) {
+                mismatch[serviceConfig.code] = mismatch[serviceConfig.code] || [];
+                mismatch[serviceConfig.code].push({
+                    field: serviceConfig.code,
+                    dbValue: serviceConfig.code,
+                    fileValue: serviceConfig.code,
+                });
+                continue;
+            }
             console.log(dbService);
             for (const key in serviceConfig) {
                 if (serviceConfig.hasOwnProperty(key)) {
@@ -472,8 +515,60 @@ let HelperService = HelperService_1 = class HelperService {
             this.notifyAdmin(message, type).then();
         }
     }
+    async handleSuccessTransactionCreditDebit(transaction, sousServiceTransactionId = null) {
+        if (transaction.transactionIsFinish) {
+            return false;
+        }
+        const transactionData = {
+            dateSuccess: new Date(),
+            transactionIsFinish: 1,
+        };
+        if (sousServiceTransactionId) {
+            transactionData['sousServiceTransactionId'] = sousServiceTransactionId;
+        }
+        await Transactions_entity_1.Transactions.update(transaction.id, transactionData);
+        const operationParteners = await OperationParteners_entity_1.OperationParteners.findOne({
+            where: {
+                transactionsId: typeorm_2.Equal(transaction),
+            },
+            order: {
+                id: 'DESC',
+            },
+        });
+        operationParteners.statut = Enum_entity_1.StatusEnum.SUCCESS;
+        await operationParteners.save();
+        const phone = await Phones_entity_1.Phones.findOne({
+            where: {
+                id: typeorm_2.Equal(transaction.phonesId),
+            },
+        });
+        const sousService = await SousServices_entity_1.SousServices.findOne({
+            where: {
+                id: typeorm_2.Equal(transaction.sousServicesId),
+            },
+        });
+        const apiManager = await this.getApiManagerInterface(transaction.codeSousService, null);
+        let soldeApi;
+        const soldeApiRes = await apiManager.getBalance({});
+        if (soldeApiRes.success) {
+            soldeApi = soldeApiRes.newBalance;
+        }
+        else {
+            soldeApi = phone.soldeApi;
+        }
+        if (sousService.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {
+            if (sousService.hasSoldeApi) {
+                await this.setSoldeTableFromValue(soldeApi, 'phones', phone.id, 'solde_api');
+            }
+        }
+        else if (sousService.typeOperation == Enum_entity_1.TypeOperationEnum.CREDIT) {
+            await this.setSoldeTableOnly(transaction.amount - transaction.feeAmount, 'parteners', transaction.partenersId, 'solde');
+            await this.setSoldeTableOnly(transaction.amount, 'phones', transaction.phonesId, 'solde');
+            await this.operationPhone(phone, soldeApi, transaction.amount, transaction.id, sousService.typeOperation, `Operation de ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`);
+        }
+    }
 };
-HelperService = HelperService_1 = __decorate([
+HelperService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectConnection()),
     __metadata("design:paramtypes", [typeorm_2.Connection,

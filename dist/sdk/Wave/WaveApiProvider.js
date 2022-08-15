@@ -170,6 +170,7 @@ class WaveApiProvider {
                 params.transaction.checkTransactionResponse = Utils.inspect(checkout);
                 await params.transaction.save();
                 console.log('after save');
+                await apiManagerService.helper.handleSuccessTransactionCreditDebit(params.transaction);
                 await apiManagerService.helper.setIsCallbackReadyValue(params.transaction.id);
                 apiManagerService.helper
                     .updateApiBalance(apiManagerService, params.transaction.phonesId)
@@ -183,6 +184,10 @@ class WaveApiProvider {
                 console.log('transaction still pending');
                 params.transaction.checkTransactionResponse = Utils.inspect(checkout);
                 await params.transaction.save();
+                return Object.assign({
+                    status: 'PENDING',
+                    codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
+                }, baseResponse);
             }
             else {
                 console.log('transaction failed');

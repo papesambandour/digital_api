@@ -14,6 +14,7 @@ const helper_service_1 = require("../../helper.service");
 const send_callback_task_service_1 = require("./send-callback-task/send-callback-task.service");
 const check_transaction_status_cron_service_1 = require("./check-transaction-status-cron/check-transaction-status-cron.service");
 const wave_money_sn_cash_out_api_manager_service_1 = require("./wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service");
+const check_transaction_timeout_cron_service_1 = require("./check-transaction-timeout-cron/check-transaction-timeout-cron.service");
 let ApiServiceModule = class ApiServiceModule {
 };
 ApiServiceModule = __decorate([
@@ -32,6 +33,7 @@ ApiServiceModule = __decorate([
             send_callback_task_service_1.SendCallbackTaskService,
             check_transaction_status_cron_service_1.CheckTransactionStatusCronService,
             wave_money_sn_cash_out_api_manager_service_1.WaveMoneySnCashOutApiManagerService,
+            check_transaction_timeout_cron_service_1.CheckTransactionTimeoutCronService,
         ],
     })
 ], ApiServiceModule);

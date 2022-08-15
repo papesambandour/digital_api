@@ -3787,7 +3787,7 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/sousservices.entity.ts": {
-        "version": "f4bc491e017e1db178ef7ca921fa65488b9c5bfffee7ba24e5b0006bfdc0ab92",
+        "version": "dfee351920893e8e1c2336694a51faaf8af0467b26c6a549af152243555e16aa",
         "signature": "d626adde1b032ceeab1b4fa1c25aec3bc86e50f19e58bb6b1fefe79e71724869",
         "affectsGlobalScope": false
       },
@@ -3822,8 +3822,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "7efff85cebc6b596223c12b6d0c06aa35dba4a70f4f5e0a5af60be53fbb7a745",
-        "signature": "46f85f126fd2bc70c595b61dea12a8384a3388f68213449c8776b1a45637adff",
+        "version": "975bbb632998d967fd5b38b8a92cf83f2463213c8b5b0a4087907aeffba8f0e5",
+        "signature": "bb470f06849dfbae44c2861cb1a26c33ab36783b46eeb212e9aa66af1ff09de1",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
@@ -4132,8 +4132,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "c4922d60d96c5d4615116981b5f04c6e8d6a71e2ab601a804a1ae83bb9223ff8",
-        "signature": "27b137acae4a2fab78a737de943c25fe7e685f2eda641a41b7bec91312e4be89",
+        "version": "eba108312673e957808ab2b827ec43c24a734f4eb111bba7c3c58b543dd1a884",
+        "signature": "de7cafdfdd532aea00de9df7e8e5bac960f3b951485e68b9211e69c21f760ce8",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtooperationparteners.ts": {
@@ -4142,8 +4142,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "e819d2dd3beeaccc0f6f90a07c3a5f65674fe9a33ee0fbd54a340b3eeef4e427",
-        "signature": "25a96aff8f5d38893bb395122b8878479dff248f3fdfaa133ee9e19f8aff93e3",
+        "version": "4830794304c4e845dc02c8a8c6feb3a944962931265da6c51a8dd1dc77a6a6f3",
+        "signature": "41705506d349da3c75924bf47b3e6203f5f956b00188c5b15f7cd2d50bc1feb8",
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
@@ -4592,7 +4592,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "052417c231729a95efdb58404d344d49b2302d28364cc1c70af60766caa38906",
+        "version": "cde054340498ab02c759668b41dc207c61d5bee516c5d4485dd9daae26527fc7",
         "signature": "e43afb687423f2026bf4b4cfe7eb3a578de53de35aba6bd1c1b17571791d3ca9",
         "affectsGlobalScope": false
       },
@@ -4662,7 +4662,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "49b70087aa20732359a5cbde2116e3f64576061e97827381eb03caa473c10877",
+        "version": "63a4aacdc22d196be629ac74ebf6270f352f237862e8408995f52d946a574c51",
         "signature": "6c7f940e832da38d5b3ef5d647bb75669902362b0a05962a818e232042e58f9a",
         "affectsGlobalScope": false
       },
@@ -4792,7 +4792,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "394f1a1c70d8474bd4390fb253df228b414601e06efb0d8d842d757b22edeca8",
+        "version": "a34c219a6945ab81d9bcddd2852759df43a9178471c76a2b6da410ad28bab67c",
         "signature": "6d88c2ee5472261db3e3b587f8645b725fa68263ea5d5cf06284873a6f57ce7f",
         "affectsGlobalScope": false
       },
@@ -4801,14 +4801,19 @@
         "signature": "014377727be6de5fc4bb81190f65b1ab5f096909e055d8bf6bb93b807249e692",
         "affectsGlobalScope": false
       },
+      "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts": {
+        "version": "9a40a7617ba6908bdde4641889ec214c2c4011e7142bf5d5f72bc3c602dc1995",
+        "signature": "e730f870714e188510a5f26d47d68a75e4b7599b96b804fca8cc0ffce3f37c61",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.module.ts": {
-        "version": "9941a803c119947af73b485e0886cfb4874c5052874962dc833dde2fa0f9c218",
+        "version": "269d2d3d4ee2b90a23245ccc42863ec68f539f1aaee64297f9257c21ac99f19d",
         "signature": "622f5703fb298ffab0ec97803bb18f89a7c363d1d8cd8b11ef37cf122819523c",
         "affectsGlobalScope": false
       },
       "../src/bootstrap.service.ts": {
-        "version": "14dee29470818d4d34f6a0474018dc94b7c02768614b358aa02ca0f86b004132",
-        "signature": "fc4a2102b6d98f848bb9a811c348a49e0aa32657048496b7363f954e09997e81",
+        "version": "f43b821c7be11a22252c29daff1cbe4ac779bc97776456769e0e13db861cd489",
+        "signature": "b54106db7f7c50aba98513313478a57384dfb9ce439467235f8994afa15eefd3",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
@@ -5022,7 +5027,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/orange/providerorangemoneyapi.ts": {
-        "version": "fa689a493aee6f211edfa16ff028db7b1c49c6461d9c2e227806c1b1d490170d",
+        "version": "ee4346061f80c058239342c89e9a8cab19e634cbc893376987e04a5c96ff85e7",
         "signature": "aa79894b792afbd62544694ed65abd3e6b67f71586aa8efdea362ad77dcce423",
         "affectsGlobalScope": false
       },
@@ -5037,7 +5042,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "8905fead17b7ce819f8ca91116e9a88cc352270196b1ed598838acb542d85a10",
+        "version": "a3a825da74cb44adbba2b9c9982169fcacc4056e8d085ae1b8758ae59861e333",
         "signature": "30b8bf547bd04c436f0051dc5b85d4634c0f7ab25909155600e8380ac5d728e4",
         "affectsGlobalScope": false
       },
@@ -9922,7 +9927,8 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
-        "../src/helper.service.ts"
+        "../src/helper.service.ts",
+        "../src/models/entities/operationparteners.entity.ts"
       ],
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -9968,6 +9974,7 @@
         "../src/controllers/api-service/api-service.controller.ts",
         "../src/controllers/api-service/api-service.service.ts",
         "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts",
+        "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts",
         "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts",
         "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts",
         "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts",
@@ -9995,6 +10002,15 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/schedule/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/helper.service.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/transactions.entity.ts"
+      ],
+      "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/schedule/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/helper.service.ts",
@@ -14502,6 +14518,10 @@
         "../src/models/entities/sousservicesparteners.entity.ts"
       ],
       "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": [
+        "../node_modules/@nestjs/schedule/index.d.ts",
+        "../src/helper.service.ts"
+      ],
+      "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts": [
         "../node_modules/@nestjs/schedule/index.d.ts",
         "../src/helper.service.ts"
       ],

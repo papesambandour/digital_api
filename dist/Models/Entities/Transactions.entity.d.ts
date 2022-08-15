@@ -67,6 +67,9 @@ export declare class Transactions extends BaseEntity {
     deepLinkUrl: string;
     successRedirectUrl: string;
     errorRedirectUrl: string;
+    transactionIsFinish: number;
+    reachedTimeout: number;
+    timeOutAt: Date;
     operationParteners: OperationParteners[];
     parteners: Parteners;
     partenerComptes: PartenerComptes;

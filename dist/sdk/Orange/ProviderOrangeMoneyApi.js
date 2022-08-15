@@ -504,6 +504,7 @@ class ProviderOrangeMoneyApi {
                 params.transaction.checkTransactionResponse = Utils.inspect(response.apiResponse);
                 await params.transaction.save();
                 await apiManager.helper.setIsCallbackReadyValue(params.transaction.id);
+                await apiManager.helper.handleSuccessTransactionCreditDebit(params.transaction);
                 apiManager.helper
                     .updateApiBalance(apiManager, params.transaction.phonesId)
                     .then();
@@ -516,6 +517,10 @@ class ProviderOrangeMoneyApi {
                 console.log('transaction still pending');
                 params.transaction.checkTransactionResponse = Utils.inspect(response.apiResponse);
                 await params.transaction.save();
+                return Object.assign({
+                    status: 'PENDING',
+                    codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
+                }, baseResponse);
             }
             else {
                 console.log('transaction failed');

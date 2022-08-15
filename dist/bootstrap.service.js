@@ -25,14 +25,23 @@ let BootstrapService = BootstrapService_1 = class BootstrapService {
     }
     async init() {
         this.redefineLog();
+        await this.testConfig();
         console.log('Init app');
-        await this.helper.checkServiceConfig();
         try {
+            console.log('Init phone');
             await this.connection.query(`update phones
        set phone_state = 'UNUSED',
            socket      = 'DISCONNECTED'`);
+            console.log('Finish init phone');
         }
-        catch (e) { }
+        catch (e) {
+            console.log('Error init phone');
+        }
+    }
+    async testConfig() {
+        if (process.env.ACTIVE_TEST_CONFIG === 'true') {
+            await this.helper.checkServiceConfig();
+        }
     }
     redefineLog() {
         if (process.env.MODE != 'dev') {

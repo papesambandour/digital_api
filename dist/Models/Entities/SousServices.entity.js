@@ -213,7 +213,11 @@ __decorate([
     __metadata("design:type", Number)
 ], SousServices.prototype, "amountFee", void 0);
 __decorate([
-    typeorm_1.Column('int', { name: 'pending_timeout', default: -1 }),
+    typeorm_1.Column('int', {
+        name: 'pending_timeout',
+        default: -1,
+        comment: 'Pending Duration in Minute, -1 = never expire',
+    }),
     __metadata("design:type", Number)
 ], SousServices.prototype, "pendingTimeout", void 0);
 __decorate([

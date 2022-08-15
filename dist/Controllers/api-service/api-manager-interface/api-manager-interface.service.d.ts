@@ -70,6 +70,6 @@ export declare abstract class ApiManagerInterface {
     notImplementedYet(params: any): Promise<any>;
     createTransaction(phone: Phones): Promise<Transactions>;
     loadBalancingPhone(): Promise<Phones>;
-    activePhone(phoneId: number): Promise<void>;
-    disablePhone(phoneId: number): Promise<void>;
+    activePhone(phoneId: number, phoneNumber: string): Promise<void>;
+    disablePhone(phoneId: number, phoneNumber: string): Promise<void>;
 }

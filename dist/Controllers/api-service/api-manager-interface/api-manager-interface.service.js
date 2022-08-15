@@ -108,16 +108,16 @@ class ApiManagerInterface {
             let res = await this.apiService.connection.query(query);
             this.apiService.phone = res = (res === null || res === void 0 ? void 0 : res.length) ? res[0] : null;
             if (this.apiService.phone) {
-                Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.id] = Enum_entity_1.PHONES_HOLDERS
-                    .AVALABLITY[this.apiService.phone.id] || {
+                Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number] = Enum_entity_1.PHONES_HOLDERS
+                    .AVALABLITY[this.apiService.phone.number] || {
                     used: false,
                 };
             }
             if (res &&
-                (!Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.id]['used'] ||
+                (!Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number]['used'] ||
                     !this.apiService.sousServices.needPhone)) {
-                Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.id]['used'] = true;
-                this.disablePhone(res.id).then((value) => value);
+                Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number]['used'] = true;
+                this.disablePhone(res.id, res.number).then((value) => value);
                 resolve(res);
             }
             else {
@@ -127,16 +127,15 @@ class ApiManagerInterface {
                     res = await this.apiService.connection.query(query);
                     this.apiService.phone = res = (res === null || res === void 0 ? void 0 : res.length) ? res[0] : null;
                     if (this.apiService.phone) {
-                        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.id] = Enum_entity_1.PHONES_HOLDERS
-                            .AVALABLITY[this.apiService.phone.id] || {
+                        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number] = Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number] || {
                             used: false,
                         };
                     }
                     if (res &&
-                        (!Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.id]['used'] ||
+                        (!Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number]['used'] ||
                             !this.apiService.sousServices.needPhone)) {
-                        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.id]['used'] = true;
-                        this.disablePhone(res.id).then((value) => value);
+                        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number]['used'] = true;
+                        this.disablePhone(res.id, res.number).then((value) => value);
                         resolve(res);
                         break;
                     }
@@ -145,20 +144,20 @@ class ApiManagerInterface {
             }
         });
     }
-    async activePhone(phoneId) {
+    async activePhone(phoneId, phoneNumber) {
         await this.helper.waitSome(3);
-        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phoneId]['used'] = false;
+        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phoneNumber]['used'] = false;
         const query = `UPDATE phones
                        set phone_state= '${Enum_entity_1.PhoneState.UNUSED}',
                            last_unused= '${this.helper.mysqlDate(new Date())}'
-                       where id = ${phoneId}`;
+                       where number = ${phoneNumber}`;
         this.apiService.connection.query(query).then((value) => console.log(value));
     }
-    async disablePhone(phoneId) {
+    async disablePhone(phoneId, phoneNumber) {
         const query = `UPDATE phones
                        set phone_state= '${Enum_entity_1.PhoneState.USED}',
                            last_used= '${this.helper.mysqlDate(new Date())}'
-                       where id = ${phoneId}`;
+                       where number = ${phoneNumber}`;
         this.apiService.connection.query(query).then((value) => console.log(value));
     }
 }

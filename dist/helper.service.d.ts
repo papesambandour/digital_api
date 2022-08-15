@@ -21,11 +21,12 @@ export declare class HelperService {
     getTransactionById(transactionId: number): Promise<Transactions>;
     getTransactionByGeneratedId(transactionId: string): Promise<Transactions>;
     setIsCallbackReadyValue(transactionId: any): Promise<void>;
+    setTimeOutDate(transactionId: any): Promise<void>;
     sendCallBack(transaction: Transactions): Promise<any>;
-    private static addMinuteToDate;
+    private addMinuteToDate;
     setSoldeTableForDebitOnly(sousServices: SousServices, value: number, tableName: string, id: number, field?: string): Promise<any>;
     operationPartnerDoTransaction(transaction: Transactions): Promise<void>;
-    operationPartnerCancelTransaction(transaction: Transactions): Promise<void>;
+    operationPartnerCancelTransaction(transaction: Transactions): Promise<boolean>;
     updateApiBalance(apiManager: ApiManagerInterface, usedPhoneId: number): Promise<void>;
     base64(str: any): Promise<string>;
     sendSms(tos: string[], message: string, sender: string): Promise<void>;
@@ -35,4 +36,5 @@ export declare class HelperService {
     };
     checkServiceConfig(): Promise<void>;
     private disableSousService;
+    handleSuccessTransactionCreditDebit(transaction: Transactions, sousServiceTransactionId?: any): Promise<boolean>;
 }

@@ -71,7 +71,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                     console.log('DATA_SOCKET', data);
                     socket.removeAllListeners('finishExecUssd');
                     resolve(await this.finishExecUssd(data));
-                    this.activePhone(this.apiService.phone.id).then((value) => value);
+                    this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
                 });
                 socket.emit('execUssd', ussdCode);
                 clearId = setTimeout(() => {
@@ -89,7 +89,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                                AND statut <> '${status}'`)
                         .then((value) => value);
                     resolve(true);
-                    this.activePhone(this.apiService.phone.id).then((value) => value);
+                    this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
                 }, Enum_entity_1.CONSTANT.WAIT_SOCKET_PHONE() * 1000);
                 console.log('SOCKET CALL', ussdCode);
             });
@@ -98,7 +98,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         const statues = this.helper.getStatusAfterExec('timeout', this.apiService.sousServices);
         const preStatus = statues['preStatus'];
         const status = statues['status'];
-        this.activePhone(this.apiService.phone.id).then((value) => value);
+        this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
         await Transactions_entity_1.Transactions.update(transaction.id, {
             statut: status,
             preStatut: preStatus,
