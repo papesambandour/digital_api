@@ -3837,7 +3837,7 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/phones.entity.ts": {
-        "version": "913faf74dd8926aa6e2cff5ff069f48518d30b9533a161f76b4d7ab2a8554bd9",
+        "version": "68ddbe2295be8fac74ce116ce5e909675c1882bc65633f4d81119caf3a5a112a",
         "signature": "7881839fb81be10fd41f9b48297374148fdb74fa93f68264ac8990e74fde343c",
         "affectsGlobalScope": false
       },

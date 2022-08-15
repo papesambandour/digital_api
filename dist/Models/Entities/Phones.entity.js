@@ -47,7 +47,6 @@ __decorate([
 __decorate([
     typeorm_1.Column('varchar', {
         name: 'number',
-        unique: true,
         comment: 'Le numero de telephone ',
         length: 255,
     }),
@@ -255,7 +254,6 @@ __decorate([
 ], Phones.prototype, "ussdExecutionMessageEntities", void 0);
 Phones = __decorate([
     typeorm_1.Index('fk_phones_services1_idx', ['servicesId'], {}),
-    typeorm_1.Index('number_UNIQUE', ['number'], { unique: true }),
     typeorm_1.Entity('phones', { schema: 'simbot_db' })
 ], Phones);
 exports.Phones = Phones;
