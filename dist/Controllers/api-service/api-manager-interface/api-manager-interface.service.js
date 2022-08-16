@@ -150,14 +150,14 @@ class ApiManagerInterface {
         const query = `UPDATE phones
                        set phone_state= '${Enum_entity_1.PhoneState.UNUSED}',
                            last_unused= '${this.helper.mysqlDate(new Date())}'
-                       where number = ${phoneNumber}`;
+                       where number = '${phoneNumber}'`;
         this.apiService.connection.query(query).then((value) => console.log(value));
     }
     async disablePhone(phoneId, phoneNumber) {
         const query = `UPDATE phones
                        set phone_state= '${Enum_entity_1.PhoneState.USED}',
                            last_used= '${this.helper.mysqlDate(new Date())}'
-                       where number = ${phoneNumber}`;
+                       where number = '${phoneNumber}'`;
         this.apiService.connection.query(query).then((value) => console.log(value));
     }
 }

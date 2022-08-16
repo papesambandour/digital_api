@@ -145,7 +145,7 @@ class WaveApiProvider {
             };
         }
     }
-    static async apiManagerCheckCashOutStatusTransaction(apiManagerService, params) {
+    static async apiManagerCheckCashOutStatusTransaction(apiManagerService, params, country) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
         console.log('in apiManagerCheckCashOutStatusTransaction');
         const baseResponse = {
@@ -158,7 +158,7 @@ class WaveApiProvider {
         };
         const checkout = await WaveApiProvider.verifyCheckout({
             id: params.transaction.sousServiceTransactionId,
-            token: config_1.waveBusinessApiConfig().cashOutApiKey,
+            token: config_1.waveBusinessApiConfig(country).cashOutApiKey,
             idemPotency: WaveApiProvider.now(),
         });
         if (checkout === null || checkout === void 0 ? void 0 : checkout.payment_status) {
@@ -181,7 +181,6 @@ class WaveApiProvider {
                 }, baseResponse);
             }
             else if (checkout.payment_status === 'processing') {
-                console.log('transaction still pending');
                 params.transaction.checkTransactionResponse = Utils.inspect(checkout);
                 await params.transaction.save();
                 return Object.assign({
@@ -227,8 +226,9 @@ class WaveApiProvider {
                 },
                 json: true,
             });
+            console.log(balance);
             return {
-                success: Number.isFinite(balance.amount),
+                success: Number.isFinite(parseInt(balance.amount)),
                 newBalance: balance.amount,
             };
         }

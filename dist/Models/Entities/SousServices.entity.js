@@ -96,6 +96,16 @@ __decorate([
 ], SousServices.prototype, "updatedAt", void 0);
 __decorate([
     typeorm_1.Column('double', {
+        name: 'min_limit_transaction',
+        comment: 'limite par transaction(VALEUR -1 pour infini)\n',
+        precision: 17,
+        scale: 4,
+        default: '-1.0000',
+    }),
+    __metadata("design:type", Number)
+], SousServices.prototype, "minLimitTransaction", void 0);
+__decorate([
+    typeorm_1.Column('double', {
         name: 'max_limit_transaction',
         comment: 'limite par transaction(VALEUR -1 pour infini)\n',
         precision: 17,

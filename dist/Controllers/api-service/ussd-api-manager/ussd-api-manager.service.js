@@ -128,7 +128,8 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             ? Enum_entity_1.EnumCodeUssdResponse.ERROR
             : Enum_entity_1.EnumCodeUssdResponse.SUCCESS;
         const regex = new RegExp(this.apiService.sousServices.messageRetourUssd);
-        const statues = this.helper.getStatusAfterExec(regex.test(socketBodyFinish.data) ? 'success' : 'failed', this.apiService.sousServices);
+        const matched = regex.test(socketBodyFinish.data);
+        const statues = this.helper.getStatusAfterExec(matched ? 'success' : 'failed', this.apiService.sousServices);
         const preStatus = statues['preStatus'];
         const status = statues['status'];
         await this.apiService.connection.query(`update transactions
@@ -141,6 +142,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                      pre_statut= '${preStatus}'
                  where id = ${this.apiService.transactionId}
                    AND statut <> '${Enum_entity_1.StatusEnum.SUCCESS}'`);
+        return true;
     }
     getUssDCode(regexCodeUss, phone) {
         return regexCodeUss

@@ -14,7 +14,7 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
         return await this.notImplementedYet(params);
     }
     async getBalance(params) {
-        return WaveApiProvider_1.default.getBalance(params, config_1.waveBusinessApiConfig().cashOutApiKey, WaveApiProvider_1.default.now());
+        return WaveApiProvider_1.default.getBalance(params, config_1.waveBusinessApiConfig(this.constructor.country).cashOutApiKey, WaveApiProvider_1.default.now());
     }
     async handleCallbackTransaction(params) {
         return await this.notImplementedYet(params);
@@ -37,11 +37,13 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
         }
         const transaction = await this.createTransaction(api);
         const response = await WaveApiProvider_1.default.SendWaveMoneyBusiness({
-            toPhoneNumber: `+221${params.dto.phone}`,
+            toPhoneNumber: `${config_1.waveBusinessApiConfig(this.constructor.country).phonePrefix}${params.dto.phone}`,
             sender: params.dto.sender || '',
             amount: params.dto.amount,
-            sessionId: config_1.waveBusinessApiConfig().sessionId,
-            walletId: config_1.waveBusinessApiConfig().walletId,
+            sessionId: config_1.waveBusinessApiConfig(this.constructor.country)
+                .sessionId,
+            walletId: config_1.waveBusinessApiConfig(this.constructor.country)
+                .walletId,
         });
         const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
         console.log(response, 'sttaus', statues);
@@ -49,10 +51,13 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
         transaction.preStatut = statues['preStatus'];
         transaction.sousServiceTransactionId = response.reference;
         await transaction.save();
+        await this.helper.setIsCallbackReadyValue(transaction.id);
+        this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (response.success) {
             transaction.message = JSON.stringify(response.fullResponse);
             transaction.needCheckTransaction = 1;
             await transaction.save();
+            await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.PENDING,
@@ -82,4 +87,5 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
     }
 }
 exports.WaveMoneySnCashInApiManagerService = WaveMoneySnCashInApiManagerService;
+WaveMoneySnCashInApiManagerService.country = 'sn';
 //# sourceMappingURL=wave-money-sn-cash-in-api-manager.service.js.map

@@ -8,13 +8,13 @@ const config_1 = require("../../../sdk/Wave/config");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
-        return WaveApiProvider_1.default.apiManagerCheckCashOutStatusTransaction(this, params);
+        return WaveApiProvider_1.default.apiManagerCheckCashOutStatusTransaction(this, params, this.constructor.country);
     }
     async confirmTransaction(params) {
         return await this.notImplementedYet(params);
     }
     async getBalance(params) {
-        return WaveApiProvider_1.default.getBalance(params, config_1.waveBusinessApiConfig().cashOutApiKey, WaveApiProvider_1.default.now());
+        return WaveApiProvider_1.default.getBalance(params, config_1.waveBusinessApiConfig(this.constructor.country).cashOutApiKey, WaveApiProvider_1.default.now());
     }
     async handleCallbackTransaction(params) {
         return await this.notImplementedYet(params);
@@ -39,7 +39,8 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
         const checkout = await WaveApiProvider_1.default.makeCheckout({
             idemPotency: `${transaction.transactionId}_${transaction.id}`,
             amount: transaction.amount,
-            token: config_1.waveBusinessApiConfig().cashOutApiKey,
+            token: config_1.waveBusinessApiConfig(this.constructor.country)
+                .cashOutApiKey,
             success_url: params.dto.successRedirectUrl,
             error_url: params.dto.errorRedirectUrl,
             client_reference: transaction.transactionId,
@@ -99,4 +100,5 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
     }
 }
 exports.WaveMoneySnCashOutApiManagerService = WaveMoneySnCashOutApiManagerService;
+WaveMoneySnCashOutApiManagerService.country = 'sn';
 //# sourceMappingURL=wave-money-sn-cash-out-api-manager.service.js.map

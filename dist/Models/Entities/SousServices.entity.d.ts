@@ -23,6 +23,7 @@ export declare class SousServices extends BaseEntity {
     state: 'ACTIVED' | 'INACTIVED' | 'DELETED';
     createdAt: Date;
     updatedAt: Date | null;
+    minLimitTransaction: number;
     maxLimitTransaction: number;
     maxLimitDay: number;
     maxLimitWeek: number;

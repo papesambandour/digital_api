@@ -86,7 +86,7 @@ let ApiServiceService = class ApiServiceService {
         this.commissionAmount = amountCommssion;
     }
     async validatorCustomApi(operationInDto) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u;
         const msg = {
             apiKey: [],
             codeService: [],
@@ -138,6 +138,12 @@ let ApiServiceService = class ApiServiceService {
                 msg.amount.push('limit maximum par transaction est depassé . Max limit : ' +
                     ((_g = this.sousServices) === null || _g === void 0 ? void 0 : _g.maxLimitTransaction));
             }
+            if (+(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount) > ((_h = this.sousServices) === null || _h === void 0 ? void 0 : _h.minLimitTransaction) &&
+                ((_j = this.sousServices) === null || _j === void 0 ? void 0 : _j.minLimitTransaction) != -1) {
+                asError = true;
+                msg.amount.push("limit minimum par transaction n'est pas atteinds . Min limit : " +
+                    ((_k = this.sousServices) === null || _k === void 0 ? void 0 : _k.minLimitTransaction));
+            }
         }
         if ((this === null || this === void 0 ? void 0 : this.comptePartner) && (this === null || this === void 0 ? void 0 : this.sousServices)) {
             this.sousServicesPartner = await SousServicesParteners_entity_1.SousServicesParteners.findOne({
@@ -152,13 +158,13 @@ let ApiServiceService = class ApiServiceService {
                 msg.codeService.push("Le partenaire n'est pas souscrit au service demandé");
             }
             if ((this === null || this === void 0 ? void 0 : this.sousServicesPartner) &&
-                ((_h = this === null || this === void 0 ? void 0 : this.sousServicesPartner) === null || _h === void 0 ? void 0 : _h.state) !== Enum_entity_1.StateEnum.ACTIVED) {
+                ((_l = this === null || this === void 0 ? void 0 : this.sousServicesPartner) === null || _l === void 0 ? void 0 : _l.state) !== Enum_entity_1.StateEnum.ACTIVED) {
                 asError = true;
                 msg.codeService.push('Le services est temporairement desactivé pour le partenaire');
             }
         }
-        if (+((_j = this === null || this === void 0 ? void 0 : this.partner) === null || _j === void 0 ? void 0 : _j.solde) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
-            if (+((_k = this === null || this === void 0 ? void 0 : this.partner) === null || _k === void 0 ? void 0 : _k.soldeCommission) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
+        if (+((_m = this === null || this === void 0 ? void 0 : this.partner) === null || _m === void 0 ? void 0 : _m.solde) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
+            if (+((_o = this === null || this === void 0 ? void 0 : this.partner) === null || _o === void 0 ? void 0 : _o.soldeCommission) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
                 asError = true;
                 msg.apiKey.push('Le solde global du partenaire est infusisant pour effectuer cette operation');
             }
@@ -173,14 +179,14 @@ let ApiServiceService = class ApiServiceService {
             this.comission = await Commission_entity_1.Commission.findOne({
                 where: [
                     {
-                        sousServicesId: (_l = this === null || this === void 0 ? void 0 : this.sousServices) === null || _l === void 0 ? void 0 : _l.id,
-                        partenersId: ((_m = this === null || this === void 0 ? void 0 : this.partner) === null || _m === void 0 ? void 0 : _m.id) || ((_o = this === null || this === void 0 ? void 0 : this.sousServices) === null || _o === void 0 ? void 0 : _o.id),
+                        sousServicesId: (_p = this === null || this === void 0 ? void 0 : this.sousServices) === null || _p === void 0 ? void 0 : _p.id,
+                        partenersId: ((_q = this === null || this === void 0 ? void 0 : this.partner) === null || _q === void 0 ? void 0 : _q.id) || ((_r = this === null || this === void 0 ? void 0 : this.sousServices) === null || _r === void 0 ? void 0 : _r.id),
                         amountStart: typeorm_1.LessThanOrEqual(+(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)),
                         amountEnd: typeorm_1.MoreThanOrEqual(+(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)),
                     },
                     {
                         sousServicesId: this.sousServices.id,
-                        partenersId: ((_p = this === null || this === void 0 ? void 0 : this.partner) === null || _p === void 0 ? void 0 : _p.id) || ((_q = this === null || this === void 0 ? void 0 : this.sousServices) === null || _q === void 0 ? void 0 : _q.id),
+                        partenersId: ((_s = this === null || this === void 0 ? void 0 : this.partner) === null || _s === void 0 ? void 0 : _s.id) || ((_t = this === null || this === void 0 ? void 0 : this.sousServices) === null || _t === void 0 ? void 0 : _t.id),
                         amountStart: typeorm_1.LessThanOrEqual(+operationInDto.amount),
                         amountEnd: typeorm_1.Equal('-1'),
                     },
@@ -225,7 +231,7 @@ let ApiServiceService = class ApiServiceService {
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
                 externalTransactionId: typeorm_1.Equal(operationInDto.externalTransactionId),
-                partenerComptesId: typeorm_1.Equal(((_r = this === null || this === void 0 ? void 0 : this.comptePartner) === null || _r === void 0 ? void 0 : _r.id) || 0),
+                partenerComptesId: typeorm_1.Equal(((_u = this === null || this === void 0 ? void 0 : this.comptePartner) === null || _u === void 0 ? void 0 : _u.id) || 0),
             },
         });
         if (transaction) {

@@ -3787,8 +3787,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/sousservices.entity.ts": {
-        "version": "dfee351920893e8e1c2336694a51faaf8af0467b26c6a549af152243555e16aa",
-        "signature": "d626adde1b032ceeab1b4fa1c25aec3bc86e50f19e58bb6b1fefe79e71724869",
+        "version": "18f0ff9ee5ea97aa22da7a88b1d6e83dfb141d4b002409702a7f5c5b3a1c8945",
+        "signature": "196eb1301b1f8b55fb27cb5f67b0de4cb39a99c879bf937e0c903b991b72c6e9",
         "affectsGlobalScope": false
       },
       "../src/models/entities/commission.entity.ts": {
@@ -4127,12 +4127,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "d86292e1d93c110bc93edbf7b6751dff16d76730f11e0304d49ec039a7e6cb2d",
+        "version": "a206de80c9b4c0fe76156b48acd0fe1d4705b8376da443635f29712fd7703bf3",
         "signature": "47d51941ae87003847746fc65970194f4afc55c57d5de58aef3bf94332b8e077",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "eba108312673e957808ab2b827ec43c24a734f4eb111bba7c3c58b543dd1a884",
+        "version": "363e1d7ccfec738708ff0ec6c982c44268d7195f0cacaaefa7611b116820f305",
         "signature": "de7cafdfdd532aea00de9df7e8e5bac960f3b951485e68b9211e69c21f760ce8",
         "affectsGlobalScope": false
       },
@@ -4142,12 +4142,12 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "2d6a42f40efa4f2df92d9af5a15b36092a0009bf685f63c3b3e3bcc696534db3",
+        "version": "a10fb041cc842b5dfc4bd49d7fcd24d17ea7271c0c427116a14a06d84c010706",
         "signature": "41705506d349da3c75924bf47b3e6203f5f956b00188c5b15f7cd2d50bc1feb8",
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "2baaae6bb011522b016f410d0e9bedee2655d0f7f2a4b1e8cddac24e59cce2bc",
+        "version": "d1b7eadebfab5214cf482f650e247ac457f549bae6830ddf9e1db311504f1646",
         "signature": "7306a2fafba86547fb6633af09dab2a9889fda6e751cf1e3577a72265174c68c",
         "affectsGlobalScope": false
       },
@@ -4662,7 +4662,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "63a4aacdc22d196be629ac74ebf6270f352f237862e8408995f52d946a574c51",
+        "version": "a48c9c445f1bf1496eca39736a7c3c829bbd390e564ac7c1a21dd3ea650c615e",
         "signature": "6c7f940e832da38d5b3ef5d647bb75669902362b0a05962a818e232042e58f9a",
         "affectsGlobalScope": false
       },
@@ -4776,29 +4776,29 @@
         "signature": "12ca33b128a7ed7c2ce40a2250a6f59a145c6749722fc06ae9eeea929f2baed8",
         "affectsGlobalScope": false
       },
-      "../src/sdk/wave/config.ts": {
-        "version": "cfba50569f0502cba063edfd43d7a29ff92dc24cd6156176bd6bae62e9ece078",
-        "signature": "314db75b54238cbb76d1ee08b2b7b64eca55306f4a51753cbbc5c05407ff2185",
-        "affectsGlobalScope": false
-      },
       "../node_modules/moment/ts3.1-typings/moment.d.ts": {
         "version": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
         "signature": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "c695347850aad6c1a9519dfdc2a11f3082e1970e10f14b45a26465dc31cb882c",
-        "signature": "6cf3516f90f4c2bc06541a0d1612d084b995ad8a2e23410c11eb37a5094c3962",
+        "version": "a6d87eddbf2e72d8d1beca6609100c43ee5786d320997a44ff88eaa9577713df",
+        "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "a34c219a6945ab81d9bcddd2852759df43a9178471c76a2b6da410ad28bab67c",
-        "signature": "6d88c2ee5472261db3e3b587f8645b725fa68263ea5d5cf06284873a6f57ce7f",
+        "version": "e10733377c332788fdd24b35feb5bd9110a3065a0f347fa03a59bb98c6858b49",
+        "signature": "d8ac7f9597f8ca5bd8618a522d4d921218bfac61f5f3f0bb1417c9a06ba3309b",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/wave/config.ts": {
+        "version": "c6d0df8d7d48cfa13eb369a0b0377f13798f05cd62b7e38278e89801a56ae9d3",
+        "signature": "b3b88371a9cb4d9a0b16a6b3094a7be73d2339edd82f2fd73b5cc6cc94eb3ffc",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": {
-        "version": "0ebfefb01f49d115b49fe927e10260b2c3edd8eb90a2ab51de760bb80280a239",
-        "signature": "014377727be6de5fc4bb81190f65b1ab5f096909e055d8bf6bb93b807249e692",
+        "version": "24a2720fbc8f4ec697f9856d90c62dee35396af5ef8643e1cfd798485ca3c98d",
+        "signature": "1c6b491aa811c886b2974970bdf803227ef08dc7e87c410cac942d30ca6e53a3",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts": {
@@ -5032,18 +5032,68 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/orange-money-sn-cash-in-api-manager/orange-money-sn-cash-in-api-manager.service.ts": {
-        "version": "1e6a71196cd99219cc608c5d583dd38490750d283ca13f28724afc5de1dd5e3c",
+        "version": "42fd851d69f42a7e4b72377e46c887ea0b26171b9c899109223d2167fcf48227",
         "signature": "e49ea4e077e6e1a4297a8e6318ebf6eb75a1077786770947235afe9353fcd0a9",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/orange-money-sn-cash-out-api-manager/orange-money-sn-cash-out-api-manager.service.ts": {
-        "version": "6df53c792b7ee4157ac19c45bd82684f23d6080066841e55ca744fe57ff2feda",
+        "version": "b629a45ec0c41b7c1979537c2bb11434be3b5498c5719ec2b516f50e9442eac1",
         "signature": "b683f19c16f076f51da09f1968e6c4b300ebb3b05551e37f0b01bf65f599a61e",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "a3a825da74cb44adbba2b9c9982169fcacc4056e8d085ae1b8758ae59861e333",
+        "version": "c890edb15ddcdb39cef298139784c59a022029ce0d4d73634cbc51724c9d7edf",
         "signature": "30b8bf547bd04c436f0051dc5b85d4634c0f7ab25909155600e8380ac5d728e4",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/constructor.d.ts": {
+        "version": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
+        "signature": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/clone-class.d.ts": {
+        "version": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
+        "signature": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/instance-to-class.d.ts": {
+        "version": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
+        "signature": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts": {
+        "version": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
+        "signature": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts": {
+        "version": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
+        "signature": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/version.d.ts": {
+        "version": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
+        "signature": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/config.d.ts": {
+        "version": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
+        "signature": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/mod.d.ts": {
+        "version": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
+        "signature": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/wave-money-ci-cash-in-api-manager/wave-money-ci-cash-in-api-manager.service.ts": {
+        "version": "db16c96303fd084ffc3eea5757184ca2e3f3639a48525388e604f4d5af074ae9",
+        "signature": "7a2849e6614ebbc680adf3cfd84ff35a2e4324bf88cae7a2c56052221b9c5e42",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/wave-money-ci-cash-out-api-manager/wave-money-ci-cash-out-api-manager.service.ts": {
+        "version": "df23f7a9222a8891660437c5e75c1f4713066ce26071220f53ebfc9d6f5326a1",
+        "signature": "b45fb0de03052c00a31df2d2d258b432bb097239b86399676e21d660b6807403",
         "affectsGlobalScope": false
       },
       "../src/exceptions/httpexceptionhandler.ts": {
@@ -7815,6 +7865,29 @@
       "../node_modules/class-validator/types/validation/validatorconstraintinterface.d.ts": [
         "../node_modules/class-validator/types/validation/validationarguments.d.ts"
       ],
+      "../node_modules/clone-class/dist/esm/src/clone-class.d.ts": [
+        "../node_modules/clone-class/dist/esm/src/constructor.d.ts"
+      ],
+      "../node_modules/clone-class/dist/esm/src/config.d.ts": [
+        "../node_modules/clone-class/dist/esm/src/version.d.ts"
+      ],
+      "../node_modules/clone-class/dist/esm/src/instance-to-class.d.ts": [
+        "../node_modules/clone-class/dist/esm/src/constructor.d.ts"
+      ],
+      "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts": [
+        "../node_modules/clone-class/dist/esm/src/constructor.d.ts"
+      ],
+      "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts": [
+        "../node_modules/clone-class/dist/esm/src/constructor.d.ts"
+      ],
+      "../node_modules/clone-class/dist/esm/src/mod.d.ts": [
+        "../node_modules/clone-class/dist/esm/src/clone-class.d.ts",
+        "../node_modules/clone-class/dist/esm/src/config.d.ts",
+        "../node_modules/clone-class/dist/esm/src/constructor.d.ts",
+        "../node_modules/clone-class/dist/esm/src/instance-to-class.d.ts",
+        "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts",
+        "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts"
+      ],
       "../node_modules/jest-diff/build/difflines.d.ts": [
         "../node_modules/jest-diff/build/cleanupsemantic.d.ts",
         "../node_modules/jest-diff/build/types.d.ts"
@@ -10061,6 +10134,14 @@
         "../src/models/mobilesocket/socketmodel.ts",
         "../src/sockets/sockets.gateway.ts"
       ],
+      "../src/controllers/api-service/wave-money-ci-cash-in-api-manager/wave-money-ci-cash-in-api-manager.service.ts": [
+        "../node_modules/clone-class/dist/esm/src/mod.d.ts",
+        "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts"
+      ],
+      "../src/controllers/api-service/wave-money-ci-cash-out-api-manager/wave-money-ci-cash-out-api-manager.service.ts": [
+        "../node_modules/clone-class/dist/esm/src/mod.d.ts",
+        "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts"
+      ],
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/controller.ts",
@@ -10409,6 +10490,9 @@
         "../src/controllers/controller.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/sdk/orange/config.ts"
+      ],
+      "../src/sdk/wave/config.ts": [
+        "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/sdk/wave/waveapiprovider.ts": [
         "../node_modules/@types/node/util.d.ts",
@@ -12386,6 +12470,29 @@
       ],
       "../node_modules/class-validator/types/validation/validatorconstraintinterface.d.ts": [
         "../node_modules/class-validator/types/validation/validationarguments.d.ts"
+      ],
+      "../node_modules/clone-class/dist/esm/src/clone-class.d.ts": [
+        "../node_modules/clone-class/dist/esm/src/constructor.d.ts"
+      ],
+      "../node_modules/clone-class/dist/esm/src/config.d.ts": [
+        "../node_modules/clone-class/dist/esm/src/version.d.ts"
+      ],
+      "../node_modules/clone-class/dist/esm/src/instance-to-class.d.ts": [
+        "../node_modules/clone-class/dist/esm/src/constructor.d.ts"
+      ],
+      "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts": [
+        "../node_modules/clone-class/dist/esm/src/constructor.d.ts"
+      ],
+      "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts": [
+        "../node_modules/clone-class/dist/esm/src/constructor.d.ts"
+      ],
+      "../node_modules/clone-class/dist/esm/src/mod.d.ts": [
+        "../node_modules/clone-class/dist/esm/src/clone-class.d.ts",
+        "../node_modules/clone-class/dist/esm/src/config.d.ts",
+        "../node_modules/clone-class/dist/esm/src/constructor.d.ts",
+        "../node_modules/clone-class/dist/esm/src/instance-to-class.d.ts",
+        "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts",
+        "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts"
       ],
       "../node_modules/jest-diff/build/difflines.d.ts": [
         "../node_modules/jest-diff/build/cleanupsemantic.d.ts",
@@ -14541,11 +14648,19 @@
         "../src/models/entities/transactions.entity.ts",
         "../src/models/mobilesocket/socketmodel.ts"
       ],
+      "../src/controllers/api-service/wave-money-ci-cash-in-api-manager/wave-money-ci-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts"
+      ],
+      "../src/controllers/api-service/wave-money-ci-cash-out-api-manager/wave-money-ci-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts"
+      ],
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": [
-        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": [
-        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/exceptions/httpexceptionhandler.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
@@ -14752,6 +14867,9 @@
       ],
       "../src/sdk/orange/providerorangemoneyapi.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/sdk/wave/config.ts": [
+        "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/sdk/wave/waveapiprovider.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",

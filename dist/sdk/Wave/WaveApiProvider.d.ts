@@ -1,5 +1,6 @@
 import { WaveMoneySnCashOutApiManagerService } from '../../Controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service';
 import { BalanceParams, BalanceResponse, CheckParams, CheckResponse } from '../../Controllers/api-service/api-manager-interface/api-manager-interface.service';
+export declare type WAVE_COUNTRY = 'sn' | 'ci';
 export default class WaveApiProvider {
     static apiUrl: string;
     static baseUrl: string;
@@ -44,6 +45,6 @@ export default class WaveApiProvider {
         token: any;
         idemPotency: any;
     }): Promise<any>;
-    static apiManagerCheckCashOutStatusTransaction(apiManagerService: WaveMoneySnCashOutApiManagerService, params: CheckParams): Promise<CheckResponse>;
+    static apiManagerCheckCashOutStatusTransaction(apiManagerService: WaveMoneySnCashOutApiManagerService, params: CheckParams, country: WAVE_COUNTRY): Promise<CheckResponse>;
     static getBalance(params: BalanceParams, token: string, idemPotency: string): Promise<BalanceResponse>;
 }

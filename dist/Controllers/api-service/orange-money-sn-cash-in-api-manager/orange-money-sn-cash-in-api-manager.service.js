@@ -16,7 +16,6 @@ class OrangeMoneySnCashInApiManagerService extends api_manager_interface_service
         return (await this.notImplementedYet(params));
     }
     async initTransaction(params) {
-        var _a;
         const api = await this.loadBalancingPhone();
         const baseResponse = {
             phone: params.dto.phone,
@@ -42,8 +41,7 @@ class OrangeMoneySnCashInApiManagerService extends api_manager_interface_service
         const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
-        transaction.sousServiceTransactionId =
-            (_a = response.transaction) === null || _a === void 0 ? void 0 : _a.externalReference;
+        transaction.sousServiceTransactionId = response === null || response === void 0 ? void 0 : response.externalReference;
         await transaction.save();
         if (response.success) {
             transaction.message = JSON.stringify(response.apiResponse);
