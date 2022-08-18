@@ -88,7 +88,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                              where id = ${this.apiService.transactionId}
                                AND statut <> '${status}'`)
                         .then((value) => value);
-                    resolve(true);
+                    resolve(this.helper.isNotCancelable(preStatus, status));
                     this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
                 }, Enum_entity_1.CONSTANT.WAIT_SOCKET_PHONE() * 1000);
                 console.log('SOCKET CALL', ussdCode);
@@ -142,7 +142,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                      pre_statut= '${preStatus}'
                  where id = ${this.apiService.transactionId}
                    AND statut <> '${Enum_entity_1.StatusEnum.SUCCESS}'`);
-        return true;
+        return this.helper.isNotCancelable(preStatus, status);
     }
     getUssDCode(regexCodeUss, phone) {
         return regexCodeUss

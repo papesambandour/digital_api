@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.OperationInDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
+const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 class OperationInDto {
 }
 __decorate([
@@ -63,18 +64,21 @@ __decorate([
 ], OperationInDto.prototype, "apiKey", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    class_validator_1.IsOptional(),
     class_validator_1.IsString({
         message: 'Le sender doit être un un string',
     }),
+    class_validator_1.ValidateIf((object) => [
+        Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_OUT,
+        Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_IN,
+    ].includes(object['codeService'])),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "sender", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    class_validator_1.IsOptional(),
     class_validator_1.IsUrl({}, {
         message: 'successRedirectUrl doit être un URL',
     }),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_OUT].includes(object['codeService'])),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "successRedirectUrl", void 0);
 __decorate([
@@ -82,8 +86,103 @@ __decorate([
     class_validator_1.IsUrl({}, {
         message: 'errorRedirectUrl doit être un URL',
     }),
-    class_validator_1.IsOptional(),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_OUT].includes(object['codeService'])),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "errorRedirectUrl", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsUrl({}, {
+        message: 'bankAuthRedirectUrl doit être un URL',
+    }),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "bankAuthRedirectUrl", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsAlpha(),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "customerFirstName", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsAlpha(),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "customerLastName", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsEmail({}, {
+        message: 'customerEmail doit être un email',
+    }),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "customerEmail", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsCreditCard({
+        message: 'cardNumber doit être un numéro de carte valide',
+    }),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "cardNumber", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsNumberString({}, {
+        message: 'cardExpireMonth doit être un string composé de deux chiffre',
+    }),
+    class_validator_1.Length(2, 2, {
+        message: 'cardExpireMonth doit être un string composé de deux chiffre',
+    }),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "cardExpireMonth", void 0);
+__decorate([
+    class_validator_1.IsNumberString({}, {
+        message: 'cardExpireYear doit être un string composé de deux chiffre',
+    }),
+    class_validator_1.Length(2, 2, {
+        message: 'cardExpireYear doit être un string composé de deux chiffre',
+    }),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "cardExpireYear", void 0);
+__decorate([
+    class_validator_1.IsNumberString({}, {
+        message: 'cardCVC doit être un string composé de trois chiffre',
+    }),
+    class_validator_1.Length(3, 3, {
+        message: 'cardCVC doit être un string composé de trois chiffre',
+    }),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "cardCVC", void 0);
+__decorate([
+    class_validator_1.IsIn(['VISA', 'MASTERCARD', 'VISA_ELECTRON'], {
+        message: `cardType doit avoir une des ses valeurs: ${[
+            'VISA',
+            'MASTERCARD',
+            'VISA_ELECTRON',
+        ].join(',')}`,
+    }),
+    class_validator_1.IsOptional({}),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "cardType", void 0);
+__decorate([
+    class_validator_1.IsAlpha(),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
+    class_validator_1.Length(3, 15, {
+        message: 'merchantName doit être un string composé de maximum 15 caractères',
+    }),
+    class_validator_1.IsOptional({}),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "merchantName", void 0);
+__decorate([
+    class_validator_1.IsNumberString(null, {
+        message: 'merchantCode doit être un string composé de chiffre',
+    }),
+    class_validator_1.IsOptional({}),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "merchantCatCode", void 0);
 exports.OperationInDto = OperationInDto;
 //# sourceMappingURL=OperationInDto.js.map

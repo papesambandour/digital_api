@@ -9,4 +9,15 @@ export declare class OperationInDto {
     sender?: string;
     successRedirectUrl?: string;
     errorRedirectUrl?: string;
+    bankAuthRedirectUrl?: string;
+    customerFirstName?: string;
+    customerLastName?: string;
+    customerEmail?: string;
+    cardNumber?: string;
+    cardExpireMonth?: string;
+    cardExpireYear?: string;
+    cardCVC?: string;
+    cardType?: string;
+    merchantName?: string;
+    merchantCatCode?: string;
 }

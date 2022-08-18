@@ -31,8 +31,14 @@ const api_service_service_1 = require("./api-service.service");
 const OperationDictionaryDto_1 = require("./dto/OperationDictionaryDto");
 const ResponseHttpDefaultData_1 = require("../../Models/Response/ResponseHttpDefaultData");
 const DtoBalance_1 = require("../../Models/Dto/DtoBalance");
+const PartenerComptes_entity_1 = require("../../Models/Entities/PartenerComptes.entity");
 const helper_service_1 = require("../../helper.service");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
+const Confirm3dsInDto_1 = require("./dto/Confirm3dsInDto");
+const typeorm_1 = require("typeorm");
+const Parteners_entity_1 = require("../../Models/Entities/Parteners.entity");
+const Transactions_entity_1 = require("../../Models/Entities/Transactions.entity");
+const Utils = require("util");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService, helper) {
         super();
@@ -65,6 +71,71 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             await this.helper.operationPartnerCancelTransaction(response.transaction);
         }
         return this.response(response.codeHttp, this.apiServiceService.responseOperation(response, operationInDto), response.partnerMessage, response.codeHttp !== Controller_1.CODE_HTTP.OK_OPERATION);
+    }
+    async confirm3dsAuth(confirm3dsAuthInDto) {
+        const isNotValid = await this.validator(this.getInstanceObject(confirm3dsAuthInDto, new Confirm3dsInDto_1.Confirm3dsInDto()));
+        if (isNotValid) {
+            return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotValid, '', true);
+        }
+        const comptePartner = await PartenerComptes_entity_1.PartenerComptes.findOne({
+            where: { appKey: typeorm_1.Equal(confirm3dsAuthInDto === null || confirm3dsAuthInDto === void 0 ? void 0 : confirm3dsAuthInDto.apiKey) },
+        });
+        let partner;
+        if (comptePartner) {
+            partner = await Parteners_entity_1.Parteners.findOne(comptePartner === null || comptePartner === void 0 ? void 0 : comptePartner.partenersId);
+        }
+        if (!partner || !comptePartner) {
+            return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                orderId: confirm3dsAuthInDto.orderId,
+            }, 'Non authentifié', true);
+        }
+        const transaction = await Transactions_entity_1.Transactions.findOne({
+            where: {
+                sousServiceTransactionId: confirm3dsAuthInDto.orderId,
+                partenerComptesId: comptePartner.id,
+                statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
+            },
+        });
+        if (!transaction) {
+            return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                orderId: confirm3dsAuthInDto.orderId,
+            }, 'Aucune transaction en attente de validation  trouvé', true);
+        }
+        const apiManagerService = await this.helper.getApiManagerInterface(transaction.codeSousService, null);
+        const checkResult = await apiManagerService.confirmTransaction({
+            transaction: transaction,
+            meta: {
+                paRes: confirm3dsAuthInDto.paRes,
+                orderId: confirm3dsAuthInDto.orderId,
+            },
+        });
+        if ((checkResult === null || checkResult === void 0 ? void 0 : checkResult.status) === 'SUCCESS') {
+            transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+        }
+        else {
+            transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+        }
+        transaction.checkTransactionResponse = Utils.inspect(checkResult.meta);
+        await transaction.save();
+        await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
+        await apiManagerService.helper.setIsCallbackReadyValue(transaction.id);
+        if ((checkResult === null || checkResult === void 0 ? void 0 : checkResult.status) === 'SUCCESS') {
+            return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
+                status: Enum_entity_1.StatusEnum.SUCCESS,
+                orderId: confirm3dsAuthInDto.orderId,
+            }, checkResult.partnerMessage, false);
+        }
+        else {
+            await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
+            return this.response(Controller_1.CODE_HTTP.FAILLED, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                orderId: confirm3dsAuthInDto.orderId,
+            }, checkResult.partnerMessage, true);
+        }
     }
     async transaction(id) {
         return {
@@ -99,6 +170,15 @@ __decorate([
     __metadata("design:paramtypes", [OperationInDto_1.OperationInDto]),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "operation", null);
+__decorate([
+    common_1.Post('confirm-3ds-auth'),
+    ResponseDecorateur_1.ResponseDecorateur(OperationOutDto_1.OperationOutDto, 201, "Ce Services permet d'effectué tous les operations que offres Simbox "),
+    ResponseDecorateur_1.ResponseDecorateur(OperationBadParamsDto_1.OperationBadParamsDto, 400, 'Les parametres envoyés sont invalides'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Confirm3dsInDto_1.Confirm3dsInDto]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "confirm3dsAuth", null);
 __decorate([
     common_1.Get('transactions/:id'),
     ResponseDetailsDecorateur_1.ResponseDetailsDecorateur(DtoTransactions_1.DtoTransactions),

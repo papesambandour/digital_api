@@ -1,5 +1,5 @@
 import { HttpService } from '@nestjs/common';
-import { OperationEnumPhone, TypeEvenEnum, TypeOperationEnum } from './Models/Entities/Enum.entity';
+import { OperationEnumPhone, StatusEnum, TypeEvenEnum, TypeOperationEnum } from './Models/Entities/Enum.entity';
 import { Connection } from 'typeorm';
 import { Phones } from './Models/Entities/Phones.entity';
 import { Transactions } from './Models/Entities/Transactions.entity';
@@ -37,4 +37,5 @@ export declare class HelperService {
     checkServiceConfig(): Promise<void>;
     private disableSousService;
     handleSuccessTransactionCreditDebit(transaction: Transactions, sousServiceTransactionId?: any): Promise<boolean>;
+    isNotCancelable(preStatus: StatusEnum, status: StatusEnum): boolean;
 }

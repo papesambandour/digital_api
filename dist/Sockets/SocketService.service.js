@@ -38,7 +38,9 @@ let SocketServiceService = class SocketServiceService {
                 number: typeorm_1.Equal(room),
             },
         });
-        Phones_entity_1.Phones.update(phone.id, {
+        Phones_entity_1.Phones.update({
+            number: phone.number,
+        }, {
             socket: Enum_entity_1.SocketState.DISCONNECTED,
         }).then((data) => console.log('Phone update', data));
         this.activityPhone(phone.id, Enum_entity_1.EnumActivitiesPhones.LEAVE_ROOM).then((data) => console.log('Activity phone inserted', data));
@@ -64,11 +66,13 @@ let SocketServiceService = class SocketServiceService {
         sms.content = (_a = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _a === void 0 ? void 0 : _a.content;
         sms.createdAt = new Date();
         let infoTransaction;
-        const phone = await Phones_entity_1.Phones.findOne({
+        const phones = await Phones_entity_1.Phones.find({
             where: {
                 number: typeorm_1.Equal(socketBody.room),
             },
         });
+        let phone = phones[0];
+        let phonesId = phones.map((phone) => phone.id);
         sms.phonesId = phone.id;
         let resMessage;
         try {
@@ -85,7 +89,7 @@ let SocketServiceService = class SocketServiceService {
         console.log('Phone', phone.number);
         const sousServicesPhones = await SousServicesPhones_entity_1.SousServicesPhones.find({
             where: {
-                phonesId: typeorm_1.Equal(phone.id),
+                phonesId: typeorm_1.In(phonesId),
             },
         });
         if (sousServicesPhones.length) {
@@ -111,6 +115,22 @@ let SocketServiceService = class SocketServiceService {
                 const dataLimit = new Date();
                 dataLimit.setDate(dataLimit.getDate() - Enum_entity_1.CONSTANT.MAX_TIME_VALIDATION_TRX());
                 if (infoTransaction) {
+                    const sousServicesPhones = await SousServicesPhones_entity_1.SousServicesPhones.findOne({
+                        where: {
+                            sousServicesId: typeorm_1.Equal(infoTransaction.sousService.id),
+                            phonesId: typeorm_1.In(phonesId),
+                        },
+                    });
+                    phone = await Phones_entity_1.Phones.findOne({
+                        where: {
+                            number: typeorm_1.Equal(socketBody.room),
+                            id: typeorm_1.Equal(sousServicesPhones.phonesId),
+                        },
+                    });
+                    await MessageUssds_entity_1.MessageUssds.update(sms.id, {
+                        phonesId: phone.id,
+                        isMatched: 1,
+                    });
                     const transaction = await Transactions_entity_1.Transactions.findOne({
                         where: {
                             amount: typeorm_1.Equal(infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount),
@@ -206,7 +226,10 @@ let SocketServiceService = class SocketServiceService {
             id: client === null || client === void 0 ? void 0 : client.id,
         });
         client.join(room);
-        await Phones_entity_1.Phones.update(phone === null || phone === void 0 ? void 0 : phone.id, {
+        await Phones_entity_1.Phones.update({
+            number: phone.number,
+            state: Enum_entity_1.StateEnum.ACTIVED,
+        }, {
             socket: Enum_entity_1.SocketState.CONNECTED,
         });
         this.activityPhone(phone.id, Enum_entity_1.EnumActivitiesPhones.JOIN_ROOM).then((data) => console.log('Activity phone inserted', data));
@@ -233,7 +256,9 @@ let SocketServiceService = class SocketServiceService {
             .then((phone) => {
             console.log('|PPP|', phone);
             this.activityPhone(phone.id, Enum_entity_1.EnumActivitiesPhones.LEAVE_ROOM).then((data) => console.log('Activity phone inserted', data));
-            Phones_entity_1.Phones.update(phone === null || phone === void 0 ? void 0 : phone.id, {
+            Phones_entity_1.Phones.update({
+                number: phone.number,
+            }, {
                 socket: Enum_entity_1.SocketState.DISCONNECTED,
             }).then((data) => {
                 console.log('Phone updated', data);

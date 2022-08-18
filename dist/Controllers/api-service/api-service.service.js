@@ -92,6 +92,16 @@ let ApiServiceService = class ApiServiceService {
             codeService: [],
             errorRedirectUrl: [],
             successRedirectUrl: [],
+            bankAuthRedirectUrl: [],
+            customerFirstName: [],
+            customerLastName: [],
+            merchantName: [],
+            customerEmail: [],
+            cardNumber: [],
+            cardExpireMonth: [],
+            cardExpireYear: [],
+            cardCVC: [],
+            cardType: [],
             amount: [],
             callbackUrl: [],
             phone: [],
@@ -217,16 +227,6 @@ let ApiServiceService = class ApiServiceService {
                 asError = true;
                 msg.codeService.push("Le service n'est pas configurer complètement");
             }
-            if (this.sousServices.code === Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_OUT) {
-                if (!operationInDto.successRedirectUrl) {
-                    asError = true;
-                    msg.successRedirectUrl.push('Le  champs successRedirectUrl est obligatoire pour ce service');
-                }
-                if (!operationInDto.errorRedirectUrl) {
-                    asError = true;
-                    msg.errorRedirectUrl.push('Le  champs errorRedirectUrl est obligatoire pour ce service');
-                }
-            }
         }
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
@@ -325,7 +325,7 @@ let ApiServiceService = class ApiServiceService {
         return false;
     }
     responseOperation(response, operationInDto) {
-        var _a, _b;
+        var _a, _b, _c, _d;
         return {
             phone: operationInDto.phone,
             amount: operationInDto.amount,
@@ -334,8 +334,10 @@ let ApiServiceService = class ApiServiceService {
             status: response.status,
             externalTransactionId: operationInDto.externalTransactionId,
             callbackUrl: operationInDto.callbackUrl,
-            deep_link_url: (_a = response === null || response === void 0 ? void 0 : response['data']) === null || _a === void 0 ? void 0 : _a.url,
-            notification_message: (_b = response === null || response === void 0 ? void 0 : response['data']) === null || _b === void 0 ? void 0 : _b.message,
+            deep_link_url: (_a = response === null || response === void 0 ? void 0 : response['data']) === null || _a === void 0 ? void 0 : _a.deep_link_url,
+            auth_link_url: (_b = response === null || response === void 0 ? void 0 : response['data']) === null || _b === void 0 ? void 0 : _b.auth_link_url,
+            orderId: (_c = response === null || response === void 0 ? void 0 : response['data']) === null || _c === void 0 ? void 0 : _c.orderId,
+            notification_message: (_d = response === null || response === void 0 ? void 0 : response['data']) === null || _d === void 0 ? void 0 : _d.message,
         };
     }
     async getPartner(headers) {

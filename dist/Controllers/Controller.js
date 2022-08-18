@@ -19,6 +19,7 @@ exports.CODE_HTTP = {
     SERVICE_DOWN: 'SERVICE_DOWN',
     NOT_IMPLEMENTED: 'NOT_IMPLEMENTED',
     UNKNOW_ERROR: 'UNKNOW_ERROR',
+    FAILLED: 'FAILLED',
 };
 exports.CODE_HTTP_OBJECT = {
     OK: {
@@ -80,6 +81,10 @@ exports.CODE_HTTP_OBJECT = {
     UNKNOW_ERROR: {
         code: 4000,
         msg: "Une erreur inconnue s'est produite",
+    },
+    FAILLED: {
+        code: 4000,
+        msg: 'La transaction a échoué',
     },
 };
 class ControllerBase {

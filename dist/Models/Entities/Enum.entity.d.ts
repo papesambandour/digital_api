@@ -87,5 +87,7 @@ export declare enum EnumCodeUssdResponse {
     TIME_OUT = "TIME_OUT"
 }
 export declare enum SOUS_SERVICE_ENUM {
-    WAVE_SN_API_CASH_OUT = "WAVE_SN_API_CASH_OUT"
+    WAVE_SN_API_CASH_OUT = "WAVE_SN_API_CASH_OUT",
+    WAVE_SN_API_CASH_IN = "WAVE_SN_API_CASH_IN",
+    BANK_CARD_API_CASH_OUT = "BANK_CARD_API_CASH_OUT"
 }

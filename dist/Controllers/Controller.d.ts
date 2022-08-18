@@ -15,6 +15,7 @@ export declare const CODE_HTTP: {
     SERVICE_DOWN: string;
     NOT_IMPLEMENTED: string;
     UNKNOW_ERROR: string;
+    FAILLED: string;
 };
 export declare const CODE_HTTP_OBJECT: {
     OK: {
@@ -77,6 +78,10 @@ export declare const CODE_HTTP_OBJECT: {
         code: number;
         msg: string;
     };
+    FAILLED: {
+        code: number;
+        msg: string;
+    };
 };
 export declare class ControllerBase {
     CODE_HTTP: {
@@ -96,6 +101,7 @@ export declare class ControllerBase {
         SERVICE_DOWN: string;
         NOT_IMPLEMENTED: string;
         UNKNOW_ERROR: string;
+        FAILLED: string;
     };
     private CODE_HTTP_OBJECT;
     response(code: string, data: object, msg?: string, error?: boolean): {

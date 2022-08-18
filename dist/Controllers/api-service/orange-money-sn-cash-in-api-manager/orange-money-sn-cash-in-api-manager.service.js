@@ -63,7 +63,7 @@ class OrangeMoneySnCashInApiManagerService extends api_manager_interface_service
             await transaction.save();
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,
-                codeHttp: Controller_1.CODE_HTTP.SERVICE_DOWN,
+                codeHttp: Controller_1.CODE_HTTP.UNKNOW_ERROR,
                 partnerMessage: ProviderOrangeMoneyApi_1.default.getMessageFromCode(response.code),
                 transaction: transaction,
                 transactionId: transaction.transactionId,

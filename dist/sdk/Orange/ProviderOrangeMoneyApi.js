@@ -509,7 +509,7 @@ class ProviderOrangeMoneyApi {
                     .updateApiBalance(apiManager, params.transaction.phonesId)
                     .then();
                 return Object.assign({
-                    status: 'SUCCESS',
+                    status: Enum_entity_1.StatusEnum.SUCCESS,
                     codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
                 }, baseResponse);
             }
@@ -518,7 +518,7 @@ class ProviderOrangeMoneyApi {
                 params.transaction.checkTransactionResponse = Utils.inspect(response.apiResponse);
                 await params.transaction.save();
                 return Object.assign({
-                    status: 'PENDING',
+                    status: Enum_entity_1.StatusEnum.PENDING,
                     codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
                 }, baseResponse);
             }
@@ -535,7 +535,7 @@ class ProviderOrangeMoneyApi {
                     .then();
                 await apiManager.helper.operationPartnerCancelTransaction(params.transaction);
                 return Object.assign({
-                    status: 'FAILLED',
+                    status: Enum_entity_1.StatusEnum.FAILLED,
                     codeHttp: Controller_1.CODE_HTTP.OPERATION_BADREQUEST,
                 }, baseResponse);
             }

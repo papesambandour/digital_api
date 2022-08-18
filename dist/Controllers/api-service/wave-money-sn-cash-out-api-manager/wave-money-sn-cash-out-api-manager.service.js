@@ -78,7 +78,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
                 data: {
                     message: messageNotification,
                     amount: transaction.amount,
-                    url: deepLink,
+                    deep_link_url: deepLink,
                 },
             }, baseResponse);
         }
@@ -87,7 +87,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
             await transaction.save();
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,
-                codeHttp: Controller_1.CODE_HTTP.SERVICE_DOWN,
+                codeHttp: Controller_1.CODE_HTTP.UNKNOW_ERROR,
                 partnerMessage: 'Impossible de procéder au paiement ressayer plus tard',
                 transaction: transaction,
                 transactionId: transaction.transactionId,

@@ -20,10 +20,12 @@ export declare type InitResponse = OperationOutDto & {
 };
 export declare type ConfirmParams = {
     transaction: Transactions;
+    meta?: any;
 };
 export declare type ConfirmResponse = OperationOutDto & {
     partnerMessage?: string;
     codeHttp: string;
+    meta?: any;
 };
 export declare type RefundParams = {
     transaction: Transactions;
