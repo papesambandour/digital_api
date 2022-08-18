@@ -4152,8 +4152,8 @@
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "d1b7eadebfab5214cf482f650e247ac457f549bae6830ddf9e1db311504f1646",
-        "signature": "7306a2fafba86547fb6633af09dab2a9889fda6e751cf1e3577a72265174c68c",
+        "version": "bd04de758e3f8df86b153649d3cd1b615708ccf83854ac4b1371cd281378e670",
+        "signature": "2ef5473e0b07f4fa325eb6ed648f456589a2cba655b152ed48d011e206dd182a",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts": {
@@ -10006,10 +10006,12 @@
       "../src/app.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@types/express/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
         "../src/app.service.ts",
         "../src/controllers/controller.ts",
         "../src/helper.service.ts",
-        "../src/models/entities/enum.entity.ts"
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/sousservices.entity.ts"
       ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -14656,7 +14658,8 @@
         "../node_modules/@types/express/index.d.ts",
         "../src/app.service.ts",
         "../src/controllers/controller.ts",
-        "../src/helper.service.ts"
+        "../src/helper.service.ts",
+        "../src/models/entities/enum.entity.ts"
       ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",

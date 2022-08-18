@@ -9,4 +9,13 @@ export declare class AppController extends ControllerBase {
     getHello(request: any): Promise<any>;
     apkVersion(): Promise<any>;
     deepLink(transactionId: string, res: Response): Promise<void | Response<any, Record<string, any>>>;
+    services(): Promise<{
+        success: boolean;
+        services: {
+            name: string;
+            codeService: string;
+            typeOperation: import("./Models/Entities/Enum.entity").TypeOperationEnum;
+            typeService: string;
+        }[];
+    }>;
 }
