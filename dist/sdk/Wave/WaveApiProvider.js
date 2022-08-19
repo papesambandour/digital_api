@@ -592,7 +592,6 @@ class WaveApiProvider {
                     mode: 'cors',
                 });
                 const jsonResponse = await response.json();
-                console.log('fetching async ending: ', counter, new Date(), jsonResponse);
                 const histories = jsonResponse.data.me.businessUser.business.walletHistory
                     .historyEntries;
                 const targetPayment = histories.find((b) => {
