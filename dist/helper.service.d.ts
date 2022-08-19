@@ -18,8 +18,8 @@ export declare class HelperService {
     waitSome(seconde: number): Promise<unknown>;
     mysqlDate(d: Date): string;
     getApiManagerInterface(codeService: string, apiService: ApiServiceService): Promise<ApiManagerInterface>;
-    getTransactionById(transactionId: number): Promise<Transactions>;
-    getTransactionByGeneratedId(transactionId: string): Promise<Transactions>;
+    getTransactionById(transactionId: number, extraRelation?: any[]): Promise<Transactions>;
+    getTransactionByGeneratedId(transactionId: string, extraRelation?: any[]): Promise<Transactions>;
     setIsCallbackReadyValue(transactionId: any): Promise<void>;
     setTimeOutDate(transactionId: any): Promise<void>;
     sendCallBack(transaction: Transactions): Promise<any>;
@@ -38,4 +38,5 @@ export declare class HelperService {
     private disableSousService;
     handleSuccessTransactionCreditDebit(transaction: Transactions, sousServiceTransactionId?: any): Promise<boolean>;
     isNotCancelable(preStatus: StatusEnum, status: StatusEnum): boolean;
+    appendQueryParams(url: string, queryParams: any): string;
 }

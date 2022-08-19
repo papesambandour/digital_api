@@ -33,8 +33,8 @@ export default class Bank3DSBridgeApiProvider {
     static getOrderIdFromTransaction(id: any): string;
     static checkTransaction(params: ConfirmParams): Promise<{
         success: boolean;
-        message: any;
-        step: number;
+        message: string;
         checkResponse: any;
+        step: any;
     }>;
 }

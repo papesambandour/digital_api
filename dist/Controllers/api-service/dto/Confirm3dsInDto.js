@@ -16,24 +16,8 @@ class Confirm3dsInDto {
 }
 __decorate([
     swagger_1.ApiProperty(),
-    class_validator_1.IsNotEmpty({
-        message: 'Le champs orderId est manquant',
-    }),
+    class_validator_1.IsOptional(),
     __metadata("design:type", String)
-], Confirm3dsInDto.prototype, "orderId", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    class_validator_1.IsNotEmpty({
-        message: 'Le champs paRes est manquant',
-    }),
-    __metadata("design:type", String)
-], Confirm3dsInDto.prototype, "paRes", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    class_validator_1.IsNotEmpty({
-        message: "L'API KEY Url est requis",
-    }),
-    __metadata("design:type", String)
-], Confirm3dsInDto.prototype, "apiKey", void 0);
+], Confirm3dsInDto.prototype, "PaRes", void 0);
 exports.Confirm3dsInDto = Confirm3dsInDto;
 //# sourceMappingURL=Confirm3dsInDto.js.map

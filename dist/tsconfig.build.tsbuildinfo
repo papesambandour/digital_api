@@ -3847,8 +3847,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "2e42f5a5dc0d41f80d19aceac645afc5eaf4050e31ea6b1cd44291458f3a99a0",
-        "signature": "3d9933b1110c2b9dea29796039cd439deb000a33cfb1bc19355614153df96b7b",
+        "version": "faa70d66d3a284f6d9299e151645b29b1897af2987af638656bf756a958aecf7",
+        "signature": "3c31b442ace2c6ed4d518c18203a4536805f1f4823ada224be935e4c228ee9f8",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationoutdto.ts": {
@@ -4127,8 +4127,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "6f49d961e35839e595cacd45f1e235137d3c8a4b3d169ca1793bb0faf0051f27",
-        "signature": "761428471ed75d9804f1aba71d1e0c52d73b0e5dffceacac0bb99b4016671a10",
+        "version": "1f68c7961bd7ac2ce4e34981d30cb26e71388fdc3829eb9617e90e5d58b30524",
+        "signature": "1518af6cda4fdcbaf56c1183a621b943d19b83fbcb7c960b367f9fa0e56c281b",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/listpendingbillindto.ts": {
@@ -4147,13 +4147,48 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "ff742ae85bde3090c01bffd4b484e90a551d9ac421370b27f6b0727606282df0",
-        "signature": "535629539c9b50a52eaccea0bc14b936df9dda30860523b99913288f7e0f2b90",
+        "version": "64c0ea4eeb81fd5f0019371de1ea1dba4ab2c43e7d8337e3a26354e47df50e67",
+        "signature": "0f8dff10a8c8cc817a9ca9a863286321830aa3a2a99a74e6366e04de1182cb62",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/dto/confirm3dsindto.ts": {
+        "version": "b7bf06c1ea02bc7940414887827d5a057817f40b71b47c6ae4d72432a280e1c0",
+        "signature": "02afd33acb2c219536ee71881ee4d8b2112b1c8281f41d0e47644d7fc2104005",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/moment/ts3.1-typings/moment.d.ts": {
+        "version": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
+        "signature": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/wave/config.ts": {
+        "version": "c6d0df8d7d48cfa13eb369a0b0377f13798f05cd62b7e38278e89801a56ae9d3",
+        "signature": "b3b88371a9cb4d9a0b16a6b3094a7be73d2339edd82f2fd73b5cc6cc94eb3ffc",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
+        "version": "02f5452ad9c6cd92891f37a169ca19c7c7bd38dda57cf6c01c211f4a6cec5df1",
+        "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/wave/waveapiprovider.ts": {
+        "version": "614a504f955a4bba4b47270e275f4f27a6ae37710039fb1e511d5d54e75a5af6",
+        "signature": "f841333efd929556f2e1f403cd1c18a15288e88d3667839121e6c688a314c3f6",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
+        "version": "cb9e8373bbf337b30b50a280d29f24176045dfc988ca295f56d022f6b6592681",
+        "signature": "d35029a4d5c05ffb36370e1c11eb09bd926acb7d6569695653c5c296a250a6c7",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/bank-card-money-sn-cash-out-api-manager/bank-card-money-sn-cash-out-api-manager.service.ts": {
+        "version": "41025b5f686c88c0e4c65b4e4b231cc3ded99699155045d74214656331ff5fd3",
+        "signature": "f77137b7060fda270debc6731c1c8cc834b089076a206f1ca9ba7fc8e00202c0",
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "2dde45ec7c26991ef1ef73e644d055f8a62163618442a7bc51619730910e47db",
-        "signature": "7306a2fafba86547fb6633af09dab2a9889fda6e751cf1e3577a72265174c68c",
+        "version": "d873d6b8b01818ead16c38eba911942627908c886a1c9ade5bea3ea8fa8ef4e2",
+        "signature": "c10e0128f12d98686022d281bbef6fffb8632761a16fac39a66f1c4d75ff07b2",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts": {
@@ -4666,44 +4701,9 @@
         "signature": "ba8815529cee9690a805b60ea2fb715bcfe51cbab3abf50aaf9f632de402d1f2",
         "affectsGlobalScope": false
       },
-      "../src/controllers/api-service/dto/confirm3dsindto.ts": {
-        "version": "5ca2d68328d7f3ce4cd85ee66861c3ecf6009837680d14731abbb76e3bba0aeb",
-        "signature": "f81062d4b87799afbd101053a180100feb0d7b353ba441884e24b215ff30dc65",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/moment/ts3.1-typings/moment.d.ts": {
-        "version": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
-        "signature": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/wave/config.ts": {
-        "version": "c6d0df8d7d48cfa13eb369a0b0377f13798f05cd62b7e38278e89801a56ae9d3",
-        "signature": "b3b88371a9cb4d9a0b16a6b3094a7be73d2339edd82f2fd73b5cc6cc94eb3ffc",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "02f5452ad9c6cd92891f37a169ca19c7c7bd38dda57cf6c01c211f4a6cec5df1",
-        "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "614a504f955a4bba4b47270e275f4f27a6ae37710039fb1e511d5d54e75a5af6",
-        "signature": "f841333efd929556f2e1f403cd1c18a15288e88d3667839121e6c688a314c3f6",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
-        "version": "7a2246fe49840f5637b8a7bb458da39895e042532922f678194fcbdfa3b6fd0e",
-        "signature": "9673bb38251257a6c08cfb18a4c36a0537848f472a476b6b8e8c51e1df48101a",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/bank-card-money-sn-cash-out-api-manager/bank-card-money-sn-cash-out-api-manager.service.ts": {
-        "version": "a80dc244fd27d0139e90f20e3c5898d40cdb08e500f33f714437eb27db4eb86a",
-        "signature": "f77137b7060fda270debc6731c1c8cc834b089076a206f1ca9ba7fc8e00202c0",
-        "affectsGlobalScope": false
-      },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "20086b07da91f79224985a5a2eb362095954e94d07793551194e55d780b47203",
-        "signature": "cc8e37ab3d28595b6e01459affd8a9bb3a651551ec7d741f5c1c85d120c3bb89",
+        "version": "68c37490a83d658f9d9bb3a2225278c9740fc92bdc3e89e6633b75a0142ab7c9",
+        "signature": "08c5814c03c565b6725d1364a7944201dab460353df0fa2c8ded7447ee0cf3af",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -10069,14 +10069,21 @@
         "../node_modules/socket.io/dist/index.d.ts"
       ],
       "../src/app.controller.ts": [
+        "../node_modules/@nestjs/common/decorators/http/request-mapping.decorator.d.ts",
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@types/express/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/app.service.ts",
+        "../src/controllers/api-service/bank-card-money-sn-cash-out-api-manager/bank-card-money-sn-cash-out-api-manager.service.ts",
+        "../src/controllers/api-service/dto/confirm3dsindto.ts",
         "../src/controllers/controller.ts",
         "../src/helper.service.ts",
         "../src/models/entities/enum.entity.ts",
-        "../src/models/entities/sousservices.entity.ts"
+        "../src/models/entities/partenercomptes.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/models/entities/sousservices.entity.ts",
+        "../src/models/entities/transactions.entity.ts"
       ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -14812,6 +14819,7 @@
       "../src/app.controller.ts": [
         "../node_modules/@types/express/index.d.ts",
         "../src/app.service.ts",
+        "../src/controllers/api-service/dto/confirm3dsindto.ts",
         "../src/controllers/controller.ts",
         "../src/helper.service.ts"
       ],
@@ -14841,7 +14849,6 @@
       ],
       "../src/controllers/api-service/api-service.controller.ts": [
         "../src/controllers/api-service/api-service.service.ts",
-        "../src/controllers/api-service/dto/confirm3dsindto.ts",
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/controllers/controller.ts",

@@ -72,7 +72,7 @@ class BankCardMoneySnCashOutApiManagerService extends api_manager_interface_serv
             cardExpireYear: params.dto.cardExpireYear,
             cardCVC: params.dto.cardCVC,
             cardType: params.dto.cardType,
-            bankAuthRedirectUrl: params.dto.bankAuthRedirectUrl,
+            bankAuthRedirectUrl: `${process.env.APP_INTERNAL_URL}/auth_3ds_callback/${transaction.transactionId}`,
             phoneNumber: params.dto.phone,
             clientEmail: params.dto.customerEmail,
             merchantName: params.dto.merchantName,
@@ -90,8 +90,8 @@ class BankCardMoneySnCashOutApiManagerService extends api_manager_interface_serv
         if (checkout === null || checkout === void 0 ? void 0 : checkout.success) {
             transaction.message = JSON.stringify(checkout);
             transaction.deepLinkUrl = `${checkout.url}`;
-            transaction.successRedirectUrl = params.dto.bankAuthRedirectUrl;
-            transaction.errorRedirectUrl = params.dto.bankAuthRedirectUrl;
+            transaction.successRedirectUrl = params.dto.successRedirectUrl;
+            transaction.errorRedirectUrl = params.dto.errorRedirectUrl;
             await transaction.save();
             console.log('Send OKK');
             const deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;

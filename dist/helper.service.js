@@ -103,20 +103,20 @@ let HelperService = class HelperService {
             return null;
         }
     }
-    async getTransactionById(transactionId) {
+    async getTransactionById(transactionId, extraRelation = []) {
         return await Transactions_entity_1.Transactions.findOne({
             where: {
                 id: typeorm_2.Equal(transactionId),
             },
-            relations: ['sousServices'],
+            relations: extraRelation.concat(['sousServices']),
         });
     }
-    async getTransactionByGeneratedId(transactionId) {
+    async getTransactionByGeneratedId(transactionId, extraRelation = []) {
         return await Transactions_entity_1.Transactions.findOne({
             where: {
                 transactionId: typeorm_2.Equal(transactionId),
             },
-            relations: [],
+            relations: extraRelation.concat(['sousServices']),
         });
     }
     async setIsCallbackReadyValue(transactionId) {
@@ -584,6 +584,18 @@ let HelperService = class HelperService {
     isNotCancelable(preStatus, status) {
         return ([Enum_entity_1.StatusEnum.SUCCESS, Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING].includes(preStatus) ||
             [Enum_entity_1.StatusEnum.SUCCESS, Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING].includes(status));
+    }
+    appendQueryParams(url, queryParams) {
+        const serialize = function (obj) {
+            const str = [];
+            for (const p in obj)
+                if (obj.hasOwnProperty(p)) {
+                    str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+                }
+            return str.join('&');
+        };
+        url += (url.split('?')[1] ? '&' : '?') + serialize(queryParams);
+        return url;
     }
 };
 HelperService = __decorate([

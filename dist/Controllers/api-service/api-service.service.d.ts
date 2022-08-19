@@ -38,7 +38,6 @@ export declare class ApiServiceService {
         codeService: any[];
         errorRedirectUrl: any[];
         successRedirectUrl: any[];
-        bankAuthRedirectUrl: any[];
         customerFirstName: any[];
         customerLastName: any[];
         merchantName: any[];

@@ -18,6 +18,12 @@ const app_service_1 = require("./app.service");
 const Controller_1 = require("./Controllers/Controller");
 const helper_service_1 = require("./helper.service");
 const Enum_entity_1 = require("./Models/Entities/Enum.entity");
+const typeorm_1 = require("typeorm");
+const Confirm3dsInDto_1 = require("./Controllers/api-service/dto/Confirm3dsInDto");
+const Parteners_entity_1 = require("./Models/Entities/Parteners.entity");
+const Transactions_entity_1 = require("./Models/Entities/Transactions.entity");
+const Utils = require("util");
+const request_mapping_decorator_1 = require("@nestjs/common/decorators/http/request-mapping.decorator");
 let AppController = class AppController extends Controller_1.ControllerBase {
     constructor(appService, helper) {
         super();
@@ -50,7 +56,8 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         if (!transaction || !transaction.deepLinkUrl) {
             return res.send('');
         }
-        if (transaction.statut !== Enum_entity_1.StatusEnum.PROCESSING) {
+        if (transaction.statut !== Enum_entity_1.StatusEnum.PROCESSING &&
+            transaction.statut !== Enum_entity_1.StatusEnum.PENDING) {
             if (transaction.statut === Enum_entity_1.StatusEnum.SUCCESS) {
                 console.log('here 2');
                 return res.redirect(transaction.successRedirectUrl || process.env.APP_INTERNAL_URL);
@@ -65,6 +72,86 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         return res.render('deep', {
             link,
         });
+    }
+    async confirm3dsAuth(confirm3dsAuthInDto, transactionId, res) {
+        var _a, _b, _c, _d;
+        const transaction = await Transactions_entity_1.Transactions.findOne({
+            where: {
+                transactionId: typeorm_1.Equal(transactionId),
+                codeSousService: Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT,
+            },
+            relations: ['sousServices', 'partenerComptes'],
+        });
+        if (!transaction) {
+            return res.send('Aucune transaction en attente de validation  trouvé');
+        }
+        if (transaction.statut !== Enum_entity_1.StatusEnum.PROCESSING &&
+            transaction.statut !== Enum_entity_1.StatusEnum.PENDING) {
+            if (transaction.statut === Enum_entity_1.StatusEnum.SUCCESS) {
+                console.log('here 2');
+                return res.redirect(this.helper.appendQueryParams(transaction.successRedirectUrl, {
+                    message: 'Déja traité',
+                    approvalCode: '',
+                    orderId: transaction.sousServiceTransactionId,
+                }));
+            }
+            else {
+                console.log('here 2');
+                return res.redirect(this.helper.appendQueryParams(transaction.errorRedirectUrl, {
+                    message: 'Déja traité',
+                    approvalCode: '',
+                    orderId: transaction.sousServiceTransactionId,
+                }));
+            }
+        }
+        const comptePartner = transaction.partenerComptes;
+        let partner;
+        if (comptePartner) {
+            partner = await Parteners_entity_1.Parteners.findOne(comptePartner === null || comptePartner === void 0 ? void 0 : comptePartner.partenersId);
+        }
+        if (!partner) {
+            return res.send('Compte partnaire non trouvé');
+        }
+        const apiManagerService = await this.helper.getApiManagerInterface(transaction.codeSousService, null);
+        if (!apiManagerService) {
+            return this.response(this.CODE_HTTP.SERVICE_DOWN, {}, 'Api Service Manager non configuré', true);
+        }
+        const checkResult = await apiManagerService.confirmTransaction({
+            transaction: transaction,
+            meta: {
+                paRes: confirm3dsAuthInDto.PaRes,
+                orderId: transaction.sousServiceTransactionId,
+            },
+        });
+        const meta = checkResult === null || checkResult === void 0 ? void 0 : checkResult.meta;
+        if ((checkResult === null || checkResult === void 0 ? void 0 : checkResult.status) === 'SUCCESS') {
+            transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+        }
+        else {
+            transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+        }
+        transaction.checkTransactionResponse = Utils.inspect(meta);
+        await transaction.save();
+        await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
+        await apiManagerService.helper.setIsCallbackReadyValue(transaction.id);
+        console.log(checkResult.meta, 'meta__check');
+        if ((checkResult === null || checkResult === void 0 ? void 0 : checkResult.status) === 'SUCCESS') {
+            return res.redirect(this.helper.appendQueryParams(transaction.successRedirectUrl, {
+                message: checkResult === null || checkResult === void 0 ? void 0 : checkResult.partnerMessage,
+                approvalCode: ((_b = (_a = meta === null || meta === void 0 ? void 0 : meta.checkResponse) === null || _a === void 0 ? void 0 : _a.processorInformation) === null || _b === void 0 ? void 0 : _b.approvalCode) || '',
+                orderId: transaction.sousServiceTransactionId,
+            }));
+        }
+        else {
+            await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
+            return res.redirect(this.helper.appendQueryParams(transaction.errorRedirectUrl, {
+                message: checkResult === null || checkResult === void 0 ? void 0 : checkResult.partnerMessage,
+                approvalCode: ((_d = (_c = meta === null || meta === void 0 ? void 0 : meta.checkResponse) === null || _c === void 0 ? void 0 : _c.processorInformation) === null || _d === void 0 ? void 0 : _d.approvalCode) || '',
+                orderId: transaction.sousServiceTransactionId,
+            }));
+        }
     }
 };
 __decorate([
@@ -81,13 +168,22 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "apkVersion", null);
 __decorate([
-    common_1.Get('deep/:transactionId'),
+    request_mapping_decorator_1.All('deep/:transactionId'),
     __param(0, common_1.Param('transactionId')),
     __param(1, common_1.Res()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "deepLink", null);
+__decorate([
+    request_mapping_decorator_1.All('auth_3ds_callback/:transactionId'),
+    __param(0, common_1.Body()),
+    __param(1, common_1.Param('transactionId')),
+    __param(2, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Confirm3dsInDto_1.Confirm3dsInDto, String, Object]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "confirm3dsAuth", null);
 AppController = __decorate([
     common_1.Controller(),
     __metadata("design:paramtypes", [app_service_1.AppService,

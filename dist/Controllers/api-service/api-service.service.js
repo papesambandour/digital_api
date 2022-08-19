@@ -92,7 +92,6 @@ let ApiServiceService = class ApiServiceService {
             codeService: [],
             errorRedirectUrl: [],
             successRedirectUrl: [],
-            bankAuthRedirectUrl: [],
             customerFirstName: [],
             customerLastName: [],
             merchantName: [],
