@@ -104,9 +104,9 @@ class BankCardMoneySnCashOutApiManagerService extends api_manager_interface_serv
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
                 data: {
-                    message: messageNotification,
+                    notificationMessage: messageNotification,
                     amount: transaction.amount,
-                    auth_link_url: deepLink,
+                    authLinkUrl: deepLink,
                     orderId: Bank3DSBridgeApiProvider_1.default.getOrderIdFromTransaction(transaction.transactionId),
                 },
             }, baseResponse);

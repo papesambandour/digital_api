@@ -55,19 +55,7 @@ export declare class ApiServiceService {
     validUrl(str: any): boolean;
     generateTransactionId(): string;
     allDataIsOk(): any;
-    responseOperation(response: CheckResponse | RefundResponse | InitResponse, operationInDto: OperationInDto): {
-        phone: string;
-        amount: number;
-        codeService: string;
-        transactionId: string;
-        status: "NOT_IMPLEMENTED" | "FAILLED" | "SUCCESS" | "PENDING" | "PROCESSING" | "CANCELED";
-        externalTransactionId: string;
-        callbackUrl: string;
-        deep_link_url: any;
-        auth_link_url: any;
-        orderId: any;
-        notification_message: any;
-    };
+    responseOperation(response: CheckResponse | RefundResponse | InitResponse, operationInDto: OperationInDto): any;
     getPartner(headers: any): Promise<PartenerComptes>;
     private initFeePartner;
 }

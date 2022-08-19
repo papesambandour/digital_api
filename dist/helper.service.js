@@ -79,23 +79,29 @@ let HelperService = class HelperService {
         return d.toISOString().substr(0, 19).replace('T', ' ');
     }
     async getApiManagerInterface(codeService, apiService) {
-        console.log(codeService, String(apiService));
-        const service = await SousServices_entity_1.SousServices.findOne({
-            where: { code: typeorm_2.Equal(codeService) },
-        });
-        const className = service.apiManagerClassName;
-        const namespace = service.apiManagerNamespace;
-        const exec = `
-        new (require('${namespace}').${className})(
-            this.connection,
-            this,
-            this.httpService,
-            apiService
-        )
-    `;
-        const apiInterface = eval(exec);
-        console.log('dynamic instance class');
-        return apiInterface;
+        try {
+            console.log(codeService, String(apiService));
+            const service = await SousServices_entity_1.SousServices.findOne({
+                where: { code: typeorm_2.Equal(codeService) },
+            });
+            const className = service.apiManagerClassName;
+            const namespace = service.apiManagerNamespace;
+            const exec = `
+          new (require('${namespace}').${className})(
+              this.connection,
+              this,
+              this.httpService,
+              apiService
+          )
+      `;
+            const apiInterface = eval(exec);
+            console.log('dynamic instance class');
+            return apiInterface;
+        }
+        catch (e) {
+            console.log(e);
+            return null;
+        }
     }
     async getTransactionById(transactionId) {
         return await Transactions_entity_1.Transactions.findOne({

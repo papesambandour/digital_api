@@ -15,6 +15,14 @@ class ApiManagerInterface {
         this.httpService = httpService;
         this.apiService = apiService;
     }
+    async getPendingBillTransaction(params) {
+        return {
+            success: false,
+            message: 'No implemented',
+            pendingBills: [],
+            billAccountNumber: '',
+        };
+    }
     async notImplementedYet(params) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
         const response = {

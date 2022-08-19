@@ -76,9 +76,9 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
                 data: {
-                    message: messageNotification,
+                    notificationMessage: messageNotification,
                     amount: transaction.amount,
-                    deep_link_url: deepLink,
+                    deepLinkUrl: deepLink,
                 },
             }, baseResponse);
         }

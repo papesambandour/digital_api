@@ -20,4 +20,7 @@ export declare class OperationInDto {
     cardType?: string;
     merchantName?: string;
     merchantCatCode?: string;
+    billReference?: string;
+    billAccountNumber?: string;
+    birthday?: string;
 }

@@ -86,7 +86,7 @@ let ApiServiceService = class ApiServiceService {
         this.commissionAmount = amountCommssion;
     }
     async validatorCustomApi(operationInDto) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v;
         const msg = {
             apiKey: [],
             codeService: [],
@@ -148,11 +148,12 @@ let ApiServiceService = class ApiServiceService {
                 msg.amount.push('limit maximum par transaction est depassé . Max limit : ' +
                     ((_g = this.sousServices) === null || _g === void 0 ? void 0 : _g.maxLimitTransaction));
             }
-            if (+(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount) > ((_h = this.sousServices) === null || _h === void 0 ? void 0 : _h.minLimitTransaction) &&
-                ((_j = this.sousServices) === null || _j === void 0 ? void 0 : _j.minLimitTransaction) != -1) {
+            console.log(+(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount), (_h = this.sousServices) === null || _h === void 0 ? void 0 : _h.minLimitTransaction);
+            if (+(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount) < ((_j = this.sousServices) === null || _j === void 0 ? void 0 : _j.minLimitTransaction) &&
+                ((_k = this.sousServices) === null || _k === void 0 ? void 0 : _k.minLimitTransaction) != -1) {
                 asError = true;
                 msg.amount.push("limit minimum par transaction n'est pas atteinds . Min limit : " +
-                    ((_k = this.sousServices) === null || _k === void 0 ? void 0 : _k.minLimitTransaction));
+                    ((_l = this.sousServices) === null || _l === void 0 ? void 0 : _l.minLimitTransaction));
             }
         }
         if ((this === null || this === void 0 ? void 0 : this.comptePartner) && (this === null || this === void 0 ? void 0 : this.sousServices)) {
@@ -168,13 +169,13 @@ let ApiServiceService = class ApiServiceService {
                 msg.codeService.push("Le partenaire n'est pas souscrit au service demandé");
             }
             if ((this === null || this === void 0 ? void 0 : this.sousServicesPartner) &&
-                ((_l = this === null || this === void 0 ? void 0 : this.sousServicesPartner) === null || _l === void 0 ? void 0 : _l.state) !== Enum_entity_1.StateEnum.ACTIVED) {
+                ((_m = this === null || this === void 0 ? void 0 : this.sousServicesPartner) === null || _m === void 0 ? void 0 : _m.state) !== Enum_entity_1.StateEnum.ACTIVED) {
                 asError = true;
                 msg.codeService.push('Le services est temporairement desactivé pour le partenaire');
             }
         }
-        if (+((_m = this === null || this === void 0 ? void 0 : this.partner) === null || _m === void 0 ? void 0 : _m.solde) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
-            if (+((_o = this === null || this === void 0 ? void 0 : this.partner) === null || _o === void 0 ? void 0 : _o.soldeCommission) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
+        if (+((_o = this === null || this === void 0 ? void 0 : this.partner) === null || _o === void 0 ? void 0 : _o.solde) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
+            if (+((_p = this === null || this === void 0 ? void 0 : this.partner) === null || _p === void 0 ? void 0 : _p.soldeCommission) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
                 asError = true;
                 msg.apiKey.push('Le solde global du partenaire est infusisant pour effectuer cette operation');
             }
@@ -189,14 +190,14 @@ let ApiServiceService = class ApiServiceService {
             this.comission = await Commission_entity_1.Commission.findOne({
                 where: [
                     {
-                        sousServicesId: (_p = this === null || this === void 0 ? void 0 : this.sousServices) === null || _p === void 0 ? void 0 : _p.id,
-                        partenersId: ((_q = this === null || this === void 0 ? void 0 : this.partner) === null || _q === void 0 ? void 0 : _q.id) || ((_r = this === null || this === void 0 ? void 0 : this.sousServices) === null || _r === void 0 ? void 0 : _r.id),
+                        sousServicesId: (_q = this === null || this === void 0 ? void 0 : this.sousServices) === null || _q === void 0 ? void 0 : _q.id,
+                        partenersId: ((_r = this === null || this === void 0 ? void 0 : this.partner) === null || _r === void 0 ? void 0 : _r.id) || ((_s = this === null || this === void 0 ? void 0 : this.sousServices) === null || _s === void 0 ? void 0 : _s.id),
                         amountStart: typeorm_1.LessThanOrEqual(+(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)),
                         amountEnd: typeorm_1.MoreThanOrEqual(+(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)),
                     },
                     {
                         sousServicesId: this.sousServices.id,
-                        partenersId: ((_s = this === null || this === void 0 ? void 0 : this.partner) === null || _s === void 0 ? void 0 : _s.id) || ((_t = this === null || this === void 0 ? void 0 : this.sousServices) === null || _t === void 0 ? void 0 : _t.id),
+                        partenersId: ((_t = this === null || this === void 0 ? void 0 : this.partner) === null || _t === void 0 ? void 0 : _t.id) || ((_u = this === null || this === void 0 ? void 0 : this.sousServices) === null || _u === void 0 ? void 0 : _u.id),
                         amountStart: typeorm_1.LessThanOrEqual(+operationInDto.amount),
                         amountEnd: typeorm_1.Equal('-1'),
                     },
@@ -231,7 +232,7 @@ let ApiServiceService = class ApiServiceService {
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
                 externalTransactionId: typeorm_1.Equal(operationInDto.externalTransactionId),
-                partenerComptesId: typeorm_1.Equal(((_u = this === null || this === void 0 ? void 0 : this.comptePartner) === null || _u === void 0 ? void 0 : _u.id) || 0),
+                partenerComptesId: typeorm_1.Equal(((_v = this === null || this === void 0 ? void 0 : this.comptePartner) === null || _v === void 0 ? void 0 : _v.id) || 0),
             },
         });
         if (transaction) {
@@ -325,8 +326,7 @@ let ApiServiceService = class ApiServiceService {
         return false;
     }
     responseOperation(response, operationInDto) {
-        var _a, _b, _c, _d;
-        return {
+        return Object.assign({
             phone: operationInDto.phone,
             amount: operationInDto.amount,
             codeService: operationInDto.codeService,
@@ -334,11 +334,7 @@ let ApiServiceService = class ApiServiceService {
             status: response.status,
             externalTransactionId: operationInDto.externalTransactionId,
             callbackUrl: operationInDto.callbackUrl,
-            deep_link_url: (_a = response === null || response === void 0 ? void 0 : response['data']) === null || _a === void 0 ? void 0 : _a.deep_link_url,
-            auth_link_url: (_b = response === null || response === void 0 ? void 0 : response['data']) === null || _b === void 0 ? void 0 : _b.auth_link_url,
-            orderId: (_c = response === null || response === void 0 ? void 0 : response['data']) === null || _c === void 0 ? void 0 : _c.orderId,
-            notification_message: (_d = response === null || response === void 0 ? void 0 : response['data']) === null || _d === void 0 ? void 0 : _d.message,
-        };
+        }, (response === null || response === void 0 ? void 0 : response['data']) || {});
     }
     async getPartner(headers) {
         return await PartenerComptes_entity_1.PartenerComptes.findOne({

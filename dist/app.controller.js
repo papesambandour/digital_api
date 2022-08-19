@@ -18,8 +18,6 @@ const app_service_1 = require("./app.service");
 const Controller_1 = require("./Controllers/Controller");
 const helper_service_1 = require("./helper.service");
 const Enum_entity_1 = require("./Models/Entities/Enum.entity");
-const SousServices_entity_1 = require("./Models/Entities/SousServices.entity");
-const typeorm_1 = require("typeorm");
 let AppController = class AppController extends Controller_1.ControllerBase {
     constructor(appService, helper) {
         super();
@@ -68,29 +66,6 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             link,
         });
     }
-    async services() {
-        const services = await SousServices_entity_1.SousServices.find({
-            where: {
-                state: typeorm_1.Equal(Enum_entity_1.StateEnum.ACTIVED),
-            },
-            relations: ['typeServices'],
-            select: ['name', 'typeOperation', 'typeServices', 'code'],
-            order: {
-                id: 'ASC',
-            },
-        });
-        return {
-            success: true,
-            services: services.map((s) => {
-                return {
-                    name: s.name,
-                    codeService: s.code,
-                    typeOperation: s.typeOperation,
-                    typeService: s.typeServices.code,
-                };
-            }),
-        };
-    }
 };
 __decorate([
     common_1.Post('/callback'),
@@ -113,12 +88,6 @@ __decorate([
     __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "deepLink", null);
-__decorate([
-    common_1.Get('services'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], AppController.prototype, "services", null);
 AppController = __decorate([
     common_1.Controller(),
     __metadata("design:paramtypes", [app_service_1.AppService,

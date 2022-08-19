@@ -163,7 +163,6 @@ __decorate([
             'VISA_ELECTRON',
         ].join(',')}`,
     }),
-    class_validator_1.IsOptional({}),
     class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "cardType", void 0);
@@ -173,8 +172,6 @@ __decorate([
     class_validator_1.Length(3, 15, {
         message: 'merchantName doit être un string composé de maximum 15 caractères',
     }),
-    class_validator_1.IsOptional({}),
-    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "merchantName", void 0);
 __decorate([
@@ -184,5 +181,49 @@ __decorate([
     class_validator_1.IsOptional({}),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "merchantCatCode", void 0);
+__decorate([
+    class_validator_1.IsNumberString(),
+    class_validator_1.ValidateIf((object) => [
+        Enum_entity_1.SOUS_SERVICE_ENUM.SENEAU_SN_BILL_PAY,
+        Enum_entity_1.SOUS_SERVICE_ENUM.SENELEC_SN_BILL_PAY,
+        Enum_entity_1.SOUS_SERVICE_ENUM.AQUATECH_SN_BILL_PAY,
+        Enum_entity_1.SOUS_SERVICE_ENUM.UVS_SN_BILL_PAY,
+        Enum_entity_1.SOUS_SERVICE_ENUM.UCAD_SN_BILL_PAY,
+        Enum_entity_1.SOUS_SERVICE_ENUM.CAMPUS_SN_BILL_PAY,
+    ].includes(object['codeService'])),
+    class_validator_1.Length(5, 20, {
+        message: 'invoiceReference doit être un string composé de minimum 5 et maximum 20 chiffres',
+    }),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "billReference", void 0);
+__decorate([
+    class_validator_1.IsAlphanumeric(),
+    class_validator_1.ValidateIf((object) => [
+        Enum_entity_1.SOUS_SERVICE_ENUM.SENEAU_SN_BILL_PAY,
+        Enum_entity_1.SOUS_SERVICE_ENUM.SENELEC_SN_BILL_PAY,
+        Enum_entity_1.SOUS_SERVICE_ENUM.RAPIDO_SN_BILL_RELOAD,
+        Enum_entity_1.SOUS_SERVICE_ENUM.WOYOFAL_SN_BILL_RELOAD,
+        Enum_entity_1.SOUS_SERVICE_ENUM.XEWEUL_SN_BILL_RELOAD,
+        Enum_entity_1.SOUS_SERVICE_ENUM.AQUATECH_SN_BILL_PAY,
+        Enum_entity_1.SOUS_SERVICE_ENUM.OOLUSOLAR_SN_BILL_RELOAD,
+        Enum_entity_1.SOUS_SERVICE_ENUM.BAOBAP_PLUS_SN_BILL_RELOAD,
+        Enum_entity_1.SOUS_SERVICE_ENUM.UVS_SN_BILL_PAY,
+        Enum_entity_1.SOUS_SERVICE_ENUM.UCAD_SN_BILL_PAY,
+        Enum_entity_1.SOUS_SERVICE_ENUM.DER_FJ_SN_BILL_RELOAD,
+        Enum_entity_1.SOUS_SERVICE_ENUM.CAMPUS_SN_BILL_PAY,
+    ].includes(object['codeService'])),
+    class_validator_1.Length(8, 20, {
+        message: 'billAccountNumber doit être un string composé de minimum 5 et maximum 20 caractères',
+    }),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "billAccountNumber", void 0);
+__decorate([
+    class_validator_1.IsDateString(),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.CAMPUS_SN_BILL_PAY].includes(object['codeService'])),
+    class_validator_1.Length(10, 10, {
+        message: 'birthday doit être  une date sous le format DAY/MONTH/YEAR (02/05/2022)',
+    }),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "birthday", void 0);
 exports.OperationInDto = OperationInDto;
 //# sourceMappingURL=OperationInDto.js.map
