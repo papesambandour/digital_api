@@ -44,9 +44,11 @@ class WhatsAppApiProvider {
         }));
         client.on('qr', (qr) => {
             console.log('QR RECEIVED', qr);
-            DiscordApiProvider_1.default.sendMessageStatic({
-                message: `Nouveau qrCode pour whatsapp: \n${qr}`,
-            });
+            if (process.env.MODE === 'production') {
+                DiscordApiProvider_1.default.sendMessageStatic({
+                    message: `Nouveau qrCode pour whatsapp: \n${qr}`,
+                });
+            }
             try {
                 const qrcode = require('qrcode-terminal');
                 qrcode.generate(qrcode, { small: true });
