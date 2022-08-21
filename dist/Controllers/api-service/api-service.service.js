@@ -250,7 +250,8 @@ let ApiServiceService = class ApiServiceService {
             },
         });
         console.log(`TRANSACTION IN LAST ${Enum_entity_1.CONSTANT.LIMIT_TIME_TRANSACTION} MINUTE`, transactionTime);
-        if (transactionTime) {
+        if (transactionTime &&
+            ![Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(operationInDto.codeService)) {
             asError = true;
             msg.apiKey.push('Une transaction avec le meme numero et le meme montant est deja en cours');
         }

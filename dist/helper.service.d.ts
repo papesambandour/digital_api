@@ -6,6 +6,7 @@ import { Transactions } from './Models/Entities/Transactions.entity';
 import { ApiManagerInterface } from './Controllers/api-service/api-manager-interface/api-manager-interface.service';
 import { SousServices } from './Models/Entities/SousServices.entity';
 import { ApiServiceService } from './Controllers/api-service/api-service.service';
+import { OperationInDto } from './Controllers/api-service/dto/OperationInDto';
 export declare class HelperService {
     private readonly connection;
     private httpService;
@@ -41,4 +42,6 @@ export declare class HelperService {
     appendQueryParams(url: string, queryParams: any): string;
     private getTransactionCallBackHash;
     private sha256;
+    b64ToFilePath(attachedMedia: string, attachedMediaExtension: string, attachedMediaName: string): Promise<string>;
+    getAmountForMessenger(operationInDto: OperationInDto): Promise<number>;
 }

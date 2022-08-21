@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const config_1 = require("./config");
 const whatsapp_web_js_1 = require("whatsapp-web.js");
+const DiscordApiProvider_1 = require("../Discord/DiscordApiProvider");
 class WhatsAppApiProvider {
     constructor(config) {
         console.log(config.dataPath);
@@ -43,9 +44,12 @@ class WhatsAppApiProvider {
         }));
         client.on('qr', (qr) => {
             console.log('QR RECEIVED', qr);
-            console.log('displaying qr code');
+            DiscordApiProvider_1.default.sendMessageStatic({
+                message: `Nouveau qrCode pour whatsapp: \n${qr}`,
+            });
             try {
                 const qrcode = require('qrcode-terminal');
+                qrcode.generate(qrcode, { small: true });
             }
             catch (e) {
                 console.log(e);
@@ -55,11 +59,9 @@ class WhatsAppApiProvider {
             console.log(e);
         });
         client.on('ready', async () => {
-            console.log('Client is ready!');
+            console.log('Whatsapp Client is ready!');
             try {
-                WhatsAppApiProvider.isReady = false;
-                const numberDetails = await client.getNumberId('221772457199');
-                client.sendMessage(numberDetails._serialized, 'message');
+                WhatsAppApiProvider.isReady = true;
             }
             catch (e) {
                 console.log(e);
@@ -75,37 +77,41 @@ class WhatsAppApiProvider {
         });
         await WhatsAppApiProvider.initClient(client);
     }
-    async sendMessage(tos, message, attachedMediaPath) {
-        const whatsapp = await WhatsAppApiProvider.getInstance();
+    static async sendMessageToOne(recipient, message, attachedMediaPath) {
         if (!WhatsAppApiProvider.isReady) {
             return {
                 success: false,
-                message: 'not auth..ed',
+                message: `Service n'a pas encore finis sont initialisation`,
+                whatsappNumberId: null,
             };
         }
-        const p = [];
-        for (const to of tos) {
-            p.push(this.sendInternal(to, message, attachedMediaPath));
+        const instance = await WhatsAppApiProvider.getInstance();
+        const client = instance.client;
+        console.log(recipient, message, attachedMediaPath);
+        const numberDetails = await client.getNumberId(recipient.replace('+', '').replace(/\s/g, ''));
+        if (numberDetails === null || numberDetails === void 0 ? void 0 : numberDetails._serialized) {
+            const response = await client.sendMessage(numberDetails === null || numberDetails === void 0 ? void 0 : numberDetails._serialized, message, {
+                linkPreview: true,
+                sendAudioAsVoice: true,
+                media: attachedMediaPath
+                    ? await WhatsAppApiProvider.toMedia(attachedMediaPath)
+                    : undefined,
+            });
+            console.log('got response');
+            return {
+                success: true,
+                recipient: recipient,
+                whatsappNumberId: numberDetails === null || numberDetails === void 0 ? void 0 : numberDetails._serialized,
+                message: `Le message a bien été envoyé a ${numberDetails === null || numberDetails === void 0 ? void 0 : numberDetails._serialized} (${recipient})`,
+            };
         }
-        const result = await Promise['allSettled'](p);
-        console.log(result);
-        return {
-            success: true,
-            result,
-        };
-    }
-    async sendInternal(recipient, message, attachedMediaPath) {
-        const response = await this.client.sendMessage(recipient, message, {
-            linkPreview: true,
-            sendAudioAsVoice: true,
-            media: attachedMediaPath
-                ? await WhatsAppApiProvider.toMedia(attachedMediaPath)
-                : null,
-        });
-        return {
-            recipient: recipient,
-            response,
-        };
+        else {
+            return {
+                success: false,
+                message: 'Le numero whatsapp est introuvable',
+                whatsappNumberId: null,
+            };
+        }
     }
     static async toMedia(mediaPath) {
         return whatsapp_web_js_1.MessageMedia.fromFilePath(mediaPath);

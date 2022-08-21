@@ -9,5 +9,5 @@ export declare class BootstrapService {
     init(): Promise<void>;
     testConfig(): Promise<void>;
     redefineLog(): void;
-    private static initWhatsapp;
+    private static initExternalService;
 }

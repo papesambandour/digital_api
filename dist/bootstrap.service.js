@@ -18,6 +18,8 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const helper_service_1 = require("./helper.service");
+const WhatsAppApiProvider_1 = require("./sdk/WhatsApp/WhatsAppApiProvider");
+const DiscordApiProvider_1 = require("./sdk/Discord/DiscordApiProvider");
 let BootstrapService = BootstrapService_1 = class BootstrapService {
     constructor(connection, helper) {
         this.connection = connection;
@@ -26,7 +28,7 @@ let BootstrapService = BootstrapService_1 = class BootstrapService {
     async init() {
         this.redefineLog();
         await this.testConfig();
-        await BootstrapService_1.initWhatsapp();
+        await BootstrapService_1.initExternalService();
         console.log('Init app');
         try {
             console.log('Init phone');
@@ -90,7 +92,17 @@ let BootstrapService = BootstrapService_1 = class BootstrapService {
             };
         }
     }
-    static async initWhatsapp() {
+    static async initExternalService() {
+        WhatsAppApiProvider_1.default.getInstance().then();
+        DiscordApiProvider_1.default.getInstance().then((discord) => {
+            if (process.env.MODE === 'production') {
+                discord
+                    .sendMessage({
+                    message: 'Serveur Restart',
+                })
+                    .then();
+            }
+        });
     }
 };
 BootstrapService.logger = new common_1.Logger('INTECH_API_LOGS');

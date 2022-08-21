@@ -28,6 +28,7 @@ __decorate([
         message: 'Le montant est requis',
     }),
     class_validator_1.IsNumber(),
+    class_validator_1.ValidateIf((object) => ![Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(object['codeService'])),
     __metadata("design:type", Number)
 ], OperationInDto.prototype, "amount", void 0);
 __decorate([
@@ -223,5 +224,44 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "birthday", void 0);
+__decorate([
+    class_validator_1.IsString({
+        message: 'message  est requis pour ce service',
+    }),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "message", void 0);
+__decorate([
+    class_validator_1.IsString({
+        message: 'attachedMedia  est requis pour ce service',
+    }),
+    class_validator_1.IsBase64({
+        message: 'attachedMedia doit être une chaine en base64 valide',
+    }),
+    class_validator_1.IsOptional(),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "attachedMedia", void 0);
+__decorate([
+    class_validator_1.IsString({
+        message: 'attachedMediaName doit être un string',
+    }),
+    class_validator_1.IsOptional(),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "attachedMediaName", void 0);
+__decorate([
+    class_validator_1.IsString({
+        message: 'attachedMediaExtension  est requis  pour ce service attachedMediaName !== null ',
+    }),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(object['codeService']) &&
+        object['attachedMedia']),
+    class_validator_1.Length(2, 10, {
+        message: 'attachedMediaExtension doit être sous ce format ex: .mp4.',
+    }),
+    class_validator_1.Contains('.', {
+        message: 'attachedMediaExtension doit être sous ce format ex: .mp4',
+    }),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "attachedMediaExtension", void 0);
 exports.OperationInDto = OperationInDto;
 //# sourceMappingURL=OperationInDto.js.map

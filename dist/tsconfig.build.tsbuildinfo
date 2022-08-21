@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "2db964841963b3d4b0a71d6e5b7c3efe241a3821edb5601ea52d59c58485846e",
-        "signature": "b938a643fded98f26318c9c8f6fcf11108cdf29d81a8c87859e5e57932a3e6d6",
+        "version": "00011f193d5e003a689784ce3678701ba51371728494410edbd45e01bc8550e4",
+        "signature": "629b92a235d9a84131211a09c91f807f236fab2a5ea99b95980fbd3ab3ee0f6f",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3847,8 +3847,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "faa70d66d3a284f6d9299e151645b29b1897af2987af638656bf756a958aecf7",
-        "signature": "3c31b442ace2c6ed4d518c18203a4536805f1f4823ada224be935e4c228ee9f8",
+        "version": "0b4cc797adcc81e1f8d7702dd1103176b4e72d88b15ab2dcec492360b8b17b56",
+        "signature": "7d5bcc3b3dafaf573ec9bf87a29c14ecdfefd1b0507c7311ef14ccf8c32830a1",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationoutdto.ts": {
@@ -4127,7 +4127,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "1f68c7961bd7ac2ce4e34981d30cb26e71388fdc3829eb9617e90e5d58b30524",
+        "version": "63b68442b81ef6a4797d907138feaab240f0a2bb848ad5e3ced860f5de33c9d6",
         "signature": "1518af6cda4fdcbaf56c1183a621b943d19b83fbcb7c960b367f9fa0e56c281b",
         "affectsGlobalScope": false
       },
@@ -4147,8 +4147,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "9b7fc0b81f13b4bf903ab3d64ab92c9e65090d10e855f3cbc72edcd35b60e409",
-        "signature": "6827dc64e1d384c7ab537b22936638b2229f3dc624fdd89bd61dcaeb69215456",
+        "version": "23931d2eeadbb9352705bd332c207e46cfd51c1e19d82586e68e89a048424fc8",
+        "signature": "097d127f110dbb3e33aae9ca9d991a05046383b54ef444f58e4c167f0bdfd591",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/confirm3dsindto.ts": {
@@ -4702,7 +4702,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "473998e3c1fd25142451d43ed897f0796a8d2cc99c4e56e162b10a198124153b",
+        "version": "b38db6897043e63b789045fcfbf6a7764e0981074c1c3a5bbaf37bac62410b0f",
         "signature": "2906ce33125bf914fb44faef9e676ff105803f37f4f689ef5d3abaf41d093461",
         "affectsGlobalScope": false
       },
@@ -4821,13 +4821,8 @@
         "signature": "e730f870714e188510a5f26d47d68a75e4b7599b96b804fca8cc0ffce3f37c61",
         "affectsGlobalScope": false
       },
-      "../src/controllers/api-service/der-fj-sn-bill-reload-api-manager/der-fj-sn-bill-reload-api-manager.service.ts": {
-        "version": "3d0b44e2e75e44029fb856dfbdf8a88135e358e6ec03140f7796f853ad6f8c3a",
-        "signature": "3455d53c7d877ffe6468ec928a4f7e40b85f07f302a5a59e23f8cd6a9f501f5a",
-        "affectsGlobalScope": false
-      },
       "../src/controllers/api-service/api-service.module.ts": {
-        "version": "31d25b137b2e65ed78f66438c620ea1b5d119c413440cc032ba9e7e104e92ffa",
+        "version": "06ae1d7c7fe42baa154085eab973a54cf1335913d3138fd5d206914f03ef808d",
         "signature": "622f5703fb298ffab0ec97803bb18f89a7c363d1d8cd8b11ef37cf122819523c",
         "affectsGlobalScope": false
       },
@@ -4856,14 +4851,24 @@
         "signature": "6610faf06e2637b7580ddab8fc8bb3eb0d1a4351ba6dfaf49e9f7fccab861d66",
         "affectsGlobalScope": false
       },
+      "../src/sdk/discord/config.ts": {
+        "version": "1fb37764e83ca61e888e888096edc456cbc3be3a627df009e97f76f3b97f2357",
+        "signature": "5a431c5561d793c0df31635c6e226dab0cc20223681be64e34a56140b344bf6f",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/discord/discordapiprovider.ts": {
+        "version": "4d5f5d168ec9e8daa117f22eae3a377771818670d4b1ec67c42722cba56a94ab",
+        "signature": "8ed7c0303250888633989dbde186f400fc52dec55551b8ae75a6cc9d0f229d01",
+        "affectsGlobalScope": false
+      },
       "../src/sdk/whatsapp/whatsappapiprovider.ts": {
-        "version": "2373e1735a4cc9f092559921171eec13353b1b61b946b3f94ac06380d722f2ec",
-        "signature": "89506348f32d21dfb18da9d10a9988bb9575ec12de6df4809aa1dcf3b45e7375",
+        "version": "e3a61627639a0eac282b5986c82e107e68fcfed36dc93e273b87592f71a65c3e",
+        "signature": "967fefc39c887959e0909ec9381e4ab25c8557d7e5545a244355951b12fcc260",
         "affectsGlobalScope": false
       },
       "../src/bootstrap.service.ts": {
-        "version": "480a8178ae624c921f0c7c53d937bde9d79dbc6ea5520892abe7536d755bfdee",
-        "signature": "361eaf001cb637b76fc5ed5d1e89cf04606e9cc304124155fe54a66780a91e22",
+        "version": "4288b766eb21ce38f4cb0427ff856fc65166f5988f5e11b5b2fa3bd08864cfb0",
+        "signature": "5fd8d8c9c91ce244fcc6da2b0220561352688a4664af417c9c800620459c6d20",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
@@ -5077,13 +5082,18 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/aquatech-sn-bill-payment-api-manager/aquatech-sn-bill-payment-api-manager.service.ts": {
-        "version": "b88a8ffac74035a1cbbcf1f7c2afd7f81549ffcc469a9b977f8a1aa9cddfe2eb",
+        "version": "e9009c6d4e919de6522a34ef4f81ff817a940741375e29ea6dc59d516636deb5",
         "signature": "7cd10d9c309912ffe06f27439addcc4f69cfe69e02710d051f59a58cf206c25c",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/baobabplus-sn-bill-reload-api-manager/baobabplus-sn-bill-reload-api-manager.service.ts": {
-        "version": "24f6fe780d23cf46e9700d69d31cab5ae6ae1f9fe186e3a114d7a17c5d5bbc16",
+        "version": "7d2545f7b91e8762709222d07d84148d7a3d28eec657839a00345853d5e14ecb",
         "signature": "797ee221581d943e6b992b35691b581c09ba2a2d74d4a5d9977b50d3726dbe2e",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/der-fj-sn-bill-reload-api-manager/der-fj-sn-bill-reload-api-manager.service.ts": {
+        "version": "ae65b87d45be2d18f1a809207a0ef7ccd23234bd6a9a4b6307121f61c741a4ab",
+        "signature": "3455d53c7d877ffe6468ec928a4f7e40b85f07f302a5a59e23f8cd6a9f501f5a",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/required-for-service.decorator.ts": {
@@ -5092,7 +5102,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/oolusolar-sn-bill-reload-api-manager/oolusolar-sn-bill-reload-api-manager.service.ts": {
-        "version": "fcb9ba2c707d4c2eea8edb71290118f333e3fac9997ff10e8405db0bad53ba28",
+        "version": "ade90509609d49b047bf0ba4bb3da417c6e52d5533ef5ff5cff358a0f62b7080",
         "signature": "6dc129b0d1bc14d45fe44a1246d7d25e9e36d0a69c55f484c8a6b52f318e41c1",
         "affectsGlobalScope": false
       },
@@ -5117,22 +5127,22 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/rapido-sn-bill-reload-api-manager/rapido-sn-bill-reload-api-manager.service.ts": {
-        "version": "a7a35c3c9915d42e67a370ff2c6afb62ed752ed5c15bcc0d706a9ed84b31c8e7",
+        "version": "5341c84cb490f5929c66f62484b3a7233db4c3215afe3c4e4f26e75ea812cb1e",
         "signature": "4c5d9b3cc5fa359c5f491ae89e8451f9b85d36e1f64dd25f20f58ade0eea8541",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/seneau-sn-bill-payment-api-manager/seneau-sn-bill-payment-api-manager.service.ts": {
-        "version": "ad347bdaeddf9c85c5c4d7892604c1402736ec6526a9d1b6effc5c6d74f1efc6",
+        "version": "66789f5f5f1cf19bc80fdffb24b4c30d2a084726d78d6ce37fbdb3719010d0bc",
         "signature": "02900d749208c489a8936b745377b02f4eff484c9bdd390089fdd59f798513af",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/senelec-sn-bill-payment-api-manager/senelec-sn-bill-payment-api-manager.service.ts": {
-        "version": "4bf7f3005379c83358dfe0f78b6a0c8a67f685ee971e19394a89ad99b2814132",
+        "version": "3853f9317bbd6d7c57cd88a6b7c447d36eb8155a38568a622ce277130e59860a",
         "signature": "d8122d06397dece910ded0cc2e317e90717b40bb8eab5c25aaa3fcf4e528e5a2",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ucad-sn-bill-payment-api-manager/ucad-sn-bill-payment-api-manager.service.ts": {
-        "version": "ec8a4805e08310badd3a0d6e24900bb13ddb275edc8bccc255ff80ad824d148e",
+        "version": "67deb6c2b789598e69e7da609a69a28168a5631b08a029143f7511da575320b3",
         "signature": "2f2cfa3c3b1843b803cff80b9a9b522c0111866a53277d95ee546cf0ab983e65",
         "affectsGlobalScope": false
       },
@@ -5142,7 +5152,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/uvs-sn-bill-payment-api-manager/uvs-sn-bill-payment-api-manager.service.ts": {
-        "version": "9d0b2c1b684da0bad1f871ffc27031d25c48f4840a41150c77aaf197abef2a12",
+        "version": "f60eb8b348f56cbc24b3c17dcc01a362dd5168f82be7b4951c4d5e482d21cfb9",
         "signature": "86035eb2d2e3ba11cada6ee15e397a3044b74192e143932063936743ea60dbdb",
         "affectsGlobalScope": false
       },
@@ -5201,6 +5211,11 @@
         "signature": "b45fb0de03052c00a31df2d2d258b432bb097239b86399676e21d660b6807403",
         "affectsGlobalScope": false
       },
+      "../src/controllers/api-service/whatsapp-message-send-api-manager/whatsapp-message-send-api-manager.service.ts": {
+        "version": "d883696be022ecbd6f05be40f8262ecf4c1c454f53d6d1e803b0c6fa60f9a37a",
+        "signature": "c99a88a98b055adf7c9ee059144d1f224ba086d64ea38cdd981bb6894727714b",
+        "affectsGlobalScope": false
+      },
       "../src/sdk/wizall/config.ts": {
         "version": "3f56c517931bd8c71ff1f3e633548bb6e6a18bf07b1aefbcd2c214649b007b25",
         "signature": "b0aa09d99ceea41768ec860936a1921599747ed75f1e872e6f0a0a47a52c84cc",
@@ -5217,12 +5232,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/woyofal-sn-bill-reload-api-manager/woyofal-sn-bill-reload-api-manager.service.ts": {
-        "version": "ca1f0bcaa5b9eb0cbd85ae509791a6eee7971ddb955b698442887f2afb6306fb",
+        "version": "18c991fa2f598ac785c1a15cd4e552878000c07374d7a12981a96b28a8ec8f8a",
         "signature": "f76c2c42be68078400f4d9a0cd4337ae66d28faa6bc342903671de623517cf01",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/xeweul-sn-bill-reload-api-manager/xeweul-sn-bill-reload-api-manager.service.ts": {
-        "version": "3b9cfe14523f01488bf5e119cb2b1358bdfd3541f0e43705d9db714c1b396dab",
+        "version": "5aeb96447cf716b9c484ea7ee765811a2be1ad1115ab1861985f244f5c0e8e3f",
         "signature": "4a49b0b8252ef38a5db6f2df4c64230d2ae54e4e3b77bf8f1112d7a3c4584c03",
         "affectsGlobalScope": false
       },
@@ -6061,6 +6076,11 @@
         "signature": "e57360b3f53ec41ed30cfb0eaed6e689be92bf311d7c25175a4e127f46158079",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/ws/index.d.ts": {
+        "version": "b4358a89fcd9c579f84a6c68e2ce44ca91b07e4db3f8f403c2b7a72c1a1e04b6",
+        "signature": "b4358a89fcd9c579f84a6c68e2ce44ca91b07e4db3f8f403c2b7a72c1a1e04b6",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@types/yargs-parser/index.d.ts": {
         "version": "3bdd93ec24853e61bfa4c63ebaa425ff3e474156e87a47d90122e1d8cc717c1f",
         "signature": "3bdd93ec24853e61bfa4c63ebaa425ff3e474156e87a47d90122e1d8cc717c1f",
@@ -6094,6 +6114,7 @@
       "outDir": "./",
       "baseUrl": "..",
       "incremental": true,
+      "skipLibCheck": true,
       "configFilePath": "../tsconfig.build.json"
     },
     "referencedMap": {
@@ -7508,6 +7529,16 @@
       ],
       "../node_modules/@types/supertest/index.d.ts": [
         "../node_modules/@types/superagent/index.d.ts"
+      ],
+      "../node_modules/@types/ws/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/tls.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/node/zlib.d.ts"
       ],
       "../node_modules/@types/yargs/index.d.ts": [
         "../node_modules/@types/yargs-parser/index.d.ts"
@@ -10165,6 +10196,7 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/helper.service.ts",
         "../src/models/entities/operationparteners.entity.ts",
+        "../src/sdk/discord/discordapiprovider.ts",
         "../src/sdk/whatsapp/whatsappapiprovider.ts"
       ],
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": [
@@ -10220,7 +10252,6 @@
         "../src/controllers/api-service/api-service.service.ts",
         "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts",
         "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts",
-        "../src/controllers/api-service/der-fj-sn-bill-reload-api-manager/der-fj-sn-bill-reload-api-manager.service.ts",
         "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts",
         "../src/helper.service.ts"
       ],
@@ -10418,6 +10449,12 @@
         "../src/sdk/wave/config.ts",
         "../src/sdk/wave/waveapiprovider.ts"
       ],
+      "../src/controllers/api-service/whatsapp-message-send-api-manager/whatsapp-message-send-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/sdk/whatsapp/whatsappapiprovider.ts"
+      ],
       "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/controller.ts",
@@ -10454,10 +10491,13 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/@types/node/crypto.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/os.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/api-service.service.ts",
+        "../src/controllers/api-service/dto/operationindto.ts",
         "../src/models/dto/dtooperationparteners.ts",
         "../src/models/dto/dtooperationphones.ts",
         "../src/models/entities/enum.entity.ts",
@@ -10772,6 +10812,9 @@
         "../node_modules/@types/node/util.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
+      "../src/sdk/discord/discordapiprovider.ts": [
+        "../src/sdk/discord/config.ts"
+      ],
       "../src/sdk/orange/providerorangemoneyapi.ts": [
         "../node_modules/@types/node/crypto.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -10794,6 +10837,7 @@
       ],
       "../src/sdk/whatsapp/whatsappapiprovider.ts": [
         "../node_modules/whatsapp-web.js/index.d.ts",
+        "../src/sdk/discord/discordapiprovider.ts",
         "../src/sdk/whatsapp/config.ts"
       ],
       "../src/sdk/wizall/wizallapiprovider.ts": [
@@ -12281,6 +12325,16 @@
       ],
       "../node_modules/@types/supertest/index.d.ts": [
         "../node_modules/@types/superagent/index.d.ts"
+      ],
+      "../node_modules/@types/ws/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/tls.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/node/zlib.d.ts"
       ],
       "../node_modules/@types/yargs/index.d.ts": [
         "../node_modules/@types/yargs-parser/index.d.ts"
@@ -15023,6 +15077,9 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/sdk/wave/waveapiprovider.ts"
       ],
+      "../src/controllers/api-service/whatsapp-message-send-api-manager/whatsapp-message-send-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
       "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
@@ -15043,6 +15100,7 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/api-service.service.ts",
+        "../src/controllers/api-service/dto/operationindto.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts",

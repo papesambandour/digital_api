@@ -9,16 +9,7 @@ export default class WhatsAppApiProvider {
     static getInstance(): Promise<WhatsAppApiProvider>;
     private constructor();
     private initEvent;
-    sendMessage(tos: string[], message: string, attachedMediaPath: string): Promise<{
-        success: boolean;
-        message: string;
-        result?: undefined;
-    } | {
-        success: boolean;
-        result: any;
-        message?: undefined;
-    }>;
-    private sendInternal;
+    static sendMessageToOne(recipient: string, message: string, attachedMediaPath: string): Promise<any>;
     private static toMedia;
     private static initClient;
 }

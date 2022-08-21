@@ -56,7 +56,6 @@ class WoyofalSnBillReloadApiManagerService extends api_manager_interface_service
         this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (woyofal.success) {
             transaction.message = JSON.stringify(woyofal);
-            transaction.needCheckTransaction = 1;
             await transaction.save();
             await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');

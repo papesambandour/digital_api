@@ -55,7 +55,6 @@ class BaobabPlusSnBillReloadApiManagerService extends api_manager_interface_serv
         this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (rapido.success) {
             transaction.message = JSON.stringify(rapido);
-            transaction.needCheckTransaction = 1;
             await transaction.save();
             await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');

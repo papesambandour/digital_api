@@ -22,4 +22,8 @@ export declare class OperationInDto {
     billReference?: string;
     billAccountNumber?: string;
     birthday?: string;
+    message?: string;
+    attachedMedia?: string;
+    attachedMediaName?: string;
+    attachedMediaExtension?: string;
 }

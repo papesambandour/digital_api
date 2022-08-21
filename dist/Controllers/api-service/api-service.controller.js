@@ -46,6 +46,9 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
     }
     async operation(operationInDto) {
         var _a, _b;
+        if ([Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(operationInDto.codeService)) {
+            operationInDto.amount = await this.helper.getAmountForMessenger(operationInDto);
+        }
         const isNotValid = await this.validator(this.getInstanceObject(operationInDto, new OperationInDto_1.OperationInDto()));
         if (isNotValid) {
             return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotValid, '', true);
@@ -65,7 +68,6 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         const response = await apiManager.initTransaction({
             dto: operationInDto,
         });
-        console.log('TRID', response);
         await this.helper.setIsCallbackReadyValue((_a = response.transaction) === null || _a === void 0 ? void 0 : _a.id);
         await this.helper.setTimeOutDate((_b = response.transaction) === null || _b === void 0 ? void 0 : _b.id);
         this.helper.updateApiBalance(apiManager, response.usedPhoneId).then();

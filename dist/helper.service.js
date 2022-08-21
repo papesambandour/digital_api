@@ -28,6 +28,8 @@ const OperationParteners_entity_1 = require("./Models/Entities/OperationPartener
 const Parteners_entity_1 = require("./Models/Entities/Parteners.entity");
 const Operators_entity_1 = require("./Models/Entities/Operators.entity");
 const crypto = require("crypto");
+const os = require("os");
+const fs = require("fs");
 let HelperService = class HelperService {
     constructor(connection, httpService) {
         this.connection = connection;
@@ -607,6 +609,22 @@ let HelperService = class HelperService {
     }
     sha256(data) {
         return crypto.createHash('sha256').update(data).digest('hex').toString();
+    }
+    async b64ToFilePath(attachedMedia, attachedMediaExtension, attachedMediaName) {
+        if (!attachedMedia) {
+            return null;
+        }
+        let filename = attachedMediaName || `${(Math.random() + '').substring(2)}`;
+        filename += attachedMediaExtension;
+        const fullPath = `${os.tmpdir()}/${filename}`;
+        console.log('fullPath', fullPath);
+        fs.writeFileSync(fullPath, Buffer.from(attachedMedia, 'base64'), {
+            encoding: 'binary',
+        });
+        return fullPath;
+    }
+    async getAmountForMessenger(operationInDto) {
+        return 100;
     }
 };
 HelperService = __decorate([

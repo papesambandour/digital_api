@@ -58,7 +58,6 @@ class UvsSnBillPaymentApiManagerService extends api_manager_interface_service_1.
         this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (billPayment.success) {
             transaction.message = JSON.stringify(billPayment);
-            transaction.needCheckTransaction = 1;
             await transaction.save();
             await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');

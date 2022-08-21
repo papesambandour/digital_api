@@ -1,23 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UcadSnBillPaymentApiManagerService = void 0;
+exports.WhatsappMessageSendApiManagerService = void 0;
 const api_manager_interface_service_1 = require("../api-manager-interface/api-manager-interface.service");
-const WaveApiProvider_1 = require("../../../sdk/Wave/WaveApiProvider");
-const config_1 = require("../../../sdk/Wave/config");
 const Controller_1 = require("../../Controller");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
-class UcadSnBillPaymentApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
+const WhatsAppApiProvider_1 = require("../../../sdk/WhatsApp/WhatsAppApiProvider");
+class WhatsappMessageSendApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return await this.notImplementedYet(params);
     }
     async confirmTransaction(params) {
         return await this.notImplementedYet(params);
-    }
-    async getBalance(params) {
-        return Promise.resolve({
-            success: false,
-            newBalance: null,
-        });
     }
     async handleCallbackTransaction(params) {
         return await this.notImplementedYet(params);
@@ -33,54 +26,43 @@ class UcadSnBillPaymentApiManagerService extends api_manager_interface_service_1
         };
         if (!api) {
             return Object.assign({
-                status: Enum_entity_1.StatusEnum.FAILLED,
+                status: 'FAILLED',
                 codeHttp: Controller_1.CODE_HTTP.SERVICE_DOWN,
                 partnerMessage: api_manager_interface_service_1.MANAGER_INIT_DOWN_MESSAGE,
             }, baseResponse);
         }
         const transaction = await this.createTransaction(api);
-        const billPayment = await WaveApiProvider_1.default.confirmBill({
-            amount: params.dto.amount,
-            billAccountNumber: params.dto.billAccountNumber,
-            invoiceId: params.dto.billReference,
-            billId: WaveApiProvider_1.WAVE_BILL_ID.UCAD,
-            billAccountNumberFieldName: 'student_number',
-            sessionId: config_1.waveBusinessApiConfig('sn').sessionId,
-            walletId: config_1.waveBusinessApiConfig('sn').walletId,
-        });
-        const statues = this.helper.getStatusAfterExec((billPayment === null || billPayment === void 0 ? void 0 : billPayment.success) ? 'success' : 'failed', this.apiService.sousServices);
-        console.log(billPayment, 'sttaus', statues);
+        const response = await WhatsAppApiProvider_1.default.sendMessageToOne(params.dto.phone, params.dto.message, await this.helper.b64ToFilePath(params.dto.attachedMedia, params.dto.attachedMediaExtension, params.dto.attachedMediaName));
+        const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
+        console.log(response, 'sttaus', statues);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
-        transaction.sousServiceTransactionId = billPayment === null || billPayment === void 0 ? void 0 : billPayment.paymentId;
+        transaction.sousServiceTransactionId = response.whatsappNumberId;
         await transaction.save();
         await this.helper.setIsCallbackReadyValue(transaction.id);
         this.helper.updateApiBalance(this, transaction.phonesId).then();
-        if (billPayment.success) {
-            transaction.message = JSON.stringify(billPayment);
+        if (response.success) {
+            transaction.message = JSON.stringify(response);
             await transaction.save();
             await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');
             return Object.assign({
-                status: Enum_entity_1.StatusEnum.SUCCESS,
+                status: Enum_entity_1.StatusEnum.PENDING,
                 codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
-                partnerMessage: billPayment.message,
+                partnerMessage: response.message,
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
-                data: {
-                    notificationMessage: billPayment.message,
-                },
             }, baseResponse);
         }
         else {
-            transaction.errorMessage = JSON.stringify(billPayment);
+            transaction.errorMessage = JSON.stringify(response);
             await transaction.save();
             await this.helper.operationPartnerCancelTransaction(transaction);
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.UNKNOW_ERROR,
-                partnerMessage: billPayment.message || api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE,
+                partnerMessage: response.message,
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
@@ -91,21 +73,12 @@ class UcadSnBillPaymentApiManagerService extends api_manager_interface_service_1
     async refundTransaction(params) {
         return await this.notImplementedYet(params);
     }
-    async getPendingBillTransaction(params) {
-        const response = await WaveApiProvider_1.default.listPendingBill({
-            billAccountNumber: params.dto.billAccountNumber,
-            billId: WaveApiProvider_1.WAVE_BILL_ID.UCAD,
-            billAccountNumberFieldName: 'student_number',
-            sessionId: config_1.waveBusinessApiConfig('sn').sessionId,
-            walletId: config_1.waveBusinessApiConfig('sn').walletId,
-        });
+    async getBalance(params) {
         return {
-            success: response.success,
-            message: response.message,
-            pendingBills: response.bills,
-            billAccountNumber: params.dto.billAccountNumber,
+            success: false,
+            newBalance: null,
         };
     }
 }
-exports.UcadSnBillPaymentApiManagerService = UcadSnBillPaymentApiManagerService;
-//# sourceMappingURL=ucad-sn-bill-payment-api-manager.service.js.map
+exports.WhatsappMessageSendApiManagerService = WhatsappMessageSendApiManagerService;
+//# sourceMappingURL=whatsapp-message-send-api-manager.service.js.map

@@ -58,7 +58,6 @@ class AquatechSnBillPaymentApiManagerService extends api_manager_interface_servi
         this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (billPayment.success) {
             transaction.message = JSON.stringify(billPayment);
-            transaction.needCheckTransaction = 1;
             await transaction.save();
             await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');
