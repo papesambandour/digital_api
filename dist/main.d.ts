@@ -1,1 +1,1 @@
-import 'allsettled-polyfill';
+export {};

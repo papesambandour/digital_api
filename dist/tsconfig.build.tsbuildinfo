@@ -4957,8 +4957,8 @@
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "213c095227506296fc58f2d904e68d0bddd04247322716461ec9c1ce793327e2",
-        "signature": "20981aaf0479476cffc2b25e54862ff031128fb1689fe4ade588699989c74a9a",
+        "version": "9fe55ded7c89f06b8444ca960df368451117033252eaab2fa17aa4f892dfa0d3",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/server.d.ts": {

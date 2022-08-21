@@ -5,7 +5,6 @@ const app_module_1 = require("./app.module");
 const swagger_1 = require("@nestjs/swagger");
 const HttpExceptionFilter_1 = require("./Filters/HttpExceptionFilter");
 const path_1 = require("path");
-require("allsettled-polyfill");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.useGlobalFilters(new HttpExceptionFilter_1.HttpExceptionFilter());
