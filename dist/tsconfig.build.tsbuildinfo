@@ -4147,8 +4147,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "64c0ea4eeb81fd5f0019371de1ea1dba4ab2c43e7d8337e3a26354e47df50e67",
-        "signature": "0f8dff10a8c8cc817a9ca9a863286321830aa3a2a99a74e6366e04de1182cb62",
+        "version": "9b7fc0b81f13b4bf903ab3d64ab92c9e65090d10e855f3cbc72edcd35b60e409",
+        "signature": "6827dc64e1d384c7ab537b22936638b2229f3dc624fdd89bd61dcaeb69215456",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/confirm3dsindto.ts": {
@@ -4702,8 +4702,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "68c37490a83d658f9d9bb3a2225278c9740fc92bdc3e89e6633b75a0142ab7c9",
-        "signature": "08c5814c03c565b6725d1364a7944201dab460353df0fa2c8ded7447ee0cf3af",
+        "version": "473998e3c1fd25142451d43ed897f0796a8d2cc99c4e56e162b10a198124153b",
+        "signature": "2906ce33125bf914fb44faef9e676ff105803f37f4f689ef5d3abaf41d093461",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -4831,9 +4831,39 @@
         "signature": "622f5703fb298ffab0ec97803bb18f89a7c363d1d8cd8b11ef37cf122819523c",
         "affectsGlobalScope": false
       },
+      "../src/sdk/whatsapp/config.ts": {
+        "version": "cbf2d6da8096ff96db30367782afb20fb284307f25c559ee695c453a22ed8f60",
+        "signature": "96f270109c5f1b4d2f0be5d6f4373038f99c078fd556fa137f9821a89e997efd",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/devtools-protocol/types/protocol.d.ts": {
+        "version": "5e82c491b0995bb42e41a86c86fc30721a71fb9af22478b2a9c82cf6160cf970",
+        "signature": "5e82c491b0995bb42e41a86c86fc30721a71fb9af22478b2a9c82cf6160cf970",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/devtools-protocol/types/protocol-mapping.d.ts": {
+        "version": "13a7b0847883cadf7bd6d8df067bd6b6f8e55daa53b7df480048c90bb603e2a1",
+        "signature": "13a7b0847883cadf7bd6d8df067bd6b6f8e55daa53b7df480048c90bb603e2a1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/puppeteer/lib/types.d.ts": {
+        "version": "10fc14b4e441528c8aac75db5deeb06a00f1dc4265b98724052149e9db2f5eeb",
+        "signature": "10fc14b4e441528c8aac75db5deeb06a00f1dc4265b98724052149e9db2f5eeb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/whatsapp-web.js/index.d.ts": {
+        "version": "6610faf06e2637b7580ddab8fc8bb3eb0d1a4351ba6dfaf49e9f7fccab861d66",
+        "signature": "6610faf06e2637b7580ddab8fc8bb3eb0d1a4351ba6dfaf49e9f7fccab861d66",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/whatsapp/whatsappapiprovider.ts": {
+        "version": "2373e1735a4cc9f092559921171eec13353b1b61b946b3f94ac06380d722f2ec",
+        "signature": "89506348f32d21dfb18da9d10a9988bb9575ec12de6df4809aa1dcf3b45e7375",
+        "affectsGlobalScope": false
+      },
       "../src/bootstrap.service.ts": {
-        "version": "f43b821c7be11a22252c29daff1cbe4ac779bc97776456769e0e13db861cd489",
-        "signature": "b54106db7f7c50aba98513313478a57384dfb9ce439467235f8994afa15eefd3",
+        "version": "480a8178ae624c921f0c7c53d937bde9d79dbc6ea5520892abe7536d755bfdee",
+        "signature": "361eaf001cb637b76fc5ed5d1e89cf04606e9cc304124155fe54a66780a91e22",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
@@ -4922,8 +4952,8 @@
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "9fe55ded7c89f06b8444ca960df368451117033252eaab2fa17aa4f892dfa0d3",
-        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+        "version": "213c095227506296fc58f2d904e68d0bddd04247322716461ec9c1ce793327e2",
+        "signature": "20981aaf0479476cffc2b25e54862ff031128fb1689fe4ade588699989c74a9a",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/server.d.ts": {
@@ -6039,6 +6069,11 @@
       "../node_modules/@types/yargs/index.d.ts": {
         "version": "5a2a25feca554a8f289ed62114771b8c63d89f2b58325e2f8b7043e4e0160d11",
         "signature": "5a2a25feca554a8f289ed62114771b8c63d89f2b58325e2f8b7043e4e0160d11",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/yauzl/index.d.ts": {
+        "version": "65dfa4bc49ccd1355789abb6ae215b302a5b050fdee9651124fe7e826f33113c",
+        "signature": "65dfa4bc49ccd1355789abb6ae215b302a5b050fdee9651124fe7e826f33113c",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/zen-observable/index.d.ts": {
@@ -7477,6 +7512,11 @@
       "../node_modules/@types/yargs/index.d.ts": [
         "../node_modules/@types/yargs-parser/index.d.ts"
       ],
+      "../node_modules/@types/yauzl/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
       "../node_modules/class-validator/types/decorator/array/arraycontains.d.ts": [
         "../node_modules/class-validator/types/decorator/validationoptions.d.ts"
       ],
@@ -7988,6 +8028,9 @@
         "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts",
         "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts"
       ],
+      "../node_modules/devtools-protocol/types/protocol-mapping.d.ts": [
+        "../node_modules/devtools-protocol/types/protocol.d.ts"
+      ],
       "../node_modules/jest-diff/build/difflines.d.ts": [
         "../node_modules/jest-diff/build/cleanupsemantic.d.ts",
         "../node_modules/jest-diff/build/types.d.ts"
@@ -8007,6 +8050,13 @@
       ],
       "../node_modules/pretty-format/build/index.d.ts": [
         "../node_modules/pretty-format/build/types.d.ts"
+      ],
+      "../node_modules/puppeteer/lib/types.d.ts": [
+        "../node_modules/@types/node/child_process.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/devtools-protocol/types/protocol-mapping.d.ts",
+        "../node_modules/devtools-protocol/types/protocol.d.ts"
       ],
       "../node_modules/rxjs/index.d.ts": [
         "../node_modules/rxjs/internal/asyncsubject.d.ts",
@@ -10064,6 +10114,10 @@
         "../node_modules/typeorm/metadata/relationmetadata.d.ts",
         "../node_modules/typeorm/query-runner/queryrunner.d.ts"
       ],
+      "../node_modules/whatsapp-web.js/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/puppeteer/lib/types.d.ts"
+      ],
       "../src/adapters/redis-io.adapter.ts": [
         "../node_modules/@nestjs/platform-socket.io/index.d.ts",
         "../node_modules/socket.io/dist/index.d.ts"
@@ -10110,7 +10164,8 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/helper.service.ts",
-        "../src/models/entities/operationparteners.entity.ts"
+        "../src/models/entities/operationparteners.entity.ts",
+        "../src/sdk/whatsapp/whatsappapiprovider.ts"
       ],
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -10398,6 +10453,7 @@
       "../src/helper.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/@types/node/crypto.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -10735,6 +10791,10 @@
         "../src/controllers/controller.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/sdk/wave/config.ts"
+      ],
+      "../src/sdk/whatsapp/whatsappapiprovider.ts": [
+        "../node_modules/whatsapp-web.js/index.d.ts",
+        "../src/sdk/whatsapp/config.ts"
       ],
       "../src/sdk/wizall/wizallapiprovider.ts": [
         "../node_modules/@types/node/util.d.ts",
@@ -12225,6 +12285,11 @@
       "../node_modules/@types/yargs/index.d.ts": [
         "../node_modules/@types/yargs-parser/index.d.ts"
       ],
+      "../node_modules/@types/yauzl/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
       "../node_modules/class-validator/types/decorator/array/arraycontains.d.ts": [
         "../node_modules/class-validator/types/decorator/validationoptions.d.ts"
       ],
@@ -12736,6 +12801,9 @@
         "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts",
         "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts"
       ],
+      "../node_modules/devtools-protocol/types/protocol-mapping.d.ts": [
+        "../node_modules/devtools-protocol/types/protocol.d.ts"
+      ],
       "../node_modules/jest-diff/build/difflines.d.ts": [
         "../node_modules/jest-diff/build/cleanupsemantic.d.ts",
         "../node_modules/jest-diff/build/types.d.ts"
@@ -12755,6 +12823,13 @@
       ],
       "../node_modules/pretty-format/build/index.d.ts": [
         "../node_modules/pretty-format/build/types.d.ts"
+      ],
+      "../node_modules/puppeteer/lib/types.d.ts": [
+        "../node_modules/@types/node/child_process.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/devtools-protocol/types/protocol-mapping.d.ts",
+        "../node_modules/devtools-protocol/types/protocol.d.ts"
       ],
       "../node_modules/rxjs/index.d.ts": [
         "../node_modules/rxjs/internal/asyncsubject.d.ts",
@@ -14812,6 +14887,10 @@
         "../node_modules/typeorm/metadata/relationmetadata.d.ts",
         "../node_modules/typeorm/query-runner/queryrunner.d.ts"
       ],
+      "../node_modules/whatsapp-web.js/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/puppeteer/lib/types.d.ts"
+      ],
       "../src/adapters/redis-io.adapter.ts": [
         "../node_modules/@nestjs/platform-socket.io/index.d.ts",
         "../node_modules/socket.io/dist/index.d.ts"
@@ -15168,6 +15247,9 @@
       "../src/sdk/wave/waveapiprovider.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts"
+      ],
+      "../src/sdk/whatsapp/whatsappapiprovider.ts": [
+        "../node_modules/whatsapp-web.js/index.d.ts"
       ],
       "../src/sdk/wizall/wizallapiprovider.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",

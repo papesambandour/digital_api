@@ -1,5 +1,5 @@
 import { Logger } from '@nestjs/common';
-import { Connection } from "typeorm";
+import { Connection } from 'typeorm';
 import { HelperService } from './helper.service';
 export declare class BootstrapService {
     private readonly connection;
@@ -9,4 +9,5 @@ export declare class BootstrapService {
     init(): Promise<void>;
     testConfig(): Promise<void>;
     redefineLog(): void;
+    private static initWhatsapp;
 }

@@ -118,8 +118,6 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                     codeService: s.code,
                     typeOperation: s.typeOperation,
                     typeService: s.typeServices.code,
-                    parentService: s.services.code,
-                    category: s.services.categoriesServices.code,
                 };
             }),
         };

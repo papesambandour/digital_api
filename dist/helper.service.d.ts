@@ -39,4 +39,6 @@ export declare class HelperService {
     handleSuccessTransactionCreditDebit(transaction: Transactions, sousServiceTransactionId?: any): Promise<boolean>;
     isNotCancelable(preStatus: StatusEnum, status: StatusEnum): boolean;
     appendQueryParams(url: string, queryParams: any): string;
+    private getTransactionCallBackHash;
+    private sha256;
 }

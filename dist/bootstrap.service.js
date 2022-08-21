@@ -26,6 +26,7 @@ let BootstrapService = BootstrapService_1 = class BootstrapService {
     async init() {
         this.redefineLog();
         await this.testConfig();
+        await BootstrapService_1.initWhatsapp();
         console.log('Init app');
         try {
             console.log('Init phone');
@@ -88,6 +89,8 @@ let BootstrapService = BootstrapService_1 = class BootstrapService {
                 catch (e) { }
             };
         }
+    }
+    static async initWhatsapp() {
     }
 };
 BootstrapService.logger = new common_1.Logger('INTECH_API_LOGS');

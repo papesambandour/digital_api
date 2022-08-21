@@ -27,6 +27,7 @@ const DtoOperationParteners_1 = require("./Models/Dto/DtoOperationParteners");
 const OperationParteners_entity_1 = require("./Models/Entities/OperationParteners.entity");
 const Parteners_entity_1 = require("./Models/Entities/Parteners.entity");
 const Operators_entity_1 = require("./Models/Entities/Operators.entity");
+const crypto = require("crypto");
 let HelperService = class HelperService {
     constructor(connection, httpService) {
         this.connection = connection;
@@ -177,6 +178,7 @@ let HelperService = class HelperService {
             msg: transaction.commentaire,
             error: false,
             status: statut,
+            sha256Hash: await this.getTransactionCallBackHash(transaction),
             transaction: {
                 phone: transaction.phone,
                 amount: transaction.amount,
@@ -596,6 +598,15 @@ let HelperService = class HelperService {
         };
         url += (url.split('?')[1] ? '&' : '?') + serialize(queryParams);
         return url;
+    }
+    async getTransactionCallBackHash(transaction) {
+        transaction = await this.getTransactionById(transaction.id, [
+            'partenerComptes',
+        ]);
+        return this.sha256(`${transaction.transactionId}|${transaction.externalTransactionId}|${transaction.partenerComptes.appKey}`);
+    }
+    sha256(data) {
+        return crypto.createHash('sha256').update(data).digest('hex').toString();
     }
 };
 HelperService = __decorate([

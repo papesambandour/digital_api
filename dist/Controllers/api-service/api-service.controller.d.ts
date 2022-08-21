@@ -39,8 +39,6 @@ export declare class ApiServiceController extends ControllerBase {
             codeService: string;
             typeOperation: import("../../Models/Entities/Enum.entity").TypeOperationEnum;
             typeService: string;
-            parentService: string;
-            category: string;
         }[];
     }>;
     listPendingBill(pendingBillDto: ListPendingBillInDto): Promise<{
