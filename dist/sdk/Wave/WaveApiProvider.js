@@ -259,8 +259,8 @@ class WaveApiProvider {
             });
         }
     }
-    static async listPendingBill({ sessionId, walletId, billAccountNumber, billAccountNumberFieldName, billId, }) {
-        var _a, _b, _c, _d, _e, _f;
+    static async listPendingBill({ sessionId, walletId, billAccountNumber, billAccountNumberFieldName, billId, addConfirmField = false, }) {
+        var _a, _b, _c, _d, _e, _f, _g, _h;
         const partnerQueryId = WaveUtil.uid5();
         const sleepTime = 2000;
         const maxRetry = BILL_MAX_RETRY;
@@ -330,7 +330,8 @@ class WaveApiProvider {
             if (WaveUtil.isSuccess(poolResponse)) {
                 const amountField = (_b = (_a = poolResponse === null || poolResponse === void 0 ? void 0 : poolResponse.data) === null || _a === void 0 ? void 0 : _a.billConfirmationPolling) === null || _b === void 0 ? void 0 : _b.confirmedFields.find((c) => c.name === '__amount__');
                 const referenceInvoiceField = (_d = (_c = poolResponse === null || poolResponse === void 0 ? void 0 : poolResponse.data) === null || _c === void 0 ? void 0 : _c.billConfirmationPolling) === null || _d === void 0 ? void 0 : _d.confirmedFields.find((c) => c.name === 'invoice_reference');
-                const infoFields = (_f = (_e = poolResponse === null || poolResponse === void 0 ? void 0 : poolResponse.data) === null || _e === void 0 ? void 0 : _e.billConfirmationPolling) === null || _f === void 0 ? void 0 : _f.displayFields;
+                const infoFields = ((_f = (_e = poolResponse === null || poolResponse === void 0 ? void 0 : poolResponse.data) === null || _e === void 0 ? void 0 : _e.billConfirmationPolling) === null || _f === void 0 ? void 0 : _f.displayFields) || [];
+                const confirmedField = ((_h = (_g = poolResponse === null || poolResponse === void 0 ? void 0 : poolResponse.data) === null || _g === void 0 ? void 0 : _g.billConfirmationPolling) === null || _h === void 0 ? void 0 : _h.confirmedFields) || [];
                 return {
                     success: true,
                     code: 'pending_bill_confirmation',
@@ -346,6 +347,15 @@ class WaveApiProvider {
                                     value: info.value,
                                 };
                             }),
+                            confirms: addConfirmField
+                                ? confirmedField.map((info) => {
+                                    return {
+                                        name: info.name,
+                                        value: info.value,
+                                        typename: info.__typename,
+                                    };
+                                })
+                                : undefined,
                         },
                     ],
                 };
@@ -373,6 +383,38 @@ class WaveApiProvider {
         }
     }
     static async confirmBill({ sessionId, walletId, amount, invoiceId, billAccountNumber, billId, billAccountNumberFieldName, }) {
+        var _a;
+        const pendingBills = await this.listPendingBill({
+            sessionId,
+            walletId,
+            billAccountNumber,
+            billAccountNumberFieldName,
+            billId,
+            addConfirmField: true,
+        });
+        const targetBill = (_a = pendingBills === null || pendingBills === void 0 ? void 0 : pendingBills.bills) === null || _a === void 0 ? void 0 : _a.find((b) => b.billReference === invoiceId);
+        if (!targetBill) {
+            return {
+                success: false,
+                code: 'error',
+                message: `La facture  #${invoiceId} n'as pas ete trouvé`,
+            };
+        }
+        if (amount !== targetBill.amount) {
+            return {
+                success: false,
+                code: 'error',
+                message: `Le montant de la facture (${targetBill.amount} CFA) est different du montant soumis (${amount} CFA)`,
+                targetBill,
+            };
+        }
+        const allFields = [];
+        for (const field of targetBill.confirms) {
+            allFields.push({
+                name: field.name,
+                value: field.value,
+            });
+        }
         const clientId = WaveUtil.uid5();
         const startDate = new Date();
         const confirmationQuery = '{"query":"mutation BillInput_PayBill2_Mutation(\\n  $id: ID!\\n  $billAmount: Money\\n  $sendAmount: Money\\n  $fields: [BillFieldInput!]!\\n  $clientId: String!\\n) {\\n  payBill2(id: $id, billAmount: $billAmount, sendAmount: $sendAmount, fields: $fields, clientId: $clientId, userInterface: BUSINESS_PORTAL) {\\n    __typename\\n    response {\\n      __typename\\n      ... on PayBill {\\n        payment {\\n          __typename\\n          sendAmount\\n          clientId\\n          billType\\n          whenCreated\\n          id\\n        }\\n      }\\n      ... on AsyncPending {\\n        clientId\\n      }\\n    }\\n  }\\n}\\n","variables":{"id":"' +
@@ -389,9 +431,14 @@ class WaveApiProvider {
             amount +
             '"},{"name":"invoice_reference","value":"' +
             invoiceId +
-            '"}],"clientId":"' +
+            '"},' +
+            allFields
+                .map((a) => `{"name":"${a.name}","value":"${a.value}"}`)
+                .join(',') +
+            '],"clientId":"' +
             clientId +
             '"}}';
+        console.log(confirmationQuery);
         const jsonResponse = await node_fetch_1.default('https://sn.mmapp.wave.com/a/business_graphql', {
             credentials: 'omit',
             headers: {
@@ -418,7 +465,7 @@ class WaveApiProvider {
                 startDate,
                 billAccountId: billAccountNumber,
                 amount: amount,
-            }, 'SEN');
+            }, '');
             console.log(asyncResponse);
             if (asyncResponse) {
                 return {
@@ -651,7 +698,7 @@ class WaveUtil {
         var _a, _b, _c, _d;
         return {
             code: ((_b = (_a = jsonResponse === null || jsonResponse === void 0 ? void 0 : jsonResponse.errors) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.code) || 'unknown_error',
-            message: ((_d = (_c = jsonResponse === null || jsonResponse === void 0 ? void 0 : jsonResponse.errors) === null || _c === void 0 ? void 0 : _c[0]) === null || _d === void 0 ? void 0 : _d.message) || 'Erreur',
+            message: (((_d = (_c = jsonResponse === null || jsonResponse === void 0 ? void 0 : jsonResponse.errors) === null || _c === void 0 ? void 0 : _c[0]) === null || _d === void 0 ? void 0 : _d.message) || 'Erreur').replace(/wave/gi, 'Intech'),
         };
     }
     static isSuccess(jsonResponse) {

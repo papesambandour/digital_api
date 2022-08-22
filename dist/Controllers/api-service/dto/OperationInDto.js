@@ -181,7 +181,7 @@ __decorate([
     __metadata("design:type", String)
 ], OperationInDto.prototype, "merchantCatCode", void 0);
 __decorate([
-    class_validator_1.IsNumberString(),
+    class_validator_1.IsString(),
     class_validator_1.ValidateIf((object) => [
         Enum_entity_1.SOUS_SERVICE_ENUM.SENEAU_SN_BILL_PAY,
         Enum_entity_1.SOUS_SERVICE_ENUM.SENELEC_SN_BILL_PAY,
@@ -190,9 +190,6 @@ __decorate([
         Enum_entity_1.SOUS_SERVICE_ENUM.UCAD_SN_BILL_PAY,
         Enum_entity_1.SOUS_SERVICE_ENUM.CAMPUS_SN_BILL_PAY,
     ].includes(object['codeService'])),
-    class_validator_1.Length(5, 20, {
-        message: 'invoiceReference doit être un string composé de minimum 5 et maximum 20 chiffres',
-    }),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "billReference", void 0);
 __decorate([

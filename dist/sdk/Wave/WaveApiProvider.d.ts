@@ -61,12 +61,13 @@ export default class WaveApiProvider {
     }): Promise<any>;
     static apiManagerCheckCashOutStatusTransaction(apiManagerService: WaveMoneySnCashOutApiManagerService, params: CheckParams, country: WAVE_COUNTRY): Promise<CheckResponse>;
     static getBalance(params: BalanceParams, token: string, idemPotency: string): Promise<BalanceResponse>;
-    static listPendingBill({ sessionId, walletId, billAccountNumber, billAccountNumberFieldName, billId, }: {
+    static listPendingBill({ sessionId, walletId, billAccountNumber, billAccountNumberFieldName, billId, addConfirmField, }: {
         sessionId: any;
         walletId: any;
         billAccountNumber: any;
         billAccountNumberFieldName: any;
         billId: any;
+        addConfirmField?: boolean;
     }): Promise<{
         success: boolean;
         code: string;
@@ -76,6 +77,7 @@ export default class WaveApiProvider {
             amount: number;
             billReference: any;
             infos: any;
+            confirms: any;
         }[];
         message?: undefined;
         jsonResponse?: undefined;
@@ -102,15 +104,38 @@ export default class WaveApiProvider {
         success: boolean;
         code: string;
         message: string;
+        targetBill?: undefined;
+        jsonResponse?: undefined;
+        paymentId?: undefined;
+        asyncResponse?: undefined;
+    } | {
+        success: boolean;
+        code: string;
+        message: string;
+        targetBill: {
+            amount: number;
+            billReference: any;
+            infos: any;
+            confirms: any;
+        };
+        jsonResponse?: undefined;
+        paymentId?: undefined;
+        asyncResponse?: undefined;
+    } | {
+        success: boolean;
+        code: string;
+        message: string;
         jsonResponse: any;
         paymentId: any;
         asyncResponse: any;
+        targetBill?: undefined;
     } | {
         message: any;
         code: any;
         jsonResponse: any;
         paymentId: any;
         success: boolean;
+        targetBill?: undefined;
         asyncResponse?: undefined;
     }>;
     static makeDirectBillPay({ sessionId, walletId, amount, billId, billAccountNumberFieldName, billAccountNumber, label, otherFields, searchInSummary, }: {

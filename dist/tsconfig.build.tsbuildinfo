@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "00011f193d5e003a689784ce3678701ba51371728494410edbd45e01bc8550e4",
-        "signature": "629b92a235d9a84131211a09c91f807f236fab2a5ea99b95980fbd3ab3ee0f6f",
+        "version": "7002c4773768f85815a30fc7e17a8d9a8285b33f05bda135c2b7f04c02028b2b",
+        "signature": "d80bbc1e20750ac5a9e134894d99f63519053e70abf3d6ef8b0a531e9e716a43",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3847,7 +3847,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "0b4cc797adcc81e1f8d7702dd1103176b4e72d88b15ab2dcec492360b8b17b56",
+        "version": "f3f8650ea2e9cbf051568db732f7141f932a2b25836c2222954c898b53f8ad14",
         "signature": "7d5bcc3b3dafaf573ec9bf87a29c14ecdfefd1b0507c7311ef14ccf8c32830a1",
         "affectsGlobalScope": false
       },
@@ -4127,7 +4127,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "63b68442b81ef6a4797d907138feaab240f0a2bb848ad5e3ced860f5de33c9d6",
+        "version": "6ac10cd2bc7cb52df4e50d214d109071d7faad454073017be58636445b585601",
         "signature": "1518af6cda4fdcbaf56c1183a621b943d19b83fbcb7c960b367f9fa0e56c281b",
         "affectsGlobalScope": false
       },
@@ -4172,8 +4172,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "614a504f955a4bba4b47270e275f4f27a6ae37710039fb1e511d5d54e75a5af6",
-        "signature": "f841333efd929556f2e1f403cd1c18a15288e88d3667839121e6c688a314c3f6",
+        "version": "b4e4685a1683dbd675275cc9714c4a9d902fe972ac160884716683f0667dd2ed",
+        "signature": "fa5945133b8024b0f996567fcb12b38e3f1945b38bfdeb1915989172fa79e6e2",
         "affectsGlobalScope": false
       },
       "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
