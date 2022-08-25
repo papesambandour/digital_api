@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const _rp = require("request-promise");
 const config_1 = require("./config");
+const api_manager_interface_service_1 = require("../../Controllers/api-service/api-manager-interface/api-manager-interface.service");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 const Utils = require("util");
 const Controller_1 = require("../../Controllers/Controller");
@@ -99,10 +100,11 @@ class WizallApiProvider {
                     country: 'sn',
                 },
             };
+            console.log(option);
             return await this.rp(option);
         }
         catch (e) {
-            console.log(e);
+            console.log(e.message);
             return {
                 message: e.message,
             };
@@ -387,6 +389,13 @@ class WizallApiProvider {
     }
     static getWizallExternalFromInternalId(s) {
         return `INTECH-${s}`;
+    }
+    static getMessageFromCode(response) {
+        var _a;
+        if ((_a = response === null || response === void 0 ? void 0 : response.message) === null || _a === void 0 ? void 0 : _a.includes('USER_NOT_EXIST')) {
+            return `Ce numero n'a pas de compte wizall actif`;
+        }
+        return api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE;
     }
 }
 exports.default = WizallApiProvider;

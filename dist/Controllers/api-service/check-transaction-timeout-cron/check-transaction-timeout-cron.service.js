@@ -70,7 +70,6 @@ let CheckTransactionTimeoutCronService = CheckTransactionTimeoutCronService_1 = 
                 timeOutAt: typeorm_1.MoreThanOrEqual(new Date()),
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
             },
-            take: Enum_entity_1.CONSTANT.CHECK_TRANSACTION_CONCURENCY_SEND(),
             relations: ['sousServices'],
         });
     }

@@ -66,7 +66,6 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
                 needCheckTransaction: 1,
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
             },
-            take: Enum_entity_1.CONSTANT.CHECK_TRANSACTION_CONCURENCY_SEND(),
             relations: ['sousServices'],
         });
     }

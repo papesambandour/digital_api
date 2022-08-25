@@ -72,4 +72,5 @@ export default class WizallApiProvider {
     static apiManagerCheckCashOutStatusTransaction(apiManagerService: WizallMoneySnCashOutApiManagerService, params: CheckParams): Promise<CheckResponse>;
     private waitForToken;
     static getWizallExternalFromInternalId(s: any): string;
+    static getMessageFromCode(response: any): "Une erreur inconnue s'est produite" | "Ce numero n'a pas de compte wizall actif";
 }

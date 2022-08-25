@@ -113,6 +113,7 @@ __decorate([
     class_validator_1.IsEmail({}, {
         message: 'customerEmail doit être un email',
     }),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT].includes(object['codeService'])),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "customerEmail", void 0);
 __decorate([

@@ -192,6 +192,7 @@ let HelperService = class HelperService {
                 externalTransactionId: transaction.externalTransactionId,
                 callbackUrl: transaction.urlIpn,
                 data: data,
+                errorTypeId: statut === Enum_entity_1.StatusEnum.SUCCESS ? null : '0',
             },
         };
         try {

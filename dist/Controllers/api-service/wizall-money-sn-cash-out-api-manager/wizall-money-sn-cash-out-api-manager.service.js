@@ -4,7 +4,6 @@ exports.WizallMoneySnCashOutApiManagerService = void 0;
 const api_manager_interface_service_1 = require("../api-manager-interface/api-manager-interface.service");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const Controller_1 = require("../../Controller");
-const ProviderOrangeMoneyApi_1 = require("../../../sdk/Orange/ProviderOrangeMoneyApi");
 const WizallApiProvider_1 = require("../../../sdk/Wizall/WizallApiProvider");
 class WizallMoneySnCashOutApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
@@ -72,7 +71,7 @@ class WizallMoneySnCashOutApiManagerService extends api_manager_interface_servic
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.UNKNOW_ERROR,
-                partnerMessage: ProviderOrangeMoneyApi_1.default.getMessageFromCode(response.code),
+                partnerMessage: WizallApiProvider_1.default.getMessageFromCode(response),
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,

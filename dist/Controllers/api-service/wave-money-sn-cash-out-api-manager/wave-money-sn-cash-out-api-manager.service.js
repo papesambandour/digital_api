@@ -79,6 +79,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
                     notificationMessage: messageNotification,
                     amount: transaction.amount,
                     deepLinkUrl: deepLink,
+                    _be_removed_deepLinkUrl_: `wave://capture/${checkout.wave_launch_url}`,
                 },
             }, baseResponse);
         }
