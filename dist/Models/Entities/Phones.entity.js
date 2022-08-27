@@ -225,6 +225,14 @@ __decorate([
     __metadata("design:type", Number)
 ], Phones.prototype, "servicesId", void 0);
 __decorate([
+    typeorm_1.Column('enum', {
+        name: 'sim_provider',
+        enum: Enum_entity_1.SIM_PROVIDER,
+        default: Enum_entity_1.SIM_PROVIDER.NONE,
+    }),
+    __metadata("design:type", String)
+], Phones.prototype, "simProvider", void 0);
+__decorate([
     typeorm_1.OneToMany(() => OperationPhones_entity_1.OperationPhones, (operationPhones) => operationPhones.phones),
     __metadata("design:type", Array)
 ], Phones.prototype, "operationPhones", void 0);

@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "7002c4773768f85815a30fc7e17a8d9a8285b33f05bda135c2b7f04c02028b2b",
-        "signature": "d80bbc1e20750ac5a9e134894d99f63519053e70abf3d6ef8b0a531e9e716a43",
+        "version": "1641fde76a3018ab2980106878bc75da050aa283ddbcfdd8ed3610c7bc43cdb9",
+        "signature": "b566fe16c52ecc6acfaf1ad14b9b8c8e625f48fa3302f372154b1bc644b9c3e8",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3837,8 +3837,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/phones.entity.ts": {
-        "version": "68ddbe2295be8fac74ce116ce5e909675c1882bc65633f4d81119caf3a5a112a",
-        "signature": "7881839fb81be10fd41f9b48297374148fdb74fa93f68264ac8990e74fde343c",
+        "version": "61e9f290acece56e0834d2054609d2c8c9f6dd54f7a5f7385c024f2b445f3c81",
+        "signature": "4f3bf596790c4375799a445508ced7589539ede7a48e0a6826a0a01cdce54463",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtooperationphones.ts": {

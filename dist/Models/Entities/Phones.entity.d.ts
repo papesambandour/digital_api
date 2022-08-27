@@ -5,7 +5,7 @@ import { SousServicesPhones } from './SousServicesPhones.entity';
 import { Transactions } from './Transactions.entity';
 import { ActivitiesPhones } from './ActivitiesPhones.entity';
 import { UssdExecutionMessages } from './UssdExecutionMessages.entity';
-import { PhoneState } from './Enum.entity';
+import { PhoneState, SIM_PROVIDER } from './Enum.entity';
 export declare class Phones extends BaseEntity {
     id: number;
     solde: number;
@@ -32,6 +32,7 @@ export declare class Phones extends BaseEntity {
     alertLevel_4Solde: number;
     alertLevel_5Solde: number;
     servicesId: number;
+    simProvider: SIM_PROVIDER;
     operationPhones: OperationPhones[];
     services: Services;
     sousServicesPhones: SousServicesPhones[];

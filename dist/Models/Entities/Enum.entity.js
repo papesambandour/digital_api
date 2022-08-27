@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SOUS_SERVICE_ENUM = exports.EnumCodeUssdResponse = exports.EnumValidationStatus = exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
+exports.SIM_PROVIDER = exports.SOUS_SERVICE_ENUM = exports.EnumCodeUssdResponse = exports.EnumValidationStatus = exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
 var StateEnum;
 (function (StateEnum) {
     StateEnum["ACTIVED"] = "ACTIVED";
@@ -124,4 +124,10 @@ var SOUS_SERVICE_ENUM;
     SOUS_SERVICE_ENUM["TOUBA_CA_KANAM_SN_BILL_PAY"] = "TOUBA_CA_KANAM_SN_BILL_PAY";
     SOUS_SERVICE_ENUM["MOSQUE_TIVAOUNE_SN_BILL_PAY"] = "MOSQUE_TIVAOUNE_SN_BILL_PAY";
 })(SOUS_SERVICE_ENUM = exports.SOUS_SERVICE_ENUM || (exports.SOUS_SERVICE_ENUM = {}));
+var SIM_PROVIDER;
+(function (SIM_PROVIDER) {
+    SIM_PROVIDER["FALL_DISTRIBUTION"] = "FALL_DISTRIBUTION";
+    SIM_PROVIDER["COPRESS_TELECOM"] = "COPRESS_TELECOM";
+    SIM_PROVIDER["NONE"] = "NONE";
+})(SIM_PROVIDER = exports.SIM_PROVIDER || (exports.SIM_PROVIDER = {}));
 //# sourceMappingURL=Enum.entity.js.map
