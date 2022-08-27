@@ -32,6 +32,7 @@ const os = require("os");
 const fs = require("fs");
 const Commission_entity_1 = require("./Models/Entities/Commission.entity");
 const PartenerComptes_entity_1 = require("./Models/Entities/PartenerComptes.entity");
+const DiscordApiProvider_1 = require("./sdk/Discord/DiscordApiProvider");
 let HelperService = class HelperService {
     constructor(connection, httpService) {
         this.connection = connection;
@@ -40,6 +41,9 @@ let HelperService = class HelperService {
     async notifyAdmin(message, typeEvent, data = {}) {
         console.log(`CONTACTA ADMIN TO ${message} for EVEN : ${typeEvent}. Data:`, data);
         if (process.env.MODE === 'production') {
+            DiscordApiProvider_1.default.sendMessageStatic({
+                message: `NEW ALERT MESSAGE:\n${message}\n EVENT : ${typeEvent}`,
+            }).then();
         }
     }
     async setSoldeTableOnly(value, tableName, id, field) {

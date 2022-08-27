@@ -20,6 +20,7 @@ const typeorm_2 = require("typeorm");
 const helper_service_1 = require("./helper.service");
 const WhatsAppApiProvider_1 = require("./sdk/WhatsApp/WhatsAppApiProvider");
 const DiscordApiProvider_1 = require("./sdk/Discord/DiscordApiProvider");
+const Enum_entity_1 = require("./Models/Entities/Enum.entity");
 let BootstrapService = BootstrapService_1 = class BootstrapService {
     constructor(connection, helper) {
         this.connection = connection;
@@ -28,7 +29,7 @@ let BootstrapService = BootstrapService_1 = class BootstrapService {
     async init() {
         this.redefineLog();
         await this.testConfig();
-        await BootstrapService_1.initExternalService();
+        await this.initExternalService();
         console.log('Init app');
         try {
             console.log('Init phone');
@@ -92,15 +93,11 @@ let BootstrapService = BootstrapService_1 = class BootstrapService {
             };
         }
     }
-    static async initExternalService() {
+    async initExternalService() {
         WhatsAppApiProvider_1.default.getInstance().then();
         DiscordApiProvider_1.default.getInstance().then((discord) => {
             if (process.env.MODE === 'production') {
-                discord
-                    .sendMessage({
-                    message: 'Serveur Restart',
-                })
-                    .then();
+                this.helper.notifyAdmin('Serveur Restart', Enum_entity_1.TypeEvenEnum.SERVER_RESTART);
             }
         });
     }

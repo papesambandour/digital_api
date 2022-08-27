@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "1641fde76a3018ab2980106878bc75da050aa283ddbcfdd8ed3610c7bc43cdb9",
-        "signature": "b566fe16c52ecc6acfaf1ad14b9b8c8e625f48fa3302f372154b1bc644b9c3e8",
+        "version": "50a139205d4e0de98aeb009f2cd85d008d7b895767d8f98d4ed6fdb19476c472",
+        "signature": "f3aebd28a63cf00809f7815ed03972f212e848404ce099f576a6740cd3e86af0",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4146,8 +4146,18 @@
         "signature": "b039db3ac1946294922c0074f75ab6f49d15cb6dca0e0ada406e67437db48745",
         "affectsGlobalScope": false
       },
+      "../src/sdk/discord/config.ts": {
+        "version": "1fb37764e83ca61e888e888096edc456cbc3be3a627df009e97f76f3b97f2357",
+        "signature": "5a431c5561d793c0df31635c6e226dab0cc20223681be64e34a56140b344bf6f",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/discord/discordapiprovider.ts": {
+        "version": "cb9a850fcc045bca8e95a3198ede9f51103a9fb9e6a751d5eaef542b4c459931",
+        "signature": "8ed7c0303250888633989dbde186f400fc52dec55551b8ae75a6cc9d0f229d01",
+        "affectsGlobalScope": false
+      },
       "../src/helper.service.ts": {
-        "version": "78906e0c90905b5a2fdd1164c315b6265f4c08cc80b1a80b605b8386aa37a2f1",
+        "version": "3cbb59017784b7620dc48f73c6c8d05e867b0ae7b9ac4cc3def8cf030301f4af",
         "signature": "097d127f110dbb3e33aae9ca9d991a05046383b54ef444f58e4c167f0bdfd591",
         "affectsGlobalScope": false
       },
@@ -6501,24 +6511,14 @@
         "signature": "6610faf06e2637b7580ddab8fc8bb3eb0d1a4351ba6dfaf49e9f7fccab861d66",
         "affectsGlobalScope": false
       },
-      "../src/sdk/discord/config.ts": {
-        "version": "1fb37764e83ca61e888e888096edc456cbc3be3a627df009e97f76f3b97f2357",
-        "signature": "5a431c5561d793c0df31635c6e226dab0cc20223681be64e34a56140b344bf6f",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/discord/discordapiprovider.ts": {
-        "version": "4d5f5d168ec9e8daa117f22eae3a377771818670d4b1ec67c42722cba56a94ab",
-        "signature": "8ed7c0303250888633989dbde186f400fc52dec55551b8ae75a6cc9d0f229d01",
-        "affectsGlobalScope": false
-      },
       "../src/sdk/whatsapp/whatsappapiprovider.ts": {
         "version": "17c6b4718d43c4ebf782afeee1423d5ecf80d34025b09203356db8ff1c9d27bb",
         "signature": "967fefc39c887959e0909ec9381e4ab25c8557d7e5545a244355951b12fcc260",
         "affectsGlobalScope": false
       },
       "../src/bootstrap.service.ts": {
-        "version": "4288b766eb21ce38f4cb0427ff856fc65166f5988f5e11b5b2fa3bd08864cfb0",
-        "signature": "5fd8d8c9c91ce244fcc6da2b0220561352688a4664af417c9c800620459c6d20",
+        "version": "10addb728e83364cc2e6e881177d14226969a175650ff20e14b1172d74223de1",
+        "signature": "9ccf4b7071c123fa1b1372d0be96d252a46817da69805af55ae8100dff6e1bc5",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
@@ -13085,7 +13085,7 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/helper.service.ts",
-        "../src/models/entities/operationparteners.entity.ts",
+        "../src/models/entities/enum.entity.ts",
         "../src/sdk/discord/discordapiprovider.ts",
         "../src/sdk/whatsapp/whatsappapiprovider.ts"
       ],
@@ -13400,7 +13400,8 @@
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
-        "../src/models/entities/transactions.entity.ts"
+        "../src/models/entities/transactions.entity.ts",
+        "../src/sdk/discord/discordapiprovider.ts"
       ],
       "../src/main.ts": [
         "../node_modules/@nestjs/core/index.d.ts",

@@ -33,7 +33,7 @@ class DiscordApiProvider {
     }
     static async sendMessageStatic(params, channelName = config_1.discordApiConfig().alertChannelName) {
         const discord = await DiscordApiProvider.getInstance();
-        return await discord.sendMessage(params);
+        return await discord.sendMessage(params, channelName);
     }
     async sendMessage(params, channelName = config_1.discordApiConfig().alertChannelName) {
         var _a, _b;
