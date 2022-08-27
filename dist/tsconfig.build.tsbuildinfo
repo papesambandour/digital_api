@@ -4127,7 +4127,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "3dc29d99a36591299790638dc0e39c20cd8f9654eda8def0285eda058b8ca8ff",
+        "version": "ae472b9503af48e285a12ae18ff38bcf9856f1dfdfbd40bdfee076a323c948fb",
         "signature": "1518af6cda4fdcbaf56c1183a621b943d19b83fbcb7c960b367f9fa0e56c281b",
         "affectsGlobalScope": false
       },
@@ -4147,7 +4147,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "13df5d0f0e22c5ba145f081cd4fda0f38730e5829672bf00ba7f3eefc8e80103",
+        "version": "78906e0c90905b5a2fdd1164c315b6265f4c08cc80b1a80b605b8386aa37a2f1",
         "signature": "097d127f110dbb3e33aae9ca9d991a05046383b54ef444f58e4c167f0bdfd591",
         "affectsGlobalScope": false
       },
@@ -13391,10 +13391,12 @@
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/models/dto/dtooperationparteners.ts",
         "../src/models/dto/dtooperationphones.ts",
+        "../src/models/entities/commission.entity.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/operationparteners.entity.ts",
         "../src/models/entities/operationphones.entity.ts",
         "../src/models/entities/operators.entity.ts",
+        "../src/models/entities/partenercomptes.entity.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts",

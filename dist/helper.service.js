@@ -30,6 +30,8 @@ const Operators_entity_1 = require("./Models/Entities/Operators.entity");
 const crypto = require("crypto");
 const os = require("os");
 const fs = require("fs");
+const Commission_entity_1 = require("./Models/Entities/Commission.entity");
+const PartenerComptes_entity_1 = require("./Models/Entities/PartenerComptes.entity");
 let HelperService = class HelperService {
     constructor(connection, httpService) {
         this.connection = connection;
@@ -625,7 +627,25 @@ let HelperService = class HelperService {
         return fullPath;
     }
     async getAmountForMessenger(operationInDto) {
-        return 100;
+        const comptePartner = await PartenerComptes_entity_1.PartenerComptes.findOne({
+            where: { appKey: typeorm_2.Equal(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.apiKey) },
+        });
+        if (!comptePartner) {
+            return 0;
+        }
+        const sousServices = await SousServices_entity_1.SousServices.findOne({
+            where: { code: typeorm_2.Equal(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.codeService) },
+        });
+        if (!sousServices) {
+            return 0;
+        }
+        const commission = await Commission_entity_1.Commission.findOne({
+            where: {
+                partenersId: typeorm_2.Equal(comptePartner.partenersId),
+                sousServicesId: sousServices.id,
+            },
+        });
+        return commission.amountFee || 0;
     }
 };
 HelperService = __decorate([

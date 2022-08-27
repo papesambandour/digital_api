@@ -217,7 +217,7 @@ let ApiServiceService = class ApiServiceService {
             const regexPhone = new RegExp(this.sousServices.regexPhone);
             if (!operationInDto.phone.match(regexPhone)) {
                 asError = true;
-                msg.phone.push('Le numero est incorrecte');
+                msg.phone.push(`Le numéro est incorrecte. Regex: ${this.sousServices.regexPhone}`);
             }
             if (this.sousServices.needPhone &&
                 (!this.sousServices.ussdCode ||
