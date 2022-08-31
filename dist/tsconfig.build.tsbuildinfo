@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "2c72c4c4a42ac5db224b6a2dde6f25ec40b46bb635bf596d8505bdfd6845df9b",
-        "signature": "fe47a81939d30f20b79802e42d1fa66e721d8114da0170ad8474d3aee6d4f62a",
+        "version": "c495cf366474504297df29cc99f4dbabebbb26c6b39456f7b7ba636cd44aa6d1",
+        "signature": "0c19d9d4a9027ae4327566fba7646378123da236eb708e7da3a7e191fd386092",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4132,7 +4132,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "8269eca78c27f761771794928dc2d43a6c994796c5d4df09aea526e2e86075ed",
+        "version": "97156d715a4a746bf3b10f080a50321a1c14709551b27e39899219aa837402c2",
         "signature": "47a146cd953f5bde2ce0262ab4f40440fd9281af861c3ff0a7d12175f9a4d98a",
         "affectsGlobalScope": false
       },
@@ -4162,8 +4162,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "a8780f4b51a2b726d6ca84b2bc3369e8ab045227b308f676ca717ce6ac155e50",
-        "signature": "cd6590ce43fdd2987ae4ad52f2338169c532139d41d067d362f091add0e4e8a7",
+        "version": "0fdc87c1fa08a10fdf4e4e6224add3d7797b21fd9ddc1ee5083f7b97be39acdb",
+        "signature": "a2dba55930c23ac3f84f5bacce2cdadab88b889ee83c4ec514b63433a4153a9f",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/confirm3dsindto.ts": {
@@ -4717,8 +4717,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "02a11aff3076df41a9baa79980922f079d20c69b06bbfea589e87d4b81bad50d",
-        "signature": "298bef5a6a750feaeaad8405637e2abb4b908016264fa3f2dfc66a4edbba4113",
+        "version": "1069e86fa0363aa426dcbe8b57035c1c93a921c64a58afc94cb53d132714e575",
+        "signature": "8d0979ded8ab7bcfe9ec2fb6ddf6ba2502ebf5681fd31e2a74a9ddab043d19f9",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -6807,7 +6807,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "54812d336c835ab2d8f44c656a9c0a3ce68b281b08ef2fbb72b707e80b2f9d38",
+        "version": "608f6cd90e20fe6d5b0637acce0eeb2a5bde971bc81976873a95628f417285f1",
         "signature": "30b8bf547bd04c436f0051dc5b85d4634c0f7ab25909155600e8380ac5d728e4",
         "affectsGlobalScope": false
       },
@@ -19263,6 +19263,7 @@
         "../src/controllers/api-service/api-service.service.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/errortypes.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts"

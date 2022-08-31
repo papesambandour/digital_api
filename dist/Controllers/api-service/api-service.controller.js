@@ -72,7 +72,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         });
         await this.helper.setIsCallbackReadyValue((_a = response.transaction) === null || _a === void 0 ? void 0 : _a.id);
         await this.helper.setTimeOutDate((_b = response.transaction) === null || _b === void 0 ? void 0 : _b.id);
-        const errorType = await this.helper.setErrorType((_c = response.transaction) === null || _c === void 0 ? void 0 : _c.id);
+        const errorType = await this.helper.provideErrorType((_c = response.transaction) === null || _c === void 0 ? void 0 : _c.id);
         this.helper.updateApiBalance(apiManager, response.usedPhoneId).then();
         if (response.status === Enum_entity_1.StatusEnum.FAILLED && response.refundOnFailed) {
             await this.helper.operationPartnerCancelTransaction(response.transaction);
@@ -140,13 +140,8 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             success: true,
             services: [
                 {
-                    id: -2,
-                    code: 'unknow_error',
-                    message: api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE,
-                },
-                {
-                    id: -1,
-                    code: 'unknow_error',
+                    id: null,
+                    code: 'unknown_error',
                     message: api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE,
                 },
             ].concat(errors.map((e) => {

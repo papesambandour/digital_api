@@ -7,6 +7,7 @@ import { ApiManagerInterface } from './Controllers/api-service/api-manager-inter
 import { SousServices } from './Models/Entities/SousServices.entity';
 import { ApiServiceService } from './Controllers/api-service/api-service.service';
 import { OperationInDto } from './Controllers/api-service/dto/OperationInDto';
+import { ErrorTypes } from './Models/Entities/ErrorTypes.entity';
 export declare class HelperService {
     private readonly connection;
     private httpService;
@@ -44,5 +45,6 @@ export declare class HelperService {
     private sha256;
     b64ToFilePath(attachedMedia: string, attachedMediaExtension: string, attachedMediaName: string): Promise<string>;
     getAmountForMessenger(operationInDto: OperationInDto): Promise<number>;
-    setErrorType(transactionId: number | undefined): Promise<any>;
+    provideErrorType(transactionId: number | undefined, providedErrorMessage?: string | undefined, providedError?: ErrorTypes | undefined): Promise<any>;
+    getErrorType(errorMessage: string, codeSousService: string, amount: string): Promise<any>;
 }

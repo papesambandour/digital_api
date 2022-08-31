@@ -128,7 +128,11 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             ? Enum_entity_1.EnumCodeUssdResponse.ERROR
             : Enum_entity_1.EnumCodeUssdResponse.SUCCESS;
         const regex = new RegExp(this.apiService.sousServices.messageRetourUssd);
-        const matched = regex.test(socketBodyFinish.data);
+        const error = await this.helper.getErrorType(socketBodyFinish.data, this.apiService.operationInDto.codeService, this.apiService.operationInDto.amount.toString());
+        if (error) {
+            await this.helper.provideErrorType(this.apiService.transactionId, null, error);
+        }
+        const matched = regex.test(socketBodyFinish.data) || !error;
         const statues = this.helper.getStatusAfterExec(matched ? 'success' : 'failed', this.apiService.sousServices);
         const preStatus = statues['preStatus'];
         const status = statues['status'];

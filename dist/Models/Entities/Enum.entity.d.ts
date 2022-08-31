@@ -73,6 +73,7 @@ export declare const CONSTANT: {
     CALLBACK_CONCURENCY_SEND: () => number;
     CHECK_TRANSACTION_CONCURENCY_SEND: () => number;
     APP_INTERNAL_URL: () => string;
+    CANCEL_TRANSACTION_PREFIX: string;
 };
 export declare class PHONES_HOLDERS {
     static AVALABLITY: {};

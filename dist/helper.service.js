@@ -172,7 +172,7 @@ let HelperService = class HelperService {
         }
     }
     async sendCallBack(transaction) {
-        const errorType = await this.setErrorType(transaction === null || transaction === void 0 ? void 0 : transaction.id);
+        const errorType = await this.provideErrorType(transaction === null || transaction === void 0 ? void 0 : transaction.id);
         let data = {};
         try {
             data = JSON.parse(transaction.data);
@@ -303,8 +303,8 @@ let HelperService = class HelperService {
         const transactionData = {
             dateCanceled: new Date(),
             transactionIsFinish: 1,
-            message: `Transaction annuler ||| ${transaction.message}`,
-            errorMessage: `Transaction annuler ||| ${transaction.errorMessage}`,
+            message: `${Enum_entity_1.CONSTANT.CANCEL_TRANSACTION_PREFIX}${transaction.message}`,
+            errorMessage: `${Enum_entity_1.CONSTANT.CANCEL_TRANSACTION_PREFIX}${transaction.errorMessage}`,
         };
         await Transactions_entity_1.Transactions.update(transaction.id, transactionData);
         const sousService = await SousServices_entity_1.SousServices.findOne({
@@ -654,8 +654,7 @@ let HelperService = class HelperService {
         });
         return commission.amountFee || 0;
     }
-    async setErrorType(transactionId) {
-        var _a;
+    async provideErrorType(transactionId, providedErrorMessage = undefined, providedError = undefined) {
         if (!transactionId) {
             console.log('no transactionId to set setIsCallbackReadyValue');
             return null;
@@ -667,17 +666,6 @@ let HelperService = class HelperService {
             console.log('no transaction to set setIsCallbackReadyValue');
             return null;
         }
-        const noError = [
-            Enum_entity_1.StatusEnum.SUCCESS.toString(),
-            Enum_entity_1.StatusEnum.PROCESSING.toString(),
-        ].includes(transaction.statut) ||
-            [
-                Enum_entity_1.StatusEnum.SUCCESS.toString(),
-                Enum_entity_1.StatusEnum.PROCESSING.toString(),
-            ].includes(transaction.preStatut);
-        if (noError) {
-            return null;
-        }
         if (transaction.errorTypes) {
             return {
                 id: transaction.errorTypes.id,
@@ -686,14 +674,57 @@ let HelperService = class HelperService {
                 message: transaction.errorTypes.message.replace('__amount__', transaction.amount.toString()),
             };
         }
-        if (!transaction.errorMessage) {
+        if (providedError) {
+            transaction.errorTypes = providedError;
+            await transaction.save();
             return {
-                id: -1,
+                id: providedError.id,
+                codeService: transaction.codeSousService,
+                code: providedError.code,
+                message: providedError.message.replace('__amount__', transaction.amount.toString()),
+            };
+        }
+        const noError = [
+            Enum_entity_1.StatusEnum.SUCCESS.toString(),
+            Enum_entity_1.StatusEnum.PROCESSING.toString(),
+            Enum_entity_1.StatusEnum.PENDING.toString(),
+        ].includes(transaction.statut) ||
+            [
+                Enum_entity_1.StatusEnum.SUCCESS.toString(),
+                Enum_entity_1.StatusEnum.PROCESSING.toString(),
+                Enum_entity_1.StatusEnum.PENDING.toString(),
+            ].includes(transaction.preStatut);
+        if (noError) {
+            return null;
+        }
+        if (!transaction.errorMessage && !providedErrorMessage) {
+            return null;
+        }
+        const error = await this.getErrorType(providedErrorMessage || transaction.errorMessage, transaction.codeSousService, transaction.amount.toString());
+        console.log('errror', error);
+        if (!error) {
+            return {
+                id: null,
                 codeService: null,
-                code: 'unknow_error',
+                code: 'unknown_error',
                 message: api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE,
             };
         }
+        transaction.errorTypes = error;
+        await transaction.save();
+        return {
+            id: error.id,
+            codeService: transaction.codeSousService,
+            code: error.code,
+            message: error.message.replace('__amount__', transaction.amount.toString()),
+        };
+    }
+    async getErrorType(errorMessage, codeSousService, amount) {
+        var _a;
+        if (!errorMessage) {
+            return null;
+        }
+        console.log(errorMessage, codeSousService);
         const noAccent = (str) => `${str}`
             .normalize('NFD')
             .replace(/[\u0300-\u036f]/g, '')
@@ -701,7 +732,7 @@ let HelperService = class HelperService {
         const mapper = (value, key) => {
             return key.split('.').reduce((p, c) => p[c], value);
         };
-        const errorData = transaction.errorMessage;
+        const errorData = errorMessage;
         let errorDataJson = {};
         let cpError = errorData;
         const sep = '|||';
@@ -712,9 +743,12 @@ let HelperService = class HelperService {
             errorDataJson = JSON.parse(cpError) || {};
         }
         catch (e) { }
+        const sousServices = await SousServices_entity_1.SousServices.findOne({
+            where: { code: typeorm_2.Equal(codeSousService) },
+        });
         const allErrorTypes = await ErrorTypes_entity_1.ErrorTypes.find({
             where: {
-                sousServicesId: typeorm_2.Equal(transaction.sousServicesId),
+                sousServicesId: typeorm_2.Equal(sousServices.id),
             },
         });
         const error = allErrorTypes.find((el) => {
@@ -734,20 +768,13 @@ let HelperService = class HelperService {
             }
         });
         if (!error) {
-            return {
-                id: 0,
-                codeService: null,
-                code: 'unknow_error',
-                message: api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE,
-            };
+            return null;
         }
-        transaction.errorTypes = error;
-        await transaction.save();
         return {
             id: error.id,
-            codeService: transaction.codeSousService,
+            codeService: codeSousService,
             code: error.code,
-            message: error.message.replace('__amount__', transaction.amount.toString()),
+            message: error.message.replace('__amount__', amount === null || amount === void 0 ? void 0 : amount.toString()),
         };
     }
 };

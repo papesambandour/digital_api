@@ -254,7 +254,7 @@ let ApiServiceService = class ApiServiceService {
             ![Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(operationInDto.codeService) &&
             !operationInDto.codeService.includes('_BILL_')) {
             asError = true;
-            msg.apiKey.push(`Une transaction avec le meme numéro et le meme montant est deja en cours, ressayer dans ${Enum_entity_1.CONSTANT.LIMIT_TIME_TRANSACTION} minutes`);
+            msg.apiKey.push(`Une transaction avec le meme numéro et le meme montant est deja en cours, ressayer dans ${Enum_entity_1.CONSTANT.LIMIT_TIME_TRANSACTION()} minutes`);
         }
         this.operationInDto = operationInDto;
         if (!this.validUrl(operationInDto.callbackUrl.toLowerCase())) {

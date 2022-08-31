@@ -44,7 +44,7 @@ export declare class ApiServiceController extends ControllerBase {
     errors(): Promise<{
         success: boolean;
         services: {
-            id: number;
+            id: any;
             code: string;
             message: string;
         }[];

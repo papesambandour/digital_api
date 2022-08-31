@@ -87,6 +87,7 @@ exports.CONSTANT = {
     CALLBACK_CONCURENCY_SEND: () => parseInt(process.env.CALLBACK_CONCURENCY_SEND),
     CHECK_TRANSACTION_CONCURENCY_SEND: () => parseInt(process.env.CHECK_TRANSACTION_CONCURENCY_SEND),
     APP_INTERNAL_URL: () => process.env.APP_INTERNAL_URL,
+    CANCEL_TRANSACTION_PREFIX: 'Transaction annuler ||| ',
 };
 class PHONES_HOLDERS {
 }
