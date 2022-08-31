@@ -3852,7 +3852,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "21bcd5385875c78c476ea6229cf6b72ee2e5e7f40e66b7a625220171516f70c9",
+        "version": "3361dc4e52c14a7b462650bd2b9f35b0edff6fa8925190333e9a6be38da25185",
         "signature": "c30345dea47f6b782a8bd2841a312c60e8710bcca6e323439db02c40ff66ae67",
         "affectsGlobalScope": false
       },
