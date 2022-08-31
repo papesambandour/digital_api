@@ -3827,8 +3827,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "dbec4ec9eb622756c3c86674906bed65bc0e490be7d49edbca2c5d7790968bcb",
-        "signature": "e1614fb556b9a3c46b8d8243eb3b2c9a4141649b5f0c2698c16a202928dd1c67",
+        "version": "21181ee4ef54cb34b45e1e6347c2afcb595cdb5d831dd219c5112c724a94b15a",
+        "signature": "aeca68f26ca1946a607f296dd63a9912cf7584ef3a203c593da6f8c4ef03cb3b",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
@@ -3852,7 +3852,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "8dcd3d334cb2443f8ff162a0fc868bc461a46e33e68b5964c148d11627e64b63",
+        "version": "21bcd5385875c78c476ea6229cf6b72ee2e5e7f40e66b7a625220171516f70c9",
         "signature": "c30345dea47f6b782a8bd2841a312c60e8710bcca6e323439db02c40ff66ae67",
         "affectsGlobalScope": false
       },
@@ -4197,7 +4197,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/bank-card-money-sn-cash-out-api-manager/bank-card-money-sn-cash-out-api-manager.service.ts": {
-        "version": "41025b5f686c88c0e4c65b4e4b231cc3ded99699155045d74214656331ff5fd3",
+        "version": "ea910233b2e5d7b909abca2321a7fb8c7f773758cd923ba77cf3dac88bb50b19",
         "signature": "f77137b7060fda270debc6731c1c8cc834b089076a206f1ca9ba7fc8e00202c0",
         "affectsGlobalScope": false
       },
@@ -6752,7 +6752,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/bank-transfer-sn-cash-in-api-manager/bank-transfer-sn-cash-in-api-manager.service.ts": {
-        "version": "1d8c098c954a95a7da52bc277161ebb0fc0886908c30283c28f13fa2ae3b97af",
+        "version": "c3baebabb28b1e4a11f93902c83b4b34917f450ac6644a89eef5098baf52265c",
         "signature": "489cae3b5d141d535660c71761dd390d09e469c75b65cc66aaf856900b7cced7",
         "affectsGlobalScope": false
       },

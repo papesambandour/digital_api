@@ -49,6 +49,9 @@ class BankTransferSnCashInApiManagerService extends api_manager_interface_servic
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
         transaction.rib = ribData.rib.value;
+        transaction.customerFirstName = params.dto.customerFirstName;
+        transaction.customerLastName = params.dto.customerLastName;
+        transaction.customerEmail = params.dto.customerEmail || null;
         await transaction.save();
         transaction.message = JSON.stringify(ribData);
         await transaction.save();

@@ -73,6 +73,9 @@ export declare class Transactions extends BaseEntity {
     reachedTimeout: number;
     timeOutAt: Date;
     rib: string;
+    customerLastName: string;
+    customerFirstName: string;
+    customerEmail: string;
     operationParteners: OperationParteners[];
     parteners: Parteners;
     partenerComptes: PartenerComptes;
