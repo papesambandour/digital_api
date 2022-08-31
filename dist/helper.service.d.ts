@@ -47,4 +47,5 @@ export declare class HelperService {
     getAmountForMessenger(operationInDto: OperationInDto): Promise<number>;
     provideErrorType(transactionId: number | undefined, providedErrorMessage?: string | undefined, providedError?: ErrorTypes | undefined): Promise<any>;
     getErrorType(errorMessage: string, codeSousService: string, amount: string): Promise<any>;
+    alertForUnknownResponse(responseData: string, codeService: string, transactionId: number): void;
 }

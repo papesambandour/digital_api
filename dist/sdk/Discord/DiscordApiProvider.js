@@ -40,8 +40,9 @@ class DiscordApiProvider {
         console.log('sending message', channelName);
         const channel = (_b = (_a = this.client.channels) === null || _a === void 0 ? void 0 : _a.cache) === null || _b === void 0 ? void 0 : _b.find((channel) => channel.name === channelName);
         if (channel && channel.isTextBased) {
+            const invisibleChar = 'ㅤ' + '\n';
             await channel.send({
-                content: params.message,
+                content: params.message + invisibleChar.repeat(3),
             });
             console.log('message send successfully');
         }

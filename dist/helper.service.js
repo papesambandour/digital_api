@@ -44,7 +44,7 @@ let HelperService = class HelperService {
         console.log(`CONTACTA ADMIN TO ${message} for EVEN : ${typeEvent}. Data:`, data);
         if (process.env.MODE === 'production') {
             DiscordApiProvider_1.default.sendMessageStatic({
-                message: `NEW ALERT MESSAGE:\n${message}\n EVENT : ${typeEvent}`,
+                message: `NEW ALERT MESSAGE:\n${message}\nEVENT : ${typeEvent}`,
             }).then();
         }
     }
@@ -703,6 +703,7 @@ let HelperService = class HelperService {
         const error = await this.getErrorType(providedErrorMessage || transaction.errorMessage, transaction.codeSousService, transaction.amount.toString());
         console.log('errror', error);
         if (!error) {
+            this.alertForUnknownResponse(providedErrorMessage || transaction.errorMessage, transaction.codeSousService, transaction.id);
             return {
                 id: null,
                 codeService: null,
@@ -776,6 +777,9 @@ let HelperService = class HelperService {
             code: error.code,
             message: error.message.replace('__amount__', amount === null || amount === void 0 ? void 0 : amount.toString()),
         };
+    }
+    alertForUnknownResponse(responseData, codeService, transactionId) {
+        this.notifyAdmin(`Nouvelle réponse Inconnu pour la transaction N#${transactionId} du service ${codeService}: ${responseData}`, Enum_entity_1.TypeEvenEnum.UNKNOWN_RESPONSE_INIT).then();
     }
 };
 HelperService = __decorate([

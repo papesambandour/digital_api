@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "c495cf366474504297df29cc99f4dbabebbb26c6b39456f7b7ba636cd44aa6d1",
-        "signature": "0c19d9d4a9027ae4327566fba7646378123da236eb708e7da3a7e191fd386092",
+        "version": "b77715f72e43a389f75d2f0e127b5f18c27fefbfaa304d6229977fd0e7d9efaa",
+        "signature": "253fcb545d50c2c229bcea617a9e6e4a8f376b1b16d761699cb3c803ade6bed8",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4132,7 +4132,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "97156d715a4a746bf3b10f080a50321a1c14709551b27e39899219aa837402c2",
+        "version": "7019c251a95ea270fb714b37235cdd5ea8a64b09573b396cfd54b0f64512f81d",
         "signature": "47a146cd953f5bde2ce0262ab4f40440fd9281af861c3ff0a7d12175f9a4d98a",
         "affectsGlobalScope": false
       },
@@ -4157,13 +4157,13 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/discord/discordapiprovider.ts": {
-        "version": "cb9a850fcc045bca8e95a3198ede9f51103a9fb9e6a751d5eaef542b4c459931",
+        "version": "b711aeafd8789be3adac3fa70901c3beb5ea263973910d16f01cebdc6dd03b85",
         "signature": "8ed7c0303250888633989dbde186f400fc52dec55551b8ae75a6cc9d0f229d01",
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "0fdc87c1fa08a10fdf4e4e6224add3d7797b21fd9ddc1ee5083f7b97be39acdb",
-        "signature": "a2dba55930c23ac3f84f5bacce2cdadab88b889ee83c4ec514b63433a4153a9f",
+        "version": "a1cce378da7368acb52141a29a393de91f1904403ce647eb41c94548229525d8",
+        "signature": "81029c947f46f7a8388f9b4274cd606335247d5bae917d833dca4271d58378f3",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/confirm3dsindto.ts": {
@@ -6807,7 +6807,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "608f6cd90e20fe6d5b0637acce0eeb2a5bde971bc81976873a95628f417285f1",
+        "version": "787c406e805863aaadfe84368f78018857af3ec2f98f09aa69ca3582ebec8fd2",
         "signature": "30b8bf547bd04c436f0051dc5b85d4634c0f7ab25909155600e8380ac5d728e4",
         "affectsGlobalScope": false
       },

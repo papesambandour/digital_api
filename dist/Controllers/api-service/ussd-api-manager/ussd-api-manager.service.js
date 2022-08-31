@@ -128,12 +128,18 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             ? Enum_entity_1.EnumCodeUssdResponse.ERROR
             : Enum_entity_1.EnumCodeUssdResponse.SUCCESS;
         const regex = new RegExp(this.apiService.sousServices.messageRetourUssd);
-        const error = await this.helper.getErrorType(socketBodyFinish.data, this.apiService.operationInDto.codeService, this.apiService.operationInDto.amount.toString());
-        if (error) {
-            await this.helper.provideErrorType(this.apiService.transactionId, null, error);
+        const regexMatched = regex.test(socketBodyFinish.data);
+        let matchError = null;
+        if (!regexMatched) {
+            matchError = await this.helper.getErrorType(socketBodyFinish.data, this.apiService.operationInDto.codeService, this.apiService.operationInDto.amount.toString());
+            if (matchError) {
+                await this.helper.provideErrorType(this.apiService.transactionId, null, matchError);
+            }
+            else {
+                this.helper.alertForUnknownResponse(socketBodyFinish.data, this.apiService.operationInDto.codeService, this.apiService.transactionId);
+            }
         }
-        const matched = regex.test(socketBodyFinish.data) || !error;
-        const statues = this.helper.getStatusAfterExec(matched ? 'success' : 'failed', this.apiService.sousServices);
+        const statues = this.helper.getStatusAfterExec(regexMatched || !matchError ? 'success' : 'failed', this.apiService.sousServices);
         const preStatus = statues['preStatus'];
         const status = statues['status'];
         await this.apiService.connection.query(`update transactions
