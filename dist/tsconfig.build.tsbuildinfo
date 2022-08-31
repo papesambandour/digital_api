@@ -3827,8 +3827,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "e730897415599bc711df64b4adc24195b86da040c2e4fa2b88780e23afd9e882",
-        "signature": "0733c00a1ff2fa543ee303286c6efa53b0658e832cbd3b6f318d52e6f19d941a",
+        "version": "dbec4ec9eb622756c3c86674906bed65bc0e490be7d49edbca2c5d7790968bcb",
+        "signature": "e1614fb556b9a3c46b8d8243eb3b2c9a4141649b5f0c2698c16a202928dd1c67",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
@@ -4162,8 +4162,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "a1cce378da7368acb52141a29a393de91f1904403ce647eb41c94548229525d8",
-        "signature": "81029c947f46f7a8388f9b4274cd606335247d5bae917d833dca4271d58378f3",
+        "version": "7dcff19677d4f62523177a35b8c43650dec0a355d18a245fdace555abf8b3777",
+        "signature": "07fd193bb36e0c2cba8d2bf811d3193e4720c74d75d0a1210696e9005f1929d5",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/confirm3dsindto.ts": {
@@ -6522,7 +6522,7 @@
         "affectsGlobalScope": false
       },
       "../src/bootstrap.service.ts": {
-        "version": "10addb728e83364cc2e6e881177d14226969a175650ff20e14b1172d74223de1",
+        "version": "b0e15573a0a9187706187cb61bc2b1fb6e539c536e7ae4c0216c185617eedb2b",
         "signature": "9ccf4b7071c123fa1b1372d0be96d252a46817da69805af55ae8100dff6e1bc5",
         "affectsGlobalScope": false
       },
@@ -6732,7 +6732,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/empty-model-service.ts": {
-        "version": "0a53a8328bae33ae54668585aba2d93bf8fc8a6b12b571e29d7ba378912c01c5",
+        "version": "2793c39b976b92e4d121a40a9fedbf87eb5d9e39e746fbc97ae2067fdb51cbdd",
         "signature": "738b11e67f9f5c6b67f9f737bb61e69c8dd4f69f02491ca9b54739c950825027",
         "affectsGlobalScope": false
       },
@@ -6741,8 +6741,18 @@
         "signature": "7cd10d9c309912ffe06f27439addcc4f69cfe69e02710d051f59a58cf206c25c",
         "affectsGlobalScope": false
       },
+      "../src/sdk/orange/config.ts": {
+        "version": "991527ebffe778ba7e5d9e3d91288f9211cc8ad63f1c58b7f2c815c9effdba95",
+        "signature": "4eaf566317ba2c0314c9b5294edabc10b3ff7c8a7eac78e49df93e539f69fc0f",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/orange/providerorangemoneyapi.ts": {
+        "version": "f0a02b61a86a0eb4bdf536699b63e004fd1a2dee399a7e4e962a84d94eba528c",
+        "signature": "aa79894b792afbd62544694ed65abd3e6b67f71586aa8efdea362ad77dcce423",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/bank-transfer-sn-cash-in-api-manager/bank-transfer-sn-cash-in-api-manager.service.ts": {
-        "version": "aa2901c10ac3d923c57f1f1e507cd54d3549b939ec5013c7e842f57c7d548fc2",
+        "version": "1d8c098c954a95a7da52bc277161ebb0fc0886908c30283c28f13fa2ae3b97af",
         "signature": "489cae3b5d141d535660c71761dd390d09e469c75b65cc66aaf856900b7cced7",
         "affectsGlobalScope": false
       },
@@ -6764,16 +6774,6 @@
       "../src/controllers/api-service/oolusolar-sn-bill-reload-api-manager/oolusolar-sn-bill-reload-api-manager.service.ts": {
         "version": "ade90509609d49b047bf0ba4bb3da417c6e52d5533ef5ff5cff358a0f62b7080",
         "signature": "6dc129b0d1bc14d45fe44a1246d7d25e9e36d0a69c55f484c8a6b52f318e41c1",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/orange/config.ts": {
-        "version": "991527ebffe778ba7e5d9e3d91288f9211cc8ad63f1c58b7f2c815c9effdba95",
-        "signature": "4eaf566317ba2c0314c9b5294edabc10b3ff7c8a7eac78e49df93e539f69fc0f",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/orange/providerorangemoneyapi.ts": {
-        "version": "f0a02b61a86a0eb4bdf536699b63e004fd1a2dee399a7e4e962a84d94eba528c",
-        "signature": "aa79894b792afbd62544694ed65abd3e6b67f71586aa8efdea362ad77dcce423",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/orange-money-sn-cash-in-api-manager/orange-money-sn-cash-in-api-manager.service.ts": {
@@ -13191,7 +13191,10 @@
         "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/controllers/api-service/bank-transfer-sn-cash-in-api-manager/bank-transfer-sn-cash-in-api-manager.service.ts": [
-        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/sdk/orange/providerorangemoneyapi.ts"
       ],
       "../src/controllers/api-service/baobabplus-sn-bill-reload-api-manager/baobabplus-sn-bill-reload-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",

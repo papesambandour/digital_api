@@ -72,6 +72,7 @@ export declare class Transactions extends BaseEntity {
     transactionIsFinish: number;
     reachedTimeout: number;
     timeOutAt: Date;
+    rib: string;
     operationParteners: OperationParteners[];
     parteners: Parteners;
     partenerComptes: PartenerComptes;

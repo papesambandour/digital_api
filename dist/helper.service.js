@@ -781,6 +781,103 @@ let HelperService = class HelperService {
     alertForUnknownResponse(responseData, codeService, transactionId) {
         this.notifyAdmin(`Nouvelle réponse Inconnu pour la transaction N#${transactionId} du service ${codeService}: ${responseData}`, Enum_entity_1.TypeEvenEnum.UNKNOWN_RESPONSE_INIT).then();
     }
+    ribFromString(rib, country = undefined) {
+        if (!rib || typeof rib !== 'string') {
+            return {
+                rib: {
+                    value: rib,
+                    isValid: false,
+                },
+                accountNumber: {
+                    value: null,
+                    isValid: false,
+                },
+                ribKey: {
+                    value: null,
+                    isValid: false,
+                },
+                bankCode: {
+                    value: null,
+                    isValid: false,
+                },
+                branchCode: {
+                    value: null,
+                    isValid: false,
+                },
+            };
+        }
+        function substr(str, offset, length = undefined) {
+            if (length === undefined) {
+                length = str.length;
+            }
+            return str.substr(offset, length);
+        }
+        function slice(str, offset, length = undefined) {
+            if (length === undefined) {
+                length = str.length;
+            }
+            return str.slice(offset, length);
+        }
+        function str_replace(search, replace, subject) {
+            return subject.replace(search, replace);
+        }
+        function ctype_alpha(input) {
+            return /^[a-zA-Z]+$/.test(input);
+        }
+        function is_numeric(input) {
+            return /^-?([0-9]\d+|\d)(\.\d+)?$/.test(input);
+        }
+        function strlen(str) {
+            return str.length;
+        }
+        function str_starts_with(str, start_with) {
+            return str.startsWith(start_with);
+        }
+        rib = rib.replace(/\s/g, '');
+        const bankCode = substr(rib, 0, 5);
+        const branchCode = substr(rib, 5, 5);
+        const ribKey = slice(rib, -2);
+        let accountNumber = str_replace(bankCode + branchCode, '', rib);
+        accountNumber = slice(accountNumber, 0, -2);
+        let accountNumberValid = !(strlen(accountNumber) < 10 ||
+            strlen(accountNumber) > 20 ||
+            !is_numeric(accountNumber));
+        if ((str_starts_with(bankCode, 'SN') || country == 'sn') &&
+            strlen(accountNumber) !== 12) {
+            accountNumberValid = false;
+        }
+        if (str_starts_with(bankCode, 'SN') && strlen(accountNumber) !== 12) {
+            accountNumberValid = false;
+        }
+        const cleanRib = {
+            rib: {
+                value: `${bankCode} ${branchCode} ${accountNumber} ${ribKey}`,
+                isValid: false,
+            },
+            accountNumber: {
+                value: accountNumber,
+                isValid: accountNumberValid,
+            },
+            ribKey: {
+                value: ribKey,
+                isValid: !(strlen(ribKey) !== 2 || !is_numeric(ribKey)),
+            },
+            bankCode: {
+                value: bankCode,
+                isValid: !(strlen(bankCode) !== 5 || !ctype_alpha(substr(bankCode, 0, 2))),
+            },
+            branchCode: {
+                value: branchCode,
+                isValid: !(strlen(branchCode) !== 5 || !is_numeric(branchCode)),
+            },
+        };
+        cleanRib.rib.isValid =
+            cleanRib.accountNumber.isValid &&
+                cleanRib.branchCode.isValid &&
+                cleanRib.bankCode.isValid &&
+                cleanRib.ribKey.isValid;
+        return cleanRib;
+    }
 };
 HelperService = __decorate([
     common_1.Injectable(),

@@ -19,7 +19,9 @@ class EmptyModelApiManagerService extends api_manager_interface_service_1.ApiMan
         return await this.notImplementedYet(params);
     }
     async initTransaction(params) {
-        return await this.notImplementedYet(params);
+        const baseResponse = (await this.notImplementedYet(params));
+        baseResponse.refundOnFailed = true;
+        return baseResponse;
     }
     async refundTransaction(params) {
         return await this.notImplementedYet(params);

@@ -8,6 +8,17 @@ import { SousServices } from './Models/Entities/SousServices.entity';
 import { ApiServiceService } from './Controllers/api-service/api-service.service';
 import { OperationInDto } from './Controllers/api-service/dto/OperationInDto';
 import { ErrorTypes } from './Models/Entities/ErrorTypes.entity';
+export declare type Rib = {
+    bankCode: RibItem;
+    ribKey: RibItem;
+    accountNumber: RibItem;
+    branchCode: RibItem;
+    rib: RibItem;
+};
+export declare type RibItem = {
+    value: string | undefined | null;
+    isValid: boolean;
+};
 export declare class HelperService {
     private readonly connection;
     private httpService;
@@ -48,4 +59,5 @@ export declare class HelperService {
     provideErrorType(transactionId: number | undefined, providedErrorMessage?: string | undefined, providedError?: ErrorTypes | undefined): Promise<any>;
     getErrorType(errorMessage: string, codeSousService: string, amount: string): Promise<any>;
     alertForUnknownResponse(responseData: string, codeService: string, transactionId: number): void;
+    ribFromString(rib: string, country?: 'sn' | 'ci'): Rib;
 }

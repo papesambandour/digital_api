@@ -30,7 +30,6 @@ let BootstrapService = BootstrapService_1 = class BootstrapService {
         this.redefineLog();
         await this.testConfig();
         await this.initExternalService();
-        console.log('Init app');
         try {
             console.log('Init phone');
             await this.connection.query(`update phones

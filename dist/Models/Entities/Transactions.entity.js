@@ -424,6 +424,10 @@ __decorate([
     __metadata("design:type", Date)
 ], Transactions.prototype, "timeOutAt", void 0);
 __decorate([
+    typeorm_1.Column('text', { name: 'rib', nullable: true }),
+    __metadata("design:type", String)
+], Transactions.prototype, "rib", void 0);
+__decorate([
     typeorm_1.OneToMany(() => OperationParteners_entity_1.OperationParteners, (operationParteners) => operationParteners.transactions),
     __metadata("design:type", Array)
 ], Transactions.prototype, "operationParteners", void 0);
