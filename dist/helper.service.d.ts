@@ -44,4 +44,5 @@ export declare class HelperService {
     private sha256;
     b64ToFilePath(attachedMedia: string, attachedMediaExtension: string, attachedMediaName: string): Promise<string>;
     getAmountForMessenger(operationInDto: OperationInDto): Promise<number>;
+    setErrorType(transactionId: number | undefined): Promise<any>;
 }

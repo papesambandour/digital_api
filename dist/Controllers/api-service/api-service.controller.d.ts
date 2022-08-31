@@ -41,6 +41,14 @@ export declare class ApiServiceController extends ControllerBase {
             typeService: string;
         }[];
     }>;
+    errors(): Promise<{
+        success: boolean;
+        services: {
+            id: number;
+            code: string;
+            message: string;
+        }[];
+    }>;
     listPendingBill(pendingBillDto: ListPendingBillInDto): Promise<{
         code: number;
         msg: any;

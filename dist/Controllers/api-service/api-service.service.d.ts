@@ -54,7 +54,7 @@ export declare class ApiServiceService {
     validUrl(str: any): boolean;
     generateTransactionId(): string;
     allDataIsOk(): any;
-    responseOperation(response: CheckResponse | RefundResponse | InitResponse, operationInDto: OperationInDto): any;
+    responseOperation(response: CheckResponse | RefundResponse | InitResponse, operationInDto: OperationInDto, errorType: any): any;
     getPartner(headers: any): Promise<PartenerComptes>;
     private initFeePartner;
 }

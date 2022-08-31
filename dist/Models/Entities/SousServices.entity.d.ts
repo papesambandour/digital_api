@@ -7,6 +7,7 @@ import { Services } from './Services.entity';
 import { TypeServices } from './TypeServices.entity';
 import { Transactions } from './Transactions.entity';
 import { TypeOperationEnum } from './Enum.entity';
+import { ErrorTypes } from './ErrorTypes.entity';
 export declare class SousServices extends BaseEntity {
     id: number;
     needPhone: number;
@@ -54,4 +55,5 @@ export declare class SousServices extends BaseEntity {
     services: Services;
     typeServices: TypeServices;
     transactions: Transactions[];
+    errorTypes: ErrorTypes[];
 }

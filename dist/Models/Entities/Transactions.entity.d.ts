@@ -8,12 +8,14 @@ import { UssdExecutionMessages } from './UssdExecutionMessages.entity';
 import { OperationPhones } from './OperationPhones.entity';
 import { EnumCodeUssdResponse, EnumValidationStatus, TypeOperationEnum } from './Enum.entity';
 import { MessageUssds } from './MessageUssds.entity';
+import { ErrorTypes } from './ErrorTypes.entity';
 export declare class Transactions extends BaseEntity {
     id: number;
     typeOperation: TypeOperationEnum;
     codeUssdResponse: EnumCodeUssdResponse;
     ussdResponseMatch: number;
     sousServicesId: number;
+    errorTypesId: number;
     phonesId: number | null;
     partenerComptesId: number;
     partenersId: number;
@@ -75,6 +77,7 @@ export declare class Transactions extends BaseEntity {
     partenerComptes: PartenerComptes;
     phones: Phones;
     sousServices: SousServices;
+    errorTypes: ErrorTypes;
     ussdExecutionMessage: UssdExecutionMessages[];
     operationPhones: OperationPhones[];
     messagesUssds: MessageUssds[];

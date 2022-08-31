@@ -22,6 +22,7 @@ const OperationPhones_entity_1 = require("./Models/Entities/OperationPhones.enti
 const DtoOperationPhones_1 = require("./Models/Dto/DtoOperationPhones");
 const Transactions_entity_1 = require("./Models/Entities/Transactions.entity");
 const Utils = require("util");
+const api_manager_interface_service_1 = require("./Controllers/api-service/api-manager-interface/api-manager-interface.service");
 const SousServices_entity_1 = require("./Models/Entities/SousServices.entity");
 const DtoOperationParteners_1 = require("./Models/Dto/DtoOperationParteners");
 const OperationParteners_entity_1 = require("./Models/Entities/OperationParteners.entity");
@@ -33,6 +34,7 @@ const fs = require("fs");
 const Commission_entity_1 = require("./Models/Entities/Commission.entity");
 const PartenerComptes_entity_1 = require("./Models/Entities/PartenerComptes.entity");
 const DiscordApiProvider_1 = require("./sdk/Discord/DiscordApiProvider");
+const ErrorTypes_entity_1 = require("./Models/Entities/ErrorTypes.entity");
 let HelperService = class HelperService {
     constructor(connection, httpService) {
         this.connection = connection;
@@ -170,6 +172,7 @@ let HelperService = class HelperService {
         }
     }
     async sendCallBack(transaction) {
+        const errorType = await this.setErrorType(transaction === null || transaction === void 0 ? void 0 : transaction.id);
         let data = {};
         try {
             data = JSON.parse(transaction.data);
@@ -198,7 +201,7 @@ let HelperService = class HelperService {
                 externalTransactionId: transaction.externalTransactionId,
                 callbackUrl: transaction.urlIpn,
                 data: data,
-                errorTypeId: statut === Enum_entity_1.StatusEnum.SUCCESS ? null : '0',
+                errorType: errorType,
             },
         };
         try {
@@ -300,8 +303,8 @@ let HelperService = class HelperService {
         const transactionData = {
             dateCanceled: new Date(),
             transactionIsFinish: 1,
-            message: `Transaction annuler | ${transaction.message}`,
-            errorMessage: `Transaction annuler | ${transaction.errorMessage}`,
+            message: `Transaction annuler ||| ${transaction.message}`,
+            errorMessage: `Transaction annuler ||| ${transaction.errorMessage}`,
         };
         await Transactions_entity_1.Transactions.update(transaction.id, transactionData);
         const sousService = await SousServices_entity_1.SousServices.findOne({
@@ -650,6 +653,98 @@ let HelperService = class HelperService {
             },
         });
         return commission.amountFee || 0;
+    }
+    async setErrorType(transactionId) {
+        var _a;
+        if (!transactionId) {
+            console.log('no transactionId to set setIsCallbackReadyValue');
+            return null;
+        }
+        const transaction = await this.getTransactionById(transactionId, [
+            'errorTypes',
+        ]);
+        if (!transaction) {
+            console.log('no transaction to set setIsCallbackReadyValue');
+            return null;
+        }
+        const statut = ['SUCCESS'].includes(transaction.statut) ||
+            ['SUCCESS'].includes(transaction.preStatut)
+            ? Enum_entity_1.StatusEnum.SUCCESS
+            : Enum_entity_1.StatusEnum.FAILLED;
+        if (statut === Enum_entity_1.StatusEnum.SUCCESS) {
+            return null;
+        }
+        if (transaction.errorTypes) {
+            return {
+                id: transaction.errorTypes.id,
+                codeService: transaction.codeSousService,
+                code: transaction.errorTypes.code,
+                message: transaction.errorTypes.message.replace('__amount__', transaction.amount.toString()),
+            };
+        }
+        if (!transaction.errorMessage) {
+            return {
+                id: -1,
+                codeService: null,
+                code: 'unknow_error',
+                message: api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE,
+            };
+        }
+        const noAccent = (str) => `${str}`
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase();
+        const mapper = (value, key) => {
+            return key.split('.').reduce((p, c) => p[c], value);
+        };
+        const errorData = transaction.errorMessage;
+        let errorDataJson = {};
+        let cpError = errorData;
+        const sep = '|||';
+        if (cpError.includes(sep)) {
+            cpError = (_a = cpError === null || cpError === void 0 ? void 0 : cpError.split(sep)) === null || _a === void 0 ? void 0 : _a[1];
+        }
+        try {
+            errorDataJson = JSON.parse(cpError) || {};
+        }
+        catch (e) { }
+        const allErrorTypes = await ErrorTypes_entity_1.ErrorTypes.find({
+            where: {
+                sousServicesId: typeorm_2.Equal(transaction.sousServicesId),
+            },
+        });
+        const error = allErrorTypes.find((el) => {
+            try {
+                let val = ' ';
+                if (el.isJson) {
+                    val = mapper(errorDataJson, el.index);
+                }
+                else {
+                    val = errorData;
+                }
+                return new RegExp(noAccent(el.regex), 'i').test(val ? noAccent(val) : '');
+            }
+            catch (error) {
+                console.log(error, 'matching error', error.message);
+                return false;
+            }
+        });
+        if (!error) {
+            return {
+                id: 0,
+                codeService: null,
+                code: 'unknow_error',
+                message: api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE,
+            };
+        }
+        transaction.errorTypes = error;
+        await transaction.save();
+        return {
+            id: error.id,
+            codeService: transaction.codeSousService,
+            code: error.code,
+            message: error.message.replace('__amount__', transaction.amount.toString()),
+        };
     }
 };
 HelperService = __decorate([

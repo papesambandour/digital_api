@@ -32,12 +32,14 @@ const OperationDictionaryDto_1 = require("./dto/OperationDictionaryDto");
 const ResponseHttpDefaultData_1 = require("../../Models/Response/ResponseHttpDefaultData");
 const DtoBalance_1 = require("../../Models/Dto/DtoBalance");
 const PartenerComptes_entity_1 = require("../../Models/Entities/PartenerComptes.entity");
+const api_manager_interface_service_1 = require("./api-manager-interface/api-manager-interface.service");
 const helper_service_1 = require("../../helper.service");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 const typeorm_1 = require("typeorm");
 const Parteners_entity_1 = require("../../Models/Entities/Parteners.entity");
 const SousServices_entity_1 = require("../../Models/Entities/SousServices.entity");
 const ListPendingBillInDto_1 = require("./dto/ListPendingBillInDto");
+const ErrorTypes_entity_1 = require("../../Models/Entities/ErrorTypes.entity");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService, helper) {
         super();
@@ -45,7 +47,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         this.helper = helper;
     }
     async operation(operationInDto) {
-        var _a, _b;
+        var _a, _b, _c;
         if ([Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(operationInDto.codeService)) {
             operationInDto.amount = await this.helper.getAmountForMessenger(operationInDto);
         }
@@ -70,11 +72,12 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         });
         await this.helper.setIsCallbackReadyValue((_a = response.transaction) === null || _a === void 0 ? void 0 : _a.id);
         await this.helper.setTimeOutDate((_b = response.transaction) === null || _b === void 0 ? void 0 : _b.id);
+        const errorType = await this.helper.setErrorType((_c = response.transaction) === null || _c === void 0 ? void 0 : _c.id);
         this.helper.updateApiBalance(apiManager, response.usedPhoneId).then();
         if (response.status === Enum_entity_1.StatusEnum.FAILLED && response.refundOnFailed) {
             await this.helper.operationPartnerCancelTransaction(response.transaction);
         }
-        return this.response(response.codeHttp, this.apiServiceService.responseOperation(response, operationInDto), response.partnerMessage, response.codeHttp !== Controller_1.CODE_HTTP.OK_OPERATION);
+        return this.response(response.codeHttp, this.apiServiceService.responseOperation(response, operationInDto, errorType), (errorType === null || errorType === void 0 ? void 0 : errorType.message) || response.partnerMessage, response.codeHttp !== Controller_1.CODE_HTTP.OK_OPERATION);
     }
     async transaction(id) {
         return {
@@ -122,6 +125,37 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                     typeService: s.typeServices.code,
                 };
             }),
+        };
+    }
+    async errors() {
+        const errors = await ErrorTypes_entity_1.ErrorTypes.find({
+            where: {
+                state: typeorm_1.Equal(Enum_entity_1.StateEnum.ACTIVED),
+            },
+            order: {
+                id: 'ASC',
+            },
+        });
+        return {
+            success: true,
+            services: [
+                {
+                    id: -2,
+                    code: 'unknow_error',
+                    message: api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE,
+                },
+                {
+                    id: -1,
+                    code: 'unknow_error',
+                    message: api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE,
+                },
+            ].concat(errors.map((e) => {
+                return {
+                    id: e.id,
+                    code: e.code,
+                    message: e.message,
+                };
+            })),
         };
     }
     async listPendingBill(pendingBillDto) {
@@ -212,6 +246,12 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "services", null);
+__decorate([
+    common_1.Get('errors'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "errors", null);
 __decorate([
     common_1.Post('list-pending-bills'),
     ResponseDecorateur_1.ResponseDecorateur(OperationOutDto_1.OperationOutDto, 201, "Ce Services permet d'effectué tous les operations que offres cet api "),

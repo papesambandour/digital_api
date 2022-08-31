@@ -20,6 +20,7 @@ const UssdExecutionMessages_entity_1 = require("./UssdExecutionMessages.entity")
 const OperationPhones_entity_1 = require("./OperationPhones.entity");
 const Enum_entity_1 = require("./Enum.entity");
 const MessageUssds_entity_1 = require("./MessageUssds.entity");
+const ErrorTypes_entity_1 = require("./ErrorTypes.entity");
 let Transactions = class Transactions extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -51,6 +52,10 @@ __decorate([
     typeorm_1.Column('int', { name: 'sous_services_id' }),
     __metadata("design:type", Number)
 ], Transactions.prototype, "sousServicesId", void 0);
+__decorate([
+    typeorm_1.Column('int', { name: 'error_types_id', nullable: true }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "errorTypesId", void 0);
 __decorate([
     typeorm_1.Column('int', { name: 'phones_id', nullable: true }),
     __metadata("design:type", Number)
@@ -452,6 +457,14 @@ __decorate([
     __metadata("design:type", SousServices_entity_1.SousServices)
 ], Transactions.prototype, "sousServices", void 0);
 __decorate([
+    typeorm_1.ManyToOne(() => ErrorTypes_entity_1.ErrorTypes, (errorTypes) => errorTypes.transactions, {
+        onDelete: 'NO ACTION',
+        onUpdate: 'NO ACTION',
+    }),
+    typeorm_1.JoinColumn([{ name: 'error_types_id', referencedColumnName: 'id' }]),
+    __metadata("design:type", ErrorTypes_entity_1.ErrorTypes)
+], Transactions.prototype, "errorTypes", void 0);
+__decorate([
     typeorm_1.OneToMany(() => UssdExecutionMessages_entity_1.UssdExecutionMessages, (ussdExecutionMessage) => ussdExecutionMessage.transations),
     __metadata("design:type", Array)
 ], Transactions.prototype, "ussdExecutionMessage", void 0);
@@ -468,6 +481,7 @@ Transactions = __decorate([
     typeorm_1.Index('fk_transactions_parteners1_idx', ['partenersId'], {}),
     typeorm_1.Index('fk_transactions_phones1_idx', ['phonesId'], {}),
     typeorm_1.Index('fk_transactions_sous_services1_idx', ['sousServicesId'], {}),
+    typeorm_1.Index('fk_transactions_error_types1_idx', ['errorTypesId'], {}),
     typeorm_1.Entity('transactions', { schema: 'simbot_db' })
 ], Transactions);
 exports.Transactions = Transactions;

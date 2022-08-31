@@ -326,7 +326,7 @@ let ApiServiceService = class ApiServiceService {
         }
         return false;
     }
-    responseOperation(response, operationInDto) {
+    responseOperation(response, operationInDto, errorType) {
         return Object.assign({
             phone: operationInDto.phone,
             amount: operationInDto.amount,
@@ -335,6 +335,7 @@ let ApiServiceService = class ApiServiceService {
             status: response.status,
             externalTransactionId: operationInDto.externalTransactionId,
             callbackUrl: operationInDto.callbackUrl,
+            errorType: errorType,
         }, (response === null || response === void 0 ? void 0 : response['data']) || {});
     }
     async getPartner(headers) {

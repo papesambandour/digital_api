@@ -231,6 +231,13 @@ __decorate([
 ], OperationInDto.prototype, "message", void 0);
 __decorate([
     class_validator_1.IsString({
+        message: 'rib  est requis pour ce service',
+    }),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.BANK_TRANSFER_SN_API_CASH_IN].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "rib", void 0);
+__decorate([
+    class_validator_1.IsString({
         message: 'attachedMedia  est requis pour ce service',
     }),
     class_validator_1.IsBase64({

@@ -19,6 +19,7 @@ const Services_entity_1 = require("./Services.entity");
 const TypeServices_entity_1 = require("./TypeServices.entity");
 const Transactions_entity_1 = require("./Transactions.entity");
 const Enum_entity_1 = require("./Enum.entity");
+const ErrorTypes_entity_1 = require("./ErrorTypes.entity");
 let SousServices = class SousServices extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -350,6 +351,10 @@ __decorate([
     typeorm_1.OneToMany(() => Transactions_entity_1.Transactions, (transactions) => transactions.sousServices),
     __metadata("design:type", Array)
 ], SousServices.prototype, "transactions", void 0);
+__decorate([
+    typeorm_1.OneToMany(() => ErrorTypes_entity_1.ErrorTypes, (errorTypes) => errorTypes.sousServices),
+    __metadata("design:type", Array)
+], SousServices.prototype, "errorTypes", void 0);
 SousServices = __decorate([
     typeorm_1.Index('code_UNIQUE', ['code'], { unique: true }),
     typeorm_1.Index('fk_sous_services_services1_idx', ['servicesId'], {}),

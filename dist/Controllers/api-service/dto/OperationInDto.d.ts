@@ -23,6 +23,7 @@ export declare class OperationInDto {
     billAccountNumber?: string;
     birthday?: string;
     message?: string;
+    rib?: string;
     attachedMedia?: string;
     attachedMediaName?: string;
     attachedMediaExtension?: string;

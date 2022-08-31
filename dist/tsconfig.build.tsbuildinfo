@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "50a139205d4e0de98aeb009f2cd85d008d7b895767d8f98d4ed6fdb19476c472",
-        "signature": "f3aebd28a63cf00809f7815ed03972f212e848404ce099f576a6740cd3e86af0",
+        "version": "2c72c4c4a42ac5db224b6a2dde6f25ec40b46bb635bf596d8505bdfd6845df9b",
+        "signature": "fe47a81939d30f20b79802e42d1fa66e721d8114da0170ad8474d3aee6d4f62a",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3786,9 +3786,14 @@
         "signature": "e4c8ac83dd79dcbb3e96c4fdb12a968e805637537f33bc9a941dc8a50f368393",
         "affectsGlobalScope": false
       },
+      "../src/models/entities/errortypes.entity.ts": {
+        "version": "13d0f550c74d26a5014db73be6a2923883060064d9e6031091565854177d73e0",
+        "signature": "ced12135a8817cc932e4de8b233f203caa54a30888a07d5208babf9b9805f523",
+        "affectsGlobalScope": false
+      },
       "../src/models/entities/sousservices.entity.ts": {
-        "version": "18f0ff9ee5ea97aa22da7a88b1d6e83dfb141d4b002409702a7f5c5b3a1c8945",
-        "signature": "196eb1301b1f8b55fb27cb5f67b0de4cb39a99c879bf937e0c903b991b72c6e9",
+        "version": "84ffc36c8435652091229a11392bb9c03b2307db52ce6e9c4c8a8e6dd3586219",
+        "signature": "ca234fd29e9a44ee00c11445ef108b43c1eaec30c5b9f25185cb1ce3b82d38de",
         "affectsGlobalScope": false
       },
       "../src/models/entities/commission.entity.ts": {
@@ -3822,8 +3827,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "975bbb632998d967fd5b38b8a92cf83f2463213c8b5b0a4087907aeffba8f0e5",
-        "signature": "bb470f06849dfbae44c2861cb1a26c33ab36783b46eeb212e9aa66af1ff09de1",
+        "version": "e730897415599bc711df64b4adc24195b86da040c2e4fa2b88780e23afd9e882",
+        "signature": "0733c00a1ff2fa543ee303286c6efa53b0658e832cbd3b6f318d52e6f19d941a",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
@@ -3847,8 +3852,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "fa60c2899d87fe25eefcdef3cb818829c2faefd1b7031c077ef7d955a14fefc9",
-        "signature": "7d5bcc3b3dafaf573ec9bf87a29c14ecdfefd1b0507c7311ef14ccf8c32830a1",
+        "version": "8dcd3d334cb2443f8ff162a0fc868bc461a46e33e68b5964c148d11627e64b63",
+        "signature": "c30345dea47f6b782a8bd2841a312c60e8710bcca6e323439db02c40ff66ae67",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationoutdto.ts": {
@@ -4127,8 +4132,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "ae472b9503af48e285a12ae18ff38bcf9856f1dfdfbd40bdfee076a323c948fb",
-        "signature": "1518af6cda4fdcbaf56c1183a621b943d19b83fbcb7c960b367f9fa0e56c281b",
+        "version": "8269eca78c27f761771794928dc2d43a6c994796c5d4df09aea526e2e86075ed",
+        "signature": "47a146cd953f5bde2ce0262ab4f40440fd9281af861c3ff0a7d12175f9a4d98a",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/listpendingbillindto.ts": {
@@ -4157,8 +4162,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "3cbb59017784b7620dc48f73c6c8d05e867b0ae7b9ac4cc3def8cf030301f4af",
-        "signature": "097d127f110dbb3e33aae9ca9d991a05046383b54ef444f58e4c167f0bdfd591",
+        "version": "92f19f127ac28e5e706be99cc722192d4089da2080324f873780fea47c30b47e",
+        "signature": "cd6590ce43fdd2987ae4ad52f2338169c532139d41d067d362f091add0e4e8a7",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/confirm3dsindto.ts": {
@@ -4712,8 +4717,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "b38db6897043e63b789045fcfbf6a7764e0981074c1c3a5bbaf37bac62410b0f",
-        "signature": "2906ce33125bf914fb44faef9e676ff105803f37f4f689ef5d3abaf41d093461",
+        "version": "02a11aff3076df41a9baa79980922f079d20c69b06bbfea589e87d4b81bad50d",
+        "signature": "298bef5a6a750feaeaad8405637e2abb4b908016264fa3f2dfc66a4edbba4113",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -6734,6 +6739,11 @@
       "../src/controllers/api-service/aquatech-sn-bill-payment-api-manager/aquatech-sn-bill-payment-api-manager.service.ts": {
         "version": "e9009c6d4e919de6522a34ef4f81ff817a940741375e29ea6dc59d516636deb5",
         "signature": "7cd10d9c309912ffe06f27439addcc4f69cfe69e02710d051f59a58cf206c25c",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/bank-transfer-sn-cash-in-api-manager/bank-transfer-sn-cash-in-api-manager.service.ts": {
+        "version": "aa2901c10ac3d923c57f1f1e507cd54d3549b939ec5013c7e842f57c7d548fc2",
+        "signature": "489cae3b5d141d535660c71761dd390d09e469c75b65cc66aaf856900b7cced7",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/baobabplus-sn-bill-reload-api-manager/baobabplus-sn-bill-reload-api-manager.service.ts": {
@@ -13127,6 +13137,7 @@
         "../src/models/dto/dtobalance.ts",
         "../src/models/dto/dtotransactions.ts",
         "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/errortypes.entity.ts",
         "../src/models/entities/partenercomptes.entity.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
@@ -13178,6 +13189,9 @@
         "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts",
         "../src/sdk/wave/config.ts",
         "../src/sdk/wave/waveapiprovider.ts"
+      ],
+      "../src/controllers/api-service/bank-transfer-sn-cash-in-api-manager/bank-transfer-sn-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/controllers/api-service/baobabplus-sn-bill-reload-api-manager/baobabplus-sn-bill-reload-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -13393,6 +13407,7 @@
         "../src/models/dto/dtooperationphones.ts",
         "../src/models/entities/commission.entity.ts",
         "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/errortypes.entity.ts",
         "../src/models/entities/operationparteners.entity.ts",
         "../src/models/entities/operationphones.entity.ts",
         "../src/models/entities/operators.entity.ts",
@@ -13567,6 +13582,13 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/operators.entity.ts"
       ],
+      "../src/models/entities/errortypes.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/actionsprofils.entity.ts",
+        "../src/models/entities/sousservices.entity.ts",
+        "../src/models/entities/transactions.entity.ts",
+        "../src/models/entities/users.entity.ts"
+      ],
       "../src/models/entities/messageussds.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/sousservices.entity.ts",
@@ -13641,6 +13663,7 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/commission.entity.ts",
         "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/errortypes.entity.ts",
         "../src/models/entities/messageussds.entity.ts",
         "../src/models/entities/services.entity.ts",
         "../src/models/entities/sousservicesparteners.entity.ts",
@@ -13661,6 +13684,7 @@
       "../src/models/entities/transactions.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/errortypes.entity.ts",
         "../src/models/entities/messageussds.entity.ts",
         "../src/models/entities/operationparteners.entity.ts",
         "../src/models/entities/operationphones.entity.ts",
@@ -19143,6 +19167,9 @@
       "../src/controllers/api-service/bank-card-money-sn-cash-out-api-manager/bank-card-money-sn-cash-out-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
+      "../src/controllers/api-service/bank-transfer-sn-cash-in-api-manager/bank-transfer-sn-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
       "../src/controllers/api-service/baobabplus-sn-bill-reload-api-manager/baobabplus-sn-bill-reload-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
@@ -19307,6 +19334,11 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/operators.entity.ts"
       ],
+      "../src/models/entities/errortypes.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/sousservices.entity.ts",
+        "../src/models/entities/transactions.entity.ts"
+      ],
       "../src/models/entities/messageussds.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/sousservices.entity.ts",
@@ -19381,6 +19413,7 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/commission.entity.ts",
         "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/errortypes.entity.ts",
         "../src/models/entities/messageussds.entity.ts",
         "../src/models/entities/services.entity.ts",
         "../src/models/entities/sousservicesparteners.entity.ts",
@@ -19401,6 +19434,7 @@
       "../src/models/entities/transactions.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/errortypes.entity.ts",
         "../src/models/entities/messageussds.entity.ts",
         "../src/models/entities/operationparteners.entity.ts",
         "../src/models/entities/operationphones.entity.ts",
