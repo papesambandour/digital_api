@@ -180,8 +180,8 @@ let HelperService = class HelperService {
         catch (e) {
             data = {};
         }
-        const statut = ['SUCCESS'].includes(transaction.statut) ||
-            ['SUCCESS'].includes(transaction.preStatut)
+        const statut = [Enum_entity_1.StatusEnum.SUCCESS.toString()].includes(transaction.statut) ||
+            [Enum_entity_1.StatusEnum.SUCCESS.toString()].includes(transaction.preStatut)
             ? Enum_entity_1.StatusEnum.SUCCESS
             : Enum_entity_1.StatusEnum.FAILLED;
         const dataSended = {
@@ -667,11 +667,15 @@ let HelperService = class HelperService {
             console.log('no transaction to set setIsCallbackReadyValue');
             return null;
         }
-        const statut = ['SUCCESS'].includes(transaction.statut) ||
-            ['SUCCESS'].includes(transaction.preStatut)
-            ? Enum_entity_1.StatusEnum.SUCCESS
-            : Enum_entity_1.StatusEnum.FAILLED;
-        if (statut === Enum_entity_1.StatusEnum.SUCCESS) {
+        const noError = [
+            Enum_entity_1.StatusEnum.SUCCESS.toString(),
+            Enum_entity_1.StatusEnum.PROCESSING.toString(),
+        ].includes(transaction.statut) ||
+            [
+                Enum_entity_1.StatusEnum.SUCCESS.toString(),
+                Enum_entity_1.StatusEnum.PROCESSING.toString(),
+            ].includes(transaction.preStatut);
+        if (noError) {
             return null;
         }
         if (transaction.errorTypes) {
