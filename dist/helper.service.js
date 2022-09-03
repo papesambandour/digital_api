@@ -684,16 +684,7 @@ let HelperService = class HelperService {
                 message: providedError.message.replace('__amount__', transaction.amount.toString()),
             };
         }
-        const noError = [
-            Enum_entity_1.StatusEnum.SUCCESS.toString(),
-            Enum_entity_1.StatusEnum.PROCESSING.toString(),
-            Enum_entity_1.StatusEnum.PENDING.toString(),
-        ].includes(transaction.statut) ||
-            [
-                Enum_entity_1.StatusEnum.SUCCESS.toString(),
-                Enum_entity_1.StatusEnum.PROCESSING.toString(),
-                Enum_entity_1.StatusEnum.PENDING.toString(),
-            ].includes(transaction.preStatut);
+        const noError = this.isNotCancelable(transaction.preStatut, transaction.statut);
         if (noError) {
             return null;
         }

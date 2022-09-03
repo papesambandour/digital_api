@@ -50,7 +50,7 @@ export declare class HelperService {
     checkServiceConfig(): Promise<void>;
     private disableSousService;
     handleSuccessTransactionCreditDebit(transaction: Transactions, sousServiceTransactionId?: any): Promise<boolean>;
-    isNotCancelable(preStatus: StatusEnum, status: StatusEnum): boolean;
+    isNotCancelable(preStatus: StatusEnum | any | string, status: StatusEnum | any | string): boolean;
     appendQueryParams(url: string, queryParams: any): string;
     private getTransactionCallBackHash;
     private sha256;
