@@ -143,6 +143,10 @@ __decorate([
     __metadata("design:type", Number)
 ], OperationParteners.prototype, "depositAmount", void 0);
 __decorate([
+    typeorm_1.Column('int', { name: 'users_id', nullable: true }),
+    __metadata("design:type", Number)
+], OperationParteners.prototype, "usersId", void 0);
+__decorate([
     typeorm_1.ManyToOne(() => Parteners_entity_1.Parteners, (parteners) => parteners.operationParteners, {
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION',
@@ -158,6 +162,7 @@ __decorate([
 OperationParteners = __decorate([
     typeorm_1.Index('fk_operation_parteners_parteners1_idx', ['partenersId'], {}),
     typeorm_1.Index('fk_operation_parteners_transactions1_idx', ['transactionsId'], {}),
+    typeorm_1.Index('fk_operation_parteners_users_idx', ['usersId'], {}),
     typeorm_1.Entity('operation_parteners', { schema: 'simbot_db' })
 ], OperationParteners);
 exports.OperationParteners = OperationParteners;

@@ -8,8 +8,9 @@ export declare class UssdApiManagerService extends ApiManagerInterface {
     confirmTransaction(params: ConfirmParams): Promise<ConfirmResponse>;
     handleCallbackTransaction(params: CallbackParams): Promise<CallbackResponse>;
     refundTransaction(params: RefundParams): Promise<RefundResponse>;
-    callCall(phone: Phones, transaction: Transactions): Promise<unknown>;
+    executeUssdCall(phone: Phones, transaction: Transactions): Promise<boolean>;
     finishExecUssd(socketBodyFinish: SocketBodyFinish): Promise<boolean>;
     getUssDCode(regexCodeUss: string, phone: Phones): string;
     getBalance(params: BalanceParams): Promise<BalanceResponse>;
+    private executeSms;
 }

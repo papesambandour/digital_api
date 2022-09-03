@@ -316,6 +316,33 @@ __decorate([
     __metadata("design:type", String)
 ], SousServices.prototype, "whenStatusForCallback", void 0);
 __decorate([
+    typeorm_1.Column('enum', {
+        name: 'execute_type',
+        enum: ['SEND_USSD_CODE_SMS', 'EXECUTE_REQUEST_CODE'],
+        default: 'EXECUTE_REQUEST_CODE',
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "executeType", void 0);
+__decorate([
+    typeorm_1.Column('varchar', {
+        name: 'execute_country_call_code_without_plus',
+        length: 255,
+        default: '',
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "executeCountryCallCodeWithoutPlus", void 0);
+__decorate([
+    typeorm_1.Column('varchar', {
+        name: 'execute_sms_sender',
+        length: 255,
+        default: '',
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "executeSmsSender", void 0);
+__decorate([
     typeorm_1.OneToMany(() => Commission_entity_1.Commission, (commission) => commission.sousServices),
     __metadata("design:type", Array)
 ], SousServices.prototype, "commissions", void 0);

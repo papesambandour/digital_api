@@ -3792,8 +3792,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/sousservices.entity.ts": {
-        "version": "84ffc36c8435652091229a11392bb9c03b2307db52ce6e9c4c8a8e6dd3586219",
-        "signature": "ca234fd29e9a44ee00c11445ef108b43c1eaec30c5b9f25185cb1ce3b82d38de",
+        "version": "74f75980422ff5ba1d5f9e6697d2bee7c7ee2455769d9d59aa7a271ecb3095c1",
+        "signature": "c9600b6f74d20bd7a885bee7189413fcf721182ffb1c3058c18e0094fd5b956c",
         "affectsGlobalScope": false
       },
       "../src/models/entities/commission.entity.ts": {
@@ -3817,8 +3817,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationparteners.entity.ts": {
-        "version": "ace045be1472fc7b9dc303b2106195696e7facdea1a1e76a3c9f17c733baeff0",
-        "signature": "ede0e3f26af7d6ccea1403077232b57f3cd849877e9652dd3153556ed98ddbae",
+        "version": "dddecfd437691ba61c0d0af5d58e90a923572a1fd3754f6116febfa79f6ed2f5",
+        "signature": "d7908c4077ea887f3af3203813e9873d3c0d82c9c8c1c75adbe78b54c820ccdd",
         "affectsGlobalScope": false
       },
       "../src/models/entities/ussdexecutionmessages.entity.ts": {
@@ -3832,8 +3832,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
-        "version": "8b97da0ecc04826a4dfe4f418243191ee18d4207d638a3129e83d418b673c6bb",
-        "signature": "f36a78e3d6db4d4fe7f43f9764da78206509ef936620db73d1d429137fcad795",
+        "version": "0416d98360aa3da25020bdb0b8047461dd73cdb959e953bd488192a483027878",
+        "signature": "69f46b7281fd6f714fdb60afaa4c10c2c7f56d3aa31a70c587df468f6b753a59",
         "affectsGlobalScope": false
       },
       "../src/models/entities/activitiesphones.entity.ts": {
@@ -4202,8 +4202,8 @@
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "d873d6b8b01818ead16c38eba911942627908c886a1c9ade5bea3ea8fa8ef4e2",
-        "signature": "c10e0128f12d98686022d281bbef6fffb8632761a16fac39a66f1c4d75ff07b2",
+        "version": "0370ecb726ca63588dc686048cc6e9a02ac6ae080ccd9ba7d0e4790ff8494ea6",
+        "signature": "b8c54057b9e8e4a47070623d2c33a8d35de8bc1ef445e52f64790d48bcd2b2cc",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts": {
@@ -6807,8 +6807,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "787c406e805863aaadfe84368f78018857af3ec2f98f09aa69ca3582ebec8fd2",
-        "signature": "30b8bf547bd04c436f0051dc5b85d4634c0f7ab25909155600e8380ac5d728e4",
+        "version": "29e36d8a0668f7cd2f6479e2d01bbd91f6ce367a6df4dbfac584b91b64f2168a",
+        "signature": "c613804e277e51b74ea73a325345f0d26e45fd3169de9a7ff790353445689acb",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/uvs-sn-bill-payment-api-manager/uvs-sn-bill-payment-api-manager.service.ts": {

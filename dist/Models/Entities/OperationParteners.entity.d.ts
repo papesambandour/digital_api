@@ -26,6 +26,7 @@ export declare class OperationParteners extends BaseEntity {
     soldeBefor: number;
     soldeAfter: number;
     depositAmount: number;
+    usersId: number;
     parteners: Parteners;
     transactions: Transactions;
 }

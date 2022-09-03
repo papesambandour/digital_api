@@ -24,6 +24,7 @@ export declare class OperationPhones extends BaseEntity {
     soldeApiBefor: number;
     soldeApiAfter: number;
     transactionsId: number | null;
+    usersId: number;
     operationPhones_2: OperationPhones;
     operationPhones: OperationPhones[];
     phones: Phones;

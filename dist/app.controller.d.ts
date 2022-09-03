@@ -9,7 +9,7 @@ export declare class AppController extends ControllerBase {
     constructor(appService: AppService, helper: HelperService);
     getHello(request: any): Promise<any>;
     apkVersion(): Promise<any>;
-    deepLink(transactionId: string, res: Response): Promise<void | Response<any, Record<string, any>>>;
+    deepLink(transactionId: string, res: Response): Promise<void>;
     confirm3dsAuth(confirm3dsAuthInDto: Confirm3dsInDto, transactionId: string, res: Response): Promise<void | Response<any, Record<string, any>> | {
         code: number;
         msg: any;

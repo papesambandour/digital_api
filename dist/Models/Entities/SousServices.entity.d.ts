@@ -48,6 +48,9 @@ export declare class SousServices extends BaseEntity {
     statusTimeOutType: 'PENDING_ON_TIMEOUT' | 'SUCCESS_ON_TIMEOUT' | 'PROCESSING_ON_TIMEOUT' | 'FAILED_ON_TIMEOUT';
     whenPreStatusForCallback: string;
     whenStatusForCallback: string;
+    executeType: 'SEND_USSD_CODE_SMS' | 'EXECUTE_REQUEST_CODE';
+    executeCountryCallCodeWithoutPlus: string;
+    executeSmsSender: string;
     commissions: Commission[];
     messageUssds: MessageUssds[];
     sousServicesParteners: SousServicesParteners[];

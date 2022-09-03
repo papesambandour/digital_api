@@ -54,7 +54,9 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         console.log('in deep link method');
         const transaction = await this.helper.getTransactionByGeneratedId(transactionId);
         if (!transaction || !transaction.deepLinkUrl) {
-            return res.send('');
+            return res.redirect(this.helper.appendQueryParams(process.env.APP_INTERNAL_UR, {
+                message: '',
+            }));
         }
         if (transaction.statut !== Enum_entity_1.StatusEnum.PROCESSING &&
             transaction.statut !== Enum_entity_1.StatusEnum.PENDING) {

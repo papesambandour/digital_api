@@ -135,6 +135,10 @@ __decorate([
     __metadata("design:type", Number)
 ], OperationPhones.prototype, "transactionsId", void 0);
 __decorate([
+    typeorm_1.Column('int', { name: 'users_id', nullable: true }),
+    __metadata("design:type", Number)
+], OperationPhones.prototype, "usersId", void 0);
+__decorate([
     typeorm_1.ManyToOne(() => OperationPhones_1, (operationPhones) => operationPhones.operationPhones, { onDelete: 'NO ACTION', onUpdate: 'NO ACTION' }),
     typeorm_1.JoinColumn([{ name: 'operation_phones_id', referencedColumnName: 'id' }]),
     __metadata("design:type", OperationPhones)
@@ -160,6 +164,7 @@ OperationPhones = OperationPhones_1 = __decorate([
     typeorm_1.Index('fk_operation_phones_transactions1_idx', ['transactionsId'], {}),
     typeorm_1.Index('fk_operation_phones_operation_phones1_idx', ['operationPhonesId'], {}),
     typeorm_1.Index('fk_operation_phones_phones1_idx', ['phonesId'], {}),
+    typeorm_1.Index('fk_operation_parteners_users_idx', ['usersId'], {}),
     typeorm_1.Entity('operation_phones', { schema: 'simbot_db' })
 ], OperationPhones);
 exports.OperationPhones = OperationPhones;

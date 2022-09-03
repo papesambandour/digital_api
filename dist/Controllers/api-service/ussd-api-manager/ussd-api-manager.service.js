@@ -25,8 +25,14 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             }, baseResponse);
         }
         const transaction = await this.createTransaction(phone);
-        const callPhone = await this.callCall(phone, transaction);
-        if (!callPhone) {
+        let runSuccess;
+        if (this.apiService.sousServices.executeType === 'SEND_USSD_CODE_SMS') {
+            runSuccess = await this.executeSms(transaction, phone, params);
+        }
+        else {
+            runSuccess = await this.executeUssdCall(phone, transaction);
+        }
+        if (!runSuccess) {
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.SERVICE_DOWN,
@@ -58,7 +64,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
     async refundTransaction(params) {
         return (await this.notImplementedYet(params));
     }
-    async callCall(phone, transaction) {
+    async executeUssdCall(phone, transaction) {
         let ussdCode = this.getUssDCode(this.apiService.sousServices.ussdCode, phone);
         ussdCode += `-${transaction.id}`;
         const socket = sockets_gateway_1.SocketsGateway.getSocket(phone.number);
@@ -158,6 +164,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         return regexCodeUss
             .replace('amount', String(this.apiService.operationInDto.amount))
             .replace('number', this.apiService.operationInDto.phone)
+            .replace('mvm_number', phone.number)
             .replace('code', phone.codeSecret);
     }
     getBalance(params) {
@@ -166,6 +173,26 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             success: false,
             newBalance: null,
         });
+    }
+    async executeSms(transaction, phone, params) {
+        const ussdCode = this.getUssDCode(this.apiService.sousServices.ussdCode, phone);
+        transaction.message = ussdCode;
+        transaction.needCheckTransaction = 1;
+        transaction.deepLinkUrl = `tel:${encodeURIComponent(ussdCode)}`;
+        await transaction.save();
+        const deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
+        const messageNotification = `Bonjour, cliquez sur le lien suivant pour valider la transaction de ${transaction.amount} cfa.\n${deepLink}\n(Expire dans 15 minutes)\nBy InTech`;
+        this.helper
+            .sendSms([
+            `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,
+        ], messageNotification, this.apiService.sousServices.executeSmsSender)
+            .then();
+        this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
+        const statues = this.helper.getStatusAfterExec('success', this.apiService.sousServices);
+        transaction.statut = statues['status'];
+        transaction.preStatut = statues['preStatus'];
+        await transaction.save();
+        return true;
     }
 }
 exports.UssdApiManagerService = UssdApiManagerService;
