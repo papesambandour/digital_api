@@ -181,7 +181,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         transaction.deepLinkUrl = `tel:${encodeURIComponent(ussdCode)}`;
         await transaction.save();
         const deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
-        const messageNotification = `Bonjour, cliquez sur le lien suivant pour valider la transaction de ${transaction.amount} cfa.\n${deepLink}\n(Expire dans 15 minutes)\nBy InTech`;
+        const messageNotification = this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
         this.helper
             .sendSms([
             `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,

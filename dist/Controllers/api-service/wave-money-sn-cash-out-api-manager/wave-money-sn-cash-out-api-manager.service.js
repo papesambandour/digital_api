@@ -64,9 +64,11 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
             await transaction.save();
             console.log('Send OKK');
             const deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
-            const messageNotification = `Bonjour, cliquez sur le lien suivant pour valider la transaction de ${transaction.amount} cfa.\n${deepLink}\n(Expire dans 15 minutes)\nBy InTech`;
+            const messageNotification = this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
             this.helper
-                .sendSms([`+221${params.dto.phone}`], messageNotification, 'Pay WAVE')
+                .sendSms([
+                `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,
+            ], messageNotification, this.apiService.sousServices.executeSmsSender)
                 .then();
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.PENDING,

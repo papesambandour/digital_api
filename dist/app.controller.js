@@ -59,6 +59,11 @@ let AppController = class AppController extends Controller_1.ControllerBase {
                 message: 'Deep link non trouvé',
             }));
         }
+        if (transaction.reachedTimeout) {
+            return res.redirect(this.helper.appendQueryParams(process.env.APP_INTERNAL_URL, {
+                message: 'Lien de paiement expiré',
+            }));
+        }
         if (transaction.statut !== Enum_entity_1.StatusEnum.PROCESSING &&
             transaction.statut !== Enum_entity_1.StatusEnum.PENDING) {
             if (transaction.statut === Enum_entity_1.StatusEnum.SUCCESS &&

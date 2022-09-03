@@ -7,7 +7,6 @@ const waveBusinessApiConfig = (country) => {
             sessionId: process.env.WAVE_SESSION_ID,
             walletId: process.env.WAVE_WALLET_ID,
             cashOutApiKey: process.env.WAVE_CASHOUT_API_KEY,
-            phonePrefix: '+221',
         };
     }
     if (country === 'ci') {
@@ -15,7 +14,6 @@ const waveBusinessApiConfig = (country) => {
             sessionId: process.env.WAVE_CI_SESSION_ID,
             walletId: process.env.WAVE_CI_WALLET_ID,
             cashOutApiKey: process.env.WAVE_CI_CASHOUT_API_KEY,
-            phonePrefix: '+225',
         };
     }
 };

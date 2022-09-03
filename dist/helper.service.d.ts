@@ -60,4 +60,5 @@ export declare class HelperService {
     getErrorType(errorMessage: string, codeSousService: string, amount: string): Promise<any>;
     alertForUnknownResponse(responseData: string, codeService: string, transactionId: number): void;
     ribFromString(rib: string, country?: 'sn' | 'ci'): Rib;
+    getDeepLinkNotificationMessage(transaction: Transactions, deepLink: string): string;
 }

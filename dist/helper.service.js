@@ -873,6 +873,9 @@ let HelperService = class HelperService {
                 cleanRib.ribKey.isValid;
         return cleanRib;
     }
+    getDeepLinkNotificationMessage(transaction, deepLink) {
+        return `Bonjour, cliquez sur le lien suivant pour valider la transaction de ${transaction.amount} cfa.\n${deepLink}\n(Expire dans 15 minutes)\nBy InTech`;
+    }
 };
 HelperService = __decorate([
     common_1.Injectable(),

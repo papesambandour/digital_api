@@ -37,7 +37,7 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
         }
         const transaction = await this.createTransaction(api);
         const response = await WaveApiProvider_1.default.SendWaveMoneyBusiness({
-            toPhoneNumber: `${config_1.waveBusinessApiConfig(this.constructor.country).phonePrefix}${params.dto.phone}`,
+            toPhoneNumber: `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,
             sender: params.dto.sender || '',
             amount: params.dto.amount,
             sessionId: config_1.waveBusinessApiConfig(this.constructor.country)

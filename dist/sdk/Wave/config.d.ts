@@ -3,5 +3,4 @@ export declare const waveBusinessApiConfig: (country: WAVE_COUNTRY) => {
     sessionId: string;
     walletId: string;
     cashOutApiKey: string;
-    phonePrefix: string;
 };
