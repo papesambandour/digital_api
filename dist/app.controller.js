@@ -75,6 +75,9 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             link,
         });
     }
+    async home(res) {
+        return res.render('home', {});
+    }
     async confirm3dsAuth(confirm3dsAuthInDto, transactionId, res) {
         var _a, _b, _c, _d;
         const transaction = await Transactions_entity_1.Transactions.findOne({
@@ -177,6 +180,13 @@ __decorate([
     __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "deepLink", null);
+__decorate([
+    request_mapping_decorator_1.All('/'),
+    __param(0, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "home", null);
 __decorate([
     request_mapping_decorator_1.All('auth_3ds_callback/:transactionId'),
     __param(0, common_1.Body()),

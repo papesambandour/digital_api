@@ -4202,8 +4202,8 @@
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "0370ecb726ca63588dc686048cc6e9a02ac6ae080ccd9ba7d0e4790ff8494ea6",
-        "signature": "b8c54057b9e8e4a47070623d2c33a8d35de8bc1ef445e52f64790d48bcd2b2cc",
+        "version": "29d25a1101c800479f791c35975a2700560a2e9be5b055fa6aa38a0da1e110c5",
+        "signature": "9d8a5611c2bd62af2a0fe0eb83db32cbb7ce1e95bd71987a0ea62818c5a99cd4",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts": {
