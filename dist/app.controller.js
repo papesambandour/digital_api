@@ -54,19 +54,29 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         console.log('in deep link method');
         const transaction = await this.helper.getTransactionByGeneratedId(transactionId);
         if (!transaction || !transaction.deepLinkUrl) {
-            return res.redirect(this.helper.appendQueryParams(process.env.APP_INTERNAL_UR, {
-                message: '',
+            console.log('herree', process.env.APP_INTERNAL_URL);
+            return res.redirect(this.helper.appendQueryParams(process.env.APP_INTERNAL_URL, {
+                message: 'Deep link non trouvé',
             }));
         }
         if (transaction.statut !== Enum_entity_1.StatusEnum.PROCESSING &&
             transaction.statut !== Enum_entity_1.StatusEnum.PENDING) {
-            if (transaction.statut === Enum_entity_1.StatusEnum.SUCCESS) {
+            if (transaction.statut === Enum_entity_1.StatusEnum.SUCCESS &&
+                transaction.successRedirectUrl) {
                 console.log('here 2');
-                return res.redirect(transaction.successRedirectUrl || process.env.APP_INTERNAL_URL);
+                return res.redirect(transaction.successRedirectUrl ||
+                    this.helper.appendQueryParams(process.env.APP_INTERNAL_URL, {}));
+            }
+            else if (transaction.statut === Enum_entity_1.StatusEnum.FAILLED &&
+                transaction.errorRedirectUrl) {
+                console.log('here 2');
+                return res.redirect(transaction.errorRedirectUrl ||
+                    this.helper.appendQueryParams(process.env.APP_INTERNAL_URL, {}));
             }
             else {
-                console.log('here 2');
-                return res.redirect(transaction.errorRedirectUrl || process.env.APP_INTERNAL_URL);
+                return res.redirect(this.helper.appendQueryParams(process.env.APP_INTERNAL_URL, {
+                    message: '',
+                }));
             }
         }
         console.log('here', transaction.deepLinkUrl);
@@ -75,8 +85,10 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             link,
         });
     }
-    async home(res) {
-        return res.render('home', {});
+    async home(res, message) {
+        return res.render('home', {
+            message: message || 'Des solutions adaptées à notre ère !',
+        });
     }
     async confirm3dsAuth(confirm3dsAuthInDto, transactionId, res) {
         var _a, _b, _c, _d;
@@ -183,8 +195,9 @@ __decorate([
 __decorate([
     request_mapping_decorator_1.All('/'),
     __param(0, common_1.Res()),
+    __param(1, common_1.Query('message')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Object, String]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "home", null);
 __decorate([

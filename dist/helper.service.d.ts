@@ -51,7 +51,7 @@ export declare class HelperService {
     private disableSousService;
     handleSuccessTransactionCreditDebit(transaction: Transactions, sousServiceTransactionId?: any): Promise<boolean>;
     isNotCancelable(preStatus: StatusEnum | any | string, status: StatusEnum | any | string): boolean;
-    appendQueryParams(url: string, queryParams: any): string;
+    appendQueryParams(url: string, queryParams?: any): string;
     private getTransactionCallBackHash;
     private sha256;
     b64ToFilePath(attachedMedia: string, attachedMediaExtension: string, attachedMediaName: string): Promise<string>;

@@ -599,7 +599,11 @@ let HelperService = class HelperService {
         return ([Enum_entity_1.StatusEnum.SUCCESS, Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING].includes(preStatus) ||
             [Enum_entity_1.StatusEnum.SUCCESS, Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING].includes(status));
     }
-    appendQueryParams(url, queryParams) {
+    appendQueryParams(url, queryParams = {}) {
+        if (!Object.keys(queryParams) || !queryParams) {
+            queryParams = {};
+            queryParams['_'] = '_';
+        }
         const serialize = function (obj) {
             const str = [];
             for (const p in obj)
