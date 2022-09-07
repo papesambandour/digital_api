@@ -243,6 +243,14 @@ let HelperService = class HelperService {
                  where id = ${id}`);
         }
     }
+    async setSoldeTableForCreditOnly(sousServices, value, tableName, id, field = 'solde') {
+        console.log('RELEVE-api', ` ${tableName} set ${field} =  ${field} + ${value} where id=${id}`);
+        if (sousServices.typeOperation == Enum_entity_1.TypeOperationEnum.CREDIT) {
+            return this.connection.query(`update ${tableName}
+                 set ${field} = ${field} + ${value}
+                 where id = ${id}`);
+        }
+    }
     async operationPartnerDoTransaction(transaction) {
         const sousService = await SousServices_entity_1.SousServices.findOne({
             where: {
@@ -291,21 +299,34 @@ let HelperService = class HelperService {
             await this.setSoldeTableOnly(-transaction.amount, 'phones', transaction.phonesId, 'solde');
         }
     }
-    async operationPartnerCancelTransaction(transaction) {
+    async operationPartnerCancelTransaction(transaction, isRefund = false) {
         if (!transaction) {
             console.log('No transaction for operation cancel');
             return;
         }
-        if (transaction.transactionIsFinish) {
+        if (!isRefund && transaction.transactionIsFinish) {
             console.log('transaction already cancel');
             return false;
         }
-        const transactionData = {
-            dateCanceled: new Date(),
-            transactionIsFinish: 1,
-            message: `${Enum_entity_1.CONSTANT.CANCEL_TRANSACTION_PREFIX}${transaction.message}`,
-            errorMessage: `${Enum_entity_1.CONSTANT.CANCEL_TRANSACTION_PREFIX}${transaction.errorMessage}`,
-        };
+        if (isRefund && transaction.transactionRefundFinished) {
+            console.log('transaction already cancel');
+            return false;
+        }
+        let transactionData;
+        if (!isRefund) {
+            transactionData = {
+                dateCanceled: new Date(),
+                transactionIsFinish: 1,
+                message: `${Enum_entity_1.CONSTANT.CANCEL_TRANSACTION_PREFIX}${transaction.message}`,
+                errorMessage: `${Enum_entity_1.CONSTANT.CANCEL_TRANSACTION_PREFIX}${transaction.errorMessage}`,
+            };
+        }
+        else {
+            transactionData = {
+                dateRefunded: new Date(),
+                transactionRefundFinished: 1,
+            };
+        }
         await Transactions_entity_1.Transactions.update(transaction.id, transactionData);
         const sousService = await SousServices_entity_1.SousServices.findOne({
             where: {
@@ -319,10 +340,7 @@ let HelperService = class HelperService {
                 id: typeorm_2.Equal(transaction.partenersId),
             },
         });
-        await this.setSoldeTableForDebitOnly(sousService, transaction.amount + transaction.feeAmount, 'parteners', partner.id, transaction.isSoldeCommission ? 'solde_commission' : 'solde');
-        if (!transaction.isSoldeCommission) {
-            await this.setSoldeTableForDebitOnly(sousService, -transaction.commissionAmount, 'parteners', partner.id, 'solde_commission');
-        }
+        await this.setSoldeTableForDebitOnly(sousService, transaction.amount + transaction.feeAmount - transaction.commissionAmount, 'parteners', partner.id, transaction.isSoldeCommission ? 'solde_commission' : 'solde');
         if (transaction.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {
             const operationParteners = new DtoOperationParteners_1.DtoOperationParteners();
             operationParteners.commentaire = `Annulation  ${sousService.name} pour l'opérateur ${operator.name}`;
@@ -349,8 +367,15 @@ let HelperService = class HelperService {
             await this.setSoldeTableOnly(+transaction.amount, 'phones', transaction.phonesId, 'solde');
         }
         else if (transaction.typeOperation == Enum_entity_1.TypeOperationEnum.CREDIT) {
+            if (isRefund) {
+                await this.setSoldeTableForCreditOnly(sousService, -(transaction.amount -
+                    transaction.feeAmount +
+                    transaction.commissionAmount), 'parteners', partner.id, transaction.isSoldeCommission ? 'solde_commission' : 'solde');
+            }
             const operationParteners = new DtoOperationParteners_1.DtoOperationParteners();
-            operationParteners.commentaire = `Annulation operation non crediteur  ${sousService.name} pour l'opérateur ${operator.name}`;
+            operationParteners.commentaire = isRefund
+                ? `Remboursement operation  ${sousService.name} pour l'opérateur ${operator.name}`
+                : `Annulation operation non crediteur  ${sousService.name} pour l'opérateur ${operator.name}`;
             operationParteners.amount = transaction.amount;
             operationParteners.typeOperation = Enum_entity_1.TypeOperationEnum.DEBIT;
             operationParteners.statut = Enum_entity_1.StatusEnum.SUCCESS;
@@ -363,7 +388,9 @@ let HelperService = class HelperService {
             operationParteners.fee = transaction.feeAmount;
             operationParteners.commission = transaction.commissionAmount;
             operationParteners.createdAt = new Date();
-            operationParteners.operation = Enum_entity_1.OperationEnum.ANNULATION_TRANSACTION;
+            operationParteners.operation = isRefund
+                ? Enum_entity_1.OperationEnum.REFUND_TRANSACTION
+                : Enum_entity_1.OperationEnum.ANNULATION_TRANSACTION;
             await OperationParteners_entity_1.OperationParteners.insert(operationParteners, {
                 transaction: true,
             });
@@ -875,6 +902,41 @@ let HelperService = class HelperService {
     }
     getDeepLinkNotificationMessage(transaction, deepLink) {
         return `Bonjour, cliquez sur le lien suivant pour valider la transaction de ${transaction.amount} cfa.\n${deepLink}\n(Expire dans 15 minutes)\nBy InTech`;
+    }
+    async canRefundOperation(transaction) {
+        if (!transaction) {
+            return {
+                allow: false,
+                message: 'La transaction est introuvable',
+            };
+        }
+        if (transaction.statut !== Enum_entity_1.StatusEnum.SUCCESS) {
+            return {
+                allow: false,
+                message: 'Le statut de la transaction ne permet pas de proceder a son remboursmeent',
+            };
+        }
+        if (transaction.typeOperation !== Enum_entity_1.TypeOperationEnum.CREDIT) {
+            return {
+                allow: false,
+                message: 'Seul les paiement peuvent être remboursé',
+            };
+        }
+        const partner = await Parteners_entity_1.Parteners.findOne(transaction === null || transaction === void 0 ? void 0 : transaction.partenersId);
+        if (transaction.typeOperation === Enum_entity_1.TypeOperationEnum.CREDIT &&
+            partner.solde < transaction.amount) {
+            return {
+                allow: false,
+                message: 'Le solde de votre compte ne vous permet pas de faire ce remboursement',
+            };
+        }
+        return {
+            allow: true,
+            message: 'OK',
+        };
+    }
+    async handleTransactionRefundSuccess(transaction) {
+        await this.operationPartnerCancelTransaction(transaction, true);
     }
 };
 HelperService = __decorate([

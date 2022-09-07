@@ -1,5 +1,5 @@
 import { WaveMoneySnCashOutApiManagerService } from '../../Controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service';
-import { BalanceParams, BalanceResponse, CheckParams, CheckResponse } from '../../Controllers/api-service/api-manager-interface/api-manager-interface.service';
+import { BalanceParams, BalanceResponse, CheckParams, CheckResponse, RefundParams, RefundResponse } from '../../Controllers/api-service/api-manager-interface/api-manager-interface.service';
 export declare type WAVE_COUNTRY = 'sn' | 'ci';
 export declare enum WAVE_BILL_ID {
     RAPIDO = "BT_rapido:U_R-mFhH9faepR",
@@ -168,4 +168,5 @@ export default class WaveApiProvider {
         asyncResponse?: undefined;
     }>;
     private static fetchAsyncPayment;
+    static refundTransaction(params: RefundParams, sessionId: string, transferId: string): Promise<RefundResponse>;
 }

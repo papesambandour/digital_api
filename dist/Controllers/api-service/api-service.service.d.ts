@@ -32,7 +32,7 @@ export declare class ApiServiceService {
     isSoldeComm: boolean;
     constructor(connection: Connection, helper: HelperService, httpService: HttpService);
     setSoldeTable(value: number, tableName: string, id: number, field?: string): Promise<any>;
-    initFeeCommission(commission: any, amount: number): void;
+    initFeeCommissionPartner(commission: any, amount: number): void;
     validatorCustomApi(operationInDto: OperationInDto): Promise<false | {
         apiKey: any[];
         codeService: any[];
@@ -56,5 +56,5 @@ export declare class ApiServiceService {
     allDataIsOk(): any;
     responseOperation(response: CheckResponse | RefundResponse | InitResponse, operationInDto: OperationInDto, errorType: any): any;
     getPartner(headers: any): Promise<PartenerComptes>;
-    private initFeePartner;
+    private initFeePsp;
 }

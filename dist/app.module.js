@@ -23,6 +23,7 @@ const api_service_module_1 = require("./Controllers/api-service/api-service.modu
 const helper_service_1 = require("./helper.service");
 const bootstrap_service_1 = require("./bootstrap.service");
 const schedule_1 = require("@nestjs/schedule");
+const partner_intern_module_1 = require("./Controllers/partener-intern/partner-intern.module");
 let AppModule = class AppModule {
     constructor(bootstrapService) {
         this.bootstrapService = bootstrapService;
@@ -60,6 +61,7 @@ AppModule = __decorate([
                 timeout: 60000,
                 maxRedirects: 5,
             }),
+            partner_intern_module_1.PartnerInternModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [

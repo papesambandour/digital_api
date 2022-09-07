@@ -88,7 +88,8 @@ class BankCardMoneySnCashOutApiManagerService extends api_manager_interface_serv
             (_a = checkout === null || checkout === void 0 ? void 0 : checkout['paymentResponse']) === null || _a === void 0 ? void 0 : _a['orderId'];
         transaction.customerFirstName = params.dto.customerFirstName;
         transaction.customerLastName = params.dto.customerLastName;
-        transaction.customerEmail = params.dto.customerEmail || null;
+        transaction.customerEmail = params.dto.customerEmail;
+        transaction.operationDescription = params.dto.operationDescription;
         await transaction.save();
         if (checkout === null || checkout === void 0 ? void 0 : checkout.success) {
             transaction.message = JSON.stringify(checkout);

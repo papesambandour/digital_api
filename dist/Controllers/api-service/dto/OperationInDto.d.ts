@@ -11,6 +11,7 @@ export declare class OperationInDto {
     errorRedirectUrl?: string;
     customerFirstName?: string;
     customerLastName?: string;
+    operationDescription?: string;
     customerEmail?: string;
     cardNumber?: string;
     cardExpireMonth?: string;

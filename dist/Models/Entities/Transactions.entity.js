@@ -130,6 +130,15 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "feeAmountOwner", void 0);
 __decorate([
+    typeorm_1.Column('double', {
+        name: 'win',
+        precision: 17,
+        scale: 4,
+        default: '0.0000',
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "win", void 0);
+__decorate([
     typeorm_1.Column('datetime', { name: 'created_at' }),
     __metadata("design:type", Date)
 ], Transactions.prototype, "createdAt", void 0);
@@ -223,6 +232,14 @@ __decorate([
     }),
     __metadata("design:type", Date)
 ], Transactions.prototype, "dateCanceled", void 0);
+__decorate([
+    typeorm_1.Column('datetime', {
+        name: 'date_refunded',
+        nullable: true,
+        comment: 'Date de refund de la transaction',
+    }),
+    __metadata("design:type", Date)
+], Transactions.prototype, "dateRefunded", void 0);
 __decorate([
     typeorm_1.Column('datetime', {
         name: 'date_processing',
@@ -409,6 +426,14 @@ __decorate([
 ], Transactions.prototype, "transactionIsFinish", void 0);
 __decorate([
     typeorm_1.Column('tinyint', {
+        name: 'transaction_refund_is_finished',
+        default: 0,
+        comment: '0: non , 1: yes',
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "transactionRefundFinished", void 0);
+__decorate([
+    typeorm_1.Column('tinyint', {
         name: 'reached_timeout',
         comment: '0: non , 1: yes',
         default: 0,
@@ -439,6 +464,34 @@ __decorate([
     typeorm_1.Column({ name: 'customer_email', nullable: true }),
     __metadata("design:type", String)
 ], Transactions.prototype, "customerEmail", void 0);
+__decorate([
+    typeorm_1.Column({ name: 'operation_description', nullable: true }),
+    __metadata("design:type", String)
+], Transactions.prototype, "operationDescription", void 0);
+__decorate([
+    typeorm_1.Column({ name: 'approval_code', nullable: true }),
+    __metadata("design:type", String)
+], Transactions.prototype, "approvalCode", void 0);
+__decorate([
+    typeorm_1.Column({ name: 'card_mask', nullable: true }),
+    __metadata("design:type", String)
+], Transactions.prototype, "cardMask", void 0);
+__decorate([
+    typeorm_1.Column({ name: 'ship_card_type', nullable: true }),
+    __metadata("design:type", String)
+], Transactions.prototype, "shipCardType", void 0);
+__decorate([
+    typeorm_1.Column({ name: 'import_bank', default: '0', type: 'tinyint' }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "importBank", void 0);
+__decorate([
+    typeorm_1.Column('datetime', {
+        name: 'import_bank_at',
+        nullable: true,
+        comment: 'Date importation du fichier',
+    }),
+    __metadata("design:type", Date)
+], Transactions.prototype, "importBankAt", void 0);
 __decorate([
     typeorm_1.OneToMany(() => OperationParteners_entity_1.OperationParteners, (operationParteners) => operationParteners.transactions),
     __metadata("design:type", Array)

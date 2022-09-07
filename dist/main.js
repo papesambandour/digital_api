@@ -9,9 +9,11 @@ async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.useGlobalFilters(new HttpExceptionFilter_1.HttpExceptionFilter());
     const config = new swagger_1.DocumentBuilder()
-        .setTitle('SIMBOT SERVICES')
+        .setTitle('INTECH API SERVICES')
         .setDescription('Documentation Swagger pour SimBot Services')
         .setVersion('1.0')
+        .setContact('Pape Samba NDOUR', 'https://api.intech.sn', 'papesambandour@hotmail.com')
+        .addBearerAuth({ type: 'apiKey', name: 'apikey', scheme: 'bearer', in: 'header' }, 'apikey')
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup('api/docs', app, document);

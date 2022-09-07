@@ -38,8 +38,9 @@ export declare class HelperService {
     sendCallBack(transaction: Transactions): Promise<any>;
     private addMinuteToDate;
     setSoldeTableForDebitOnly(sousServices: SousServices, value: number, tableName: string, id: number, field?: string): Promise<any>;
+    setSoldeTableForCreditOnly(sousServices: SousServices, value: number, tableName: string, id: number, field?: string): Promise<any>;
     operationPartnerDoTransaction(transaction: Transactions): Promise<void>;
-    operationPartnerCancelTransaction(transaction: Transactions): Promise<boolean>;
+    operationPartnerCancelTransaction(transaction: Transactions, isRefund?: boolean): Promise<boolean>;
     updateApiBalance(apiManager: ApiManagerInterface, usedPhoneId: number): Promise<void>;
     base64(str: any): Promise<string>;
     sendSms(tos: string[], message: string, sender: string): Promise<void>;
@@ -61,4 +62,9 @@ export declare class HelperService {
     alertForUnknownResponse(responseData: string, codeService: string, transactionId: number): void;
     ribFromString(rib: string, country?: 'sn' | 'ci'): Rib;
     getDeepLinkNotificationMessage(transaction: Transactions, deepLink: string): string;
+    canRefundOperation(transaction: Transactions): Promise<{
+        allow: boolean;
+        message: string;
+    }>;
+    handleTransactionRefundSuccess(transaction: Transactions): Promise<void>;
 }

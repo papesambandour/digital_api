@@ -28,6 +28,7 @@ export declare class Transactions extends BaseEntity {
     feeAmountPsn: number;
     commissionAmountOwner: number;
     feeAmountOwner: number;
+    win: number;
     createdAt: Date;
     updatedAt: Date | null;
     callbackSendedAt: Date | null;
@@ -40,6 +41,7 @@ export declare class Transactions extends BaseEntity {
     dateSuccess: Date | null;
     datePreSuccess: Date | null;
     dateCanceled: Date | null;
+    dateRefunded: Date | null;
     dateProcessing: Date | null;
     dateFailled: Date | null;
     serviceName: string;
@@ -70,12 +72,19 @@ export declare class Transactions extends BaseEntity {
     successRedirectUrl: string;
     errorRedirectUrl: string;
     transactionIsFinish: number;
+    transactionRefundFinished: number;
     reachedTimeout: number;
     timeOutAt: Date;
     rib: string;
     customerLastName: string;
     customerFirstName: string;
     customerEmail: string;
+    operationDescription: string;
+    approvalCode: string;
+    cardMask: string;
+    shipCardType: string;
+    importBank: number;
+    importBankAt: Date;
     operationParteners: OperationParteners[];
     parteners: Parteners;
     partenerComptes: PartenerComptes;

@@ -116,6 +116,16 @@ __decorate([
 ], OperationInDto.prototype, "customerLastName", void 0);
 __decorate([
     swagger_1.ApiProperty(),
+    class_validator_1.IsAlpha(),
+    class_validator_1.Length(20),
+    class_validator_1.ValidateIf((object) => [
+        Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT,
+        Enum_entity_1.SOUS_SERVICE_ENUM.BANK_TRANSFER_SN_API_CASH_IN,
+    ].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "operationDescription", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
     class_validator_1.IsEmail({}, {
         message: 'customerEmail doit être un email',
     }),

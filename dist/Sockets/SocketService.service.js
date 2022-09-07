@@ -24,6 +24,7 @@ const MessageUssds_entity_1 = require("../Models/Entities/MessageUssds.entity");
 const SousServicesPhones_entity_1 = require("../Models/Entities/SousServicesPhones.entity");
 const SousServices_entity_1 = require("../Models/Entities/SousServices.entity");
 const helper_service_1 = require("../helper.service");
+const DiscordApiProvider_1 = require("../sdk/Discord/DiscordApiProvider");
 let SocketServiceService = class SocketServiceService {
     constructor(httpService, helper) {
         this.httpService = httpService;
@@ -72,7 +73,7 @@ let SocketServiceService = class SocketServiceService {
             },
         });
         let phone = phones[0];
-        let phonesId = phones.map((phone) => phone.id);
+        const phonesId = phones.map((phone) => phone.id);
         sms.phonesId = phone.id;
         let resMessage;
         try {
@@ -156,6 +157,14 @@ let SocketServiceService = class SocketServiceService {
                     });
                     if (!transaction) {
                         console.log('Transaction not match', infoTransaction);
+                        return false;
+                    }
+                    const senderValid = true;
+                    const centerMessengerValid = true;
+                    if (!senderValid || !centerMessengerValid) {
+                        DiscordApiProvider_1.default.sendMessageStatic({
+                            message: `Un sms avec une source inconnu a été recu pour la transaction #${transaction.id}, RECU: sender: ${'sender_here'}, messagerie: ${'messagerie_here'},\nAttendu:  sender: ${'sender_attendu_here'}, messagerie: ${'messagerie_attendu_here'}`,
+                        }).then();
                         return false;
                     }
                     await Transactions_entity_1.Transactions.update(transaction.id, {

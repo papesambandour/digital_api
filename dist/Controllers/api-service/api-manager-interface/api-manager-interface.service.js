@@ -81,6 +81,8 @@ class ApiManagerInterface {
             this.apiService.commissionAmountPsp - this.apiService.commissionAmount;
         transaction.feeAmountOwner =
             this.apiService.feeAmount - this.apiService.feeAmountPsp;
+        transaction.win =
+            transaction.commissionAmountOwner + transaction.feeAmountOwner;
         transaction.operateurName = this.apiService.operator.name;
         transaction.typeOperation = this.apiService.sousServices.typeOperation;
         transaction.transactionId = this.apiService.generateTransactionId();

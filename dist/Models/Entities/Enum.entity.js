@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SIM_PROVIDER = exports.SOUS_SERVICE_ENUM = exports.EnumCodeUssdResponse = exports.EnumValidationStatus = exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
+exports.EXECUTE_TYPE_USSD = exports.SIM_PROVIDER = exports.SOUS_SERVICE_ENUM = exports.EnumCodeUssdResponse = exports.EnumValidationStatus = exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
 var StateEnum;
 (function (StateEnum) {
     StateEnum["ACTIVED"] = "ACTIVED";
@@ -19,6 +19,7 @@ var OperationEnum;
 (function (OperationEnum) {
     OperationEnum["TRANSACTION"] = "TRANSACTION";
     OperationEnum["ANNULATION_TRANSACTION"] = "ANNULATION_TRANSACTION";
+    OperationEnum["REFUND_TRANSACTION"] = "REFUND_TRANSACTION";
     OperationEnum["APROVISIONNEMENT"] = "APROVISIONNEMENT";
     OperationEnum["ANNULATION_APROVISIONNEMENT"] = "ANNULATION_APROVISIONNEMENT";
     OperationEnum["APPEL_DE_FOND"] = "APPEL_DE_FOND";
@@ -135,4 +136,9 @@ var SIM_PROVIDER;
     SIM_PROVIDER["COPRESS_TELECOM"] = "COPRESS_TELECOM";
     SIM_PROVIDER["NONE"] = "NONE";
 })(SIM_PROVIDER = exports.SIM_PROVIDER || (exports.SIM_PROVIDER = {}));
+var EXECUTE_TYPE_USSD;
+(function (EXECUTE_TYPE_USSD) {
+    EXECUTE_TYPE_USSD["SEND_USSD_CODE_SMS"] = "SEND_USSD_CODE_SMS";
+    EXECUTE_TYPE_USSD["EXECUTE_REQUEST_CODE"] = "EXECUTE_REQUEST_CODE";
+})(EXECUTE_TYPE_USSD = exports.EXECUTE_TYPE_USSD || (exports.EXECUTE_TYPE_USSD = {}));
 //# sourceMappingURL=Enum.entity.js.map

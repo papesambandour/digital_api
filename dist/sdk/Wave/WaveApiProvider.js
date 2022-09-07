@@ -682,6 +682,63 @@ class WaveApiProvider {
         }
         return fetchPending(0);
     }
+    static async refundTransaction(params, sessionId, transferId) {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
+        const baseResponse = {
+            phone: (_b = (_a = params.transaction) === null || _a === void 0 ? void 0 : _a.phone) !== null && _b !== void 0 ? _b : null,
+            amount: (_e = (_d = (_c = params.transaction) === null || _c === void 0 ? void 0 : _c.amount) === null || _d === void 0 ? void 0 : _d.toString()) !== null && _e !== void 0 ? _e : null,
+            externalTransactionId: (_g = (_f = params.transaction) === null || _f === void 0 ? void 0 : _f.externalTransactionId) !== null && _g !== void 0 ? _g : null,
+            codeService: (_j = (_h = params.transaction) === null || _h === void 0 ? void 0 : _h.codeSousService) !== null && _j !== void 0 ? _j : null,
+            callbackUrl: (_l = (_k = params.transaction) === null || _k === void 0 ? void 0 : _k.urlIpn) !== null && _l !== void 0 ? _l : null,
+            transactionId: (_o = (_m = params.transaction) === null || _m === void 0 ? void 0 : _m.transactionId) !== null && _o !== void 0 ? _o : null,
+        };
+        try {
+            const refund = await node_fetch_1.default('https://sn.mmapp.wave.com/a/business_graphql', {
+                headers: {
+                    accept: '*/*',
+                    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7,ja;q=0.6',
+                    'content-type': 'application/json',
+                    'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="99", "Google Chrome";v="99"',
+                    'sec-ch-ua-mobile': '?0',
+                    'sec-ch-ua-platform': '"macOS"',
+                    'sec-fetch-dest': 'empty',
+                    'sec-fetch-mode': 'cors',
+                    'sec-fetch-site': 'same-site',
+                    'session-id': sessionId,
+                },
+                referrer: 'https://business.wave.com/',
+                referrerPolicy: 'strict-origin-when-cross-origin',
+                body: '{"query":"mutation RefundDialog_refundMerchantSaleMutation(\\n  $transferId: ID!\\n  $refundPin: String\\n) {\\n  refundMerchantSale(transferId: $transferId, refundPin: $refundPin) {\\n    transfer {\\n      id\\n    }\\n    isRefunded\\n  }\\n}\\n","variables":{"transferId":"' +
+                    transferId +
+                    '","refundPin":""}}',
+                method: 'POST',
+                mode: 'cors',
+                credentials: 'omit',
+            });
+            if (((_q = (_p = refund === null || refund === void 0 ? void 0 : refund.data) === null || _p === void 0 ? void 0 : _p.refundMerchantSale) === null || _q === void 0 ? void 0 : _q.isRefunded) === true) {
+                return Object.assign({
+                    status: Enum_entity_1.StatusEnum.SUCCESS,
+                    codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
+                    partnerMessage: `Le paiement Wave de ${params.transaction.amount} CFA a bien été remboursé`,
+                }, baseResponse);
+            }
+            else {
+                return Object.assign({
+                    status: Enum_entity_1.StatusEnum.FAILLED,
+                    codeHttp: Controller_1.CODE_HTTP.FAILLED,
+                    partnerMessage: `Le paiement Wave de ${params.transaction.amount} CFA n'as pas pus être remboursé`,
+                }, baseResponse);
+            }
+        }
+        catch (e) {
+            console.log(e);
+            return Object.assign({
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                codeHttp: Controller_1.CODE_HTTP.FAILLED,
+                partnerMessage: `Le paiement Wave de ${params.transaction.amount} CFA n'as pas pus être remboursé`,
+            }, baseResponse);
+        }
+    }
 }
 exports.default = WaveApiProvider;
 WaveApiProvider.apiUrl = 'https://api.wave.com';

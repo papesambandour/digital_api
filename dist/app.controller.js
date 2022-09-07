@@ -96,7 +96,7 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         });
     }
     async confirm3dsAuth(confirm3dsAuthInDto, transactionId, res) {
-        var _a, _b, _c, _d;
+        var _a, _b, _c, _d, _e, _f, _g;
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
                 transactionId: typeorm_1.Equal(transactionId),
@@ -113,7 +113,8 @@ let AppController = class AppController extends Controller_1.ControllerBase {
                 console.log('here 2');
                 return res.redirect(this.helper.appendQueryParams(transaction.successRedirectUrl, {
                     message: 'Déja traité',
-                    approvalCode: '',
+                    approvalCode: transaction.approvalCode || '',
+                    cardMask: transaction.cardMask || '',
                     orderId: transaction.sousServiceTransactionId,
                 }));
             }
@@ -121,7 +122,8 @@ let AppController = class AppController extends Controller_1.ControllerBase {
                 console.log('here 2');
                 return res.redirect(this.helper.appendQueryParams(transaction.errorRedirectUrl, {
                     message: 'Déja traité',
-                    approvalCode: '',
+                    approvalCode: transaction.approvalCode || '',
+                    cardMask: transaction.cardMask || '',
                     orderId: transaction.sousServiceTransactionId,
                 }));
             }
@@ -153,7 +155,12 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         else {
             transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
             transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.errorMessage = (_a = meta === null || meta === void 0 ? void 0 : meta.checkResponse) === null || _a === void 0 ? void 0 : _a.message_fr;
         }
+        transaction.approvalCode =
+            (_c = (_b = meta === null || meta === void 0 ? void 0 : meta.checkResponse) === null || _b === void 0 ? void 0 : _b.processorInformation) === null || _c === void 0 ? void 0 : _c.approvalCode;
+        transaction.cardMask = (_e = (_d = meta === null || meta === void 0 ? void 0 : meta.checkResponse) === null || _d === void 0 ? void 0 : _d.payment) === null || _e === void 0 ? void 0 : _e.cardMask;
+        transaction.shipCardType = (_g = (_f = meta === null || meta === void 0 ? void 0 : meta.checkResponse) === null || _f === void 0 ? void 0 : _f.payment) === null || _g === void 0 ? void 0 : _g.shipCardType;
         transaction.checkTransactionResponse = Utils.inspect(meta);
         await transaction.save();
         await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
@@ -162,7 +169,8 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         if ((checkResult === null || checkResult === void 0 ? void 0 : checkResult.status) === 'SUCCESS') {
             return res.redirect(this.helper.appendQueryParams(transaction.successRedirectUrl, {
                 message: checkResult === null || checkResult === void 0 ? void 0 : checkResult.partnerMessage,
-                approvalCode: ((_b = (_a = meta === null || meta === void 0 ? void 0 : meta.checkResponse) === null || _a === void 0 ? void 0 : _a.processorInformation) === null || _b === void 0 ? void 0 : _b.approvalCode) || '',
+                approvalCode: transaction.approvalCode,
+                cardMask: transaction.cardMask,
                 orderId: transaction.sousServiceTransactionId,
             }));
         }
@@ -170,7 +178,8 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
             return res.redirect(this.helper.appendQueryParams(transaction.errorRedirectUrl, {
                 message: checkResult === null || checkResult === void 0 ? void 0 : checkResult.partnerMessage,
-                approvalCode: ((_d = (_c = meta === null || meta === void 0 ? void 0 : meta.checkResponse) === null || _c === void 0 ? void 0 : _c.processorInformation) === null || _d === void 0 ? void 0 : _d.approvalCode) || '',
+                approvalCode: transaction.approvalCode,
+                cardMask: transaction.cardMask,
                 orderId: transaction.sousServiceTransactionId,
             }));
         }
@@ -198,7 +207,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "deepLink", null);
 __decorate([
-    request_mapping_decorator_1.All('/'),
+    common_1.Get('/'),
     __param(0, common_1.Res()),
     __param(1, common_1.Query('message')),
     __metadata("design:type", Function),

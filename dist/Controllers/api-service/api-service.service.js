@@ -50,38 +50,13 @@ let ApiServiceService = class ApiServiceService {
                  where id = ${id}`);
         }
     }
-    initFeeCommission(commission, amount) {
+    initFeeCommissionPartner(commission, amount) {
         let amountFee = 0;
         let amountCommssion = 0;
-        switch (commission === null || commission === void 0 ? void 0 : commission.commissionIsFixe) {
-            case Enum_entity_1.CommissionFeeTypeEnum.FIXE:
-                amountCommssion = commission === null || commission === void 0 ? void 0 : commission.amountCommssion;
-                break;
-            case Enum_entity_1.CommissionFeeTypeEnum.TAUX:
-                amountCommssion = ((commission === null || commission === void 0 ? void 0 : commission.tauxCommission) * amount) / 100;
-                break;
-            case Enum_entity_1.CommissionFeeTypeEnum.BOTH:
-                amountCommssion =
-                    ((commission === null || commission === void 0 ? void 0 : commission.tauxCommission) * amount) / 100 +
-                        (commission === null || commission === void 0 ? void 0 : commission.amountCommssion);
-                break;
-            default:
-                throw new Error('Type Commission non prix en charge');
-        }
-        switch (commission.feeIsFixe) {
-            case Enum_entity_1.CommissionFeeTypeEnum.FIXE:
-                amountFee = commission === null || commission === void 0 ? void 0 : commission.amountFee;
-                break;
-            case Enum_entity_1.CommissionFeeTypeEnum.TAUX:
-                amountFee = ((commission === null || commission === void 0 ? void 0 : commission.tauxFee) * amount) / 100;
-                break;
-            case Enum_entity_1.CommissionFeeTypeEnum.BOTH:
-                amountFee =
-                    ((commission === null || commission === void 0 ? void 0 : commission.tauxFee) * amount) / 100 + (commission === null || commission === void 0 ? void 0 : commission.amountFee);
-                break;
-            default:
-                throw new Error('Type Frais non prix en charge');
-        }
+        amountCommssion =
+            (+(commission === null || commission === void 0 ? void 0 : commission.tauxCommission) * amount) / 100 +
+                +(commission === null || commission === void 0 ? void 0 : commission.amountCommssion);
+        amountFee = (+(commission === null || commission === void 0 ? void 0 : commission.tauxFee) * amount) / 100 + +(commission === null || commission === void 0 ? void 0 : commission.amountFee);
         this.feeAmount = amountFee;
         this.commissionAmount = amountCommssion;
     }
@@ -208,12 +183,12 @@ let ApiServiceService = class ApiServiceService {
             }
         }
         if (this === null || this === void 0 ? void 0 : this.comission) {
-            this.initFeeCommission(this.comission, +operationInDto.amount);
+            this.initFeeCommissionPartner(this.comission, +operationInDto.amount);
         }
         if (this === null || this === void 0 ? void 0 : this.sousServices) {
             this.service = await Services_entity_1.Services.findOne(this.sousServices.servicesId);
             this.operator = await Operators_entity_1.Operators.findOne(this.service.operatorsId);
-            this.initFeePartner(this.sousServices, +operationInDto.amount);
+            this.initFeePsp(this.sousServices, +operationInDto.amount);
             const regexPhone = new RegExp(this.sousServices.regexPhone);
             if (!operationInDto.phone.match(regexPhone)) {
                 asError = true;
@@ -346,7 +321,7 @@ let ApiServiceService = class ApiServiceService {
             relations: ['parteners'],
         });
     }
-    initFeePartner(sousServices, amount) {
+    initFeePsp(sousServices, amount) {
         this.feeAmountPsp =
             ((sousServices === null || sousServices === void 0 ? void 0 : sousServices.tauxFee) * amount) / 100 + +(sousServices === null || sousServices === void 0 ? void 0 : sousServices.amountFee);
         this.commissionAmountPsp =

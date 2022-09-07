@@ -6,7 +6,7 @@ import { SousServicesPhones } from './SousServicesPhones.entity';
 import { Services } from './Services.entity';
 import { TypeServices } from './TypeServices.entity';
 import { Transactions } from './Transactions.entity';
-import { TypeOperationEnum } from './Enum.entity';
+import { EXECUTE_TYPE_USSD, TypeOperationEnum } from './Enum.entity';
 import { ErrorTypes } from './ErrorTypes.entity';
 export declare class SousServices extends BaseEntity {
     id: number;
@@ -48,9 +48,10 @@ export declare class SousServices extends BaseEntity {
     statusTimeOutType: 'PENDING_ON_TIMEOUT' | 'SUCCESS_ON_TIMEOUT' | 'PROCESSING_ON_TIMEOUT' | 'FAILED_ON_TIMEOUT';
     whenPreStatusForCallback: string;
     whenStatusForCallback: string;
-    executeType: 'SEND_USSD_CODE_SMS' | 'EXECUTE_REQUEST_CODE';
+    executeType: EXECUTE_TYPE_USSD;
     executeCountryCallCodeWithoutPlus: string;
     executeSmsSender: string;
+    senderSmsAuthorize: string;
     commissions: Commission[];
     messageUssds: MessageUssds[];
     sousServicesParteners: SousServicesParteners[];
