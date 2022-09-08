@@ -1,4 +1,3 @@
-import { BaseEntity } from 'typeorm';
 import { OperationParteners } from './OperationParteners.entity';
 import { Parteners } from './Parteners.entity';
 import { PartenerComptes } from './PartenerComptes.entity';
@@ -9,7 +8,8 @@ import { OperationPhones } from './OperationPhones.entity';
 import { EnumCodeUssdResponse, EnumValidationStatus, TypeOperationEnum } from './Enum.entity';
 import { MessageUssds } from './MessageUssds.entity';
 import { ErrorTypes } from './ErrorTypes.entity';
-export declare class Transactions extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class Transactions extends CustomBaseModel {
     id: number;
     typeOperation: TypeOperationEnum;
     codeUssdResponse: EnumCodeUssdResponse;

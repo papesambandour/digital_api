@@ -12,7 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PartenerSettings = void 0;
 const typeorm_1 = require("typeorm");
 const Parteners_entity_1 = require("./Parteners.entity");
-let PartenerSettings = class PartenerSettings extends typeorm_1.BaseEntity {
+const CustomBaseModel_1 = require("./CustomBaseModel");
+let PartenerSettings = class PartenerSettings extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

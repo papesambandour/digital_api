@@ -1,4 +1,3 @@
-import { BaseEntity } from 'typeorm';
 import { OperationPhones } from './OperationPhones.entity';
 import { Services } from './Services.entity';
 import { SousServicesPhones } from './SousServicesPhones.entity';
@@ -6,7 +5,8 @@ import { Transactions } from './Transactions.entity';
 import { ActivitiesPhones } from './ActivitiesPhones.entity';
 import { UssdExecutionMessages } from './UssdExecutionMessages.entity';
 import { PhoneState, SIM_PROVIDER } from './Enum.entity';
-export declare class Phones extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class Phones extends CustomBaseModel {
     id: number;
     solde: number;
     soldeApi: number;

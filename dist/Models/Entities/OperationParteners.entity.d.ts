@@ -1,8 +1,8 @@
-import { BaseEntity } from 'typeorm';
 import { Parteners } from './Parteners.entity';
 import { Transactions } from './Transactions.entity';
 import { OperationEnum } from './Enum.entity';
-export declare class OperationParteners extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class OperationParteners extends CustomBaseModel {
     id: number;
     commentaire: string | null;
     amount: number;

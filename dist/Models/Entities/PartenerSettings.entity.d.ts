@@ -1,6 +1,6 @@
-import { BaseEntity } from 'typeorm';
 import { Parteners } from './Parteners.entity';
-export declare class PartenerSettings extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class PartenerSettings extends CustomBaseModel {
     id: number;
     partenersId: number;
     name: string;

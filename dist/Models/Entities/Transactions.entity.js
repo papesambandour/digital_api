@@ -21,7 +21,8 @@ const OperationPhones_entity_1 = require("./OperationPhones.entity");
 const Enum_entity_1 = require("./Enum.entity");
 const MessageUssds_entity_1 = require("./MessageUssds.entity");
 const ErrorTypes_entity_1 = require("./ErrorTypes.entity");
-let Transactions = class Transactions extends typeorm_1.BaseEntity {
+const CustomBaseModel_1 = require("./CustomBaseModel");
+let Transactions = class Transactions extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

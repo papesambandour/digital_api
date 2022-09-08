@@ -13,7 +13,8 @@ exports.ErrorTypes = void 0;
 const typeorm_1 = require("typeorm");
 const SousServices_entity_1 = require("./SousServices.entity");
 const Transactions_entity_1 = require("./Transactions.entity");
-let ErrorTypes = class ErrorTypes extends typeorm_1.BaseEntity {
+const CustomBaseModel_1 = require("./CustomBaseModel");
+let ErrorTypes = class ErrorTypes extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

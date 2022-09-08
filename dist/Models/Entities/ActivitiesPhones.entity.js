@@ -13,7 +13,8 @@ exports.ActivitiesPhones = void 0;
 const typeorm_1 = require("typeorm");
 const Phones_entity_1 = require("./Phones.entity");
 const Enum_entity_1 = require("./Enum.entity");
-let ActivitiesPhones = class ActivitiesPhones extends typeorm_1.BaseEntity {
+const CustomBaseModel_1 = require("./CustomBaseModel");
+let ActivitiesPhones = class ActivitiesPhones extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

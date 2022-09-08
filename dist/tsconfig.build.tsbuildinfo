@@ -3036,39 +3036,154 @@
         "signature": "2ed5c35d9c67a50805222ac79df76f832e95a39ce9bcf3152a64e3223dc9e75d",
         "affectsGlobalScope": false
       },
-      "../src/models/entities/plateforme.entity.ts": {
-        "version": "18da265a434c5485d0f1638c7bbbfb560caaab415dc24bf2a058c180a5204a24",
-        "signature": "174d6bb5589d0781fd9c87e5db66c676bddd7c091addcb7ff3e0ba7b280d25ed",
+      "../node_modules/@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type.d.ts": {
+        "version": "e15db0d01139d39213a40639352debd92786f311e0421c21ac97c2ca4003a299",
+        "signature": "e15db0d01139d39213a40639352debd92786f311e0421c21ac97c2ca4003a299",
         "affectsGlobalScope": false
       },
-      "../src/models/entities/users.entity.ts": {
-        "version": "c225b9a32a6f5c1c8edd55003da3a4e006468d5a7b5dd3eaef4fab34f4113bc4",
-        "signature": "ee7d4b60089d18d09d87bf1f04959cb7718e1db011342d858ccc40d26d7f0748",
+      "../node_modules/@nestjs/typeorm/dist/common/typeorm.decorators.d.ts": {
+        "version": "cd2afab7b5206a624ef3a603568ce42a7c65e7e4958f1c9518b70580523db653",
+        "signature": "cd2afab7b5206a624ef3a603568ce42a7c65e7e4958f1c9518b70580523db653",
         "affectsGlobalScope": false
       },
-      "../src/models/entities/profils.entity.ts": {
-        "version": "db588bb27f3537b00d27f89a068069b5211f20f919d0277e198d0432bf05ca96",
-        "signature": "c0dbd6d716470b56cd2aca4814904ee40c9204b5341dca0a11ee2eda2d56464d",
+      "../node_modules/@nestjs/typeorm/dist/common/typeorm.utils.d.ts": {
+        "version": "2682ba5d13c2358a76e5d2a0920503226c720f502d6c5b12dde3b5bcdf7cb53c",
+        "signature": "2682ba5d13c2358a76e5d2a0920503226c720f502d6c5b12dde3b5bcdf7cb53c",
         "affectsGlobalScope": false
       },
-      "../src/models/entities/actionsprofils.entity.ts": {
-        "version": "7caff8ea69f94372902cfce2b64f3856bc2608dbcddcba57fa6accd6f6561798",
-        "signature": "93d297ba523fd50b98ccd38fe6f217a41a3f9f7f772510c7f2120c7885ddae34",
+      "../node_modules/@nestjs/typeorm/dist/common/index.d.ts": {
+        "version": "9a7638d62db8cfa1466093d7d413fdf85c5e4a7c663ed76f2bfc8739c8e01505",
+        "signature": "9a7638d62db8cfa1466093d7d413fdf85c5e4a7c663ed76f2bfc8739c8e01505",
         "affectsGlobalScope": false
       },
-      "../src/models/entities/modules.entity.ts": {
-        "version": "61537abb2704883296ce33e0fdc2c23bcc020fd3f78d741a80dfd7f88f62bdcb",
-        "signature": "e0b9368c96ac8743fa4d5a98e5fda0943a18ff589b1b7abc49f526134e8c1b26",
+      "../node_modules/@nestjs/typeorm/dist/interfaces/typeorm-options.interface.d.ts": {
+        "version": "67c2337be292ac0b1efd7795b957c1c25cd074ddfe814c36c650ffdaf267750f",
+        "signature": "67c2337be292ac0b1efd7795b957c1c25cd074ddfe814c36c650ffdaf267750f",
         "affectsGlobalScope": false
       },
-      "../src/models/entities/actions.entity.ts": {
-        "version": "f14172ce8c483e1ff0a051e37023cb94a999c3336a76a72b4b1c282e2a8e4532",
-        "signature": "3cf889d75703936ac16d5a97241ea50bcfc6498e7ea122e859a5e1799e9a8e6e",
+      "../node_modules/@nestjs/typeorm/dist/interfaces/index.d.ts": {
+        "version": "c338859b98f8a11f80e3e47e33767299e7a4facdf0870c01c8694fa8fa048d16",
+        "signature": "c338859b98f8a11f80e3e47e33767299e7a4facdf0870c01c8694fa8fa048d16",
         "affectsGlobalScope": false
       },
-      "../src/app.service.ts": {
-        "version": "aee16317d3b47bcc2f15c5c44e1e7b999d7a9236216d67d3fb1809bcf125f803",
-        "signature": "6d7f8b73cc8fda7d46c26226461261d3bfad2a1130126d8506d68368685bb535",
+      "../node_modules/@nestjs/typeorm/dist/typeorm.module.d.ts": {
+        "version": "506ddc141d91c4155d39ce3125a92b4636ed10db070c0cfdac7e54376178c30c",
+        "signature": "506ddc141d91c4155d39ce3125a92b4636ed10db070c0cfdac7e54376178c30c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/typeorm/dist/index.d.ts": {
+        "version": "b113e9770d5be136c5e2add9e6cdf40d85051762ff2391f71d552975e66b1500",
+        "signature": "b113e9770d5be136c5e2add9e6cdf40d85051762ff2391f71d552975e66b1500",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/typeorm/index.d.ts": {
+        "version": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
+        "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/messageussds.entity.ts": {
+        "version": "95ffb3e8a1e9ef047217a623b799a4dedf6d3984273ed0a290b9def94ba50f7d",
+        "signature": "6b1573a628da5175cad0d38d30ad720fd22ceb5bb5aa1d5128e092bb53966c2c",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/sousservicesparteners.entity.ts": {
+        "version": "d8c59e4a08085044bba04f402d86bc642a5636a0c54f8d3c64b737f9ab679153",
+        "signature": "9c66baa28bbdd85bb3216d867913e76b8ca9678b1a2681dadd40a92c56feb227",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/sousservicesphones.entity.ts": {
+        "version": "a33e9c85e3c233fb282ed9a5f619292b93633937f8eb6e0f2cbeb5c36bc8a89c",
+        "signature": "f797e0be9c6cb29844fcb7beb8a7a5737ce5185c0f4e20c3836bdece96d9970c",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/country.entity.ts": {
+        "version": "e3d300defb0e9c901f6f9fdb5ca846e6384903955baa1fb809b8f4edb0c151e0",
+        "signature": "bfb4e032f250b8d9a075fa035aef21f248ca6d37eb54627020f2a640fc07f3fa",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/operators.entity.ts": {
+        "version": "f05a34ede8d1cf7d11b05d0098b74ee6d40dd4eb638c663cd7382aefa33ea3e9",
+        "signature": "1e91068a9b06a3cbd550f9106af1847256efca5eacea9e853b9316d65768b465",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/categoriesservices.entity.ts": {
+        "version": "ec3ff9831080055784829d2dbdd455a43a450130a48aed817ad95345e6cc3157",
+        "signature": "caf9266f6a4cc69a8c05acda2c361d56bc777d1dc55175fae03f62ee5c1871a1",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/services.entity.ts": {
+        "version": "f4a2f33a7f823d6bea3f5b8c679573fc3c42e524cca7ca6eade09b70a8c8aac2",
+        "signature": "bb83effb45d13f5f149ad4fd85edd73fb7235162f3d1b2b2a3f485b3a86c3471",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/typeservices.entity.ts": {
+        "version": "a2a0e46d2263171dd75b622ff30131df78ad3afe9706b571341a14577895df07",
+        "signature": "313432627fabce3d4d34f1bbc2c15e399c20771eac22b88284ad19f448332209",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/errortypes.entity.ts": {
+        "version": "4a1471ed52557754950293bf3c7d262e4490acd45d121dcf573cf8251241d547",
+        "signature": "e8103db4bf5ce7c303d0ef485267775d6e11a6f3b53c06e4a4e9d38ae866822a",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/sousservices.entity.ts": {
+        "version": "9e2e3c81adf2ecad0515650bd66265a08679661c05fb14f56e9e5abc2c2487fa",
+        "signature": "d6f6b3e3b2b037ed9db05398f98aa9acb3f3af510c6784d24ccf02facb7d278f",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/commission.entity.ts": {
+        "version": "6c2463af258f6b282b10ac6ad2c88446559eb8263f70637f7b1d01eab363e575",
+        "signature": "c05e11579b38c36ea4543e7fcaf3e27c6687e0da83805c9d24b503c1c2834c1b",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/partenercomptes.entity.ts": {
+        "version": "3e69515d22974ce106e0d487fbe2019fa6494553aa8c7f4c6f169105b11d47e5",
+        "signature": "f3b0df626aa197305e551af26ed6ffe7a365c0a2e2f94709bbd5ee7c53f54950",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/partenersettings.entity.ts": {
+        "version": "8d39592a41348d601862cbddd5163d716e4703fbee17978f4041604a36cce578",
+        "signature": "18898310387663c9fab937f5b533d71f1a23d9f313e799443cd3c1f2d3bd7aa5",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/parteners.entity.ts": {
+        "version": "80e5a05f3531f4384f1cf793121fe84094a67e76f4bfdffd16a86ca6a9e11c32",
+        "signature": "d16c0f57c2cb0bdbf1621aa06d8abf41823f92f7584cfb197df079cba9b56964",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/operationparteners.entity.ts": {
+        "version": "b0c4a1627f94e68586634267f87831eca03133a01043cd8ac31d587bc24b776e",
+        "signature": "47ed5373821b4ee382c6d49d64d7f0013fdee8cc98a6466f710be9ba2601bfcd",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/ussdexecutionmessages.entity.ts": {
+        "version": "2f26e23ed072f3b3a83703a70f8fbda9c44a00f1366c15526d781093827ee9ae",
+        "signature": "10409b75c14585f45ed39c05ac34645287531d2fd64da25e7abb0bc6c1c19f37",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/transactions.entity.ts": {
+        "version": "7059f14158984b385a07864f9c763180cff9b3245d5d50affe47630eeb12fd85",
+        "signature": "3c487e15625a14dadc24e1864c1f5a991968b48867f9fba7fd5b1bdaa467995b",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/operationphones.entity.ts": {
+        "version": "cdfda593f8e3e695969545d47fdea495cba4ade0c6c0db6c760e0ef7925f9521",
+        "signature": "2252287423ddb16e8a887697e77bbbfa2f8f109e83517372a934d5132469157e",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/activitiesphones.entity.ts": {
+        "version": "5bf48902bd9b2e80c762fb283f82957e1459925d3b6db2f20e1867474f8815fd",
+        "signature": "f9a33fcae63569735aa495cb1b39294c1c642db202ba7068031b60c9898d86bb",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/phones.entity.ts": {
+        "version": "2578b2fca74a97214f93785c910b7980989d8f4dda4067ad1f5c09c72c23f26a",
+        "signature": "def19c1fd6c32b352f6594984cffe1e27c6f1349aed4983f2ee4c13ac8e376ba",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtooperationphones.ts": {
+        "version": "ede2363c9b815338f80aaf64aed7d320ae4672de1741ea232e08edeceb0ebb67",
+        "signature": "66b524b6c3cbf013b2c1885f6a48d672cf8992def6ff2440db11ae3b9e6dc0f5",
         "affectsGlobalScope": false
       },
       "../node_modules/class-validator/types/validation/validationerror.d.ts": {
@@ -3696,161 +3811,6 @@
         "signature": "441104b363d80fe57eb79a50d495e0b7e3ebeb45a5f0d1a4067d71ef75e8fbfa",
         "affectsGlobalScope": false
       },
-      "../src/controllers/controller.ts": {
-        "version": "fa06b8f61b6f5a434599f2af965eea27142c7563f7403a40786e9ccf6bf3cc41",
-        "signature": "27c180017f3db46ed23d1d175ca790f775b5dd854731cababff66b59d8414fe9",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type.d.ts": {
-        "version": "e15db0d01139d39213a40639352debd92786f311e0421c21ac97c2ca4003a299",
-        "signature": "e15db0d01139d39213a40639352debd92786f311e0421c21ac97c2ca4003a299",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/typeorm/dist/common/typeorm.decorators.d.ts": {
-        "version": "cd2afab7b5206a624ef3a603568ce42a7c65e7e4958f1c9518b70580523db653",
-        "signature": "cd2afab7b5206a624ef3a603568ce42a7c65e7e4958f1c9518b70580523db653",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/typeorm/dist/common/typeorm.utils.d.ts": {
-        "version": "2682ba5d13c2358a76e5d2a0920503226c720f502d6c5b12dde3b5bcdf7cb53c",
-        "signature": "2682ba5d13c2358a76e5d2a0920503226c720f502d6c5b12dde3b5bcdf7cb53c",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/typeorm/dist/common/index.d.ts": {
-        "version": "9a7638d62db8cfa1466093d7d413fdf85c5e4a7c663ed76f2bfc8739c8e01505",
-        "signature": "9a7638d62db8cfa1466093d7d413fdf85c5e4a7c663ed76f2bfc8739c8e01505",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/typeorm/dist/interfaces/typeorm-options.interface.d.ts": {
-        "version": "67c2337be292ac0b1efd7795b957c1c25cd074ddfe814c36c650ffdaf267750f",
-        "signature": "67c2337be292ac0b1efd7795b957c1c25cd074ddfe814c36c650ffdaf267750f",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/typeorm/dist/interfaces/index.d.ts": {
-        "version": "c338859b98f8a11f80e3e47e33767299e7a4facdf0870c01c8694fa8fa048d16",
-        "signature": "c338859b98f8a11f80e3e47e33767299e7a4facdf0870c01c8694fa8fa048d16",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/typeorm/dist/typeorm.module.d.ts": {
-        "version": "506ddc141d91c4155d39ce3125a92b4636ed10db070c0cfdac7e54376178c30c",
-        "signature": "506ddc141d91c4155d39ce3125a92b4636ed10db070c0cfdac7e54376178c30c",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/typeorm/dist/index.d.ts": {
-        "version": "b113e9770d5be136c5e2add9e6cdf40d85051762ff2391f71d552975e66b1500",
-        "signature": "b113e9770d5be136c5e2add9e6cdf40d85051762ff2391f71d552975e66b1500",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/typeorm/index.d.ts": {
-        "version": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
-        "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/messageussds.entity.ts": {
-        "version": "3aa9ab2d5268ca8a8ebe35d31ade47e0e790570b308de470600afa040dc3b6f3",
-        "signature": "8b9e48e3ff4bee8f1ecceecc72286362937f1aa08a83c0ca6887f304abc3eb24",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/sousservicesparteners.entity.ts": {
-        "version": "06a7a0132b026a65069a8968bc220cc886a992ff98570de4764bdc89336e215d",
-        "signature": "8a1d58a0b0449f02301c4f6d06316c797661c71f0bc6de306304abe33d3f0d24",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/sousservicesphones.entity.ts": {
-        "version": "2fddb109d64584a266ae8a50d090d51d59ba06c428109972bea464dc8ef940f6",
-        "signature": "ff76e853eb654bcf25706fa8d904a0c54701990476cb56b775beb0f2550e684c",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/country.entity.ts": {
-        "version": "bf4566180edfe9c5ae7a4d16db1a5b43df3359b543078cce4ac5ae84f760f46f",
-        "signature": "cba6a24635ee2698f6fc9a9061916ebc0251f9fd02ef33a4fcf0c1e385121ae6",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/operators.entity.ts": {
-        "version": "2b0098d33d3b5999b7bf4b8b73748321ad1a7f21648f552a50c02b474276dba1",
-        "signature": "6f4dbc89e8c5c42c8260bf85814f9ce81a8510302040e2e9d06386a769f50f13",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/categoriesservices.entity.ts": {
-        "version": "1481a89aacc81b7dc0d4110fa12d7157a23c0633b0b28ddd4357350eda44530e",
-        "signature": "c78a5c348019645ead71c75c9b58189c615921ae1ae6e3e7b8cef8ccd3cc9c13",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/services.entity.ts": {
-        "version": "07fe52deaa05ba3f3d0912ba9841e6408b1e639e0206cca1a2202a6f63ec3938",
-        "signature": "4228c60649e0c8faf9fdd609030187e2668b115b8d76fc58ae33bc070ceb274a",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/typeservices.entity.ts": {
-        "version": "cfb378ece0d44cf3efaaf50cf25c5a246b97867e1ad228d9c4da71ecdc6bc1d3",
-        "signature": "e4c8ac83dd79dcbb3e96c4fdb12a968e805637537f33bc9a941dc8a50f368393",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/errortypes.entity.ts": {
-        "version": "13d0f550c74d26a5014db73be6a2923883060064d9e6031091565854177d73e0",
-        "signature": "ced12135a8817cc932e4de8b233f203caa54a30888a07d5208babf9b9805f523",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/sousservices.entity.ts": {
-        "version": "3a425ad7ad4632e123e4e6bff7f3d0c12212924b1afcb40aaf4e3c0994f9b226",
-        "signature": "ec1eb39b395b6f42aa6bcd81bc239efad45f757c66f4147d8609ffc28e7f51c0",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/commission.entity.ts": {
-        "version": "0da84dd0fb2f33c6871854f274fd09ab623ff27ac8417b54e73012d0879002a8",
-        "signature": "217aeb4a75ace0ed4fdc2d8190c60a5c6d6eeec96a08cf29ec8afc59bb7abca6",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/partenercomptes.entity.ts": {
-        "version": "70461ba9602c0d42534c87b2e8e65cda137f07b688264e11a2cf940c90ff1478",
-        "signature": "87ce52f0227519135108a3a430126f9c08472f8da3415f454ae838a75dda1c91",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/partenersettings.entity.ts": {
-        "version": "bf5585ae2fb0a8ab50475d2aeddd84a63f5dc02d2d1ad724567db01e671320ae",
-        "signature": "126ba27cc354d94131cf472c9f7a9e2f47139ccbc99cf8098c8ebc930ca7757f",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/parteners.entity.ts": {
-        "version": "3e7a50e9d44193303add4c4907ccebc766602208c0fa4f788b273551f3ddb55f",
-        "signature": "5a83ea7df9287eeb35770b43aafc60869fab30f10bf7edca347b2afa32c86786",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/operationparteners.entity.ts": {
-        "version": "dddecfd437691ba61c0d0af5d58e90a923572a1fd3754f6116febfa79f6ed2f5",
-        "signature": "d7908c4077ea887f3af3203813e9873d3c0d82c9c8c1c75adbe78b54c820ccdd",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/ussdexecutionmessages.entity.ts": {
-        "version": "53992bed201cdf6417a9a5b06a386687125e86096b5a165f2d0c8a8ac58ce178",
-        "signature": "6c089dac619b032310f831ccbd3092383e66812e084e533b0f41d0b65f1fee6f",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/transactions.entity.ts": {
-        "version": "4de6c3923dbe75676a14b8e652679076a0dfe96de25fa289affe293cb00802c9",
-        "signature": "c52259b0c0a3164ca976f8803fae13ecc8007b0891adec617f991d13e3df77e6",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/operationphones.entity.ts": {
-        "version": "0416d98360aa3da25020bdb0b8047461dd73cdb959e953bd488192a483027878",
-        "signature": "69f46b7281fd6f714fdb60afaa4c10c2c7f56d3aa31a70c587df468f6b753a59",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/activitiesphones.entity.ts": {
-        "version": "9e3a8e23b0c8d24e7b8997afe93e52ef6cf52ae70843cc6f1973a3539e9931dd",
-        "signature": "06d02dca8666bc53e54a425bfe031f56d19928d6895a17596475f26718249106",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/phones.entity.ts": {
-        "version": "9df658c42b34a1c531e2af23ef57700064da1502793bd541da5ebeffda4e0481",
-        "signature": "e55ceb1d3707d366a392fa2c104ba98fdd10f74dd3c712d4253dc5ae68b14e32",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtooperationphones.ts": {
-        "version": "ede2363c9b815338f80aaf64aed7d320ae4672de1741ea232e08edeceb0ebb67",
-        "signature": "66b524b6c3cbf013b2c1885f6a48d672cf8992def6ff2440db11ae3b9e6dc0f5",
-        "affectsGlobalScope": false
-      },
       "../src/controllers/api-service/dto/operationindto.ts": {
         "version": "85f3e43d0fca0dcec8a60c82ff23ff5f175a78c444825e1dde7e4538a042215c",
         "signature": "254f798ec2f659114128ebeb1bcc6db42bf36982b8d597954bf5b3f1997e42e1",
@@ -4136,6 +4096,11 @@
         "signature": "9b113fd037b5fdd636f226be2d42763c2fe50cad2d7192b0589c6dd798cfd6e0",
         "affectsGlobalScope": false
       },
+      "../src/controllers/controller.ts": {
+        "version": "fa06b8f61b6f5a434599f2af965eea27142c7563f7403a40786e9ccf6bf3cc41",
+        "signature": "27c180017f3db46ed23d1d175ca790f775b5dd854731cababff66b59d8414fe9",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/dto/listpendingbillindto.ts": {
         "version": "7c44a1ef08fb810ea7c875eb111907e80943cb44634f4d8d63873ba4f90edad5",
         "signature": "2dca2519df20f19b8a4dc79ddb59cb6689a06616b460d4e093be0d55a72faa9a",
@@ -4162,8 +4127,48 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "729cd2d1f73c70b4e0f8d2d7087fa6d9d9471ef968075ecbb352408fb0da49e4",
-        "signature": "fa4f39dd225a54e6ad0efeb4b829bd5cd9712857622789f9c5cb226a9b258510",
+        "version": "16ede47abbc0346979939f9e3c7c395dcc3a9404b5ed5dbb6ebd6ae40c0b7156",
+        "signature": "402923e706e0bbcb7ea3fbc9e8d50af4e835921f33ef868e0ddd0a7b993653e7",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/custombasemodel.ts": {
+        "version": "1dd12f2cdd96339b766a068e2a4d13270e78c839fd624705ca7233b9393f958e",
+        "signature": "71c2c005d2c81b083eba057d1e277d8b85eca2bcfa9673c81e26075d8f1b23e6",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/plateforme.entity.ts": {
+        "version": "121dfb81d9cf6a9769e2a8c92d41ba16db08671d588d197da405310b609d2777",
+        "signature": "734dda5a23c5cce7d074f107f46b5a8459a3e3049c23d9636e4481ca7634d342",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/users.entity.ts": {
+        "version": "f14d273b9e13c1fa7a3b3c20cb79b79e54e86334092c2b7d947b4069d1cb64c6",
+        "signature": "94507f47266ad83ce04466509b605c3a6926f21b829ca1613ad1a39e047c3b30",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/profils.entity.ts": {
+        "version": "3012be52e62699254ed86db80ffceb361d94fa499c3ee64365abeb541361ecaf",
+        "signature": "c28a4955ac23e674a874ac3410666bbaf07315bb74e641d157287cddf549d891",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/actionsprofils.entity.ts": {
+        "version": "bc0be392f02ac15a81fe57d4572e7277d01394ae2d061b9b0e89862c3add8b0c",
+        "signature": "842091666d17b9a55370cae5e81eb23aba9e9817fedf843a2c323058a08cb397",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/modules.entity.ts": {
+        "version": "a6982802d5c92fb400f2b702a9e6400d3c706f64d4c5ffd5d76946b8112837ff",
+        "signature": "8537d8c2bd1fccb4c80039c1e016348f6ab37c378ef033ed6d273098881fae53",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/actions.entity.ts": {
+        "version": "808b5f1d5e03278e09c5225af534c440a96fc7d785bd8d799220f4fbe99fac5a",
+        "signature": "a718802b9fa71ec5efdf6c2bdf74055f895f2f826ba0a993cf211c5413fee2ee",
+        "affectsGlobalScope": false
+      },
+      "../src/app.service.ts": {
+        "version": "aee16317d3b47bcc2f15c5c44e1e7b999d7a9236216d67d3fb1809bcf125f803",
+        "signature": "6d7f8b73cc8fda7d46c26226461261d3bfad2a1130126d8506d68368685bb535",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/confirm3dsindto.ts": {
@@ -4571,7 +4576,7 @@
         "signature": "3b89266efc5885741d1b7feb49d1e73d5836e3d0fba14c4d8c2eb0f791822019",
         "affectsGlobalScope": false
       },
-      "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts": {
+      "../node_modules/socket.io-adapter/dist/index.d.ts": {
         "version": "8ef692b43546bba3f743f404e14f99d211c587190aad12e736d59701ae5edba4",
         "signature": "8ef692b43546bba3f743f404e14f99d211c587190aad12e736d59701ae5edba4",
         "affectsGlobalScope": false
@@ -4692,7 +4697,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "1069e86fa0363aa426dcbe8b57035c1c93a921c64a58afc94cb53d132714e575",
+        "version": "68669037a644bc44236e1b7324f1cfb865cd788ae1bbd685655cd63274a831ef",
         "signature": "8d0979ded8ab7bcfe9ec2fb6ddf6ba2502ebf5681fd31e2a74a9ddab043d19f9",
         "affectsGlobalScope": false
       },
@@ -4797,7 +4802,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": {
-        "version": "3b01b9ac8f7e80604db66cbccd472e5f62828ec2b7388903f4159f66f4781ff5",
+        "version": "7f60420030a90c697a101c8d992d5dbe557bb34fe1b5a69365570ff8a40f1d7e",
         "signature": "a879c83899423132c0ac21bd0ba9ee682f54620ef7d17aad3dec926c04ce5286",
         "affectsGlobalScope": false
       },
@@ -6452,12 +6457,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": {
-        "version": "75e2a462078d8b07eb7cfdc8dc92744e65fe4b7f3b065009f292644e2d6665e3",
+        "version": "a8ed1265175610697f7088370afa356d9c7994ae21cf9292e7fc71841972f40d",
         "signature": "12ca33b128a7ed7c2ce40a2250a6f59a145c6749722fc06ae9eeea929f2baed8",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts": {
-        "version": "efd76e3b06bcbceec561d28f18b3652f6b04ba3ae7d0487169aac8796d7c497c",
+        "version": "ac2f843ba51d80c6566cd58c48aa2d10aa466cf2312f1a1a5a8f1e549a89fc79",
         "signature": "e730f870714e188510a5f26d47d68a75e4b7599b96b804fca8cc0ffce3f37c61",
         "affectsGlobalScope": false
       },
@@ -6517,8 +6522,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-controller.controller.ts": {
-        "version": "14a7cce88e03743d1f287b4aedbdf0fb545224b204a16d366c23be7b068d8e88",
-        "signature": "9dfcb3d3e95454462627e5e7f31c957bd5884d556041d1b003990ede4d1ed865",
+        "version": "980fd367b00ee7b5054367feaea9260a4c85092c499375865924716f392e4212",
+        "signature": "ea2a6c12531b9d3a62560ac19c2f18039e6ab455ad1f3218e95954c4c4bd1146",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-middleware.middleware.ts": {
@@ -10552,6 +10557,10 @@
         "../node_modules/rxjs/internal/operators/zip.d.ts",
         "../node_modules/rxjs/internal/operators/zipall.d.ts"
       ],
+      "../node_modules/socket.io-adapter/dist/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
       "../node_modules/socket.io-parser/dist/index.d.ts": [
         "../node_modules/@types/component-emitter/index.d.ts"
       ],
@@ -10568,32 +10577,28 @@
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/index.d.ts",
+        "../node_modules/socket.io-adapter/dist/index.d.ts",
         "../node_modules/socket.io-parser/dist/index.d.ts",
         "../node_modules/socket.io/dist/namespace.d.ts",
-        "../node_modules/socket.io/dist/socket.d.ts",
-        "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts"
+        "../node_modules/socket.io/dist/socket.d.ts"
       ],
       "../node_modules/socket.io/dist/namespace.d.ts": [
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/index.d.ts",
+        "../node_modules/socket.io-adapter/dist/index.d.ts",
         "../node_modules/socket.io/dist/client.d.ts",
         "../node_modules/socket.io/dist/index.d.ts",
-        "../node_modules/socket.io/dist/socket.d.ts",
-        "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts"
+        "../node_modules/socket.io/dist/socket.d.ts"
       ],
       "../node_modules/socket.io/dist/socket.d.ts": [
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/querystring.d.ts",
+        "../node_modules/socket.io-adapter/dist/index.d.ts",
         "../node_modules/socket.io-parser/dist/index.d.ts",
         "../node_modules/socket.io/dist/client.d.ts",
-        "../node_modules/socket.io/dist/namespace.d.ts",
-        "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts"
-      ],
-      "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts": [
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/index.d.ts"
+        "../node_modules/socket.io/dist/namespace.d.ts"
       ],
       "../node_modules/typeorm/browser/cache/queryresultcache.d.ts": [
         "../node_modules/typeorm/browser/cache/queryresultcacheoptions.d.ts",
@@ -13456,7 +13461,8 @@
         "../src/controllers/partener-intern/partner-service.service.ts",
         "../src/helper.service.ts",
         "../src/models/decorateurs/responsedecorateur.ts",
-        "../src/models/entities/enum.entity.ts"
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/errortypes.entity.ts"
       ],
       "../src/controllers/partener-intern/partner-intern.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -13649,55 +13655,73 @@
       "../src/models/entities/actions.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/actionsprofils.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/modules.entity.ts"
       ],
       "../src/models/entities/actionsprofils.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/actions.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/profils.entity.ts"
       ],
       "../src/models/entities/activitiesphones.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/phones.entity.ts"
       ],
       "../src/models/entities/categoriesservices.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/services.entity.ts"
       ],
       "../src/models/entities/commission.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/sousservices.entity.ts"
       ],
       "../src/models/entities/country.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/operators.entity.ts"
+      ],
+      "../src/models/entities/custombasemodel.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../node_modules/typeorm/metadata/columnmetadata.d.ts",
+        "../node_modules/typeorm/repository/saveoptions.d.ts",
+        "../src/helper.service.ts"
       ],
       "../src/models/entities/errortypes.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/actionsprofils.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts",
         "../src/models/entities/users.entity.ts"
       ],
       "../src/models/entities/messageussds.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/entities/modules.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
-        "../src/models/entities/actions.entity.ts"
+        "../src/models/entities/actions.entity.ts",
+        "../src/models/entities/custombasemodel.ts"
       ],
       "../src/models/entities/operationparteners.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/entities/operationphones.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/transactions.entity.ts"
@@ -13705,16 +13729,19 @@
       "../src/models/entities/operators.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/country.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/services.entity.ts"
       ],
       "../src/models/entities/partenercomptes.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/entities/parteners.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/commission.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/operationparteners.entity.ts",
         "../src/models/entities/partenercomptes.entity.ts",
         "../src/models/entities/partenersettings.entity.ts",
@@ -13723,11 +13750,13 @@
       ],
       "../src/models/entities/partenersettings.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/parteners.entity.ts"
       ],
       "../src/models/entities/phones.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/activitiesphones.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/operationphones.entity.ts",
         "../src/models/entities/services.entity.ts",
@@ -13737,16 +13766,19 @@
       ],
       "../src/models/entities/plateforme.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/users.entity.ts"
       ],
       "../src/models/entities/profils.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/actionsprofils.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/users.entity.ts"
       ],
       "../src/models/entities/services.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/categoriesservices.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/operators.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts"
@@ -13754,6 +13786,7 @@
       "../src/models/entities/sousservices.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/commission.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/errortypes.entity.ts",
         "../src/models/entities/messageussds.entity.ts",
@@ -13765,16 +13798,19 @@
       ],
       "../src/models/entities/sousservicesparteners.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/sousservices.entity.ts"
       ],
       "../src/models/entities/sousservicesphones.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts"
       ],
       "../src/models/entities/transactions.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/errortypes.entity.ts",
         "../src/models/entities/messageussds.entity.ts",
@@ -13788,15 +13824,18 @@
       ],
       "../src/models/entities/typeservices.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/sousservices.entity.ts"
       ],
       "../src/models/entities/users.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/plateforme.entity.ts",
         "../src/models/entities/profils.entity.ts"
       ],
       "../src/models/entities/ussdexecutionmessages.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
@@ -16669,6 +16708,10 @@
         "../node_modules/rxjs/internal/operators/zip.d.ts",
         "../node_modules/rxjs/internal/operators/zipall.d.ts"
       ],
+      "../node_modules/socket.io-adapter/dist/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
       "../node_modules/socket.io-parser/dist/index.d.ts": [
         "../node_modules/@types/component-emitter/index.d.ts"
       ],
@@ -16685,32 +16728,28 @@
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/index.d.ts",
+        "../node_modules/socket.io-adapter/dist/index.d.ts",
         "../node_modules/socket.io-parser/dist/index.d.ts",
         "../node_modules/socket.io/dist/namespace.d.ts",
-        "../node_modules/socket.io/dist/socket.d.ts",
-        "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts"
+        "../node_modules/socket.io/dist/socket.d.ts"
       ],
       "../node_modules/socket.io/dist/namespace.d.ts": [
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/index.d.ts",
+        "../node_modules/socket.io-adapter/dist/index.d.ts",
         "../node_modules/socket.io/dist/client.d.ts",
         "../node_modules/socket.io/dist/index.d.ts",
-        "../node_modules/socket.io/dist/socket.d.ts",
-        "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts"
+        "../node_modules/socket.io/dist/socket.d.ts"
       ],
       "../node_modules/socket.io/dist/socket.d.ts": [
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/querystring.d.ts",
+        "../node_modules/socket.io-adapter/dist/index.d.ts",
         "../node_modules/socket.io-parser/dist/index.d.ts",
         "../node_modules/socket.io/dist/client.d.ts",
-        "../node_modules/socket.io/dist/namespace.d.ts",
-        "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts"
-      ],
-      "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts": [
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/index.d.ts"
+        "../node_modules/socket.io/dist/namespace.d.ts"
       ],
       "../node_modules/typeorm/browser/cache/queryresultcache.d.ts": [
         "../node_modules/typeorm/browser/cache/queryresultcacheoptions.d.ts",
@@ -19419,72 +19458,75 @@
         "../src/models/entities/enum.entity.ts"
       ],
       "../src/models/entities/actions.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/actionsprofils.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/modules.entity.ts"
       ],
       "../src/models/entities/actionsprofils.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/actions.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/profils.entity.ts"
       ],
       "../src/models/entities/activitiesphones.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/phones.entity.ts"
       ],
       "../src/models/entities/categoriesservices.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/services.entity.ts"
       ],
       "../src/models/entities/commission.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/sousservices.entity.ts"
       ],
       "../src/models/entities/country.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/operators.entity.ts"
       ],
+      "../src/models/entities/custombasemodel.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
       "../src/models/entities/errortypes.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/entities/messageussds.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/entities/modules.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/models/entities/actions.entity.ts"
+        "../src/models/entities/actions.entity.ts",
+        "../src/models/entities/custombasemodel.ts"
       ],
       "../src/models/entities/operationparteners.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/entities/operationphones.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/entities/operators.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/country.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/services.entity.ts"
       ],
       "../src/models/entities/partenercomptes.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/entities/parteners.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/commission.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/operationparteners.entity.ts",
         "../src/models/entities/partenercomptes.entity.ts",
         "../src/models/entities/partenersettings.entity.ts",
@@ -19492,12 +19534,12 @@
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/entities/partenersettings.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/parteners.entity.ts"
       ],
       "../src/models/entities/phones.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/activitiesphones.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/operationphones.entity.ts",
         "../src/models/entities/services.entity.ts",
@@ -19506,24 +19548,24 @@
         "../src/models/entities/ussdexecutionmessages.entity.ts"
       ],
       "../src/models/entities/plateforme.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/users.entity.ts"
       ],
       "../src/models/entities/profils.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/actionsprofils.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/users.entity.ts"
       ],
       "../src/models/entities/services.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/categoriesservices.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/operators.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts"
       ],
       "../src/models/entities/sousservices.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/commission.entity.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/errortypes.entity.ts",
         "../src/models/entities/messageussds.entity.ts",
@@ -19534,17 +19576,17 @@
         "../src/models/entities/typeservices.entity.ts"
       ],
       "../src/models/entities/sousservicesparteners.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/sousservices.entity.ts"
       ],
       "../src/models/entities/sousservicesphones.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts"
       ],
       "../src/models/entities/transactions.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/errortypes.entity.ts",
         "../src/models/entities/messageussds.entity.ts",
@@ -19557,16 +19599,16 @@
         "../src/models/entities/ussdexecutionmessages.entity.ts"
       ],
       "../src/models/entities/typeservices.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/sousservices.entity.ts"
       ],
       "../src/models/entities/users.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/plateforme.entity.ts",
         "../src/models/entities/profils.entity.ts"
       ],
       "../src/models/entities/ussdexecutionmessages.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],

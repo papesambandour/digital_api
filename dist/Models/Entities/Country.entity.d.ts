@@ -1,6 +1,6 @@
-import { BaseEntity } from 'typeorm';
 import { Operators } from './Operators.entity';
-export declare class Country extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class Country extends CustomBaseModel {
     id: number;
     name: string;
     flag: string;

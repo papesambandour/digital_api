@@ -1,4 +1,3 @@
-import { BaseEntity } from 'typeorm';
 import { Commission } from './Commission.entity';
 import { MessageUssds } from './MessageUssds.entity';
 import { SousServicesParteners } from './SousServicesParteners.entity';
@@ -8,7 +7,8 @@ import { TypeServices } from './TypeServices.entity';
 import { Transactions } from './Transactions.entity';
 import { EXECUTE_TYPE_USSD, TypeOperationEnum } from './Enum.entity';
 import { ErrorTypes } from './ErrorTypes.entity';
-export declare class SousServices extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class SousServices extends CustomBaseModel {
     id: number;
     needPhone: number;
     hasSoldeApi: number;

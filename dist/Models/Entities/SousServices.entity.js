@@ -20,7 +20,8 @@ const TypeServices_entity_1 = require("./TypeServices.entity");
 const Transactions_entity_1 = require("./Transactions.entity");
 const Enum_entity_1 = require("./Enum.entity");
 const ErrorTypes_entity_1 = require("./ErrorTypes.entity");
-let SousServices = class SousServices extends typeorm_1.BaseEntity {
+const CustomBaseModel_1 = require("./CustomBaseModel");
+let SousServices = class SousServices extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

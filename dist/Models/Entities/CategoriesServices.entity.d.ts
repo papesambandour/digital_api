@@ -1,6 +1,6 @@
-import { BaseEntity } from 'typeorm';
 import { Services } from './Services.entity';
-export declare class CategoriesServices extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class CategoriesServices extends CustomBaseModel {
     id: number;
     name: string;
     code: string;

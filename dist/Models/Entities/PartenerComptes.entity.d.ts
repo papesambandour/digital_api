@@ -1,7 +1,7 @@
-import { BaseEntity } from 'typeorm';
 import { Parteners } from './Parteners.entity';
 import { Transactions } from './Transactions.entity';
-export declare class PartenerComptes extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class PartenerComptes extends CustomBaseModel {
     id: number;
     typePartenerCompte: 'API' | 'CAISSE';
     partenersId: number;

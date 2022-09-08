@@ -1,7 +1,7 @@
-import { BaseEntity } from 'typeorm';
 import { SousServices } from './SousServices.entity';
 import { Transactions } from './Transactions.entity';
-export declare class MessageUssds extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class MessageUssds extends CustomBaseModel {
     id: number;
     transactionsId: number | null;
     content: string | null;

@@ -13,7 +13,8 @@ exports.Users = void 0;
 const typeorm_1 = require("typeorm");
 const Plateforme_entity_1 = require("./Plateforme.entity");
 const Profils_entity_1 = require("./Profils.entity");
-let Users = class Users extends typeorm_1.BaseEntity {
+const CustomBaseModel_1 = require("./CustomBaseModel");
+let Users = class Users extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

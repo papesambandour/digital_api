@@ -70,7 +70,7 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
         });
     }
 };
-CheckTransactionStatusCronService.canHandle = true;
+CheckTransactionStatusCronService.canHandle = false;
 __decorate([
     schedule_1.Cron(schedule_1.CronExpression.EVERY_5_SECONDS),
     __metadata("design:type", Function),

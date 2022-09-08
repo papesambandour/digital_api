@@ -1,7 +1,7 @@
-import { BaseEntity } from 'typeorm';
 import { SousServices } from './SousServices.entity';
 import { Transactions } from './Transactions.entity';
-export declare class ErrorTypes extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class ErrorTypes extends CustomBaseModel {
     id: number;
     code: string;
     regex: string;

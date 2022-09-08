@@ -1,8 +1,8 @@
-import { BaseEntity } from 'typeorm';
 import { Phones } from './Phones.entity';
 import { OperationEnumPhone } from './Enum.entity';
 import { Transactions } from './Transactions.entity';
-export declare class OperationPhones extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class OperationPhones extends CustomBaseModel {
     id: number;
     commentaire: string | null;
     amount: number;

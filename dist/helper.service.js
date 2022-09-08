@@ -22,7 +22,6 @@ const OperationPhones_entity_1 = require("./Models/Entities/OperationPhones.enti
 const DtoOperationPhones_1 = require("./Models/Dto/DtoOperationPhones");
 const Transactions_entity_1 = require("./Models/Entities/Transactions.entity");
 const Utils = require("util");
-const api_manager_interface_service_1 = require("./Controllers/api-service/api-manager-interface/api-manager-interface.service");
 const SousServices_entity_1 = require("./Models/Entities/SousServices.entity");
 const DtoOperationParteners_1 = require("./Models/Dto/DtoOperationParteners");
 const OperationParteners_entity_1 = require("./Models/Entities/OperationParteners.entity");
@@ -735,7 +734,7 @@ let HelperService = class HelperService {
         });
         return commission.amountFee || 0;
     }
-    async provideErrorType(transactionId, providedErrorMessage = undefined, providedError = undefined) {
+    async provideErrorType(transactionId, providedErrorMessage = undefined, providedError = undefined, defaultMessageIfUnknowNoError = undefined) {
         if (!transactionId) {
             console.log('no transactionId to set setIsCallbackReadyValue');
             return null;
@@ -780,7 +779,7 @@ let HelperService = class HelperService {
                 id: null,
                 codeService: null,
                 code: 'unknown_error',
-                message: api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE,
+                message: defaultMessageIfUnknowNoError,
             };
         }
         transaction.errorTypes = error;

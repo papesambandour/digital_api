@@ -1,7 +1,7 @@
-import { BaseEntity } from 'typeorm';
 import { Phones } from './Phones.entity';
 import { Transactions } from './Transactions.entity';
-export declare class UssdExecutionMessages extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class UssdExecutionMessages extends CustomBaseModel {
     id: number;
     message: string;
     state: 'ACTIVED' | 'INACTIVED' | 'DELETED';

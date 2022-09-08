@@ -20,7 +20,7 @@ const home_dto_out_1 = require("./dto/home-dto-out");
 const refund_dto_out_1 = require("./dto/refund-dto-out");
 const partner_service_service_1 = require("./partner-service.service");
 let PartnerControllerController = class PartnerControllerController {
-    home() {
+    async home() {
         return {
             api: 'Partner',
             version: '1.1',
@@ -39,7 +39,7 @@ __decorate([
     ResponseDecorateur_1.ResponseDecorateur(home_dto_out_1.HomeDtoOut, 201, 'Home service partner intern '),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], PartnerControllerController.prototype, "home", null);
 __decorate([
     common_1.Post('/transaction/refund'),

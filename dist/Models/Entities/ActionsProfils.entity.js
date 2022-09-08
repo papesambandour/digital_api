@@ -13,7 +13,8 @@ exports.ActionsProfils = void 0;
 const typeorm_1 = require("typeorm");
 const Actions_entity_1 = require("./Actions.entity");
 const Profils_entity_1 = require("./Profils.entity");
-let ActionsProfils = class ActionsProfils extends typeorm_1.BaseEntity {
+const CustomBaseModel_1 = require("./CustomBaseModel");
+let ActionsProfils = class ActionsProfils extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

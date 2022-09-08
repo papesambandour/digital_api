@@ -13,7 +13,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Modules = void 0;
 const typeorm_1 = require("typeorm");
 const Actions_entity_1 = require("./Actions.entity");
-let Modules = Modules_1 = class Modules extends typeorm_1.BaseEntity {
+const CustomBaseModel_1 = require("./CustomBaseModel");
+let Modules = Modules_1 = class Modules extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

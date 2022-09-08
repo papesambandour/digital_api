@@ -1,6 +1,6 @@
-import { BaseEntity } from 'typeorm';
 import { Users } from './Users.entity';
-export declare class Plateforme extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class Plateforme extends CustomBaseModel {
     id: number;
     name: string;
     code: string | null;

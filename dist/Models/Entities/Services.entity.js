@@ -15,7 +15,8 @@ const Phones_entity_1 = require("./Phones.entity");
 const Operators_entity_1 = require("./Operators.entity");
 const SousServices_entity_1 = require("./SousServices.entity");
 const CategoriesServices_entity_1 = require("./CategoriesServices.entity");
-let Services = class Services extends typeorm_1.BaseEntity {
+const CustomBaseModel_1 = require("./CustomBaseModel");
+let Services = class Services extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

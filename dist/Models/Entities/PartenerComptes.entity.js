@@ -13,7 +13,8 @@ exports.PartenerComptes = void 0;
 const typeorm_1 = require("typeorm");
 const Parteners_entity_1 = require("./Parteners.entity");
 const Transactions_entity_1 = require("./Transactions.entity");
-let PartenerComptes = class PartenerComptes extends typeorm_1.BaseEntity {
+const CustomBaseModel_1 = require("./CustomBaseModel");
+let PartenerComptes = class PartenerComptes extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

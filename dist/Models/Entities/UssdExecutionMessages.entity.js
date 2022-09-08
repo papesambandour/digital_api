@@ -13,7 +13,8 @@ exports.UssdExecutionMessages = void 0;
 const typeorm_1 = require("typeorm");
 const Phones_entity_1 = require("./Phones.entity");
 const Transactions_entity_1 = require("./Transactions.entity");
-let UssdExecutionMessages = class UssdExecutionMessages extends typeorm_1.BaseEntity {
+const CustomBaseModel_1 = require("./CustomBaseModel");
+let UssdExecutionMessages = class UssdExecutionMessages extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

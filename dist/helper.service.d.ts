@@ -59,7 +59,7 @@ export declare class HelperService {
     private sha256;
     b64ToFilePath(attachedMedia: string, attachedMediaExtension: string, attachedMediaName: string): Promise<string>;
     getAmountForMessenger(operationInDto: OperationInDto): Promise<number>;
-    provideErrorType(transactionId: number | undefined, providedErrorMessage?: string | undefined, providedError?: ErrorTypes | undefined): Promise<any>;
+    provideErrorType(transactionId: number | undefined, providedErrorMessage?: string | undefined, providedError?: ErrorTypes | undefined, defaultMessageIfUnknowNoError?: string | undefined): Promise<any>;
     getErrorType(errorMessage: string, codeSousService: string, amount: string): Promise<any>;
     alertForUnknownResponse(responseData: string, codeService: string, transactionId: number): void;
     ribFromString(rib: string, country?: 'sn' | 'ci'): Rib;

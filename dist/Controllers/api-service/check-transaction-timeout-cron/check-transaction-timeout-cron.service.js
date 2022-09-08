@@ -74,7 +74,7 @@ let CheckTransactionTimeoutCronService = CheckTransactionTimeoutCronService_1 = 
         });
     }
 };
-CheckTransactionTimeoutCronService.canHandle = true;
+CheckTransactionTimeoutCronService.canHandle = false;
 __decorate([
     schedule_1.Cron(schedule_1.CronExpression.EVERY_5_SECONDS),
     __metadata("design:type", Function),

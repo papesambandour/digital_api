@@ -13,7 +13,8 @@ exports.Operators = void 0;
 const typeorm_1 = require("typeorm");
 const Services_entity_1 = require("./Services.entity");
 const Country_entity_1 = require("./Country.entity");
-let Operators = class Operators extends typeorm_1.BaseEntity {
+const CustomBaseModel_1 = require("./CustomBaseModel");
+let Operators = class Operators extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

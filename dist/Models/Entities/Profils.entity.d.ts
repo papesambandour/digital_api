@@ -1,7 +1,7 @@
-import { BaseEntity } from 'typeorm';
 import { ActionsProfils } from './ActionsProfils.entity';
 import { Users } from './Users.entity';
-export declare class Profils extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class Profils extends CustomBaseModel {
     id: number;
     name: string;
     code: string;

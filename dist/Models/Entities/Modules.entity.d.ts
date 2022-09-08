@@ -1,6 +1,6 @@
-import { BaseEntity } from 'typeorm';
 import { Actions } from './Actions.entity';
-export declare class Modules extends BaseEntity {
+import { CustomBaseModel } from './CustomBaseModel';
+export declare class Modules extends CustomBaseModel {
     id: number;
     name: string;
     code: string;
