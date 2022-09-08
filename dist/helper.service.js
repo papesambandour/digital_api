@@ -258,7 +258,7 @@ let HelperService = class HelperService {
         }
     }
     async operationPartnerDoTransaction(transaction) {
-        transaction = await this.getTransactionById(transaction === null || transaction === void 0 ? void 0 : transaction.id);
+        await transaction.reload();
         const sousService = await SousServices_entity_1.SousServices.findOne({
             where: {
                 id: typeorm_2.Equal(transaction.sousServicesId),
@@ -302,9 +302,12 @@ let HelperService = class HelperService {
             await this.operationPhone(phone, phone.soldeApi, amountPhoneDebit, transaction.id, transaction.typeOperation, `Operation de ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`);
             await this.setSoldeTableOnly(amountPhoneDebit, 'phones', transaction.phonesId, 'solde');
         }
+        await transaction.reload();
     }
     async operationPartnerCancelTransaction(transaction, isRefund = false) {
-        transaction = await this.getTransactionById(transaction === null || transaction === void 0 ? void 0 : transaction.id);
+        console.log('before', transaction.transactionRefundFinished);
+        await transaction.reload();
+        console.log('caling refund', transaction.transactionRefundFinished, isRefund);
         if (!transaction) {
             console.log('No transaction for operation cancel');
             return;
@@ -314,7 +317,7 @@ let HelperService = class HelperService {
             return false;
         }
         if (isRefund && transaction.transactionRefundFinished) {
-            console.log('transaction already cancel');
+            console.log('transaction refunded cancel');
             return false;
         }
         let transactionData;
@@ -334,6 +337,8 @@ let HelperService = class HelperService {
             };
         }
         await Transactions_entity_1.Transactions.update(transaction.id, transactionData);
+        console.log('updating refund finish ok', transactionData, (await this.getTransactionById(transaction === null || transaction === void 0 ? void 0 : transaction.id))
+            .transactionRefundFinished);
         const sousService = await SousServices_entity_1.SousServices.findOne({
             where: {
                 id: typeorm_2.Equal(transaction.sousServicesId),
@@ -371,7 +376,7 @@ let HelperService = class HelperService {
             const phone = await Phones_entity_1.Phones.findOne({
                 where: { id: typeorm_2.Equal(transaction.phonesId) },
             });
-            await this.operationPhone(phone, phone.soldeApi, transaction.amount + transaction.feeAmountPsn, transaction.id, transaction.typeOperation, `Annulation  ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`, null, Enum_entity_1.OperationEnumPhone.ANNULATION_TRANSACTION);
+            await this.operationPhone(phone, phone.soldeApi, transaction.amount + transaction.feeAmountPsn, transaction.id, Enum_entity_1.TypeOperationEnum.CREDIT, `Annulation  ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`, null, Enum_entity_1.OperationEnumPhone.ANNULATION_TRANSACTION);
             await this.setSoldeTableOnly(transaction.amount + transaction.feeAmountPsn, 'phones', transaction.phonesId, 'solde');
         }
         else if (transaction.typeOperation == Enum_entity_1.TypeOperationEnum.CREDIT) {
@@ -389,7 +394,7 @@ let HelperService = class HelperService {
                 operationParteners.partenersId = partner.id;
                 operationParteners.transactionsId = transaction.id;
                 operationParteners.soldeBefor = partner.solde;
-                operationParteners.soldeAfter = partner.solde - amountPartner;
+                operationParteners.soldeAfter = partner.solde + amountPartner;
                 operationParteners.fee = transaction.feeAmount;
                 operationParteners.commission = transaction.commissionAmount;
                 operationParteners.createdAt = new Date();
@@ -400,11 +405,12 @@ let HelperService = class HelperService {
                 const phone = await Phones_entity_1.Phones.findOne({
                     where: { id: typeorm_2.Equal(transaction.phonesId) },
                 });
-                const amountPhone = transaction.amount + transaction.feeAmountPsn;
-                await this.operationPhone(phone, phone.soldeApi, amountPhone, transaction.id, transaction.typeOperation, `Remboursement  ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`, null, Enum_entity_1.OperationEnumPhone.ANNULATION_TRANSACTION);
+                const amountPhone = -(transaction.amount - transaction.feeAmountPsn);
+                await this.operationPhone(phone, phone.soldeApi, amountPhone, transaction.id, Enum_entity_1.TypeOperationEnum.DEBIT, `Remboursement  ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`, null, Enum_entity_1.OperationEnumPhone.REFUND_TRANSACTION);
                 await this.setSoldeTableOnly(amountPhone, 'phones', transaction.phonesId, 'solde');
             }
         }
+        await transaction.reload();
     }
     async updateApiBalance(apiManager, usedPhoneId) {
         if (!usedPhoneId) {
@@ -595,7 +601,7 @@ let HelperService = class HelperService {
         }
     }
     async handleSuccessTransactionCreditDebit(transaction, sousServiceTransactionId = null) {
-        transaction = await this.getTransactionById(transaction === null || transaction === void 0 ? void 0 : transaction.id);
+        await transaction.reload();
         const partner = await Parteners_entity_1.Parteners.findOne({
             where: {
                 id: typeorm_2.Equal(transaction.partenersId),
@@ -664,6 +670,7 @@ let HelperService = class HelperService {
             await this.setSoldeTableOnly(amountPhone, 'phones', transaction.phonesId, 'solde');
             await this.operationPhone(phone, soldeApi, amountPhone, transaction.id, sousService.typeOperation, `Operation de ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`);
         }
+        await transaction.reload();
     }
     isNotCancelable(preStatus, status) {
         return ([Enum_entity_1.StatusEnum.SUCCESS, Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING].includes(preStatus) ||
@@ -957,6 +964,12 @@ let HelperService = class HelperService {
             return {
                 allow: false,
                 message: 'Le statut de la transaction ne permet pas de proceder a son remboursmeent',
+            };
+        }
+        if (transaction.transactionRefundFinished) {
+            return {
+                allow: false,
+                message: 'Le transaction a deja ete rembourse',
             };
         }
         if (transaction.typeOperation !== Enum_entity_1.TypeOperationEnum.CREDIT) {

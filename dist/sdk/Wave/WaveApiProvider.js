@@ -193,6 +193,9 @@ class WaveApiProvider {
                 params.transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
                 params.transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
                 params.transaction.needCheckTransaction = 0;
+                params.transaction.sousServiceTransactionId = checkout.transaction_id
+                    ? `T_${checkout.transaction_id.substring(1)}`
+                    : null;
                 params.transaction.checkTransactionResponse = Utils.inspect(checkout);
                 await params.transaction.save();
                 console.log('after save');
@@ -700,7 +703,10 @@ class WaveApiProvider {
             transactionId: (_o = (_m = params.transaction) === null || _m === void 0 ? void 0 : _m.transactionId) !== null && _o !== void 0 ? _o : null,
         };
         try {
-            const refund = await node_fetch_1.default('https://sn.mmapp.wave.com/a/business_graphql', {
+            const refundQuery = '{"query":"mutation RefundDialog_refundMerchantSaleMutation(\\n  $transferId: ID!\\n  $refundPin: String\\n) {\\n  refundMerchantSale(transferId: $transferId, refundPin: $refundPin) {\\n    transfer {\\n      id\\n    }\\n    isRefunded\\n  }\\n}\\n","variables":{"transferId":"' +
+                transferId +
+                '","refundPin":""}}';
+            const refundRequest = await node_fetch_1.default('https://sn.mmapp.wave.com/a/business_graphql', {
                 headers: {
                     accept: '*/*',
                     'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7,ja;q=0.6',
@@ -715,18 +721,19 @@ class WaveApiProvider {
                 },
                 referrer: 'https://business.wave.com/',
                 referrerPolicy: 'strict-origin-when-cross-origin',
-                body: '{"query":"mutation RefundDialog_refundMerchantSaleMutation(\\n  $transferId: ID!\\n  $refundPin: String\\n) {\\n  refundMerchantSale(transferId: $transferId, refundPin: $refundPin) {\\n    transfer {\\n      id\\n    }\\n    isRefunded\\n  }\\n}\\n","variables":{"transferId":"' +
-                    transferId +
-                    '","refundPin":""}}',
+                body: refundQuery,
                 method: 'POST',
                 mode: 'cors',
                 credentials: 'omit',
             });
+            console.log(refundQuery, sessionId);
+            const refund = await refundRequest.json();
             if (((_q = (_p = refund === null || refund === void 0 ? void 0 : refund.data) === null || _p === void 0 ? void 0 : _p.refundMerchantSale) === null || _q === void 0 ? void 0 : _q.isRefunded) === true) {
                 return Object.assign({
                     status: Enum_entity_1.StatusEnum.SUCCESS,
                     codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
                     partnerMessage: `Le paiement Wave de ${params.transaction.amount} CFA a bien été remboursé`,
+                    refund,
                 }, baseResponse);
             }
             else {
@@ -734,6 +741,7 @@ class WaveApiProvider {
                     status: Enum_entity_1.StatusEnum.FAILLED,
                     codeHttp: Controller_1.CODE_HTTP.FAILLED,
                     partnerMessage: `Le paiement Wave de ${params.transaction.amount} CFA n'as pas pus être remboursé`,
+                    refund,
                 }, baseResponse);
             }
         }
@@ -743,6 +751,7 @@ class WaveApiProvider {
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.FAILLED,
                 partnerMessage: `Le paiement Wave de ${params.transaction.amount} CFA n'as pas pus être remboursé`,
+                refund: e,
             }, baseResponse);
         }
     }

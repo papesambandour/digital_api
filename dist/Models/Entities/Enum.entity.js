@@ -34,6 +34,7 @@ var OperationEnumPhone;
     OperationEnumPhone["ANNULATION_APPELS_FONDS"] = "ANNULATION_APPELS_FONDS";
     OperationEnumPhone["ANNULATION_APPROVISIONNEMENT"] = "ANNULATION_APPROVISIONNEMENT";
     OperationEnumPhone["ANNULATION_TRANSACTION"] = "ANNULATION_TRANSACTION";
+    OperationEnumPhone["REFUND_TRANSACTION"] = "REFUND_TRANSACTION";
 })(OperationEnumPhone = exports.OperationEnumPhone || (exports.OperationEnumPhone = {}));
 var TypeOperationEnum;
 (function (TypeOperationEnum) {

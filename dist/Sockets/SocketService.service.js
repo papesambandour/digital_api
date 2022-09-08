@@ -174,30 +174,16 @@ let SocketServiceService = class SocketServiceService {
                         message: sms === null || sms === void 0 ? void 0 : sms.content,
                         statutSmsResponse: Enum_entity_1.EnumValidationStatus.SUCCESS,
                         sousServiceTransactionId: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.transactionId,
-                        transactionIsFinish: 1,
                     });
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
                         sousServicesId: (_e = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _e === void 0 ? void 0 : _e.id,
                         transactionsId: transaction.id,
                         isMatched: 1,
                     });
-                    if (infoTransaction.sousService.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {
-                        if (+infoTransaction.sousService.hasSoldeApi) {
-                            await this.helper.setSoldeTableFromValue(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
-                        }
+                    if (+infoTransaction.sousService.hasSoldeApi) {
+                        await this.helper.setSoldeTableFromValue(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
                     }
-                    else if (infoTransaction.sousService.typeOperation ==
-                        Enum_entity_1.TypeOperationEnum.CREDIT) {
-                        await this.helper.setSoldeTableOnly(transaction.amount - transaction.feeAmount, 'parteners', transaction.partenersId, 'solde');
-                        await this.helper.setSoldeTableOnly(transaction.amount, 'phones', phone.id, 'solde');
-                        if (+infoTransaction.sousService.hasSoldeApi) {
-                            await this.helper.setSoldeTableFromValue(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
-                        }
-                        await this.helper.operationPhone(phone, infoTransaction.new_balance, transaction.amount, transaction.id, infoTransaction.sousService.typeOperation, `Operation de ${infoTransaction.sousService.typeOperation} pour ${infoTransaction.sousService.name} avec le telephone ${phone.number}`);
-                    }
-                    else {
-                        await this.helper.notifyAdmin(`Le service ${infoTransaction.sousService.name} est mal configuré le type d'operation(${infoTransaction.sousService.typeOperation}) est  non pris en charge `, Enum_entity_1.TypeEvenEnum.NO_TYPE_OPEARTION_MATCH, infoTransaction.sousService);
-                    }
+                    await this.helper.handleSuccessTransactionCreditDebit(transaction);
                     await this.helper.setIsCallbackReadyValue(transaction.id);
                 }
                 else {

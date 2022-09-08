@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "ae9380849ecaddba1b5c23e5364340895598c12a768d90c37b216e2e33f55124",
-        "signature": "fd1e191491c92db9ff3e32d2cb0716673134b414695406cc78a22fba9d10e0ab",
+        "version": "66cd1927719935edabd0e78f7dff35757802763cbbceeb427dde91a9ec2ac373",
+        "signature": "6ab3f869deea18f5bdeca426746494cf83512547cc76a0992114a74b82affbeb",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3827,8 +3827,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "d4768b2e5148b3a7e9e17ec92b0322d197b00730ffc74a9733b05aa48bb7541c",
-        "signature": "d729ec61d2172406abc6e50592655aeb2860a8830e27584c1ad8f29b6f59a957",
+        "version": "4de6c3923dbe75676a14b8e652679076a0dfe96de25fa289affe293cb00802c9",
+        "signature": "c52259b0c0a3164ca976f8803fae13ecc8007b0891adec617f991d13e3df77e6",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
@@ -4142,8 +4142,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "c469056f011693cec24f3126c2cf091072dd3a62c8a64a66ccc23649f2c9c931",
-        "signature": "74ce98a267316795ba96bb8973c3be257952454685a19d0502fcc3257e6a5c5a",
+        "version": "a2cc5a7bcd36487cffd94584ce54adf1f72d6cabdfc6f4b4d3c11daac153d3fd",
+        "signature": "15f88415cc2fb6ad4882b3f95f416ef070463727235daf1204c594c9b8aa73a1",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtooperationparteners.ts": {
@@ -4162,7 +4162,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "ac662383de027d380bc84e2c241fc33203a02071dbcc78fd875cb74369460dbd",
+        "version": "729cd2d1f73c70b4e0f8d2d7087fa6d9d9471ef968075ecbb352408fb0da49e4",
         "signature": "fa4f39dd225a54e6ad0efeb4b829bd5cd9712857622789f9c5cb226a9b258510",
         "affectsGlobalScope": false
       },
@@ -4622,7 +4622,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "10fca9ce5d0e5c35702c76e0521faa8ccc95a941a59fd418f48b6783f4f30164",
+        "version": "98b2f4088f8d1aa15429efe4bc74877384d12663c33654c6230f59ce9cbe0f87",
         "signature": "e43afb687423f2026bf4b4cfe7eb3a578de53de35aba6bd1c1b17571791d3ca9",
         "affectsGlobalScope": false
       },
@@ -6512,7 +6512,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-service.service.ts": {
-        "version": "ba6c56d3febc9e7603b972959628bcb9a05311bab9f1f3ab377953fa4d52bcd6",
+        "version": "8f166eeb8a31ff7cfa912452e8e93a478b5fe665f688a1f75142cf134882adfb",
         "signature": "1cc94eff1dc5f8c1fb03bb1dd454c491ce95e94f2e43d86e01dcf10b6f3d065a",
         "affectsGlobalScope": false
       },
@@ -6622,12 +6622,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "29f8a3c9d0a72250980de8b56dd8fc5d1f73729b019a41ab3bbaf8fc8075be4a",
+        "version": "62122b05ada1c941230a825502d50a9eeda5b34c03626ee3c57e8d7328d2ba84",
         "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "5c5b1cf3a8abfea0d7f13f04a3cc5bd01c2d31e4add3b965b7fffc41fd79f890",
+        "version": "affca7e3b0989946f23506413cc773b075f54a1a497c447bb9dc1d504eff9806",
         "signature": "86918e8b8670624f3a8241c21c7d8fbb23c3af254ad8bd22cb200f8d9d4f6533",
         "affectsGlobalScope": false
       },
@@ -13473,6 +13473,7 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
         "../src/helper.service.ts",
+        "../src/main.ts",
         "../src/models/entities/enum.entity.ts"
       ],
       "../src/exceptions/httpexceptionhandler.ts": [

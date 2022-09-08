@@ -13,6 +13,7 @@ exports.PartnerServiceService = void 0;
 const common_1 = require("@nestjs/common");
 const helper_service_1 = require("../../helper.service");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
+const main_1 = require("../../main");
 let PartnerServiceService = class PartnerServiceService {
     constructor(helper) {
         this.helper = helper;
@@ -30,8 +31,10 @@ let PartnerServiceService = class PartnerServiceService {
         const refund = await apiManager.refundTransaction({
             transaction: transaction,
         });
+        transaction.refundResponse = main_1.serializeData(refund);
+        await transaction.save();
         if (refund.status === Enum_entity_1.StatusEnum.SUCCESS) {
-            await this.helper.operationPartnerCancelTransaction(transaction, true);
+            await this.helper.handleTransactionRefundSuccess(transaction);
         }
         return {
             status: refund.status,

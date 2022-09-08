@@ -183,7 +183,14 @@ __decorate([
 __decorate([
     typeorm_1.Column('enum', {
         name: 'pre_statut',
-        enum: ['SUCCESS', 'PENDING', 'PROCESSING', 'FAILLED', 'CANCELED'],
+        enum: [
+            'SUCCESS',
+            'PENDING',
+            'PROCESSING',
+            'FAILLED',
+            'CANCELED',
+            'REFUNDED',
+        ],
         default: 'PENDING',
         comment: 'Permet demettre un statut temporel qui a la meme valeur que stut. Mais on peut faire une reclamation dessus',
     }),
@@ -379,6 +386,14 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], Transactions.prototype, "dataResponseCallback", void 0);
+__decorate([
+    typeorm_1.Column('longtext', {
+        name: 'refund_response',
+        comment: 'Les donnees recu lors du call de refund du manager api',
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], Transactions.prototype, "refundResponse", void 0);
 __decorate([
     typeorm_1.Column('tinyint', {
         name: 'callback_is_send',

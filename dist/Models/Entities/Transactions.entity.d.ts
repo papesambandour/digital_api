@@ -34,7 +34,7 @@ export declare class Transactions extends BaseEntity {
     callbackSendedAt: Date | null;
     state: 'ACTIVED' | 'INACTIVED' | 'DELETED';
     statut: 'SUCCESS' | 'PENDING' | 'PROCESSING' | 'FAILLED' | 'CANCELED' | 'REFUNDED';
-    preStatut: 'SUCCESS' | 'PENDING' | 'PROCESSING' | 'FAILLED' | 'CANCELED';
+    preStatut: 'SUCCESS' | 'PENDING' | 'PROCESSING' | 'FAILLED' | 'CANCELED' | 'REFUNDED';
     statutUssdResponse: EnumValidationStatus;
     statutSmsResponse: EnumValidationStatus;
     dateCreation: Date | null;
@@ -63,6 +63,7 @@ export declare class Transactions extends BaseEntity {
     dataSended: string;
     codeSousService: string;
     dataResponseCallback: string;
+    refundResponse: string;
     callbackIsSend: number;
     needCheckTransaction: number;
     callbackReady: number;

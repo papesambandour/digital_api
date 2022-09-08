@@ -119,7 +119,9 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
         }
         const response = await WaveApiProvider_1.default.refundTransaction(params, config_1.waveBusinessApiConfig(this.constructor.country).sessionId, params.transaction.sousServiceTransactionId);
         if (response.status === Enum_entity_1.StatusEnum.SUCCESS) {
+            console.log('caaling refund');
             await this.helper.handleTransactionRefundSuccess(params.transaction);
+            console.log('fater refubd');
         }
         return response;
     }

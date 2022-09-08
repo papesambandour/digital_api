@@ -35,6 +35,7 @@ export declare type RefundParams = {
 export declare type RefundResponse = OperationOutDto & {
     partnerMessage?: string;
     codeHttp: string;
+    refund?: any;
 };
 export declare type CheckParams = {
     transaction: Transactions;
