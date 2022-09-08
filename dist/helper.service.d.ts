@@ -8,6 +8,7 @@ import { SousServices } from './Models/Entities/SousServices.entity';
 import { ApiServiceService } from './Controllers/api-service/api-service.service';
 import { OperationInDto } from './Controllers/api-service/dto/OperationInDto';
 import { ErrorTypes } from './Models/Entities/ErrorTypes.entity';
+import { ColumnMetadata } from 'typeorm/metadata/ColumnMetadata';
 export declare type Rib = {
     bankCode: RibItem;
     ribKey: RibItem;
@@ -48,6 +49,7 @@ export declare class HelperService {
         preStatus: any;
         status: any;
     };
+    getColumnMap(model: string, dbKeyName: string): Promise<ColumnMetadata>;
     checkServiceConfig(): Promise<void>;
     private disableSousService;
     handleSuccessTransactionCreditDebit(transaction: Transactions, sousServiceTransactionId?: any): Promise<boolean>;

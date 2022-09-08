@@ -31,7 +31,7 @@ class WaveApiProvider {
         return moment().format(WaveApiProvider.WAVE_DATE_FORMAT);
     }
     static async SendWaveMoneyBusiness({ toPhoneNumber, sender = '', amount, sessionId, walletId, }) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
         const amountInfo = WaveApiProvider.waveFeeCalculator(amount, 1);
         const invisibleCharacter = 'ㅤ';
         const receiverName = `${invisibleCharacter.repeat(3)} ${invisibleCharacter.repeat(2)}`;
@@ -60,10 +60,13 @@ class WaveApiProvider {
         try {
             console.log('before disaster');
             const sendQueryResult = await _(node_fetch_1.default)('https://sn.mmapp.wave.com/a/business_graphql', {
+                credentials: 'omit',
                 headers: headers,
                 referrer: 'https://business.wave.com/',
+                origin: 'https://business.wave.com/',
                 body: sendQuery,
                 method: 'POST',
+                mode: 'cors',
             });
             const json = (await sendQueryResult.json());
             if ((_c = (_b = (_a = json === null || json === void 0 ? void 0 : json.data) === null || _a === void 0 ? void 0 : _a.businessSend) === null || _b === void 0 ? void 0 : _b.transfer) === null || _c === void 0 ? void 0 : _c.id) {
@@ -76,14 +79,16 @@ class WaveApiProvider {
                     message: 'Envoyé avec succès',
                     newBalance: parseFloat(((sourceWallet === null || sourceWallet === void 0 ? void 0 : sourceWallet.balance) || '0').replace('CFA ', '')) || 0,
                     fullResponse: json,
-                    reference: (_m = (_l = (_k = json.data) === null || _k === void 0 ? void 0 : _k.businessSend) === null || _l === void 0 ? void 0 : _l.transfer) === null || _m === void 0 ? void 0 : _m.id,
+                    reference: ((_m = (_l = (_k = json.data) === null || _k === void 0 ? void 0 : _k.businessSend) === null || _l === void 0 ? void 0 : _l.transfer) === null || _m === void 0 ? void 0 : _m.id) || null,
                 });
             }
             else {
+                console.log('error here');
+                const error = WaveUtil.getErrorResponse(json);
                 return Promise.resolve({
                     success: false,
-                    code: ((_o = json === null || json === void 0 ? void 0 : json.errors[0]) === null || _o === void 0 ? void 0 : _o.code) || 'unknown_error',
-                    message: ((_p = json === null || json === void 0 ? void 0 : json.errors[0]) === null || _p === void 0 ? void 0 : _p.message) || 'Erreur',
+                    code: error.code,
+                    message: error.message,
                     newBalance: null,
                     fullResponse: json,
                     reference: '',
@@ -91,10 +96,12 @@ class WaveApiProvider {
             }
         }
         catch (e) {
+            console.log(e);
+            const error = WaveUtil.getErrorResponse(e);
             return Promise.resolve({
                 success: false,
-                code: 'unknown_error',
-                message: e.message,
+                code: error.code,
+                message: error.message,
                 newBalance: null,
                 fullResponse: e,
                 reference: '',

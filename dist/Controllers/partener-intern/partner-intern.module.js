@@ -14,7 +14,7 @@ const helper_service_1 = require("../../helper.service");
 const partner_middleware_middleware_1 = require("./partner-middleware.middleware");
 let PartnerInternModule = class PartnerInternModule {
     configure(consumer) {
-        consumer.apply(partner_middleware_middleware_1.PartnerMiddlewareMiddleware).forRoutes('*');
+        consumer.apply(partner_middleware_middleware_1.PartnerMiddlewareMiddleware).forRoutes('api/v1.0/partner*');
     }
 };
 PartnerInternModule = __decorate([

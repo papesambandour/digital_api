@@ -27,6 +27,7 @@ let PartnerControllerController = class PartnerControllerController {
         };
     }
     async refund(refundDtoIn) {
+        return await this.partnerServiceService.refund(refundDtoIn);
     }
 };
 __decorate([
@@ -41,7 +42,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], PartnerControllerController.prototype, "home", null);
 __decorate([
-    common_1.Get('/transaction/refund'),
+    common_1.Post('/transaction/refund'),
     ResponseDecorateur_1.ResponseDecorateur(refund_dto_out_1.RefundDtoOut, 201, 'Home service partner intern '),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),

@@ -5,6 +5,7 @@ const api_manager_interface_service_1 = require("../api-manager-interface/api-ma
 const ProviderOrangeMoneyApi_1 = require("../../../sdk/Orange/ProviderOrangeMoneyApi");
 const Controller_1 = require("../../Controller");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
+const main_1 = require("../../../main");
 class OrangeMoneySnCashOutApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return ProviderOrangeMoneyApi_1.default.apiManagerCheckStatusTransaction(this, params);
@@ -45,7 +46,7 @@ class OrangeMoneySnCashOutApiManagerService extends api_manager_interface_servic
         transaction.sousServiceTransactionId = response === null || response === void 0 ? void 0 : response.externalReference;
         await transaction.save();
         if (response.success) {
-            transaction.message = JSON.stringify(response.apiResponse);
+            transaction.message = main_1.serializeData(response.apiResponse);
             transaction.needCheckTransaction = 1;
             await transaction.save();
             console.log('Send OKK');
@@ -60,7 +61,7 @@ class OrangeMoneySnCashOutApiManagerService extends api_manager_interface_servic
         }
         else {
             console.log('error while requesting');
-            transaction.errorMessage = JSON.stringify(response.apiResponse);
+            transaction.errorMessage = main_1.serializeData(response.apiResponse);
             await transaction.save();
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,

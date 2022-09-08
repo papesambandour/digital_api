@@ -6,6 +6,7 @@ const WaveApiProvider_1 = require("../../../sdk/Wave/WaveApiProvider");
 const config_1 = require("../../../sdk/Wave/config");
 const Controller_1 = require("../../Controller");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
+const main_1 = require("../../../main");
 class RapidoSnBillReloadApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return await this.notImplementedYet(params);
@@ -54,7 +55,7 @@ class RapidoSnBillReloadApiManagerService extends api_manager_interface_service_
         await this.helper.setIsCallbackReadyValue(transaction.id);
         this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (rapido.success) {
-            transaction.message = JSON.stringify(rapido);
+            transaction.message = main_1.serializeData(rapido);
             await transaction.save();
             await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');
@@ -71,7 +72,7 @@ class RapidoSnBillReloadApiManagerService extends api_manager_interface_service_
             }, baseResponse);
         }
         else {
-            transaction.errorMessage = JSON.stringify(rapido);
+            transaction.errorMessage = main_1.serializeData(rapido);
             await transaction.save();
             await this.helper.operationPartnerCancelTransaction(transaction);
             return Object.assign({

@@ -213,23 +213,23 @@ let ApiServiceService = class ApiServiceService {
             asError = true;
             msg.apiKey.push('Duplication du external transaction ID');
         }
-        const dateTransaction = new Date();
-        dateTransaction.setMinutes(dateTransaction.getMinutes() - Enum_entity_1.CONSTANT.LIMIT_TIME_TRANSACTION());
-        const transactionTime = await Transactions_entity_1.Transactions.findOne({
-            where: {
-                amount: typeorm_1.Equal(operationInDto.amount),
-                phone: typeorm_1.Equal(operationInDto.phone),
-                codeSousService: typeorm_1.Equal(operationInDto.codeService),
-                statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
-                createdAt: typeorm_1.MoreThanOrEqual(dateTransaction),
-            },
-        });
-        console.log(`TRANSACTION IN LAST ${Enum_entity_1.CONSTANT.LIMIT_TIME_TRANSACTION} MINUTE`, transactionTime);
-        if (transactionTime &&
-            ![Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(operationInDto.codeService) &&
-            !operationInDto.codeService.includes('_BILL_')) {
-            asError = true;
-            msg.apiKey.push(`Une transaction avec le meme numéro et le meme montant est deja en cours, ressayer dans ${Enum_entity_1.CONSTANT.LIMIT_TIME_TRANSACTION()} minutes`);
+        if (this.sousServices.limitTimeTransaction !== -1) {
+            const dateTransaction = new Date();
+            dateTransaction.setMinutes(dateTransaction.getMinutes() - this.sousServices.limitTimeTransaction);
+            const transactionTime = await Transactions_entity_1.Transactions.findOne({
+                where: {
+                    amount: typeorm_1.Equal(operationInDto.amount),
+                    phone: typeorm_1.Equal(operationInDto.phone),
+                    codeSousService: typeorm_1.Equal(operationInDto.codeService),
+                    statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
+                    createdAt: typeorm_1.MoreThanOrEqual(dateTransaction),
+                },
+            });
+            console.log(`TRANSACTION IN LAST ${Enum_entity_1.CONSTANT.LIMIT_TIME_TRANSACTION} MINUTE`, transactionTime);
+            if (transactionTime) {
+                asError = true;
+                msg.apiKey.push(`Une transaction avec le meme numéro et le meme montant est deja en cours, ressayer dans ${Enum_entity_1.CONSTANT.LIMIT_TIME_TRANSACTION()} minutes`);
+            }
         }
         this.operationInDto = operationInDto;
         if (!this.validUrl(operationInDto.callbackUrl.toLowerCase())) {

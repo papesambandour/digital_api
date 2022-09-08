@@ -8,7 +8,8 @@ export declare enum StatusEnum {
     PENDING = "PENDING",
     PROCESSING = "PROCESSING",
     FAILLED = "FAILLED",
-    CANCELED = "CANCELED"
+    CANCELED = "CANCELED",
+    REFUNDED = "REFUNDED"
 }
 export declare enum OperationEnum {
     TRANSACTION = "TRANSACTION",

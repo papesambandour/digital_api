@@ -4,6 +4,7 @@ exports.BankTransferSnCashInApiManagerService = void 0;
 const api_manager_interface_service_1 = require("../api-manager-interface/api-manager-interface.service");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const Controller_1 = require("../../Controller");
+const main_1 = require("../../../main");
 class BankTransferSnCashInApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return await this.notImplementedYet(params);
@@ -54,7 +55,7 @@ class BankTransferSnCashInApiManagerService extends api_manager_interface_servic
         transaction.customerLastName = params.dto.customerLastName;
         transaction.customerEmail = params.dto.customerEmail || null;
         await transaction.save();
-        transaction.message = JSON.stringify(ribData);
+        transaction.message = main_1.serializeData(ribData);
         await transaction.save();
         console.log('Send OKK');
         return Object.assign({

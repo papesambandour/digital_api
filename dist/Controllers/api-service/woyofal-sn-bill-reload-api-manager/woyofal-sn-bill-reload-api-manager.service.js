@@ -6,6 +6,7 @@ const Controller_1 = require("../../Controller");
 const WaveApiProvider_1 = require("../../../sdk/Wave/WaveApiProvider");
 const config_1 = require("../../../sdk/Wave/config");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
+const main_1 = require("../../../main");
 class WoyofalSnBillReloadApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return await this.notImplementedYet(params);
@@ -55,7 +56,7 @@ class WoyofalSnBillReloadApiManagerService extends api_manager_interface_service
         await this.helper.setIsCallbackReadyValue(transaction.id);
         this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (woyofal.success) {
-            transaction.message = JSON.stringify(woyofal);
+            transaction.message = main_1.serializeData(woyofal);
             await transaction.save();
             await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');
@@ -74,7 +75,7 @@ class WoyofalSnBillReloadApiManagerService extends api_manager_interface_service
             }, baseResponse);
         }
         else {
-            transaction.errorMessage = JSON.stringify(woyofal);
+            transaction.errorMessage = main_1.serializeData(woyofal);
             await transaction.save();
             await this.helper.operationPartnerCancelTransaction(transaction);
             return Object.assign({

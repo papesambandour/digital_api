@@ -107,6 +107,16 @@ __decorate([
 ], SousServices.prototype, "minLimitTransaction", void 0);
 __decorate([
     typeorm_1.Column('double', {
+        name: 'limit_time_transaction',
+        comment: "Temps d'attende EN MINUTE pour refaire la meme transaction numer/montant(VALEUR -1 pour infini)\n",
+        precision: 17,
+        scale: 4,
+        default: '15.0000',
+    }),
+    __metadata("design:type", Number)
+], SousServices.prototype, "limitTimeTransaction", void 0);
+__decorate([
+    typeorm_1.Column('double', {
         name: 'max_limit_transaction',
         comment: 'limite par transaction(VALEUR -1 pour infini)\n',
         precision: 17,
@@ -115,46 +125,6 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], SousServices.prototype, "maxLimitTransaction", void 0);
-__decorate([
-    typeorm_1.Column('double', {
-        name: 'max_limit_day',
-        comment: 'imit max par jour cumulé (VALEUR -1 pour infini)',
-        precision: 17,
-        scale: 4,
-        default: '-1.0000',
-    }),
-    __metadata("design:type", Number)
-], SousServices.prototype, "maxLimitDay", void 0);
-__decorate([
-    typeorm_1.Column('double', {
-        name: 'max_limit_week',
-        comment: 'limit max par semaine (VALEUR -1 pour infini)',
-        precision: 17,
-        scale: 4,
-        default: '-1.0000',
-    }),
-    __metadata("design:type", Number)
-], SousServices.prototype, "maxLimitWeek", void 0);
-__decorate([
-    typeorm_1.Column('double', {
-        name: 'max_limit_month',
-        comment: 'limit max par moi(VALEUR -1 pour infini)',
-        precision: 17,
-        scale: 4,
-        default: '-1.0000',
-    }),
-    __metadata("design:type", Number)
-], SousServices.prototype, "maxLimitMonth", void 0);
-__decorate([
-    typeorm_1.Column('double', {
-        name: 'max_limit_trimest',
-        comment: ' limit max par trimestre (VALEUR -1 pour infini)',
-        precision: 17,
-        scale: 4,
-        default: '-1.0000',
-    }),
-    __metadata("design:type", Number)
-], SousServices.prototype, "maxLimitTrimest", void 0);
 __decorate([
     typeorm_1.Column('enum', { name: 'type_operation', enum: Enum_entity_1.TypeOperationEnum }),
     __metadata("design:type", String)

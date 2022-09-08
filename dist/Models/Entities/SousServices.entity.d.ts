@@ -25,11 +25,8 @@ export declare class SousServices extends BaseEntity {
     createdAt: Date;
     updatedAt: Date | null;
     minLimitTransaction: number;
+    limitTimeTransaction: number;
     maxLimitTransaction: number;
-    maxLimitDay: number;
-    maxLimitWeek: number;
-    maxLimitMonth: number;
-    maxLimitTrimest: number;
     typeOperation: TypeOperationEnum;
     servicesId: number;
     typeServicesId: number;

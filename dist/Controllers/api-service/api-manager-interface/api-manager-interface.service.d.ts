@@ -7,6 +7,7 @@ import { Connection } from 'typeorm';
 import { HelperService } from '../../../helper.service';
 import { HttpService } from '@nestjs/common';
 import { ApiServiceService } from '../api-service.service';
+import { SousServices } from '../../../Models/Entities/SousServices.entity';
 import { ListPendingBillInDto } from '../dto/ListPendingBillInDto';
 export declare type InitParams = {
     dto: OperationInDto;
@@ -69,7 +70,7 @@ export declare type PendingBillParams = {
 export declare const MANAGER_INIT_CASH_IN_SUCCESS_MESSAGE = "Votre op\u00E9ration s'est effectu\u00E9e sans erreur. Veuillez attendre le callback pour avoir l'\u00E9tat final de la transaction";
 export declare const MANAGER_INIT_CASH_OUT_SUCCESS_MESSAGE = "Votre op\u00E9ration s'est effectu\u00E9e sans erreur, Vous allez recevoir un message de confirmation";
 export declare const MANAGER_INIT_DOWN_MESSAGE = "Le services est indisponible pour le moment(pho)";
-export declare const MANAGER_INIT_UNKNOWN_MESSAGE = "Une erreur inconnue s'est produite";
+export declare const MANAGER_INIT_UNKNOWN_MESSAGE = "Votre op\u00E9ration n'a pas pu \u00EAtre trait\u00E9e pour le moment, r\u00E9essayez plus tard.";
 export declare abstract class ApiManagerInterface {
     protected readonly connection: Connection;
     helper: HelperService;
@@ -88,4 +89,6 @@ export declare abstract class ApiManagerInterface {
     loadBalancingPhone(): Promise<Phones>;
     activePhone(phoneId: number, phoneNumber: string): Promise<void>;
     disablePhone(phoneId: number, phoneNumber: string): Promise<void>;
+    selectPhoneFromBalanceResult(phones: null | Phones[]): Promise<Phones | null>;
+    checkServiceSimLimit(intervalsTime: string[], phone: Phones, sousService: SousServices, nextAmount: number): Promise<boolean>;
 }

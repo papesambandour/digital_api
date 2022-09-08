@@ -6,6 +6,7 @@ const Controller_1 = require("../../Controller");
 const WaveApiProvider_1 = require("../../../sdk/Wave/WaveApiProvider");
 const config_1 = require("../../../sdk/Wave/config");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
+const main_1 = require("../../../main");
 class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return WaveApiProvider_1.default.apiManagerCheckCashOutStatusTransaction(this, params, this.constructor.country);
@@ -56,7 +57,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
         transaction.sousServiceTransactionId = checkout === null || checkout === void 0 ? void 0 : checkout.id;
         await transaction.save();
         if (checkout === null || checkout === void 0 ? void 0 : checkout.success) {
-            transaction.message = JSON.stringify(checkout);
+            transaction.message = main_1.serializeData(checkout);
             transaction.needCheckTransaction = 1;
             transaction.deepLinkUrl = `wave://capture/${checkout.wave_launch_url}`;
             transaction.successRedirectUrl = params.dto.successRedirectUrl;
@@ -86,7 +87,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
             }, baseResponse);
         }
         else {
-            transaction.errorMessage = JSON.stringify(checkout);
+            transaction.errorMessage = main_1.serializeData(checkout);
             await transaction.save();
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,

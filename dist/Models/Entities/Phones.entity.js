@@ -233,6 +233,66 @@ __decorate([
     __metadata("design:type", String)
 ], Phones.prototype, "simProvider", void 0);
 __decorate([
+    typeorm_1.Column('double', {
+        name: 'daily_count_limit',
+        comment: 'Nombre cumul Trx max par jour (VALEUR -1 pour infini)\n',
+        precision: 17,
+        scale: 4,
+        default: '-1.0000',
+    }),
+    __metadata("design:type", Number)
+], Phones.prototype, "dailyCountLimit", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'daily_amount_limit',
+        comment: 'Montant cumul max par jours  (VALEUR -1 pour infini)\n',
+        precision: 17,
+        scale: 4,
+        default: '-1.0000',
+    }),
+    __metadata("design:type", Number)
+], Phones.prototype, "dailyAmountLimit", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'weekly_count_limit',
+        comment: 'Nombre cumul Trx max par mois (VALEUR -1 pour infini)\n',
+        precision: 17,
+        scale: 4,
+        default: '-1.0000',
+    }),
+    __metadata("design:type", Number)
+], Phones.prototype, "weeklyCountLimit", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'weekly_amount_limit',
+        comment: 'Montant cumul max par semaine (VALEUR -1 pour infini)\n',
+        precision: 17,
+        scale: 4,
+        default: '-1.0000',
+    }),
+    __metadata("design:type", Number)
+], Phones.prototype, "weeklyAmountLimit", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'monthly_count_limit',
+        comment: 'Nombre cumul trx max par mois  (VALEUR -1 pour infini)\n',
+        precision: 17,
+        scale: 4,
+        default: '-1.0000',
+    }),
+    __metadata("design:type", Number)
+], Phones.prototype, "monthlyCountLimit", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'monthly_amount_limit',
+        comment: 'Montant cumul max par mois (VALEUR -1 pour infini)\n',
+        precision: 17,
+        scale: 4,
+        default: '-1.0000',
+    }),
+    __metadata("design:type", Number)
+], Phones.prototype, "monthlyAmountLimit", void 0);
+__decorate([
     typeorm_1.OneToMany(() => OperationPhones_entity_1.OperationPhones, (operationPhones) => operationPhones.phones),
     __metadata("design:type", Array)
 ], Phones.prototype, "operationPhones", void 0);

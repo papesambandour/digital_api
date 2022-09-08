@@ -14,6 +14,7 @@ var StatusEnum;
     StatusEnum["PROCESSING"] = "PROCESSING";
     StatusEnum["FAILLED"] = "FAILLED";
     StatusEnum["CANCELED"] = "CANCELED";
+    StatusEnum["REFUNDED"] = "REFUNDED";
 })(StatusEnum = exports.StatusEnum || (exports.StatusEnum = {}));
 var OperationEnum;
 (function (OperationEnum) {

@@ -3,11 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ApiManagerInterface = exports.MANAGER_INIT_UNKNOWN_MESSAGE = exports.MANAGER_INIT_DOWN_MESSAGE = exports.MANAGER_INIT_CASH_OUT_SUCCESS_MESSAGE = exports.MANAGER_INIT_CASH_IN_SUCCESS_MESSAGE = void 0;
 const Transactions_entity_1 = require("../../../Models/Entities/Transactions.entity");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
+const typeorm_1 = require("typeorm");
 const Controller_1 = require("../../Controller");
 exports.MANAGER_INIT_CASH_IN_SUCCESS_MESSAGE = `Votre opération s'est effectuée sans erreur. Veuillez attendre le callback pour avoir l'état final de la transaction`;
 exports.MANAGER_INIT_CASH_OUT_SUCCESS_MESSAGE = `Votre opération s'est effectuée sans erreur, Vous allez recevoir un message de confirmation`;
 exports.MANAGER_INIT_DOWN_MESSAGE = `Le services est indisponible pour le moment(pho)`;
-exports.MANAGER_INIT_UNKNOWN_MESSAGE = `Une erreur inconnue s'est produite`;
+exports.MANAGER_INIT_UNKNOWN_MESSAGE = `Votre opération n'a pas pu être traitée pour le moment, réessayez plus tard.`;
 class ApiManagerInterface {
     constructor(connection, helper, httpService, apiService) {
         this.connection = connection;
@@ -114,39 +115,20 @@ class ApiManagerInterface {
             if (this.apiService.sousServices.typeOperation === Enum_entity_1.TypeOperationEnum.DEBIT) {
                 query += ` AND phones.solde >= ${this.apiService.operationInDto.amount} `;
             }
-            query += ` ORDER BY RAND() LIMIT 1;`;
+            query += ` ORDER BY RAND();`;
             let res = await this.apiService.connection.query(query);
-            this.apiService.phone = res = (res === null || res === void 0 ? void 0 : res.length) ? res[0] : null;
+            this.apiService.phone = await this.selectPhoneFromBalanceResult(res);
             if (this.apiService.phone) {
-                Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number] = Enum_entity_1.PHONES_HOLDERS
-                    .AVALABLITY[this.apiService.phone.number] || {
-                    used: false,
-                };
-            }
-            if (res &&
-                (!Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number]['used'] ||
-                    !this.apiService.sousServices.needPhone)) {
-                Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number]['used'] = true;
-                this.disablePhone(res.id, res.number).then((value) => value);
-                resolve(res);
+                resolve(this.apiService.phone);
             }
             else {
                 for (let i = 0; i < Enum_entity_1.CONSTANT.TIME_OUT_PHONE_SECOND(); i++) {
                     console.log('WAITING PHONE', i, Enum_entity_1.PHONES_HOLDERS.AVALABLITY);
                     await this.helper.waitSome(2);
                     res = await this.apiService.connection.query(query);
-                    this.apiService.phone = res = (res === null || res === void 0 ? void 0 : res.length) ? res[0] : null;
+                    this.apiService.phone = await this.selectPhoneFromBalanceResult(res);
                     if (this.apiService.phone) {
-                        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number] = Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number] || {
-                            used: false,
-                        };
-                    }
-                    if (res &&
-                        (!Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number]['used'] ||
-                            !this.apiService.sousServices.needPhone)) {
-                        Enum_entity_1.PHONES_HOLDERS.AVALABLITY[this.apiService.phone.number]['used'] = true;
-                        this.disablePhone(res.id, res.number).then((value) => value);
-                        resolve(res);
+                        resolve(this.apiService.phone);
                         break;
                     }
                 }
@@ -169,6 +151,60 @@ class ApiManagerInterface {
                            last_used= '${this.helper.mysqlDate(new Date())}'
                        where number = '${phoneNumber}'`;
         this.apiService.connection.query(query).then((value) => console.log(value));
+    }
+    async selectPhoneFromBalanceResult(phones) {
+        if (!(phones === null || phones === void 0 ? void 0 : phones.length)) {
+            return null;
+        }
+        for (const phone of phones) {
+            Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phone.number] = Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phone.number] || {
+                used: false,
+            };
+            const limitNotReached = await this.checkServiceSimLimit(['daily', 'weekly', 'monthly'], phone, this.apiService.sousServices, this.apiService.operationInDto.amount);
+            const isFree = !Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phone.number]['used'] ||
+                !this.apiService.sousServices.needPhone;
+            if (limitNotReached && isFree) {
+                Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phone.number]['used'] = true;
+                this.disablePhone(phone.id, phone.number).then((value) => value);
+                return phone;
+            }
+        }
+        return null;
+    }
+    async checkServiceSimLimit(intervalsTime, phone, sousService, nextAmount) {
+        for (const interval of intervalsTime) {
+            const countField = `${interval}_count_limit`;
+            const amountField = `${interval}_amount_limit`;
+            const countColumn = await this.helper.getColumnMap('Phones', countField);
+            const amountColumn = await this.helper.getColumnMap('Phones', amountField);
+            const maxTrCount = phone[countColumn.propertyName];
+            const maxTrAmount = phone[amountColumn.propertyName];
+            const transactionWhere = {
+                sousServicesId: sousService.id,
+                statut: typeorm_1.In([
+                    Enum_entity_1.StatusEnum.PENDING,
+                    Enum_entity_1.StatusEnum.PROCESSING,
+                    Enum_entity_1.StatusEnum.SUCCESS,
+                ]),
+            };
+            const [, countUsage] = await Transactions_entity_1.Transactions.findAndCount({
+                where: transactionWhere,
+            });
+            const [, amountUsage] = await Transactions_entity_1.Transactions.findAndCount({
+                where: transactionWhere,
+            });
+            if (maxTrAmount !== -1 && amountUsage + nextAmount >= maxTrAmount) {
+                console.error('passCheckLimit Failed  max amount', amountUsage, maxTrAmount);
+                return false;
+            }
+            if (maxTrCount !== -1 && countUsage >= maxTrCount) {
+                console.error('passCheckLimit Failed  max count', countUsage, maxTrCount);
+                return false;
+            }
+            console.info(`Phone ${phone.number} passCheckLimit Success `, countUsage, amountUsage, maxTrAmount, maxTrCount);
+        }
+        console.log('Pass all Check');
+        return true;
     }
 }
 exports.ApiManagerInterface = ApiManagerInterface;

@@ -33,6 +33,12 @@ export declare class Phones extends BaseEntity {
     alertLevel_5Solde: number;
     servicesId: number;
     simProvider: SIM_PROVIDER;
+    dailyCountLimit: number;
+    dailyAmountLimit: number;
+    weeklyCountLimit: number;
+    weeklyAmountLimit: number;
+    monthlyCountLimit: number;
+    monthlyAmountLimit: number;
     operationPhones: OperationPhones[];
     services: Services;
     sousServicesPhones: SousServicesPhones[];

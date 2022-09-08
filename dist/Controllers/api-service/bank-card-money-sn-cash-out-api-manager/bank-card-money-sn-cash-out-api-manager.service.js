@@ -5,6 +5,7 @@ const api_manager_interface_service_1 = require("../api-manager-interface/api-ma
 const Controller_1 = require("../../Controller");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const Bank3DSBridgeApiProvider_1 = require("../../../sdk/BankCard/Bank3DSBridgeApiProvider");
+const main_1 = require("../../../main");
 class BankCardMoneySnCashOutApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return await this.notImplementedYet(params);
@@ -92,7 +93,7 @@ class BankCardMoneySnCashOutApiManagerService extends api_manager_interface_serv
         transaction.operationDescription = params.dto.operationDescription;
         await transaction.save();
         if (checkout === null || checkout === void 0 ? void 0 : checkout.success) {
-            transaction.message = JSON.stringify(checkout);
+            transaction.message = main_1.serializeData(checkout);
             transaction.deepLinkUrl = `${checkout.url}`;
             transaction.successRedirectUrl = params.dto.successRedirectUrl;
             transaction.errorRedirectUrl = params.dto.errorRedirectUrl;
@@ -116,7 +117,7 @@ class BankCardMoneySnCashOutApiManagerService extends api_manager_interface_serv
             }, baseResponse);
         }
         else {
-            transaction.errorMessage = JSON.stringify(checkout);
+            transaction.errorMessage = main_1.serializeData(checkout);
             await transaction.save();
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,

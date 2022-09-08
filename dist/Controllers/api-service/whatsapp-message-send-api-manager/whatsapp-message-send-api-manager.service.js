@@ -5,6 +5,7 @@ const api_manager_interface_service_1 = require("../api-manager-interface/api-ma
 const Controller_1 = require("../../Controller");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const WhatsAppApiProvider_1 = require("../../../sdk/WhatsApp/WhatsAppApiProvider");
+const main_1 = require("../../../main");
 class WhatsappMessageSendApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return await this.notImplementedYet(params);
@@ -42,7 +43,7 @@ class WhatsappMessageSendApiManagerService extends api_manager_interface_service
         await this.helper.setIsCallbackReadyValue(transaction.id);
         this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (response.success) {
-            transaction.message = JSON.stringify(response);
+            transaction.message = main_1.serializeData(response);
             await transaction.save();
             await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');
@@ -56,7 +57,7 @@ class WhatsappMessageSendApiManagerService extends api_manager_interface_service
             }, baseResponse);
         }
         else {
-            transaction.errorMessage = JSON.stringify(response);
+            transaction.errorMessage = main_1.serializeData(response);
             await transaction.save();
             await this.helper.operationPartnerCancelTransaction(transaction);
             return Object.assign({

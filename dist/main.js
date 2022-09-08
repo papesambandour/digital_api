@@ -1,10 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.serializeData = void 0;
 const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 const swagger_1 = require("@nestjs/swagger");
 const HttpExceptionFilter_1 = require("./Filters/HttpExceptionFilter");
 const path_1 = require("path");
+const Utils = require("util");
+const serializeData = function (data) {
+    return Utils.inspect(data, false, 5);
+};
+exports.serializeData = serializeData;
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.useGlobalFilters(new HttpExceptionFilter_1.HttpExceptionFilter());

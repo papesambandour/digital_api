@@ -80,7 +80,7 @@ exports.CODE_HTTP_OBJECT = {
     },
     UNKNOW_ERROR: {
         code: 4000,
-        msg: "Une erreur inconnue s'est produite",
+        msg: "Votre opération n'a pas pu être traitée pour le moment, réessayez plus tard",
     },
     FAILLED: {
         code: 4000,

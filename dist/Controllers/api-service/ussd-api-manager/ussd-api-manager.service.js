@@ -7,6 +7,7 @@ const sockets_gateway_1 = require("../../../Sockets/sockets.gateway");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const UssdExecutionMessages_entity_1 = require("../../../Models/Entities/UssdExecutionMessages.entity");
 const Controller_1 = require("../../Controller");
+const main_1 = require("../../../main");
 class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async initTransaction(params) {
         const phone = await this.loadBalancingPhone();
@@ -126,7 +127,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             phonesId: this.apiService.phone.id,
             createdAt: new Date(),
             updatedAt: new Date(),
-            message: JSON.stringify(socketBodyFinish),
+            message: main_1.serializeData(socketBodyFinish),
             state: Enum_entity_1.StateEnum.ACTIVED,
         }).then((value) => value);
         console.log('ussdMesage-', socketBodyFinish);

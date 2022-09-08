@@ -5,6 +5,7 @@ const api_manager_interface_service_1 = require("../api-manager-interface/api-ma
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const Controller_1 = require("../../Controller");
 const WizallApiProvider_1 = require("../../../sdk/Wizall/WizallApiProvider");
+const main_1 = require("../../../main");
 class WizallMoneySnCashOutApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return WizallApiProvider_1.default.apiManagerCheckCashOutStatusTransaction(this, params);
@@ -51,7 +52,7 @@ class WizallMoneySnCashOutApiManagerService extends api_manager_interface_servic
         transaction.preStatut = statues['preStatus'];
         await transaction.save();
         if (response.success) {
-            transaction.message = JSON.stringify(response);
+            transaction.message = main_1.serializeData(response);
             transaction.needCheckTransaction = 1;
             await transaction.save();
             console.log('Send OKK');
@@ -66,7 +67,7 @@ class WizallMoneySnCashOutApiManagerService extends api_manager_interface_servic
         }
         else {
             console.log('error while requesting');
-            transaction.errorMessage = JSON.stringify(response);
+            transaction.errorMessage = main_1.serializeData(response);
             await transaction.save();
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,

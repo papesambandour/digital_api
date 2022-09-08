@@ -168,7 +168,14 @@ __decorate([
 __decorate([
     typeorm_1.Column('enum', {
         name: 'statut',
-        enum: ['SUCCESS', 'PENDING', 'PROCESSING', 'FAILLED', 'CANCELED'],
+        enum: [
+            'SUCCESS',
+            'PENDING',
+            'PROCESSING',
+            'FAILLED',
+            'CANCELED',
+            'REFUNDED',
+        ],
         default: 'PENDING',
     }),
     __metadata("design:type", String)
@@ -440,6 +447,14 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], Transactions.prototype, "reachedTimeout", void 0);
+__decorate([
+    typeorm_1.Column('tinyint', {
+        name: 'canceled',
+        comment: '0: non , 1: yes',
+        default: 0,
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "canceled", void 0);
 __decorate([
     typeorm_1.Column('datetime', {
         name: 'timeout_at',
