@@ -47,7 +47,7 @@ let BootstrapService = BootstrapService_1 = class BootstrapService {
         }
     }
     redefineLog() {
-        if (process.env.MODE != 'dev') {
+        if (process.env.MODE != 'dev' && false) {
             console.log = (...args) => {
                 try {
                     BootstrapService_1.logger.log(JSON.stringify(args));
