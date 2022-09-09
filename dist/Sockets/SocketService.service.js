@@ -180,6 +180,7 @@ let SocketServiceService = class SocketServiceService {
                         statutSmsResponse: Enum_entity_1.EnumValidationStatus.SUCCESS,
                         sousServiceTransactionId: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.transactionId,
                     });
+                    await transaction.reload();
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
                         sousServicesId: (_h = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _h === void 0 ? void 0 : _h.id,
                         transactionsId: transaction.id,

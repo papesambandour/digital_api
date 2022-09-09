@@ -55,7 +55,7 @@ __decorate([
     __metadata("design:type", Number)
 ], ErrorTypes.prototype, "isJson", void 0);
 __decorate([
-    typeorm_1.Column('int', { name: 'sous_services_id' }),
+    typeorm_1.Column('int', { name: 'sous_services_id', nullable: true }),
     __metadata("design:type", Number)
 ], ErrorTypes.prototype, "sousServicesId", void 0);
 __decorate([

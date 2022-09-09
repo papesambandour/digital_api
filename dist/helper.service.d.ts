@@ -61,7 +61,7 @@ export declare class HelperService {
     b64ToFilePath(attachedMedia: string, attachedMediaExtension: string, attachedMediaName: string): Promise<string>;
     getAmountForMessenger(operationInDto: OperationInDto): Promise<number>;
     provideErrorType(transaction: Transactions, providedErrorMessage?: string | undefined, providedError?: ErrorTypes | undefined, defaultMessageIfUnknowNoError?: string | undefined): Promise<any>;
-    getErrorType(errorMessage: string, codeSousService: string, amount: string): Promise<any>;
+    getErrorType(errorMessage: string, codeSousService: string, amount: string): Promise<ErrorTypes | null>;
     alertForUnknownResponse(responseData: string, codeService: string, transactionId: number): void;
     ribFromString(rib: string, country?: 'sn' | 'ci'): Rib;
     getDeepLinkNotificationMessage(transaction: Transactions, deepLink: string): string;

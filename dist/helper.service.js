@@ -212,6 +212,7 @@ let HelperService = class HelperService {
                 callbackIsSend: 1,
                 callbackSendedAt: new Date(),
             });
+            await transaction.reload();
             return dataResponse.data;
         }
         catch (e) {
@@ -222,6 +223,7 @@ let HelperService = class HelperService {
                 callbackIsSend: 2,
                 nextSendCallbackDate: this.addMinuteToDate(new Date(), Enum_entity_1.CONSTANT.WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE()),
             });
+            await transaction.reload();
             return e.message || 'error';
         }
     }
@@ -326,6 +328,7 @@ let HelperService = class HelperService {
             };
         }
         await Transactions_entity_1.Transactions.update(transaction.id, transactionData);
+        await transaction.reload();
         console.log('updating refund finish ok', transactionData);
         const sousService = await SousServices_entity_1.SousServices.findOne({
             where: {
@@ -580,9 +583,6 @@ let HelperService = class HelperService {
         }
     }
     async disableSousService(serviceId, message, type) {
-        await Transactions_entity_1.Transactions.update(serviceId, {
-            state: Enum_entity_1.StateEnum.INACTIVED,
-        });
         if (message) {
             this.notifyAdmin(message, type).then();
         }
@@ -604,6 +604,7 @@ let HelperService = class HelperService {
             transactionData['sousServiceTransactionId'] = sousServiceTransactionId;
         }
         await Transactions_entity_1.Transactions.update(transaction.id, transactionData);
+        await transaction.reload();
         const phone = await Phones_entity_1.Phones.findOne({
             where: {
                 id: typeorm_2.Equal(transaction.phonesId),
@@ -733,7 +734,9 @@ let HelperService = class HelperService {
         if (errorTypes) {
             return {
                 id: errorTypes.id,
-                codeService: transaction.codeSousService,
+                codeService: errorTypes.sousServicesId
+                    ? transaction.codeSousService
+                    : null,
                 code: errorTypes.code,
                 message: errorTypes.message.replace('__amount__', transaction.amount.toString()),
             };
@@ -743,7 +746,9 @@ let HelperService = class HelperService {
             await transaction.save();
             return {
                 id: providedError.id,
-                codeService: transaction.codeSousService,
+                codeService: providedError.sousServicesId
+                    ? transaction.codeSousService
+                    : null,
                 code: providedError.code,
                 message: providedError.message.replace('__amount__', transaction.amount.toString()),
             };
@@ -755,9 +760,9 @@ let HelperService = class HelperService {
         if (!transaction.errorMessage && !providedErrorMessage) {
             return null;
         }
-        const error = await this.getErrorType(providedErrorMessage || transaction.errorMessage, transaction.codeSousService, transaction.amount.toString());
-        console.log('errror', error);
-        if (!error) {
+        const foundError = await this.getErrorType(providedErrorMessage || transaction.errorMessage, transaction.codeSousService, transaction.amount.toString());
+        console.log('errror', foundError);
+        if (!foundError) {
             this.alertForUnknownResponse(providedErrorMessage || transaction.errorMessage, transaction.codeSousService, transaction.id);
             return {
                 id: null,
@@ -766,13 +771,15 @@ let HelperService = class HelperService {
                 message: defaultMessageIfUnknowNoError,
             };
         }
-        transaction.errorTypes = error;
+        transaction.errorTypes = foundError;
         await transaction.save();
         return {
-            id: error.id,
-            codeService: transaction.codeSousService,
-            code: error.code,
-            message: error.message.replace('__amount__', transaction.amount.toString()),
+            id: foundError.id,
+            codeService: foundError.sousServicesId
+                ? transaction.codeSousService
+                : null,
+            code: foundError.code,
+            message: foundError.message.replace('__amount__', transaction.amount.toString()),
         };
     }
     async getErrorType(errorMessage, codeSousService, amount) {
@@ -803,12 +810,13 @@ let HelperService = class HelperService {
             where: { code: typeorm_2.Equal(codeSousService) },
         });
         const allErrorTypes = await ErrorTypes_entity_1.ErrorTypes.find({
-            where: {
-                sousServicesId: typeorm_2.Equal(sousServices.id),
-            },
+            where: {},
         });
         const error = allErrorTypes.find((el) => {
             try {
+                if (el.sousServicesId && el.sousServicesId !== sousServices.id) {
+                    return false;
+                }
                 let val = ' ';
                 if (el.isJson) {
                     val = mapper(errorDataJson, el.index);
@@ -826,12 +834,8 @@ let HelperService = class HelperService {
         if (!error) {
             return null;
         }
-        return {
-            id: error.id,
-            codeService: codeSousService,
-            code: error.code,
-            message: error.message.replace('__amount__', amount === null || amount === void 0 ? void 0 : amount.toString()),
-        };
+        error.message = error.message.replace('__amount__', amount === null || amount === void 0 ? void 0 : amount.toString());
+        return error;
     }
     alertForUnknownResponse(responseData, codeService, transactionId) {
         this.notifyAdmin(`Nouvelle réponse Inconnu pour la transaction N#${transactionId} du service ${codeService}: ${responseData}`, Enum_entity_1.TypeEvenEnum.UNKNOWN_RESPONSE_INIT).then();

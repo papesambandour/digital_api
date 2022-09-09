@@ -44,6 +44,9 @@ let CheckTransactionTimeoutCronService = CheckTransactionTimeoutCronService_1 = 
                     promiseArr.push(queue.pushTask(async (resolve) => {
                         transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
                         transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+                        if (transaction.typeOperation === Enum_entity_1.TypeOperationEnum.CREDIT) {
+                            transaction.errorMessage = 'Payment timeout';
+                        }
                         transaction.reachedTimeout = 1;
                         transaction
                             .save()

@@ -3122,7 +3122,7 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/errortypes.entity.ts": {
-        "version": "4a1471ed52557754950293bf3c7d262e4490acd45d121dcf573cf8251241d547",
+        "version": "0d9b1ac2449a51e12a1082b11d2e5d197e725f62b4342f90c7e03d567601fcb7",
         "signature": "e8103db4bf5ce7c303d0ef485267775d6e11a6f3b53c06e4a4e9d38ae866822a",
         "affectsGlobalScope": false
       },
@@ -4127,8 +4127,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "efa46a794306dbc541159271477f0d0b791d7cff2e993fde640ffc90df2f8ea9",
-        "signature": "a440cde794a83813c23fdcd92bc53b15d98b8a9e1d0ac70e3b004871e6731c30",
+        "version": "c5b433944f6e47dfaaf53e1f7a47b266331ee69c667de1f95812b706ff611ee0",
+        "signature": "9c165fc629f5cf902d50d5ed2fab973652eee8c7abe333e161af0ff63554383d",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -4627,7 +4627,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "b041a150af34ea15f9be098d849e6d62087d9ccb59180fd976d1e58f20d44da6",
+        "version": "78ec23961c64bdd0ae3f71f53629f5708d71417a145d5f7d8a5b4bb8eec6d1d5",
         "signature": "e43afb687423f2026bf4b4cfe7eb3a578de53de35aba6bd1c1b17571791d3ca9",
         "affectsGlobalScope": false
       },
@@ -6462,7 +6462,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts": {
-        "version": "dad98c51c4872587d04f5a3a6da34ac35f844dc0c4d422ea0aaeb21772d6a406",
+        "version": "5f1ed96b558c6007dadb8e06b1efb7ecb1f67b09d17dfc9abf9d6b0801df1d90",
         "signature": "b5337e2f47ada37883533431aefa64103570a64d30cb4a2b5dad36b2aa0108c3",
         "affectsGlobalScope": false
       },
@@ -13261,7 +13261,6 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/schedule/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
-        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/helper.service.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/transactions.entity.ts"
