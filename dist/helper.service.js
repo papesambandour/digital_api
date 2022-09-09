@@ -104,7 +104,6 @@ let HelperService = class HelperService {
               apiService
           )
       `;
-            console.log('dynamic code', exec);
             const apiInterface = eval(exec);
             console.log('dynamic instance class');
             return apiInterface;
@@ -250,7 +249,7 @@ let HelperService = class HelperService {
         }
     }
     generateTransactionId() {
-        return 'T_' + Math.random().toString().substr(5, 25);
+        return 'T' + Math.random().toString().substr(5, 25);
     }
     generateRandomId(prefix) {
         return prefix + Math.random().toString().substr(5, 25);
