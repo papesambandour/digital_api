@@ -59,6 +59,12 @@ class ApiManagerInterface {
         transaction.urlIpn = this.apiService.operationInDto.callbackUrl;
         transaction.serviceName = this.apiService.service.name;
         transaction.sousServiceName = this.apiService.sousServices.name;
+        transaction.partnerSolde = this.apiService.partner.solde;
+        transaction.partnerSoldeCommission = this.apiService.partner.soldeCommission;
+        transaction.phoneSolde = phone.solde;
+        transaction.phoneSoldeApi = phone.soldeApi;
+        transaction.userAgent = this.apiService.headers['user-agent'];
+        transaction.ipAddress = this.apiService.headers['x-forwarded-for'];
         transaction.feeAmount = this.apiService.feeAmount;
         transaction.commissionAmountPsp = this.apiService.commissionAmountPsp;
         transaction.feeAmountPsn = this.apiService.feeAmountPsp;

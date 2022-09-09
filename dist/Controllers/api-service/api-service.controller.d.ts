@@ -7,7 +7,7 @@ export declare class ApiServiceController extends ControllerBase {
     private readonly apiServiceService;
     private readonly helper;
     constructor(apiServiceService: ApiServiceService, helper: HelperService);
-    operation(operationInDto: OperationInDto): Promise<{
+    operation(operationInDto: OperationInDto, req: any): Promise<{
         code: number;
         msg: any;
         error: boolean;

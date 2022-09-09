@@ -349,6 +349,47 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "amount", void 0);
 __decorate([
+    typeorm_1.Column('double', {
+        name: 'phone_solde',
+        comment: 'Solde Phone au moment de la transaction',
+        precision: 17,
+        scale: 4,
+        default: 0,
+        nullable: true,
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "phoneSolde", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'phone_solde_api',
+        comment: 'Solde Phone APi au moment de la transaction',
+        precision: 17,
+        scale: 4,
+        nullable: true,
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "phoneSoldeApi", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'partner_solde',
+        comment: 'Solde Partnaire  au moment de la transaction',
+        precision: 17,
+        scale: 4,
+        nullable: true,
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "partnerSolde", void 0);
+__decorate([
+    typeorm_1.Column('double', {
+        name: 'partner_solde_commission',
+        comment: 'Solde Partnaire  au moment de la transaction',
+        precision: 17,
+        scale: 4,
+        nullable: true,
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "partnerSoldeCommission", void 0);
+__decorate([
     typeorm_1.Column('varchar', {
         name: 'url_ipn',
         comment: 'Le pin du call back qui doit être en HTTPS',
@@ -356,6 +397,24 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], Transactions.prototype, "urlIpn", void 0);
+__decorate([
+    typeorm_1.Column('varchar', {
+        name: 'user_agent',
+        comment: 'userAgent du client',
+        length: 255,
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], Transactions.prototype, "userAgent", void 0);
+__decorate([
+    typeorm_1.Column('varchar', {
+        name: 'ip_address',
+        comment: 'userAgent du client',
+        length: 255,
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], Transactions.prototype, "ipAddress", void 0);
 __decorate([
     typeorm_1.Column('varchar', {
         name: 'phone',
@@ -423,6 +482,10 @@ __decorate([
     typeorm_1.Column('datetime', { name: 'next_send_callback_date', nullable: true }),
     __metadata("design:type", Date)
 ], Transactions.prototype, "nextSendCallbackDate", void 0);
+__decorate([
+    typeorm_1.Column('datetime', { name: 'init_response_end_at', nullable: true }),
+    __metadata("design:type", Date)
+], Transactions.prototype, "initResponseEndAt", void 0);
 __decorate([
     typeorm_1.Column('text', { name: 'check_transaction_response', nullable: true }),
     __metadata("design:type", String)

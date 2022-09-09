@@ -33,6 +33,7 @@ let ApiServiceService = class ApiServiceService {
         this.httpService = httpService;
         this.comptePartner = null;
         this.partner = null;
+        this.headers = null;
         this.sousServices = null;
         this.sousServicesPartner = null;
         this.comission = null;

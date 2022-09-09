@@ -3162,8 +3162,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "7701acd4c51b91757d3ec33b1ebe645e6e885a6a697f517e9384c48d4e3526d3",
-        "signature": "ff6fa7f219c89cca9612a21aab6f02dba46084d4a1befbffea2db6f354333908",
+        "version": "f791a051999b98e9308885759511f6a1d018d89f96e73a32f3662a1c0045bed3",
+        "signature": "e9c22614387d912e512fb60f34c796d1f4915fff88ae490a1ed66306becac9ee",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
@@ -4092,8 +4092,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "2079eac0b2dd774758c088f0c94b1dfa06258e30eddd5ba287c3165c85de0cdc",
-        "signature": "232d6d40e880bb76600e624f2666bae2b6097b8f29f21c860afc39d00c6f561a",
+        "version": "e8c164ec57a85a2c7acb78a96d6393d46bdacedde11e0c936326a59dc54d7c54",
+        "signature": "68c7d299309bfdecd795c3410516d4a3d201244ace4bc7484f2d186440767f31",
         "affectsGlobalScope": false
       },
       "../src/controllers/controller.ts": {
@@ -4107,7 +4107,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "6564b906c23128e5099b55960bdca3dc04b321a73cb2d41ece8b4e40d0c5461b",
+        "version": "6d2b868bf42a15ddde64395c8bb54fe6164be3b047a92fcc09d8f8e962f32c7a",
         "signature": "15f88415cc2fb6ad4882b3f95f416ef070463727235daf1204c594c9b8aa73a1",
         "affectsGlobalScope": false
       },
@@ -4697,8 +4697,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "2082fc8a0905ee21ca5ebff378a3fd255baab2171fa6f18f7bf2f37dd3b97bad",
-        "signature": "8d0979ded8ab7bcfe9ec2fb6ddf6ba2502ebf5681fd31e2a74a9ddab043d19f9",
+        "version": "e8f8950538511401ab79cd2f5cd60676377cbfe6f9165c83ab84b4b93697a89e",
+        "signature": "3deb222a55726669855a5e64c20e67480b120ecba7b94f91b7f93833380d77e6",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {

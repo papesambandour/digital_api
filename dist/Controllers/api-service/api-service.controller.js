@@ -46,7 +46,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         this.apiServiceService = apiServiceService;
         this.helper = helper;
     }
-    async operation(operationInDto) {
+    async operation(operationInDto, req) {
         if ([Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(operationInDto.codeService)) {
             operationInDto.amount = await this.helper.getAmountForMessenger(operationInDto);
         }
@@ -62,6 +62,8 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         if (isNotConform) {
             return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotConform, '', true);
         }
+        this.apiServiceService.headers = req.headers;
+        console.log(this.apiServiceService.headers);
         const apiManager = await this.helper.getApiManagerInterface(operationInDto.codeService, this.apiServiceService);
         if (!apiManager) {
             return this.response(this.CODE_HTTP.SERVICE_DOWN, {}, 'Api Service Manager non configuré', true);
@@ -76,6 +78,8 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         if (response.status === Enum_entity_1.StatusEnum.FAILLED && response.refundOnFailed) {
             await this.helper.operationPartnerCancelTransaction(response.transaction);
         }
+        response.transaction.initResponseEndAt = new Date();
+        response.transaction.save().then();
         return this.response(response.codeHttp, this.apiServiceService.responseOperation(response, operationInDto, errorType), (errorType === null || errorType === void 0 ? void 0 : errorType.message) || response.partnerMessage, response.codeHttp !== Controller_1.CODE_HTTP.OK_OPERATION);
     }
     async transaction(id) {
@@ -195,9 +199,9 @@ __decorate([
     common_1.Post('operation'),
     ResponseDecorateur_1.ResponseDecorateur(OperationOutDto_1.OperationOutDto, 201, "Ce Services permet d'effectué tous les operations que offres cet api "),
     ResponseDecorateur_1.ResponseDecorateur(OperationBadParamsDto_1.OperationBadParamsDto, 400, 'Les parametres envoyés sont invalides'),
-    __param(0, common_1.Body()),
+    __param(0, common_1.Body()), __param(1, common_1.Req()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [OperationInDto_1.OperationInDto]),
+    __metadata("design:paramtypes", [OperationInDto_1.OperationInDto, Object]),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "operation", null);
 __decorate([

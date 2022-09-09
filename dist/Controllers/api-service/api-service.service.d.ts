@@ -17,6 +17,7 @@ export declare class ApiServiceService {
     httpService: HttpService;
     comptePartner: PartenerComptes;
     partner: Parteners;
+    headers: any;
     sousServices: SousServices;
     sousServicesPartner: SousServicesParteners;
     comission: Commission;

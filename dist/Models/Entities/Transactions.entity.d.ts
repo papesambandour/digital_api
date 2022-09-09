@@ -58,7 +58,13 @@ export declare class Transactions extends CustomBaseModel {
     commentaire: string | null;
     data: string | null;
     amount: number;
+    phoneSolde: number;
+    phoneSoldeApi: number;
+    partnerSolde: number;
+    partnerSoldeCommission: number;
     urlIpn: string;
+    userAgent: string;
+    ipAddress: string;
     phone: string;
     dataSended: string;
     codeSousService: string;
@@ -68,6 +74,7 @@ export declare class Transactions extends CustomBaseModel {
     needCheckTransaction: number;
     callbackReady: number;
     nextSendCallbackDate: Date;
+    initResponseEndAt: Date;
     checkTransactionResponse: string;
     deepLinkUrl: string;
     successRedirectUrl: string;
