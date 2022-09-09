@@ -34,8 +34,8 @@ export declare class HelperService {
     getApiManagerInterface(codeService: string, apiService: ApiServiceService): Promise<ApiManagerInterface>;
     getTransactionById(transactionId: number, extraRelation?: any[]): Promise<Transactions>;
     getTransactionByGeneratedId(transactionId: string, extraRelation?: any[]): Promise<Transactions>;
-    setIsCallbackReadyValue(transactionId: any): Promise<void>;
-    setTimeOutDate(transactionId: any): Promise<void>;
+    setIsCallbackReadyValue(transaction: Transactions): Promise<void>;
+    setTimeOutDate(transaction: Transactions): Promise<void>;
     sendCallBack(transaction: Transactions): Promise<any>;
     private addMinuteToDate;
     setSoldeTableForDebitOnly(sousServices: SousServices, value: number, tableName: string, id: number, field?: string): Promise<any>;
@@ -60,7 +60,7 @@ export declare class HelperService {
     private sha256;
     b64ToFilePath(attachedMedia: string, attachedMediaExtension: string, attachedMediaName: string): Promise<string>;
     getAmountForMessenger(operationInDto: OperationInDto): Promise<number>;
-    provideErrorType(transactionId: number | undefined, providedErrorMessage?: string | undefined, providedError?: ErrorTypes | undefined, defaultMessageIfUnknowNoError?: string | undefined): Promise<any>;
+    provideErrorType(transaction: Transactions, providedErrorMessage?: string | undefined, providedError?: ErrorTypes | undefined, defaultMessageIfUnknowNoError?: string | undefined): Promise<any>;
     getErrorType(errorMessage: string, codeSousService: string, amount: string): Promise<any>;
     alertForUnknownResponse(responseData: string, codeService: string, transactionId: number): void;
     ribFromString(rib: string, country?: 'sn' | 'ci'): Rib;

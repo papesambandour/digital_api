@@ -135,13 +135,8 @@ let HelperService = class HelperService {
             relations: extraRelation.concat(['sousServices']),
         });
     }
-    async setIsCallbackReadyValue(transactionId) {
+    async setIsCallbackReadyValue(transaction) {
         var _a, _b, _c, _d;
-        if (!transactionId) {
-            console.log('no transactionId to set setIsCallbackReadyValue');
-            return;
-        }
-        const transaction = await this.getTransactionById(transactionId);
         if (!transaction) {
             console.log('no transaction to set setIsCallbackReadyValue');
             return;
@@ -161,12 +156,7 @@ let HelperService = class HelperService {
             await transaction.save();
         }
     }
-    async setTimeOutDate(transactionId) {
-        if (!transactionId) {
-            console.log('no transactionId to set setIsCallbackReadyValue');
-            return;
-        }
-        const transaction = await this.getTransactionById(transactionId);
+    async setTimeOutDate(transaction) {
         if (!transaction) {
             console.log('no transaction to set setIsCallbackReadyValue');
             return;
@@ -177,7 +167,7 @@ let HelperService = class HelperService {
         }
     }
     async sendCallBack(transaction) {
-        const errorType = await this.provideErrorType(transaction === null || transaction === void 0 ? void 0 : transaction.id);
+        const errorType = await this.provideErrorType(transaction);
         let data = {};
         try {
             data = JSON.parse(transaction.data);
@@ -260,7 +250,6 @@ let HelperService = class HelperService {
         return Math.random().toString().substr(5, 25);
     }
     async operationPartnerDoTransaction(transaction) {
-        await transaction.reload();
         const sousService = await SousServices_entity_1.SousServices.findOne({
             where: {
                 id: typeorm_2.Equal(transaction.sousServicesId),
@@ -304,11 +293,9 @@ let HelperService = class HelperService {
             await this.operationPhone(phone, phone.soldeApi, amountPhoneDebit, transaction.id, transaction.typeOperation, `Operation de ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`);
             await this.setSoldeTableOnly(amountPhoneDebit, 'phones', transaction.phonesId, 'solde');
         }
-        await transaction.reload();
     }
     async operationPartnerCancelTransaction(transaction, isRefund = false) {
         console.log('before', transaction.transactionRefundFinished);
-        await transaction.reload();
         console.log('caling refund', transaction.transactionRefundFinished, isRefund);
         if (!transaction) {
             console.log('No transaction for operation cancel');
@@ -339,8 +326,7 @@ let HelperService = class HelperService {
             };
         }
         await Transactions_entity_1.Transactions.update(transaction.id, transactionData);
-        console.log('updating refund finish ok', transactionData, (await this.getTransactionById(transaction === null || transaction === void 0 ? void 0 : transaction.id))
-            .transactionRefundFinished);
+        console.log('updating refund finish ok', transactionData);
         const sousService = await SousServices_entity_1.SousServices.findOne({
             where: {
                 id: typeorm_2.Equal(transaction.sousServicesId),
@@ -412,7 +398,6 @@ let HelperService = class HelperService {
                 await this.setSoldeTableOnly(amountPhone, 'phones', transaction.phonesId, 'solde');
             }
         }
-        await transaction.reload();
     }
     async updateApiBalance(apiManager, usedPhoneId) {
         if (!usedPhoneId) {
@@ -603,7 +588,6 @@ let HelperService = class HelperService {
         }
     }
     async handleSuccessTransactionCreditDebit(transaction, sousServiceTransactionId = null) {
-        await transaction.reload();
         const partner = await Parteners_entity_1.Parteners.findOne({
             where: {
                 id: typeorm_2.Equal(transaction.partenersId),
@@ -672,7 +656,6 @@ let HelperService = class HelperService {
             await this.setSoldeTableOnly(amountPhone, 'phones', transaction.phonesId, 'solde');
             await this.operationPhone(phone, soldeApi, amountPhone, transaction.id, sousService.typeOperation, `Operation de ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`);
         }
-        await transaction.reload();
     }
     isNotCancelable(preStatus, status) {
         return ([Enum_entity_1.StatusEnum.SUCCESS, Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING].includes(preStatus) ||
@@ -737,24 +720,22 @@ let HelperService = class HelperService {
         });
         return commission.amountFee || 0;
     }
-    async provideErrorType(transactionId, providedErrorMessage = undefined, providedError = undefined, defaultMessageIfUnknowNoError = undefined) {
-        if (!transactionId) {
-            console.log('no transactionId to set setIsCallbackReadyValue');
-            return null;
-        }
-        const transaction = await this.getTransactionById(transactionId, [
-            'errorTypes',
-        ]);
+    async provideErrorType(transaction, providedErrorMessage = undefined, providedError = undefined, defaultMessageIfUnknowNoError = undefined) {
         if (!transaction) {
             console.log('no transaction to set setIsCallbackReadyValue');
             return null;
         }
-        if (transaction.errorTypes) {
+        const errorTypes = await ErrorTypes_entity_1.ErrorTypes.findOne({
+            where: {
+                id: typeorm_2.Equal(transaction.errorTypesId),
+            },
+        });
+        if (errorTypes) {
             return {
-                id: transaction.errorTypes.id,
+                id: errorTypes.id,
                 codeService: transaction.codeSousService,
-                code: transaction.errorTypes.code,
-                message: transaction.errorTypes.message.replace('__amount__', transaction.amount.toString()),
+                code: errorTypes.code,
+                message: errorTypes.message.replace('__amount__', transaction.amount.toString()),
             };
         }
         if (providedError) {

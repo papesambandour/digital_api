@@ -146,6 +146,7 @@ let SocketServiceService = class SocketServiceService {
                         order: {
                             createdAt: 'DESC',
                         },
+                        relations: ['sousServices'],
                     });
                     console.log('Transaction filter', {
                         amount: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount,
@@ -188,7 +189,7 @@ let SocketServiceService = class SocketServiceService {
                         await this.helper.setSoldeTableFromValue(infoTransaction.new_balance, 'phones', phone.id, 'solde_api');
                     }
                     await this.helper.handleSuccessTransactionCreditDebit(transaction);
-                    await this.helper.setIsCallbackReadyValue(transaction.id);
+                    await this.helper.setIsCallbackReadyValue(transaction);
                 }
                 else {
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {

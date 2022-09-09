@@ -503,7 +503,7 @@ class ProviderOrangeMoneyApi {
                 params.transaction.needCheckTransaction = 0;
                 params.transaction.checkTransactionResponse = Utils.inspect(response.apiResponse);
                 await params.transaction.save();
-                await apiManager.helper.setIsCallbackReadyValue(params.transaction.id);
+                await apiManager.helper.setIsCallbackReadyValue(params.transaction);
                 await apiManager.helper.handleSuccessTransactionCreditDebit(params.transaction);
                 apiManager.helper
                     .updateApiBalance(apiManager, params.transaction.phonesId)
@@ -529,7 +529,7 @@ class ProviderOrangeMoneyApi {
                 params.transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
                 params.transaction.needCheckTransaction = 0;
                 await params.transaction.save();
-                await apiManager.helper.setIsCallbackReadyValue(params.transaction.id);
+                await apiManager.helper.setIsCallbackReadyValue(params.transaction);
                 apiManager.helper
                     .updateApiBalance(apiManager, params.transaction.phonesId)
                     .then();

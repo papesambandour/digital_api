@@ -52,7 +52,7 @@ class OolusolarSnBillReloadApiManagerService extends api_manager_interface_servi
         transaction.preStatut = statues['preStatus'];
         transaction.sousServiceTransactionId = rapido === null || rapido === void 0 ? void 0 : rapido.paymentId;
         await transaction.save();
-        await this.helper.setIsCallbackReadyValue(transaction.id);
+        await this.helper.setIsCallbackReadyValue(transaction);
         this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (rapido.success) {
             transaction.message = main_1.serializeData(rapido);

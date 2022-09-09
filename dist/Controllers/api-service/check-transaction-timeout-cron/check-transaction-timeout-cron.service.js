@@ -55,7 +55,7 @@ let CheckTransactionTimeoutCronService = CheckTransactionTimeoutCronService_1 = 
                             resolve(error);
                         })
                             .finally(() => {
-                            this.helper.setIsCallbackReadyValue(transaction.transactionId);
+                            this.helper.setIsCallbackReadyValue(transaction);
                         });
                     }));
                 }

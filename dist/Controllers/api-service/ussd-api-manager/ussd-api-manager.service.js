@@ -77,7 +77,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                     clearTimeout(clearId);
                     console.log('DATA_SOCKET', data);
                     socket.removeAllListeners('finishExecUssd');
-                    resolve(await this.finishExecUssd(data));
+                    resolve(await this.finishExecUssd(data, transaction));
                     this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
                 });
                 socket.emit('execUssd', ussdCode);
@@ -114,7 +114,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         });
         return false;
     }
-    async finishExecUssd(socketBodyFinish) {
+    async finishExecUssd(socketBodyFinish, transaction) {
         try {
             socketBodyFinish = JSON.parse(socketBodyFinish + '');
         }
@@ -140,7 +140,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         if (!regexMatched) {
             matchError = await this.helper.getErrorType(socketBodyFinish.data, this.apiService.operationInDto.codeService, this.apiService.operationInDto.amount.toString());
             if (matchError) {
-                await this.helper.provideErrorType(this.apiService.transactionId, null, matchError);
+                await this.helper.provideErrorType(transaction, null, matchError);
             }
             else {
                 this.helper.alertForUnknownResponse(socketBodyFinish.data, this.apiService.operationInDto.codeService, this.apiService.transactionId);

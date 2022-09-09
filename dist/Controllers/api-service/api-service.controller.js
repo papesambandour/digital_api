@@ -47,7 +47,6 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         this.helper = helper;
     }
     async operation(operationInDto) {
-        var _a, _b, _c;
         if ([Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(operationInDto.codeService)) {
             operationInDto.amount = await this.helper.getAmountForMessenger(operationInDto);
         }
@@ -70,9 +69,9 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         const response = await apiManager.initTransaction({
             dto: operationInDto,
         });
-        await this.helper.setIsCallbackReadyValue((_a = response.transaction) === null || _a === void 0 ? void 0 : _a.id);
-        await this.helper.setTimeOutDate((_b = response.transaction) === null || _b === void 0 ? void 0 : _b.id);
-        const errorType = await this.helper.provideErrorType((_c = response.transaction) === null || _c === void 0 ? void 0 : _c.id, null, null, response.partnerMessage);
+        await this.helper.setIsCallbackReadyValue(response.transaction);
+        await this.helper.setTimeOutDate(response.transaction);
+        const errorType = await this.helper.provideErrorType(response.transaction, null, null, response.partnerMessage);
         this.helper.updateApiBalance(apiManager, response.usedPhoneId).then();
         if (response.status === Enum_entity_1.StatusEnum.FAILLED && response.refundOnFailed) {
             await this.helper.operationPartnerCancelTransaction(response.transaction);

@@ -328,7 +328,7 @@ class WizallApiProvider {
                 await params.transaction.save();
                 console.log('after save');
                 await apiManagerService.helper.handleSuccessTransactionCreditDebit(params.transaction);
-                await apiManagerService.helper.setIsCallbackReadyValue(params.transaction.id);
+                await apiManagerService.helper.setIsCallbackReadyValue(params.transaction);
                 apiManagerService.helper
                     .updateApiBalance(apiManagerService, params.transaction.phonesId)
                     .then();
@@ -352,7 +352,7 @@ class WizallApiProvider {
                 params.transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
                 params.transaction.needCheckTransaction = 0;
                 await params.transaction.save();
-                await apiManagerService.helper.setIsCallbackReadyValue(params.transaction.id);
+                await apiManagerService.helper.setIsCallbackReadyValue(params.transaction);
                 apiManagerService.helper
                     .updateApiBalance(apiManagerService, params.transaction.phonesId)
                     .then();

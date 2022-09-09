@@ -40,7 +40,7 @@ class ApiManagerInterface {
         return Promise.resolve(response);
     }
     async createTransaction(phone) {
-        const transaction = new Transactions_entity_1.Transactions();
+        let transaction = new Transactions_entity_1.Transactions();
         transaction.isSoldeCommission = +this.apiService.isSoldeComm;
         transaction.codeSousService = this.apiService.sousServices.code;
         transaction.phonesId = phone.id;
@@ -94,6 +94,7 @@ class ApiManagerInterface {
         });
         this.apiService.transactionId = transaction.id =
             saveTransactions.raw.insertId;
+        transaction = await this.helper.getTransactionById(transaction.id);
         await this.helper.operationPartnerDoTransaction(transaction);
         return transaction;
     }

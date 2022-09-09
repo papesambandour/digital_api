@@ -78,7 +78,7 @@ let PartnerServiceService = class PartnerServiceService {
                 transaction.importBatchId = batchId;
                 await transaction.save();
                 await this.helper.handleSuccessTransactionCreditDebit(transaction);
-                await this.helper.setIsCallbackReadyValue(transaction.id);
+                await this.helper.setIsCallbackReadyValue(transaction);
                 tmp.statutTreatment = 'SUCCESS';
                 tmp.messageTreatment = `OK`;
                 outResult.push(tmp);
@@ -89,9 +89,9 @@ let PartnerServiceService = class PartnerServiceService {
                 transaction.errorMessage = dtoIn.message;
                 transaction.importBatchId = batchId;
                 await transaction.save();
-                await this.helper.provideErrorType(transaction === null || transaction === void 0 ? void 0 : transaction.id);
+                await this.helper.provideErrorType(transaction);
                 await this.helper.operationPartnerCancelTransaction(transaction);
-                await this.helper.setIsCallbackReadyValue(transaction.id);
+                await this.helper.setIsCallbackReadyValue(transaction);
                 tmp.statutTreatment = 'FAILED';
                 tmp.messageTreatment = `KO`;
                 outResult.push(tmp);

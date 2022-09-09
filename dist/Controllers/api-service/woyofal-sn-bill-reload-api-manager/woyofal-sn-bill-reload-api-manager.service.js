@@ -53,7 +53,7 @@ class WoyofalSnBillReloadApiManagerService extends api_manager_interface_service
         transaction.preStatut = statues['preStatus'];
         transaction.sousServiceTransactionId = woyofal === null || woyofal === void 0 ? void 0 : woyofal.paymentId;
         await transaction.save();
-        await this.helper.setIsCallbackReadyValue(transaction.id);
+        await this.helper.setIsCallbackReadyValue(transaction);
         this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (woyofal.success) {
             transaction.message = main_1.serializeData(woyofal);

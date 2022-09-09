@@ -164,7 +164,7 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         transaction.checkTransactionResponse = Utils.inspect(meta);
         await transaction.save();
         await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
-        await apiManagerService.helper.setIsCallbackReadyValue(transaction.id);
+        await apiManagerService.helper.setIsCallbackReadyValue(transaction);
         console.log(checkResult.meta, 'meta__check');
         if ((checkResult === null || checkResult === void 0 ? void 0 : checkResult.status) === 'SUCCESS') {
             return res.redirect(this.helper.appendQueryParams(transaction.successRedirectUrl, {

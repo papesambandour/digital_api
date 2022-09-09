@@ -9,7 +9,7 @@ export declare class UssdApiManagerService extends ApiManagerInterface {
     handleCallbackTransaction(params: CallbackParams): Promise<CallbackResponse>;
     refundTransaction(params: RefundParams): Promise<RefundResponse>;
     executeUssdCall(phone: Phones, transaction: Transactions): Promise<boolean>;
-    finishExecUssd(socketBodyFinish: SocketBodyFinish): Promise<boolean>;
+    finishExecUssd(socketBodyFinish: SocketBodyFinish, transaction: Transactions): Promise<boolean>;
     getUssDCode(regexCodeUss: string, phone: Phones): string;
     getBalance(params: BalanceParams): Promise<BalanceResponse>;
     private executeSms;

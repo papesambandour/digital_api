@@ -208,6 +208,7 @@ let ApiServiceService = class ApiServiceService {
                 externalTransactionId: typeorm_1.Equal(operationInDto.externalTransactionId),
                 partenerComptesId: typeorm_1.Equal(((_v = this === null || this === void 0 ? void 0 : this.comptePartner) === null || _v === void 0 ? void 0 : _v.id) || 0),
             },
+            relations: ['sousServices'],
         });
         if (transaction) {
             asError = true;
@@ -224,6 +225,7 @@ let ApiServiceService = class ApiServiceService {
                     statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
                     createdAt: typeorm_1.MoreThanOrEqual(dateTransaction),
                 },
+                relations: ['sousServices'],
             });
             if (transactionTime) {
                 asError = true;

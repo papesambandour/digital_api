@@ -40,7 +40,7 @@ class WhatsappMessageSendApiManagerService extends api_manager_interface_service
         transaction.preStatut = statues['preStatus'];
         transaction.sousServiceTransactionId = response.whatsappNumberId;
         await transaction.save();
-        await this.helper.setIsCallbackReadyValue(transaction.id);
+        await this.helper.setIsCallbackReadyValue(transaction);
         this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (response.success) {
             transaction.message = main_1.serializeData(response);
