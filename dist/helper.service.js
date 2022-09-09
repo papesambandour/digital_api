@@ -104,6 +104,7 @@ let HelperService = class HelperService {
               apiService
           )
       `;
+            console.log('dynamic code', exec);
             const apiInterface = eval(exec);
             console.log('dynamic instance class');
             return apiInterface;

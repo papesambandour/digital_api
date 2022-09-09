@@ -42,6 +42,7 @@ let CheckTransactionTimeoutCronService = CheckTransactionTimeoutCronService_1 = 
                 console.log('transaction for check status fetched', transactions.length);
                 for (const transaction of transactions) {
                     promiseArr.push(queue.pushTask(async (resolve) => {
+                        const { preStatus, status } = this.helper.getStatusAfterExec('timeout', transaction.sousServices);
                         transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
                         transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
                         if (transaction.typeOperation === Enum_entity_1.TypeOperationEnum.CREDIT) {
