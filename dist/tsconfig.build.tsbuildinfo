@@ -4432,7 +4432,7 @@
         "affectsGlobalScope": false
       },
       "../src/filters/httpexceptionfilter.ts": {
-        "version": "32540ec8aca40e7a32f569e0e718263a221857afc9ba32ae6fdd2040fa28530d",
+        "version": "42d6abed63a6f0674d0ce1dcadceaa40c80b86144e880eae43505f4221d60f53",
         "signature": "ef007649b7f0e9e1067a8f34f12547a8053ebe557c38889b17300d5689acbf3d",
         "affectsGlobalScope": false
       },

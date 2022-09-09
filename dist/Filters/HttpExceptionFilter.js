@@ -31,6 +31,8 @@ let HttpExceptionFilter = class HttpExceptionFilter {
                 code: status,
                 error: true,
                 msg: 'Une erreur est survenue',
+                _msg: exception === null || exception === void 0 ? void 0 : exception.message,
+                _d: exception === null || exception === void 0 ? void 0 : exception.trace,
                 data: {},
                 path: '',
             });
