@@ -41,6 +41,7 @@ export declare class HelperService {
     setSoldeTableForDebitOnly(sousServices: SousServices, value: number, tableName: string, id: number, field?: string): Promise<any>;
     setSoldeTableForCreditOnly(sousServices: SousServices, value: number, tableName: string, id: number, field?: string): Promise<any>;
     generateTransactionId(): string;
+    generateRandomId(prefix: any): string;
     operationPartnerDoTransaction(transaction: Transactions): Promise<void>;
     operationPartnerCancelTransaction(transaction: Transactions, isRefund?: boolean): Promise<boolean>;
     updateApiBalance(apiManager: ApiManagerInterface, usedPhoneId: number): Promise<void>;

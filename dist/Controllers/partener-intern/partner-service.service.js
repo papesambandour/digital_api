@@ -43,7 +43,8 @@ let PartnerServiceService = class PartnerServiceService {
     }
     async importBankTransfer(importBankTransferBulkDto) {
         const outResult = [];
-        const batchId = this.helper.generateTransactionId();
+        const batchId = this.helper.generateRandomId('B_');
+        const dateExport = new Date();
         for (const dtoIn of importBankTransferBulkDto) {
             const transaction = await this.helper.getTransactionById(dtoIn.id);
             const tmp = Object.assign({}, dtoIn);
@@ -76,6 +77,7 @@ let PartnerServiceService = class PartnerServiceService {
                 transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
                 transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
                 transaction.importBatchId = batchId;
+                transaction.exportBankAt = dateExport;
                 await transaction.save();
                 await this.helper.handleSuccessTransactionCreditDebit(transaction);
                 await this.helper.setIsCallbackReadyValue(transaction);
@@ -88,6 +90,7 @@ let PartnerServiceService = class PartnerServiceService {
                 transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
                 transaction.errorMessage = dtoIn.message;
                 transaction.importBatchId = batchId;
+                transaction.exportBankAt = dateExport;
                 await transaction.save();
                 await this.helper.provideErrorType(transaction);
                 await this.helper.operationPartnerCancelTransaction(transaction);

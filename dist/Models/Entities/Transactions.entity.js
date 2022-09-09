@@ -587,6 +587,14 @@ __decorate([
     __metadata("design:type", Date)
 ], Transactions.prototype, "importBankAt", void 0);
 __decorate([
+    typeorm_1.Column('datetime', {
+        name: 'export_bank_at',
+        nullable: true,
+        comment: 'Date exportation du fichier',
+    }),
+    __metadata("design:type", Date)
+], Transactions.prototype, "exportBankAt", void 0);
+__decorate([
     typeorm_1.Column('varchar', { name: 'import_batch_id', length: 255, nullable: true }),
     __metadata("design:type", String)
 ], Transactions.prototype, "importBatchId", void 0);

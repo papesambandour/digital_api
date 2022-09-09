@@ -3162,8 +3162,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "f791a051999b98e9308885759511f6a1d018d89f96e73a32f3662a1c0045bed3",
-        "signature": "e9c22614387d912e512fb60f34c796d1f4915fff88ae490a1ed66306becac9ee",
+        "version": "73b06adf9829d027abcf186cc8b9ecf7043c45c67c1322c4cb4fc57e629bdb0d",
+        "signature": "0cc9da89611036f438f33e274cbd84f216f0b22a0662378908d3fd1a04e5838f",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
@@ -4127,8 +4127,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "c5b433944f6e47dfaaf53e1f7a47b266331ee69c667de1f95812b706ff611ee0",
-        "signature": "9c165fc629f5cf902d50d5ed2fab973652eee8c7abe333e161af0ff63554383d",
+        "version": "fb099fbb1691ba551d304ef16812443384b92c3508c461ae1545324d689e06c1",
+        "signature": "4e26bccd34ceb318031e89f1e7f4b92c3503fa1dd9c762867fb1ece2801665e8",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -6522,7 +6522,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-service.service.ts": {
-        "version": "330a68117a38ce6e07fbb1a8eea756d2c3131bbaf259e9e79d17f3caf4503cf8",
+        "version": "646ef6874fd6b680b66e57b8760d671f4e97d2239f6665d479d2a100b851bfd4",
         "signature": "4bb721cc954ce0797acdff8544c1d293236de50bdf18ec787eb0761ef2aa7136",
         "affectsGlobalScope": false
       },
