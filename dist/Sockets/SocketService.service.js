@@ -48,7 +48,7 @@ let SocketServiceService = class SocketServiceService {
         sockets_gateway_1.SocketsGateway.socket.to(room).emit('leaveRoom', phone);
     }
     async smsReceived(client, socketBody) {
-        var _a, _b, _c, _d, _e;
+        var _a, _b, _c, _d, _e, _f, _g, _h;
         try {
             socketBody = JSON.parse(socketBody.toString());
         }
@@ -66,6 +66,8 @@ let SocketServiceService = class SocketServiceService {
         const sms = new DtoMessageUssds_1.DtoMessageUssds();
         sms.content = (_a = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _a === void 0 ? void 0 : _a.content;
         sms.createdAt = new Date();
+        sms.sender = (_b = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _b === void 0 ? void 0 : _b.operateur;
+        sms.messagerie = (_c = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _c === void 0 ? void 0 : _c.numeroCentre;
         let infoTransaction;
         const phones = await Phones_entity_1.Phones.find({
             where: {
@@ -78,7 +80,7 @@ let SocketServiceService = class SocketServiceService {
         let resMessage;
         try {
             resMessage = await MessageUssds_entity_1.MessageUssds.insert(sms);
-            if (!((_b = resMessage === null || resMessage === void 0 ? void 0 : resMessage.raw) === null || _b === void 0 ? void 0 : _b.insertId)) {
+            if (!((_d = resMessage === null || resMessage === void 0 ? void 0 : resMessage.raw) === null || _d === void 0 ? void 0 : _d.insertId)) {
                 return;
             }
         }
@@ -136,7 +138,7 @@ let SocketServiceService = class SocketServiceService {
                         where: {
                             amount: typeorm_1.Equal(infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount),
                             phone: typeorm_1.Equal(infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.phone),
-                            sousServicesId: typeorm_1.Equal((_c = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _c === void 0 ? void 0 : _c.id),
+                            sousServicesId: typeorm_1.Equal((_e = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _e === void 0 ? void 0 : _e.id),
                             statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
                             phonesId: typeorm_1.Equal(phone.id),
                             createdAt: typeorm_1.MoreThanOrEqual(dataLimit),
@@ -148,7 +150,7 @@ let SocketServiceService = class SocketServiceService {
                     console.log('Transaction filter', {
                         amount: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount,
                         phone: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.phone,
-                        sousServicesId: (_d = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _d === void 0 ? void 0 : _d.id,
+                        sousServicesId: (_f = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _f === void 0 ? void 0 : _f.id,
                         statut: [Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING],
                         phonesId: phone.id,
                         createdAt: dataLimit,
@@ -159,11 +161,13 @@ let SocketServiceService = class SocketServiceService {
                         console.log('Transaction not match', infoTransaction);
                         return false;
                     }
-                    const senderValid = true;
-                    const centerMessengerValid = true;
-                    if (!senderValid || !centerMessengerValid) {
+                    const senderValid = String(infoTransaction.sousService.senderSmsAuthorize)
+                        .split(',')
+                        .map((op) => op.trim())
+                        .includes((_g = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _g === void 0 ? void 0 : _g.operateur);
+                    if (!senderValid) {
                         DiscordApiProvider_1.default.sendMessageStatic({
-                            message: `Un sms avec une source inconnu a été recu pour la transaction #${transaction.id}, RECU: sender: ${'sender_here'}, messagerie: ${'messagerie_here'},\nAttendu:  sender: ${'sender_attendu_here'}, messagerie: ${'messagerie_attendu_here'}`,
+                            message: `Un sms avec une source inconnu a été recu pour la transaction #${transaction.id}, RECU: sender: ${socketBody.data.operateur},\nAttendu:  sender: ${infoTransaction.sousService.senderSmsAuthorize}`,
                         }).then();
                         return false;
                     }
@@ -176,7 +180,7 @@ let SocketServiceService = class SocketServiceService {
                         sousServiceTransactionId: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.transactionId,
                     });
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
-                        sousServicesId: (_e = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _e === void 0 ? void 0 : _e.id,
+                        sousServicesId: (_h = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _h === void 0 ? void 0 : _h.id,
                         transactionsId: transaction.id,
                         isMatched: 1,
                     });

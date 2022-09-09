@@ -32,6 +32,10 @@ __decorate([
     __metadata("design:type", Number)
 ], SousServices.prototype, "needPhone", void 0);
 __decorate([
+    typeorm_1.Column('tinyint', { name: 'need_sole', default: 1 }),
+    __metadata("design:type", Number)
+], SousServices.prototype, "needSolde", void 0);
+__decorate([
     typeorm_1.Column('tinyint', { name: 'has_solde_api', default: 1 }),
     __metadata("design:type", Number)
 ], SousServices.prototype, "hasSoldeApi", void 0);
@@ -109,7 +113,7 @@ __decorate([
 __decorate([
     typeorm_1.Column('double', {
         name: 'limit_time_transaction',
-        comment: "Temps d'attende EN MINUTE pour refaire la meme transaction numer/montant(VALEUR -1 pour infini)\n",
+        comment: "Temps d'attende EN MINUTE pour refaire la meme transaction numer/montant In Minute(VALEUR -1 pour infini)\n",
         precision: 17,
         scale: 4,
         default: '15.0000',

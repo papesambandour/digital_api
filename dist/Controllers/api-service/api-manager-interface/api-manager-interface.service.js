@@ -86,7 +86,7 @@ class ApiManagerInterface {
             transaction.commissionAmountOwner + transaction.feeAmountOwner;
         transaction.operateurName = this.apiService.operator.name;
         transaction.typeOperation = this.apiService.sousServices.typeOperation;
-        transaction.transactionId = this.apiService.generateTransactionId();
+        transaction.transactionId = this.helper.generateTransactionId();
         transaction.externalTransactionId = this.apiService.operationInDto.externalTransactionId;
         transaction.commentaire = `Opération de  ${this.apiService.sousServices.typeOperation} par  ${this.apiService.sousServices.name} ${this.apiService.operator.name}`;
         const saveTransactions = await Transactions_entity_1.Transactions.insert(transaction, {
@@ -94,9 +94,7 @@ class ApiManagerInterface {
         });
         this.apiService.transactionId = transaction.id =
             saveTransactions.raw.insertId;
-        this.helper
-            .operationPartnerDoTransaction(transaction)
-            .then((value) => value);
+        await this.helper.operationPartnerDoTransaction(transaction);
         return transaction;
     }
     async loadBalancingPhone() {
@@ -112,7 +110,9 @@ class ApiManagerInterface {
                            AND phones.state = '${Enum_entity_1.StateEnum.ACTIVED}'
                            ${phoneStateWhere}
                            AND phones.services_id = ${this.apiService.service.id}`;
-            if (this.apiService.sousServices.typeOperation === Enum_entity_1.TypeOperationEnum.DEBIT) {
+            if (this.apiService.sousServices.typeOperation ===
+                Enum_entity_1.TypeOperationEnum.DEBIT &&
+                this.apiService.sousServices.needSolde) {
                 query += ` AND phones.solde >= ${this.apiService.operationInDto.amount} `;
             }
             query += ` ORDER BY RAND();`;

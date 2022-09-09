@@ -69,7 +69,7 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
         });
     }
 };
-SendCallbackTaskService.canHandle = false;
+SendCallbackTaskService.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
 __decorate([
     schedule_1.Cron(schedule_1.CronExpression.EVERY_5_SECONDS),
     __metadata("design:type", Function),

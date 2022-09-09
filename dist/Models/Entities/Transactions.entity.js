@@ -524,6 +524,14 @@ __decorate([
     __metadata("design:type", Date)
 ], Transactions.prototype, "importBankAt", void 0);
 __decorate([
+    typeorm_1.Column('varchar', { name: 'import_batch_id', length: 255, nullable: true }),
+    __metadata("design:type", String)
+], Transactions.prototype, "importBatchId", void 0);
+__decorate([
+    typeorm_1.Column('varchar', { name: 'export_batch_id', length: 255, nullable: true }),
+    __metadata("design:type", String)
+], Transactions.prototype, "exportBatchId", void 0);
+__decorate([
     typeorm_1.OneToMany(() => OperationParteners_entity_1.OperationParteners, (operationParteners) => operationParteners.transactions),
     __metadata("design:type", Array)
 ], Transactions.prototype, "operationParteners", void 0);

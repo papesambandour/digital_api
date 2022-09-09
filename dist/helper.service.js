@@ -256,6 +256,9 @@ let HelperService = class HelperService {
                  where id = ${id}`);
         }
     }
+    generateTransactionId() {
+        return Math.random().toString().substr(5, 25);
+    }
     async operationPartnerDoTransaction(transaction) {
         await transaction.reload();
         const sousService = await SousServices_entity_1.SousServices.findOne({

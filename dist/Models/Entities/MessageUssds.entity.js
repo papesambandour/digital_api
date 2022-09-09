@@ -32,6 +32,14 @@ __decorate([
     __metadata("design:type", String)
 ], MessageUssds.prototype, "content", void 0);
 __decorate([
+    typeorm_1.Column({ type: 'varchar', length: 255, name: 'sender', nullable: true }),
+    __metadata("design:type", String)
+], MessageUssds.prototype, "sender", void 0);
+__decorate([
+    typeorm_1.Column({ type: 'varchar', length: 255, name: 'messagerie', nullable: true }),
+    __metadata("design:type", String)
+], MessageUssds.prototype, "messagerie", void 0);
+__decorate([
     typeorm_1.Column('datetime', { name: 'created_at' }),
     __metadata("design:type", Date)
 ], MessageUssds.prototype, "createdAt", void 0);

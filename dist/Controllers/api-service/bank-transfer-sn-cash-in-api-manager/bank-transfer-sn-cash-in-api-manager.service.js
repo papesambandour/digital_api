@@ -47,6 +47,7 @@ class BankTransferSnCashInApiManagerService extends api_manager_interface_servic
         }
         const transaction = await this.createTransaction(api);
         const statues = this.helper.getStatusAfterExec('success', this.apiService.sousServices);
+        console.log(statues, '--statues');
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
         transaction.rib = ribData.rib.value;
@@ -54,9 +55,10 @@ class BankTransferSnCashInApiManagerService extends api_manager_interface_servic
         transaction.operationDescription = params.dto.operationDescription;
         transaction.customerLastName = params.dto.customerLastName;
         transaction.customerEmail = params.dto.customerEmail || null;
-        await transaction.save();
+        console.log('log1', transaction.statut);
         transaction.message = main_1.serializeData(ribData);
         await transaction.save();
+        console.log('log2', transaction.statut);
         console.log('Send OKK');
         return Object.assign({
             status: Enum_entity_1.StatusEnum.PENDING,

@@ -41,6 +41,64 @@ let PartnerServiceService = class PartnerServiceService {
             message: refund.partnerMessage,
         };
     }
+    async importBankTransfer(importBankTransferBulkDto) {
+        const outResult = [];
+        const batchId = this.helper.generateTransactionId();
+        for (const dtoIn of importBankTransferBulkDto) {
+            const transaction = await this.helper.getTransactionById(dtoIn.id);
+            const tmp = Object.assign({}, dtoIn);
+            if (!transaction) {
+                tmp.statutTreatment = 'FAILED';
+                tmp.messageTreatment = `La transaction est introuvable`;
+                outResult.push(tmp);
+                continue;
+            }
+            if (transaction.codeSousService !==
+                Enum_entity_1.SOUS_SERVICE_ENUM.BANK_TRANSFER_SN_API_CASH_IN) {
+                tmp.statutTreatment = 'FAILED';
+                tmp.messageTreatment = `La transaction n'est pas un transfert bancaire: ${transaction.codeSousService}`;
+                outResult.push(tmp);
+                continue;
+            }
+            if (transaction.statut !== Enum_entity_1.StatusEnum.PROCESSING) {
+                tmp.statutTreatment = 'FAILED';
+                tmp.messageTreatment = `La transaction a déjà été traitée: statut: ${transaction.statut}`;
+                outResult.push(tmp);
+                continue;
+            }
+            if (!['SUCCESS', 'FAILED'].includes(dtoIn.statut)) {
+                tmp.statutTreatment = 'FAILED';
+                tmp.messageTreatment = `Un statut inconnu a été donné pour le traitement: ${dtoIn.statut}`;
+                outResult.push(tmp);
+                continue;
+            }
+            if (dtoIn.statut === 'SUCCESS') {
+                transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
+                transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+                transaction.importBatchId = batchId;
+                await transaction.save();
+                await this.helper.handleSuccessTransactionCreditDebit(transaction);
+                await this.helper.setIsCallbackReadyValue(transaction.id);
+                tmp.statutTreatment = 'SUCCESS';
+                tmp.messageTreatment = `OK`;
+                outResult.push(tmp);
+            }
+            else {
+                transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
+                transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+                transaction.errorMessage = dtoIn.message;
+                transaction.importBatchId = batchId;
+                await transaction.save();
+                await this.helper.provideErrorType(transaction === null || transaction === void 0 ? void 0 : transaction.id);
+                await this.helper.operationPartnerCancelTransaction(transaction);
+                await this.helper.setIsCallbackReadyValue(transaction.id);
+                tmp.statutTreatment = 'FAILED';
+                tmp.messageTreatment = `KO`;
+                outResult.push(tmp);
+            }
+        }
+        return outResult;
+    }
 };
 PartnerServiceService = __decorate([
     common_1.Injectable(),

@@ -11,6 +11,7 @@ import { CustomBaseModel } from './CustomBaseModel';
 export declare class SousServices extends CustomBaseModel {
     id: number;
     needPhone: number;
+    needSolde: number;
     hasSoldeApi: number;
     name: string;
     ussdCode: string;

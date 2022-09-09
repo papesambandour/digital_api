@@ -83,7 +83,6 @@ var TypeEvenEnum;
 })(TypeEvenEnum = exports.TypeEvenEnum || (exports.TypeEvenEnum = {}));
 exports.CONSTANT = {
     TIME_OUT_PHONE_SECOND: () => parseInt(process.env.TIME_OUT_PHONE_SECOND) || 20,
-    LIMIT_TIME_TRANSACTION: () => parseInt(process.env.LIMIT_TIME_TRANSACTION) || 15,
     WAIT_SOCKET_PHONE: () => parseInt(process.env.WAIT_SOCKET_PHONE) || 30,
     MAX_TIME_VALIDATION_TRX: () => parseInt(process.env.MAX_TIME_VALIDATION_TRX) || 1,
     MAX_RETRY_CALLBACK: () => parseInt(process.env.MAX_RETRY_CALLBACK),
@@ -91,6 +90,7 @@ exports.CONSTANT = {
     CALLBACK_CONCURENCY_SEND: () => parseInt(process.env.CALLBACK_CONCURENCY_SEND),
     CHECK_TRANSACTION_CONCURENCY_SEND: () => parseInt(process.env.CHECK_TRANSACTION_CONCURENCY_SEND),
     APP_INTERNAL_URL: () => process.env.APP_INTERNAL_URL,
+    ACTIVATE_CRON: () => !!parseInt(process.env.ACTIVATE_CRON),
     CANCEL_TRANSACTION_PREFIX: 'Transaction annuler ||| ',
 };
 class PHONES_HOLDERS {

@@ -87,6 +87,8 @@ export declare class Transactions extends CustomBaseModel {
     shipCardType: string;
     importBank: number;
     importBankAt: Date;
+    importBatchId: string;
+    exportBatchId: string;
     operationParteners: OperationParteners[];
     parteners: Parteners;
     partenerComptes: PartenerComptes;

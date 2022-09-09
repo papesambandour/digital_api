@@ -5,6 +5,8 @@ export declare class MessageUssds extends CustomBaseModel {
     id: number;
     transactionsId: number | null;
     content: string | null;
+    sender: string | null;
+    messagerie: string | null;
     createdAt: Date;
     updatedAt: Date | null;
     isMatched: number;

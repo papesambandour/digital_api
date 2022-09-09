@@ -225,10 +225,9 @@ let ApiServiceService = class ApiServiceService {
                     createdAt: typeorm_1.MoreThanOrEqual(dateTransaction),
                 },
             });
-            console.log(`TRANSACTION IN LAST ${Enum_entity_1.CONSTANT.LIMIT_TIME_TRANSACTION} MINUTE`, transactionTime);
             if (transactionTime) {
                 asError = true;
-                msg.apiKey.push(`Une transaction avec le meme numéro et le meme montant est deja en cours, ressayer dans ${Enum_entity_1.CONSTANT.LIMIT_TIME_TRANSACTION()} minutes`);
+                msg.apiKey.push(`Une transaction avec le meme numéro et le meme montant est deja en cours, ressayer dans ${this.sousServices.limitTimeTransaction} minutes`);
             }
         }
         this.operationInDto = operationInDto;
@@ -259,9 +258,6 @@ let ApiServiceService = class ApiServiceService {
             '(\\?[;&a-z\\d%_.~+=-]*)?' +
             '(\\#[-a-z\\d_]*)?$', 'i');
         return !!pattern.test(str);
-    }
-    generateTransactionId() {
-        return Math.random().toString().substr(5, 25);
     }
     allDataIsOk() {
         const msg = {};

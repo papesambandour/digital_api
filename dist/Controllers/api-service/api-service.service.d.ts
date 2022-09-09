@@ -52,7 +52,6 @@ export declare class ApiServiceService {
         phone: any[];
     }>;
     validUrl(str: any): boolean;
-    generateTransactionId(): string;
     allDataIsOk(): any;
     responseOperation(response: CheckResponse | RefundResponse | InitResponse, operationInDto: OperationInDto, errorType: any): any;
     getPartner(headers: any): Promise<PartenerComptes>;
