@@ -24,6 +24,9 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
         this.schedulerRegistry = schedulerRegistry;
     }
     async handleCron() {
+        if (CheckTransactionStatusCronService_1.canHandle === undefined) {
+            CheckTransactionStatusCronService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
+        }
         try {
             if (CheckTransactionStatusCronService_1.canHandle) {
                 CheckTransactionStatusCronService_1.canHandle = false;
@@ -70,7 +73,7 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
         });
     }
 };
-CheckTransactionStatusCronService.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
+CheckTransactionStatusCronService.canHandle = undefined;
 __decorate([
     schedule_1.Cron(schedule_1.CronExpression.EVERY_5_SECONDS),
     __metadata("design:type", Function),

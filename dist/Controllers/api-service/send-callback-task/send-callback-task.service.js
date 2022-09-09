@@ -24,6 +24,9 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
         this.schedulerRegistry = schedulerRegistry;
     }
     async handleCron() {
+        if (SendCallbackTaskService_1.canHandle === undefined) {
+            SendCallbackTaskService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
+        }
         try {
             if (SendCallbackTaskService_1.canHandle) {
                 SendCallbackTaskService_1.canHandle = false;
@@ -69,7 +72,7 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
         });
     }
 };
-SendCallbackTaskService.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
+SendCallbackTaskService.canHandle = undefined;
 __decorate([
     schedule_1.Cron(schedule_1.CronExpression.EVERY_5_SECONDS),
     __metadata("design:type", Function),

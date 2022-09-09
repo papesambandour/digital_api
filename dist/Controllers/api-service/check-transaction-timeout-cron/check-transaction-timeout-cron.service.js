@@ -22,8 +22,12 @@ let CheckTransactionTimeoutCronService = CheckTransactionTimeoutCronService_1 = 
     constructor(helper, schedulerRegistry) {
         this.helper = helper;
         this.schedulerRegistry = schedulerRegistry;
+        console.log(Enum_entity_1.CONSTANT.ACTIVATE_CRON());
     }
     async handleCron() {
+        if (CheckTransactionTimeoutCronService_1.canHandle === undefined) {
+            CheckTransactionTimeoutCronService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
+        }
         try {
             if (CheckTransactionTimeoutCronService_1.canHandle) {
                 CheckTransactionTimeoutCronService_1.canHandle = false;
@@ -74,7 +78,7 @@ let CheckTransactionTimeoutCronService = CheckTransactionTimeoutCronService_1 = 
         });
     }
 };
-CheckTransactionTimeoutCronService.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
+CheckTransactionTimeoutCronService.canHandle = undefined;
 __decorate([
     schedule_1.Cron(schedule_1.CronExpression.EVERY_5_SECONDS),
     __metadata("design:type", Function),
