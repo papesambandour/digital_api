@@ -197,9 +197,10 @@ class ApiManagerInterface {
             const [, countUsage] = await Transactions_entity_1.Transactions.findAndCount({
                 where: transactionWhere,
             });
-            const [, amountUsage] = await Transactions_entity_1.Transactions.findAndCount({
+            const trx = await Transactions_entity_1.Transactions.find({
                 where: transactionWhere,
             });
+            const amountUsage = trx.reduce((acc, cur) => acc + cur.amount, 0);
             if (maxTrAmount !== -1 && amountUsage + nextAmount >= maxTrAmount) {
                 console.error('passCheckLimit Failed  max amount', amountUsage, maxTrAmount);
                 return false;

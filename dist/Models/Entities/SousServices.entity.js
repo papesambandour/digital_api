@@ -113,7 +113,7 @@ __decorate([
 __decorate([
     typeorm_1.Column('double', {
         name: 'limit_time_transaction',
-        comment: "Temps d'attende EN MINUTE pour refaire la meme transaction numer/montant In Minute(VALEUR -1 pour infini)\n",
+        comment: "Temps d'attende EN MINUTE pour refaire la meme transaction numer/montant In Minute(VALEUR -1 pour aucune limit)\n",
         precision: 17,
         scale: 4,
         default: '15.0000',

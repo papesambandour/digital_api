@@ -20,6 +20,7 @@ const home_dto_out_1 = require("./dto/home-dto-out");
 const refund_dto_out_1 = require("./dto/refund-dto-out");
 const partner_service_service_1 = require("./partner-service.service");
 const import_bank_transfert_bulk_dto_in_1 = require("./dto/import-bank-transfert-bulk-dto-in");
+const services_balance_1 = require("./dto/services-balance");
 let PartnerControllerController = class PartnerControllerController {
     async home() {
         return {
@@ -29,6 +30,9 @@ let PartnerControllerController = class PartnerControllerController {
     }
     async refund(refundDtoIn) {
         return await this.partnerServiceService.refund(refundDtoIn);
+    }
+    async servicesBalance() {
+        return await this.partnerServiceService.servicesBalance();
     }
     async importBankTransfer(importBankTransferBulkDtoIn) {
         return await this.partnerServiceService.importBankTransfer(importBankTransferBulkDtoIn);
@@ -54,6 +58,13 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], PartnerControllerController.prototype, "refund", null);
 __decorate([
+    common_1.Get('/services/balance'),
+    ResponseDecorateur_1.ResponseDecorateur(services_balance_1.ServicesBalanceDtoOut, 201, 'Home service partner intern ', true),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], PartnerControllerController.prototype, "servicesBalance", null);
+__decorate([
     common_1.Post('/transaction/import_bank_transfer'),
     ResponseDecorateur_1.ResponseDecorateur(import_bank_transfert_bulk_dto_in_1.ImportBankTransfertBulkDtoOut, 201, 'Home service partner intern ', true),
     __param(0, common_1.Body()),
@@ -65,7 +76,12 @@ PartnerControllerController = __decorate([
     swagger_1.ApiBearerAuth('apikey'),
     common_1.Controller('api/v1.0/partner'),
     swagger_1.ApiTags('Api Intern Service Partner'),
-    swagger_1.ApiExtraModels(...[home_dto_out_1.HomeDtoOut, refund_dto_out_1.RefundDtoOut, import_bank_transfert_bulk_dto_in_1.ImportBankTransfertBulkDtoOut])
+    swagger_1.ApiExtraModels(...[
+        home_dto_out_1.HomeDtoOut,
+        refund_dto_out_1.RefundDtoOut,
+        import_bank_transfert_bulk_dto_in_1.ImportBankTransfertBulkDtoOut,
+        services_balance_1.ServicesBalanceDtoOut,
+    ])
 ], PartnerControllerController);
 exports.PartnerControllerController = PartnerControllerController;
 //# sourceMappingURL=partner-controller.controller.js.map

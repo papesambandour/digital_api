@@ -14,6 +14,8 @@ const common_1 = require("@nestjs/common");
 const helper_service_1 = require("../../helper.service");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 const main_1 = require("../../main");
+const SousServices_entity_1 = require("../../Models/Entities/SousServices.entity");
+const Phones_entity_1 = require("../../Models/Entities/Phones.entity");
 let PartnerServiceService = class PartnerServiceService {
     constructor(helper) {
         this.helper = helper;
@@ -101,6 +103,23 @@ let PartnerServiceService = class PartnerServiceService {
             }
         }
         return outResult;
+    }
+    async servicesBalance() {
+        const sousServices = await SousServices_entity_1.SousServices.find({});
+        const balances = [];
+        for (const s of sousServices) {
+            const phonesService = await Phones_entity_1.Phones.find({
+                where: {
+                    servicesId: s.servicesId,
+                },
+            });
+            balances.push({
+                codeService: s.code,
+                balance: phonesService.reduce((acc, cur) => acc + cur.solde, 0),
+                balanceApi: phonesService.reduce((acc, cur) => acc + cur.soldeApi, 0),
+            });
+        }
+        return balances;
     }
 };
 PartnerServiceService = __decorate([
