@@ -62,7 +62,7 @@ let ApiServiceService = class ApiServiceService {
         this.commissionAmount = amountCommssion;
     }
     async validatorCustomApi(operationInDto) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w;
         const msg = {
             apiKey: [],
             codeService: [],
@@ -149,17 +149,19 @@ let ApiServiceService = class ApiServiceService {
                 msg.codeService.push('Le services est temporairement desactivé pour le partenaire');
             }
         }
-        if (+((_o = this === null || this === void 0 ? void 0 : this.partner) === null || _o === void 0 ? void 0 : _o.solde) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
-            if (+((_p = this === null || this === void 0 ? void 0 : this.partner) === null || _p === void 0 ? void 0 : _p.soldeCommission) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
-                asError = true;
-                msg.apiKey.push('Le solde global du partenaire est infusisant pour effectuer cette operation');
+        if (this.sousServices.typeOperation === Enum_entity_1.TypeOperationEnum.DEBIT) {
+            if (+((_o = this === null || this === void 0 ? void 0 : this.partner) === null || _o === void 0 ? void 0 : _o.solde) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
+                if (+((_p = this === null || this === void 0 ? void 0 : this.partner) === null || _p === void 0 ? void 0 : _p.soldeCommission) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
+                    asError = true;
+                    msg.apiKey.push('Le solde global du partenaire est infusisant pour effectuer cette operation');
+                }
+                else {
+                    this.isSoldeComm = true;
+                }
             }
             else {
-                this.isSoldeComm = true;
+                this.isSoldeComm = false;
             }
-        }
-        else {
-            this.isSoldeComm = false;
         }
         if ((this === null || this === void 0 ? void 0 : this.partner) && (this === null || this === void 0 ? void 0 : this.sousServices)) {
             this.comission = await Commission_entity_1.Commission.findOne({
@@ -215,7 +217,7 @@ let ApiServiceService = class ApiServiceService {
             asError = true;
             msg.apiKey.push('Duplication du external transaction ID');
         }
-        if (this.sousServices.limitTimeTransaction !== -1) {
+        if (this.sousServices && ((_w = this.sousServices) === null || _w === void 0 ? void 0 : _w.limitTimeTransaction) !== -1) {
             const dateTransaction = new Date();
             dateTransaction.setMinutes(dateTransaction.getMinutes() - this.sousServices.limitTimeTransaction);
             const transactionTime = await Transactions_entity_1.Transactions.findOne({
