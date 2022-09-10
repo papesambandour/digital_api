@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 <meta http-equiv="refresh" content="5" >
+
+<meta property="og:site_name" content="{{ mName }}">
+<meta property="og:title" content="{{ mName }}">
+<meta property="og:description" content="{{ title }}">
+<meta property="og:image" content="{{ logo }}">
+<meta property="og:url" content="https://paytech.sn/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
 <style>
     body {
         text-align: center;
@@ -66,7 +74,7 @@
     </div>
 
     <div class="btn-container">
-        <a href="{{ link}}" onclick="this.disabled=true;this.text='En chargement …'; ">
+        <a href="{{ link}}" onclick="this.disabled=true;this.text='En ouverture …'; ">
             Cliquez pour payer
         </a>
     </div>
