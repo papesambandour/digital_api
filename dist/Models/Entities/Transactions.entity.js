@@ -478,7 +478,7 @@ __decorate([
     typeorm_1.Column('tinyint', {
         name: 'callback_ready',
         default: 0,
-        comment: '0: recoit un ipn, 1: task can send ipn',
+        comment: '0: recoit un ipn, 1: task can send ipn, 2: max retry reached',
     }),
     __metadata("design:type", Number)
 ], Transactions.prototype, "callbackReady", void 0);
