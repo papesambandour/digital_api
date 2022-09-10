@@ -75,12 +75,12 @@
     </div>
 
     <div class="btn-container">
-        <a href="{{ link}}" onclick="onclick(this)">
+        <a href="{{ link}}" onclick="clicked(this)">
             Cliquez pour payer
         </a>
     </div>
     <script>
-        function onclick(a) {
+        function clicked(a) {
             a.disabled=true;
             a.text='En ouverture …';
             setTimeout(function () {
