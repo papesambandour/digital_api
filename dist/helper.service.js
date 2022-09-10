@@ -222,6 +222,10 @@ let HelperService = class HelperService {
                 dataSended: JSON.stringify(dataSended),
                 dataResponseCallback: `${e.message}|${(_a = e.response) === null || _a === void 0 ? void 0 : _a.data}`,
                 callbackIsSend: 2,
+                callbackReady: transaction.callBackRetryCount + 1 <
+                    parseInt(process.env.MAX_RETRY_CALLBACK)
+                    ? 1
+                    : 0,
                 callBackRetryCount: transaction.callBackRetryCount + 1,
                 nextSendCallbackDate: this.addMinuteToDate(new Date(), Enum_entity_1.CONSTANT.WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE()),
             });
