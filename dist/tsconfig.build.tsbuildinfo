@@ -3162,8 +3162,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "73b06adf9829d027abcf186cc8b9ecf7043c45c67c1322c4cb4fc57e629bdb0d",
-        "signature": "0cc9da89611036f438f33e274cbd84f216f0b22a0662378908d3fd1a04e5838f",
+        "version": "ce28da1729d5defe482b5bd151554c309d33a0e536de6964019c93fa4b6a582d",
+        "signature": "f9cb4511222a676b7b50cfba7a08835cc25ee93453daac9c96a4aa3f13a9b6b7",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
@@ -4127,7 +4127,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "e4d76c33f03ceb71c2787017d3a33a4ddd8b9e6b569632d98c6604b342cd7f3e",
+        "version": "710eeb96cf92d87ecbd21bf5b510734ca2736382741db84fe6c3b917b225f799",
         "signature": "4e26bccd34ceb318031e89f1e7f4b92c3503fa1dd9c762867fb1ece2801665e8",
         "affectsGlobalScope": false
       },
@@ -4802,7 +4802,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": {
-        "version": "9ae5dd7d85da9b28050c4ecef390cba0aa4cbded2969c0b18e6bc28f0ea50f8f",
+        "version": "7cae6ceca145c3f9a1bec053957d1e27c1c46e96428209d382c30936b4b3e9f3",
         "signature": "042420fe4ce1fd1f71ebaa0d72b161b6f4f134ce8a376fb69e778703cbf2eeaf",
         "affectsGlobalScope": false
       },

@@ -15,6 +15,7 @@ export declare class Transactions extends CustomBaseModel {
     codeUssdResponse: EnumCodeUssdResponse;
     ussdResponseMatch: number;
     sousServicesId: number;
+    callBackRetryCount: number;
     errorTypesId: number;
     phonesId: number | null;
     partenerComptesId: number;

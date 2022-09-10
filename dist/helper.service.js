@@ -167,6 +167,7 @@ let HelperService = class HelperService {
         }
     }
     async sendCallBack(transaction) {
+        var _a;
         const errorType = await this.provideErrorType(transaction);
         let data = {};
         try {
@@ -219,8 +220,9 @@ let HelperService = class HelperService {
             console.log('Erreur callback', e);
             await Transactions_entity_1.Transactions.update(transaction.id, {
                 dataSended: JSON.stringify(dataSended),
-                dataResponseCallback: e === null || e === void 0 ? void 0 : e.message,
+                dataResponseCallback: `${e.message}|${(_a = e.response) === null || _a === void 0 ? void 0 : _a.data}`,
                 callbackIsSend: 2,
+                callBackRetryCount: transaction.callBackRetryCount + 1,
                 nextSendCallbackDate: this.addMinuteToDate(new Date(), Enum_entity_1.CONSTANT.WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE()),
             });
             await transaction.reload();

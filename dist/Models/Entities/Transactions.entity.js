@@ -54,6 +54,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "sousServicesId", void 0);
 __decorate([
+    typeorm_1.Column('int', { name: 'callback_retry_count', default: 0 }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "callBackRetryCount", void 0);
+__decorate([
     typeorm_1.Column('int', { name: 'error_types_id', nullable: true }),
     __metadata("design:type", Number)
 ], Transactions.prototype, "errorTypesId", void 0);
