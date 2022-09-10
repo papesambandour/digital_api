@@ -34,6 +34,7 @@ const Commission_entity_1 = require("./Models/Entities/Commission.entity");
 const PartenerComptes_entity_1 = require("./Models/Entities/PartenerComptes.entity");
 const DiscordApiProvider_1 = require("./sdk/Discord/DiscordApiProvider");
 const ErrorTypes_entity_1 = require("./Models/Entities/ErrorTypes.entity");
+const main_1 = require("./main");
 let HelperService = class HelperService {
     constructor(connection, httpService) {
         this.connection = connection;
@@ -220,7 +221,7 @@ let HelperService = class HelperService {
             console.log('Erreur callback', e);
             await Transactions_entity_1.Transactions.update(transaction.id, {
                 dataSended: JSON.stringify(dataSended),
-                dataResponseCallback: `${e.message}|${(_a = e.response) === null || _a === void 0 ? void 0 : _a.data}`,
+                dataResponseCallback: `${e.message}|${main_1.serializeData((_a = e.response) === null || _a === void 0 ? void 0 : _a.data)}`,
                 callbackIsSend: 2,
                 callbackReady: transaction.callBackRetryCount + 1 <
                     parseInt(process.env.MAX_RETRY_CALLBACK)

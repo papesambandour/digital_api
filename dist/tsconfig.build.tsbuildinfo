@@ -4126,66 +4126,6 @@
         "signature": "8ed7c0303250888633989dbde186f400fc52dec55551b8ae75a6cc9d0f229d01",
         "affectsGlobalScope": false
       },
-      "../src/helper.service.ts": {
-        "version": "f48ce2b0d459b6e1a61b4a3e46f32b921710c2bcd7960f7c106cdb1e8b779652",
-        "signature": "4e26bccd34ceb318031e89f1e7f4b92c3503fa1dd9c762867fb1ece2801665e8",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/custombasemodel.ts": {
-        "version": "21cabb92bd0f4ef48e05edd9d21c8b9acb67a9cc6dc0d73951c42c84936b51f8",
-        "signature": "e869a929ba42f8f5b0834bded35ce60c5e4c07c2e8245b25600ab666c341c532",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/plateforme.entity.ts": {
-        "version": "121dfb81d9cf6a9769e2a8c92d41ba16db08671d588d197da405310b609d2777",
-        "signature": "734dda5a23c5cce7d074f107f46b5a8459a3e3049c23d9636e4481ca7634d342",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/users.entity.ts": {
-        "version": "f14d273b9e13c1fa7a3b3c20cb79b79e54e86334092c2b7d947b4069d1cb64c6",
-        "signature": "94507f47266ad83ce04466509b605c3a6926f21b829ca1613ad1a39e047c3b30",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/profils.entity.ts": {
-        "version": "3012be52e62699254ed86db80ffceb361d94fa499c3ee64365abeb541361ecaf",
-        "signature": "c28a4955ac23e674a874ac3410666bbaf07315bb74e641d157287cddf549d891",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/actionsprofils.entity.ts": {
-        "version": "bc0be392f02ac15a81fe57d4572e7277d01394ae2d061b9b0e89862c3add8b0c",
-        "signature": "842091666d17b9a55370cae5e81eb23aba9e9817fedf843a2c323058a08cb397",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/modules.entity.ts": {
-        "version": "a6982802d5c92fb400f2b702a9e6400d3c706f64d4c5ffd5d76946b8112837ff",
-        "signature": "8537d8c2bd1fccb4c80039c1e016348f6ab37c378ef033ed6d273098881fae53",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/actions.entity.ts": {
-        "version": "808b5f1d5e03278e09c5225af534c440a96fc7d785bd8d799220f4fbe99fac5a",
-        "signature": "a718802b9fa71ec5efdf6c2bdf74055f895f2f826ba0a993cf211c5413fee2ee",
-        "affectsGlobalScope": false
-      },
-      "../src/app.service.ts": {
-        "version": "aee16317d3b47bcc2f15c5c44e1e7b999d7a9236216d67d3fb1809bcf125f803",
-        "signature": "6d7f8b73cc8fda7d46c26226461261d3bfad2a1130126d8506d68368685bb535",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/dto/confirm3dsindto.ts": {
-        "version": "b7bf06c1ea02bc7940414887827d5a057817f40b71b47c6ae4d72432a280e1c0",
-        "signature": "02afd33acb2c219536ee71881ee4d8b2112b1c8281f41d0e47644d7fc2104005",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/moment/ts3.1-typings/moment.d.ts": {
-        "version": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
-        "signature": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/wave/config.ts": {
-        "version": "e21a7b496220f4fcd998be3d35116effdd16708cb4ab9db7ab48fe8ddc55aab6",
-        "signature": "bd4c9239aaa022ebd3cc04dc3ff9d6db358ed0af2bc9242f318338db5bbc5655",
-        "affectsGlobalScope": false
-      },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
         "version": "d2ab8259c09e56c7df26a2d038d2d716efb51d4f43762a8c4278514590ce1e07",
         "signature": "d2ab8259c09e56c7df26a2d038d2d716efb51d4f43762a8c4278514590ce1e07",
@@ -4694,6 +4634,41 @@
       "../src/models/dto/dtobalance.ts": {
         "version": "76cb400b8d676577402fed08ae0ddab75956c1f397bda3fbc75228df89a836cc",
         "signature": "ba8815529cee9690a805b60ea2fb715bcfe51cbab3abf50aaf9f632de402d1f2",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/dto/confirm3dsindto.ts": {
+        "version": "b7bf06c1ea02bc7940414887827d5a057817f40b71b47c6ae4d72432a280e1c0",
+        "signature": "02afd33acb2c219536ee71881ee4d8b2112b1c8281f41d0e47644d7fc2104005",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/moment/ts3.1-typings/moment.d.ts": {
+        "version": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
+        "signature": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/wave/config.ts": {
+        "version": "e21a7b496220f4fcd998be3d35116effdd16708cb4ab9db7ab48fe8ddc55aab6",
+        "signature": "bd4c9239aaa022ebd3cc04dc3ff9d6db358ed0af2bc9242f318338db5bbc5655",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
+        "version": "62122b05ada1c941230a825502d50a9eeda5b34c03626ee3c57e8d7328d2ba84",
+        "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/wave/waveapiprovider.ts": {
+        "version": "6781dcf1d9ea6a9cafa6707ddd978316174fb3337e72061c020e5916789936db",
+        "signature": "86918e8b8670624f3a8241c21c7d8fbb23c3af254ad8bd22cb200f8d9d4f6533",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
+        "version": "cb9e8373bbf337b30b50a280d29f24176045dfc988ca295f56d022f6b6592681",
+        "signature": "d35029a4d5c05ffb36370e1c11eb09bd926acb7d6569695653c5c296a250a6c7",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/bank-card-money-sn-cash-out-api-manager/bank-card-money-sn-cash-out-api-manager.service.ts": {
+        "version": "89f407357caab36f3a7066bea209feb98c4ee8856dfe06a02ea05e75bbac3f52",
+        "signature": "f77137b7060fda270debc6731c1c8cc834b089076a206f1ca9ba7fc8e00202c0",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
@@ -6632,28 +6607,53 @@
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "3e2e738312643e098856c3d0efb77de53589b6ad9cd238ab48207782d041f680",
+        "version": "5268badb5cdcaeeaea322c847319bba7065436464292595e5861d0c414de9bc9",
         "signature": "0438c3f72cf811e58bac561ea2051f19eb63d57782ccb0b3178fe64d36cb6709",
         "affectsGlobalScope": false
       },
-      "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "62122b05ada1c941230a825502d50a9eeda5b34c03626ee3c57e8d7328d2ba84",
-        "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
+      "../src/helper.service.ts": {
+        "version": "39fdbe4e17640cb490a15aec9c2353aca206a1beead37a4ec82a0abbfa44152e",
+        "signature": "4e26bccd34ceb318031e89f1e7f4b92c3503fa1dd9c762867fb1ece2801665e8",
         "affectsGlobalScope": false
       },
-      "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "6781dcf1d9ea6a9cafa6707ddd978316174fb3337e72061c020e5916789936db",
-        "signature": "86918e8b8670624f3a8241c21c7d8fbb23c3af254ad8bd22cb200f8d9d4f6533",
+      "../src/models/entities/custombasemodel.ts": {
+        "version": "21cabb92bd0f4ef48e05edd9d21c8b9acb67a9cc6dc0d73951c42c84936b51f8",
+        "signature": "e869a929ba42f8f5b0834bded35ce60c5e4c07c2e8245b25600ab666c341c532",
         "affectsGlobalScope": false
       },
-      "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
-        "version": "cb9e8373bbf337b30b50a280d29f24176045dfc988ca295f56d022f6b6592681",
-        "signature": "d35029a4d5c05ffb36370e1c11eb09bd926acb7d6569695653c5c296a250a6c7",
+      "../src/models/entities/plateforme.entity.ts": {
+        "version": "121dfb81d9cf6a9769e2a8c92d41ba16db08671d588d197da405310b609d2777",
+        "signature": "734dda5a23c5cce7d074f107f46b5a8459a3e3049c23d9636e4481ca7634d342",
         "affectsGlobalScope": false
       },
-      "../src/controllers/api-service/bank-card-money-sn-cash-out-api-manager/bank-card-money-sn-cash-out-api-manager.service.ts": {
-        "version": "89f407357caab36f3a7066bea209feb98c4ee8856dfe06a02ea05e75bbac3f52",
-        "signature": "f77137b7060fda270debc6731c1c8cc834b089076a206f1ca9ba7fc8e00202c0",
+      "../src/models/entities/users.entity.ts": {
+        "version": "f14d273b9e13c1fa7a3b3c20cb79b79e54e86334092c2b7d947b4069d1cb64c6",
+        "signature": "94507f47266ad83ce04466509b605c3a6926f21b829ca1613ad1a39e047c3b30",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/profils.entity.ts": {
+        "version": "3012be52e62699254ed86db80ffceb361d94fa499c3ee64365abeb541361ecaf",
+        "signature": "c28a4955ac23e674a874ac3410666bbaf07315bb74e641d157287cddf549d891",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/actionsprofils.entity.ts": {
+        "version": "bc0be392f02ac15a81fe57d4572e7277d01394ae2d061b9b0e89862c3add8b0c",
+        "signature": "842091666d17b9a55370cae5e81eb23aba9e9817fedf843a2c323058a08cb397",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/modules.entity.ts": {
+        "version": "a6982802d5c92fb400f2b702a9e6400d3c706f64d4c5ffd5d76946b8112837ff",
+        "signature": "8537d8c2bd1fccb4c80039c1e016348f6ab37c378ef033ed6d273098881fae53",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/actions.entity.ts": {
+        "version": "808b5f1d5e03278e09c5225af534c440a96fc7d785bd8d799220f4fbe99fac5a",
+        "signature": "a718802b9fa71ec5efdf6c2bdf74055f895f2f826ba0a993cf211c5413fee2ee",
+        "affectsGlobalScope": false
+      },
+      "../src/app.service.ts": {
+        "version": "aee16317d3b47bcc2f15c5c44e1e7b999d7a9236216d67d3fb1809bcf125f803",
+        "signature": "6d7f8b73cc8fda7d46c26226461261d3bfad2a1130126d8506d68368685bb535",
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
@@ -13526,6 +13526,7 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/api-service.service.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
+        "../src/main.ts",
         "../src/models/dto/dtooperationparteners.ts",
         "../src/models/dto/dtooperationphones.ts",
         "../src/models/entities/commission.entity.ts",

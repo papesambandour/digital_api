@@ -8,7 +8,13 @@ const HttpExceptionFilter_1 = require("./Filters/HttpExceptionFilter");
 const path_1 = require("path");
 const Utils = require("util");
 const serializeData = function (data) {
-    return Utils.inspect(data, false, 5);
+    try {
+        return Utils.inspect(data, false, 5);
+    }
+    catch (e) {
+        console.log(e);
+        return '';
+    }
 };
 exports.serializeData = serializeData;
 async function bootstrap() {
