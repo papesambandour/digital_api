@@ -24,7 +24,7 @@ export declare class HelperService {
     private readonly connection;
     private httpService;
     constructor(connection: Connection, httpService: HttpService);
-    notifyAdmin(message: string, typeEvent: TypeEvenEnum, data?: {}): Promise<void>;
+    notifyAdmin(message: string, typeEvent: TypeEvenEnum, data?: {}, isCritic?: boolean): Promise<void>;
     setSoldeTableOnly(value: number, tableName: string, id: number, field: string): Promise<any>;
     setSoldeTableFromValue(value: number, tableName: string, id: number, field: string): Promise<any>;
     incrementSolde(value: number, tableName: string, id: number, field: string): Promise<any>;

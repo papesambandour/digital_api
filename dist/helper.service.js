@@ -40,8 +40,8 @@ let HelperService = class HelperService {
         this.connection = connection;
         this.httpService = httpService;
     }
-    async notifyAdmin(message, typeEvent, data = {}) {
-        console.log(`CONTACTA ADMIN TO ${message} for EVEN : ${typeEvent}. Data:`, data);
+    async notifyAdmin(message, typeEvent, data = {}, isCritic = false) {
+        console.log(`CONTACTA ADMIN TO ${message} for EVENT: ${typeEvent}. Data:`, data, isCritic);
         if (process.env.MODE === 'production') {
             DiscordApiProvider_1.default.sendMessageStatic({
                 message: `NEW ALERT MESSAGE:\n${message}\nEVENT : ${typeEvent}`,
@@ -843,6 +843,9 @@ let HelperService = class HelperService {
         });
         if (!error) {
             return null;
+        }
+        if (error.isCritic) {
+            this.notifyAdmin(`Une erreur critique c'est produit pour le service ${codeSousService}: ${error.id}/${error.code}`, Enum_entity_1.TypeEvenEnum.CRITICAL_ERROR, {}, true).then();
         }
         error.message = error.message.replace('__amount__', amount === null || amount === void 0 ? void 0 : amount.toString());
         return error;

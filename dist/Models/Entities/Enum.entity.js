@@ -80,6 +80,7 @@ var TypeEvenEnum;
     TypeEvenEnum["SERVER_RESTART"] = "SERVER_RESTART";
     TypeEvenEnum["GENERIC_EVENT"] = "GENERIC_EVENT";
     TypeEvenEnum["UNKNOWN_RESPONSE_INIT"] = "UNKNOWN_RESPONSE_INIT";
+    TypeEvenEnum["CRITICAL_ERROR"] = "CRITICAL_ERROR";
 })(TypeEvenEnum = exports.TypeEvenEnum || (exports.TypeEvenEnum = {}));
 exports.CONSTANT = {
     TIME_OUT_PHONE_SECOND: () => parseInt(process.env.TIME_OUT_PHONE_SECOND) || 20,

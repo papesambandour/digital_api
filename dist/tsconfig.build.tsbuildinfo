@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "fbc5578e7ad34ffcbc38c09df191adb285a70c1bce085671a4fda0b16daa2048",
-        "signature": "356739be83c2d4a8b865871786165f23e26de3d9023a2efbab95492d477b5cbc",
+        "version": "acf1379ad966dcb94cbd510acd4d11660af902bad3f66cbdcfdeec2fb03f4a96",
+        "signature": "5c418e0bfe3f85db9be3b8ff9e1f1cd77f613bf04c21e1badf8c55d355df8533",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -6612,8 +6612,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "1f0724ddcf3c7346fa931c980e21f9e3a79c65493e7112d97f7a5576046ea308",
-        "signature": "4e26bccd34ceb318031e89f1e7f4b92c3503fa1dd9c762867fb1ece2801665e8",
+        "version": "4c52528faf453ef2587e78101ed9b31e6a8552f4e80868c13f0e3914bb22f522",
+        "signature": "f9d98b3128d165901088389941c0c2a52367789c6cc89d46f235778958627f65",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
