@@ -6657,7 +6657,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "5f6a68159deb1ade21da3bec283cf73ce563e0f2d0fbd6e6e6c5e9d5019a32d4",
+        "version": "5affe30b731cd0e18739a8cdc97b56a3b45c244a1af75110fd618343d864729f",
         "signature": "f033c727e69ca23ea61f600f9874fb1fd2fe1e2dd45f2a8cd497125173721259",
         "affectsGlobalScope": false
       },

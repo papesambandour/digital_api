@@ -88,7 +88,7 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         const link = transaction.deepLinkUrl;
         return res.render('deep', {
             link,
-            mName: transaction.sousServices.executeSmsSender,
+            mName: transaction.sousServices.executeSmsSender || '',
             logo: transaction.sousServices.icon,
             title: `Effectuer votre paiement de ${transaction.amount} CFA`,
         });
