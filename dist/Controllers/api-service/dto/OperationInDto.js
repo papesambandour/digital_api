@@ -54,7 +54,7 @@ __decorate([
 ], OperationInDto.prototype, "callbackUrl", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    __metadata("design:type", String)
+    __metadata("design:type", Object)
 ], OperationInDto.prototype, "data", void 0);
 __decorate([
     swagger_1.ApiProperty(),

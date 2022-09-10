@@ -49,7 +49,7 @@ class ApiManagerInterface {
         transaction.partnerCompteName = this.apiService.comptePartner.name;
         transaction.partenersId = this.apiService.partner.id;
         transaction.sousServicesId = this.apiService.sousServices.id;
-        transaction.data = JSON.stringify(this.apiService.operationInDto.data);
+        transaction.data = ApiManagerInterface.stringify(this.apiService.operationInDto.data);
         transaction.statut = Enum_entity_1.StatusEnum.PENDING;
         transaction.partenerName = this.apiService.partner.name;
         transaction.createdAt = new Date();
@@ -213,6 +213,17 @@ class ApiManagerInterface {
         }
         console.log('Pass all Check');
         return true;
+    }
+    static stringify(data) {
+        if (typeof data === 'string') {
+            return data;
+        }
+        try {
+            return JSON.stringify(data);
+        }
+        catch (e) {
+            return '';
+        }
     }
 }
 exports.ApiManagerInterface = ApiManagerInterface;

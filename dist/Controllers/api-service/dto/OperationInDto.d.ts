@@ -4,7 +4,7 @@ export declare class OperationInDto {
     codeService: string;
     externalTransactionId: string;
     callbackUrl: string;
-    data: string;
+    data: any;
     apiKey: string;
     sender?: string;
     successRedirectUrl?: string;

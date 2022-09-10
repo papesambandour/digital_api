@@ -92,4 +92,5 @@ export declare abstract class ApiManagerInterface {
     disablePhone(phoneId: number, phoneNumber: string): Promise<void>;
     selectPhoneFromBalanceResult(phones: null | Phones[]): Promise<Phones | null>;
     checkServiceSimLimit(intervalsTime: string[], phone: Phones, sousService: SousServices, nextAmount: number): Promise<boolean>;
+    private static stringify;
 }
