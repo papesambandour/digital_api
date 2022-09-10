@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta http-equiv="refresh" content="5" >
+    <meta http-equiv="refresh" content="8" >
 
     <meta property="og:site_name" content="{{ mName }}">
     <meta property="og:title" content="{{ mName }}">
@@ -75,10 +75,19 @@
     </div>
 
     <div class="btn-container">
-        <a href="{{ link}}" onclick="this.disabled=true;this.text='En ouverture …';this.setAttribute('href', '#') ">
+        <a href="{{ link}}" onclick="onclick(this)">
             Cliquez pour payer
         </a>
     </div>
+    <script>
+        function onclick(a) {
+            a.disabled=true;
+            a.text='En ouverture …';
+            setTimeout(function () {
+                a.setAttribute('href', '#');
+            }, 500)
+        }
+    </script>
 
 </div>
 
