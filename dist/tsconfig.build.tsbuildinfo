@@ -6437,7 +6437,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts": {
-        "version": "a9567b073ac15aef1b2fe1b597b5d15a0dd5c19c7c6c13328e5d9050c548485a",
+        "version": "4b0d7509789ee24713f438c6e15233225c1a1eeda4217575a2f080abf47255a8",
         "signature": "b5337e2f47ada37883533431aefa64103570a64d30cb4a2b5dad36b2aa0108c3",
         "affectsGlobalScope": false
       },
