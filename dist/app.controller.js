@@ -87,6 +87,7 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         console.log('here', transaction.deepLinkUrl);
         const link = transaction.deepLinkUrl;
         return res.render('deep', {
+            success: true,
             link,
             currentUrl: `https://api.intech.sn/deep/${transaction.transactionId}`,
             mName: transaction.sousServices.executeSmsSender || '',
