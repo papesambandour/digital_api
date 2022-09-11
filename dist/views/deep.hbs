@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
+<!--
     <meta http-equiv="refresh" content="5" >
+-->
 
     <meta property="og:site_name" content="{{ mName }}">
     <meta property="og:title" content="{{ mName }}">
@@ -80,7 +82,9 @@
         </a>
     </div>
     <script>
+        window.cleanTimeOut = null;
         function clicked(a) {
+            //cleanTimeOut(window.cleanTimeOut);
             a.disabled=true;
             a.text='En ouverture …';
             setTimeout(function () {
@@ -89,6 +93,10 @@
         }
     </script>
     <script>
+        window.cleanTimeOut =  setTimeout(function () {
+            location.reload(false)
+        }, 5000);
+
        // document.getElementsByTagName('a')[0].click()
     </script>
 
