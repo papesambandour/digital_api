@@ -38,6 +38,13 @@
             text-align: left;
         }
 
+        .copyright-container{
+            position: fixed;
+            top: calc(50% + 96px);
+            left: calc(50% - 55px);
+            font-size: 20px;
+        }
+
         .btn-container {
             margin-top: 10px;
             margin-left: auto;
@@ -52,16 +59,22 @@
             padding: 10px 30px;
             -webkit-font-smoothing: antialiased;
             font-family: "SF Pro Display", system-ui;
-            font-size: 110%;
+            font-size: 22px;
             font-weight: bold;
             position: fixed;
             top: 50%;
-            left: calc(50% - 124px);
+            left: calc(50% - 127px);
         }
 
         .btn-container > a {
             color: #1DC8FF;
             text-decoration: none;
+        }
+
+        .cbutton{
+            color: white;
+            letter-spacing: 2px;
+            font-weight: bold;
         }
 
     </style>
@@ -80,6 +93,11 @@
         <a href="{{ link}}" onclick="clicked(this)">
             Cliquez pour payer
         </a>
+
+    </div>
+
+    <div class="copyright-container">
+        <!--<a href="https://paytech.sn/" class="cbutton" target="_blank" >{{ mName }} </a> --><span  style="color: white"> by </span> <a  class="cbutton" href="https://intech.sn/" target="_blank">INTech</a>
     </div>
     <script>
         window.cleanTimeOut = null;
