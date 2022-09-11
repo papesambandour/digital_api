@@ -68,7 +68,7 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
             {
                 needCheckTransaction: 1,
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
-                timeOutAt: typeorm_1.MoreThanOrEqual(new Date()),
+                timeOutAt: typeorm_1.MoreThan(new Date()),
             },
             {
                 needCheckTransaction: 1,
