@@ -35,6 +35,7 @@ const PartenerComptes_entity_1 = require("./Models/Entities/PartenerComptes.enti
 const DiscordApiProvider_1 = require("./sdk/Discord/DiscordApiProvider");
 const ErrorTypes_entity_1 = require("./Models/Entities/ErrorTypes.entity");
 const main_1 = require("./main");
+const WhatsAppApiProvider_1 = require("./sdk/WhatsApp/WhatsAppApiProvider");
 let HelperService = class HelperService {
     constructor(connection, httpService) {
         this.connection = connection;
@@ -426,7 +427,7 @@ let HelperService = class HelperService {
         const buff = Buffer.from(str);
         return buff.toString('base64');
     }
-    async sendSms(tos, message, sender) {
+    async sendSms(tos, message, sender, whatsappAlso = false) {
         console.log('sending smss to ', tos);
         const response = await this.httpService
             .post('https://gateway.intechsms.sn/api/send-sms', {
@@ -436,6 +437,11 @@ let HelperService = class HelperService {
             msisdn: tos,
         })
             .toPromise();
+        if (whatsappAlso) {
+            for (const to of tos) {
+                WhatsAppApiProvider_1.default.sendMessageToOne(to, message).then();
+            }
+        }
         console.log(response.data);
     }
     getStatusAfterExec(execResult, service) {

@@ -69,7 +69,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
             this.helper
                 .sendSms([
                 `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,
-            ], messageNotification, this.apiService.sousServices.executeSmsSender)
+            ], messageNotification, this.apiService.sousServices.executeSmsSender, true)
                 .then();
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.PENDING,

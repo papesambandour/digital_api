@@ -4652,7 +4652,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "62122b05ada1c941230a825502d50a9eeda5b34c03626ee3c57e8d7328d2ba84",
+        "version": "4d82a46732bfd0541bef116e6f904a7c80885c35e66e633f08ba471e90c19305",
         "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
         "affectsGlobalScope": false
       },
@@ -6472,8 +6472,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/whatsapp/whatsappapiprovider.ts": {
-        "version": "17c6b4718d43c4ebf782afeee1423d5ecf80d34025b09203356db8ff1c9d27bb",
-        "signature": "967fefc39c887959e0909ec9381e4ab25c8557d7e5545a244355951b12fcc260",
+        "version": "818641492925d7157d53f84ce06a825a9444842b2dffc601117471550c32555f",
+        "signature": "6dde8ad12ee3b7469880311cb2e779bee6cdff09064c0166ab6d5cbe0306ff1a",
         "affectsGlobalScope": false
       },
       "../src/bootstrap.service.ts": {
@@ -6612,8 +6612,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "4c52528faf453ef2587e78101ed9b31e6a8552f4e80868c13f0e3914bb22f522",
-        "signature": "f9d98b3128d165901088389941c0c2a52367789c6cc89d46f235778958627f65",
+        "version": "a1ca19f8ba817ae40639ae7af6a3662d38d63a76ab7150972743e764e679b78a",
+        "signature": "b064e9347186733c8598d3d7ea1f7c784b7c2d8ffa7a79f6106c34208101f1f4",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -6852,7 +6852,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "0219eac394c9b6b5c841f4f6cc2e3559d84a03e8d8a14617f8ef8fb4ea913471",
+        "version": "819d98caa00f5550053d704435723050e4756f28d7582d4298f68359bf876077",
         "signature": "21a330d839cae339525413cf358ad826958b8e01c59fcbac0abd15c4ca3727e6",
         "affectsGlobalScope": false
       },
@@ -13540,7 +13540,8 @@
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts",
-        "../src/sdk/discord/discordapiprovider.ts"
+        "../src/sdk/discord/discordapiprovider.ts",
+        "../src/sdk/whatsapp/whatsappapiprovider.ts"
       ],
       "../src/main.ts": [
         "../node_modules/@nestjs/core/index.d.ts",

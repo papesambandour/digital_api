@@ -79,7 +79,7 @@ class WhatsAppApiProvider {
         });
         await WhatsAppApiProvider.initClient(client);
     }
-    static async sendMessageToOne(recipient, message, attachedMediaPath) {
+    static async sendMessageToOne(recipient, message, attachedMediaPath = null) {
         if (!WhatsAppApiProvider.isReady) {
             return {
                 success: false,

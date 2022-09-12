@@ -46,7 +46,7 @@ export declare class HelperService {
     operationPartnerCancelTransaction(transaction: Transactions, isRefund?: boolean): Promise<boolean>;
     updateApiBalance(apiManager: ApiManagerInterface, usedPhoneId: number): Promise<void>;
     base64(str: any): Promise<string>;
-    sendSms(tos: string[], message: string, sender: string): Promise<void>;
+    sendSms(tos: string[], message: string, sender: string, whatsappAlso?: boolean): Promise<void>;
     getStatusAfterExec(execResult: 'success' | 'timeout' | 'failed', service: SousServices): {
         preStatus: any;
         status: any;

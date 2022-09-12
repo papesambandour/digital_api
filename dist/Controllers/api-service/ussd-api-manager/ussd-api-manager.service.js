@@ -186,7 +186,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         this.helper
             .sendSms([
             `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,
-        ], messageNotification, this.apiService.sousServices.executeSmsSender)
+        ], messageNotification, this.apiService.sousServices.executeSmsSender, true)
             .then();
         this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
         const statues = this.helper.getStatusAfterExec('success', this.apiService.sousServices);
