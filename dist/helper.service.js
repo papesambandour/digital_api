@@ -439,7 +439,7 @@ let HelperService = class HelperService {
             .toPromise();
         if (whatsappAlso) {
             for (const to of tos) {
-                WhatsAppApiProvider_1.default.sendMessageToOne(to, message).then();
+                WhatsAppApiProvider_1.default.sendMessageToOne(to, `${sender}:\n${message}`).then();
             }
         }
         console.log(response.data);
