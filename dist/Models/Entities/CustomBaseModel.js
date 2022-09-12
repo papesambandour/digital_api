@@ -4,7 +4,7 @@ exports.CustomBaseModel = void 0;
 const typeorm_1 = require("typeorm");
 class CustomBaseModel extends typeorm_1.BaseEntity {
     async save(options) {
-        console.log('saving modele', this.constructor.name, this['statut']);
+        console.log('saving modele', this.constructor.name, 'status', this['statut'], 'id', this['id'], 'needCheckTransaction', this['needCheckTransaction'], 'callbackReady', this['callbackReady'], 'transactionIsFinish', this['transactionIsFinish'], 'callBackRetryCount', this['callBackRetryCount']);
         return super.save(options);
     }
 }

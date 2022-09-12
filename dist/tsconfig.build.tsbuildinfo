@@ -6617,7 +6617,7 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
-        "version": "21cabb92bd0f4ef48e05edd9d21c8b9acb67a9cc6dc0d73951c42c84936b51f8",
+        "version": "062fe0b199fcd8e9b158da2747dc970f81d8c25ce19d127ff34b60cb352f5715",
         "signature": "e869a929ba42f8f5b0834bded35ce60c5e4c07c2e8245b25600ab666c341c532",
         "affectsGlobalScope": false
       },
