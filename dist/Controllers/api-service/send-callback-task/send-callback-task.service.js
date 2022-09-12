@@ -27,11 +27,10 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
         if (SendCallbackTaskService_1.canHandle === undefined) {
             SendCallbackTaskService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
         }
+        console.debug('SendCallbackTaskService when the current occure ', this.helper.mysqlDate(new Date()), SendCallbackTaskService_1.canHandle);
         try {
             if (SendCallbackTaskService_1.canHandle) {
                 SendCallbackTaskService_1.canHandle = false;
-                console.debug('SendCallbackTaskService when the current occure ' +
-                    this.helper.mysqlDate(new Date()));
                 const queue = new Queue({
                     autoStart: true,
                     concurrency: Enum_entity_1.CONSTANT.CALLBACK_CONCURENCY_SEND(),

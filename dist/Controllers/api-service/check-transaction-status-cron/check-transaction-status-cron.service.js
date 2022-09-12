@@ -27,11 +27,10 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
         if (CheckTransactionStatusCronService_1.canHandle === undefined) {
             CheckTransactionStatusCronService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
         }
+        console.debug('CheckTransactionStatusCronService when the current occure ', this.helper.mysqlDate(new Date()), CheckTransactionStatusCronService_1.canHandle);
         try {
             if (CheckTransactionStatusCronService_1.canHandle) {
                 CheckTransactionStatusCronService_1.canHandle = false;
-                console.debug('CheckTransactionStatusCronService when the current occure ' +
-                    this.helper.mysqlDate(new Date()));
                 const queue = new Queue({
                     autoStart: true,
                     concurrency: Enum_entity_1.CONSTANT.CHECK_TRANSACTION_CONCURENCY_SEND(),
