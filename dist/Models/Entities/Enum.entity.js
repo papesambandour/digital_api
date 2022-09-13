@@ -85,6 +85,8 @@ var TypeEvenEnum;
 exports.CONSTANT = {
     TIME_OUT_PHONE_SECOND: () => parseInt(process.env.TIME_OUT_PHONE_SECOND) || 20,
     WAIT_SOCKET_PHONE: () => parseInt(process.env.WAIT_SOCKET_PHONE) || 30,
+    IPN_TASK_ITEM_TIME_OUT_IN_SECOND: () => parseInt(process.env.IPN_TASK_ITEM_TIME_OUT_IN_SECOND),
+    CHECK_STATUS_TASK_ITEM_TIME_OUT_IN_SECOND: () => parseInt(process.env.CHECK_STATUS_TASK_ITEM_TIME_OUT_IN_SECOND),
     MAX_TIME_VALIDATION_TRX: () => parseInt(process.env.MAX_TIME_VALIDATION_TRX) || 1,
     MAX_RETRY_CALLBACK: () => parseInt(process.env.MAX_RETRY_CALLBACK),
     WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE: () => parseInt(process.env.WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE),

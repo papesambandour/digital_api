@@ -71,6 +71,8 @@ export declare enum TypeEvenEnum {
 export declare const CONSTANT: {
     TIME_OUT_PHONE_SECOND: () => number;
     WAIT_SOCKET_PHONE: () => number;
+    IPN_TASK_ITEM_TIME_OUT_IN_SECOND: () => number;
+    CHECK_STATUS_TASK_ITEM_TIME_OUT_IN_SECOND: () => number;
     MAX_TIME_VALIDATION_TRX: () => number;
     MAX_RETRY_CALLBACK: () => number;
     WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE: () => number;

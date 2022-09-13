@@ -75,11 +75,14 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         await this.helper.setTimeOutDate(response.transaction);
         const errorType = await this.helper.provideErrorType(response.transaction, null, null, response.partnerMessage);
         this.helper.updateApiBalance(apiManager, response.usedPhoneId).then();
-        if (response.status === Enum_entity_1.StatusEnum.FAILLED && response.refundOnFailed) {
+        console.log('response', response);
+        if (response.status === Enum_entity_1.StatusEnum.FAILLED) {
             await this.helper.operationPartnerCancelTransaction(response.transaction);
         }
-        response.transaction.initResponseEndAt = new Date();
-        response.transaction.save().then();
+        if (response.transaction) {
+            response.transaction.initResponseEndAt = new Date();
+            response.transaction.save().then();
+        }
         return this.response(response.codeHttp, this.apiServiceService.responseOperation(response, operationInDto, errorType), (errorType === null || errorType === void 0 ? void 0 : errorType.message) || response.partnerMessage, response.codeHttp !== Controller_1.CODE_HTTP.OK_OPERATION);
     }
     async transaction(id) {

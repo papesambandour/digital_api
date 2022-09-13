@@ -16,7 +16,6 @@ export declare type InitResponse = OperationOutDto & {
     partnerMessage?: string;
     transaction: Transactions;
     codeHttp: string;
-    refundOnFailed: boolean;
     usedPhoneId?: number;
     data?: any;
 };

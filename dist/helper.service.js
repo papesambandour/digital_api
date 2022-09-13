@@ -42,7 +42,7 @@ let HelperService = class HelperService {
     }
     async notifyAdmin(message, typeEvent, data = {}, isCritic = false) {
         console.log(`CONTACTA ADMIN TO ${message} for EVENT: ${typeEvent}. Data:`, data, isCritic);
-        if (process.env.MODE === 'production') {
+        if (parseInt(process.env.SEND_NOTIFY) === 1) {
             DiscordApiProvider_1.default.sendMessageStatic({
                 message: `NEW ALERT MESSAGE:\n${message}\nEVENT : ${typeEvent}`,
             }).then();
@@ -223,8 +223,7 @@ let HelperService = class HelperService {
                 dataSended: JSON.stringify(dataSended),
                 dataResponseCallback: `${e.message}|${main_1.serializeData((_a = e.response) === null || _a === void 0 ? void 0 : _a.data)}`,
                 callbackIsSend: 2,
-                callbackReady: transaction.callBackRetryCount + 1 <
-                    parseInt(process.env.MAX_RETRY_CALLBACK)
+                callbackReady: transaction.callBackRetryCount + 1 < Enum_entity_1.CONSTANT.MAX_RETRY_CALLBACK()
                     ? 1
                     : 2,
                 callBackRetryCount: transaction.callBackRetryCount + 1,
@@ -993,6 +992,31 @@ let HelperService = class HelperService {
     }
     async handleTransactionRefundSuccess(transaction) {
         await this.operationPartnerCancelTransaction(transaction, true);
+    }
+    escapeMysql(val) {
+        val = val.replace(/[\0\n\r\b\t\\'"\x1a]/g, function (s) {
+            switch (s) {
+                case '\0':
+                    return '\\0';
+                case '\n':
+                    return '\\n';
+                case '\r':
+                    return '\\r';
+                case '\b':
+                    return '\\b';
+                case '\t':
+                    return '\\t';
+                case '\x1a':
+                    return '\\Z';
+                case "'":
+                    return "''";
+                case '"':
+                    return '""';
+                default:
+                    return '\\' + s;
+            }
+        });
+        return val;
     }
 };
 HelperService = __decorate([

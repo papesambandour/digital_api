@@ -82,7 +82,6 @@ class XeweulSnBillReloadApiManagerService extends api_manager_interface_service_
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
-                refundOnFailed: true,
             }, baseResponse);
         }
     }

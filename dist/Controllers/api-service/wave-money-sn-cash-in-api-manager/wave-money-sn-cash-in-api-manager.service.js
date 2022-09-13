@@ -80,7 +80,6 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
-                refundOnFailed: true,
             }, baseResponse);
         }
     }

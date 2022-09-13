@@ -8,6 +8,7 @@ const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const UssdExecutionMessages_entity_1 = require("../../../Models/Entities/UssdExecutionMessages.entity");
 const Controller_1 = require("../../Controller");
 const main_1 = require("../../../main");
+const typeorm_1 = require("typeorm");
 class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async initTransaction(params) {
         const phone = await this.loadBalancingPhone();
@@ -41,7 +42,6 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                 transactionId: transaction.transactionId,
                 partnerMessage: api_manager_interface_service_1.MANAGER_INIT_DOWN_MESSAGE.replace('pho', 'pho-2'),
                 usedPhoneId: phone.id,
-                refundOnFailed: true,
             }, baseResponse);
         }
         return Object.assign({
@@ -68,6 +68,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
     async executeUssdCall(phone, transaction) {
         let ussdCode = this.getUssDCode(this.apiService.sousServices.ussdCode, phone);
         ussdCode += `-${transaction.id}`;
+        console.log(ussdCode, 'ussd');
         const socket = sockets_gateway_1.SocketsGateway.getSocket(phone.number);
         let clearId;
         if (socket) {
@@ -112,7 +113,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             errorMessage: 'Telephone injoignable',
             dateFailled: new Date(),
         });
-        return false;
+        return this.helper.isNotCancelable(preStatus, status);
     }
     async finishExecUssd(socketBodyFinish, transaction) {
         try {
@@ -146,19 +147,25 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                 this.helper.alertForUnknownResponse(socketBodyFinish.data, this.apiService.operationInDto.codeService, this.apiService.transactionId);
             }
         }
-        const statues = this.helper.getStatusAfterExec(regexMatched || !matchError ? 'success' : 'failed', this.apiService.sousServices);
+        const execSuccess = regexMatched || !matchError;
+        const statues = this.helper.getStatusAfterExec(execSuccess ? 'success' : 'failed', this.apiService.sousServices);
         const preStatus = statues['preStatus'];
         const status = statues['status'];
-        await this.apiService.connection.query(`update transactions
-                 set date_processing= '${this.helper.mysqlDate(new Date())}',
-                     date_pre_success= '${this.helper.mysqlDate(new Date())}',
-                     code_ussd_response= '${statutUssdResponse}',
-                     ussd_response_match= 0,
-                     statut_ussd_response= '${Enum_entity_1.EnumValidationStatus.SUCCESS}',
-                     statut= '${status}',
-                     pre_statut= '${preStatus}'
-                 where id = ${this.apiService.transactionId}
-                   AND statut <> '${Enum_entity_1.StatusEnum.SUCCESS}'`);
+        await Transactions_entity_1.Transactions.update({
+            statut: typeorm_1.Not(Enum_entity_1.StatusEnum.SUCCESS),
+            id: transaction.id,
+        }, {
+            dateProcessing: new Date(),
+            datePreSuccess: new Date(),
+            codeUssdResponse: statutUssdResponse,
+            ussdResponseMatch: regexMatched ? 1 : 0,
+            statutUssdResponse: Enum_entity_1.EnumValidationStatus.SUCCESS,
+            statut: status,
+            preStatut: preStatus,
+            message: execSuccess ? socketBodyFinish.data : null,
+            errorMessage: !execSuccess ? socketBodyFinish.data : null,
+        });
+        await transaction.reload();
         return this.helper.isNotCancelable(preStatus, status);
     }
     getUssDCode(regexCodeUss, phone) {

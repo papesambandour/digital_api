@@ -66,7 +66,7 @@ let SocketServiceService = class SocketServiceService {
         const sms = new DtoMessageUssds_1.DtoMessageUssds();
         sms.content = (_a = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _a === void 0 ? void 0 : _a.content;
         sms.createdAt = new Date();
-        sms.sender = (_b = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _b === void 0 ? void 0 : _b.operateur;
+        sms.sender = (_b = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _b === void 0 ? void 0 : _b.numero;
         sms.messagerie = (_c = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _c === void 0 ? void 0 : _c.numeroCentre;
         let infoTransaction;
         const phones = await Phones_entity_1.Phones.find({
@@ -165,7 +165,7 @@ let SocketServiceService = class SocketServiceService {
                     const senderValid = String(infoTransaction.sousService.senderSmsAuthorize)
                         .split(',')
                         .map((op) => op.trim())
-                        .includes((_g = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _g === void 0 ? void 0 : _g.operateur);
+                        .includes((_g = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _g === void 0 ? void 0 : _g.numero);
                     if (!senderValid) {
                         DiscordApiProvider_1.default.sendMessageStatic({
                             message: `Un sms avec une source inconnu a été recu pour la transaction #${transaction.id}, RECU: sender: ${socketBody.data.operateur},\nAttendu:  sender: ${infoTransaction.sousService.senderSmsAuthorize}`,
@@ -217,6 +217,7 @@ let SocketServiceService = class SocketServiceService {
             relations: ['sousServicesPhones'],
         });
         if (!phone) {
+            console.log('Phone not found');
             client.emit('failledToJoinedRoom');
             return false;
         }

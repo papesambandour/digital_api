@@ -29,10 +29,11 @@ let CheckTransactionTimeoutCronService = CheckTransactionTimeoutCronService_1 = 
             CheckTransactionTimeoutCronService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
         }
         console.debug('CheckTransactionTimeoutCronService when the current occure ', this.helper.mysqlDate(new Date()), CheckTransactionTimeoutCronService_1.canHandle);
+        let queue;
         try {
             if (CheckTransactionTimeoutCronService_1.canHandle) {
                 CheckTransactionTimeoutCronService_1.canHandle = false;
-                const queue = new Queue({
+                queue = new Queue({
                     autoStart: true,
                     concurrency: Enum_entity_1.CONSTANT.CHECK_TRANSACTION_CONCURENCY_SEND(),
                 });
@@ -63,11 +64,13 @@ let CheckTransactionTimeoutCronService = CheckTransactionTimeoutCronService_1 = 
                 }
                 await Promise.all(promiseArr);
                 CheckTransactionTimeoutCronService_1.canHandle = true;
+                queue === null || queue === void 0 ? void 0 : queue.end();
             }
         }
         catch (e) {
             console.error(e);
             CheckTransactionTimeoutCronService_1.canHandle = true;
+            queue === null || queue === void 0 ? void 0 : queue.end();
         }
     }
     static async fetchPendingTransaction() {

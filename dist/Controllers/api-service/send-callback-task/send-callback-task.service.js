@@ -28,10 +28,11 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
             SendCallbackTaskService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
         }
         console.debug('SendCallbackTaskService when the current occure ', this.helper.mysqlDate(new Date()), SendCallbackTaskService_1.canHandle);
+        let queue;
         try {
             if (SendCallbackTaskService_1.canHandle) {
                 SendCallbackTaskService_1.canHandle = false;
-                const queue = new Queue({
+                queue = new Queue({
                     autoStart: true,
                     concurrency: Enum_entity_1.CONSTANT.CALLBACK_CONCURENCY_SEND(),
                 });
@@ -40,6 +41,9 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
                 console.log('traansaction for send callback fetched', transactions.length);
                 for (const transaction of transactions) {
                     promiseArr.push(queue.pushTask((resolve) => {
+                        setTimeout(() => {
+                            resolve(['timeout callback', transaction]);
+                        }, Enum_entity_1.CONSTANT.IPN_TASK_ITEM_TIME_OUT_IN_SECOND() * 1000);
                         this.helper
                             .sendCallBack(transaction)
                             .then((data) => {
@@ -52,18 +56,20 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
                 }
                 await Promise.all(promiseArr);
                 SendCallbackTaskService_1.canHandle = true;
+                queue === null || queue === void 0 ? void 0 : queue.end();
             }
         }
         catch (e) {
             console.error(e);
             SendCallbackTaskService_1.canHandle = true;
+            queue === null || queue === void 0 ? void 0 : queue.end();
         }
     }
     static async fetchPendingTransaction() {
         return await Transactions_entity_1.Transactions.find({
             where: {
                 callbackReady: 1,
-                nextSendCallbackDate: typeorm_1.LessThanOrEqual(new Date()),
+                nextSendCallbackDate: typeorm_1.MoreThanOrEqual(new Date()),
                 callBackRetryCount: typeorm_1.LessThan(parseInt(process.env.MAX_IPN_RETRY)),
                 callbackIsSend: typeorm_1.In([0, 2]),
             },

@@ -54,9 +54,11 @@ let ApiServiceService = class ApiServiceService {
     initFeeCommissionPartner(commission, amount) {
         let amountFee = 0;
         let amountCommssion = 0;
-        amountCommssion =
-            (+(commission === null || commission === void 0 ? void 0 : commission.tauxCommission) * amount) / 100 +
-                +(commission === null || commission === void 0 ? void 0 : commission.amountCommssion);
+        if (!this.isSoldeComm) {
+            amountCommssion =
+                (+(commission === null || commission === void 0 ? void 0 : commission.tauxCommission) * amount) / 100 +
+                    +(commission === null || commission === void 0 ? void 0 : commission.amountCommssion);
+        }
         amountFee = (+(commission === null || commission === void 0 ? void 0 : commission.tauxFee) * amount) / 100 + +(commission === null || commission === void 0 ? void 0 : commission.amountFee);
         this.feeAmount = amountFee;
         this.commissionAmount = amountCommssion;
@@ -149,7 +151,8 @@ let ApiServiceService = class ApiServiceService {
                 msg.codeService.push('Le services est temporairement desactivé pour le partenaire');
             }
         }
-        if (this.sousServices.typeOperation === Enum_entity_1.TypeOperationEnum.DEBIT) {
+        if (this.sousServices &&
+            this.sousServices.typeOperation === Enum_entity_1.TypeOperationEnum.DEBIT) {
             if (+((_o = this === null || this === void 0 ? void 0 : this.partner) === null || _o === void 0 ? void 0 : _o.solde) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
                 if (+((_p = this === null || this === void 0 ? void 0 : this.partner) === null || _p === void 0 ? void 0 : _p.soldeCommission) < +(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount)) {
                     asError = true;

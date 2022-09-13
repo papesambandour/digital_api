@@ -67,7 +67,6 @@ class WhatsappMessageSendApiManagerService extends api_manager_interface_service
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
-                refundOnFailed: true,
             }, baseResponse);
         }
     }

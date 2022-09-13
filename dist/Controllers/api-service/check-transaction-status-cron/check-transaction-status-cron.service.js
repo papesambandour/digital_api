@@ -28,10 +28,11 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
             CheckTransactionStatusCronService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
         }
         console.debug('CheckTransactionStatusCronService when the current occure ', this.helper.mysqlDate(new Date()), CheckTransactionStatusCronService_1.canHandle);
+        let queue;
         try {
             if (CheckTransactionStatusCronService_1.canHandle) {
                 CheckTransactionStatusCronService_1.canHandle = false;
-                const queue = new Queue({
+                queue = new Queue({
                     autoStart: true,
                     concurrency: Enum_entity_1.CONSTANT.CHECK_TRANSACTION_CONCURENCY_SEND(),
                 });
@@ -40,6 +41,9 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
                 console.log('transaction for check status fetched', transactions.length);
                 for (const transaction of transactions) {
                     promiseArr.push(queue.pushTask(async (resolve, _) => {
+                        setTimeout(() => {
+                            resolve(['timeout checkstatus', transaction]);
+                        }, Enum_entity_1.CONSTANT.CHECK_STATUS_TASK_ITEM_TIME_OUT_IN_SECOND() * 1000);
                         const apiManager = await this.helper.getApiManagerInterface(transaction.sousServices.code, null);
                         apiManager
                             .checkStatusTransaction({
@@ -55,11 +59,13 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
                 }
                 await Promise.all(promiseArr);
                 CheckTransactionStatusCronService_1.canHandle = true;
+                queue === null || queue === void 0 ? void 0 : queue.end();
             }
         }
         catch (e) {
             console.error(e);
             CheckTransactionStatusCronService_1.canHandle = true;
+            queue === null || queue === void 0 ? void 0 : queue.end();
         }
     }
     static async fetchPendingTransaction() {

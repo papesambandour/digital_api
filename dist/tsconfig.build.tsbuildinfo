@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "acf1379ad966dcb94cbd510acd4d11660af902bad3f66cbdcfdeec2fb03f4a96",
-        "signature": "5c418e0bfe3f85db9be3b8ff9e1f1cd77f613bf04c21e1badf8c55d355df8533",
+        "version": "b0327773050442ad68da24c06ed64b6f05ecb7ec46e5cdd342ab2480a7a28adf",
+        "signature": "53d7127fa43442157b3230c246bb36044292427391a47c9b81bee58ce0db4d84",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4092,7 +4092,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "adbba82240195348eab6a99af0b356d69138bccde0238fb290a40d55f6ba21bf",
+        "version": "c45c9dee0aaa5ec0e3ad81b5fe458920cf795be9ceb6d5f1c55839bbbb7d194f",
         "signature": "68c7d299309bfdecd795c3410516d4a3d201244ace4bc7484f2d186440767f31",
         "affectsGlobalScope": false
       },
@@ -4107,8 +4107,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "59e170d847630bd1d631897232652feb9adc2c061b0704f78152f1665cfc08c1",
-        "signature": "c9e95b7c7313ed17d13fb83a6fe7b40a21b8d9848b337f47539d28de4abe42a9",
+        "version": "9d08675e82934f124ad62dbd0fde7508112dcc44bd6432d5c8fd22fb82368f6d",
+        "signature": "7ca7a1288810d98ad88ee4904be83e2e125ccd2c303d83b058255841bc721faf",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtooperationparteners.ts": {
@@ -4567,7 +4567,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "78ec23961c64bdd0ae3f71f53629f5708d71417a145d5f7d8a5b4bb8eec6d1d5",
+        "version": "c4ebf15fd90886f5d4aa6b32f5bc8a30a0c76681bc0a8de0a1eda579c1b2e3dd",
         "signature": "e43afb687423f2026bf4b4cfe7eb3a578de53de35aba6bd1c1b17571791d3ca9",
         "affectsGlobalScope": false
       },
@@ -4672,7 +4672,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "e8f8950538511401ab79cd2f5cd60676377cbfe6f9165c83ab84b4b93697a89e",
+        "version": "141ea2d376d41857f06575e8561d9c333ea781ca45298473b7eaa9da62077be7",
         "signature": "3deb222a55726669855a5e64c20e67480b120ecba7b94f91b7f93833380d77e6",
         "affectsGlobalScope": false
       },
@@ -4777,7 +4777,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": {
-        "version": "204d6f97df75b77fb14373be9a6b26272e20006c199a9d6bdaa372f12790d030",
+        "version": "ed8934a2af0bd388d4109e569d4943d100910845cfa469506a775c86a009d23c",
         "signature": "042420fe4ce1fd1f71ebaa0d72b161b6f4f134ce8a376fb69e778703cbf2eeaf",
         "affectsGlobalScope": false
       },
@@ -6432,12 +6432,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": {
-        "version": "dc0a53be5f40877b408e5775dc6cc4981fdc7b9066cbe37cb212fafd63cdc0fb",
+        "version": "58875ff14080e1026f6fbfaeb146acfd81e569e5173801e4cdce7c8aa47b50dc",
         "signature": "91c6dc263b1a3a1562d874e5bb613b8fe2137ddf8d9ad16f2431d4e967f83a53",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts": {
-        "version": "9047b79fed49b473b7e9f1ae2f83b89f141fd508c72ee26aaabf7b67f169adbd",
+        "version": "d0b2c3fa44cac0e9e174b7039a3fb6b16f7795232d61bdd5b29d5d2470805bd7",
         "signature": "b5337e2f47ada37883533431aefa64103570a64d30cb4a2b5dad36b2aa0108c3",
         "affectsGlobalScope": false
       },
@@ -6612,8 +6612,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "7253c7c239aef88af18905efe7ae30e8b779b3c163eca3218943207fcd5faf4c",
-        "signature": "b064e9347186733c8598d3d7ea1f7c784b7c2d8ffa7a79f6106c34208101f1f4",
+        "version": "a8062848106d036f2310b0f3c52fc87122e16d1026838e38c73ce3851a406c01",
+        "signature": "ca464e87bcb9846166b6e3a87f7bc3600388cbca56823deb380a6a0732754bb7",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -6777,7 +6777,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/empty-model-service.ts": {
-        "version": "2793c39b976b92e4d121a40a9fedbf87eb5d9e39e746fbc97ae2067fdb51cbdd",
+        "version": "b562b23ba15f764ae5070e55c200e9fa6e99529a88191308aa6f3e8dd5b8be6e",
         "signature": "738b11e67f9f5c6b67f9f737bb61e69c8dd4f69f02491ca9b54739c950825027",
         "affectsGlobalScope": false
       },
@@ -6852,12 +6852,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "819d98caa00f5550053d704435723050e4756f28d7582d4298f68359bf876077",
+        "version": "f7a6c7c63d4eba84a8a40ba9418b7af2360002397e43ae4149f50a6d26a81cb5",
         "signature": "21a330d839cae339525413cf358ad826958b8e01c59fcbac0abd15c4ca3727e6",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/uvs-sn-bill-payment-api-manager/uvs-sn-bill-payment-api-manager.service.ts": {
-        "version": "7d490612af88497b4532f8288cb2de35b612efe491ccf8db038d1207dc330096",
+        "version": "2cbfc1a8ab7f3242e12d756b8fd64e3d9f2078ff32617c71076089ff8961d9ee",
         "signature": "86035eb2d2e3ba11cada6ee15e397a3044b74192e143932063936743ea60dbdb",
         "affectsGlobalScope": false
       },
@@ -6902,7 +6902,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": {
-        "version": "7af29db083f8c5c6c2ce271228faf562a5b2d321ba9bf4926a2ebe5d99827133",
+        "version": "f2198da680b3bac354d4be59630f561629ccee088ed874449b0f1d91b7a1ca9b",
         "signature": "1c6b491aa811c886b2974970bdf803227ef08dc7e87c410cac942d30ca6e53a3",
         "affectsGlobalScope": false
       },
@@ -6917,7 +6917,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/whatsapp-message-send-api-manager/whatsapp-message-send-api-manager.service.ts": {
-        "version": "fb6c622736aae47d9d320eb490746eb0d4dabb82096c6db6ae9be9feb616ed33",
+        "version": "87150fadf4d49f37569c669cb37e86c681f18bf600dc5ffc314b6017e003cacc",
         "signature": "c99a88a98b055adf7c9ee059144d1f224ba086d64ea38cdd981bb6894727714b",
         "affectsGlobalScope": false
       },
@@ -6937,12 +6937,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/woyofal-sn-bill-reload-api-manager/woyofal-sn-bill-reload-api-manager.service.ts": {
-        "version": "b34167ebfee3bb4f7150cc454d49d3267b28842ee674fc0a226572b865d7aade",
+        "version": "cf9b2607224ecd79b960f196e90f69652c1a5bb706d689a26fe5cbb8117964d6",
         "signature": "f76c2c42be68078400f4d9a0cd4337ae66d28faa6bc342903671de623517cf01",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/xeweul-sn-bill-reload-api-manager/xeweul-sn-bill-reload-api-manager.service.ts": {
-        "version": "72cb741d338a22149ee130392ab53b5ae40f9620db2e9c5b412510ffe5fe868c",
+        "version": "ae9631d678528e55ef41917345857fcf4a3590167e8eda27417e250af1f3e0f3",
         "signature": "4a49b0b8252ef38a5db6f2df4c64230d2ae54e4e3b77bf8f1112d7a3c4584c03",
         "affectsGlobalScope": false
       },
@@ -13373,6 +13373,7 @@
         "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/controller.ts",
         "../src/main.ts",
