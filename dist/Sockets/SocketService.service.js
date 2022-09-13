@@ -217,7 +217,6 @@ let SocketServiceService = class SocketServiceService {
             relations: ['sousServicesPhones'],
         });
         if (!phone) {
-            console.log('Phone not found');
             client.emit('failledToJoinedRoom');
             return false;
         }

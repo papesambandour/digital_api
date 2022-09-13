@@ -4567,7 +4567,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "c4ebf15fd90886f5d4aa6b32f5bc8a30a0c76681bc0a8de0a1eda579c1b2e3dd",
+        "version": "f3a444e30d09977a8a01a40dfdfe1ec12addb5aaf5260e5644f294a272c28808",
         "signature": "e43afb687423f2026bf4b4cfe7eb3a578de53de35aba6bd1c1b17571791d3ca9",
         "affectsGlobalScope": false
       },
@@ -4777,7 +4777,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": {
-        "version": "ed8934a2af0bd388d4109e569d4943d100910845cfa469506a775c86a009d23c",
+        "version": "e516d0b827e0d2038ce58dbb97fb320170a331df283080f080af4ba1f70e786f",
         "signature": "042420fe4ce1fd1f71ebaa0d72b161b6f4f134ce8a376fb69e778703cbf2eeaf",
         "affectsGlobalScope": false
       },

@@ -70,7 +70,7 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
             where: {
                 callbackReady: 1,
                 nextSendCallbackDate: typeorm_1.MoreThanOrEqual(new Date()),
-                callBackRetryCount: typeorm_1.LessThan(parseInt(process.env.MAX_IPN_RETRY)),
+                callBackRetryCount: typeorm_1.LessThan(Enum_entity_1.CONSTANT.MAX_RETRY_CALLBACK()),
                 callbackIsSend: typeorm_1.In([0, 2]),
             },
             take: Enum_entity_1.CONSTANT.CALLBACK_CONCURENCY_SEND(),
