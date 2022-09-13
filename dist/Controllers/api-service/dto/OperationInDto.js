@@ -98,7 +98,7 @@ __decorate([
 ], OperationInDto.prototype, "errorRedirectUrl", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    class_validator_1.IsAlpha(),
+    class_validator_1.IsString(),
     class_validator_1.ValidateIf((object) => [
         Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT,
         Enum_entity_1.SOUS_SERVICE_ENUM.BANK_TRANSFER_SN_API_CASH_IN,
@@ -107,7 +107,7 @@ __decorate([
 ], OperationInDto.prototype, "customerFirstName", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    class_validator_1.IsAlpha(),
+    class_validator_1.IsString(),
     class_validator_1.ValidateIf((object) => [
         Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT,
         Enum_entity_1.SOUS_SERVICE_ENUM.BANK_TRANSFER_SN_API_CASH_IN,
