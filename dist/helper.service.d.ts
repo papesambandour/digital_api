@@ -65,7 +65,7 @@ export declare class HelperService {
     getErrorType(errorMessage: string, codeSousService: string, amount: string): Promise<ErrorTypes | null>;
     alertForUnknownResponse(responseData: string, codeService: string, transactionId: number): void;
     ribFromString(rib: string, country?: 'sn' | 'ci'): Rib;
-    getDeepLinkNotificationMessage(transaction: Transactions, deepLink: string): string;
+    getDeepLinkNotificationMessage(transaction: Transactions, deepLink: string): Promise<string>;
     canRefundOperation(transaction: Transactions): Promise<{
         allow: boolean;
         message: string;

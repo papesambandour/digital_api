@@ -100,7 +100,7 @@ class BankCardMoneySnCashOutApiManagerService extends api_manager_interface_serv
             await transaction.save();
             console.log('Send OKK');
             const deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
-            const messageNotification = this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
+            const messageNotification = await this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.PENDING,
                 codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,

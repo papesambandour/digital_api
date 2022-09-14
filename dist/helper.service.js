@@ -955,8 +955,9 @@ let HelperService = class HelperService {
                 cleanRib.ribKey.isValid;
         return cleanRib;
     }
-    getDeepLinkNotificationMessage(transaction, deepLink) {
-        return `Bonjour, cliquez sur le lien suivant pour valider la transaction de ${transaction.amount} cfa.\n${deepLink}\n(Expire dans 15 minutes)\nBy InTech`;
+    async getDeepLinkNotificationMessage(transaction, deepLink) {
+        const partner = await Parteners_entity_1.Parteners.findOne(transaction.partenersId);
+        return `Cliquez sur le lien suivant pour valider le paiement de ${transaction.amount} CFA sur ${partner.name}.\n${deepLink}\nExpire dans 15 minutes`;
     }
     async canRefundOperation(transaction) {
         if (!transaction) {

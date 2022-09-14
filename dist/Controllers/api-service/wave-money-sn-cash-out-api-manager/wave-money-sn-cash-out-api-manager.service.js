@@ -65,7 +65,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
             await transaction.save();
             console.log('Send OKK');
             const deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
-            const messageNotification = this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
+            const messageNotification = await this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
             this.helper
                 .sendSms([
                 `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,

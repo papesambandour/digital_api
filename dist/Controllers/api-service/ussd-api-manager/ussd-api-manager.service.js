@@ -189,7 +189,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         transaction.deepLinkUrl = `tel:${encodeURIComponent(ussdCode)}`;
         await transaction.save();
         const deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
-        const messageNotification = this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
+        const messageNotification = await this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
         this.helper
             .sendSms([
             `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,
