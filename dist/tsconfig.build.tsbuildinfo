@@ -4672,7 +4672,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "56aa80cc5fc79978ee91f2cf9e1ed3d6aceb1f76556ced85b0d68744e338f750",
+        "version": "b9584fd3fe6fdd072b8485b49e1dea06eb5b54306ed06688453cbac1f10b38e1",
         "signature": "1ebb6e12fbe034c6a7ce0c027421b8bd5f2e6ccb1fea8fa5bd3ec21375399c46",
         "affectsGlobalScope": false
       },
@@ -13174,6 +13174,7 @@
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/controllers/api-service/api-service.controller.ts": [
+        "../node_modules/@nestjs/common/decorators/http/request-mapping.decorator.d.ts",
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/@types/node/util.d.ts",

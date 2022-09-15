@@ -40,6 +40,7 @@ const Parteners_entity_1 = require("../../Models/Entities/Parteners.entity");
 const SousServices_entity_1 = require("../../Models/Entities/SousServices.entity");
 const ListPendingBillInDto_1 = require("./dto/ListPendingBillInDto");
 const ErrorTypes_entity_1 = require("../../Models/Entities/ErrorTypes.entity");
+const request_mapping_decorator_1 = require("@nestjs/common/decorators/http/request-mapping.decorator");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService, helper) {
         super();
@@ -247,7 +248,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "balance", null);
 __decorate([
-    common_1.Post('callback/mtn-momo'),
+    request_mapping_decorator_1.All('callback/mtn-momo'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
