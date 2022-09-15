@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EXECUTE_TYPE_USSD = exports.SIM_PROVIDER = exports.SOUS_SERVICE_ENUM = exports.EnumCodeUssdResponse = exports.EnumValidationStatus = exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
+exports.ClaimStatut = exports.EXECUTE_TYPE_USSD = exports.SIM_PROVIDER = exports.SOUS_SERVICE_ENUM = exports.EnumCodeUssdResponse = exports.EnumValidationStatus = exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
 var StateEnum;
 (function (StateEnum) {
     StateEnum["ACTIVED"] = "ACTIVED";
@@ -19,6 +19,7 @@ var StatusEnum;
 var OperationEnum;
 (function (OperationEnum) {
     OperationEnum["TRANSACTION"] = "TRANSACTION";
+    OperationEnum["COMMISSION"] = "COMMISSION";
     OperationEnum["ANNULATION_TRANSACTION"] = "ANNULATION_TRANSACTION";
     OperationEnum["REFUND_TRANSACTION"] = "REFUND_TRANSACTION";
     OperationEnum["APROVISIONNEMENT"] = "APROVISIONNEMENT";
@@ -81,6 +82,8 @@ var TypeEvenEnum;
     TypeEvenEnum["GENERIC_EVENT"] = "GENERIC_EVENT";
     TypeEvenEnum["UNKNOWN_RESPONSE_INIT"] = "UNKNOWN_RESPONSE_INIT";
     TypeEvenEnum["CRITICAL_ERROR"] = "CRITICAL_ERROR";
+    TypeEvenEnum["NEW_CLAIM"] = "NEW_CLAIM";
+    TypeEvenEnum["UN_ALLOWED_SMS_SOURCE"] = "UN_ALLOWED_SMS_SOURCE";
 })(TypeEvenEnum = exports.TypeEvenEnum || (exports.TypeEvenEnum = {}));
 exports.CONSTANT = {
     TIME_OUT_PHONE_SECOND: () => parseInt(process.env.TIME_OUT_PHONE_SECOND) || 20,
@@ -146,4 +149,10 @@ var EXECUTE_TYPE_USSD;
     EXECUTE_TYPE_USSD["SEND_USSD_CODE_SMS"] = "SEND_USSD_CODE_SMS";
     EXECUTE_TYPE_USSD["EXECUTE_REQUEST_CODE"] = "EXECUTE_REQUEST_CODE";
 })(EXECUTE_TYPE_USSD = exports.EXECUTE_TYPE_USSD || (exports.EXECUTE_TYPE_USSD = {}));
+var ClaimStatut;
+(function (ClaimStatut) {
+    ClaimStatut["CREATED"] = "CREATED";
+    ClaimStatut["OPENED"] = "OPENED";
+    ClaimStatut["CLOSED"] = "CLOSED";
+})(ClaimStatut = exports.ClaimStatut || (exports.ClaimStatut = {}));
 //# sourceMappingURL=Enum.entity.js.map

@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "b0327773050442ad68da24c06ed64b6f05ecb7ec46e5cdd342ab2480a7a28adf",
-        "signature": "53d7127fa43442157b3230c246bb36044292427391a47c9b81bee58ce0db4d84",
+        "version": "8851bffd9c4a4d0c3d588b91aa127846c4c3f93c3dc4b51cde55d46c434ee3e1",
+        "signature": "7d25c5ad0fa09b244d99f7917355169a06094db4d3de5551541d4df358508080",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3127,8 +3127,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/sousservices.entity.ts": {
-        "version": "506d0ccbbe61ac30829c312617ea5e3fdc42fd2ab80186058b5549da62c15b10",
-        "signature": "724a2763d5218e67d70a83c97c7ddd1202409392e9d793c1b29d0fbf7b761d33",
+        "version": "87a04102accda304218c60b6eea824200dd084cf72c7fb8246a7103f2bb60218",
+        "signature": "baf795aeb6f797c3a1e25dd4f55c6515ec26a4da72a674b838ca80c47a8c2ee7",
         "affectsGlobalScope": false
       },
       "../src/models/entities/commission.entity.ts": {
@@ -4567,8 +4567,8 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "f3a444e30d09977a8a01a40dfdfe1ec12addb5aaf5260e5644f294a272c28808",
-        "signature": "e43afb687423f2026bf4b4cfe7eb3a578de53de35aba6bd1c1b17571791d3ca9",
+        "version": "1bfbbdb80103465d999e6970563fe975c35e89d95ae8a37d94200703bc1d7c96",
+        "signature": "e30545878b4461db085a32ca75284d5d2ee2bafa01ee7cb5f3e6e1246edcb2cf",
         "affectsGlobalScope": false
       },
       "../src/sockets/sockets.gateway.ts": {
@@ -6612,8 +6612,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "fc78c4e4b40a76deb33cc04216ffa938dc523e3ab90aa645f5daa944813d63d4",
-        "signature": "213d7bbc33b2ef97babd404ef015778f86a75d99fa4ed5ef4087b83e29441424",
+        "version": "3ad5acc42ba591813857bb104d8cffd387dc6113f8af5e34701eaeffa91b86cf",
+        "signature": "b434c0a9a04d79a159941faa4f8644ff1170de624710e096396ee238209376f0",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -7074,6 +7074,11 @@
       "../src/models/dto/dtoussdexecutionmessages.ts": {
         "version": "f83d785436c5248093c9522800ffd013fb4fcc87ad47f271c6f9b00318c9894c",
         "signature": "8c65bf912675b0a99732805b188e6cc534b28028c90a0b17802134a84293b916",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/claim.entity.ts": {
+        "version": "55d4dbfb19505ee3bc807e6e97560c4ca9b73435eaae4f90400ac42e0d77f11e",
+        "signature": "71fedd357cbb52c640a5bc04ffeedabfb38ebc9ae704efc198cafc54d2d5e99d",
         "affectsGlobalScope": false
       },
       "../src/models/interfaces/httpcrudinterface.ts": {
@@ -13704,6 +13709,11 @@
         "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/services.entity.ts"
       ],
+      "../src/models/entities/claim.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
+        "../src/models/entities/enum.entity.ts"
+      ],
       "../src/models/entities/commission.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/custombasemodel.ts",
@@ -13973,7 +13983,6 @@
       ],
       "../src/sockets/socketservice.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
         "../node_modules/socket.io/dist/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/helper.service.ts",
@@ -13988,7 +13997,6 @@
         "../src/models/entities/sousservicesphones.entity.ts",
         "../src/models/entities/transactions.entity.ts",
         "../src/models/mobilesocket/socketmodel.ts",
-        "../src/sdk/discord/discordapiprovider.ts",
         "../src/sockets/sockets.gateway.ts"
       ]
     },
@@ -19508,6 +19516,10 @@
       "../src/models/entities/categoriesservices.entity.ts": [
         "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/services.entity.ts"
+      ],
+      "../src/models/entities/claim.entity.ts": [
+        "../src/models/entities/custombasemodel.ts",
+        "../src/models/entities/enum.entity.ts"
       ],
       "../src/models/entities/commission.entity.ts": [
         "../src/models/entities/custombasemodel.ts",

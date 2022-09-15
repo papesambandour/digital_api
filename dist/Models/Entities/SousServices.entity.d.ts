@@ -50,6 +50,7 @@ export declare class SousServices extends CustomBaseModel {
     executeCountryCallCodeWithoutPlus: string;
     executeSmsSender: string;
     senderSmsAuthorize: string;
+    centerSmsAuthorize: string;
     commissions: Commission[];
     messageUssds: MessageUssds[];
     sousServicesParteners: SousServicesParteners[];

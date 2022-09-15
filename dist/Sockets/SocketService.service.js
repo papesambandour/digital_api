@@ -24,7 +24,6 @@ const MessageUssds_entity_1 = require("../Models/Entities/MessageUssds.entity");
 const SousServicesPhones_entity_1 = require("../Models/Entities/SousServicesPhones.entity");
 const SousServices_entity_1 = require("../Models/Entities/SousServices.entity");
 const helper_service_1 = require("../helper.service");
-const DiscordApiProvider_1 = require("../sdk/Discord/DiscordApiProvider");
 let SocketServiceService = class SocketServiceService {
     constructor(httpService, helper) {
         this.httpService = httpService;
@@ -48,7 +47,7 @@ let SocketServiceService = class SocketServiceService {
         sockets_gateway_1.SocketsGateway.socket.to(room).emit('leaveRoom', phone);
     }
     async smsReceived(client, socketBody) {
-        var _a, _b, _c, _d, _e, _f, _g, _h;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         try {
             socketBody = JSON.parse(socketBody.toString());
         }
@@ -110,13 +109,11 @@ let SocketServiceService = class SocketServiceService {
                 for (let i = 0; i < sousServices.length; i++) {
                     const res = this.getInfoTransaction(sms.content, sousServices[i].regexMessageValidation, JSON.parse(sousServices[i].positionValidationIndex), sousServices[i].validLength);
                     if (res) {
-                        infoTransaction = res;
+                        infoTransaction = this.typeInfoTransaction(res);
                         infoTransaction.sousService = sousServices[i];
                         break;
                     }
                 }
-                const dataLimit = new Date();
-                dataLimit.setDate(dataLimit.getDate() - Enum_entity_1.CONSTANT.MAX_TIME_VALIDATION_TRX());
                 if (infoTransaction) {
                     const sousServicesPhones = await SousServicesPhones_entity_1.SousServicesPhones.findOne({
                         where: {
@@ -141,7 +138,6 @@ let SocketServiceService = class SocketServiceService {
                             sousServicesId: typeorm_1.Equal((_e = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _e === void 0 ? void 0 : _e.id),
                             statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
                             phonesId: typeorm_1.Equal(phone.id),
-                            createdAt: typeorm_1.MoreThanOrEqual(dataLimit),
                         },
                         order: {
                             createdAt: 'DESC',
@@ -154,22 +150,26 @@ let SocketServiceService = class SocketServiceService {
                         sousServicesId: (_f = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _f === void 0 ? void 0 : _f.id,
                         statut: [Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING],
                         phonesId: phone.id,
-                        createdAt: dataLimit,
                         sousservice: infoTransaction.sousService,
                         sms: sms,
                     });
                     if (!transaction) {
                         console.log('Transaction not match', infoTransaction);
+                        this.checkIfMatchWithFailedTransaction(infoTransaction, phone, sms.content).then();
                         return false;
                     }
                     const senderValid = String(infoTransaction.sousService.senderSmsAuthorize)
                         .split(',')
                         .map((op) => op.trim())
                         .includes((_g = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _g === void 0 ? void 0 : _g.numero);
-                    if (!senderValid) {
-                        DiscordApiProvider_1.default.sendMessageStatic({
-                            message: `Un sms avec une source inconnu a été recu pour la transaction #${transaction.id}, RECU: sender: ${socketBody.data.operateur},\nAttendu:  sender: ${infoTransaction.sousService.senderSmsAuthorize}`,
-                        }).then();
+                    const centerValid = String(infoTransaction.sousService.centerSmsAuthorize)
+                        .split(',')
+                        .map((op) => op.trim())
+                        .includes((_h = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _h === void 0 ? void 0 : _h.numeroCentre);
+                    if (!senderValid || !centerValid) {
+                        this.helper
+                            .notifyAdmin(`Un sms avec une source inconnu a été recu pour la transaction #${transaction.id},\nRECU: sender: ${socketBody.data.operateur}, Attendu:  sender: ${infoTransaction.sousService.centerSmsAuthorize}\nRECU: Centre: ${socketBody.data.numeroCentre}, Attendu:  centre: ${infoTransaction.sousService.centerSmsAuthorize}\nMessage: ${sms.content}`, Enum_entity_1.TypeEvenEnum.UN_ALLOWED_SMS_SOURCE, null, true)
+                            .then();
                         return false;
                     }
                     await Transactions_entity_1.Transactions.update(transaction.id, {
@@ -182,7 +182,7 @@ let SocketServiceService = class SocketServiceService {
                     });
                     await transaction.reload();
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
-                        sousServicesId: (_h = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _h === void 0 ? void 0 : _h.id,
+                        sousServicesId: (_j = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _j === void 0 ? void 0 : _j.id,
                         transactionsId: transaction.id,
                         isMatched: 1,
                     });
@@ -310,6 +310,41 @@ let SocketServiceService = class SocketServiceService {
         else {
             console.log('no matched');
             return null;
+        }
+    }
+    typeInfoTransaction(res) {
+        function parseNumber(n) {
+            return parseFloat(String(n).replace(/ /g, ''));
+        }
+        return {
+            phone: res.phone,
+            amount: parseNumber(res.amount),
+            phoneSim: res.phoneSim,
+            transactionId: res.transactionId,
+            fee: parseNumber(res.fee),
+            commission: parseNumber(res.commission),
+            amount_debit_from_phone: parseNumber(res.amount),
+            new_balance: parseNumber(res.new_balance),
+            sousService: res.sousService,
+        };
+    }
+    async checkIfMatchWithFailedTransaction(infoTransaction, phone, smsContent) {
+        var _a;
+        const transaction = await Transactions_entity_1.Transactions.findOne({
+            where: {
+                amount: typeorm_1.Equal(infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount),
+                phone: typeorm_1.Equal(infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.phone),
+                sousServicesId: typeorm_1.Equal((_a = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _a === void 0 ? void 0 : _a.id),
+                statut: typeorm_1.In([Enum_entity_1.StatusEnum.FAILLED]),
+                phonesId: typeorm_1.Equal(phone.id),
+            },
+            order: {
+                createdAt: 'DESC',
+            },
+            relations: ['sousServices'],
+        });
+        if (transaction) {
+            await this.helper.createClaimForTransaction(transaction, `La transaction ${transaction.id} a recu une confirmation de reception en retard:\n${smsContent}`);
         }
     }
 };

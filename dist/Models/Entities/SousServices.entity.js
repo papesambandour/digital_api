@@ -328,6 +328,16 @@ __decorate([
     __metadata("design:type", String)
 ], SousServices.prototype, "senderSmsAuthorize", void 0);
 __decorate([
+    typeorm_1.Column('varchar', {
+        name: 'center_sms_authorize',
+        length: 255,
+        default: '',
+        nullable: true,
+        comment: 'La listes des centre de messagerie autoriser a valider le sms de validation. Séparer par virgule',
+    }),
+    __metadata("design:type", String)
+], SousServices.prototype, "centerSmsAuthorize", void 0);
+__decorate([
     typeorm_1.OneToMany(() => Commission_entity_1.Commission, (commission) => commission.sousServices),
     __metadata("design:type", Array)
 ], SousServices.prototype, "commissions", void 0);

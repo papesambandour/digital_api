@@ -72,4 +72,6 @@ export declare class HelperService {
     }>;
     handleTransactionRefundSuccess(transaction: Transactions): Promise<void>;
     escapeMysql(val: string): string;
+    createClaimForTransaction(transaction: Transactions, content: string): Promise<void>;
+    private verseComissionForTransaction;
 }

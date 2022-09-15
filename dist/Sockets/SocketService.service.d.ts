@@ -16,4 +16,6 @@ export declare class SocketServiceService {
     handleConnection(client: Socket, ...args: any[]): void;
     activityPhone(phonesId: number, activity: EnumActivitiesPhones): Promise<void>;
     getInfoTransaction(messageContent: string, regexMessage: string, positionKey: PositionKey, valideLengh: number): InfoTransaction;
+    private typeInfoTransaction;
+    private checkIfMatchWithFailedTransaction;
 }
