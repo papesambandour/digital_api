@@ -121,6 +121,61 @@ let PartnerServiceService = class PartnerServiceService {
         }
         return balances;
     }
+    async setSuccessOrFailed(setStatusDtoIn, status) {
+        const transaction = await this.helper.getTransactionById(setStatusDtoIn.id);
+        if (!transaction) {
+            return {
+                id: setStatusDtoIn.id,
+                statutTreatment: 'FAILED',
+                messageTreatment: 'La transaction est introuvable',
+            };
+        }
+        if (![
+            Enum_entity_1.StatusEnum.PROCESSING.toString(),
+            Enum_entity_1.StatusEnum.PENDING.toString(),
+        ].includes(transaction.statut)) {
+            return {
+                id: setStatusDtoIn.id,
+                statutTreatment: 'FAILED',
+                messageTreatment: `Le statut transaction (${transaction.statut}) ne permet pas de changer son etat`,
+            };
+        }
+        let treatmentMessage = '';
+        if (status === 'failed') {
+            transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.errorMessage = setStatusDtoIn.message;
+            transaction.needCheckTransaction = 0;
+            treatmentMessage = `Le statut transaction a ete marque comme echec`;
+            await transaction.save();
+            await this.helper.operationPartnerCancelTransaction(transaction);
+        }
+        else if (status === 'success') {
+            transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.message = setStatusDtoIn.message;
+            transaction.needCheckTransaction = 0;
+            treatmentMessage = `Le statut transaction a ete marque comme reussi`;
+            await transaction.save();
+            await this.helper.handleSuccessTransactionCreditDebit(transaction);
+        }
+        await this.helper.setIsCallbackReadyValue(transaction);
+        return {
+            id: setStatusDtoIn.id,
+            statutTreatment: 'SUCCESS',
+            messageTreatment: treatmentMessage,
+        };
+    }
+    async sendNotification(sendNotificationDtoIn) {
+        this.helper
+            .notifyAdmin(sendNotificationDtoIn.message, sendNotificationDtoIn.event, null, sendNotificationDtoIn.isCritic)
+            .then();
+        return {
+            channel: sendNotificationDtoIn.channel,
+            message: sendNotificationDtoIn.message,
+            statutTreatment: 'SUCCESS',
+        };
+    }
 };
 PartnerServiceService = __decorate([
     common_1.Injectable(),

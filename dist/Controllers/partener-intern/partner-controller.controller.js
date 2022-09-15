@@ -21,6 +21,8 @@ const refund_dto_out_1 = require("./dto/refund-dto-out");
 const partner_service_service_1 = require("./partner-service.service");
 const import_bank_transfert_bulk_dto_in_1 = require("./dto/import-bank-transfert-bulk-dto-in");
 const services_balance_1 = require("./dto/services-balance");
+const set_status_1 = require("./dto/set-status");
+const notification_dto_1 = require("./dto/notification-dto");
 let PartnerControllerController = class PartnerControllerController {
     async home() {
         return {
@@ -30,6 +32,15 @@ let PartnerControllerController = class PartnerControllerController {
     }
     async refund(refundDtoIn) {
         return await this.partnerServiceService.refund(refundDtoIn);
+    }
+    async setSuccess(setSuccessDtoIn) {
+        return await this.partnerServiceService.setSuccessOrFailed(setSuccessDtoIn, 'success');
+    }
+    async setFailed(setFailedDtoIn) {
+        return await this.partnerServiceService.setSuccessOrFailed(setFailedDtoIn, 'failed');
+    }
+    async sendNotification(sendNotificationDtoIn) {
+        return await this.partnerServiceService.sendNotification(sendNotificationDtoIn);
     }
     async servicesBalance() {
         return await this.partnerServiceService.servicesBalance();
@@ -58,6 +69,30 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], PartnerControllerController.prototype, "refund", null);
 __decorate([
+    common_1.Post('/transaction/set-success'),
+    ResponseDecorateur_1.ResponseDecorateur(set_status_1.SetSuccessFailedDtoOut, 201, 'Home service partner intern '),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [set_status_1.SetSuccessDtoIn]),
+    __metadata("design:returntype", Promise)
+], PartnerControllerController.prototype, "setSuccess", null);
+__decorate([
+    common_1.Post('/transaction/set-failed'),
+    ResponseDecorateur_1.ResponseDecorateur(set_status_1.SetSuccessFailedDtoOut, 201, 'Home service partner intern '),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [set_status_1.SetFailedDtoIn]),
+    __metadata("design:returntype", Promise)
+], PartnerControllerController.prototype, "setFailed", null);
+__decorate([
+    common_1.Post('/notification/send'),
+    ResponseDecorateur_1.ResponseDecorateur(notification_dto_1.SendNotificationDtoOut, 201, 'Home service partner intern '),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [notification_dto_1.SendNotificationDtoIn]),
+    __metadata("design:returntype", Promise)
+], PartnerControllerController.prototype, "sendNotification", null);
+__decorate([
     common_1.Get('/services/balance'),
     ResponseDecorateur_1.ResponseDecorateur(services_balance_1.ServicesBalanceDtoOut, 201, 'Home service partner intern ', true),
     __metadata("design:type", Function),
@@ -79,6 +114,8 @@ PartnerControllerController = __decorate([
     swagger_1.ApiExtraModels(...[
         home_dto_out_1.HomeDtoOut,
         refund_dto_out_1.RefundDtoOut,
+        notification_dto_1.SendNotificationDtoOut,
+        set_status_1.SetSuccessFailedDtoOut,
         import_bank_transfert_bulk_dto_in_1.ImportBankTransfertBulkDtoOut,
         services_balance_1.ServicesBalanceDtoOut,
     ])
