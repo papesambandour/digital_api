@@ -275,8 +275,8 @@ let HelperService = class HelperService {
         const phone = await Phones_entity_1.Phones.findOne({
             where: { id: typeorm_2.Equal(transaction.phonesId) },
         });
-        const amountPartnerDebit = -((transaction.amount + transaction.feeAmount));
         if (transaction.typeOperation === Enum_entity_1.TypeOperationEnum.DEBIT) {
+            const amountPartnerDebit = -((transaction.amount + transaction.feeAmount));
             const operationParteners = new DtoOperationParteners_1.DtoOperationParteners();
             operationParteners.commentaire = transaction === null || transaction === void 0 ? void 0 : transaction.commentaire;
             operationParteners.amount = amountPartnerDebit;
@@ -295,10 +295,12 @@ let HelperService = class HelperService {
             await OperationParteners_entity_1.OperationParteners.insert(operationParteners, {
                 transaction: true,
             });
-            await this.setSoldeTableForDebitOnly(sousService, amountPartnerDebit, 'parteners', partner.id, transaction.isSoldeCommission ? 'solde_commission' : 'solde');
+            await this.setSoldeTableOnly(amountPartnerDebit, 'parteners', partner.id, transaction.isSoldeCommission ? 'solde_commission' : 'solde');
             const amountPhoneDebit = -(transaction.amount + transaction.feeAmountPsn);
             await this.operationPhone(phone, phone.soldeApi, amountPhoneDebit, transaction.id, transaction.typeOperation, `Operation de ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`);
             await this.setSoldeTableOnly(amountPhoneDebit, 'phones', transaction.phonesId, 'solde');
+        }
+        else if (transaction.typeOperation === Enum_entity_1.TypeOperationEnum.CREDIT) {
         }
     }
     async operationPartnerCancelTransaction(transaction, isRefund = false) {
@@ -350,7 +352,7 @@ let HelperService = class HelperService {
         if (transaction.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {
             const amountPartner = transaction.amount +
                 transaction.feeAmount;
-            await this.setSoldeTableForDebitOnly(sousService, amountPartner, 'parteners', partner.id, transaction.isSoldeCommission ? 'solde_commission' : 'solde');
+            await this.setSoldeTableOnly(amountPartner, 'parteners', partner.id, transaction.isSoldeCommission ? 'solde_commission' : 'solde');
             const operationParteners = new DtoOperationParteners_1.DtoOperationParteners();
             operationParteners.commentaire = `Annulation  ${sousService.name} pour l'opérateur ${operator.name}`;
             operationParteners.amount = amountPartner;
@@ -380,7 +382,7 @@ let HelperService = class HelperService {
                 const amountPartner = -(transaction.amount -
                     transaction.feeAmount +
                     transaction.commissionAmount);
-                await this.setSoldeTableForCreditOnly(sousService, amountPartner, 'parteners', partner.id, transaction.isSoldeCommission ? 'solde_commission' : 'solde');
+                await this.setSoldeTableOnly(amountPartner, 'parteners', partner.id, transaction.isSoldeCommission ? 'solde_commission' : 'solde');
                 const operationParteners = new DtoOperationParteners_1.DtoOperationParteners();
                 operationParteners.commentaire = `Remboursement operation  ${sousService.name} pour l'opérateur ${operator.name}`;
                 operationParteners.amount = amountPartner;
@@ -646,6 +648,7 @@ let HelperService = class HelperService {
                 await this.setSoldeTableFromValue(soldeApi, 'phones', phone.id, 'solde_api');
             }
             const amountPartnerWithoutCommision = transaction.amount - transaction.feeAmount;
+            await this.setSoldeTableOnly(amountPartnerWithoutCommision, 'parteners', transaction.partenersId, 'solde');
             const operationParteners = new DtoOperationParteners_1.DtoOperationParteners();
             operationParteners.commentaire = transaction === null || transaction === void 0 ? void 0 : transaction.commentaire;
             operationParteners.amount = amountPartnerWithoutCommision;
@@ -664,7 +667,6 @@ let HelperService = class HelperService {
                 transaction: true,
             });
             const amountPhone = transaction.amount - transaction.feeAmountPsn;
-            await this.setSoldeTableOnly(amountPartnerWithoutCommision, 'parteners', transaction.partenersId, 'solde');
             await this.setSoldeTableOnly(amountPhone, 'phones', transaction.phonesId, 'solde');
             await this.operationPhone(phone, soldeApi, amountPhone, transaction.id, sousService.typeOperation, `Operation de ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`);
             await this.verseComissionForTransaction(transaction, partner);

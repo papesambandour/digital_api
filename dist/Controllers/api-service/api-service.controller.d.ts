@@ -31,6 +31,9 @@ export declare class ApiServiceController extends ControllerBase {
         error: boolean;
         data: object;
     }>;
+    mtnCallback(): Promise<{
+        success: string;
+    }>;
     services(): Promise<{
         success: boolean;
         services: {

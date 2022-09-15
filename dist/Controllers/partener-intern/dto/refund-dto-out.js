@@ -29,5 +29,9 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], RefundDtoOut.prototype, "message", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], RefundDtoOut.prototype, "statutTreatment", void 0);
 exports.RefundDtoOut = RefundDtoOut;
 //# sourceMappingURL=refund-dto-out.js.map

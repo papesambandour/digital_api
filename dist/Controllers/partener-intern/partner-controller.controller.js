@@ -18,6 +18,7 @@ const ResponseDecorateur_1 = require("../../Models/Decorateurs/ResponseDecorateu
 const swagger_1 = require("@nestjs/swagger");
 const home_dto_out_1 = require("./dto/home-dto-out");
 const refund_dto_out_1 = require("./dto/refund-dto-out");
+const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 const partner_service_service_1 = require("./partner-service.service");
 const import_bank_transfert_bulk_dto_in_1 = require("./dto/import-bank-transfert-bulk-dto-in");
 const services_balance_1 = require("./dto/services-balance");
@@ -31,7 +32,21 @@ let PartnerControllerController = class PartnerControllerController {
         };
     }
     async refund(refundDtoIn) {
-        return await this.partnerServiceService.refund(refundDtoIn);
+        const refund = await this.partnerServiceService.refund(refundDtoIn);
+        if (refund.status === Enum_entity_1.StatusEnum.SUCCESS) {
+            return {
+                status: undefined,
+                message: refund.message,
+                statutTreatment: 'SUCCESS',
+            };
+        }
+        else {
+            return {
+                status: refund.status,
+                message: refund.message,
+                statutTreatment: 'FAILED',
+            };
+        }
     }
     async setSuccess(setSuccessDtoIn) {
         return await this.partnerServiceService.setSuccessOrFailed(setSuccessDtoIn, 'success');

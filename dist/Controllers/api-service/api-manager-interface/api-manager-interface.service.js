@@ -34,7 +34,7 @@ class ApiManagerInterface {
             codeService: (_j = (_h = params.transaction) === null || _h === void 0 ? void 0 : _h.codeSousService) !== null && _j !== void 0 ? _j : null,
             callbackUrl: (_l = (_k = params.transaction) === null || _k === void 0 ? void 0 : _k.urlIpn) !== null && _l !== void 0 ? _l : null,
             transactionId: (_o = (_m = params.transaction) === null || _m === void 0 ? void 0 : _m.transactionId) !== null && _o !== void 0 ? _o : null,
-            partnerMessage: 'Service non implementé encore',
+            partnerMessage: "Cette fonctionnalité n'est pas encore disponible pour ce Service",
             codeHttp: Controller_1.CODE_HTTP.NOT_IMPLEMENTED,
         };
         return Promise.resolve(response);

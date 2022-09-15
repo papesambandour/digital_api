@@ -108,6 +108,11 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             balance: partnerAccoune.parteners.solde,
         });
     }
+    async mtnCallback() {
+        return {
+            success: 'ok',
+        };
+    }
     async services() {
         const services = await SousServices_entity_1.SousServices.find({
             where: {
@@ -241,6 +246,12 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "balance", null);
+__decorate([
+    common_1.Post('callback/mtn-momo'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "mtnCallback", null);
 __decorate([
     common_1.Get('services'),
     __metadata("design:type", Function),

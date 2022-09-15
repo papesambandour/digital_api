@@ -5,4 +5,5 @@ export declare class RefundDtoIn {
 export declare class RefundDtoOut {
     status: StatusEnum;
     message: string;
+    statutTreatment?: 'SUCCESS' | 'FAILED';
 }

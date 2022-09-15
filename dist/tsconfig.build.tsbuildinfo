@@ -4107,7 +4107,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "9d08675e82934f124ad62dbd0fde7508112dcc44bd6432d5c8fd22fb82368f6d",
+        "version": "1308acf8fb36f895becff2a4405970c692ec715aaf4a69a9d2f155d460dca566",
         "signature": "7ca7a1288810d98ad88ee4904be83e2e125ccd2c303d83b058255841bc721faf",
         "affectsGlobalScope": false
       },
@@ -4672,8 +4672,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "141ea2d376d41857f06575e8561d9c333ea781ca45298473b7eaa9da62077be7",
-        "signature": "3deb222a55726669855a5e64c20e67480b120ecba7b94f91b7f93833380d77e6",
+        "version": "56aa80cc5fc79978ee91f2cf9e1ed3d6aceb1f76556ced85b0d68744e338f750",
+        "signature": "1ebb6e12fbe034c6a7ce0c027421b8bd5f2e6ccb1fea8fa5bd3ec21375399c46",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -6487,8 +6487,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/dto/refund-dto-out.ts": {
-        "version": "43e4649cadfded231e768f9039888c2e7323e24c50ac8b9d7980b320e1c59679",
-        "signature": "2755ad08943c2fdbf98c5d699ad19ba0130cd03e40458b04c8c69f99a7f5ca43",
+        "version": "81dbac74384461b1debe27dfc51e8c93574ec01809fc92a667fc94cd02c39fa8",
+        "signature": "be3138e85cc9cc444492ae4df4ab8d9dde5c688a61217a61e46dc04b4339ea70",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/dto/import-bank-transfert-bulk-dto-in.ts": {
@@ -6517,8 +6517,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-controller.controller.ts": {
-        "version": "e7596d1d5d777f9354ad9c71ab6d191cbf267da89c9ed27feea78470a9aad572",
-        "signature": "f88a88be3398f3eb31e7ddc18a41de58b81ef2843b2d2de6fb91c634c2389ac9",
+        "version": "d57e1fbc4b7bab44aee9f151d09c1f5ae05d513aa0ddc4bae79f29eadd6453c5",
+        "signature": "4df8e2d0ddc23b9d416c4427e0caa16447547b93a8bbf0299fe8b733614519bc",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-middleware.middleware.ts": {
@@ -6622,7 +6622,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "3ad5acc42ba591813857bb104d8cffd387dc6113f8af5e34701eaeffa91b86cf",
+        "version": "ea06ea21e4b3765ee62cd907d2127ab8313367c73d2e7b124bd49f249d62cdff",
         "signature": "b434c0a9a04d79a159941faa4f8644ff1170de624710e096396ee238209376f0",
         "affectsGlobalScope": false
       },
@@ -13494,8 +13494,6 @@
       "../src/controllers/partener-intern/partner-controller.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/swagger/index.d.ts",
-        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
-        "../src/controllers/controller.ts",
         "../src/controllers/partener-intern/dto/home-dto-out.ts",
         "../src/controllers/partener-intern/dto/import-bank-transfert-bulk-dto-in.ts",
         "../src/controllers/partener-intern/dto/notification-dto.ts",
@@ -13503,10 +13501,8 @@
         "../src/controllers/partener-intern/dto/services-balance.ts",
         "../src/controllers/partener-intern/dto/set-status.ts",
         "../src/controllers/partener-intern/partner-service.service.ts",
-        "../src/helper.service.ts",
         "../src/models/decorateurs/responsedecorateur.ts",
-        "../src/models/entities/enum.entity.ts",
-        "../src/models/entities/errortypes.entity.ts"
+        "../src/models/entities/enum.entity.ts"
       ],
       "../src/controllers/partener-intern/partner-intern.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -19450,7 +19446,8 @@
         "../src/controllers/partener-intern/dto/notification-dto.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
         "../src/controllers/partener-intern/dto/services-balance.ts",
-        "../src/controllers/partener-intern/dto/set-status.ts"
+        "../src/controllers/partener-intern/dto/set-status.ts",
+        "../src/models/entities/enum.entity.ts"
       ],
       "../src/controllers/partener-intern/partner-intern.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
