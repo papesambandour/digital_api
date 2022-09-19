@@ -54,6 +54,7 @@ let SocketServiceService = class SocketServiceService {
             socketBody = JSON.parse(socketBody.toString());
         }
         catch (e) {
+            console.log(e);
             console.log('Erreur SMS recever : ', socketBody);
         }
         if (!socketBody) {
