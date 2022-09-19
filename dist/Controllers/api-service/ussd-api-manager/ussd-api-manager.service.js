@@ -46,7 +46,6 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                 transactionId: transaction.transactionId,
                 partnerMessage: api_manager_interface_service_1.MANAGER_INIT_DOWN_MESSAGE.replace('pho', 'pho-2'),
                 usedPhoneId: phone.id,
-                data: this.data || undefined,
             }, baseResponse);
         }
         return Object.assign({
@@ -56,6 +55,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             transaction: transaction,
             transactionId: transaction.transactionId,
             usedPhoneId: phone.id,
+            data: this.data || undefined,
         }, baseResponse);
     }
     async checkStatusTransaction(params) {
@@ -175,10 +175,10 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
     }
     getUssDCode(regexCodeUss, phone) {
         return regexCodeUss
-            .replace('amount', String(this.apiService.operationInDto.amount))
-            .replace('number', this.apiService.operationInDto.phone)
-            .replace('mvm_number', phone.number)
-            .replace('code', phone.codeSecret);
+            .replace(/amount/g, String(this.apiService.operationInDto.amount))
+            .replace(/mvm_number/g, phone.number)
+            .replace(/number/g, this.apiService.operationInDto.phone)
+            .replace(/code/g, phone.codeSecret);
     }
     getBalance(params) {
         console.log(params);
@@ -205,13 +205,12 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
         await transaction.save();
-        const data = {
+        this.data = {
             notificationMessage: messageNotification,
             amount: transaction.amount,
             deepLinkUrl: deepLink,
             _be_removed_deepLinkUrl: `tel:${encodeURIComponent(ussdCode)}`,
         };
-        this.data = data;
         return true;
     }
 }
