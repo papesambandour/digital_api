@@ -25,6 +25,7 @@ const SousServicesPhones_entity_1 = require("../Models/Entities/SousServicesPhon
 const SousServices_entity_1 = require("../Models/Entities/SousServices.entity");
 const helper_service_1 = require("../helper.service");
 const config_1 = require("../sdk/Discord/config");
+const v8_1 = require("v8");
 let SocketServiceService = class SocketServiceService {
     constructor(httpService, helper) {
         this.httpService = httpService;
@@ -62,7 +63,7 @@ let SocketServiceService = class SocketServiceService {
         else {
             console.log(`Message recever SMS`);
         }
-        console.log('\n\n\nSOCKET BODY', socketBody, '\n\n\n');
+        console.log('\n\n\nSOCKET BODY', typeof socketBody, Object.keys(socketBody), socketBody, '\n\n\n');
         const sms = new DtoMessageUssds_1.DtoMessageUssds();
         sms.content = (_a = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _a === void 0 ? void 0 : _a.content;
         sms.createdAt = new Date();
@@ -76,7 +77,7 @@ let SocketServiceService = class SocketServiceService {
         });
         let phone = phones[0];
         if (!phone) {
-            return this.helper.notifyAdmin(`Socket ${socketBody.room} non trouve apres un sms recu: \n${sms.content}`, Enum_entity_1.TypeEvenEnum.SOCKET_NOT_FOUND);
+            return this.helper.notifyAdmin(`Socket ${v8_1.serialize(socketBody)} non trouve apres un sms recu: \n${sms.content}`, Enum_entity_1.TypeEvenEnum.SOCKET_NOT_FOUND);
         }
         const phonesId = phones.map((phone) => phone.id);
         sms.phonesId = phone.id;

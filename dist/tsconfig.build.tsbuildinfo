@@ -4567,7 +4567,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "a761064923045f94ae032fad60220144adcb93bb9d046099121f021187c66cb1",
+        "version": "713b579ff110e61b9f7f8cb12b6e950207a79c78c45ebd414f858aa079a24482",
         "signature": "ecfdade2ce750f00b2c1f371589b0e4009aa8b4c843886a8ea755e077c5cab3c",
         "affectsGlobalScope": false
       },
@@ -14072,6 +14072,7 @@
       ],
       "../src/sockets/socketservice.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/v8.d.ts",
         "../node_modules/socket.io/dist/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/helper.service.ts",
