@@ -4567,7 +4567,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "90eaa011df7f988c2aed9a985a578a50d3195868e327bf7ff4ca40e330b0e8ab",
+        "version": "cd512d29f55804dc161683ac65110cbc3623b7fdd76c87a2ba24b5bfab1b54d6",
         "signature": "ecfdade2ce750f00b2c1f371589b0e4009aa8b4c843886a8ea755e077c5cab3c",
         "affectsGlobalScope": false
       },
@@ -6892,8 +6892,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "e972165d0ded8cba218c219a3fa8ef119565f58f1ab9dcb897bee7568c54881d",
-        "signature": "21a330d839cae339525413cf358ad826958b8e01c59fcbac0abd15c4ca3727e6",
+        "version": "86fdab969caba5ee91811c23eda010ae1ce7beaa7ccf2a3056c725231b45c123",
+        "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/uvs-sn-bill-payment-api-manager/uvs-sn-bill-payment-api-manager.service.ts": {

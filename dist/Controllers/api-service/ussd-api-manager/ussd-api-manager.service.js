@@ -10,6 +10,10 @@ const Controller_1 = require("../../Controller");
 const main_1 = require("../../../main");
 const typeorm_1 = require("typeorm");
 class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
+    constructor() {
+        super(...arguments);
+        this.data = undefined;
+    }
     async initTransaction(params) {
         const phone = await this.loadBalancingPhone();
         const baseResponse = {
@@ -42,6 +46,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                 transactionId: transaction.transactionId,
                 partnerMessage: api_manager_interface_service_1.MANAGER_INIT_DOWN_MESSAGE.replace('pho', 'pho-2'),
                 usedPhoneId: phone.id,
+                data: this.data || undefined,
             }, baseResponse);
         }
         return Object.assign({
@@ -200,6 +205,13 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
         await transaction.save();
+        const data = {
+            notificationMessage: messageNotification,
+            amount: transaction.amount,
+            deepLinkUrl: deepLink,
+            _be_removed_deepLinkUrl: `tel:${encodeURIComponent(ussdCode)}`,
+        };
+        this.data = data;
         return true;
     }
 }

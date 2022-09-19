@@ -177,7 +177,7 @@ let SocketServiceService = class SocketServiceService {
                         .includes((_h = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _h === void 0 ? void 0 : _h.numeroCentre);
                     if (!senderValid || !centerValid) {
                         this.helper
-                            .notifyAdmin(`Un sms avec une source inconnu a été recu pour la transaction #${transaction.id},\nSender_recu: ${socketBody.data.operateur}, Sender_attendu: ${infoTransaction.sousService.centerSmsAuthorize}\nCentre_recu: ${socketBody.data.numeroCentre}, Centre: ${infoTransaction.sousService.centerSmsAuthorize}\nMessage: ${sms.content}`, Enum_entity_1.TypeEvenEnum.UN_ALLOWED_SMS_SOURCE, null, true)
+                            .notifyAdmin(`Un sms avec une source inconnu a été recu pour la transaction #${transaction.id},\nSender_recu: ${socketBody.data.numero}, Sender_attendu: ${infoTransaction.sousService.centerSmsAuthorize}\nCentre_recu: ${socketBody.data.numeroCentre}, Centre_attendu: ${infoTransaction.sousService.centerSmsAuthorize}\nMessage: ${sms.content}`, Enum_entity_1.TypeEvenEnum.UN_ALLOWED_SMS_SOURCE, null, true)
                             .then();
                         return false;
                     }

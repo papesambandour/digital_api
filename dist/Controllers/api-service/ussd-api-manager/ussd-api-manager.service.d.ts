@@ -3,6 +3,7 @@ import { Phones } from '../../../Models/Entities/Phones.entity';
 import { Transactions } from '../../../Models/Entities/Transactions.entity';
 import { SocketBodyFinish } from '../../../Models/MobileSocket/SocketModel';
 export declare class UssdApiManagerService extends ApiManagerInterface {
+    private data;
     initTransaction(params: InitParams): Promise<InitResponse>;
     checkStatusTransaction(params: CheckParams): Promise<CheckResponse>;
     confirmTransaction(params: ConfirmParams): Promise<ConfirmResponse>;
