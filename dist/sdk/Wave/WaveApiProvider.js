@@ -5,9 +5,9 @@ const node_fetch_1 = require("node-fetch");
 const moment = require("moment");
 const rp = require("request-promise");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
-const Utils = require("util");
 const Controller_1 = require("../../Controllers/Controller");
 const config_1 = require("./config");
+const main_1 = require("../../main");
 const userAgent = `Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:99.0) Gecko/20100101 Firefox/99.0`;
 const BILL_MAX_RETRY = 5;
 const FETCH_ASYNC_MAX_RETRY = 10;
@@ -196,7 +196,7 @@ class WaveApiProvider {
                 params.transaction.sousServiceTransactionId = checkout.transaction_id
                     ? `T_${checkout.transaction_id.substring(1)}`
                     : null;
-                params.transaction.checkTransactionResponse = Utils.inspect(checkout);
+                params.transaction.checkTransactionResponse = main_1.serializeData(checkout);
                 await params.transaction.save();
                 console.log('after save');
                 await apiManagerService.helper.handleSuccessTransactionCreditDebit(params.transaction);
@@ -210,7 +210,7 @@ class WaveApiProvider {
                 }, baseResponse);
             }
             else if (checkout.payment_status === 'processing') {
-                params.transaction.checkTransactionResponse = Utils.inspect(checkout);
+                params.transaction.checkTransactionResponse = main_1.serializeData(checkout);
                 await params.transaction.save();
                 return Object.assign({
                     status: 'PENDING',
@@ -219,7 +219,7 @@ class WaveApiProvider {
             }
             else {
                 console.log('transaction failed');
-                params.transaction.checkTransactionResponse = Utils.inspect(checkout);
+                params.transaction.checkTransactionResponse = main_1.serializeData(checkout);
                 params.transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
                 params.transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
                 params.transaction.needCheckTransaction = 0;
@@ -236,7 +236,7 @@ class WaveApiProvider {
             }
         }
         else {
-            params.transaction.checkTransactionResponse = Utils.inspect(checkout);
+            params.transaction.checkTransactionResponse = main_1.serializeData(checkout);
             await params.transaction.save();
             return Object.assign({
                 status: 'FAILLED',
@@ -757,7 +757,6 @@ class WaveApiProvider {
     }
 }
 exports.default = WaveApiProvider;
-WaveApiProvider.apiUrl = 'https://api.wave.com';
 WaveApiProvider.baseUrl = 'https://api.wave.com';
 WaveApiProvider.WAVE_DATE_FORMAT = 'YYYY-MM-DD';
 class WaveUtil {

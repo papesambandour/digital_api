@@ -22,8 +22,8 @@ const typeorm_1 = require("typeorm");
 const Confirm3dsInDto_1 = require("./Controllers/api-service/dto/Confirm3dsInDto");
 const Parteners_entity_1 = require("./Models/Entities/Parteners.entity");
 const Transactions_entity_1 = require("./Models/Entities/Transactions.entity");
-const Utils = require("util");
 const request_mapping_decorator_1 = require("@nestjs/common/decorators/http/request-mapping.decorator");
+const main_1 = require("./main");
 let AppController = class AppController extends Controller_1.ControllerBase {
     constructor(appService, helper) {
         super();
@@ -166,7 +166,7 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             (_c = (_b = meta === null || meta === void 0 ? void 0 : meta.checkResponse) === null || _b === void 0 ? void 0 : _b.processorInformation) === null || _c === void 0 ? void 0 : _c.approvalCode;
         transaction.cardMask = (_e = (_d = meta === null || meta === void 0 ? void 0 : meta.checkResponse) === null || _d === void 0 ? void 0 : _d.payment) === null || _e === void 0 ? void 0 : _e.cardMask;
         transaction.shipCardType = (_g = (_f = meta === null || meta === void 0 ? void 0 : meta.checkResponse) === null || _f === void 0 ? void 0 : _f.payment) === null || _g === void 0 ? void 0 : _g.shipCardType;
-        transaction.checkTransactionResponse = Utils.inspect(meta);
+        transaction.checkTransactionResponse = main_1.serializeData(meta);
         await transaction.save();
         await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
         await apiManagerService.helper.setIsCallbackReadyValue(transaction);

@@ -85,7 +85,7 @@ let ApiServiceService = class ApiServiceService {
         };
         let asError = false;
         this.comptePartner = await PartenerComptes_entity_1.PartenerComptes.findOne({
-            where: { appKey: typeorm_1.Equal(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.apiKey) },
+            where: { appKey: typeorm_1.Equal(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.apiKey), state: 'ACTIVED' },
         });
         if (this.comptePartner) {
             this.partner = await Parteners_entity_1.Parteners.findOne((_a = this === null || this === void 0 ? void 0 : this.comptePartner) === null || _a === void 0 ? void 0 : _a.partenersId);
@@ -321,6 +321,7 @@ let ApiServiceService = class ApiServiceService {
         return await PartenerComptes_entity_1.PartenerComptes.findOne({
             where: {
                 appKey: typeorm_1.Equal(headers === null || headers === void 0 ? void 0 : headers.secretkey),
+                state: 'ACTIVED',
             },
             relations: ['parteners'],
         });

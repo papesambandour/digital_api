@@ -15,6 +15,8 @@ exports.CODE_HTTP = {
     OPERATION_: 'OPERATION_SUCCESS',
     OPERATION_BADREQUEST: 'OPERATION_BADREQUEST',
     OPERATION_AUTH_NEED: 'OPERATION_AUTH_NEED',
+    TRANSACTION_NOT_FOUND: 'TRANSACTION_NOT_FOUND',
+    ALREADY_OPENED_CLAIM: 'ALREADY_OPENED_CLAIM',
     OPERATION_ACCESS_DENY: 'OPERATION_ACCESS_DENY',
     SERVICE_DOWN: 'SERVICE_DOWN',
     NOT_IMPLEMENTED: 'NOT_IMPLEMENTED',
@@ -65,6 +67,14 @@ exports.CODE_HTTP_OBJECT = {
     OPERATION_AUTH_NEED: {
         code: 4000,
         msg: "L'authentification est requis !!!",
+    },
+    ALREADY_OPENED_CLAIM: {
+        code: 4000,
+        msg: 'Une reclamation est deja en cours pour cette transaction',
+    },
+    TRANSACTION_NOT_FOUND: {
+        code: 4000,
+        msg: 'La transaction est introuvable',
     },
     OPERATION_ACCESS_DENY: {
         code: 4000,

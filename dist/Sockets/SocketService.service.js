@@ -344,7 +344,7 @@ let SocketServiceService = class SocketServiceService {
             relations: ['sousServices'],
         });
         if (transaction) {
-            await this.helper.createClaimForTransaction(transaction, `La transaction ${transaction.id} a recu une confirmation de reception en retard:\n${smsContent}`);
+            await this.helper.createClaimForTransaction(transaction, `Reception Sms confirmaton`, `La transaction ${transaction.id} a recu une confirmation de reception en retard:\n${smsContent}`);
         }
     }
 };

@@ -11,6 +11,8 @@ export declare const CODE_HTTP: {
     OPERATION_: string;
     OPERATION_BADREQUEST: string;
     OPERATION_AUTH_NEED: string;
+    TRANSACTION_NOT_FOUND: string;
+    ALREADY_OPENED_CLAIM: string;
     OPERATION_ACCESS_DENY: string;
     SERVICE_DOWN: string;
     NOT_IMPLEMENTED: string;
@@ -62,6 +64,14 @@ export declare const CODE_HTTP_OBJECT: {
         code: number;
         msg: string;
     };
+    ALREADY_OPENED_CLAIM: {
+        code: number;
+        msg: string;
+    };
+    TRANSACTION_NOT_FOUND: {
+        code: number;
+        msg: string;
+    };
     OPERATION_ACCESS_DENY: {
         code: number;
         msg: string;
@@ -97,6 +107,8 @@ export declare class ControllerBase {
         OPERATION_: string;
         OPERATION_BADREQUEST: string;
         OPERATION_AUTH_NEED: string;
+        TRANSACTION_NOT_FOUND: string;
+        ALREADY_OPENED_CLAIM: string;
         OPERATION_ACCESS_DENY: string;
         SERVICE_DOWN: string;
         NOT_IMPLEMENTED: string;

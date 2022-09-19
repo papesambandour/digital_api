@@ -16,7 +16,6 @@ export declare enum WAVE_BILL_ID {
     CAMPUSEN = "BT_campusen_sn:U_2Tp0QIvJu9ar"
 }
 export default class WaveApiProvider {
-    static apiUrl: string;
     static baseUrl: string;
     static WAVE_DATE_FORMAT: string;
     static now(): string;

@@ -91,6 +91,20 @@ __decorate([
     }),
     __metadata("design:type", Date)
 ], Claim.prototype, "updatedAt", void 0);
+__decorate([
+    typeorm_1.Column('datetime', {
+        name: 'opened_at',
+        nullable: true,
+    }),
+    __metadata("design:type", Date)
+], Claim.prototype, "openedAt", void 0);
+__decorate([
+    typeorm_1.Column('datetime', {
+        name: 'close_at',
+        nullable: true,
+    }),
+    __metadata("design:type", Date)
+], Claim.prototype, "closeAt", void 0);
 Claim = __decorate([
     typeorm_1.Entity('claim', { schema: 'simbot_db' }),
     typeorm_1.Index('fk_claim_parteners1_idx', ['partenersId'], {}),

@@ -37,10 +37,13 @@ const helper_service_1 = require("../../helper.service");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 const typeorm_1 = require("typeorm");
 const Parteners_entity_1 = require("../../Models/Entities/Parteners.entity");
+const Transactions_entity_1 = require("../../Models/Entities/Transactions.entity");
 const SousServices_entity_1 = require("../../Models/Entities/SousServices.entity");
 const ListPendingBillInDto_1 = require("./dto/ListPendingBillInDto");
 const ErrorTypes_entity_1 = require("../../Models/Entities/ErrorTypes.entity");
 const request_mapping_decorator_1 = require("@nestjs/common/decorators/http/request-mapping.decorator");
+const NewClaim_1 = require("./dto/NewClaim");
+const Claim_entity_1 = require("../../Models/Entities/Claim.entity");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService, helper) {
         super();
@@ -106,7 +109,44 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         }
         return this.response(this.CODE_HTTP.OK_OPERATION, {
             currency: 'XOF',
-            balance: partnerAccoune.parteners.solde,
+            balance: partnerAccoune.parteners.solde +
+                partnerAccoune.parteners.soldeCommission,
+        });
+    }
+    async newClaim(newClaimInDtoIn) {
+        const partnerAccount = await PartenerComptes_entity_1.PartenerComptes.findOne({
+            where: {
+                appKey: typeorm_1.Equal(newClaimInDtoIn.apiKey),
+                state: 'ACTIVED',
+            },
+            relations: ['parteners'],
+        });
+        if (!partnerAccount) {
+            return this.response(this.CODE_HTTP.OPERATION_AUTH_NEED, { secreteKey: 'Invalide secrete key' }, '', true);
+        }
+        const transaction = await Transactions_entity_1.Transactions.findOne({
+            where: {
+                transactionId: newClaimInDtoIn.transactionId,
+                partenersId: partnerAccount.partenersId,
+            },
+            relations: ['sousServices'],
+        });
+        if (!transaction) {
+            return this.response(this.CODE_HTTP.TRANSACTION_NOT_FOUND, {}, '', true);
+        }
+        const findClaim = await Claim_entity_1.Claim.findOne({
+            where: {
+                transactionId: transaction.id,
+                statut: Enum_entity_1.ClaimStatut.OPENED,
+            },
+        });
+        if (findClaim) {
+            return this.response(this.CODE_HTTP.ALREADY_OPENED_CLAIM, {}, '', true);
+        }
+        const claim = await this.helper.createClaimForTransaction(transaction, newClaimInDtoIn.subject, newClaimInDtoIn.message);
+        console.log(transaction);
+        return this.response(this.CODE_HTTP.OK_OPERATION, {
+            claim: claim,
         });
     }
     async mtnCallback() {
@@ -171,7 +211,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotValid, '', true);
         }
         const comptePartner = await PartenerComptes_entity_1.PartenerComptes.findOne({
-            where: { appKey: typeorm_1.Equal(pendingBillDto === null || pendingBillDto === void 0 ? void 0 : pendingBillDto.apiKey) },
+            where: { appKey: typeorm_1.Equal(pendingBillDto === null || pendingBillDto === void 0 ? void 0 : pendingBillDto.apiKey), state: 'ACTIVED' },
         });
         let partner;
         if (comptePartner) {
@@ -248,6 +288,15 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "balance", null);
 __decorate([
+    common_1.Post('new-claim'),
+    ResponseDecorateur_1.ResponseDecorateur(NewClaim_1.NewClaimInDtoOut, 200, '', false),
+    ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [NewClaim_1.NewClaimInDtoIn]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "newClaim", null);
+__decorate([
     request_mapping_decorator_1.All('callback/mtn-momo'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
@@ -280,6 +329,7 @@ ApiServiceController = __decorate([
         ResponseHttp_1.ResponseHttp,
         PaginatedDto_1.PaginatedDto,
         OperationOutDto_1.OperationOutDto,
+        NewClaim_1.NewClaimInDtoOut,
         OperationBadParamsDto_1.OperationBadParamsDto,
         DtoTransactions_1.DtoTransactions,
         OperationDictionaryDto_1.OperationDictionaryDto,

@@ -4,8 +4,8 @@ const _rp = require("request-promise");
 const config_1 = require("./config");
 const api_manager_interface_service_1 = require("../../Controllers/api-service/api-manager-interface/api-manager-interface.service");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
-const Utils = require("util");
 const Controller_1 = require("../../Controllers/Controller");
+const main_1 = require("../../main");
 const rpMaker = (wizallInstance) => (option) => new Promise((resolve, reject) => {
     _rp(option)
         .then(resolve)
@@ -324,7 +324,7 @@ class WizallApiProvider {
                 params.transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
                 params.transaction.needCheckTransaction = 0;
                 params.transaction.sousServiceTransactionId = checkout.wizall_id;
-                params.transaction.checkTransactionResponse = Utils.inspect(checkout);
+                params.transaction.checkTransactionResponse = main_1.serializeData(checkout);
                 await params.transaction.save();
                 console.log('after save');
                 await apiManagerService.helper.handleSuccessTransactionCreditDebit(params.transaction);
@@ -338,7 +338,7 @@ class WizallApiProvider {
                 }, baseResponse);
             }
             else if (checkout.payment_status === 'processing') {
-                params.transaction.checkTransactionResponse = Utils.inspect(checkout);
+                params.transaction.checkTransactionResponse = main_1.serializeData(checkout);
                 await params.transaction.save();
                 return Object.assign({
                     status: Enum_entity_1.StatusEnum.PENDING,
@@ -347,7 +347,7 @@ class WizallApiProvider {
             }
             else {
                 console.log('transaction failed');
-                params.transaction.checkTransactionResponse = Utils.inspect(checkout);
+                params.transaction.checkTransactionResponse = main_1.serializeData(checkout);
                 params.transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
                 params.transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
                 params.transaction.needCheckTransaction = 0;
@@ -365,7 +365,7 @@ class WizallApiProvider {
         }
         else {
             console.log('error case check status wizall');
-            params.transaction.checkTransactionResponse = Utils.inspect(checkout);
+            params.transaction.checkTransactionResponse = main_1.serializeData(checkout);
             await params.transaction.save();
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,

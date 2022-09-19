@@ -21,7 +21,6 @@ const Phones_entity_1 = require("./Models/Entities/Phones.entity");
 const OperationPhones_entity_1 = require("./Models/Entities/OperationPhones.entity");
 const DtoOperationPhones_1 = require("./Models/Dto/DtoOperationPhones");
 const Transactions_entity_1 = require("./Models/Entities/Transactions.entity");
-const Utils = require("util");
 const SousServices_entity_1 = require("./Models/Entities/SousServices.entity");
 const DtoOperationParteners_1 = require("./Models/Dto/DtoOperationParteners");
 const OperationParteners_entity_1 = require("./Models/Entities/OperationParteners.entity");
@@ -36,6 +35,7 @@ const DiscordApiProvider_1 = require("./sdk/Discord/DiscordApiProvider");
 const ErrorTypes_entity_1 = require("./Models/Entities/ErrorTypes.entity");
 const main_1 = require("./main");
 const WhatsAppApiProvider_1 = require("./sdk/WhatsApp/WhatsAppApiProvider");
+const Claim_entity_1 = require("./Models/Entities/Claim.entity");
 let HelperService = class HelperService {
     constructor(connection, httpService) {
         this.connection = connection;
@@ -210,7 +210,7 @@ let HelperService = class HelperService {
                 dataSended: JSON.stringify(dataSended),
                 dataResponseCallback: JSON.stringify({
                     statusCode: dataResponse.status,
-                    data: Utils.inspect(dataResponse.data),
+                    data: main_1.serializeData(dataResponse.data),
                 }),
                 callbackIsSend: 1,
                 callbackSendedAt: new Date(),
@@ -304,12 +304,12 @@ let HelperService = class HelperService {
         }
     }
     async operationPartnerCancelTransaction(transaction, isRefund = false) {
-        console.log('before', transaction.transactionRefundFinished);
-        console.log('caling refund', transaction.transactionRefundFinished, isRefund);
         if (!transaction) {
             console.log('No transaction for operation cancel');
             return;
         }
+        console.log('before', transaction === null || transaction === void 0 ? void 0 : transaction.transactionRefundFinished);
+        console.log('caling refund', transaction.transactionRefundFinished, isRefund);
         if (!isRefund && transaction.transactionIsFinish) {
             console.log('transaction already cancel');
             return false;
@@ -716,7 +716,7 @@ let HelperService = class HelperService {
     }
     async getAmountForMessenger(operationInDto) {
         const comptePartner = await PartenerComptes_entity_1.PartenerComptes.findOne({
-            where: { appKey: typeorm_2.Equal(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.apiKey) },
+            where: { appKey: typeorm_2.Equal(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.apiKey), state: 'ACTIVED' },
         });
         if (!comptePartner) {
             return 0;
@@ -1024,8 +1024,19 @@ let HelperService = class HelperService {
         });
         return val;
     }
-    async createClaimForTransaction(transaction, content) {
+    async createClaimForTransaction(transaction, subject, content) {
+        const claim = new Claim_entity_1.Claim();
+        claim.statut = Enum_entity_1.ClaimStatut.OPENED;
+        claim.subject = subject;
+        claim.message = content;
+        claim.transactionId = transaction.id;
+        claim.openedAt = new Date();
+        claim.createdAt = new Date();
+        claim.partenersId = transaction.partenersId;
+        claim.claimRef = this.generateRandomId('C');
+        await claim.save();
         this.notifyAdmin(content, Enum_entity_1.TypeEvenEnum.NEW_CLAIM).then();
+        return claim;
     }
     async verseComissionForTransaction(transaction, partner) {
         await partner.reload();
@@ -1050,6 +1061,12 @@ let HelperService = class HelperService {
                 transaction: true,
             });
         }
+    }
+    uuid() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            const r = (Math.random() * 16) | 0, v = c == 'x' ? r : (r & 0x3) | 0x8;
+            return v.toString(16);
+        });
     }
 };
 HelperService = __decorate([

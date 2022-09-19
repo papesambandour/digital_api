@@ -4,8 +4,8 @@ const rp = require("request-promise");
 const crypto = require("crypto");
 const config_1 = require("./config");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
-const Utils = require("util");
 const Controller_1 = require("../../Controllers/Controller");
+const main_1 = require("../../main");
 class ProviderOrangeMoneyApi {
     constructor(args) {
         this.clientId = args.clientId;
@@ -501,7 +501,7 @@ class ProviderOrangeMoneyApi {
                 params.transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
                 params.transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
                 params.transaction.needCheckTransaction = 0;
-                params.transaction.checkTransactionResponse = Utils.inspect(response.apiResponse);
+                params.transaction.checkTransactionResponse = main_1.serializeData(response.apiResponse);
                 await params.transaction.save();
                 await apiManager.helper.setIsCallbackReadyValue(params.transaction);
                 await apiManager.helper.handleSuccessTransactionCreditDebit(params.transaction);
@@ -515,7 +515,7 @@ class ProviderOrangeMoneyApi {
             }
             else if (response.transaction_check_status === 'pending') {
                 console.log('transaction still pending');
-                params.transaction.checkTransactionResponse = Utils.inspect(response.apiResponse);
+                params.transaction.checkTransactionResponse = main_1.serializeData(response.apiResponse);
                 await params.transaction.save();
                 return Object.assign({
                     status: Enum_entity_1.StatusEnum.PENDING,
@@ -524,7 +524,7 @@ class ProviderOrangeMoneyApi {
             }
             else {
                 console.log('transaction failed');
-                params.transaction.checkTransactionResponse = Utils.inspect(response.apiResponse);
+                params.transaction.checkTransactionResponse = main_1.serializeData(response.apiResponse);
                 params.transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
                 params.transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
                 params.transaction.needCheckTransaction = 0;
@@ -541,7 +541,7 @@ class ProviderOrangeMoneyApi {
             }
         }
         else {
-            params.transaction.checkTransactionResponse = Utils.inspect(response.apiResponse);
+            params.transaction.checkTransactionResponse = main_1.serializeData(response.apiResponse);
             await params.transaction.save();
             return Object.assign({
                 status: 'FAILLED',

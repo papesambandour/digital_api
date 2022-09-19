@@ -16,4 +16,6 @@ export declare class Claim extends CustomBaseModel {
     transactionId: number;
     createdAt: Date;
     updatedAt: Date | null;
+    openedAt: Date | null;
+    closeAt: Date | null;
 }

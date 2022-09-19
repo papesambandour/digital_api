@@ -9,6 +9,7 @@ import { ApiServiceService } from './Controllers/api-service/api-service.service
 import { OperationInDto } from './Controllers/api-service/dto/OperationInDto';
 import { ErrorTypes } from './Models/Entities/ErrorTypes.entity';
 import { ColumnMetadata } from 'typeorm/metadata/ColumnMetadata';
+import { Claim } from './Models/Entities/Claim.entity';
 export declare type Rib = {
     bankCode: RibItem;
     ribKey: RibItem;
@@ -72,6 +73,7 @@ export declare class HelperService {
     }>;
     handleTransactionRefundSuccess(transaction: Transactions): Promise<void>;
     escapeMysql(val: string): string;
-    createClaimForTransaction(transaction: Transactions, content: string): Promise<void>;
+    createClaimForTransaction(transaction: Transactions, subject: string, content: string): Promise<Claim>;
     private verseComissionForTransaction;
+    uuid(): string;
 }
