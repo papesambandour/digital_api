@@ -46,6 +46,7 @@ class ApiManagerInterface {
         transaction.phonesId = phone.id;
         transaction.telephoneNumberService = phone.number;
         transaction.partenerComptesId = this.apiService.comptePartner.id;
+        transaction.motif = this.apiService.operationInDto.motif || '';
         transaction.partnerCompteName = this.apiService.comptePartner.name;
         transaction.partenersId = this.apiService.partner.id;
         transaction.sousServicesId = this.apiService.sousServices.id;

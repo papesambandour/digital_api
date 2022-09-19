@@ -2,6 +2,7 @@ export declare class OperationInDto {
     phone: string;
     amount: number;
     codeService: string;
+    motif: string;
     externalTransactionId: string;
     callbackUrl: string;
     data: any;

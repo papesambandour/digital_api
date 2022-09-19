@@ -3162,8 +3162,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "b32118422292e13d8610eada9f1b03f0ca1f6403469d08c4535ef152053a16a1",
-        "signature": "f9cb4511222a676b7b50cfba7a08835cc25ee93453daac9c96a4aa3f13a9b6b7",
+        "version": "615bc5a293229a9c88af13cfc472278435564c9263851e4f6079a517ce23300d",
+        "signature": "846aed5d3eb945a2138de3c4328624926c0a9f014f44b187be7b99f2ffa90219",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
@@ -3812,8 +3812,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "36d64bfab71fcd4bb37a01d199a63dd0f5b0bb3ac9c3b350e8fd03a2ac873701",
-        "signature": "2ee808356464e3913a25709ff03988ed5d1922669fe9ffa71c36d48f44ad9c72",
+        "version": "6a73e2f613fbef22f2d50f2bef95d313aa8d124fad6f3b0e838166fe41ca20dd",
+        "signature": "5404106a2885f8bdb9174777f73ff0bc66f0af89aeeea5d64624727db0ea3364",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationoutdto.ts": {
@@ -4107,7 +4107,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "1308acf8fb36f895becff2a4405970c692ec715aaf4a69a9d2f155d460dca566",
+        "version": "129055eaab8742d607d2f2c6dbb4a27c5f6ed82d542cbf3b03c9026f940f4520",
         "signature": "7ca7a1288810d98ad88ee4904be83e2e125ccd2c303d83b058255841bc721faf",
         "affectsGlobalScope": false
       },

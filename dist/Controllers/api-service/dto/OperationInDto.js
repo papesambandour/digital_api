@@ -40,6 +40,14 @@ __decorate([
 ], OperationInDto.prototype, "codeService", void 0);
 __decorate([
     swagger_1.ApiProperty(),
+    class_validator_1.IsString({
+        message: 'Le motif  doit etre une chaine de caractere',
+    }),
+    class_validator_1.IsOptional(),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "motif", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
     class_validator_1.IsNotEmpty({
         message: 'Le external transaction id  est requis',
     }),

@@ -336,6 +336,10 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "commentaire", void 0);
 __decorate([
+    typeorm_1.Column('varchar', { name: 'motif', nullable: true, length: 255 }),
+    __metadata("design:type", String)
+], Transactions.prototype, "motif", void 0);
+__decorate([
     typeorm_1.Column('longtext', {
         name: 'data',
         nullable: true,

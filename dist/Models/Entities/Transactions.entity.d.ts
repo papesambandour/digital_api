@@ -57,6 +57,7 @@ export declare class Transactions extends CustomBaseModel {
     partnerCompteName: string;
     partenerName: string;
     commentaire: string | null;
+    motif: string | null;
     data: string | null;
     amount: number;
     phoneSolde: number;
