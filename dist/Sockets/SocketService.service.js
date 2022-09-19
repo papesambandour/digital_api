@@ -51,7 +51,10 @@ let SocketServiceService = class SocketServiceService {
     async smsReceived(client, socketBody) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         try {
-            socketBody = JSON.parse(socketBody.toString());
+            socketBody = JSON.parse(socketBody
+                .toString()
+                .replace(/(\r\n|\n|\r)/gm, ' ')
+                .replace(/<n>/g, ' '));
         }
         catch (e) {
             console.log(e);
