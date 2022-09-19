@@ -24,6 +24,7 @@ const MessageUssds_entity_1 = require("../Models/Entities/MessageUssds.entity");
 const SousServicesPhones_entity_1 = require("../Models/Entities/SousServicesPhones.entity");
 const SousServices_entity_1 = require("../Models/Entities/SousServices.entity");
 const helper_service_1 = require("../helper.service");
+const config_1 = require("../sdk/Discord/config");
 let SocketServiceService = class SocketServiceService {
     constructor(httpService, helper) {
         this.httpService = httpService;
@@ -196,7 +197,7 @@ let SocketServiceService = class SocketServiceService {
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
                         isMatched: 0,
                     });
-                    await this.helper.notifyAdmin(`Le phone ${phone.number} a envoyé un message qui ne match pas: `, Enum_entity_1.TypeEvenEnum.NO_MATCH_SMS, socketBody);
+                    await this.helper.notifyAdmin(`Le phone ${phone.number} a envoyé un message qui ne match pas: \n${sms.content}`, Enum_entity_1.TypeEvenEnum.NO_MATCH_SMS, socketBody, false, config_1.discordApiConfig().mismatchMessageAlertChanelName);
                 }
             }
         }

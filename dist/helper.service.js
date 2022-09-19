@@ -41,12 +41,12 @@ let HelperService = class HelperService {
         this.connection = connection;
         this.httpService = httpService;
     }
-    async notifyAdmin(message, typeEvent, data = {}, isCritic = false) {
+    async notifyAdmin(message, typeEvent, data = {}, isCritic = false, channelName = undefined) {
         console.log(`CONTACTA ADMIN TO ${message} for EVENT: ${typeEvent}. Data:`, data, isCritic);
         if (parseInt(process.env.SEND_NOTIFY) === 1) {
             DiscordApiProvider_1.default.sendMessageStatic({
                 message: `NEW ALERT MESSAGE:\n${message}\nEVENT : ${typeEvent}`,
-            }).then();
+            }, channelName).then();
         }
     }
     async setSoldeTableOnly(value, tableName, id, field) {

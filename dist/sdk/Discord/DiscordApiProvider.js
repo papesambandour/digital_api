@@ -31,7 +31,8 @@ class DiscordApiProvider {
         console.log('Discord connected');
         return DiscordApiProvider._instance;
     }
-    static async sendMessageStatic(params, channelName = config_1.discordApiConfig().alertChannelName) {
+    static async sendMessageStatic(params, channelName = undefined) {
+        channelName = channelName || config_1.discordApiConfig().alertChannelName;
         const discord = await DiscordApiProvider.getInstance();
         return await discord.sendMessage(params, channelName);
     }

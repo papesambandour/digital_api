@@ -10,7 +10,7 @@ export default class DiscordApiProvider {
     static sleep(ms: any): Promise<unknown>;
     static getInstance(): Promise<DiscordApiProvider>;
     constructor();
-    static sendMessageStatic(params: DiscordMessage, channelName?: string): Promise<void>;
+    static sendMessageStatic(params: DiscordMessage, channelName?: any): Promise<void>;
     sendMessage(params: DiscordMessage, channelName?: string): Promise<void>;
 }
 export {};

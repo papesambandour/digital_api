@@ -5,6 +5,7 @@ const discordApiConfig = () => {
     return {
         token: process.env.DISCORD_BOT_TOKEN,
         alertChannelName: process.env.DISCORD_ALERT_CHANEL_ID,
+        mismatchMessageAlertChanelName: process.env.DISCORD_ALERT_CHANEL_MISMATCH_MESSAGE,
     };
 };
 exports.discordApiConfig = discordApiConfig;
