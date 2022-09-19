@@ -75,6 +75,9 @@ let SocketServiceService = class SocketServiceService {
             },
         });
         let phone = phones[0];
+        if (!phone) {
+            return this.helper.notifyAdmin(`Socket ${socketBody.room} non trouve apres un sms recu: \n${sms.content}`, Enum_entity_1.TypeEvenEnum.SOCKET_NOT_FOUND);
+        }
         const phonesId = phones.map((phone) => phone.id);
         sms.phonesId = phone.id;
         let resMessage;

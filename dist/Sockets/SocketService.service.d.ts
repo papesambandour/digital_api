@@ -9,7 +9,7 @@ export declare class SocketServiceService {
     private helper;
     constructor(httpService: HttpService, helper: HelperService);
     leaveRoom(client: Socket, room: string): Promise<void>;
-    smsReceived(client: Socket, socketBody: SocketBodyMessage): Promise<boolean>;
+    smsReceived(client: Socket, socketBody: SocketBodyMessage): Promise<false | void>;
     joinRoom(client: Socket, room: string): Promise<boolean>;
     afterInit(server: Server): void;
     handleDisconnect(client: Socket): void;

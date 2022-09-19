@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "593ed74fb6762122c705a9ed79660eb742484f8b18447111cd18c44dd8b3e585",
-        "signature": "55269a9400ae641d20ed1f23b21f57fe82d050f4af4256252564e153a4108bf8",
+        "version": "f7a4b4c79033873b7feacc256cabe44b89cb2ec010d719c9f23349cb14026912",
+        "signature": "da483d4b7c2bac217dd1063c7292c3598220d25df5ede4c9894b0210df648692",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4567,8 +4567,8 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "1a86993275140568b56c840fcaa94001b9434b1e3d98e240263f8c2d8c4adc16",
-        "signature": "e30545878b4461db085a32ca75284d5d2ee2bafa01ee7cb5f3e6e1246edcb2cf",
+        "version": "a761064923045f94ae032fad60220144adcb93bb9d046099121f021187c66cb1",
+        "signature": "ecfdade2ce750f00b2c1f371589b0e4009aa8b4c843886a8ea755e077c5cab3c",
         "affectsGlobalScope": false
       },
       "../src/sockets/sockets.gateway.ts": {
