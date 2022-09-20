@@ -4107,7 +4107,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "8eb487993c840b5619d6aa3f9912e2155e1b555bc64f5f07a323190a95aa24f8",
+        "version": "9d60679d71a8f23beff5fd91b279d317868d42696417f0aa8375d201877d2d25",
         "signature": "7ca7a1288810d98ad88ee4904be83e2e125ccd2c303d83b058255841bc721faf",
         "affectsGlobalScope": false
       },
@@ -7502,8 +7502,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "59247374b0d4a140f853b963a6252dd4e3e80e34539bcc29d53991cd4311aa1b",
-        "signature": "a140f7960104acb6aedf8b81fac7ca46dc00e62090aae82ba9591e0e825b7dad",
+        "version": "6e304df177b7e6ec5cfddeee4c5c477f7afc77906a712e8e53e976a62c90350c",
+        "signature": "7a5721dfd88294d10612509ea7c4698d3e2be5f1c9ee25248d6114eb4e6c6f64",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts": {

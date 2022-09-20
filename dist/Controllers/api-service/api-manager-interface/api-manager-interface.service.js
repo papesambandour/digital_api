@@ -144,7 +144,12 @@ class ApiManagerInterface {
                 this.apiService.sousServices.needSolde) {
                 query += ` AND phones.solde >= ${this.apiService.operationInDto.amount} `;
             }
-            query += ` ORDER BY RAND();`;
+            if (this.apiService.sousServices.typeOperation === Enum_entity_1.TypeOperationEnum.DEBIT) {
+                query += ` ORDER BY solde DESC`;
+            }
+            else {
+                query += ` ORDER BY solde ASC`;
+            }
             let res = await this.apiService.connection.query(query);
             this.apiService.phone = await this.selectPhoneFromBalanceResult(res);
             if (this.apiService.phone) {

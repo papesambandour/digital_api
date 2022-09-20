@@ -55,9 +55,17 @@ class WizallApiProvider {
         }
     }
     async loadToken() {
-        console.log('loading wizall token');
+        console.log('loading wizall token', {
+            username: this.wizallLogin,
+            grant_type: 'password',
+            client_type: 'public',
+            client_id: this.wizallClientId,
+            client_secret: this.wizallClientSecret,
+            password: this.wizallPassword,
+            country: 'sn',
+        });
         const option = {
-            uri: `${this.wizallUrl}//token/`,
+            uri: `${this.wizallUrl}/token/`,
             method: 'POST',
             body: {
                 username: this.wizallLogin,
@@ -73,7 +81,7 @@ class WizallApiProvider {
         try {
             const data = await this.rp(option);
             this.token = data.access_token;
-            console.log('wizall token loaded');
+            console.log('wizall token loaded', this.token);
         }
         catch (e) {
             console.log('error on login', e);
@@ -85,7 +93,37 @@ class WizallApiProvider {
         try {
             const option = {
                 method: 'POST',
-                uri: `${this.wizallUrl}/api/partner/merchant/payment`,
+                uri: `${this.wizallUrl}/api/partner/merchant/payment/`,
+                json: true,
+                headers: {
+                    Authorization: `Bearer ${this.token}`,
+                },
+                body: {
+                    agentmsisdn: config_1.wizallApiConfig('payment').wizallAgentPhoneNumber,
+                    agentpin: config_1.wizallApiConfig('payment').wizallAgentPin,
+                    amount: amount,
+                    external_id: identifier + '',
+                    usermsisdn: phoneNumber,
+                    partner_id: config_1.wizallApiConfig('payment').wizallPartnerId,
+                    country: 'sn',
+                },
+            };
+            console.log(option);
+            return await this.rp(option);
+        }
+        catch (e) {
+            console.log(e.message);
+            return {
+                message: e.message,
+            };
+        }
+    }
+    async makeDeposit({ amount, identifier, phoneNumber }) {
+        await this.waitForToken();
+        try {
+            const option = {
+                method: 'POST',
+                uri: `${this.wizallUrl}/api/partner/cashout/`,
                 json: true,
                 headers: {
                     Authorization: `Bearer ${this.token}`,

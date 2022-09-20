@@ -24,6 +24,11 @@ export default class WizallApiProvider {
         identifier: any;
         phoneNumber: any;
     }): Promise<any>;
+    makeDeposit({ amount, identifier, phoneNumber }: {
+        amount: any;
+        identifier: any;
+        phoneNumber: any;
+    }): Promise<any>;
     static waitSome(seconde: number): Promise<unknown>;
     verifyWizallTransaction(wizallSubmitedId: any, { wizallAgentPhoneNumber, wizallAgentPin }: {
         wizallAgentPhoneNumber: any;
