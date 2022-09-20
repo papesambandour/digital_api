@@ -68,6 +68,23 @@ let PartnerControllerController = class PartnerControllerController {
             };
         }
     }
+    async retroAdmin(retroDtoIn) {
+        const apiResponse = await this.partnerServiceService.retroAdminTransaction(retroDtoIn);
+        if ((apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.code) === 2000) {
+            return {
+                statutTreatment: 'SUCCESS',
+                message: apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.msg,
+                apiResponse: apiResponse,
+            };
+        }
+        else {
+            return {
+                statutTreatment: 'FAILED',
+                message: apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.msg,
+                apiResponse: apiResponse,
+            };
+        }
+    }
     async executeUssd(executeUssdIn) {
         const ussdResponse = await this.partnerServiceService.executeUssd(executeUssdIn);
         if (ussdResponse === null || ussdResponse === void 0 ? void 0 : ussdResponse.success) {
@@ -149,6 +166,14 @@ __decorate([
     __metadata("design:paramtypes", [retro_dto_1.RetroDtoIn]),
     __metadata("design:returntype", Promise)
 ], PartnerControllerController.prototype, "retro", null);
+__decorate([
+    common_1.Post('/transaction/retro-admin'),
+    ResponseDecorateur_1.ResponseDecorateur(retro_dto_1.RetroDtoOut, 201, 'Home service partner intern '),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [retro_dto_1.RetroDtoIn]),
+    __metadata("design:returntype", Promise)
+], PartnerControllerController.prototype, "retroAdmin", null);
 __decorate([
     common_1.Post('/phone/execute-ussd'),
     ResponseDecorateur_1.ResponseDecorateur(execute_ussd_dto_1.ExecuteUssdOut, 201, 'Home service partner intern '),

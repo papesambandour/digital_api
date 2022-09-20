@@ -205,10 +205,56 @@ let PartnerServiceService = class PartnerServiceService {
                 phone: transaction.phone,
                 amount: transaction.amount,
                 codeService: retroDtoIn.codeService,
-                motif: `Retro transaction pour #${transaction.transactionId}`,
-                externalTransactionId: `RETRO_TR${this.helper.generateRandomId('', 5)}_#${transaction.transactionId.toUpperCase()}`,
+                motif: `Retro transaction pour #${transaction.transactionId} par partenaire`,
+                externalTransactionId: `RETRO_TR${this.helper.generateRandomId('', 5)}_PARTNER_#${transaction.transactionId.toUpperCase()}`,
                 callbackUrl: transaction.urlIpn,
                 apiKey: partnerAccount.appKey,
+                sender: partnerAccount.parteners.name.replace(/[\W_]+/g, '_'),
+                data: '{}',
+            };
+            console.log('data retro', data);
+            return (await this.httpService
+                .post('https://api.intech.sn/api-services/operation', data)
+                .pipe(operators_1.map((x) => x === null || x === void 0 ? void 0 : x.data))
+                .toPromise());
+        }
+        catch (e) {
+            console.log(e);
+            return {
+                code: -2,
+                msg: e.msg,
+            };
+        }
+    }
+    async retroAdminTransaction(retroDtoIn) {
+        const transaction = await this.helper.getTransactionById(retroDtoIn.transactionId, []);
+        if (!transaction) {
+            return {
+                code: -1,
+                msg: 'La transaction est introuvable',
+            };
+        }
+        if (transaction.typeOperation !== Enum_entity_1.TypeOperationEnum.CREDIT) {
+            return {
+                code: -1,
+                msg: 'Seul les operation de CREDIT peuvent faire une retro transaction',
+            };
+        }
+        try {
+            const partnerAccount = await PartenerComptes_entity_1.PartenerComptes.findOne({
+                where: {
+                    id: transaction.partenerComptesId,
+                },
+                relations: ['parteners'],
+            });
+            const data = {
+                phone: transaction.phone,
+                amount: transaction.amount,
+                codeService: retroDtoIn.codeService,
+                motif: `Retro transaction pour #${transaction.transactionId} par Admin`,
+                externalTransactionId: `RETRO_TR${this.helper.generateRandomId('', 5)}_ADMIN_#${transaction.transactionId.toUpperCase()}`,
+                callbackUrl: transaction.urlIpn,
+                apiKey: process.env.RETRO_ADMIN_API_KEY,
                 sender: partnerAccount.parteners.name.replace(/[\W_]+/g, '_'),
                 data: '{}',
             };

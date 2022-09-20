@@ -26,6 +26,14 @@ export declare class PartnerControllerController {
             msg: string;
         };
     }>;
+    retroAdmin(retroDtoIn: RetroDtoIn): Promise<{
+        statutTreatment: string;
+        message: string;
+        apiResponse: {
+            code: number;
+            msg: string;
+        };
+    }>;
     executeUssd(executeUssdIn: ExecuteUssdIn): Promise<{
         statutTreatment: string;
         message: string;

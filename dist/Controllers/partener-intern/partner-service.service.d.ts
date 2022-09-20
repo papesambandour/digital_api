@@ -21,6 +21,10 @@ export declare class PartnerServiceService {
         code: number;
         msg: string;
     }>;
+    retroAdminTransaction(retroDtoIn: RetroDtoIn): Promise<{
+        code: number;
+        msg: string;
+    }>;
     executeUssd(executeUssdIn: ExecuteUssdIn): Promise<{
         success: boolean;
         message: string;
