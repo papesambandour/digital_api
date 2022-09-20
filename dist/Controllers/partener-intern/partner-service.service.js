@@ -176,6 +176,33 @@ let PartnerServiceService = class PartnerServiceService {
             statutTreatment: 'SUCCESS',
         };
     }
+    async retroTransaction(retroDtoIn) {
+        return {
+            code: 2000,
+            msg: "Votre opération s'est effectuée sans erreur. Veuillez attendre le callback pour avoir l'état final de la transaction",
+            error: false,
+            data: {
+                phone: '0170393568',
+                amount: 250,
+                codeService: 'MOOV_CI_API_CASH_OUT',
+                transactionId: 'T64469458190757',
+                status: 'PENDING',
+                externalTransactionId: 'CXDSpC.FkdrdGF',
+                callbackUrl: 'https://secure-3ds.intech.sn/ping',
+                errorType: null,
+                notificationMessage: 'Cliquez sur le lien suivant pour valider le paiement de 250 CFA sur Intech Group.\nhttps://api.intech.sn/deep/T64469458190757\nExpire dans 15 minutes',
+                deepLinkUrl: 'https://api.intech.sn/deep/T64469458190757',
+                _be_removed_deepLinkUrl: 'tel:*155*2*1*0141324245*250%23',
+            },
+        };
+    }
+    async executeUssd(executeUssdIn) {
+        return {
+            success: true,
+            message: '',
+            ussd_response: 'Fake Ussd Response',
+        };
+    }
 };
 PartnerServiceService = __decorate([
     common_1.Injectable(),

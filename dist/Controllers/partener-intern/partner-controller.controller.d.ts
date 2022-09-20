@@ -4,6 +4,8 @@ import { ImportBankTransfertBulkDtoIn, ImportBankTransfertBulkDtoOut } from './d
 import { ServicesBalanceDtoOut } from './dto/services-balance';
 import { SetFailedDtoIn, SetSuccessDtoIn, SetSuccessFailedDtoOut } from './dto/set-status';
 import { SendNotificationDtoIn, SendNotificationDtoOut } from './dto/notification-dto';
+import { RetroDtoIn } from './dto/retro-dto';
+import { ExecuteUssdIn } from './dto/execute-ussd-dto';
 export declare class PartnerControllerController {
     private partnerServiceService;
     home(): Promise<{
@@ -14,6 +16,35 @@ export declare class PartnerControllerController {
         status: StatusEnum.PENDING | StatusEnum.PROCESSING | StatusEnum.FAILLED | StatusEnum.CANCELED | StatusEnum.REFUNDED;
         message: string;
         statutTreatment: string;
+    }>;
+    retro(retroDtoIn: RetroDtoIn): Promise<{
+        statutTreatment: string;
+        message: string;
+        apiResponse: {
+            code: number;
+            msg: string;
+            error: boolean;
+            data: {
+                phone: string;
+                amount: number;
+                codeService: string;
+                transactionId: string;
+                status: string;
+                externalTransactionId: string;
+                callbackUrl: string;
+                errorType: any;
+                notificationMessage: string;
+                deepLinkUrl: string;
+                _be_removed_deepLinkUrl: string;
+            };
+        };
+    }>;
+    executeUssd(executeUssdIn: ExecuteUssdIn): Promise<{
+        statutTreatment: string;
+        message: string;
+        phoneId: number;
+        ussd: string;
+        ussd_response: string;
     }>;
     setSuccess(setSuccessDtoIn: SetSuccessDtoIn): Promise<SetSuccessFailedDtoOut>;
     setFailed(setFailedDtoIn: SetFailedDtoIn): Promise<SetSuccessFailedDtoOut>;

@@ -6521,14 +6521,24 @@
         "signature": "a78c2092f856ecc9cf75f5e17d0258f1d94dc3e1e368cb3e006423798b30e20c",
         "affectsGlobalScope": false
       },
+      "../src/controllers/partener-intern/dto/retro-dto.ts": {
+        "version": "f291675464758b9221ca247c1d1fac2f9a8ff9351ac3acc51edcd4106be95ad5",
+        "signature": "ab0430c52533d59a4203c72c7a6acccc5ffc2d8b7b6545551938d3c40b5abede",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/partener-intern/dto/execute-ussd-dto.ts": {
+        "version": "12c2a370ac138e02f93e93ec5dd924c5ce284864eec13c20816df71c84eb0366",
+        "signature": "cdaf59ac0e4030c4f0e85b1f7c3d014459b62cb63c9e7cd37b569b25ef838e28",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/partener-intern/partner-service.service.ts": {
-        "version": "6acb5c2837bdea2956c0d324802c2d0dfceb7c8b9bae7d8be400c147053bd7ec",
-        "signature": "65c03b242d96a2db3bb3e4b1c9d89082ba44652f93dc7008ad7735ed54b4c4e9",
+        "version": "349a3144add4a67994cb335756387d6dbfe9a9c158a608baefb5a5fefbf8f0ef",
+        "signature": "32acadb68ebe27c9555ff3a2e972e2c2901a99ef0f16a080ef98ec7c0efaa139",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-controller.controller.ts": {
-        "version": "d57e1fbc4b7bab44aee9f151d09c1f5ae05d513aa0ddc4bae79f29eadd6453c5",
-        "signature": "4df8e2d0ddc23b9d416c4427e0caa16447547b93a8bbf0299fe8b733614519bc",
+        "version": "f24f80531e880430e7218db639e643a4ece5f03ed3577861026b8efa3279d5bc",
+        "signature": "3007f23a8cd36d67614f1e3670aa4422f64a34bf4230bda06ea78bdaffb00409",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-middleware.middleware.ts": {
@@ -13523,6 +13533,11 @@
       "../src/controllers/controller.ts": [
         "../node_modules/class-validator/types/index.d.ts"
       ],
+      "../src/controllers/partener-intern/dto/execute-ussd-dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../src/models/dto/dtotransactions.ts",
+        "../src/models/entities/enum.entity.ts"
+      ],
       "../src/controllers/partener-intern/dto/home-dto-out.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts"
       ],
@@ -13538,6 +13553,11 @@
         "../src/models/dto/dtotransactions.ts",
         "../src/models/entities/enum.entity.ts"
       ],
+      "../src/controllers/partener-intern/dto/retro-dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../src/models/dto/dtotransactions.ts",
+        "../src/models/entities/enum.entity.ts"
+      ],
       "../src/controllers/partener-intern/dto/services-balance.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../src/models/dto/dtotransactions.ts",
@@ -13549,10 +13569,12 @@
       "../src/controllers/partener-intern/partner-controller.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/swagger/index.d.ts",
+        "../src/controllers/partener-intern/dto/execute-ussd-dto.ts",
         "../src/controllers/partener-intern/dto/home-dto-out.ts",
         "../src/controllers/partener-intern/dto/import-bank-transfert-bulk-dto-in.ts",
         "../src/controllers/partener-intern/dto/notification-dto.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
+        "../src/controllers/partener-intern/dto/retro-dto.ts",
         "../src/controllers/partener-intern/dto/services-balance.ts",
         "../src/controllers/partener-intern/dto/set-status.ts",
         "../src/controllers/partener-intern/partner-service.service.ts",
@@ -13574,9 +13596,11 @@
         "../node_modules/@nestjs/core/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/partener-intern/dto/execute-ussd-dto.ts",
         "../src/controllers/partener-intern/dto/import-bank-transfert-bulk-dto-in.ts",
         "../src/controllers/partener-intern/dto/notification-dto.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
+        "../src/controllers/partener-intern/dto/retro-dto.ts",
         "../src/controllers/partener-intern/dto/services-balance.ts",
         "../src/controllers/partener-intern/dto/set-status.ts",
         "../src/helper.service.ts",
@@ -19524,9 +19548,11 @@
         "../src/models/entities/enum.entity.ts"
       ],
       "../src/controllers/partener-intern/partner-controller.controller.ts": [
+        "../src/controllers/partener-intern/dto/execute-ussd-dto.ts",
         "../src/controllers/partener-intern/dto/import-bank-transfert-bulk-dto-in.ts",
         "../src/controllers/partener-intern/dto/notification-dto.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
+        "../src/controllers/partener-intern/dto/retro-dto.ts",
         "../src/controllers/partener-intern/dto/services-balance.ts",
         "../src/controllers/partener-intern/dto/set-status.ts",
         "../src/models/entities/enum.entity.ts"
@@ -19538,9 +19564,11 @@
         "../node_modules/@nestjs/common/index.d.ts"
       ],
       "../src/controllers/partener-intern/partner-service.service.ts": [
+        "../src/controllers/partener-intern/dto/execute-ussd-dto.ts",
         "../src/controllers/partener-intern/dto/import-bank-transfert-bulk-dto-in.ts",
         "../src/controllers/partener-intern/dto/notification-dto.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
+        "../src/controllers/partener-intern/dto/retro-dto.ts",
         "../src/controllers/partener-intern/dto/services-balance.ts",
         "../src/controllers/partener-intern/dto/set-status.ts",
         "../src/helper.service.ts"

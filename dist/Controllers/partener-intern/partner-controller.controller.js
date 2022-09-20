@@ -24,6 +24,8 @@ const import_bank_transfert_bulk_dto_in_1 = require("./dto/import-bank-transfert
 const services_balance_1 = require("./dto/services-balance");
 const set_status_1 = require("./dto/set-status");
 const notification_dto_1 = require("./dto/notification-dto");
+const retro_dto_1 = require("./dto/retro-dto");
+const execute_ussd_dto_1 = require("./dto/execute-ussd-dto");
 let PartnerControllerController = class PartnerControllerController {
     async home() {
         return {
@@ -45,6 +47,44 @@ let PartnerControllerController = class PartnerControllerController {
                 status: refund.status,
                 message: refund.message,
                 statutTreatment: 'FAILED',
+            };
+        }
+    }
+    async retro(retroDtoIn) {
+        const apiResponse = await this.partnerServiceService.retroTransaction(retroDtoIn);
+        if ((apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.code) === 2000) {
+            return {
+                statutTreatment: 'SUCCESS',
+                message: apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.msg,
+                apiResponse: apiResponse,
+            };
+        }
+        else {
+            return {
+                statutTreatment: 'FAILED',
+                message: apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.msg,
+                apiResponse: apiResponse,
+            };
+        }
+    }
+    async executeUssd(executeUssdIn) {
+        const ussdResponse = await this.partnerServiceService.executeUssd(executeUssdIn);
+        if (ussdResponse === null || ussdResponse === void 0 ? void 0 : ussdResponse.success) {
+            return {
+                statutTreatment: 'SUCCESS',
+                message: 'Le code Ussd a bien été execute sur le telephone',
+                phoneId: executeUssdIn.phoneId,
+                ussd: executeUssdIn.ussd,
+                ussd_response: ussdResponse.ussd_response,
+            };
+        }
+        else {
+            return {
+                statutTreatment: 'FAILED',
+                message: "Le code Ussd n'a pas pus etre executé: " + ussdResponse.message,
+                phoneId: executeUssdIn.phoneId,
+                ussd: executeUssdIn.ussd,
+                ussd_response: '',
             };
         }
     }
@@ -83,6 +123,22 @@ __decorate([
     __metadata("design:paramtypes", [refund_dto_out_1.RefundDtoIn]),
     __metadata("design:returntype", Promise)
 ], PartnerControllerController.prototype, "refund", null);
+__decorate([
+    common_1.Post('/transaction/retro'),
+    ResponseDecorateur_1.ResponseDecorateur(retro_dto_1.RetroDtoOut, 201, 'Home service partner intern '),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [retro_dto_1.RetroDtoIn]),
+    __metadata("design:returntype", Promise)
+], PartnerControllerController.prototype, "retro", null);
+__decorate([
+    common_1.Post('/phone/execute-ussd'),
+    ResponseDecorateur_1.ResponseDecorateur(execute_ussd_dto_1.ExecuteUssdOut, 201, 'Home service partner intern '),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [execute_ussd_dto_1.ExecuteUssdIn]),
+    __metadata("design:returntype", Promise)
+], PartnerControllerController.prototype, "executeUssd", null);
 __decorate([
     common_1.Post('/transaction/set-success'),
     ResponseDecorateur_1.ResponseDecorateur(set_status_1.SetSuccessFailedDtoOut, 201, 'Home service partner intern '),
@@ -129,6 +185,8 @@ PartnerControllerController = __decorate([
     swagger_1.ApiExtraModels(...[
         home_dto_out_1.HomeDtoOut,
         refund_dto_out_1.RefundDtoOut,
+        retro_dto_1.RetroDtoOut,
+        execute_ussd_dto_1.ExecuteUssdOut,
         notification_dto_1.SendNotificationDtoOut,
         set_status_1.SetSuccessFailedDtoOut,
         import_bank_transfert_bulk_dto_in_1.ImportBankTransfertBulkDtoOut,
