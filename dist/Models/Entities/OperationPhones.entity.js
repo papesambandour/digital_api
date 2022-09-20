@@ -140,6 +140,10 @@ __decorate([
     __metadata("design:type", Number)
 ], OperationPhones.prototype, "usersId", void 0);
 __decorate([
+    typeorm_1.Column('text', { name: 'attachment_path', nullable: true }),
+    __metadata("design:type", Number)
+], OperationPhones.prototype, "attachmentPath", void 0);
+__decorate([
     typeorm_1.ManyToOne(() => OperationPhones_1, (operationPhones) => operationPhones.operationPhones, { onDelete: 'NO ACTION', onUpdate: 'NO ACTION' }),
     typeorm_1.JoinColumn([{ name: 'operation_phones_id', referencedColumnName: 'id' }]),
     __metadata("design:type", OperationPhones)

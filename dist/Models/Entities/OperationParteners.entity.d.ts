@@ -27,6 +27,7 @@ export declare class OperationParteners extends CustomBaseModel {
     soldeAfter: number;
     depositAmount: number;
     usersId: number;
+    attachmentPath: number;
     parteners: Parteners;
     transactions: Transactions;
 }

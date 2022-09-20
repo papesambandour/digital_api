@@ -25,6 +25,7 @@ export declare class OperationPhones extends CustomBaseModel {
     soldeApiAfter: number;
     transactionsId: number | null;
     usersId: number;
+    attachmentPath: number;
     operationPhones_2: OperationPhones;
     operationPhones: OperationPhones[];
     phones: Phones;

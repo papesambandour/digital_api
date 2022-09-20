@@ -3152,8 +3152,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationparteners.entity.ts": {
-        "version": "b0c4a1627f94e68586634267f87831eca03133a01043cd8ac31d587bc24b776e",
-        "signature": "47ed5373821b4ee382c6d49d64d7f0013fdee8cc98a6466f710be9ba2601bfcd",
+        "version": "8b33e717c4e28822fc5347c8b1538307fe347c760eb65a89198cf9f6378b2498",
+        "signature": "2f638828320fe174b0faa559f4d351c4d9a759660df67162d8b5f00af38bd65b",
         "affectsGlobalScope": false
       },
       "../src/models/entities/ussdexecutionmessages.entity.ts": {
@@ -3167,8 +3167,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
-        "version": "cdfda593f8e3e695969545d47fdea495cba4ade0c6c0db6c760e0ef7925f9521",
-        "signature": "2252287423ddb16e8a887697e77bbbfa2f8f109e83517372a934d5132469157e",
+        "version": "80a47147affd068664c8536e0d19b8f6ed88f05eaeb273ec89e81f2b4e7db0d4",
+        "signature": "b8160b5433233cf0cbb5ce9fced6add48a075ff87a0af40b623d2039b201873e",
         "affectsGlobalScope": false
       },
       "../src/models/entities/activitiesphones.entity.ts": {

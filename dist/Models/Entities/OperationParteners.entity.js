@@ -148,6 +148,10 @@ __decorate([
     __metadata("design:type", Number)
 ], OperationParteners.prototype, "usersId", void 0);
 __decorate([
+    typeorm_1.Column('text', { name: 'attachment_path', nullable: true }),
+    __metadata("design:type", Number)
+], OperationParteners.prototype, "attachmentPath", void 0);
+__decorate([
     typeorm_1.ManyToOne(() => Parteners_entity_1.Parteners, (parteners) => parteners.operationParteners, {
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION',
