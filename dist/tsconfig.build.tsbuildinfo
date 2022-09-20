@@ -3162,7 +3162,7 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "615bc5a293229a9c88af13cfc472278435564c9263851e4f6079a517ce23300d",
+        "version": "998785d694d7dcd067ca914da96d28c8e5dff4b0972874b2b5517eebca93eafc",
         "signature": "846aed5d3eb945a2138de3c4328624926c0a9f014f44b187be7b99f2ffa90219",
         "affectsGlobalScope": false
       },
@@ -4107,7 +4107,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "129055eaab8742d607d2f2c6dbb4a27c5f6ed82d542cbf3b03c9026f940f4520",
+        "version": "8eb487993c840b5619d6aa3f9912e2155e1b555bc64f5f07a323190a95aa24f8",
         "signature": "7ca7a1288810d98ad88ee4904be83e2e125ccd2c303d83b058255841bc721faf",
         "affectsGlobalScope": false
       },
@@ -6642,8 +6642,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "ffe4047c6f58406e38ce361ca9f14058f24898d63f93eda7b0f7b385a45d4615",
-        "signature": "5dc24670b5214614f0fb1d32e4582c2226563ab53d3615571e7e7cb557ddd596",
+        "version": "1b15a402880bf74eb9085b3f821576e68658cb0c9b37ad96a396a0d6c4cf3037",
+        "signature": "70c09cdb0b60aa2a4edb54914e0914a2d8bcba67c87e3718538b17bfdb5df092",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -6687,7 +6687,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "26f1223b54b9668b3a1d8f624180a1f621c79c49388af135d27207ed2af9214b",
+        "version": "e16699b50040af92ea34aa692a47f90a54ba3917dc808343ac5ce638aa7ef5a7",
         "signature": "f033c727e69ca23ea61f600f9874fb1fd2fe1e2dd45f2a8cd497125173721259",
         "affectsGlobalScope": false
       },

@@ -78,7 +78,12 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "isSoldeCommission", void 0);
 __decorate([
-    typeorm_1.Column('double', { name: 'solde', precision: 17, scale: 4 }),
+    typeorm_1.Column('double', {
+        name: 'solde',
+        precision: 17,
+        scale: 4,
+        comment: 'Solde partenaire au moment de la tranaction en enlevenat les frais',
+    }),
     __metadata("design:type", Number)
 ], Transactions.prototype, "solde", void 0);
 __decorate([
@@ -87,6 +92,7 @@ __decorate([
         precision: 17,
         scale: 4,
         default: '0.0000',
+        comment: 'Solde commission partenaire au moment de la tranaction en enlevenat les frais',
     }),
     __metadata("design:type", Number)
 ], Transactions.prototype, "soldeCommission", void 0);

@@ -79,11 +79,32 @@ class ApiManagerInterface {
         }
         else {
             transaction.commissionAmount = this.apiService.commissionAmount;
-            transaction.solde =
-                this.apiService.partner.solde -
-                    this.apiService.operationInDto.amount -
-                    this.apiService.feeAmount;
-            transaction.soldeCommission = this.apiService.partner.soldeCommission;
+            if (this.apiService.isSoldeComm) {
+                if (this.apiService.sousServices.typeOperation === Enum_entity_1.TypeOperationEnum.DEBIT) {
+                    transaction.solde = this.apiService.partner.solde;
+                    transaction.soldeCommission =
+                        this.apiService.partner.soldeCommission -
+                            this.apiService.operationInDto.amount -
+                            this.apiService.feeAmount;
+                }
+                else {
+                    transaction.solde = this.apiService.partner.solde;
+                    transaction.soldeCommission = this.apiService.partner.soldeCommission;
+                }
+            }
+            else {
+                if (this.apiService.sousServices.typeOperation === Enum_entity_1.TypeOperationEnum.DEBIT) {
+                    transaction.solde =
+                        this.apiService.partner.solde -
+                            this.apiService.operationInDto.amount -
+                            this.apiService.feeAmount;
+                    transaction.soldeCommission = this.apiService.partner.soldeCommission;
+                }
+                else {
+                    transaction.solde = this.apiService.partner.solde;
+                    transaction.soldeCommission = this.apiService.partner.soldeCommission;
+                }
+            }
         }
         transaction.commissionAmountOwner =
             this.apiService.commissionAmountPsp - this.apiService.commissionAmount;

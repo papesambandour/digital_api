@@ -45,6 +45,30 @@
             font-size: 20px;
         }
 
+        .description-text {
+            position: fixed;
+            top: calc(50% - 59px);
+            left: 0;
+            font-size: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .description-logo {
+            position: fixed;
+            top: 50px;
+            left: calc(50% - 100px);
+            font-size: 20px;
+        }
+
+        .description-logo img{
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50px;
+
+        }
+
         .btn-container {
             margin-top: 10px;
             margin-left: auto;
@@ -89,6 +113,12 @@
     </span>
     </div>
 
+    <div class="description-logo">
+        <img src="{{ logo }}">
+    </div>
+    <div class="description-text">
+        <span>{{ body }}</span>
+    </div>
     <div class="btn-container">
         <a href="{{ link}}" onclick="clicked(this)">
             Cliquez pour payer

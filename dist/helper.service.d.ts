@@ -76,4 +76,5 @@ export declare class HelperService {
     createClaimForTransaction(transaction: Transactions, subject: string, content: string): Promise<Claim>;
     private verseComissionForTransaction;
     uuid(): string;
+    formatMoney(number: string | number, decimals?: number, dec_point?: string, thousands_sep?: string): any;
 }

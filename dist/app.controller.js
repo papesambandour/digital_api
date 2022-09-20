@@ -53,7 +53,7 @@ let AppController = class AppController extends Controller_1.ControllerBase {
     async deepLink(transactionId, res) {
         console.log('in deep link method');
         const transaction = await this.helper.getTransactionByGeneratedId(transactionId);
-        if (!transaction || !transaction.deepLinkUrl) {
+        if (!transaction) {
             console.log('herree', process.env.APP_INTERNAL_URL);
             return res.redirect(this.helper.appendQueryParams(process.env.APP_INTERNAL_URL, {
                 message: 'Deep link non trouvé',
@@ -62,6 +62,12 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         if (transaction.reachedTimeout) {
             return res.redirect(this.helper.appendQueryParams(process.env.APP_INTERNAL_URL, {
                 message: 'Lien de paiement expiré',
+            }));
+        }
+        if (!transaction.deepLinkUrl) {
+            console.log('herree', process.env.APP_INTERNAL_URL);
+            return res.redirect(this.helper.appendQueryParams(process.env.APP_INTERNAL_URL, {
+                message: 'Deep link non trouvé',
             }));
         }
         if (transaction.statut !== Enum_entity_1.StatusEnum.PROCESSING &&
@@ -86,13 +92,15 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         }
         console.log('here', transaction.deepLinkUrl);
         const link = transaction.deepLinkUrl;
+        const partner = await Parteners_entity_1.Parteners.findOne(transaction.partenersId);
         return res.render('deep', {
             success: true,
             link,
             currentUrl: `https://api.intech.sn/deep/${transaction.transactionId}`,
             mName: transaction.sousServices.executeSmsSender || '',
             logo: transaction.sousServices.icon,
-            title: `Effectuer votre paiement de ${transaction.amount} CFA`,
+            title: `Effectuer votre paiement de ${this.helper.formatMoney(transaction.amount)} CFA chez ${partner.name}`,
+            body: `Effectuer votre paiement de ${this.helper.formatMoney(transaction.amount)} CFA chez ${partner.name}`,
         });
     }
     async home(res, message) {

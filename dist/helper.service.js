@@ -182,6 +182,7 @@ let HelperService = class HelperService {
             [Enum_entity_1.StatusEnum.SUCCESS.toString()].includes(transaction.preStatut)
             ? Enum_entity_1.StatusEnum.SUCCESS
             : Enum_entity_1.StatusEnum.FAILLED;
+        const partner = await Parteners_entity_1.Parteners.findOne(transaction.partenersId);
         const dataSended = {
             code: 2000,
             msg: transaction.commentaire,
@@ -195,6 +196,10 @@ let HelperService = class HelperService {
                 nameService: transaction.sousServiceName,
                 commission: transaction.commissionAmount,
                 transactionId: transaction.transactionId,
+                sousServiceTransactionId: transaction.sousServiceTransactionId,
+                currentBalance: partner.solde + partner.soldeCommission,
+                balanceBeforeTransactionInit: transaction.partnerSolde + transaction.partnerSoldeCommission,
+                balanceAfterTransactionInit: transaction.solde + transaction.soldeCommission,
                 status: statut,
                 externalTransactionId: transaction.externalTransactionId,
                 callbackUrl: transaction.urlIpn,
@@ -849,7 +854,7 @@ let HelperService = class HelperService {
             return null;
         }
         if (error.isCritic) {
-            this.notifyAdmin(`Une erreur critique c'est produit pour le service ${codeSousService}: ${error.id}/${error.code}`, Enum_entity_1.TypeEvenEnum.CRITICAL_ERROR, {}, true).then();
+            this.notifyAdmin(`Une erreur critique c'est produit pour le service ${codeSousService}: ${error.id}/${error.code}\n${error.regex} ${error.message}`, Enum_entity_1.TypeEvenEnum.CRITICAL_ERROR, {}, true).then();
         }
         error.message = error.message.replace('__amount__', amount === null || amount === void 0 ? void 0 : amount.toString());
         return error;
@@ -1067,6 +1072,24 @@ let HelperService = class HelperService {
             const r = (Math.random() * 16) | 0, v = c == 'x' ? r : (r & 0x3) | 0x8;
             return v.toString(16);
         });
+    }
+    formatMoney(number, decimals = 1, dec_point = '.', thousands_sep = ' ') {
+        number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
+        const n = !isFinite(+number) ? 0 : +number, prec = !isFinite(+decimals) ? 0 : Math.abs(decimals), sep = typeof thousands_sep === 'undefined' ? ',' : thousands_sep, dec = typeof dec_point === 'undefined' ? '.' : dec_point;
+        let s = '';
+        const toFixedFix = function (n, prec) {
+            const k = Math.pow(10, prec);
+            return '' + Math.round(n * k) / k;
+        };
+        s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+        if (s[0].length > 3) {
+            s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+        }
+        if ((s[1] || '').length < prec) {
+            s[1] = s[1] || '';
+            s[1] += new Array(prec - s[1].length + 1).join('0');
+        }
+        return s.join(dec);
     }
 };
 HelperService = __decorate([
