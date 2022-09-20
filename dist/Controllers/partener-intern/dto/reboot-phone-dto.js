@@ -9,32 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RetroDtoOut = exports.RetroDtoIn = void 0;
+exports.RebootPhoneDtoOut = exports.RebootPhoneDtoIn = void 0;
 const swagger_1 = require("@nestjs/swagger");
-class RetroDtoIn {
+class RebootPhoneDtoIn {
 }
 __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", Number)
-], RetroDtoIn.prototype, "transactionId", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    __metadata("design:type", String)
-], RetroDtoIn.prototype, "codeService", void 0);
-exports.RetroDtoIn = RetroDtoIn;
-class RetroDtoOut {
+], RebootPhoneDtoIn.prototype, "phoneId", void 0);
+exports.RebootPhoneDtoIn = RebootPhoneDtoIn;
+class RebootPhoneDtoOut {
 }
 __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
-], RetroDtoOut.prototype, "message", void 0);
+], RebootPhoneDtoOut.prototype, "message", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
-], RetroDtoOut.prototype, "statutTreatment", void 0);
+], RebootPhoneDtoOut.prototype, "statutTreatment", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    __metadata("design:type", Object)
-], RetroDtoOut.prototype, "apiResponse", void 0);
-exports.RetroDtoOut = RetroDtoOut;
-//# sourceMappingURL=retro-dto.js.map
+    __metadata("design:type", Number)
+], RebootPhoneDtoOut.prototype, "phoneId", void 0);
+exports.RebootPhoneDtoOut = RebootPhoneDtoOut;
+//# sourceMappingURL=reboot-phone-dto.js.map

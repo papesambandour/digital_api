@@ -6522,628 +6522,13 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/dto/retro-dto.ts": {
-        "version": "f291675464758b9221ca247c1d1fac2f9a8ff9351ac3acc51edcd4106be95ad5",
-        "signature": "ab0430c52533d59a4203c72c7a6acccc5ffc2d8b7b6545551938d3c40b5abede",
+        "version": "4148f423db43b9332786b49be4909d7ae69e84571ae36bf20bbc439f3dd6fe3a",
+        "signature": "700a1595ec388bd1fa93ac03584695c0b5c5201e7a635df9672a25ba6af72cc7",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/dto/execute-ussd-dto.ts": {
         "version": "12c2a370ac138e02f93e93ec5dd924c5ce284864eec13c20816df71c84eb0366",
         "signature": "cdaf59ac0e4030c4f0e85b1f7c3d014459b62cb63c9e7cd37b569b25ef838e28",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/partener-intern/partner-service.service.ts": {
-        "version": "349a3144add4a67994cb335756387d6dbfe9a9c158a608baefb5a5fefbf8f0ef",
-        "signature": "32acadb68ebe27c9555ff3a2e972e2c2901a99ef0f16a080ef98ec7c0efaa139",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/partener-intern/partner-controller.controller.ts": {
-        "version": "f24f80531e880430e7218db639e643a4ece5f03ed3577861026b8efa3279d5bc",
-        "signature": "3007f23a8cd36d67614f1e3670aa4422f64a34bf4230bda06ea78bdaffb00409",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/partener-intern/partner-middleware.middleware.ts": {
-        "version": "f7f9aae8db5d696a7f2e823c1579a0b9399d5bca04db182f62a7d90f378e3c15",
-        "signature": "5f07317e69fc4a82143259aaf22885f72a30b0e5e5332c6cd9557aaf2fac4768",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/partener-intern/partner-intern.module.ts": {
-        "version": "9585c9ac07b6149f96e0e9687ed2d5be8ece7509fe6acce79aa62dc4806acb82",
-        "signature": "3ce8ead0a4ebc7567c4a3cd1e405b1262b07390c31ed42874a34ab6d866d1a55",
-        "affectsGlobalScope": false
-      },
-      "../src/app.module.ts": {
-        "version": "66f267db7befc643a196ebe5c82af13cbea568a11ceb4067c294e33de895839b",
-        "signature": "22066569de7d8de9b5d783cf47c83e47fea5b20a7a1502f1d1ebc423e88477e9",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/interfaces/serve-static-options.interface.d.ts": {
-        "version": "b87682ddc9e2c3714ca66991cdd86ff7e18cae6fd010742a93bd612a07d19697",
-        "signature": "b87682ddc9e2c3714ca66991cdd86ff7e18cae6fd010742a93bd612a07d19697",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/adapters/express-adapter.d.ts": {
-        "version": "6b12a83a6198f2a6019f7e20f5362039095d4dae77ce9aec3e9a5351f74180f5",
-        "signature": "6b12a83a6198f2a6019f7e20f5362039095d4dae77ce9aec3e9a5351f74180f5",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/adapters/index.d.ts": {
-        "version": "86bf2bfe29d0bc3fbc68e64c25ea6eab9bcb3c518ae941012ed75b1e87d391ae",
-        "signature": "86bf2bfe29d0bc3fbc68e64c25ea6eab9bcb3c518ae941012ed75b1e87d391ae",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/interfaces/nest-express-application.interface.d.ts": {
-        "version": "c84f26d79f2c55c932ab7441fbaaceffb0ecb74aa01267ba8f3d65c3545f60ba",
-        "signature": "c84f26d79f2c55c932ab7441fbaaceffb0ecb74aa01267ba8f3d65c3545f60ba",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/interfaces/index.d.ts": {
-        "version": "68a330d1246e3f0ed055b931ab6f4f9505d7c2db0560515f68c722c06541dc0d",
-        "signature": "68a330d1246e3f0ed055b931ab6f4f9505d7c2db0560515f68c722c06541dc0d",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/multer/interfaces/multer-options.interface.d.ts": {
-        "version": "8ae337fcd337d5ca179611dae780e7dbb45b3c0cbc6debc5067a4215e95cd873",
-        "signature": "8ae337fcd337d5ca179611dae780e7dbb45b3c0cbc6debc5067a4215e95cd873",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/multer/interceptors/any-files.interceptor.d.ts": {
-        "version": "00427e68be5cbfd0694c650ebf27dc9d5cb8ec62254ca5af0cd3e412595f8d09",
-        "signature": "00427e68be5cbfd0694c650ebf27dc9d5cb8ec62254ca5af0cd3e412595f8d09",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/multer/interceptors/file-fields.interceptor.d.ts": {
-        "version": "6a013828e3333e21fde3a4d1c7da0c41e8ce0218a98ad8e71025c2d437a2458b",
-        "signature": "6a013828e3333e21fde3a4d1c7da0c41e8ce0218a98ad8e71025c2d437a2458b",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/multer/interceptors/file.interceptor.d.ts": {
-        "version": "fc1a967ceb559957a8fd153d364596d7c906440c401e9a1f0ef9cda62a92a937",
-        "signature": "fc1a967ceb559957a8fd153d364596d7c906440c401e9a1f0ef9cda62a92a937",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/multer/interceptors/files.interceptor.d.ts": {
-        "version": "fd09f594933708040bbab2ad98fdfd1f076209ff0d514cbc8ab50bc39f462619",
-        "signature": "fd09f594933708040bbab2ad98fdfd1f076209ff0d514cbc8ab50bc39f462619",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/multer/interceptors/index.d.ts": {
-        "version": "6db46ed9adeb732a2c46b05dd64a3fe85b2789065f1ef7668f583c61f1046a14",
-        "signature": "6db46ed9adeb732a2c46b05dd64a3fe85b2789065f1ef7668f583c61f1046a14",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/multer/interfaces/files-upload-module.interface.d.ts": {
-        "version": "7bb8a371f7790a421606678b50a943955bfc182beca2c42f8d1473cc2973fa12",
-        "signature": "7bb8a371f7790a421606678b50a943955bfc182beca2c42f8d1473cc2973fa12",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/multer/interfaces/index.d.ts": {
-        "version": "d8c1697db4bb3234ff3f8481545284992f1516bc712421b81ee3ef3f226ae112",
-        "signature": "d8c1697db4bb3234ff3f8481545284992f1516bc712421b81ee3ef3f226ae112",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/multer/multer.module.d.ts": {
-        "version": "549adfb8fb51148eeb2c0659941b3a508988ee0b00f325fbaae7e96bc4b3e4c9",
-        "signature": "549adfb8fb51148eeb2c0659941b3a508988ee0b00f325fbaae7e96bc4b3e4c9",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/multer/index.d.ts": {
-        "version": "e2c3c3ca3818d610599392a9431e60ec021c5d59262ecd616538484990f6e331",
-        "signature": "e2c3c3ca3818d610599392a9431e60ec021c5d59262ecd616538484990f6e331",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-express/index.d.ts": {
-        "version": "e3cd60be3c4f95c43420be67eaa21637585b7c1a8129f9b39983bbd294f9513c",
-        "signature": "e3cd60be3c4f95c43420be67eaa21637585b7c1a8129f9b39983bbd294f9513c",
-        "affectsGlobalScope": false
-      },
-      "../src/main.ts": {
-        "version": "5268badb5cdcaeeaea322c847319bba7065436464292595e5861d0c414de9bc9",
-        "signature": "0438c3f72cf811e58bac561ea2051f19eb63d57782ccb0b3178fe64d36cb6709",
-        "affectsGlobalScope": false
-      },
-      "../src/helper.service.ts": {
-        "version": "1b15a402880bf74eb9085b3f821576e68658cb0c9b37ad96a396a0d6c4cf3037",
-        "signature": "70c09cdb0b60aa2a4edb54914e0914a2d8bcba67c87e3718538b17bfdb5df092",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/custombasemodel.ts": {
-        "version": "062fe0b199fcd8e9b158da2747dc970f81d8c25ce19d127ff34b60cb352f5715",
-        "signature": "e869a929ba42f8f5b0834bded35ce60c5e4c07c2e8245b25600ab666c341c532",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/plateforme.entity.ts": {
-        "version": "121dfb81d9cf6a9769e2a8c92d41ba16db08671d588d197da405310b609d2777",
-        "signature": "734dda5a23c5cce7d074f107f46b5a8459a3e3049c23d9636e4481ca7634d342",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/users.entity.ts": {
-        "version": "f14d273b9e13c1fa7a3b3c20cb79b79e54e86334092c2b7d947b4069d1cb64c6",
-        "signature": "94507f47266ad83ce04466509b605c3a6926f21b829ca1613ad1a39e047c3b30",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/profils.entity.ts": {
-        "version": "3012be52e62699254ed86db80ffceb361d94fa499c3ee64365abeb541361ecaf",
-        "signature": "c28a4955ac23e674a874ac3410666bbaf07315bb74e641d157287cddf549d891",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/actionsprofils.entity.ts": {
-        "version": "bc0be392f02ac15a81fe57d4572e7277d01394ae2d061b9b0e89862c3add8b0c",
-        "signature": "842091666d17b9a55370cae5e81eb23aba9e9817fedf843a2c323058a08cb397",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/modules.entity.ts": {
-        "version": "a6982802d5c92fb400f2b702a9e6400d3c706f64d4c5ffd5d76946b8112837ff",
-        "signature": "8537d8c2bd1fccb4c80039c1e016348f6ab37c378ef033ed6d273098881fae53",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/actions.entity.ts": {
-        "version": "808b5f1d5e03278e09c5225af534c440a96fc7d785bd8d799220f4fbe99fac5a",
-        "signature": "a718802b9fa71ec5efdf6c2bdf74055f895f2f826ba0a993cf211c5413fee2ee",
-        "affectsGlobalScope": false
-      },
-      "../src/app.service.ts": {
-        "version": "aee16317d3b47bcc2f15c5c44e1e7b999d7a9236216d67d3fb1809bcf125f803",
-        "signature": "6d7f8b73cc8fda7d46c26226461261d3bfad2a1130126d8506d68368685bb535",
-        "affectsGlobalScope": false
-      },
-      "../src/app.controller.ts": {
-        "version": "e16699b50040af92ea34aa692a47f90a54ba3917dc808343ac5ce638aa7ef5a7",
-        "signature": "f033c727e69ca23ea61f600f9874fb1fd2fe1e2dd45f2a8cd497125173721259",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/server.d.ts": {
-        "version": "70efd2b3c4e768d1428323e102752458cc5ebd16881fd71fdac2bdf5115465cf",
-        "signature": "70efd2b3c4e768d1428323e102752458cc5ebd16881fd71fdac2bdf5115465cf",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io-parser/build/esm/commons.d.ts": {
-        "version": "bd93a3a1fabff2b95fe9442989cafdda76c3c8949ae1fc4bc75a92d04396d9e2",
-        "signature": "bd93a3a1fabff2b95fe9442989cafdda76c3c8949ae1fc4bc75a92d04396d9e2",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io-parser/build/esm/encodepacket.d.ts": {
-        "version": "e549fdbc4d54608bf1376417fd4c70409d6931a6b4943316f5811a912a3c87a2",
-        "signature": "e549fdbc4d54608bf1376417fd4c70409d6931a6b4943316f5811a912a3c87a2",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io-parser/build/esm/decodepacket.d.ts": {
-        "version": "2bf6082bf813927280af558bd44dc8b64ed9e185e61901397cf6a09315285e22",
-        "signature": "2bf6082bf813927280af558bd44dc8b64ed9e185e61901397cf6a09315285e22",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io-parser/build/esm/index.d.ts": {
-        "version": "793c8f24170b3ce558b3912e4ffc8fe6190c457366c51fae3102c8b38675d1aa",
-        "signature": "793c8f24170b3ce558b3912e4ffc8fe6190c457366c51fae3102c8b38675d1aa",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/transport.d.ts": {
-        "version": "f6a7fc5c9e9feb512dfac5ba3a9181572aab5f8880731ab04c90e0a8e4d624f1",
-        "signature": "f6a7fc5c9e9feb512dfac5ba3a9181572aab5f8880731ab04c90e0a8e4d624f1",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/transports/polling.d.ts": {
-        "version": "ea5bed05bbaf5bf64db72c16595c4b38174ae1907e7d1c0f141c62028dfc7489",
-        "signature": "ea5bed05bbaf5bf64db72c16595c4b38174ae1907e7d1c0f141c62028dfc7489",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/transports/websocket.d.ts": {
-        "version": "90f2a2c9ef5d916d9a80f0cc37b450ce072f422336255ec5c6be542f6f861683",
-        "signature": "90f2a2c9ef5d916d9a80f0cc37b450ce072f422336255ec5c6be542f6f861683",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/transports/index.d.ts": {
-        "version": "b3967f8d0038e34bd4b9fe94764c6f20eb2d547a507ed77e57b7dddb4c6d74d3",
-        "signature": "b3967f8d0038e34bd4b9fe94764c6f20eb2d547a507ed77e57b7dddb4c6d74d3",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/userver.d.ts": {
-        "version": "291da8ad847a6057f540e1c14a7aced6fa4ccb5057e1b0ec342683bd68991f05",
-        "signature": "291da8ad847a6057f540e1c14a7aced6fa4ccb5057e1b0ec342683bd68991f05",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/socket.d.ts": {
-        "version": "df66546c6c9fca7bbf2b8e51e285c486af2dcf948f755c678ef35e87f5eadf3d",
-        "signature": "df66546c6c9fca7bbf2b8e51e285c486af2dcf948f755c678ef35e87f5eadf3d",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/engine.io.d.ts": {
-        "version": "bd8d4d0602937984f4f9595bf03a927b5de1c913dda933a0bc285efea40c28e3",
-        "signature": "bd8d4d0602937984f4f9595bf03a927b5de1c913dda933a0bc285efea40c28e3",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io/dist/typed-events.d.ts": {
-        "version": "393cf6e3a08760d199cde0d8c2d56c1d6c2d956ad56edfea80523431b3f5cb14",
-        "signature": "393cf6e3a08760d199cde0d8c2d56c1d6c2d956ad56edfea80523431b3f5cb14",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io/dist/client.d.ts": {
-        "version": "9fdcc4c98fb8e8616ca1643c18959a5e851e14d6869f631dca42eac8f76de350",
-        "signature": "9fdcc4c98fb8e8616ca1643c18959a5e851e14d6869f631dca42eac8f76de350",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io-adapter/dist/index.d.ts": {
-        "version": "109ad75d5402cf95e90afab3c629ca3d29184892afb617624c26903b9c421f68",
-        "signature": "109ad75d5402cf95e90afab3c629ca3d29184892afb617624c26903b9c421f68",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io/dist/broadcast-operator.d.ts": {
-        "version": "e140f8d22782cc217ad60dbd80c15cd6c1177c5b9da9b7bec7562508fadec615",
-        "signature": "e140f8d22782cc217ad60dbd80c15cd6c1177c5b9da9b7bec7562508fadec615",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io/dist/socket.d.ts": {
-        "version": "4cc83d4403c30893a470ddde9f1b7c9de5488bd9cbb7d226006e0df6712fe0f6",
-        "signature": "4cc83d4403c30893a470ddde9f1b7c9de5488bd9cbb7d226006e0df6712fe0f6",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io/dist/namespace.d.ts": {
-        "version": "f3dedf1f2ccbde6c50dca11e57cebf0756aa6a250e2161dd92e1510faaf223e3",
-        "signature": "f3dedf1f2ccbde6c50dca11e57cebf0756aa6a250e2161dd92e1510faaf223e3",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io/dist/index.d.ts": {
-        "version": "d454549ad0815225d03ec6234d63abaaa05e8dccfa03d0522f19a15b1c2263bb",
-        "signature": "d454549ad0815225d03ec6234d63abaaa05e8dccfa03d0522f19a15b1c2263bb",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/adapters/io-adapter.d.ts": {
-        "version": "6dafca3f18c889b94b1b4c215f0479952914093b51820495e338afb31b0a9f54",
-        "signature": "6dafca3f18c889b94b1b4c215f0479952914093b51820495e338afb31b0a9f54",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/adapters/index.d.ts": {
-        "version": "295a5599fc659a6d6539a18de5f5cbc712111eeef7786a881775c8fba082a84c",
-        "signature": "295a5599fc659a6d6539a18de5f5cbc712111eeef7786a881775c8fba082a84c",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/platform-socket.io/index.d.ts": {
-        "version": "62233ea74c1bf9917eb1ae257b912e7680e8aa7c373568eb075fc3e46e5c9d05",
-        "signature": "62233ea74c1bf9917eb1ae257b912e7680e8aa7c373568eb075fc3e46e5c9d05",
-        "affectsGlobalScope": false
-      },
-      "../src/adapters/redis-io.adapter.ts": {
-        "version": "097373920c1b813adc3ef59b080b0f3d7f685b203d59db1212d056dc1177591a",
-        "signature": "533323cd94e1572846e857defd72ed03de058fd0baaab06cf17736f7a954f6c0",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/empty-model-service.ts": {
-        "version": "b562b23ba15f764ae5070e55c200e9fa6e99529a88191308aa6f3e8dd5b8be6e",
-        "signature": "738b11e67f9f5c6b67f9f737bb61e69c8dd4f69f02491ca9b54739c950825027",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/aquatech-sn-bill-payment-api-manager/aquatech-sn-bill-payment-api-manager.service.ts": {
-        "version": "e6eb1debf2195aed62490dac8d405970bdfeb6059f941da5a7d52f946c5133dc",
-        "signature": "7cd10d9c309912ffe06f27439addcc4f69cfe69e02710d051f59a58cf206c25c",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/orange/config.ts": {
-        "version": "991527ebffe778ba7e5d9e3d91288f9211cc8ad63f1c58b7f2c815c9effdba95",
-        "signature": "4eaf566317ba2c0314c9b5294edabc10b3ff7c8a7eac78e49df93e539f69fc0f",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/orange/providerorangemoneyapi.ts": {
-        "version": "5750fd1b10b809d3becbe4819e398991d5821c3f62908354f1090c5a4c44b8cf",
-        "signature": "aa79894b792afbd62544694ed65abd3e6b67f71586aa8efdea362ad77dcce423",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/bank-transfer-sn-cash-in-api-manager/bank-transfer-sn-cash-in-api-manager.service.ts": {
-        "version": "bd3ddbaf2698a3e428664c1b4bbef7b2013d8d568c2894309f30e66c346e51b1",
-        "signature": "489cae3b5d141d535660c71761dd390d09e469c75b65cc66aaf856900b7cced7",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/baobabplus-sn-bill-reload-api-manager/baobabplus-sn-bill-reload-api-manager.service.ts": {
-        "version": "8ce31ef9350b78f9b8fd097e1f14a3c3aa57a48053764e26e606b26bbe1d2427",
-        "signature": "797ee221581d943e6b992b35691b581c09ba2a2d74d4a5d9977b50d3726dbe2e",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/der-fj-sn-bill-reload-api-manager/der-fj-sn-bill-reload-api-manager.service.ts": {
-        "version": "3360991c5e7555dc441d5f70808654c45dc72c15f9bb70189aaac6da86c9f828",
-        "signature": "3455d53c7d877ffe6468ec928a4f7e40b85f07f302a5a59e23f8cd6a9f501f5a",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/dto/required-for-service.decorator.ts": {
-        "version": "a0b9d66d428e3a2ac519375f9c3848886f1ab96a5a9b4b5e2dc8ff243afc13c1",
-        "signature": "cef1e66ac8cd932fd46857ba04670f194cf7ad2c75bdddcf69d44986ade02f3c",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/mtn/config.ts": {
-        "version": "0ccca53a72c0dcdae827381471c03e67daabef4424cc3ac8ba4bff3405150a39",
-        "signature": "bf4b7222057a860d0a1fb17ad37b95c949bea41de086a987874d31f1132a27b3",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/mtn-ci-cash-out-api-manager/mtn-ci-cash-out-api-manager.service.ts": {
-        "version": "c90c643846352350a7504dc67a8741ebcbec30e40e0cf924f502a3349dad6145",
-        "signature": "a0b1c060309906755ac0df2a7d43a9b7528cfab06cc422afbc14d38c5d33f530",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/mtn/mtnapiprovider.ts": {
-        "version": "72b5d88a78dae99d17133dd6c0601860b2a16e84295315a6d6477fe999dda8ee",
-        "signature": "3b0c796c84757a4b29e2ac8925f90e350327126efd0aead9e50a085b478008b7",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/mtn-ci-cash-in-api-manager/mtn-ci-cash-in-api-manager.service.ts": {
-        "version": "28622e1b1ea66d3846296cff3a41af1b78108dd1a41838e1b289e4b8b868e0b6",
-        "signature": "7a55985877c0552cbac7b1ef1f2bf6eb3c35e057bef64af13f4fb2d336385d88",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/oolusolar-sn-bill-reload-api-manager/oolusolar-sn-bill-reload-api-manager.service.ts": {
-        "version": "2e83b64a44136313039e263ecf69cdcc1f8e6ee2156a335c0574e92e19b8bf61",
-        "signature": "6dc129b0d1bc14d45fe44a1246d7d25e9e36d0a69c55f484c8a6b52f318e41c1",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/orange-money-sn-cash-in-api-manager/orange-money-sn-cash-in-api-manager.service.ts": {
-        "version": "37e79d80d50f5f5e7b3993f2521c64b6eb06836c3483504c29c60d54ea7199ee",
-        "signature": "e49ea4e077e6e1a4297a8e6318ebf6eb75a1077786770947235afe9353fcd0a9",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/orange-money-sn-cash-out-api-manager/orange-money-sn-cash-out-api-manager.service.ts": {
-        "version": "467dcb41b1bf7e962a724f65ceb791b2207637597869bee321c91a65596b656f",
-        "signature": "b683f19c16f076f51da09f1968e6c4b300ebb3b05551e37f0b01bf65f599a61e",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/rapido-sn-bill-reload-api-manager/rapido-sn-bill-reload-api-manager.service.ts": {
-        "version": "779037ef3e11e6f4666ec71ebc892c7bbc9b667cc446962e48730a3c2f935db2",
-        "signature": "4c5d9b3cc5fa359c5f491ae89e8451f9b85d36e1f64dd25f20f58ade0eea8541",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/seneau-sn-bill-payment-api-manager/seneau-sn-bill-payment-api-manager.service.ts": {
-        "version": "d592129a996c26331f131b4d9959138b0e8253929d47707e6e93986cc69eb796",
-        "signature": "02900d749208c489a8936b745377b02f4eff484c9bdd390089fdd59f798513af",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/senelec-sn-bill-payment-api-manager/senelec-sn-bill-payment-api-manager.service.ts": {
-        "version": "287e723d06b8464ef83355fa961e1644e6d06abdbb89df0c95cbff41001b53e1",
-        "signature": "d8122d06397dece910ded0cc2e317e90717b40bb8eab5c25aaa3fcf4e528e5a2",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/ucad-sn-bill-payment-api-manager/ucad-sn-bill-payment-api-manager.service.ts": {
-        "version": "ad82dc9336d6b65a97b0e1e85d8f687857db9f7d34e715293a4d2f65bae9c4de",
-        "signature": "2f2cfa3c3b1843b803cff80b9a9b522c0111866a53277d95ee546cf0ab983e65",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "2f0a0c9a1b29c380aa11551c88ea53274d2abc275da5e292b4cfb500de4d602a",
-        "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/uvs-sn-bill-payment-api-manager/uvs-sn-bill-payment-api-manager.service.ts": {
-        "version": "2cbfc1a8ab7f3242e12d756b8fd64e3d9f2078ff32617c71076089ff8961d9ee",
-        "signature": "86035eb2d2e3ba11cada6ee15e397a3044b74192e143932063936743ea60dbdb",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/constructor.d.ts": {
-        "version": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
-        "signature": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/clone-class.d.ts": {
-        "version": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
-        "signature": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/instance-to-class.d.ts": {
-        "version": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
-        "signature": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts": {
-        "version": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
-        "signature": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts": {
-        "version": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
-        "signature": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/version.d.ts": {
-        "version": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
-        "signature": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/config.d.ts": {
-        "version": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
-        "signature": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/mod.d.ts": {
-        "version": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
-        "signature": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": {
-        "version": "f2198da680b3bac354d4be59630f561629ccee088ed874449b0f1d91b7a1ca9b",
-        "signature": "1c6b491aa811c886b2974970bdf803227ef08dc7e87c410cac942d30ca6e53a3",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/wave-money-ci-cash-in-api-manager/wave-money-ci-cash-in-api-manager.service.ts": {
-        "version": "db16c96303fd084ffc3eea5757184ca2e3f3639a48525388e604f4d5af074ae9",
-        "signature": "7a2849e6614ebbc680adf3cfd84ff35a2e4324bf88cae7a2c56052221b9c5e42",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/wave-money-ci-cash-out-api-manager/wave-money-ci-cash-out-api-manager.service.ts": {
-        "version": "df23f7a9222a8891660437c5e75c1f4713066ce26071220f53ebfc9d6f5326a1",
-        "signature": "b45fb0de03052c00a31df2d2d258b432bb097239b86399676e21d660b6807403",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/whatsapp-message-send-api-manager/whatsapp-message-send-api-manager.service.ts": {
-        "version": "87150fadf4d49f37569c669cb37e86c681f18bf600dc5ffc314b6017e003cacc",
-        "signature": "c99a88a98b055adf7c9ee059144d1f224ba086d64ea38cdd981bb6894727714b",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/wizall/config.ts": {
-        "version": "3f56c517931bd8c71ff1f3e633548bb6e6a18bf07b1aefbcd2c214649b007b25",
-        "signature": "b0aa09d99ceea41768ec860936a1921599747ed75f1e872e6f0a0a47a52c84cc",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "59247374b0d4a140f853b963a6252dd4e3e80e34539bcc29d53991cd4311aa1b",
-        "signature": "a140f7960104acb6aedf8b81fac7ca46dc00e62090aae82ba9591e0e825b7dad",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts": {
-        "version": "42ca0faa79169b1e9732b88ecace48775a44a8a891d64efa880e84cccc8ad6bf",
-        "signature": "ec49566336f28f84a98d7b6af20a9db5667befcb2d8fc886bd7a1e02ced75827",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/woyofal-sn-bill-reload-api-manager/woyofal-sn-bill-reload-api-manager.service.ts": {
-        "version": "cf9b2607224ecd79b960f196e90f69652c1a5bb706d689a26fe5cbb8117964d6",
-        "signature": "f76c2c42be68078400f4d9a0cd4337ae66d28faa6bc342903671de623517cf01",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/xeweul-sn-bill-reload-api-manager/xeweul-sn-bill-reload-api-manager.service.ts": {
-        "version": "ae9631d678528e55ef41917345857fcf4a3590167e8eda27417e250af1f3e0f3",
-        "signature": "4a49b0b8252ef38a5db6f2df4c64230d2ae54e4e3b77bf8f1112d7a3c4584c03",
-        "affectsGlobalScope": false
-      },
-      "../src/exceptions/httpexceptionhandler.ts": {
-        "version": "fdc549a9c6a3439a492ddc9100dd68248244076f78ef901747f30b1d57c9fd75",
-        "signature": "b421ee1bf6756169260184e4b47e3f57720aed37590ee2edc1ec160540669a4a",
-        "affectsGlobalScope": false
-      },
-      "../src/models/decorateurs/responsecreateddecorateur.ts": {
-        "version": "a0a7cc4c441e8339853e60fb5e1735ed627141700ce9f232d3e27eca4e9c63f4",
-        "signature": "c916d3d582a3068ffa0214b3a686427d36982122bf60c1b0f340e0e84513a5ea",
-        "affectsGlobalScope": false
-      },
-      "../src/models/decorateurs/responsedecorateurblank.ts": {
-        "version": "6caa450d12bfab69223432a458da3eb0eab18c862f16b6657b9e7f597dcef83e",
-        "signature": "cddf2c9a4e2f18e74098483684d7a8539b6bc8be7a2e72668317a13c6d17cc13",
-        "affectsGlobalScope": false
-      },
-      "../src/models/decorateurs/responsedeletedecorateur.ts": {
-        "version": "1b19df3909f4cb8b966ec7a48d9dc68f8465749bfdaa961a9b0ee9eb921ed2f4",
-        "signature": "fedc0985fccb019c8cb7d6c33088595e263aef6926d8d707e28bc262a3c5607d",
-        "affectsGlobalScope": false
-      },
-      "../src/models/decorateurs/responselistdecorateur.ts": {
-        "version": "3f05d0cad95ba7b7ea699ca39ab1590a8aee293402d38b491f0ce6ccc08878b2",
-        "signature": "fd0e046b606c4dd4317060a54ed5ff936c72132668375e90f2cbe047083460d5",
-        "affectsGlobalScope": false
-      },
-      "../src/models/decorateurs/responseupdateddecorateur.ts": {
-        "version": "fffb66be17b764eaa1b218549580370b138748e0b700969a1526b7726bace59b",
-        "signature": "f8c1d136335cf77e68d7e1b020b1aa5c43e19dfe5981c1efc5b5f6261c639e54",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtoactions.ts": {
-        "version": "33e60e76565131fef1185d2e2dd691a0554da7249969c2f9689a008ea9b909b1",
-        "signature": "8a8d0c3ab34e83ce72a5a49b56c2461c84bdb36e005523b3caa15a929d4ff9c6",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtoactionsprofils.ts": {
-        "version": "94a453970c0b1249099ba98815e225a33a80ecbf603594d1f52357820488ee52",
-        "signature": "92b0a03ed8fac6896ebc1ae0985596b346e40c132ee01a80402614881fde0dd2",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtocategoriesservices.ts": {
-        "version": "500664c7321af3363eb841982b2029ab5043ca4ec06b63b4a4176c32cd7b3ee5",
-        "signature": "3f3f96c1ec976ae3c5e5b797ecf56a97abe9fcbee022b57c0bd4968a42430fa2",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtocommission.ts": {
-        "version": "7881b8d485d9fcd793e92ccc4051f5d6f8fcad3d7c80e0b26234911ca2a6701e",
-        "signature": "ec529413c7c31fcdbb3a5deafdd900f3026064f57ef7b4e6085f045605f69841",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtocountry.ts": {
-        "version": "276111f1366a69b8d82e989cb97fc8ee6bf8c76a7972bb69ef64727d7a25175c",
-        "signature": "e5fffdbda85b3f2b68b6e2c17e2b0ec5db95582b0453f91397f2c9f540e5650f",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtomodules.ts": {
-        "version": "0076b7d60a2dd10ab8ae2fbfc40b57d634e7cbe1ac7a5b5f4abc68db9ed84760",
-        "signature": "57858b0cef1a91f16327484a0e5dde6785bb2e8b81aecde4c234d2901e431626",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtooperators.ts": {
-        "version": "37d8effa0f532b24744edb350233f703f4bf888d3b09344fdc484ce0567c33d4",
-        "signature": "2d82d85dc317ec9ccee4ef5e57e8e361ce717c3c55d883e194fa323d69ec9d64",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtopartenercomptes.ts": {
-        "version": "2bf1edf5c8ec48ee32cce601ebc270273bd646ee4ffff83f5ef5f29fbc8f546b",
-        "signature": "e5369e7251487fd8007934d6750037dbc6814119b7a72e80d1b138e64619661e",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtopartenersettings.ts": {
-        "version": "52800f0cc49ed2de2c53d6f8bbdae595414346ca98e37cd9c9d1a7671f2be4fd",
-        "signature": "da92f29494c319fdefe1f6bef326ec9d67d298f498aa854dfb822da3c74e9005",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtoparteners.ts": {
-        "version": "3e80193f2ff40f7c337834a462971fee8c0061ea7855fd06b22e14f93cfeff10",
-        "signature": "f04417798f8dd30bba6a5d158c2f6be54976fdbd00bc9507307791001bcef856",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtophones.ts": {
-        "version": "f13136d8e31b436a8d40fcb7bd61a86988f1c2579707044ed75ff584551628f9",
-        "signature": "c30c613279b044c070bf505835314b1127468657c34093b41f5b8d311406b5ec",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtoplateforme.ts": {
-        "version": "fc4af67007da0a91b190d868f3ad4ac4a9df61398e1d3c9e99140e1644668db3",
-        "signature": "3da57731970e64fcf511a1a0ac2917b6c6a95fc003c26f2f23ff5c67b3eccbdb",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtoprofils.ts": {
-        "version": "dafa4c3291919b27492310159e42f9804276dbbc6db6a161adefbcb7986cb864",
-        "signature": "55228ef6d71bf72d1a75ee20e510c071ca3a3527e59b85137a7e66ab82e0cfd2",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtoservices.ts": {
-        "version": "d84d8ab9746331467ff544aa0544f040c9c8138afb984b19daff4dfccf4d45f7",
-        "signature": "74294b34aa56bc5b1a3c598ac6dccb84bd75469a23b02d1f21dadf44b910c02a",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtosousservices.ts": {
-        "version": "58d3da78ad8db82e0304c0b052ffba427dd3f78846e417edae07477dca281b22",
-        "signature": "0d98e89218b7e0eaff8d93cab6c1e748686c8e9381de728493b020a08b95375d",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtosousservicesparteners.ts": {
-        "version": "985b084166fcf7d2a00e800271458c3d492aff89946ea870ab5409cc6620ea20",
-        "signature": "56f60d75432c5830572cd330f29b0e1e990ce54a792b5a92f70b3853d5daa534",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtosousservicesphones.ts": {
-        "version": "a48a27ba1f8656d37c39c66b57ba023f025ced383006495cdd13a11a73d42885",
-        "signature": "453f3481df6b4f4dc793828de1dca814579f6051dd6bb77eae088ada2a081e1c",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtotypeservices.ts": {
-        "version": "4762b97c9d837a854110239a149fab6579d00af8bd0ffc069842badfa788a802",
-        "signature": "297a2833ad21ebe8365da0ff45011cbefa52e099632d30168b008e2cc3525fb1",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtousers.ts": {
-        "version": "d39212a97c3f01aabcf7f4f199ccc4f895cc48a2fa1917b849d97557edf0c463",
-        "signature": "aba221522694584037e737756acbfd4bef53659069cbf1cd9a4cd9ef01337ebf",
-        "affectsGlobalScope": false
-      },
-      "../src/models/dto/dtoussdexecutionmessages.ts": {
-        "version": "f83d785436c5248093c9522800ffd013fb4fcc87ad47f271c6f9b00318c9894c",
-        "signature": "8c65bf912675b0a99732805b188e6cc534b28028c90a0b17802134a84293b916",
-        "affectsGlobalScope": false
-      },
-      "../src/models/interfaces/httpcrudinterface.ts": {
-        "version": "70d87e93bfe09fa12020bf0ab1e6031d2ae45a16a4113313af3ce7bcc2b465f9",
-        "signature": "3b10e7ccf845c2b3fb142acd622c850995ee2226fab99a699a0fc976fe7717f2",
-        "affectsGlobalScope": false
-      },
-      "../src/models/response/objectblank.ts": {
-        "version": "86f271bda964e17739ac0b07c77e63195d3c0765d66f68fe9b73b1dc9c1f5b7a",
-        "signature": "9a4d84eb6cbe2336fc06fccab7dc5a94fc641679798662662f56ce89220d8a70",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/common/utils/shared.utils.d.ts": {
-        "version": "4f8825a934a1273cb531a13ea9308435257f77832312d5dc343d48b2e89c5f1d",
-        "signature": "4f8825a934a1273cb531a13ea9308435257f77832312d5dc343d48b2e89c5f1d",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/constants.d.ts": {
-        "version": "7fdf41d72d6a158e0af2d1da931279b5c2e2acdd7ae6e7c1871061e844cfb9f9",
-        "signature": "7fdf41d72d6a158e0af2d1da931279b5c2e2acdd7ae6e7c1871061e844cfb9f9",
         "affectsGlobalScope": false
       },
       "../node_modules/rxjs/internal/operators/audit.d.ts": {
@@ -7664,6 +7049,626 @@
       "../node_modules/rxjs/operators/index.d.ts": {
         "version": "e80599bf4ef4579f28b0e623a64064a512330584dde58875b498ff8da7e347f7",
         "signature": "e80599bf4ef4579f28b0e623a64064a512330584dde58875b498ff8da7e347f7",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/partener-intern/dto/reboot-phone-dto.ts": {
+        "version": "7e1fb954cad37ac0f545f0d6b5fdf3522ca5f63089e4359c63a6db4eaa123451",
+        "signature": "1ee2ebc02405db9ca0e4e1293d7703320d0e52905ba50b007e69ec8e972633d2",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/partener-intern/partner-service.service.ts": {
+        "version": "3718c46743a5a79670a98ba31b3e33fd2c69bbcb94481112fc217e91a4e2c60f",
+        "signature": "488dfe32e56c176954ebd1d8c726c4099eb8df65914f2ca719c0f8ef12d40010",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/partener-intern/partner-controller.controller.ts": {
+        "version": "d2884aedd80de3dba744b38480fab8246e61376ba0b92d38b310b45c0c69dfa8",
+        "signature": "525cec7f12c595c2c430b47f7c9a064a9627ee67cf37382e84188c2c0f6216f9",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/partener-intern/partner-middleware.middleware.ts": {
+        "version": "f7f9aae8db5d696a7f2e823c1579a0b9399d5bca04db182f62a7d90f378e3c15",
+        "signature": "5f07317e69fc4a82143259aaf22885f72a30b0e5e5332c6cd9557aaf2fac4768",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/partener-intern/partner-intern.module.ts": {
+        "version": "9585c9ac07b6149f96e0e9687ed2d5be8ece7509fe6acce79aa62dc4806acb82",
+        "signature": "3ce8ead0a4ebc7567c4a3cd1e405b1262b07390c31ed42874a34ab6d866d1a55",
+        "affectsGlobalScope": false
+      },
+      "../src/app.module.ts": {
+        "version": "66f267db7befc643a196ebe5c82af13cbea568a11ceb4067c294e33de895839b",
+        "signature": "22066569de7d8de9b5d783cf47c83e47fea5b20a7a1502f1d1ebc423e88477e9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/interfaces/serve-static-options.interface.d.ts": {
+        "version": "b87682ddc9e2c3714ca66991cdd86ff7e18cae6fd010742a93bd612a07d19697",
+        "signature": "b87682ddc9e2c3714ca66991cdd86ff7e18cae6fd010742a93bd612a07d19697",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/adapters/express-adapter.d.ts": {
+        "version": "6b12a83a6198f2a6019f7e20f5362039095d4dae77ce9aec3e9a5351f74180f5",
+        "signature": "6b12a83a6198f2a6019f7e20f5362039095d4dae77ce9aec3e9a5351f74180f5",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/adapters/index.d.ts": {
+        "version": "86bf2bfe29d0bc3fbc68e64c25ea6eab9bcb3c518ae941012ed75b1e87d391ae",
+        "signature": "86bf2bfe29d0bc3fbc68e64c25ea6eab9bcb3c518ae941012ed75b1e87d391ae",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/interfaces/nest-express-application.interface.d.ts": {
+        "version": "c84f26d79f2c55c932ab7441fbaaceffb0ecb74aa01267ba8f3d65c3545f60ba",
+        "signature": "c84f26d79f2c55c932ab7441fbaaceffb0ecb74aa01267ba8f3d65c3545f60ba",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/interfaces/index.d.ts": {
+        "version": "68a330d1246e3f0ed055b931ab6f4f9505d7c2db0560515f68c722c06541dc0d",
+        "signature": "68a330d1246e3f0ed055b931ab6f4f9505d7c2db0560515f68c722c06541dc0d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/multer/interfaces/multer-options.interface.d.ts": {
+        "version": "8ae337fcd337d5ca179611dae780e7dbb45b3c0cbc6debc5067a4215e95cd873",
+        "signature": "8ae337fcd337d5ca179611dae780e7dbb45b3c0cbc6debc5067a4215e95cd873",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/multer/interceptors/any-files.interceptor.d.ts": {
+        "version": "00427e68be5cbfd0694c650ebf27dc9d5cb8ec62254ca5af0cd3e412595f8d09",
+        "signature": "00427e68be5cbfd0694c650ebf27dc9d5cb8ec62254ca5af0cd3e412595f8d09",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/multer/interceptors/file-fields.interceptor.d.ts": {
+        "version": "6a013828e3333e21fde3a4d1c7da0c41e8ce0218a98ad8e71025c2d437a2458b",
+        "signature": "6a013828e3333e21fde3a4d1c7da0c41e8ce0218a98ad8e71025c2d437a2458b",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/multer/interceptors/file.interceptor.d.ts": {
+        "version": "fc1a967ceb559957a8fd153d364596d7c906440c401e9a1f0ef9cda62a92a937",
+        "signature": "fc1a967ceb559957a8fd153d364596d7c906440c401e9a1f0ef9cda62a92a937",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/multer/interceptors/files.interceptor.d.ts": {
+        "version": "fd09f594933708040bbab2ad98fdfd1f076209ff0d514cbc8ab50bc39f462619",
+        "signature": "fd09f594933708040bbab2ad98fdfd1f076209ff0d514cbc8ab50bc39f462619",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/multer/interceptors/index.d.ts": {
+        "version": "6db46ed9adeb732a2c46b05dd64a3fe85b2789065f1ef7668f583c61f1046a14",
+        "signature": "6db46ed9adeb732a2c46b05dd64a3fe85b2789065f1ef7668f583c61f1046a14",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/multer/interfaces/files-upload-module.interface.d.ts": {
+        "version": "7bb8a371f7790a421606678b50a943955bfc182beca2c42f8d1473cc2973fa12",
+        "signature": "7bb8a371f7790a421606678b50a943955bfc182beca2c42f8d1473cc2973fa12",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/multer/interfaces/index.d.ts": {
+        "version": "d8c1697db4bb3234ff3f8481545284992f1516bc712421b81ee3ef3f226ae112",
+        "signature": "d8c1697db4bb3234ff3f8481545284992f1516bc712421b81ee3ef3f226ae112",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/multer/multer.module.d.ts": {
+        "version": "549adfb8fb51148eeb2c0659941b3a508988ee0b00f325fbaae7e96bc4b3e4c9",
+        "signature": "549adfb8fb51148eeb2c0659941b3a508988ee0b00f325fbaae7e96bc4b3e4c9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/multer/index.d.ts": {
+        "version": "e2c3c3ca3818d610599392a9431e60ec021c5d59262ecd616538484990f6e331",
+        "signature": "e2c3c3ca3818d610599392a9431e60ec021c5d59262ecd616538484990f6e331",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-express/index.d.ts": {
+        "version": "e3cd60be3c4f95c43420be67eaa21637585b7c1a8129f9b39983bbd294f9513c",
+        "signature": "e3cd60be3c4f95c43420be67eaa21637585b7c1a8129f9b39983bbd294f9513c",
+        "affectsGlobalScope": false
+      },
+      "../src/main.ts": {
+        "version": "5268badb5cdcaeeaea322c847319bba7065436464292595e5861d0c414de9bc9",
+        "signature": "0438c3f72cf811e58bac561ea2051f19eb63d57782ccb0b3178fe64d36cb6709",
+        "affectsGlobalScope": false
+      },
+      "../src/helper.service.ts": {
+        "version": "2b0f8c4edfbdc96184957b5b6b91ce4348b68ddb3d6e3e1f972b0507f2c99ef0",
+        "signature": "fd58e307cf67e9ad3bb4830fa59e8f28fc52e2cef1cc9072b961d4af3fab393e",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/custombasemodel.ts": {
+        "version": "062fe0b199fcd8e9b158da2747dc970f81d8c25ce19d127ff34b60cb352f5715",
+        "signature": "e869a929ba42f8f5b0834bded35ce60c5e4c07c2e8245b25600ab666c341c532",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/plateforme.entity.ts": {
+        "version": "121dfb81d9cf6a9769e2a8c92d41ba16db08671d588d197da405310b609d2777",
+        "signature": "734dda5a23c5cce7d074f107f46b5a8459a3e3049c23d9636e4481ca7634d342",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/users.entity.ts": {
+        "version": "f14d273b9e13c1fa7a3b3c20cb79b79e54e86334092c2b7d947b4069d1cb64c6",
+        "signature": "94507f47266ad83ce04466509b605c3a6926f21b829ca1613ad1a39e047c3b30",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/profils.entity.ts": {
+        "version": "3012be52e62699254ed86db80ffceb361d94fa499c3ee64365abeb541361ecaf",
+        "signature": "c28a4955ac23e674a874ac3410666bbaf07315bb74e641d157287cddf549d891",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/actionsprofils.entity.ts": {
+        "version": "bc0be392f02ac15a81fe57d4572e7277d01394ae2d061b9b0e89862c3add8b0c",
+        "signature": "842091666d17b9a55370cae5e81eb23aba9e9817fedf843a2c323058a08cb397",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/modules.entity.ts": {
+        "version": "a6982802d5c92fb400f2b702a9e6400d3c706f64d4c5ffd5d76946b8112837ff",
+        "signature": "8537d8c2bd1fccb4c80039c1e016348f6ab37c378ef033ed6d273098881fae53",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/actions.entity.ts": {
+        "version": "808b5f1d5e03278e09c5225af534c440a96fc7d785bd8d799220f4fbe99fac5a",
+        "signature": "a718802b9fa71ec5efdf6c2bdf74055f895f2f826ba0a993cf211c5413fee2ee",
+        "affectsGlobalScope": false
+      },
+      "../src/app.service.ts": {
+        "version": "aee16317d3b47bcc2f15c5c44e1e7b999d7a9236216d67d3fb1809bcf125f803",
+        "signature": "6d7f8b73cc8fda7d46c26226461261d3bfad2a1130126d8506d68368685bb535",
+        "affectsGlobalScope": false
+      },
+      "../src/app.controller.ts": {
+        "version": "e16699b50040af92ea34aa692a47f90a54ba3917dc808343ac5ce638aa7ef5a7",
+        "signature": "f033c727e69ca23ea61f600f9874fb1fd2fe1e2dd45f2a8cd497125173721259",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/server.d.ts": {
+        "version": "70efd2b3c4e768d1428323e102752458cc5ebd16881fd71fdac2bdf5115465cf",
+        "signature": "70efd2b3c4e768d1428323e102752458cc5ebd16881fd71fdac2bdf5115465cf",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io-parser/build/esm/commons.d.ts": {
+        "version": "bd93a3a1fabff2b95fe9442989cafdda76c3c8949ae1fc4bc75a92d04396d9e2",
+        "signature": "bd93a3a1fabff2b95fe9442989cafdda76c3c8949ae1fc4bc75a92d04396d9e2",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io-parser/build/esm/encodepacket.d.ts": {
+        "version": "e549fdbc4d54608bf1376417fd4c70409d6931a6b4943316f5811a912a3c87a2",
+        "signature": "e549fdbc4d54608bf1376417fd4c70409d6931a6b4943316f5811a912a3c87a2",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io-parser/build/esm/decodepacket.d.ts": {
+        "version": "2bf6082bf813927280af558bd44dc8b64ed9e185e61901397cf6a09315285e22",
+        "signature": "2bf6082bf813927280af558bd44dc8b64ed9e185e61901397cf6a09315285e22",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io-parser/build/esm/index.d.ts": {
+        "version": "793c8f24170b3ce558b3912e4ffc8fe6190c457366c51fae3102c8b38675d1aa",
+        "signature": "793c8f24170b3ce558b3912e4ffc8fe6190c457366c51fae3102c8b38675d1aa",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/transport.d.ts": {
+        "version": "f6a7fc5c9e9feb512dfac5ba3a9181572aab5f8880731ab04c90e0a8e4d624f1",
+        "signature": "f6a7fc5c9e9feb512dfac5ba3a9181572aab5f8880731ab04c90e0a8e4d624f1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/transports/polling.d.ts": {
+        "version": "ea5bed05bbaf5bf64db72c16595c4b38174ae1907e7d1c0f141c62028dfc7489",
+        "signature": "ea5bed05bbaf5bf64db72c16595c4b38174ae1907e7d1c0f141c62028dfc7489",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/transports/websocket.d.ts": {
+        "version": "90f2a2c9ef5d916d9a80f0cc37b450ce072f422336255ec5c6be542f6f861683",
+        "signature": "90f2a2c9ef5d916d9a80f0cc37b450ce072f422336255ec5c6be542f6f861683",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/transports/index.d.ts": {
+        "version": "b3967f8d0038e34bd4b9fe94764c6f20eb2d547a507ed77e57b7dddb4c6d74d3",
+        "signature": "b3967f8d0038e34bd4b9fe94764c6f20eb2d547a507ed77e57b7dddb4c6d74d3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/userver.d.ts": {
+        "version": "291da8ad847a6057f540e1c14a7aced6fa4ccb5057e1b0ec342683bd68991f05",
+        "signature": "291da8ad847a6057f540e1c14a7aced6fa4ccb5057e1b0ec342683bd68991f05",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/socket.d.ts": {
+        "version": "df66546c6c9fca7bbf2b8e51e285c486af2dcf948f755c678ef35e87f5eadf3d",
+        "signature": "df66546c6c9fca7bbf2b8e51e285c486af2dcf948f755c678ef35e87f5eadf3d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/engine.io.d.ts": {
+        "version": "bd8d4d0602937984f4f9595bf03a927b5de1c913dda933a0bc285efea40c28e3",
+        "signature": "bd8d4d0602937984f4f9595bf03a927b5de1c913dda933a0bc285efea40c28e3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io/dist/typed-events.d.ts": {
+        "version": "393cf6e3a08760d199cde0d8c2d56c1d6c2d956ad56edfea80523431b3f5cb14",
+        "signature": "393cf6e3a08760d199cde0d8c2d56c1d6c2d956ad56edfea80523431b3f5cb14",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io/dist/client.d.ts": {
+        "version": "9fdcc4c98fb8e8616ca1643c18959a5e851e14d6869f631dca42eac8f76de350",
+        "signature": "9fdcc4c98fb8e8616ca1643c18959a5e851e14d6869f631dca42eac8f76de350",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io-adapter/dist/index.d.ts": {
+        "version": "109ad75d5402cf95e90afab3c629ca3d29184892afb617624c26903b9c421f68",
+        "signature": "109ad75d5402cf95e90afab3c629ca3d29184892afb617624c26903b9c421f68",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io/dist/broadcast-operator.d.ts": {
+        "version": "e140f8d22782cc217ad60dbd80c15cd6c1177c5b9da9b7bec7562508fadec615",
+        "signature": "e140f8d22782cc217ad60dbd80c15cd6c1177c5b9da9b7bec7562508fadec615",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io/dist/socket.d.ts": {
+        "version": "4cc83d4403c30893a470ddde9f1b7c9de5488bd9cbb7d226006e0df6712fe0f6",
+        "signature": "4cc83d4403c30893a470ddde9f1b7c9de5488bd9cbb7d226006e0df6712fe0f6",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io/dist/namespace.d.ts": {
+        "version": "f3dedf1f2ccbde6c50dca11e57cebf0756aa6a250e2161dd92e1510faaf223e3",
+        "signature": "f3dedf1f2ccbde6c50dca11e57cebf0756aa6a250e2161dd92e1510faaf223e3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/node_modules/socket.io/dist/index.d.ts": {
+        "version": "d454549ad0815225d03ec6234d63abaaa05e8dccfa03d0522f19a15b1c2263bb",
+        "signature": "d454549ad0815225d03ec6234d63abaaa05e8dccfa03d0522f19a15b1c2263bb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/adapters/io-adapter.d.ts": {
+        "version": "6dafca3f18c889b94b1b4c215f0479952914093b51820495e338afb31b0a9f54",
+        "signature": "6dafca3f18c889b94b1b4c215f0479952914093b51820495e338afb31b0a9f54",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/adapters/index.d.ts": {
+        "version": "295a5599fc659a6d6539a18de5f5cbc712111eeef7786a881775c8fba082a84c",
+        "signature": "295a5599fc659a6d6539a18de5f5cbc712111eeef7786a881775c8fba082a84c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/platform-socket.io/index.d.ts": {
+        "version": "62233ea74c1bf9917eb1ae257b912e7680e8aa7c373568eb075fc3e46e5c9d05",
+        "signature": "62233ea74c1bf9917eb1ae257b912e7680e8aa7c373568eb075fc3e46e5c9d05",
+        "affectsGlobalScope": false
+      },
+      "../src/adapters/redis-io.adapter.ts": {
+        "version": "097373920c1b813adc3ef59b080b0f3d7f685b203d59db1212d056dc1177591a",
+        "signature": "533323cd94e1572846e857defd72ed03de058fd0baaab06cf17736f7a954f6c0",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/empty-model-service.ts": {
+        "version": "b562b23ba15f764ae5070e55c200e9fa6e99529a88191308aa6f3e8dd5b8be6e",
+        "signature": "738b11e67f9f5c6b67f9f737bb61e69c8dd4f69f02491ca9b54739c950825027",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/aquatech-sn-bill-payment-api-manager/aquatech-sn-bill-payment-api-manager.service.ts": {
+        "version": "e6eb1debf2195aed62490dac8d405970bdfeb6059f941da5a7d52f946c5133dc",
+        "signature": "7cd10d9c309912ffe06f27439addcc4f69cfe69e02710d051f59a58cf206c25c",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/orange/config.ts": {
+        "version": "991527ebffe778ba7e5d9e3d91288f9211cc8ad63f1c58b7f2c815c9effdba95",
+        "signature": "4eaf566317ba2c0314c9b5294edabc10b3ff7c8a7eac78e49df93e539f69fc0f",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/orange/providerorangemoneyapi.ts": {
+        "version": "5750fd1b10b809d3becbe4819e398991d5821c3f62908354f1090c5a4c44b8cf",
+        "signature": "aa79894b792afbd62544694ed65abd3e6b67f71586aa8efdea362ad77dcce423",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/bank-transfer-sn-cash-in-api-manager/bank-transfer-sn-cash-in-api-manager.service.ts": {
+        "version": "bd3ddbaf2698a3e428664c1b4bbef7b2013d8d568c2894309f30e66c346e51b1",
+        "signature": "489cae3b5d141d535660c71761dd390d09e469c75b65cc66aaf856900b7cced7",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/baobabplus-sn-bill-reload-api-manager/baobabplus-sn-bill-reload-api-manager.service.ts": {
+        "version": "8ce31ef9350b78f9b8fd097e1f14a3c3aa57a48053764e26e606b26bbe1d2427",
+        "signature": "797ee221581d943e6b992b35691b581c09ba2a2d74d4a5d9977b50d3726dbe2e",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/der-fj-sn-bill-reload-api-manager/der-fj-sn-bill-reload-api-manager.service.ts": {
+        "version": "3360991c5e7555dc441d5f70808654c45dc72c15f9bb70189aaac6da86c9f828",
+        "signature": "3455d53c7d877ffe6468ec928a4f7e40b85f07f302a5a59e23f8cd6a9f501f5a",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/dto/required-for-service.decorator.ts": {
+        "version": "a0b9d66d428e3a2ac519375f9c3848886f1ab96a5a9b4b5e2dc8ff243afc13c1",
+        "signature": "cef1e66ac8cd932fd46857ba04670f194cf7ad2c75bdddcf69d44986ade02f3c",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/mtn/config.ts": {
+        "version": "0ccca53a72c0dcdae827381471c03e67daabef4424cc3ac8ba4bff3405150a39",
+        "signature": "bf4b7222057a860d0a1fb17ad37b95c949bea41de086a987874d31f1132a27b3",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/mtn-ci-cash-out-api-manager/mtn-ci-cash-out-api-manager.service.ts": {
+        "version": "c90c643846352350a7504dc67a8741ebcbec30e40e0cf924f502a3349dad6145",
+        "signature": "a0b1c060309906755ac0df2a7d43a9b7528cfab06cc422afbc14d38c5d33f530",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/mtn/mtnapiprovider.ts": {
+        "version": "72b5d88a78dae99d17133dd6c0601860b2a16e84295315a6d6477fe999dda8ee",
+        "signature": "3b0c796c84757a4b29e2ac8925f90e350327126efd0aead9e50a085b478008b7",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/mtn-ci-cash-in-api-manager/mtn-ci-cash-in-api-manager.service.ts": {
+        "version": "28622e1b1ea66d3846296cff3a41af1b78108dd1a41838e1b289e4b8b868e0b6",
+        "signature": "7a55985877c0552cbac7b1ef1f2bf6eb3c35e057bef64af13f4fb2d336385d88",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/oolusolar-sn-bill-reload-api-manager/oolusolar-sn-bill-reload-api-manager.service.ts": {
+        "version": "2e83b64a44136313039e263ecf69cdcc1f8e6ee2156a335c0574e92e19b8bf61",
+        "signature": "6dc129b0d1bc14d45fe44a1246d7d25e9e36d0a69c55f484c8a6b52f318e41c1",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/orange-money-sn-cash-in-api-manager/orange-money-sn-cash-in-api-manager.service.ts": {
+        "version": "37e79d80d50f5f5e7b3993f2521c64b6eb06836c3483504c29c60d54ea7199ee",
+        "signature": "e49ea4e077e6e1a4297a8e6318ebf6eb75a1077786770947235afe9353fcd0a9",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/orange-money-sn-cash-out-api-manager/orange-money-sn-cash-out-api-manager.service.ts": {
+        "version": "467dcb41b1bf7e962a724f65ceb791b2207637597869bee321c91a65596b656f",
+        "signature": "b683f19c16f076f51da09f1968e6c4b300ebb3b05551e37f0b01bf65f599a61e",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/rapido-sn-bill-reload-api-manager/rapido-sn-bill-reload-api-manager.service.ts": {
+        "version": "779037ef3e11e6f4666ec71ebc892c7bbc9b667cc446962e48730a3c2f935db2",
+        "signature": "4c5d9b3cc5fa359c5f491ae89e8451f9b85d36e1f64dd25f20f58ade0eea8541",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/seneau-sn-bill-payment-api-manager/seneau-sn-bill-payment-api-manager.service.ts": {
+        "version": "d592129a996c26331f131b4d9959138b0e8253929d47707e6e93986cc69eb796",
+        "signature": "02900d749208c489a8936b745377b02f4eff484c9bdd390089fdd59f798513af",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/senelec-sn-bill-payment-api-manager/senelec-sn-bill-payment-api-manager.service.ts": {
+        "version": "287e723d06b8464ef83355fa961e1644e6d06abdbb89df0c95cbff41001b53e1",
+        "signature": "d8122d06397dece910ded0cc2e317e90717b40bb8eab5c25aaa3fcf4e528e5a2",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/ucad-sn-bill-payment-api-manager/ucad-sn-bill-payment-api-manager.service.ts": {
+        "version": "ad82dc9336d6b65a97b0e1e85d8f687857db9f7d34e715293a4d2f65bae9c4de",
+        "signature": "2f2cfa3c3b1843b803cff80b9a9b522c0111866a53277d95ee546cf0ab983e65",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
+        "version": "2f0a0c9a1b29c380aa11551c88ea53274d2abc275da5e292b4cfb500de4d602a",
+        "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/uvs-sn-bill-payment-api-manager/uvs-sn-bill-payment-api-manager.service.ts": {
+        "version": "2cbfc1a8ab7f3242e12d756b8fd64e3d9f2078ff32617c71076089ff8961d9ee",
+        "signature": "86035eb2d2e3ba11cada6ee15e397a3044b74192e143932063936743ea60dbdb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/constructor.d.ts": {
+        "version": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
+        "signature": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/clone-class.d.ts": {
+        "version": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
+        "signature": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/instance-to-class.d.ts": {
+        "version": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
+        "signature": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts": {
+        "version": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
+        "signature": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts": {
+        "version": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
+        "signature": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/version.d.ts": {
+        "version": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
+        "signature": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/config.d.ts": {
+        "version": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
+        "signature": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/mod.d.ts": {
+        "version": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
+        "signature": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": {
+        "version": "f2198da680b3bac354d4be59630f561629ccee088ed874449b0f1d91b7a1ca9b",
+        "signature": "1c6b491aa811c886b2974970bdf803227ef08dc7e87c410cac942d30ca6e53a3",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/wave-money-ci-cash-in-api-manager/wave-money-ci-cash-in-api-manager.service.ts": {
+        "version": "db16c96303fd084ffc3eea5757184ca2e3f3639a48525388e604f4d5af074ae9",
+        "signature": "7a2849e6614ebbc680adf3cfd84ff35a2e4324bf88cae7a2c56052221b9c5e42",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/wave-money-ci-cash-out-api-manager/wave-money-ci-cash-out-api-manager.service.ts": {
+        "version": "df23f7a9222a8891660437c5e75c1f4713066ce26071220f53ebfc9d6f5326a1",
+        "signature": "b45fb0de03052c00a31df2d2d258b432bb097239b86399676e21d660b6807403",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/whatsapp-message-send-api-manager/whatsapp-message-send-api-manager.service.ts": {
+        "version": "87150fadf4d49f37569c669cb37e86c681f18bf600dc5ffc314b6017e003cacc",
+        "signature": "c99a88a98b055adf7c9ee059144d1f224ba086d64ea38cdd981bb6894727714b",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/wizall/config.ts": {
+        "version": "3f56c517931bd8c71ff1f3e633548bb6e6a18bf07b1aefbcd2c214649b007b25",
+        "signature": "b0aa09d99ceea41768ec860936a1921599747ed75f1e872e6f0a0a47a52c84cc",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/wizall/wizallapiprovider.ts": {
+        "version": "59247374b0d4a140f853b963a6252dd4e3e80e34539bcc29d53991cd4311aa1b",
+        "signature": "a140f7960104acb6aedf8b81fac7ca46dc00e62090aae82ba9591e0e825b7dad",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts": {
+        "version": "42ca0faa79169b1e9732b88ecace48775a44a8a891d64efa880e84cccc8ad6bf",
+        "signature": "ec49566336f28f84a98d7b6af20a9db5667befcb2d8fc886bd7a1e02ced75827",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/woyofal-sn-bill-reload-api-manager/woyofal-sn-bill-reload-api-manager.service.ts": {
+        "version": "cf9b2607224ecd79b960f196e90f69652c1a5bb706d689a26fe5cbb8117964d6",
+        "signature": "f76c2c42be68078400f4d9a0cd4337ae66d28faa6bc342903671de623517cf01",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/xeweul-sn-bill-reload-api-manager/xeweul-sn-bill-reload-api-manager.service.ts": {
+        "version": "ae9631d678528e55ef41917345857fcf4a3590167e8eda27417e250af1f3e0f3",
+        "signature": "4a49b0b8252ef38a5db6f2df4c64230d2ae54e4e3b77bf8f1112d7a3c4584c03",
+        "affectsGlobalScope": false
+      },
+      "../src/exceptions/httpexceptionhandler.ts": {
+        "version": "fdc549a9c6a3439a492ddc9100dd68248244076f78ef901747f30b1d57c9fd75",
+        "signature": "b421ee1bf6756169260184e4b47e3f57720aed37590ee2edc1ec160540669a4a",
+        "affectsGlobalScope": false
+      },
+      "../src/models/decorateurs/responsecreateddecorateur.ts": {
+        "version": "a0a7cc4c441e8339853e60fb5e1735ed627141700ce9f232d3e27eca4e9c63f4",
+        "signature": "c916d3d582a3068ffa0214b3a686427d36982122bf60c1b0f340e0e84513a5ea",
+        "affectsGlobalScope": false
+      },
+      "../src/models/decorateurs/responsedecorateurblank.ts": {
+        "version": "6caa450d12bfab69223432a458da3eb0eab18c862f16b6657b9e7f597dcef83e",
+        "signature": "cddf2c9a4e2f18e74098483684d7a8539b6bc8be7a2e72668317a13c6d17cc13",
+        "affectsGlobalScope": false
+      },
+      "../src/models/decorateurs/responsedeletedecorateur.ts": {
+        "version": "1b19df3909f4cb8b966ec7a48d9dc68f8465749bfdaa961a9b0ee9eb921ed2f4",
+        "signature": "fedc0985fccb019c8cb7d6c33088595e263aef6926d8d707e28bc262a3c5607d",
+        "affectsGlobalScope": false
+      },
+      "../src/models/decorateurs/responselistdecorateur.ts": {
+        "version": "3f05d0cad95ba7b7ea699ca39ab1590a8aee293402d38b491f0ce6ccc08878b2",
+        "signature": "fd0e046b606c4dd4317060a54ed5ff936c72132668375e90f2cbe047083460d5",
+        "affectsGlobalScope": false
+      },
+      "../src/models/decorateurs/responseupdateddecorateur.ts": {
+        "version": "fffb66be17b764eaa1b218549580370b138748e0b700969a1526b7726bace59b",
+        "signature": "f8c1d136335cf77e68d7e1b020b1aa5c43e19dfe5981c1efc5b5f6261c639e54",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtoactions.ts": {
+        "version": "33e60e76565131fef1185d2e2dd691a0554da7249969c2f9689a008ea9b909b1",
+        "signature": "8a8d0c3ab34e83ce72a5a49b56c2461c84bdb36e005523b3caa15a929d4ff9c6",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtoactionsprofils.ts": {
+        "version": "94a453970c0b1249099ba98815e225a33a80ecbf603594d1f52357820488ee52",
+        "signature": "92b0a03ed8fac6896ebc1ae0985596b346e40c132ee01a80402614881fde0dd2",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtocategoriesservices.ts": {
+        "version": "500664c7321af3363eb841982b2029ab5043ca4ec06b63b4a4176c32cd7b3ee5",
+        "signature": "3f3f96c1ec976ae3c5e5b797ecf56a97abe9fcbee022b57c0bd4968a42430fa2",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtocommission.ts": {
+        "version": "7881b8d485d9fcd793e92ccc4051f5d6f8fcad3d7c80e0b26234911ca2a6701e",
+        "signature": "ec529413c7c31fcdbb3a5deafdd900f3026064f57ef7b4e6085f045605f69841",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtocountry.ts": {
+        "version": "276111f1366a69b8d82e989cb97fc8ee6bf8c76a7972bb69ef64727d7a25175c",
+        "signature": "e5fffdbda85b3f2b68b6e2c17e2b0ec5db95582b0453f91397f2c9f540e5650f",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtomodules.ts": {
+        "version": "0076b7d60a2dd10ab8ae2fbfc40b57d634e7cbe1ac7a5b5f4abc68db9ed84760",
+        "signature": "57858b0cef1a91f16327484a0e5dde6785bb2e8b81aecde4c234d2901e431626",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtooperators.ts": {
+        "version": "37d8effa0f532b24744edb350233f703f4bf888d3b09344fdc484ce0567c33d4",
+        "signature": "2d82d85dc317ec9ccee4ef5e57e8e361ce717c3c55d883e194fa323d69ec9d64",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtopartenercomptes.ts": {
+        "version": "2bf1edf5c8ec48ee32cce601ebc270273bd646ee4ffff83f5ef5f29fbc8f546b",
+        "signature": "e5369e7251487fd8007934d6750037dbc6814119b7a72e80d1b138e64619661e",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtopartenersettings.ts": {
+        "version": "52800f0cc49ed2de2c53d6f8bbdae595414346ca98e37cd9c9d1a7671f2be4fd",
+        "signature": "da92f29494c319fdefe1f6bef326ec9d67d298f498aa854dfb822da3c74e9005",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtoparteners.ts": {
+        "version": "3e80193f2ff40f7c337834a462971fee8c0061ea7855fd06b22e14f93cfeff10",
+        "signature": "f04417798f8dd30bba6a5d158c2f6be54976fdbd00bc9507307791001bcef856",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtophones.ts": {
+        "version": "f13136d8e31b436a8d40fcb7bd61a86988f1c2579707044ed75ff584551628f9",
+        "signature": "c30c613279b044c070bf505835314b1127468657c34093b41f5b8d311406b5ec",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtoplateforme.ts": {
+        "version": "fc4af67007da0a91b190d868f3ad4ac4a9df61398e1d3c9e99140e1644668db3",
+        "signature": "3da57731970e64fcf511a1a0ac2917b6c6a95fc003c26f2f23ff5c67b3eccbdb",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtoprofils.ts": {
+        "version": "dafa4c3291919b27492310159e42f9804276dbbc6db6a161adefbcb7986cb864",
+        "signature": "55228ef6d71bf72d1a75ee20e510c071ca3a3527e59b85137a7e66ab82e0cfd2",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtoservices.ts": {
+        "version": "d84d8ab9746331467ff544aa0544f040c9c8138afb984b19daff4dfccf4d45f7",
+        "signature": "74294b34aa56bc5b1a3c598ac6dccb84bd75469a23b02d1f21dadf44b910c02a",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtosousservices.ts": {
+        "version": "58d3da78ad8db82e0304c0b052ffba427dd3f78846e417edae07477dca281b22",
+        "signature": "0d98e89218b7e0eaff8d93cab6c1e748686c8e9381de728493b020a08b95375d",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtosousservicesparteners.ts": {
+        "version": "985b084166fcf7d2a00e800271458c3d492aff89946ea870ab5409cc6620ea20",
+        "signature": "56f60d75432c5830572cd330f29b0e1e990ce54a792b5a92f70b3853d5daa534",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtosousservicesphones.ts": {
+        "version": "a48a27ba1f8656d37c39c66b57ba023f025ced383006495cdd13a11a73d42885",
+        "signature": "453f3481df6b4f4dc793828de1dca814579f6051dd6bb77eae088ada2a081e1c",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtotypeservices.ts": {
+        "version": "4762b97c9d837a854110239a149fab6579d00af8bd0ffc069842badfa788a802",
+        "signature": "297a2833ad21ebe8365da0ff45011cbefa52e099632d30168b008e2cc3525fb1",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtousers.ts": {
+        "version": "d39212a97c3f01aabcf7f4f199ccc4f895cc48a2fa1917b849d97557edf0c463",
+        "signature": "aba221522694584037e737756acbfd4bef53659069cbf1cd9a4cd9ef01337ebf",
+        "affectsGlobalScope": false
+      },
+      "../src/models/dto/dtoussdexecutionmessages.ts": {
+        "version": "f83d785436c5248093c9522800ffd013fb4fcc87ad47f271c6f9b00318c9894c",
+        "signature": "8c65bf912675b0a99732805b188e6cc534b28028c90a0b17802134a84293b916",
+        "affectsGlobalScope": false
+      },
+      "../src/models/interfaces/httpcrudinterface.ts": {
+        "version": "70d87e93bfe09fa12020bf0ab1e6031d2ae45a16a4113313af3ce7bcc2b465f9",
+        "signature": "3b10e7ccf845c2b3fb142acd622c850995ee2226fab99a699a0fc976fe7717f2",
+        "affectsGlobalScope": false
+      },
+      "../src/models/response/objectblank.ts": {
+        "version": "86f271bda964e17739ac0b07c77e63195d3c0765d66f68fe9b73b1dc9c1f5b7a",
+        "signature": "9a4d84eb6cbe2336fc06fccab7dc5a94fc641679798662662f56ce89220d8a70",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/common/utils/shared.utils.d.ts": {
+        "version": "4f8825a934a1273cb531a13ea9308435257f77832312d5dc343d48b2e89c5f1d",
+        "signature": "4f8825a934a1273cb531a13ea9308435257f77832312d5dc343d48b2e89c5f1d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/constants.d.ts": {
+        "version": "7fdf41d72d6a158e0af2d1da931279b5c2e2acdd7ae6e7c1871061e844cfb9f9",
+        "signature": "7fdf41d72d6a158e0af2d1da931279b5c2e2acdd7ae6e7c1871061e844cfb9f9",
         "affectsGlobalScope": false
       },
       "../src/sockets/socket-io.adapter.ts": {
@@ -13548,6 +13553,11 @@
       "../src/controllers/partener-intern/dto/notification-dto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts"
       ],
+      "../src/controllers/partener-intern/dto/reboot-phone-dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../src/models/dto/dtotransactions.ts",
+        "../src/models/entities/enum.entity.ts"
+      ],
       "../src/controllers/partener-intern/dto/refund-dto-out.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../src/models/dto/dtotransactions.ts",
@@ -13573,6 +13583,7 @@
         "../src/controllers/partener-intern/dto/home-dto-out.ts",
         "../src/controllers/partener-intern/dto/import-bank-transfert-bulk-dto-in.ts",
         "../src/controllers/partener-intern/dto/notification-dto.ts",
+        "../src/controllers/partener-intern/dto/reboot-phone-dto.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
         "../src/controllers/partener-intern/dto/retro-dto.ts",
         "../src/controllers/partener-intern/dto/services-balance.ts",
@@ -13593,12 +13604,12 @@
       ],
       "../src/controllers/partener-intern/partner-service.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@nestjs/core/index.d.ts",
-        "../node_modules/typeorm/index.d.ts",
+        "../node_modules/rxjs/operators/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/partener-intern/dto/execute-ussd-dto.ts",
         "../src/controllers/partener-intern/dto/import-bank-transfert-bulk-dto-in.ts",
         "../src/controllers/partener-intern/dto/notification-dto.ts",
+        "../src/controllers/partener-intern/dto/reboot-phone-dto.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
         "../src/controllers/partener-intern/dto/retro-dto.ts",
         "../src/controllers/partener-intern/dto/services-balance.ts",
@@ -13606,10 +13617,10 @@
         "../src/helper.service.ts",
         "../src/main.ts",
         "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/partenercomptes.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
-        "../src/models/entities/transactions.entity.ts",
-        "../src/sdk/discord/discordapiprovider.ts"
+        "../src/sockets/sockets.gateway.ts"
       ],
       "../src/exceptions/httpexceptionhandler.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
@@ -19551,6 +19562,7 @@
         "../src/controllers/partener-intern/dto/execute-ussd-dto.ts",
         "../src/controllers/partener-intern/dto/import-bank-transfert-bulk-dto-in.ts",
         "../src/controllers/partener-intern/dto/notification-dto.ts",
+        "../src/controllers/partener-intern/dto/reboot-phone-dto.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
         "../src/controllers/partener-intern/dto/retro-dto.ts",
         "../src/controllers/partener-intern/dto/services-balance.ts",
@@ -19564,9 +19576,11 @@
         "../node_modules/@nestjs/common/index.d.ts"
       ],
       "../src/controllers/partener-intern/partner-service.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
         "../src/controllers/partener-intern/dto/execute-ussd-dto.ts",
         "../src/controllers/partener-intern/dto/import-bank-transfert-bulk-dto-in.ts",
         "../src/controllers/partener-intern/dto/notification-dto.ts",
+        "../src/controllers/partener-intern/dto/reboot-phone-dto.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
         "../src/controllers/partener-intern/dto/retro-dto.ts",
         "../src/controllers/partener-intern/dto/services-balance.ts",

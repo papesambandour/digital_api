@@ -26,6 +26,7 @@ const set_status_1 = require("./dto/set-status");
 const notification_dto_1 = require("./dto/notification-dto");
 const retro_dto_1 = require("./dto/retro-dto");
 const execute_ussd_dto_1 = require("./dto/execute-ussd-dto");
+const reboot_phone_dto_1 = require("./dto/reboot-phone-dto");
 let PartnerControllerController = class PartnerControllerController {
     async home() {
         return {
@@ -72,7 +73,7 @@ let PartnerControllerController = class PartnerControllerController {
         if (ussdResponse === null || ussdResponse === void 0 ? void 0 : ussdResponse.success) {
             return {
                 statutTreatment: 'SUCCESS',
-                message: 'Le code Ussd a bien été execute sur le telephone',
+                message: ussdResponse.message,
                 phoneId: executeUssdIn.phoneId,
                 ussd: executeUssdIn.ussd,
                 ussd_response: ussdResponse.ussd_response,
@@ -85,6 +86,23 @@ let PartnerControllerController = class PartnerControllerController {
                 phoneId: executeUssdIn.phoneId,
                 ussd: executeUssdIn.ussd,
                 ussd_response: '',
+            };
+        }
+    }
+    async rebootPhone(rebootPhoneDtoIn) {
+        const ussdResponse = await this.partnerServiceService.rebootPhone(rebootPhoneDtoIn);
+        if (ussdResponse === null || ussdResponse === void 0 ? void 0 : ussdResponse.success) {
+            return {
+                statutTreatment: 'SUCCESS',
+                message: ussdResponse.message,
+                phoneId: rebootPhoneDtoIn.phoneId,
+            };
+        }
+        else {
+            return {
+                statutTreatment: 'FAILED',
+                phoneId: rebootPhoneDtoIn.phoneId,
+                message: "Le reboot n'a pas pus etre executé: " + ussdResponse.message,
             };
         }
     }
@@ -140,6 +158,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], PartnerControllerController.prototype, "executeUssd", null);
 __decorate([
+    common_1.Post('/phone/reboot'),
+    ResponseDecorateur_1.ResponseDecorateur(reboot_phone_dto_1.RebootPhoneDtoOut, 201, 'Home service partner intern '),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [reboot_phone_dto_1.RebootPhoneDtoIn]),
+    __metadata("design:returntype", Promise)
+], PartnerControllerController.prototype, "rebootPhone", null);
+__decorate([
     common_1.Post('/transaction/set-success'),
     ResponseDecorateur_1.ResponseDecorateur(set_status_1.SetSuccessFailedDtoOut, 201, 'Home service partner intern '),
     __param(0, common_1.Body()),
@@ -187,6 +213,7 @@ PartnerControllerController = __decorate([
         refund_dto_out_1.RefundDtoOut,
         retro_dto_1.RetroDtoOut,
         execute_ussd_dto_1.ExecuteUssdOut,
+        reboot_phone_dto_1.RebootPhoneDtoOut,
         notification_dto_1.SendNotificationDtoOut,
         set_status_1.SetSuccessFailedDtoOut,
         import_bank_transfert_bulk_dto_in_1.ImportBankTransfertBulkDtoOut,

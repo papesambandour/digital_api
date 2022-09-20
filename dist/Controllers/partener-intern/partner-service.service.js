@@ -16,9 +16,13 @@ const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 const main_1 = require("../../main");
 const SousServices_entity_1 = require("../../Models/Entities/SousServices.entity");
 const Phones_entity_1 = require("../../Models/Entities/Phones.entity");
+const sockets_gateway_1 = require("../../Sockets/sockets.gateway");
+const PartenerComptes_entity_1 = require("../../Models/Entities/PartenerComptes.entity");
+const operators_1 = require("rxjs/operators");
 let PartnerServiceService = class PartnerServiceService {
-    constructor(helper) {
+    constructor(helper, httpService) {
         this.helper = helper;
+        this.httpService = httpService;
     }
     async refund(refundDtoIn) {
         const transaction = await this.helper.getTransactionById(refundDtoIn.transactionId, []);
@@ -177,36 +181,145 @@ let PartnerServiceService = class PartnerServiceService {
         };
     }
     async retroTransaction(retroDtoIn) {
-        return {
-            code: 2000,
-            msg: "Votre opération s'est effectuée sans erreur. Veuillez attendre le callback pour avoir l'état final de la transaction",
-            error: false,
-            data: {
-                phone: '0170393568',
-                amount: 250,
-                codeService: 'MOOV_CI_API_CASH_OUT',
-                transactionId: 'T64469458190757',
-                status: 'PENDING',
-                externalTransactionId: 'CXDSpC.FkdrdGF',
-                callbackUrl: 'https://secure-3ds.intech.sn/ping',
-                errorType: null,
-                notificationMessage: 'Cliquez sur le lien suivant pour valider le paiement de 250 CFA sur Intech Group.\nhttps://api.intech.sn/deep/T64469458190757\nExpire dans 15 minutes',
-                deepLinkUrl: 'https://api.intech.sn/deep/T64469458190757',
-                _be_removed_deepLinkUrl: 'tel:*155*2*1*0141324245*250%23',
-            },
-        };
+        const transaction = await this.helper.getTransactionById(retroDtoIn.transactionId, []);
+        if (!transaction) {
+            return {
+                code: -1,
+                msg: 'La transaction est introuvable',
+            };
+        }
+        if (transaction.typeOperation !== Enum_entity_1.TypeOperationEnum.CREDIT) {
+            return {
+                code: -1,
+                msg: 'Seul les operation de CREDIT peuvent faire une retro transaction',
+            };
+        }
+        try {
+            const partnerAccount = await PartenerComptes_entity_1.PartenerComptes.findOne({
+                where: {
+                    id: transaction.partenerComptesId,
+                },
+                relations: ['parteners'],
+            });
+            const data = {
+                phone: transaction.phone,
+                amount: transaction.amount,
+                codeService: retroDtoIn.codeService,
+                motif: `Retro transaction pour #${transaction.transactionId}`,
+                externalTransactionId: `RETRO_TR${this.helper.generateRandomId('', 5)}_#${transaction.transactionId.toUpperCase()}`,
+                callbackUrl: transaction.urlIpn,
+                apiKey: partnerAccount.appKey,
+                sender: partnerAccount.parteners.name.replace(/[\W_]+/g, '_'),
+                data: '{}',
+            };
+            console.log('data retro', data);
+            return (await this.httpService
+                .post('https://api.intech.sn/api-services/operation', data)
+                .pipe(operators_1.map((x) => x === null || x === void 0 ? void 0 : x.data))
+                .toPromise());
+        }
+        catch (e) {
+            console.log(e);
+            return {
+                code: -2,
+                msg: e.msg,
+            };
+        }
     }
     async executeUssd(executeUssdIn) {
-        return {
-            success: true,
-            message: '',
-            ussd_response: 'Fake Ussd Response',
-        };
+        const phone = await Phones_entity_1.Phones.findOne({
+            where: {
+                id: executeUssdIn.phoneId,
+            },
+        });
+        const socket = sockets_gateway_1.SocketsGateway.getSocket(phone === null || phone === void 0 ? void 0 : phone.number);
+        if (!phone) {
+            return {
+                success: false,
+                message: "Le téléphone avec cet id n'existe pas",
+                ussd_response: '',
+            };
+        }
+        else if ((phone === null || phone === void 0 ? void 0 : phone.socket) === 'DISCONNECTED') {
+            return {
+                success: false,
+                message: "Le téléphone n'est pas connecté",
+                ussd_response: '',
+            };
+        }
+        else if (!socket) {
+            return {
+                success: false,
+                message: 'Socket non trouvé',
+                ussd_response: '',
+            };
+        }
+        else {
+            return new Promise(async (resolve) => {
+                let clearId = null;
+                socket.on('finishExecUssd', async (data) => {
+                    clearTimeout(clearId);
+                    console.log('DATA_SOCKET', data);
+                    socket.removeAllListeners('finishExecUssd');
+                    resolve({
+                        success: true,
+                        message: 'Le code a ete executé avec success',
+                        ussd_response: main_1.serializeData(data),
+                    });
+                });
+                clearId = setTimeout(function () {
+                    resolve({
+                        success: false,
+                        message: 'Ussd Timeout',
+                        ussd_response: '',
+                    });
+                }, Enum_entity_1.CONSTANT.WAIT_SOCKET_PHONE() * 1000);
+                let ussdCode = executeUssdIn.ussd
+                    .replace(/mvm_number/g, phone.number)
+                    .replace(/code/g, phone.codeSecret);
+                ussdCode += `-ADMIN`;
+                socket.emit('execUssd', ussdCode);
+            });
+        }
+    }
+    async rebootPhone(rebootPhoneDtoIn) {
+        const phone = await Phones_entity_1.Phones.findOne({
+            where: {
+                id: rebootPhoneDtoIn.phoneId,
+            },
+        });
+        const socket = sockets_gateway_1.SocketsGateway.getSocket(phone === null || phone === void 0 ? void 0 : phone.number);
+        if (!phone) {
+            return {
+                success: false,
+                message: "Le téléphone avec cet id n'existe pas",
+            };
+        }
+        else if ((phone === null || phone === void 0 ? void 0 : phone.socket) === 'DISCONNECTED') {
+            return {
+                success: false,
+                message: "Le téléphone n'est pas connecté",
+            };
+        }
+        else if (!socket) {
+            return {
+                success: false,
+                message: 'Socket non trouvé',
+            };
+        }
+        else {
+            socket.emit('reboot_phone', '');
+            return {
+                success: true,
+                message: 'La demande de reboot a été envoyé au téléphone',
+            };
+        }
     }
 };
 PartnerServiceService = __decorate([
     common_1.Injectable(),
-    __metadata("design:paramtypes", [helper_service_1.HelperService])
+    __metadata("design:paramtypes", [helper_service_1.HelperService,
+        common_1.HttpService])
 ], PartnerServiceService);
 exports.PartnerServiceService = PartnerServiceService;
 //# sourceMappingURL=partner-service.service.js.map
