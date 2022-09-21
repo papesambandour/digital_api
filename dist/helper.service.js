@@ -806,7 +806,7 @@ let HelperService = class HelperService {
         if (!errorMessage) {
             return null;
         }
-        console.log(errorMessage, codeSousService);
+        console.log(errorMessage, codeSousService, 'mmmmmm');
         const noAccent = (str) => `${str}`
             .normalize('NFD')
             .replace(/[\u0300-\u036f]/g, '')
@@ -843,7 +843,8 @@ let HelperService = class HelperService {
                 else {
                     val = errorData;
                 }
-                return new RegExp(noAccent(el.regex), 'i').test(val ? noAccent(val) : '');
+                console.log('testing', el.id, el.regex, val, noAccent(val));
+                return new RegExp(this.regexEscape(noAccent(el.regex)), 'i').test(val ? noAccent(val) : '');
             }
             catch (error) {
                 console.log(error, 'matching error', error.message);
@@ -1090,6 +1091,9 @@ let HelperService = class HelperService {
             s[1] += new Array(prec - s[1].length + 1).join('0');
         }
         return s.join(dec);
+    }
+    regexEscape(s) {
+        return s.replace(/[-[\]{}()*+?.,\\^$|]/g, '\\$&');
     }
 };
 HelperService = __decorate([

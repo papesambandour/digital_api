@@ -4687,7 +4687,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "3c6d0b6d2e493906976e067f529ea7224199b905149f206c9a64cb1125221f82",
+        "version": "b45be080b352163227f8e5a21cb48a96d71c34f41faaef0b0b707d9095bdb83b",
         "signature": "6348e167e6daf5b75199c61f8d69c4a85aa4a3fa3c432b02ecb5256b0cb5d0ca",
         "affectsGlobalScope": false
       },
@@ -7167,8 +7167,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "2b0f8c4edfbdc96184957b5b6b91ce4348b68ddb3d6e3e1f972b0507f2c99ef0",
-        "signature": "fd58e307cf67e9ad3bb4830fa59e8f28fc52e2cef1cc9072b961d4af3fab393e",
+        "version": "7f0ed189d4ae54e60b99b6c9d4934fe3e28653e4038df5a94193f95d417f45ea",
+        "signature": "d6dbf87703f55a90390694a061be77306d2f3a3d9a66361cfc4e8ce7393fece3",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {

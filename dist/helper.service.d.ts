@@ -77,4 +77,5 @@ export declare class HelperService {
     private verseComissionForTransaction;
     uuid(): string;
     formatMoney(number: string | number, decimals?: number, dec_point?: string, thousands_sep?: string): any;
+    private regexEscape;
 }
