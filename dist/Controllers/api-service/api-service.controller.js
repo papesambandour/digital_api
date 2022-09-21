@@ -79,7 +79,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         await this.helper.setTimeOutDate(response.transaction);
         const errorType = await this.helper.provideErrorType(response.transaction, null, null, response.partnerMessage);
         this.helper.updateApiBalance(apiManager, response.usedPhoneId).then();
-        console.log('response', response);
+        console.log('response', response.partnerMessage);
         if (response.status === Enum_entity_1.StatusEnum.FAILLED) {
             await this.helper.operationPartnerCancelTransaction(response.transaction);
         }

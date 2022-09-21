@@ -843,7 +843,6 @@ let HelperService = class HelperService {
                 else {
                     val = errorData;
                 }
-                console.log('testing', el.id, el.regex, val, noAccent(val));
                 return new RegExp(this.regexEscape(noAccent(el.regex)), 'i').test(val ? noAccent(val) : '');
             }
             catch (error) {

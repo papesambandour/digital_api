@@ -4687,7 +4687,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "b45be080b352163227f8e5a21cb48a96d71c34f41faaef0b0b707d9095bdb83b",
+        "version": "b018c3e9e7a9bd104910c99bfaf310f9c33af88f25b262a7f17c803d618197fe",
         "signature": "6348e167e6daf5b75199c61f8d69c4a85aa4a3fa3c432b02ecb5256b0cb5d0ca",
         "affectsGlobalScope": false
       },
@@ -7057,8 +7057,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-service.service.ts": {
-        "version": "ca03575842f17f3f76494d25bf64f29cf26fd90bd4bd8255f7b65155dccde9e1",
-        "signature": "5ceb84e8f88f3859745860bbfa20e7c6fdf091afa0e1e4b1977373b4f0a18526",
+        "version": "0f65ed461dd8e4304d72077abc32e4a56b590ac6f7e51957ac95179008d6b09f",
+        "signature": "af18aa651dd2a9a15c97f0373567cba38516be30ac792f430fb9fb8dd05349a8",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-controller.controller.ts": {
@@ -7167,7 +7167,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "7f0ed189d4ae54e60b99b6c9d4934fe3e28653e4038df5a94193f95d417f45ea",
+        "version": "fdd56c5ddd0eb3ba244fe00dcf1c67b0949aef2f5b7293c960d4dccb0bb97fba",
         "signature": "d6dbf87703f55a90390694a061be77306d2f3a3d9a66361cfc4e8ce7393fece3",
         "affectsGlobalScope": false
       },
@@ -7427,7 +7427,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "2f0a0c9a1b29c380aa11551c88ea53274d2abc275da5e292b4cfb500de4d602a",
+        "version": "eb47f7d09162731aeb4e4d5e2fe34b5d65d2a242f822251e7185fd61a4bd2a28",
         "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },

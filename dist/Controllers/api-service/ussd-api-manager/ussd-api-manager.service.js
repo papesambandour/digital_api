@@ -118,6 +118,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             errorMessage: 'Telephone injoignable',
             dateFailled: new Date(),
         });
+        await transaction.reload();
         return this.helper.isNotCancelable(preStatus, status);
     }
     async finishExecUssd(socketBodyFinish, transaction) {
