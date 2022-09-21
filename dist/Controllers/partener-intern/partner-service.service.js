@@ -209,7 +209,7 @@ let PartnerServiceService = class PartnerServiceService {
                 externalTransactionId: `RETRO_TR${this.helper.generateRandomId('', 5)}_PARTNER_#${transaction.transactionId.toUpperCase()}`,
                 callbackUrl: transaction.urlIpn,
                 apiKey: partnerAccount.appKey,
-                sender: partnerAccount.parteners.name.replace(/[\W_]+/g, '_'),
+                sender: partnerAccount.parteners.name,
                 data: '{}',
             };
             console.log('data retro', data);
@@ -255,7 +255,7 @@ let PartnerServiceService = class PartnerServiceService {
                 externalTransactionId: `RETRO_TR${this.helper.generateRandomId('', 5)}_ADMIN_#${transaction.transactionId.toUpperCase()}`,
                 callbackUrl: transaction.urlIpn,
                 apiKey: process.env.RETRO_ADMIN_API_KEY,
-                sender: partnerAccount.parteners.name.replace(/[\W_]+/g, '_'),
+                sender: partnerAccount.parteners.name,
                 data: '{}',
             };
             console.log('data retro', data);

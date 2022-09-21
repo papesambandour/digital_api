@@ -7057,7 +7057,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-service.service.ts": {
-        "version": "0f65ed461dd8e4304d72077abc32e4a56b590ac6f7e51957ac95179008d6b09f",
+        "version": "8c29f008cc8e9bc0386e5c4a66bb1e5e969bc8d3ddb5efd6653f29a5b635238e",
         "signature": "af18aa651dd2a9a15c97f0373567cba38516be30ac792f430fb9fb8dd05349a8",
         "affectsGlobalScope": false
       },
@@ -7502,7 +7502,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "6e304df177b7e6ec5cfddeee4c5c477f7afc77906a712e8e53e976a62c90350c",
+        "version": "871afcc66649aa683901b59320b8db0689068453e85504c05c609d00e988a5ce",
         "signature": "7a5721dfd88294d10612509ea7c4698d3e2be5f1c9ee25248d6114eb4e6c6f64",
         "affectsGlobalScope": false
       },

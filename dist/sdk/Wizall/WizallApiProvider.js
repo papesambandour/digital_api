@@ -93,7 +93,7 @@ class WizallApiProvider {
         try {
             const option = {
                 method: 'POST',
-                uri: `${this.wizallUrl}/api/partner/merchant/payment/`,
+                uri: `${this.wizallUrl}/api/partner/merchant/cashin/`,
                 json: true,
                 headers: {
                     Authorization: `Bearer ${this.token}`,
