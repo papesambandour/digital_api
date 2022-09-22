@@ -24,11 +24,17 @@ let SendPendingDelayAlertTaskService = class SendPendingDelayAlertTaskService {
     }
     async handleCron() {
         const transactions = await this.fetchPendingTransaction();
+        if (!transactions.length) {
+            return;
+        }
         const trInfo = transactions
             .map((tr) => `TR ID: ${tr.transactionId}: ${tr.codeSousService}`)
             .join('\n');
         const message = `Transaction en pending apres le délais:\n${trInfo}`;
         console.log(message, transactions.length);
+        if (!transactions.length) {
+            return;
+        }
         await this.helper.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PENDING_AFTER_DELAY, {}, null, config_1.discordApiConfig().pendingAfterDelayChannelName);
         console.log('---------');
     }
