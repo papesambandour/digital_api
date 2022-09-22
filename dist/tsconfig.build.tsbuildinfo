@@ -6447,7 +6447,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": {
-        "version": "58875ff14080e1026f6fbfaeb146acfd81e569e5173801e4cdce7c8aa47b50dc",
+        "version": "8daa547b31a73a69975bd9c05a124d068542d1ccc417289ad021099e01e22618",
         "signature": "91c6dc263b1a3a1562d874e5bb613b8fe2137ddf8d9ad16f2431d4e967f83a53",
         "affectsGlobalScope": false
       },
@@ -13315,6 +13315,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/schedule/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
+        "../node_modules/class-validator/types/index.d.ts",
         "../node_modules/typeorm/browser/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
