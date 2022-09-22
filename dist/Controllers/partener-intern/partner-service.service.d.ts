@@ -20,10 +20,12 @@ export declare class PartnerServiceService {
     retroTransaction(retroDtoIn: RetroDtoIn): Promise<{
         code: number;
         msg: string;
+        data?: any;
     }>;
     retroAdminTransaction(retroDtoIn: RetroDtoIn): Promise<{
         code: number;
         msg: string;
+        data?: any;
     }>;
     executeUssd(executeUssdIn: ExecuteUssdIn): Promise<{
         success: boolean;
@@ -34,4 +36,5 @@ export declare class PartnerServiceService {
         success: boolean;
         message: string;
     }>;
+    setRetroParentId(parentId: number, childTransactionId: string): Promise<void>;
 }

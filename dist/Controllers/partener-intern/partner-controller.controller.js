@@ -52,8 +52,10 @@ let PartnerControllerController = class PartnerControllerController {
         }
     }
     async retro(retroDtoIn) {
+        var _a;
         const apiResponse = await this.partnerServiceService.retroTransaction(retroDtoIn);
         if ((apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.code) === 2000) {
+            await this.partnerServiceService.setRetroParentId(retroDtoIn.transactionId, (_a = apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.data) === null || _a === void 0 ? void 0 : _a.transactionId);
             return {
                 statutTreatment: 'SUCCESS',
                 message: apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.msg,
@@ -69,8 +71,10 @@ let PartnerControllerController = class PartnerControllerController {
         }
     }
     async retroAdmin(retroDtoIn) {
+        var _a;
         const apiResponse = await this.partnerServiceService.retroAdminTransaction(retroDtoIn);
         if ((apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.code) === 2000) {
+            await this.partnerServiceService.setRetroParentId(retroDtoIn.transactionId, (_a = apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.data) === null || _a === void 0 ? void 0 : _a.transactionId);
             return {
                 statutTreatment: 'SUCCESS',
                 message: apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.msg,

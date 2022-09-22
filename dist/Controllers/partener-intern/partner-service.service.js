@@ -19,6 +19,7 @@ const Phones_entity_1 = require("../../Models/Entities/Phones.entity");
 const sockets_gateway_1 = require("../../Sockets/sockets.gateway");
 const PartenerComptes_entity_1 = require("../../Models/Entities/PartenerComptes.entity");
 const operators_1 = require("rxjs/operators");
+const Transactions_entity_1 = require("../../Models/Entities/Transactions.entity");
 let PartnerServiceService = class PartnerServiceService {
     constructor(helper, httpService) {
         this.helper = helper;
@@ -360,6 +361,16 @@ let PartnerServiceService = class PartnerServiceService {
                 message: 'La demande de reboot a été envoyé au téléphone',
             };
         }
+    }
+    async setRetroParentId(parentId, childTransactionId) {
+        const childTransaction = await this.helper.getTransactionByGeneratedId(childTransactionId);
+        if (!childTransaction) {
+            console.log('No childTransaction, maybe should hit same env api');
+            return;
+        }
+        await Transactions_entity_1.Transactions.update(childTransaction.id, {
+            parentRetroTransactionId: parentId,
+        });
     }
 };
 PartnerServiceService = __decorate([

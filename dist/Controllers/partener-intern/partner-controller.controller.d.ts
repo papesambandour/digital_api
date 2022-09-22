@@ -24,6 +24,7 @@ export declare class PartnerControllerController {
         apiResponse: {
             code: number;
             msg: string;
+            data?: any;
         };
     }>;
     retroAdmin(retroDtoIn: RetroDtoIn): Promise<{
@@ -32,6 +33,7 @@ export declare class PartnerControllerController {
         apiResponse: {
             code: number;
             msg: string;
+            data?: any;
         };
     }>;
     executeUssd(executeUssdIn: ExecuteUssdIn): Promise<{

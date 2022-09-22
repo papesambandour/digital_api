@@ -17,6 +17,7 @@ export declare class Transactions extends CustomBaseModel {
     sousServicesId: number;
     callBackRetryCount: number;
     errorTypesId: number;
+    parentRetroTransactionId: number;
     phonesId: number | null;
     partenerComptesId: number;
     partenersId: number;
@@ -102,6 +103,8 @@ export declare class Transactions extends CustomBaseModel {
     operationParteners: OperationParteners[];
     parteners: Parteners;
     partenerComptes: PartenerComptes;
+    parentRetroTransaction: Transactions;
+    retroChildTransactions: Transactions[];
     phones: Phones;
     sousServices: SousServices;
     errorTypes: ErrorTypes;

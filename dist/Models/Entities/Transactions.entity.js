@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var Transactions_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Transactions = void 0;
 const typeorm_1 = require("typeorm");
@@ -22,7 +23,7 @@ const Enum_entity_1 = require("./Enum.entity");
 const MessageUssds_entity_1 = require("./MessageUssds.entity");
 const ErrorTypes_entity_1 = require("./ErrorTypes.entity");
 const CustomBaseModel_1 = require("./CustomBaseModel");
-let Transactions = class Transactions extends CustomBaseModel_1.CustomBaseModel {
+let Transactions = Transactions_1 = class Transactions extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),
@@ -61,6 +62,10 @@ __decorate([
     typeorm_1.Column('int', { name: 'error_types_id', nullable: true }),
     __metadata("design:type", Number)
 ], Transactions.prototype, "errorTypesId", void 0);
+__decorate([
+    typeorm_1.Column('int', { name: 'parent_retro_transaction_id', nullable: true }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "parentRetroTransactionId", void 0);
 __decorate([
     typeorm_1.Column('int', { name: 'phones_id', nullable: true }),
     __metadata("design:type", Number)
@@ -634,6 +639,17 @@ __decorate([
     __metadata("design:type", PartenerComptes_entity_1.PartenerComptes)
 ], Transactions.prototype, "partenerComptes", void 0);
 __decorate([
+    typeorm_1.ManyToOne(() => Transactions_1, (parentRetroTransaction) => parentRetroTransaction.retroChildTransactions, { onDelete: 'NO ACTION', onUpdate: 'NO ACTION' }),
+    typeorm_1.JoinColumn([
+        { name: 'parent_retro_transaction_id', referencedColumnName: 'id' },
+    ]),
+    __metadata("design:type", Transactions)
+], Transactions.prototype, "parentRetroTransaction", void 0);
+__decorate([
+    typeorm_1.OneToMany(() => Transactions_1, (transactions) => transactions.parentRetroTransaction),
+    __metadata("design:type", Array)
+], Transactions.prototype, "retroChildTransactions", void 0);
+__decorate([
     typeorm_1.ManyToOne(() => Phones_entity_1.Phones, (phones) => phones.transactions, {
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION',
@@ -669,12 +685,13 @@ __decorate([
     typeorm_1.OneToMany(() => MessageUssds_entity_1.MessageUssds, (messagesUssds) => messagesUssds.transactions),
     __metadata("design:type", Array)
 ], Transactions.prototype, "messagesUssds", void 0);
-Transactions = __decorate([
+Transactions = Transactions_1 = __decorate([
     typeorm_1.Index('fk_transactions_partener_comptes1_idx', ['partenerComptesId'], {}),
     typeorm_1.Index('fk_transactions_parteners1_idx', ['partenersId'], {}),
     typeorm_1.Index('fk_transactions_phones1_idx', ['phonesId'], {}),
     typeorm_1.Index('fk_transactions_sous_services1_idx', ['sousServicesId'], {}),
     typeorm_1.Index('fk_transactions_error_types1_idx', ['errorTypesId'], {}),
+    typeorm_1.Index('fk_transactions_trx_retro_idx', ['parentRetroTransactionId'], {}),
     typeorm_1.Entity('transactions', { schema: 'simbot_db' })
 ], Transactions);
 exports.Transactions = Transactions;

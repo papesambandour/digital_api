@@ -18,6 +18,7 @@ const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const Transactions_entity_1 = require("../../../Models/Entities/Transactions.entity");
 const Queue = require("simple-promise-queue");
 const typeorm_1 = require("typeorm");
+const main_1 = require("../../../main");
 let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = class CheckTransactionStatusCronService {
     constructor(helper, schedulerRegistry) {
         this.helper = helper;
@@ -54,6 +55,9 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
                         })
                             .catch(async (error) => {
                             resolve(error);
+                            this.helper
+                                .notifyAdmin(`Un CheckStatusTransaction resout avec une erreur\n${error === null || error === void 0 ? void 0 : error.message}\n\n${error === null || error === void 0 ? void 0 : error.stack}\n${main_1.serializeData(error)}`, Enum_entity_1.TypeEvenEnum.CRON_EXCEPTION, {}, true)
+                                .then();
                         });
                     }));
                 }
@@ -64,6 +68,9 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
         }
         catch (e) {
             console.error(e);
+            this.helper
+                .notifyAdmin(`Une exception c'est produite dans le cron Check Status\n${e.message}\n${e.stack}`, Enum_entity_1.TypeEvenEnum.CRON_EXCEPTION, {}, true)
+                .then();
             CheckTransactionStatusCronService_1.canHandle = true;
             queue === null || queue === void 0 ? void 0 : queue.end();
         }
@@ -74,11 +81,13 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
                 needCheckTransaction: 1,
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
                 timeOutAt: typeorm_1.MoreThan(new Date()),
+                initResponseEndAt: typeorm_1.Not(typeorm_1.IsNull()),
             },
             {
                 needCheckTransaction: 1,
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
                 timeOutAt: typeorm_1.IsNull(),
+                initResponseEndAt: typeorm_1.Not(typeorm_1.IsNull()),
             },
         ];
         return await Transactions_entity_1.Transactions.find({
