@@ -38,7 +38,7 @@ export declare class HelperService {
     setIsCallbackReadyValue(transaction: Transactions): Promise<void>;
     setTimeOutDate(transaction: Transactions): Promise<void>;
     sendCallBack(transaction: Transactions): Promise<any>;
-    private addMinuteToDate;
+    addMinuteToDate(date: Date, minutes: number): Date;
     setSoldeTableForDebitOnly(sousServices: SousServices, value: number, tableName: string, id: number, field?: string): Promise<any>;
     setSoldeTableForCreditOnly(sousServices: SousServices, value: number, tableName: string, id: number, field?: string): Promise<any>;
     generateTransactionId(): string;

@@ -196,11 +196,6 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         await transaction.save();
         const deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
         const messageNotification = await this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
-        this.helper
-            .sendSms([
-            `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,
-        ], messageNotification, this.apiService.sousServices.executeSmsSender, true)
-            .then();
         this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
         const statues = this.helper.getStatusAfterExec('success', this.apiService.sousServices);
         transaction.statut = statues['status'];

@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "b1108cb1f9ef87bee00f5f3ab2bd34cf4f4036a85d0f363cddc496b38b65a663",
-        "signature": "898d51714fcb57bd63477bd143de59711c556b596e14a853bdf5b25b5a70d273",
+        "version": "9bbe92f14f9e022d13b98b8770fdb80812433745f23d2e843b609a99fc78a907",
+        "signature": "b330e1ae8b1282f717daeefef8698d955ce09e09008eb5ec36960610b9383a37",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4117,8 +4117,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/discord/config.ts": {
-        "version": "9fdc3948b2b015155206e45e29224151676a2f7351910b06185b12be339d68a2",
-        "signature": "38bedf2f296f8b98dde160a3a46b01c1e4580e3baf10397dd5fd3c3409791695",
+        "version": "11f11a26726fb26a74a5666faa5607054f609fd5d315e45274175439af83ad74",
+        "signature": "0201a8c7de8c73ce2f338d6e83cb414c33c546a01a66ed9ba403ffdb2a49b7a6",
         "affectsGlobalScope": false
       },
       "../src/sdk/discord/discordapiprovider.ts": {
@@ -4806,8 +4806,13 @@
         "signature": "b5337e2f47ada37883533431aefa64103570a64d30cb4a2b5dad36b2aa0108c3",
         "affectsGlobalScope": false
       },
+      "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts": {
+        "version": "86e8aafa66ca0f1901180490d289a268012bcbb495e4872442851dcfcee91dda",
+        "signature": "c9f15e66637d9d2450975b076147317336fe4445467c9cd866ae3c60cf9703f1",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.module.ts": {
-        "version": "06ae1d7c7fe42baa154085eab973a54cf1335913d3138fd5d206914f03ef808d",
+        "version": "e216e8b27c980b0a6954745ae6dedd9ab58b3f5b5907f2d55e9d9f4e80eb0dc2",
         "signature": "622f5703fb298ffab0ec97803bb18f89a7c363d1d8cd8b11ef37cf122819523c",
         "affectsGlobalScope": false
       },
@@ -5517,8 +5522,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "fdd56c5ddd0eb3ba244fe00dcf1c67b0949aef2f5b7293c960d4dccb0bb97fba",
-        "signature": "d6dbf87703f55a90390694a061be77306d2f3a3d9a66361cfc4e8ce7393fece3",
+        "version": "0fc44332d6a38f7d6e5e4e2e6dcbecf55a45d3b39a8f6554f4797584c3232465",
+        "signature": "51fdda34b340c09ffbffa01ef9b4cce7ac0052707fd6dce142c5f28692578544",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -5777,7 +5782,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "eb47f7d09162731aeb4e4d5e2fe34b5d65d2a242f822251e7185fd61a4bd2a28",
+        "version": "854a2b890fb566b6f664e8ff01dde9e04ff61dd1230133deade6caef8d019fa1",
         "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },
@@ -10368,6 +10373,7 @@
         "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts",
         "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts",
         "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts",
+        "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts",
         "../src/helper.service.ts"
       ],
       "../src/controllers/api-service/api-service.service.ts": [
@@ -10541,6 +10547,15 @@
         "../src/helper.service.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/transactions.entity.ts"
+      ],
+      "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/schedule/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/helper.service.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/transactions.entity.ts",
+        "../src/sdk/discord/config.ts"
       ],
       "../src/controllers/api-service/seneau-sn-bill-payment-api-manager/seneau-sn-bill-payment-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -15378,6 +15393,10 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": [
+        "../node_modules/@nestjs/schedule/index.d.ts",
+        "../src/helper.service.ts"
+      ],
+      "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts": [
         "../node_modules/@nestjs/schedule/index.d.ts",
         "../src/helper.service.ts"
       ],

@@ -5,6 +5,7 @@ const discordApiConfig = () => {
     return {
         token: process.env.DISCORD_BOT_TOKEN,
         alertChannelName: process.env.DISCORD_ALERT_CHANEL_ID,
+        pendingAfterDelayChannelName: process.env.DISCORD_ALERT_CHANEL_PENDING_AFTER_DELAY,
         mismatchMessageAlertChanelName: process.env.DISCORD_ALERT_CHANEL_MISMATCH_MESSAGE,
     };
 };

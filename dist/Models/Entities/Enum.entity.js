@@ -86,6 +86,7 @@ var TypeEvenEnum;
     TypeEvenEnum["NEW_CLAIM"] = "NEW_CLAIM";
     TypeEvenEnum["UN_ALLOWED_SMS_SOURCE"] = "UN_ALLOWED_SMS_SOURCE";
     TypeEvenEnum["CRON_EXCEPTION"] = "CRON_EXCEPTION";
+    TypeEvenEnum["PENDING_AFTER_DELAY"] = "PENDING_AFTER_DELAY";
 })(TypeEvenEnum = exports.TypeEvenEnum || (exports.TypeEvenEnum = {}));
 exports.CONSTANT = {
     TIME_OUT_PHONE_SECOND: () => parseInt(process.env.TIME_OUT_PHONE_SECOND) || 20,
