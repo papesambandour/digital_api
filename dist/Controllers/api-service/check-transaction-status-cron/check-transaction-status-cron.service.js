@@ -18,7 +18,6 @@ const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const Transactions_entity_1 = require("../../../Models/Entities/Transactions.entity");
 const Queue = require("simple-promise-queue");
 const typeorm_1 = require("typeorm");
-const class_validator_1 = require("class-validator");
 let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = class CheckTransactionStatusCronService {
     constructor(helper, schedulerRegistry) {
         this.helper = helper;
@@ -75,13 +74,11 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
                 needCheckTransaction: 1,
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
                 timeOutAt: typeorm_1.MoreThan(new Date()),
-                initResponseEndAt: class_validator_1.IsNotEmpty(),
             },
             {
                 needCheckTransaction: 1,
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
                 timeOutAt: typeorm_1.IsNull(),
-                initResponseEndAt: class_validator_1.IsNotEmpty(),
             },
         ];
         return await Transactions_entity_1.Transactions.find({
