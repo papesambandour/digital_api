@@ -127,7 +127,7 @@ class ApiManagerInterface {
         return transaction;
     }
     async loadBalancingPhone() {
-        return new Promise(async (resolve) => {
+        const phone = await new Promise(async (resolve) => {
             const phoneStateWhere = this.apiService.sousServices.needPhone
                 ? ` AND phones.phone_state = '${Enum_entity_1.PhoneState.UNUSED}' AND phones.socket = '${Enum_entity_1.SocketState.CONNECTED}' `
                 : '';
@@ -169,6 +169,12 @@ class ApiManagerInterface {
                 resolve(null);
             }
         });
+        if (!phone) {
+            this.helper
+                .notifyAdmin(`Pas de canal disponible pour le service ${this.apiService.sousServices.code}`, Enum_entity_1.TypeEvenEnum.NO_CANAL_AVAILABLE, {}, true)
+                .then();
+        }
+        return phone;
     }
     async activePhone(phoneId, phoneNumber) {
         await this.helper.waitSome(3);

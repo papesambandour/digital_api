@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "9bbe92f14f9e022d13b98b8770fdb80812433745f23d2e843b609a99fc78a907",
-        "signature": "b330e1ae8b1282f717daeefef8698d955ce09e09008eb5ec36960610b9383a37",
+        "version": "aabc03dcadd0d8b3cdd826542856dfe4f1df284fed5ae805ebb043fcdefa8539",
+        "signature": "13bafd6f871139645017c54c55cf6ce3309d029e8824a67bc336d018d1df3eca",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4107,7 +4107,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "9d60679d71a8f23beff5fd91b279d317868d42696417f0aa8375d201877d2d25",
+        "version": "95319188125a74c25a9e340e4d0bb05d6fd6f7a2ab6440be2101725ea1ade0b2",
         "signature": "7ca7a1288810d98ad88ee4904be83e2e125ccd2c303d83b058255841bc721faf",
         "affectsGlobalScope": false
       },
