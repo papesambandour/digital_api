@@ -206,6 +206,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             amount: transaction.amount,
             deepLinkUrl: deepLink,
             _be_removed_deepLinkUrl: `tel:${encodeURIComponent(ussdCode)}`,
+            launch_url: `tel:${encodeURIComponent(ussdCode)}`,
         };
         return true;
     }
