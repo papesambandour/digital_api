@@ -24,9 +24,6 @@ let SendPendingDelayAlertTaskService = class SendPendingDelayAlertTaskService {
     }
     async handleCron() {
         const transactions = await this.fetchPendingTransaction();
-        if (!transactions.length) {
-            return;
-        }
         const trInfo = transactions
             .map((tr) => `TR ID: ${tr.transactionId}: ${tr.codeSousService}`)
             .join('\n');
@@ -39,7 +36,7 @@ let SendPendingDelayAlertTaskService = class SendPendingDelayAlertTaskService {
         console.log('---------');
     }
     async fetchPendingTransaction() {
-        const timeBefore = this.helper.addMinuteToDate(new Date(), -20);
+        const timeBefore = this.helper.addMinuteToDate(new Date(), -parseInt(process.env.DELAY_PENDING_TRANSACTION_MINUTE_BEFORE_ALERT));
         return await Transactions_entity_1.Transactions.find({
             where: {
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
@@ -53,7 +50,7 @@ let SendPendingDelayAlertTaskService = class SendPendingDelayAlertTaskService {
     }
 };
 __decorate([
-    schedule_1.Cron('0 */20 * * * *'),
+    schedule_1.Cron(schedule_1.CronExpression.EVERY_5_SECONDS),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
