@@ -3147,8 +3147,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/parteners.entity.ts": {
-        "version": "80e5a05f3531f4384f1cf793121fe84094a67e76f4bfdffd16a86ca6a9e11c32",
-        "signature": "d16c0f57c2cb0bdbf1621aa06d8abf41823f92f7584cfb197df079cba9b56964",
+        "version": "002a69536ddc7601305d9ce037d86cdfa7f3358462e397ab8a51a6fdac0f4d63",
+        "signature": "38fe598071f92774f469cf44a56e2c62c181764405bf2e21785194e252fae74e",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationparteners.entity.ts": {
@@ -4567,7 +4567,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "c974e0876bfbca99835e28f875b0a208be4e137d5f8593b000a3f637ebc152e3",
+        "version": "5f1ddd63d4edbb6952e93964234b93541c39402603b167b2b9d1357ff46beb63",
         "signature": "ecfdade2ce750f00b2c1f371589b0e4009aa8b4c843886a8ea755e077c5cab3c",
         "affectsGlobalScope": false
       },

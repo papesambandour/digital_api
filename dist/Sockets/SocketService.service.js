@@ -347,6 +347,7 @@ let SocketServiceService = class SocketServiceService {
                 sousServicesId: typeorm_1.Equal((_a = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _a === void 0 ? void 0 : _a.id),
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.FAILLED]),
                 phonesId: typeorm_1.Equal(phone.id),
+                reachedTimeout: typeorm_1.Equal(1),
             },
             order: {
                 createdAt: 'DESC',

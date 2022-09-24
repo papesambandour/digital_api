@@ -25,6 +25,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Parteners.prototype, "id", void 0);
 __decorate([
+    typeorm_1.Column('int', { name: 'countries_id' }),
+    __metadata("design:type", Number)
+], Parteners.prototype, "countriesId", void 0);
+__decorate([
     typeorm_1.Column('datetime', { name: 'created_at' }),
     __metadata("design:type", Date)
 ], Parteners.prototype, "createdAt", void 0);
@@ -138,6 +142,7 @@ __decorate([
 Parteners = __decorate([
     typeorm_1.Index('email_UNIQUE', ['email'], { unique: true }),
     typeorm_1.Index('phone_UNIQUE', ['phone'], { unique: true }),
+    typeorm_1.Index('countriesId_INDEX', ['countriesId'], {}),
     typeorm_1.Entity('parteners', { schema: 'simbot_db' })
 ], Parteners);
 exports.Parteners = Parteners;

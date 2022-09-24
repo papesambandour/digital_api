@@ -7,6 +7,7 @@ import { Transactions } from './Transactions.entity';
 import { CustomBaseModel } from './CustomBaseModel';
 export declare class Parteners extends CustomBaseModel {
     id: number;
+    countriesId: number;
     createdAt: Date;
     updatedAt: Date | null;
     state: 'ACTIVED' | 'INACTIVED' | 'DELETED';
