@@ -27,7 +27,10 @@ let SendPendingDelayAlertTaskService = class SendPendingDelayAlertTaskService {
         const trInfo = transactions
             .map((tr) => `TR ID: ${tr.transactionId}: ${tr.codeSousService}`)
             .join('\n');
-        const message = `Transaction en pending apres le délais:\n${trInfo}`;
+        const trIdResume = transactions
+            .map((tr) => `${tr.transactionId}`)
+            .join(',');
+        const message = `Transaction en pending apres le délais:\n${trInfo}\n${trIdResume}`;
         console.log(message, transactions.length);
         if (!transactions.length) {
             return;
