@@ -136,6 +136,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             updatedAt: new Date(),
             message: main_1.serializeData(socketBodyFinish),
             state: Enum_entity_1.StateEnum.ACTIVED,
+            sousServicesId: transaction.sousServicesId,
         }).then((value) => value);
         console.log('ussdMesage-', socketBodyFinish);
         const statutUssdResponse = socketBodyFinish.state === 'FAILED'
