@@ -21,6 +21,7 @@ const Transactions_entity_1 = require("./Transactions.entity");
 const Enum_entity_1 = require("./Enum.entity");
 const ErrorTypes_entity_1 = require("./ErrorTypes.entity");
 const CustomBaseModel_1 = require("./CustomBaseModel");
+const UssdExecutionMessages_entity_1 = require("./UssdExecutionMessages.entity");
 let SousServices = class SousServices extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
@@ -377,6 +378,14 @@ __decorate([
     typeorm_1.OneToMany(() => ErrorTypes_entity_1.ErrorTypes, (errorTypes) => errorTypes.sousServices),
     __metadata("design:type", Array)
 ], SousServices.prototype, "errorTypes", void 0);
+__decorate([
+    typeorm_1.OneToMany(() => MessageUssds_entity_1.MessageUssds, (messagesUssds) => messagesUssds.sousServices),
+    __metadata("design:type", Array)
+], SousServices.prototype, "messagesUssds", void 0);
+__decorate([
+    typeorm_1.OneToMany(() => UssdExecutionMessages_entity_1.UssdExecutionMessages, (ussdExecutionMessages) => ussdExecutionMessages.sousServices),
+    __metadata("design:type", Array)
+], SousServices.prototype, "ussdExecutionMessages", void 0);
 SousServices = __decorate([
     typeorm_1.Index('code_UNIQUE', ['code'], { unique: true }),
     typeorm_1.Index('fk_sous_services_services1_idx', ['servicesId'], {}),

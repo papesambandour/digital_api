@@ -674,7 +674,7 @@ __decorate([
     __metadata("design:type", ErrorTypes_entity_1.ErrorTypes)
 ], Transactions.prototype, "errorTypes", void 0);
 __decorate([
-    typeorm_1.OneToMany(() => UssdExecutionMessages_entity_1.UssdExecutionMessages, (ussdExecutionMessage) => ussdExecutionMessage.transations),
+    typeorm_1.OneToMany(() => UssdExecutionMessages_entity_1.UssdExecutionMessages, (ussdExecutionMessage) => ussdExecutionMessage.transactions),
     __metadata("design:type", Array)
 ], Transactions.prototype, "ussdExecutionMessage", void 0);
 __decorate([

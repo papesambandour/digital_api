@@ -8,6 +8,7 @@ import { Transactions } from './Transactions.entity';
 import { EXECUTE_TYPE_USSD, TypeOperationEnum } from './Enum.entity';
 import { ErrorTypes } from './ErrorTypes.entity';
 import { CustomBaseModel } from './CustomBaseModel';
+import { UssdExecutionMessages } from './UssdExecutionMessages.entity';
 export declare class SousServices extends CustomBaseModel {
     id: number;
     needPhone: number;
@@ -59,4 +60,6 @@ export declare class SousServices extends CustomBaseModel {
     typeServices: TypeServices;
     transactions: Transactions[];
     errorTypes: ErrorTypes[];
+    messagesUssds: MessageUssds[];
+    ussdExecutionMessages: UssdExecutionMessages[];
 }

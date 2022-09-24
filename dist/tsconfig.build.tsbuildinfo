@@ -3082,8 +3082,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/messageussds.entity.ts": {
-        "version": "e8348cf7399ddad36e8787b183c7ac934df1d3a52781caeb1ae057ec67acb47a",
-        "signature": "90e124492c132c1a0ed5fe72f285ad88d9b2f98342aaed2f1eeb491b589e6d68",
+        "version": "e4d5e5b9d39d0a6fb94b5a7ad5ea0891b49e07050f8284872976c2735bea9437",
+        "signature": "a8504b370cb65500bf36b92e2f7e052da997d78eae0d5e0e0330fbbaa2c0b220",
         "affectsGlobalScope": false
       },
       "../src/models/entities/sousservicesparteners.entity.ts": {
@@ -3126,9 +3126,14 @@
         "signature": "e8103db4bf5ce7c303d0ef485267775d6e11a6f3b53c06e4a4e9d38ae866822a",
         "affectsGlobalScope": false
       },
+      "../src/models/entities/ussdexecutionmessages.entity.ts": {
+        "version": "90743b9266bfa91597fb083fb38997b1867e0a588f9b83bc8b2278e39f2eb65b",
+        "signature": "2b1f740614f2a491b94f229e2fd2f32d8b3f07083b348ab5a26806c5dd7f7fbc",
+        "affectsGlobalScope": false
+      },
       "../src/models/entities/sousservices.entity.ts": {
-        "version": "87a04102accda304218c60b6eea824200dd084cf72c7fb8246a7103f2bb60218",
-        "signature": "baf795aeb6f797c3a1e25dd4f55c6515ec26a4da72a674b838ca80c47a8c2ee7",
+        "version": "15e333039dcc6112298f568342f92f15dc493682ed7aedb296410510116050e4",
+        "signature": "eb0037630e804d5c5a89d9bd295a79415caddddbbdd6689bc0a3c7b7410def13",
         "affectsGlobalScope": false
       },
       "../src/models/entities/commission.entity.ts": {
@@ -3156,13 +3161,8 @@
         "signature": "2f638828320fe174b0faa559f4d351c4d9a759660df67162d8b5f00af38bd65b",
         "affectsGlobalScope": false
       },
-      "../src/models/entities/ussdexecutionmessages.entity.ts": {
-        "version": "2f26e23ed072f3b3a83703a70f8fbda9c44a00f1366c15526d781093827ee9ae",
-        "signature": "10409b75c14585f45ed39c05ac34645287531d2fd64da25e7abb0bc6c1c19f37",
-        "affectsGlobalScope": false
-      },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "2b39b2902411c7df217cba2f694f30f09cdfa9d79613231cc331edd115eebc00",
+        "version": "d67ea8e7cd7fdb317f6e97cb4d8ba33db39b552f78dee2cfc22a6dc0974fb1b0",
         "signature": "328ae94b4b93fd8818e9836adcce36622f7a25d67bf47cac05554bdd4f3b72a0",
         "affectsGlobalScope": false
       },
@@ -3177,8 +3177,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/phones.entity.ts": {
-        "version": "2578b2fca74a97214f93785c910b7980989d8f4dda4067ad1f5c09c72c23f26a",
-        "signature": "def19c1fd6c32b352f6594984cffe1e27c6f1349aed4983f2ee4c13ac8e376ba",
+        "version": "4bafede5d49be82052171a91021fa0bd75fc6b3ab5f3ba66aa967d432df29266",
+        "signature": "2b483cf6ec2a8cfd556d66060ab30f643c4780dd1e10b49b5b2ddabd5d6b0d10",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtooperationphones.ts": {
@@ -4562,8 +4562,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtomessageussds.ts": {
-        "version": "76b4ece125d9fb7ffc3346d91299d1143ee1bd1a0636ca74022d4b505ce0f2c5",
-        "signature": "bb8db2957e0b702da5da7c7cbcf8ba49240ff70a445714b46d825555b1ec8889",
+        "version": "136734d82313636b93f5bc12e9e2856d192e05c443b0429e41c9d965e168eeff",
+        "signature": "178bb459e098b848b3f292639db82be4d44bbaec420491ca248be40cb18de3b2",
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
@@ -10977,6 +10977,7 @@
       "../src/models/entities/messageussds.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/custombasemodel.ts",
+        "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
@@ -11031,6 +11032,7 @@
         "../src/models/entities/activitiesphones.entity.ts",
         "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/messageussds.entity.ts",
         "../src/models/entities/operationphones.entity.ts",
         "../src/models/entities/services.entity.ts",
         "../src/models/entities/sousservicesphones.entity.ts",
@@ -11067,7 +11069,8 @@
         "../src/models/entities/sousservicesparteners.entity.ts",
         "../src/models/entities/sousservicesphones.entity.ts",
         "../src/models/entities/transactions.entity.ts",
-        "../src/models/entities/typeservices.entity.ts"
+        "../src/models/entities/typeservices.entity.ts",
+        "../src/models/entities/ussdexecutionmessages.entity.ts"
       ],
       "../src/models/entities/sousservicesparteners.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
@@ -11110,6 +11113,7 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/phones.entity.ts",
+        "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/interfaces/httpcrudinterface.ts": [
@@ -15578,6 +15582,7 @@
       ],
       "../src/models/entities/messageussds.entity.ts": [
         "../src/models/entities/custombasemodel.ts",
+        "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
@@ -15624,6 +15629,7 @@
         "../src/models/entities/activitiesphones.entity.ts",
         "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/messageussds.entity.ts",
         "../src/models/entities/operationphones.entity.ts",
         "../src/models/entities/services.entity.ts",
         "../src/models/entities/sousservicesphones.entity.ts",
@@ -15656,7 +15662,8 @@
         "../src/models/entities/sousservicesparteners.entity.ts",
         "../src/models/entities/sousservicesphones.entity.ts",
         "../src/models/entities/transactions.entity.ts",
-        "../src/models/entities/typeservices.entity.ts"
+        "../src/models/entities/typeservices.entity.ts",
+        "../src/models/entities/ussdexecutionmessages.entity.ts"
       ],
       "../src/models/entities/sousservicesparteners.entity.ts": [
         "../src/models/entities/custombasemodel.ts",
@@ -15693,6 +15700,7 @@
       "../src/models/entities/ussdexecutionmessages.entity.ts": [
         "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/phones.entity.ts",
+        "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/interfaces/httpcrudinterface.ts": [

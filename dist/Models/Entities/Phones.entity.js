@@ -19,6 +19,7 @@ const ActivitiesPhones_entity_1 = require("./ActivitiesPhones.entity");
 const UssdExecutionMessages_entity_1 = require("./UssdExecutionMessages.entity");
 const Enum_entity_1 = require("./Enum.entity");
 const CustomBaseModel_1 = require("./CustomBaseModel");
+const MessageUssds_entity_1 = require("./MessageUssds.entity");
 let Phones = class Phones extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
@@ -321,6 +322,10 @@ __decorate([
     typeorm_1.OneToMany(() => UssdExecutionMessages_entity_1.UssdExecutionMessages, (activitiesPhones) => activitiesPhones.phones),
     __metadata("design:type", Array)
 ], Phones.prototype, "ussdExecutionMessageEntities", void 0);
+__decorate([
+    typeorm_1.OneToMany(() => MessageUssds_entity_1.MessageUssds, (messagesUssds) => messagesUssds.phone),
+    __metadata("design:type", Array)
+], Phones.prototype, "messagesUssds", void 0);
 Phones = __decorate([
     typeorm_1.Index('fk_phones_services1_idx', ['servicesId'], {}),
     typeorm_1.Entity('phones', { schema: 'simbot_db' })

@@ -14,6 +14,7 @@ const typeorm_1 = require("typeorm");
 const SousServices_entity_1 = require("./SousServices.entity");
 const Transactions_entity_1 = require("./Transactions.entity");
 const CustomBaseModel_1 = require("./CustomBaseModel");
+const Phones_entity_1 = require("./Phones.entity");
 let MessageUssds = class MessageUssds extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
@@ -27,6 +28,13 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], MessageUssds.prototype, "transactionsId", void 0);
+__decorate([
+    typeorm_1.Column('int', {
+        name: 'sous_services_id',
+        nullable: true,
+    }),
+    __metadata("design:type", Number)
+], MessageUssds.prototype, "sousServicesId", void 0);
 __decorate([
     typeorm_1.Column({ type: 'varchar', length: 500, name: 'content', nullable: true }),
     __metadata("design:type", String)
@@ -65,10 +73,6 @@ __decorate([
     __metadata("design:type", Number)
 ], MessageUssds.prototype, "isMatched", void 0);
 __decorate([
-    typeorm_1.Column('int', { name: 'sous_services_id', nullable: true }),
-    __metadata("design:type", Number)
-], MessageUssds.prototype, "sousServicesId", void 0);
-__decorate([
     typeorm_1.Column('int', { name: 'phones_id', nullable: true }),
     __metadata("design:type", Number)
 ], MessageUssds.prototype, "phonesId", void 0);
@@ -96,9 +100,18 @@ __decorate([
     typeorm_1.JoinColumn([{ name: 'transactions_id', referencedColumnName: 'id' }]),
     __metadata("design:type", Transactions_entity_1.Transactions)
 ], MessageUssds.prototype, "transactions", void 0);
+__decorate([
+    typeorm_1.ManyToOne(() => Phones_entity_1.Phones, (phones) => phones.messagesUssds, {
+        onDelete: 'NO ACTION',
+        onUpdate: 'NO ACTION',
+    }),
+    typeorm_1.JoinColumn([{ name: 'phones_id', referencedColumnName: 'id' }]),
+    __metadata("design:type", Phones_entity_1.Phones)
+], MessageUssds.prototype, "phone", void 0);
 MessageUssds = __decorate([
-    typeorm_1.Index('fk_message_ussds_sous_services1_idx', ['sousServicesId'], {}),
     typeorm_1.Index('fk_message_ussds_phones_id1_idx', ['phonesId'], {}),
+    typeorm_1.Index('fk_msg_ussd_sous_services1_idx', ['sousServicesId'], {}),
+    typeorm_1.Index('fk_msg_ussd_trx_idx1', ['transactionsId'], {}),
     typeorm_1.Unique('unique_content_created_at_phones_id', [
         'shaSubContent',
         'createdAt',

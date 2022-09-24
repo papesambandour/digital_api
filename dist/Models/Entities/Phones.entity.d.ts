@@ -6,6 +6,7 @@ import { ActivitiesPhones } from './ActivitiesPhones.entity';
 import { UssdExecutionMessages } from './UssdExecutionMessages.entity';
 import { PhoneState, SIM_PROVIDER } from './Enum.entity';
 import { CustomBaseModel } from './CustomBaseModel';
+import { MessageUssds } from './MessageUssds.entity';
 export declare class Phones extends CustomBaseModel {
     id: number;
     solde: number;
@@ -45,4 +46,5 @@ export declare class Phones extends CustomBaseModel {
     transactions: Transactions[];
     activitiesPhones: ActivitiesPhones[];
     ussdExecutionMessageEntities: UssdExecutionMessages[];
+    messagesUssds: MessageUssds[];
 }

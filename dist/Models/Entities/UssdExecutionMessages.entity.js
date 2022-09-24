@@ -14,6 +14,7 @@ const typeorm_1 = require("typeorm");
 const Phones_entity_1 = require("./Phones.entity");
 const Transactions_entity_1 = require("./Transactions.entity");
 const CustomBaseModel_1 = require("./CustomBaseModel");
+const SousServices_entity_1 = require("./SousServices.entity");
 let UssdExecutionMessages = class UssdExecutionMessages extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([
@@ -53,6 +54,13 @@ __decorate([
     __metadata("design:type", Number)
 ], UssdExecutionMessages.prototype, "transationsId", void 0);
 __decorate([
+    typeorm_1.Column('int', {
+        name: 'sous_services_id',
+        nullable: true,
+    }),
+    __metadata("design:type", Number)
+], UssdExecutionMessages.prototype, "sousServicesId", void 0);
+__decorate([
     typeorm_1.ManyToOne(() => Phones_entity_1.Phones, (phone) => phone.activitiesPhones, {
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION',
@@ -67,7 +75,15 @@ __decorate([
     }),
     typeorm_1.JoinColumn([{ name: 'transactions_id', referencedColumnName: 'id' }]),
     __metadata("design:type", Transactions_entity_1.Transactions)
-], UssdExecutionMessages.prototype, "transations", void 0);
+], UssdExecutionMessages.prototype, "transactions", void 0);
+__decorate([
+    typeorm_1.ManyToOne(() => SousServices_entity_1.SousServices, (sousServices) => sousServices.messageUssds, {
+        onDelete: 'NO ACTION',
+        onUpdate: 'NO ACTION',
+    }),
+    typeorm_1.JoinColumn([{ name: 'sous_services_id', referencedColumnName: 'id' }]),
+    __metadata("design:type", SousServices_entity_1.SousServices)
+], UssdExecutionMessages.prototype, "sousServices", void 0);
 UssdExecutionMessages = __decorate([
     typeorm_1.Entity('ussd_execution_messages', { schema: 'simbot_db' })
 ], UssdExecutionMessages);
