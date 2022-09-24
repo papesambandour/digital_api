@@ -39,14 +39,23 @@ let SendPendingDelayAlertTaskService = class SendPendingDelayAlertTaskService {
         console.log('---------');
     }
     async fetchPendingTransaction() {
-        const timeBefore = this.helper.addMinuteToDate(new Date(), -parseInt(process.env.DELAY_PENDING_TRANSACTION_MINUTE_BEFORE_ALERT));
+        const timeBeforeCashin = this.helper.addMinuteToDate(new Date(), -parseInt(process.env.CASHIN_DELAY_PENDING_TRANSACTION_MINUTE_BEFORE_ALERT));
+        const timeBeforeCashOut = this.helper.addMinuteToDate(new Date(), -parseInt(process.env.CASHOUT_DELAY_PENDING_TRANSACTION_MINUTE_BEFORE_ALERT));
         return await Transactions_entity_1.Transactions.find({
-            where: {
-                statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
-                typeOperation: Enum_entity_1.TypeOperationEnum.DEBIT,
-                initResponseEndAt: typeorm_1.Not(typeorm_1.IsNull()),
-                createdAt: typeorm_1.LessThan(timeBefore),
-            },
+            where: [
+                {
+                    statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
+                    typeOperation: Enum_entity_1.TypeOperationEnum.DEBIT,
+                    initResponseEndAt: typeorm_1.Not(typeorm_1.IsNull()),
+                    createdAt: typeorm_1.LessThan(timeBeforeCashin),
+                },
+                {
+                    statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
+                    typeOperation: Enum_entity_1.TypeOperationEnum.CREDIT,
+                    initResponseEndAt: typeorm_1.Not(typeorm_1.IsNull()),
+                    createdAt: typeorm_1.LessThan(timeBeforeCashOut),
+                },
+            ],
             take: 50,
             relations: [],
         });
