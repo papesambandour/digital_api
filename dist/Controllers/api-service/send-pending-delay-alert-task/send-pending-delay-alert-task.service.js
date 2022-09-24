@@ -62,7 +62,7 @@ let SendPendingDelayAlertTaskService = class SendPendingDelayAlertTaskService {
     }
 };
 __decorate([
-    schedule_1.Cron('* */5 * * * *'),
+    schedule_1.Cron(schedule_1.CronExpression.EVERY_5_MINUTES),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
