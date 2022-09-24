@@ -59,7 +59,7 @@ export declare class HelperService {
     isNotCancelable(preStatus: StatusEnum | any | string, status: StatusEnum | any | string): boolean;
     appendQueryParams(url: string, queryParams?: any): string;
     private getTransactionCallBackHash;
-    private sha256;
+    sha256(data: string): string;
     b64ToFilePath(attachedMedia: string, attachedMediaExtension: string, attachedMediaName: string): Promise<string>;
     getAmountForMessenger(operationInDto: OperationInDto): Promise<number>;
     provideErrorType(transaction: Transactions, providedErrorMessage?: string | undefined, providedError?: ErrorTypes | undefined, defaultMessageIfUnknowNoError?: string | undefined): Promise<any>;
@@ -78,4 +78,5 @@ export declare class HelperService {
     uuid(): string;
     formatMoney(number: string | number, decimals?: number, dec_point?: string, thousands_sep?: string): any;
     private regexEscape;
+    getNowDateWithoutSubUnity(): Date;
 }

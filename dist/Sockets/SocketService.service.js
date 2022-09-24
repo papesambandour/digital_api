@@ -49,7 +49,7 @@ let SocketServiceService = class SocketServiceService {
         sockets_gateway_1.SocketsGateway.socket.to(room).emit('leaveRoom', phone);
     }
     async smsReceived(client, socketBody) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
         try {
             socketBody = JSON.parse(socketBody
                 .toString()
@@ -70,9 +70,10 @@ let SocketServiceService = class SocketServiceService {
         console.log('\n\n\nSOCKET BODY', typeof socketBody, Object.keys(socketBody), socketBody, '\n\n\n');
         const sms = new DtoMessageUssds_1.DtoMessageUssds();
         sms.content = (_a = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _a === void 0 ? void 0 : _a.content;
-        sms.createdAt = new Date();
-        sms.sender = (_b = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _b === void 0 ? void 0 : _b.numero;
-        sms.messagerie = (_c = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _c === void 0 ? void 0 : _c.numeroCentre;
+        sms.shaSubContent = this.helper.sha256((_c = (_b = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _b === void 0 ? void 0 : _b.content) === null || _c === void 0 ? void 0 : _c.substr(0, 155));
+        sms.createdAt = this.helper.getNowDateWithoutSubUnity();
+        sms.sender = (_d = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _d === void 0 ? void 0 : _d.numero;
+        sms.messagerie = (_e = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _e === void 0 ? void 0 : _e.numeroCentre;
         let infoTransaction;
         const phones = await Phones_entity_1.Phones.find({
             where: {
@@ -88,7 +89,7 @@ let SocketServiceService = class SocketServiceService {
         let resMessage;
         try {
             resMessage = await MessageUssds_entity_1.MessageUssds.insert(sms);
-            if (!((_d = resMessage === null || resMessage === void 0 ? void 0 : resMessage.raw) === null || _d === void 0 ? void 0 : _d.insertId)) {
+            if (!((_f = resMessage === null || resMessage === void 0 ? void 0 : resMessage.raw) === null || _f === void 0 ? void 0 : _f.insertId)) {
                 return;
             }
         }
@@ -144,7 +145,7 @@ let SocketServiceService = class SocketServiceService {
                         where: {
                             amount: typeorm_1.Equal(infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount),
                             phone: typeorm_1.Equal(infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.phone),
-                            sousServicesId: typeorm_1.Equal((_e = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _e === void 0 ? void 0 : _e.id),
+                            sousServicesId: typeorm_1.Equal((_g = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _g === void 0 ? void 0 : _g.id),
                             statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
                             phonesId: typeorm_1.Equal(phone.id),
                         },
@@ -156,7 +157,7 @@ let SocketServiceService = class SocketServiceService {
                     console.log('Transaction filter', {
                         amount: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.amount,
                         phone: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.phone,
-                        sousServicesId: (_f = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _f === void 0 ? void 0 : _f.id,
+                        sousServicesId: (_h = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _h === void 0 ? void 0 : _h.id,
                         statut: [Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING],
                         phonesId: phone.id,
                         sousservice: infoTransaction.sousService,
@@ -170,11 +171,11 @@ let SocketServiceService = class SocketServiceService {
                     const senderValid = String(infoTransaction.sousService.senderSmsAuthorize)
                         .split(',')
                         .map((op) => op.trim())
-                        .includes((_g = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _g === void 0 ? void 0 : _g.numero);
+                        .includes((_j = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _j === void 0 ? void 0 : _j.numero);
                     const centerValid = String(infoTransaction.sousService.centerSmsAuthorize)
                         .split(',')
                         .map((op) => op.trim())
-                        .includes((_h = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _h === void 0 ? void 0 : _h.numeroCentre);
+                        .includes((_k = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _k === void 0 ? void 0 : _k.numeroCentre);
                     if (!senderValid || !centerValid) {
                         this.helper
                             .notifyAdmin(`Un sms avec une source inconnu a été recu pour la transaction #${transaction.id},\nSender_recu: ${socketBody.data.numero}, Sender_attendu: ${infoTransaction.sousService.centerSmsAuthorize}\nCentre_recu: ${socketBody.data.numeroCentre}, Centre_attendu: ${infoTransaction.sousService.centerSmsAuthorize}\nMessage: ${sms.content}`, Enum_entity_1.TypeEvenEnum.UN_ALLOWED_SMS_SOURCE, null, true)
@@ -191,7 +192,7 @@ let SocketServiceService = class SocketServiceService {
                     });
                     await transaction.reload();
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
-                        sousServicesId: (_j = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _j === void 0 ? void 0 : _j.id,
+                        sousServicesId: (_l = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _l === void 0 ? void 0 : _l.id,
                         transactionsId: transaction.id,
                         isMatched: 1,
                     });

@@ -709,6 +709,9 @@ let HelperService = class HelperService {
         return this.sha256(`${transaction.transactionId}|${transaction.externalTransactionId}|${transaction.partenerComptes.appKey}`);
     }
     sha256(data) {
+        if (!data) {
+            return null;
+        }
         return crypto.createHash('sha256').update(data).digest('hex').toString();
     }
     async b64ToFilePath(attachedMedia, attachedMediaExtension, attachedMediaName) {
@@ -1098,6 +1101,9 @@ let HelperService = class HelperService {
     }
     regexEscape(s) {
         return s.replace(/[-[\]{}()*+?.,\\^$|]/g, '\\$&');
+    }
+    getNowDateWithoutSubUnity() {
+        return new Date(new Date().toISOString().substring(0, 19).replace('T', ' '));
     }
 };
 HelperService = __decorate([

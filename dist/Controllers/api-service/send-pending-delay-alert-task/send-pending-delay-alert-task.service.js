@@ -46,14 +46,12 @@ let SendPendingDelayAlertTaskService = class SendPendingDelayAlertTaskService {
                 {
                     statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
                     typeOperation: Enum_entity_1.TypeOperationEnum.DEBIT,
-                    initResponseEndAt: typeorm_1.Not(typeorm_1.IsNull()),
                     createdAt: typeorm_1.LessThan(timeBeforeCashin),
                     dateCreation: typeorm_1.MoreThanOrEqual(new Date(process.env.DELAY_PENDING_REF_START_DATE)),
                 },
                 {
                     statut: typeorm_1.In([Enum_entity_1.StatusEnum.PROCESSING, Enum_entity_1.StatusEnum.PENDING]),
                     typeOperation: Enum_entity_1.TypeOperationEnum.CREDIT,
-                    initResponseEndAt: typeorm_1.Not(typeorm_1.IsNull()),
                     createdAt: typeorm_1.LessThan(timeBeforeCashOut),
                     dateCreation: typeorm_1.MoreThanOrEqual(new Date(process.env.DELAY_PENDING_REF_START_DATE)),
                 },

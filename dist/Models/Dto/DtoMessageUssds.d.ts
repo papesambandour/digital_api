@@ -2,6 +2,7 @@ export declare class DtoMessageUssds {
     id: number;
     transactionsId: number | null;
     content: string | null;
+    shaSubContent: string | null;
     sender: string | null;
     messagerie: string | null;
     createdAt: Date;

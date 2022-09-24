@@ -32,6 +32,15 @@ __decorate([
     __metadata("design:type", String)
 ], MessageUssds.prototype, "content", void 0);
 __decorate([
+    typeorm_1.Column({
+        type: 'varchar',
+        length: 500,
+        name: 'sha_sub_content',
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], MessageUssds.prototype, "shaSubContent", void 0);
+__decorate([
     typeorm_1.Column({ type: 'varchar', length: 255, name: 'sender', nullable: true }),
     __metadata("design:type", String)
 ], MessageUssds.prototype, "sender", void 0);
@@ -91,7 +100,7 @@ MessageUssds = __decorate([
     typeorm_1.Index('fk_message_ussds_sous_services1_idx', ['sousServicesId'], {}),
     typeorm_1.Index('fk_message_ussds_phones_id1_idx', ['phonesId'], {}),
     typeorm_1.Unique('unique_content_created_at_phones_id', [
-        'content',
+        'shaSubContent',
         'createdAt',
         'phonesId',
     ]),

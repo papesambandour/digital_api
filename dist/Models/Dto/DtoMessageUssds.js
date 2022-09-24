@@ -28,6 +28,10 @@ __decorate([
 __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
+], DtoMessageUssds.prototype, "shaSubContent", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
 ], DtoMessageUssds.prototype, "sender", void 0);
 __decorate([
     swagger_1.ApiProperty(),
