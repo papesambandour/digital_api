@@ -106,6 +106,9 @@ let SocketServiceService = class SocketServiceService {
             },
         });
         if (checkDouble) {
+            await MessageUssds_entity_1.MessageUssds.update(checkDouble.id, {
+                duplicate: 1,
+            });
             return console.log('check double failed');
         }
         console.log('SMS INSERT', resMessage);

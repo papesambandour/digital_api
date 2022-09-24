@@ -6,6 +6,7 @@ export declare class MessageUssds extends CustomBaseModel {
     id: number;
     transactionsId: number | null;
     sousServicesId: number | null;
+    duplicate: number | null;
     content: string | null;
     shaSubContent: string | null;
     sender: string | null;

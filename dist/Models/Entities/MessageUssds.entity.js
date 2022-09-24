@@ -36,6 +36,14 @@ __decorate([
     __metadata("design:type", Number)
 ], MessageUssds.prototype, "sousServicesId", void 0);
 __decorate([
+    typeorm_1.Column('int', {
+        name: 'duplicate',
+        default: 0,
+        nullable: true,
+    }),
+    __metadata("design:type", Number)
+], MessageUssds.prototype, "duplicate", void 0);
+__decorate([
     typeorm_1.Column({ type: 'varchar', length: 500, name: 'content', nullable: true }),
     __metadata("design:type", String)
 ], MessageUssds.prototype, "content", void 0);
