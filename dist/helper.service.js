@@ -616,6 +616,7 @@ let HelperService = class HelperService {
                 id: typeorm_2.Equal(transaction.partenersId),
             },
         });
+        await transaction.reload();
         if (transaction.transactionIsFinish) {
             return false;
         }

@@ -68,9 +68,10 @@ let SocketServiceService = class SocketServiceService {
             console.log(`Message recever SMS`);
         }
         console.log('\n\n\nSOCKET BODY', typeof socketBody, Object.keys(socketBody), socketBody, '\n\n\n');
+        const shaSubContent = this.helper.sha256((_b = (_a = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _a === void 0 ? void 0 : _a.content) === null || _b === void 0 ? void 0 : _b.substr(0, 155));
         const sms = new DtoMessageUssds_1.DtoMessageUssds();
-        sms.content = (_a = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _a === void 0 ? void 0 : _a.content;
-        sms.shaSubContent = this.helper.sha256((_c = (_b = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _b === void 0 ? void 0 : _b.content) === null || _c === void 0 ? void 0 : _c.substr(0, 155));
+        sms.content = (_c = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _c === void 0 ? void 0 : _c.content;
+        sms.shaSubContent = shaSubContent;
         sms.createdAt = this.helper.getNowDateWithoutSubUnity();
         sms.sender = (_d = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _d === void 0 ? void 0 : _d.numero;
         sms.messagerie = (_e = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _e === void 0 ? void 0 : _e.numeroCentre;
@@ -95,6 +96,17 @@ let SocketServiceService = class SocketServiceService {
         }
         catch (e) {
             return;
+        }
+        const checkDouble = await MessageUssds_entity_1.MessageUssds.findOne({
+            where: {
+                shaSubContent: shaSubContent,
+                phonesId: phone.id,
+                id: typeorm_1.Not(resMessage.raw.insertId),
+                transactionsId: typeorm_1.Not(typeorm_1.IsNull),
+            },
+        });
+        if (checkDouble) {
+            return console.log('check double failed');
         }
         console.log('SMS INSERT', resMessage);
         sms.id = resMessage.raw.insertId;
