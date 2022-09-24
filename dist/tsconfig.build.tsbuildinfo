@@ -3082,7 +3082,7 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/messageussds.entity.ts": {
-        "version": "e4d5e5b9d39d0a6fb94b5a7ad5ea0891b49e07050f8284872976c2735bea9437",
+        "version": "59f6ca08a4f2af93592789347694a2ec83a8854b99c755267efafa5245da03a5",
         "signature": "a8504b370cb65500bf36b92e2f7e052da997d78eae0d5e0e0330fbbaa2c0b220",
         "affectsGlobalScope": false
       },

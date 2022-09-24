@@ -109,8 +109,8 @@ __decorate([
     __metadata("design:type", Phones_entity_1.Phones)
 ], MessageUssds.prototype, "phone", void 0);
 MessageUssds = __decorate([
+    typeorm_1.Index('fk_message_ussds_sous_services1_idx', ['sousServicesId'], {}),
     typeorm_1.Index('fk_message_ussds_phones_id1_idx', ['phonesId'], {}),
-    typeorm_1.Index('fk_msg_ussd_sous_services1_idx', ['sousServicesId'], {}),
     typeorm_1.Index('fk_msg_ussd_trx_idx1', ['transactionsId'], {}),
     typeorm_1.Unique('unique_content_created_at_phones_id', [
         'shaSubContent',
