@@ -97,20 +97,6 @@ let SocketServiceService = class SocketServiceService {
         catch (e) {
             return;
         }
-        const checkDouble = await MessageUssds_entity_1.MessageUssds.findOne({
-            where: {
-                shaSubContent: shaSubContent,
-                phonesId: phone.id,
-                id: typeorm_1.Not(resMessage.raw.insertId),
-                transactionsId: typeorm_1.Not(typeorm_1.IsNull),
-            },
-        });
-        if (checkDouble) {
-            await MessageUssds_entity_1.MessageUssds.update(checkDouble.id, {
-                duplicate: 1,
-            });
-            return console.log('check double failed');
-        }
         console.log('SMS INSERT', resMessage);
         sms.id = resMessage.raw.insertId;
         console.log('Phone', phone.number);
