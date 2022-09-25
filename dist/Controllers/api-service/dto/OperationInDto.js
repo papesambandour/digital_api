@@ -90,7 +90,8 @@ __decorate([
     class_validator_1.ValidateIf((object) => [
         Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_OUT,
         Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT,
-    ].includes(object['codeService'])),
+    ].includes(object['codeService']) &&
+        !String(object['successRedirectUrl']).includes('file:///android_asset')),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "successRedirectUrl", void 0);
 __decorate([
@@ -101,7 +102,8 @@ __decorate([
     class_validator_1.ValidateIf((object) => [
         Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_OUT,
         Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT,
-    ].includes(object['codeService'])),
+    ].includes(object['codeService']) &&
+        !String(object['errorRedirectUrl']).includes('file:///android_asset')),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "errorRedirectUrl", void 0);
 __decorate([
