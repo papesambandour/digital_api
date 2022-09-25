@@ -22,6 +22,7 @@ export declare class Parteners extends CustomBaseModel {
     firstConnection: number;
     passwordExpired: Date;
     passwordDurationDay: number;
+    allowIp: string;
     commissions: Commission[];
     operationParteners: OperationParteners[];
     partenerComptes: PartenerComptes[];

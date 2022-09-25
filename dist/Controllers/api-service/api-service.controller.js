@@ -67,6 +67,16 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotConform, '', true);
         }
         this.apiServiceService.headers = req.headers;
+        const allowedIp = this.apiServiceService.partner.allowIp
+            ? this.apiServiceService.partner.allowIp
+                .replace(/\s/g, '')
+                .split(',')
+                .filter((ip) => ip)
+            : [];
+        if (allowedIp.length &&
+            !allowedIp.includes(this.apiServiceService.headers['x-forwarded-for'])) {
+            return this.response(this.CODE_HTTP.IP_NOT_ALLOWED, {}, `Cette addresse IP (${this.apiServiceService.headers['x-forwarded-for']}) n'est pas autorisé á acceder l'API`, true);
+        }
         console.log(this.apiServiceService.headers);
         const apiManager = await this.helper.getApiManagerInterface(operationInDto.codeService, this.apiServiceService);
         if (!apiManager) {

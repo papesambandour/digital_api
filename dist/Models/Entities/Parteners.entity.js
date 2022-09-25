@@ -116,6 +116,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Parteners.prototype, "passwordDurationDay", void 0);
 __decorate([
+    typeorm_1.Column('text', { name: 'allow_id', nullable: true }),
+    __metadata("design:type", String)
+], Parteners.prototype, "allowIp", void 0);
+__decorate([
     typeorm_1.OneToMany(() => Commission_entity_1.Commission, (commission) => commission.parteners),
     __metadata("design:type", Array)
 ], Parteners.prototype, "commissions", void 0);

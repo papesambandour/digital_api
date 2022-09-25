@@ -3152,8 +3152,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/parteners.entity.ts": {
-        "version": "002a69536ddc7601305d9ce037d86cdfa7f3358462e397ab8a51a6fdac0f4d63",
-        "signature": "38fe598071f92774f469cf44a56e2c62c181764405bf2e21785194e252fae74e",
+        "version": "f9df8f0630032d0ee2746c47268765d1016616b0ea03795aedcfeaef8e164053",
+        "signature": "3bde7363237d752c75895f3330a6ede0cb02202b50f7c147cfdd8e2b7f0871b0",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationparteners.entity.ts": {
@@ -4097,8 +4097,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/controller.ts": {
-        "version": "5e76b29d83047a70f43acab33c10c97c0026175fdf4cf3a216329e1ce6af9cda",
-        "signature": "4f30376bb84b63bea99a887f8347265921260914375da5f3d23d01b3fdb20d74",
+        "version": "787fde9cad8ab1a30ab5f8413dcddb897a5e79dd51d63adf391897d709978a37",
+        "signature": "2b75a660a8a82a378c5aeed5276a65be0ed5bb98e1f69bf9e643b86bad460a8f",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/listpendingbillindto.ts": {
@@ -4687,7 +4687,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "b018c3e9e7a9bd104910c99bfaf310f9c33af88f25b262a7f17c803d618197fe",
+        "version": "1421ee80c6bc01741885706cbe4227d8232429ff06e57562983f33ada4649765",
         "signature": "6348e167e6daf5b75199c61f8d69c4a85aa4a3fa3c432b02ecb5256b0cb5d0ca",
         "affectsGlobalScope": false
       },

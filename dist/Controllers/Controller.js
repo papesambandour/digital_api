@@ -19,6 +19,7 @@ exports.CODE_HTTP = {
     ALREADY_OPENED_CLAIM: 'ALREADY_OPENED_CLAIM',
     OPERATION_ACCESS_DENY: 'OPERATION_ACCESS_DENY',
     SERVICE_DOWN: 'SERVICE_DOWN',
+    IP_NOT_ALLOWED: 'IP_NOT_ALLOWED',
     NOT_IMPLEMENTED: 'NOT_IMPLEMENTED',
     UNKNOW_ERROR: 'UNKNOW_ERROR',
     FAILLED: 'FAILLED',
@@ -79,6 +80,10 @@ exports.CODE_HTTP_OBJECT = {
     OPERATION_ACCESS_DENY: {
         code: 4000,
         msg: "Le service demandés n'est authorizé pour votre clee API",
+    },
+    IP_NOT_ALLOWED: {
+        code: 4000,
+        msg: "Cette addresse Ip n'est pas autorisé á acceder l'API",
     },
     SERVICE_DOWN: {
         code: 4000,

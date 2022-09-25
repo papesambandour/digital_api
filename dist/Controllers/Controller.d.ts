@@ -15,6 +15,7 @@ export declare const CODE_HTTP: {
     ALREADY_OPENED_CLAIM: string;
     OPERATION_ACCESS_DENY: string;
     SERVICE_DOWN: string;
+    IP_NOT_ALLOWED: string;
     NOT_IMPLEMENTED: string;
     UNKNOW_ERROR: string;
     FAILLED: string;
@@ -76,6 +77,10 @@ export declare const CODE_HTTP_OBJECT: {
         code: number;
         msg: string;
     };
+    IP_NOT_ALLOWED: {
+        code: number;
+        msg: string;
+    };
     SERVICE_DOWN: {
         code: number;
         msg: string;
@@ -111,6 +116,7 @@ export declare class ControllerBase {
         ALREADY_OPENED_CLAIM: string;
         OPERATION_ACCESS_DENY: string;
         SERVICE_DOWN: string;
+        IP_NOT_ALLOWED: string;
         NOT_IMPLEMENTED: string;
         UNKNOW_ERROR: string;
         FAILLED: string;
