@@ -79,4 +79,6 @@ export declare class HelperService {
     formatMoney(number: string | number, decimals?: number, dec_point?: string, thousands_sep?: string): any;
     private regexEscape;
     getNowDateWithoutSubUnity(): Date;
+    getNowDateWithoutSecond(): Date;
+    waitUntilSecondBetween(min: number, max: number): Promise<unknown>;
 }

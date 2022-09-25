@@ -1106,6 +1106,20 @@ let HelperService = class HelperService {
     getNowDateWithoutSubUnity() {
         return new Date(new Date().toISOString().substring(0, 19).replace('T', ' '));
     }
+    getNowDateWithoutSecond() {
+        return new Date(new Date().toISOString().substring(0, 16).replace('T', ' '));
+    }
+    async waitUntilSecondBetween(min, max) {
+        return new Promise((resolve) => {
+            const intervalId = setInterval(() => {
+                const now = new Date();
+                if (now.getSeconds() >= min && now.getSeconds() <= max) {
+                    resolve(new Date());
+                    clearInterval(intervalId);
+                }
+            }, 300);
+        });
+    }
 };
 HelperService = __decorate([
     common_1.Injectable(),

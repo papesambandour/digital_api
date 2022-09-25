@@ -31,6 +31,10 @@ __decorate([
 ], DtoMessageUssds.prototype, "shaSubContent", void 0);
 __decorate([
     swagger_1.ApiProperty(),
+    __metadata("design:type", Date)
+], DtoMessageUssds.prototype, "subCreatedAt", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
     __metadata("design:type", Number)
 ], DtoMessageUssds.prototype, "sousServiceId", void 0);
 __decorate([

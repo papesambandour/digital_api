@@ -72,7 +72,9 @@ let SocketServiceService = class SocketServiceService {
         const sms = new DtoMessageUssds_1.DtoMessageUssds();
         sms.content = (_c = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _c === void 0 ? void 0 : _c.content;
         sms.shaSubContent = shaSubContent;
-        sms.createdAt = this.helper.getNowDateWithoutSubUnity();
+        await this.helper.waitUntilSecondBetween(0, 53);
+        sms.subCreatedAt = this.helper.getNowDateWithoutSecond();
+        sms.createdAt = new Date();
         sms.sender = (_d = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _d === void 0 ? void 0 : _d.numero;
         sms.messagerie = (_e = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _e === void 0 ? void 0 : _e.numeroCentre;
         let infoTransaction;
@@ -96,6 +98,20 @@ let SocketServiceService = class SocketServiceService {
         }
         catch (e) {
             return;
+        }
+        const checkDouble = await MessageUssds_entity_1.MessageUssds.findOne({
+            where: {
+                shaSubContent: shaSubContent,
+                phonesId: phone.id,
+                id: typeorm_1.Not(resMessage.raw.insertId),
+                transactionsId: typeorm_1.Not(typeorm_1.IsNull()),
+            },
+        });
+        if (checkDouble) {
+            await MessageUssds_entity_1.MessageUssds.update(checkDouble.id, {
+                duplicate: 1,
+            });
+            return console.log('check double failed');
         }
         console.log('SMS INSERT', resMessage);
         sms.id = resMessage.raw.insertId;

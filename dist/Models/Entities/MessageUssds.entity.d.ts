@@ -12,6 +12,7 @@ export declare class MessageUssds extends CustomBaseModel {
     sender: string | null;
     messagerie: string | null;
     createdAt: Date;
+    subCreatedAt: Date | null;
     updatedAt: Date | null;
     isMatched: number;
     phonesId: number;

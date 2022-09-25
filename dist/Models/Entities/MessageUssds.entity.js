@@ -69,6 +69,10 @@ __decorate([
     __metadata("design:type", Date)
 ], MessageUssds.prototype, "createdAt", void 0);
 __decorate([
+    typeorm_1.Column('datetime', { name: 'sub_created_at', nullable: true }),
+    __metadata("design:type", Date)
+], MessageUssds.prototype, "subCreatedAt", void 0);
+__decorate([
     typeorm_1.Column('datetime', {
         name: 'updated_at',
         nullable: true,
@@ -122,7 +126,7 @@ MessageUssds = __decorate([
     typeorm_1.Index('fk_msg_ussd_trx_idx1', ['transactionsId'], {}),
     typeorm_1.Unique('unique_content_created_at_phones_id', [
         'shaSubContent',
-        'createdAt',
+        'subCreatedAt',
         'phonesId',
     ]),
     typeorm_1.Entity('message_ussds', { schema: 'simbot_db' })
