@@ -4877,8 +4877,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/dto/retro-dto.ts": {
-        "version": "20ebe23cc561efa1569e326db26c72c16a27c87ecbd347dde7de6ab6ae396c63",
-        "signature": "700a1595ec388bd1fa93ac03584695c0b5c5201e7a635df9672a25ba6af72cc7",
+        "version": "74294515a9b34543049fe494c5d4d2574c229e3b0d34e96d725015b7e2015308",
+        "signature": "689ab0029dc9e0186012f703b061f42ecc50b468320394a99a66563963b59c7d",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/dto/execute-ussd-dto.ts": {
@@ -5412,7 +5412,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-service.service.ts": {
-        "version": "d2d0e221501acdab29c22251f9e08edbc6ba620e05cd263523c02b4693a579a7",
+        "version": "6291db8fc7f7f81011e536a507ed744efe627a3f80ad5b5c7b97f3714db6d431",
         "signature": "c494567b7b09d583fce28e26d6780ef3925d511381ccdb13996702a6882479e1",
         "affectsGlobalScope": false
       },

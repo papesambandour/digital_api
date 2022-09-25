@@ -204,7 +204,7 @@ let PartnerServiceService = class PartnerServiceService {
             });
             const data = {
                 phone: transaction.phone,
-                amount: transaction.amount,
+                amount: retroDtoIn.amount || transaction.amount,
                 codeService: retroDtoIn.codeService,
                 motif: `Retro transaction pour #${transaction.transactionId} par partenaire`,
                 externalTransactionId: `RETRO_TR${this.helper.generateRandomId('', 5)}_PARTNER_#${transaction.transactionId.toUpperCase()}`,
@@ -250,9 +250,9 @@ let PartnerServiceService = class PartnerServiceService {
             });
             const data = {
                 phone: transaction.phone,
-                amount: transaction.amount,
+                amount: retroDtoIn.amount || transaction.amount,
                 codeService: retroDtoIn.codeService,
-                motif: `Retro transaction pour #${transaction.transactionId} par Admin`,
+                motif: `Retro transaction pour #${transaction.transactionId} par Admin:\nMotif: ${retroDtoIn.motif}`,
                 externalTransactionId: `RETRO_TR${this.helper.generateRandomId('', 5)}_ADMIN_#${transaction.transactionId.toUpperCase()}`,
                 callbackUrl: transaction.urlIpn,
                 apiKey: process.env.RETRO_ADMIN_API_KEY,

@@ -21,6 +21,14 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], RetroDtoIn.prototype, "codeService", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], RetroDtoIn.prototype, "motif", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], RetroDtoIn.prototype, "amount", void 0);
 exports.RetroDtoIn = RetroDtoIn;
 class RetroDtoOut {
 }
