@@ -88,6 +88,8 @@ export declare class Transactions extends CustomBaseModel {
     canceled: number;
     timeOutAt: Date;
     rib: string;
+    currency: 'XOF' | 'GMD' | 'GNF' | 'SLL' | 'MAD';
+    amountInCurrency: number;
     customerLastName: string;
     customerFirstName: string;
     customerEmail: string;

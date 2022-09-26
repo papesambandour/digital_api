@@ -1120,6 +1120,18 @@ let HelperService = class HelperService {
             }, 300);
         });
     }
+    convertCurrency(from, to, amount) {
+        const fromCurrency = Enum_entity_1.Currencies.rates[from];
+        const toCurrency = Enum_entity_1.Currencies.rates[to];
+        if (!fromCurrency || !toCurrency) {
+            throw new Error(`Currency est invalide' ${from}-${to}`);
+        }
+        const amountToBaseConvertedAmount = amount / fromCurrency;
+        return Math.round(amountToBaseConvertedAmount * toCurrency);
+    }
+    getCurrencyList() {
+        return Object.keys(Enum_entity_1.Currencies.rates);
+    }
 };
 HelperService = __decorate([
     common_1.Injectable(),

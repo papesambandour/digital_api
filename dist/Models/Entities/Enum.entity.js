@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ClaimStatut = exports.EXECUTE_TYPE_USSD = exports.SIM_PROVIDER = exports.SOUS_SERVICE_ENUM = exports.EnumCodeUssdResponse = exports.EnumValidationStatus = exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
+exports.Currencies = exports.ClaimStatut = exports.EXECUTE_TYPE_USSD = exports.SIM_PROVIDER = exports.SOUS_SERVICE_ENUM = exports.EnumCodeUssdResponse = exports.EnumValidationStatus = exports.PHONES_HOLDERS = exports.CONSTANT = exports.TypeEvenEnum = exports.PhoneState = exports.EnumActivitiesPhones = exports.CommissionFeeTypeEnum = exports.SocketState = exports.TypePartener = exports.TypeOperationEnum = exports.OperationEnumPhone = exports.OperationEnum = exports.StatusEnum = exports.StateEnum = void 0;
 var StateEnum;
 (function (StateEnum) {
     StateEnum["ACTIVED"] = "ACTIVED";
@@ -162,4 +162,14 @@ var ClaimStatut;
     ClaimStatut["OPENED"] = "OPENED";
     ClaimStatut["CLOSED"] = "CLOSED";
 })(ClaimStatut = exports.ClaimStatut || (exports.ClaimStatut = {}));
+exports.Currencies = {
+    base: 'XOF',
+    rates: {
+        XOF: 1,
+        MAD: 0.0162,
+        GMD: 0.0799,
+        SLL: 22.3174,
+        GNF: 12.8424,
+    },
+};
 //# sourceMappingURL=Enum.entity.js.map

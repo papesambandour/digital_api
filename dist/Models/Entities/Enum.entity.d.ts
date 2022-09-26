@@ -141,3 +141,13 @@ export declare enum ClaimStatut {
     OPENED = "OPENED",
     CLOSED = "CLOSED"
 }
+export declare const Currencies: {
+    base: string;
+    rates: {
+        XOF: number;
+        MAD: number;
+        GMD: number;
+        SLL: number;
+        GNF: number;
+    };
+};

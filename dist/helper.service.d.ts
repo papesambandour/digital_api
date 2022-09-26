@@ -81,4 +81,6 @@ export declare class HelperService {
     getNowDateWithoutSubUnity(): Date;
     getNowDateWithoutSecond(): Date;
     waitUntilSecondBetween(min: number, max: number): Promise<unknown>;
+    convertCurrency(from: string, to: string, amount: number): number;
+    getCurrencyList(): string[];
 }

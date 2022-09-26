@@ -361,7 +361,7 @@ __decorate([
 __decorate([
     typeorm_1.Column('double', {
         name: 'amount',
-        comment: 'Montant de transaction ',
+        comment: 'Montant de transaction en XOF',
         precision: 17,
         scale: 4,
     }),
@@ -565,6 +565,22 @@ __decorate([
     typeorm_1.Column('text', { name: 'rib', nullable: true }),
     __metadata("design:type", String)
 ], Transactions.prototype, "rib", void 0);
+__decorate([
+    typeorm_1.Column('enum', {
+        name: 'currency',
+        enum: ['XOF', 'GMD', 'GNF', 'SLL', 'MAD'],
+        default: 'XOF',
+    }),
+    __metadata("design:type", String)
+], Transactions.prototype, "currency", void 0);
+__decorate([
+    typeorm_1.Column('text', {
+        name: 'amount_in_currency',
+        nullable: true,
+        comment: 'Montant de la transaction sur la device soumis',
+    }),
+    __metadata("design:type", Number)
+], Transactions.prototype, "amountInCurrency", void 0);
 __decorate([
     typeorm_1.Column({ name: 'customer_last_name', nullable: true }),
     __metadata("design:type", String)

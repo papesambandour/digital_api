@@ -32,6 +32,13 @@ __decorate([
     __metadata("design:type", Number)
 ], OperationInDto.prototype, "amount", void 0);
 __decorate([
+    class_validator_1.ValidateIf((object) => !!object['currency']),
+    class_validator_1.IsIn(['XOF', 'GMD', 'GNF', 'SLL', 'MAD'], {
+        message: `Currency doit être parmis 'XOF', 'GMD', 'GNF', 'SLL', 'MAD'`,
+    }),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "currency", void 0);
+__decorate([
     swagger_1.ApiProperty(),
     class_validator_1.IsNotEmpty({
         message: 'Le code service est requis',

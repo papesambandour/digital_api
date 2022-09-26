@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "aabc03dcadd0d8b3cdd826542856dfe4f1df284fed5ae805ebb043fcdefa8539",
-        "signature": "13bafd6f871139645017c54c55cf6ce3309d029e8824a67bc336d018d1df3eca",
+        "version": "43e1625bfeb72f88b07268a000c0394bbc89dc9deb9866e9d3899925dd7612fb",
+        "signature": "f5e5eb3e7e65ccf393efb5f825f65c289413604093aa0eca3c0e9902ed6e86d5",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3162,8 +3162,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "d67ea8e7cd7fdb317f6e97cb4d8ba33db39b552f78dee2cfc22a6dc0974fb1b0",
-        "signature": "328ae94b4b93fd8818e9836adcce36622f7a25d67bf47cac05554bdd4f3b72a0",
+        "version": "bc21c251ff59473c86a0d4ccd92531a924454ff624f8e1afcc0e3969a844bbea",
+        "signature": "fec9389d57e80ba7a315fbdad71f010aeb801061289b3c6ead97f3d2383b403c",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
@@ -3812,8 +3812,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "829121a23f1b4afeb7a738ea619095d02a76d176e6fbecd5bcfcb252831712b9",
-        "signature": "5404106a2885f8bdb9174777f73ff0bc66f0af89aeeea5d64624727db0ea3364",
+        "version": "b54b20b760ab086fb02c87f93cb11967bfbeb7ac130f220306d58c52e923dad0",
+        "signature": "b9a8058667b17d397365e44244e7cc9bdb1fe0747aeb34fc40165240ad3661c7",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationoutdto.ts": {
@@ -4092,7 +4092,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "0da6dcc59a71ea2f765bb56a2e2a52ef9cc67a1a6c9c20f9c915dd648c2c2f8d",
+        "version": "a828efbba512d084fc53faee8bbea55d02674791558ab7367a6687fe4ebc6267",
         "signature": "68c7d299309bfdecd795c3410516d4a3d201244ace4bc7484f2d186440767f31",
         "affectsGlobalScope": false
       },
@@ -4107,7 +4107,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "95319188125a74c25a9e340e4d0bb05d6fd6f7a2ab6440be2101725ea1ade0b2",
+        "version": "82fa5df17a2742927dd724d360ce57fd47ea6a34cdc542d8a8b2f65e5e3825da",
         "signature": "7ca7a1288810d98ad88ee4904be83e2e125ccd2c303d83b058255841bc721faf",
         "affectsGlobalScope": false
       },
@@ -4687,7 +4687,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "1421ee80c6bc01741885706cbe4227d8232429ff06e57562983f33ada4649765",
+        "version": "4002bdc3e52694a70d217ac375dd71140b691a0780cfcb8b58e5b04fda298109",
         "signature": "6348e167e6daf5b75199c61f8d69c4a85aa4a3fa3c432b02ecb5256b0cb5d0ca",
         "affectsGlobalScope": false
       },
@@ -5522,8 +5522,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "1889e9be1ce03a5d1e69d5103f47789853fea5114fe67c0804ed116d2758bbef",
-        "signature": "7f4336f290cd6e85e626a1c9b6917c8bc47bb4d677a61cd5ddc45a35ebe8a474",
+        "version": "5fc55ea8b47a3bf65114487a8d864892183bc26e0358a72c8a1b57145f0fc92d",
+        "signature": "4d2a1d6dbb414b766fe098aff27957b7c396bf8ec2a8ed02bbd24b393f079f85",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -10759,7 +10759,6 @@
         "../node_modules/@types/node/crypto.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/os.d.ts",
-        "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../node_modules/typeorm/metadata/columnmetadata.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",

@@ -57,6 +57,8 @@ class ApiManagerInterface {
         transaction.dateCreation = new Date();
         transaction.phone = this.apiService.operationInDto.phone;
         transaction.amount = this.apiService.operationInDto.amount;
+        transaction.amountInCurrency = this.apiService.operationInDto.amountInCurrency;
+        transaction.currency = this.apiService.operationInDto.currency;
         transaction.urlIpn = this.apiService.operationInDto.callbackUrl;
         transaction.serviceName = this.apiService.service.name;
         transaction.sousServiceName = this.apiService.sousServices.name;

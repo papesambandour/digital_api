@@ -1,6 +1,8 @@
 export declare class OperationInDto {
     phone: string;
     amount: number;
+    amountInCurrency: number;
+    currency: 'XOF' | 'GMD' | 'GNF' | 'SLL' | 'MAD';
     codeService: string;
     motif: string;
     externalTransactionId: string;

@@ -308,7 +308,10 @@ let ApiServiceService = class ApiServiceService {
     responseOperation(response, operationInDto, errorType) {
         return Object.assign({
             phone: operationInDto.phone,
-            amount: operationInDto.amount,
+            amount: operationInDto.amountInCurrency,
+            currency: operationInDto.currency,
+            amountXof: operationInDto.amount,
+            amountInCurrency: operationInDto.amountInCurrency,
             codeService: operationInDto.codeService,
             transactionId: (response === null || response === void 0 ? void 0 : response.transactionId) || null,
             status: response.status,

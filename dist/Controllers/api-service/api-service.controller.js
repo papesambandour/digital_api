@@ -51,9 +51,13 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         this.helper = helper;
     }
     async operation(operationInDto, req) {
+        var _a, _b, _c;
         if ([Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(operationInDto.codeService)) {
             operationInDto.amount = await this.helper.getAmountForMessenger(operationInDto);
         }
+        operationInDto.currency = (operationInDto.currency || 'XOF').toUpperCase();
+        operationInDto.amountInCurrency = operationInDto.amount;
+        operationInDto.amount = this.helper.convertCurrency(operationInDto.currency, 'XOF', operationInDto.amount);
         const isNotValid = await this.validator(this.getInstanceObject(operationInDto, new OperationInDto_1.OperationInDto()));
         if (isNotValid) {
             return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotValid, '', true);
@@ -67,13 +71,8 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotConform, '', true);
         }
         this.apiServiceService.headers = req.headers;
-        const allowedIp = this.apiServiceService.partner.allowIp
-            ? this.apiServiceService.partner.allowIp
-                .replace(/\s/g, '')
-                .split(',')
-                .filter((ip) => ip)
-            : [];
-        if (allowedIp.length &&
+        const allowedIp = ((_c = (_b = (_a = this.apiServiceService.partner.allowIp) === null || _a === void 0 ? void 0 : _a.replace(/\s/g, '')) === null || _b === void 0 ? void 0 : _b.split(',')) === null || _c === void 0 ? void 0 : _c.filter((ip) => ip)) || [];
+        if ((allowedIp === null || allowedIp === void 0 ? void 0 : allowedIp.length) &&
             !allowedIp.includes(this.apiServiceService.headers['x-forwarded-for'])) {
             return this.response(this.CODE_HTTP.IP_NOT_ALLOWED, {}, `Cette addresse IP (${this.apiServiceService.headers['x-forwarded-for']}) n'est pas autorisé á acceder l'API`, true);
         }
