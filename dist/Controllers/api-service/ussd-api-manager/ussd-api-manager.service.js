@@ -32,18 +32,18 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         }
         const transaction = await this.createTransaction(phone);
         let runSuccess;
-        if (this.apiService.sousServices.executeType === 'SEND_USSD_CODE_SMS') {
-            runSuccess = await this.executeSms(transaction, phone, params);
-        }
-        else {
-            try {
+        try {
+            if (this.apiService.sousServices.executeType === 'SEND_USSD_CODE_SMS') {
+                runSuccess = await this.executeSms(transaction, phone, params);
+            }
+            else {
                 runSuccess = await this.executeUssdCall(phone, transaction);
             }
-            catch (e) {
-                console.log(e);
-            }
-            this.activePhone(phone.id, phone.number).then();
         }
+        catch (e) {
+            console.log(e);
+        }
+        this.activePhone(phone.id, phone.number).then();
         if (!runSuccess) {
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,
