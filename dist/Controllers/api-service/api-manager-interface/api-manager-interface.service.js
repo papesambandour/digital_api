@@ -211,7 +211,7 @@ class ApiManagerInterface {
                 !this.apiService.sousServices.needPhone;
             if (limitNotReached && isFree) {
                 Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phone.number]['used'] = true;
-                this.disablePhone(phone.id, phone.number).then((value) => value);
+                await this.disablePhone(phone.id, phone.number).then((value) => value);
                 return phone;
             }
         }
