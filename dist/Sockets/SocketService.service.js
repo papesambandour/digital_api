@@ -25,7 +25,7 @@ const SousServicesPhones_entity_1 = require("../Models/Entities/SousServicesPhon
 const SousServices_entity_1 = require("../Models/Entities/SousServices.entity");
 const helper_service_1 = require("../helper.service");
 const config_1 = require("../sdk/Discord/config");
-const v8_1 = require("v8");
+const main_1 = require("../main");
 let SocketServiceService = class SocketServiceService {
     constructor(httpService, helper) {
         this.httpService = httpService;
@@ -85,7 +85,7 @@ let SocketServiceService = class SocketServiceService {
         });
         let phone = phones[0];
         if (!phone) {
-            return this.helper.notifyAdmin(`Socket ${v8_1.serialize(socketBody)} non trouve apres un sms recu: \n${sms.content}`, Enum_entity_1.TypeEvenEnum.SOCKET_NOT_FOUND);
+            return this.helper.notifyAdmin(`Socket-Phone ${main_1.serializeData(socketBody)} non trouve apres un sms recu: \n${sms.content}`, Enum_entity_1.TypeEvenEnum.SOCKET_NOT_FOUND);
         }
         const phonesId = phones.map((phone) => phone.id);
         sms.phonesId = phone.id;
@@ -272,7 +272,7 @@ let SocketServiceService = class SocketServiceService {
     }
     handleDisconnect(client) {
         var _a, _b, _c, _d, _e, _f;
-        sockets_gateway_1.SocketsGateway.logger.log(`Client disconnected: ${client.id} from ${(_b = (_a = client === null || client === void 0 ? void 0 : client.handshake) === null || _a === void 0 ? void 0 : _a.query) === null || _b === void 0 ? void 0 : _b.device}`);
+        console.log(`Client disconnected: ${client.id} from ${(_b = (_a = client === null || client === void 0 ? void 0 : client.handshake) === null || _a === void 0 ? void 0 : _a.query) === null || _b === void 0 ? void 0 : _b.device}`);
         console.log('SocketsGateway.socketInternals', sockets_gateway_1.SocketsGateway.socketInternals);
         const socketDisconnected = (_c = sockets_gateway_1.SocketsGateway === null || sockets_gateway_1.SocketsGateway === void 0 ? void 0 : sockets_gateway_1.SocketsGateway.socketInternals) === null || _c === void 0 ? void 0 : _c.find((socketIntern) => (socketIntern === null || socketIntern === void 0 ? void 0 : socketIntern.id) == (client === null || client === void 0 ? void 0 : client.id));
         console.log('socket intern socketDisconnected', socketDisconnected);

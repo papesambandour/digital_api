@@ -112,6 +112,7 @@ var EnumValidationStatus;
     EnumValidationStatus["SUCCESS"] = "SUCCESS";
     EnumValidationStatus["NO_SET"] = "NO_SET";
     EnumValidationStatus["TIME_OUT"] = "TIME_OUT";
+    EnumValidationStatus["TIME_OUT_WITH_ACK"] = "TIME_OUT_WITH_ACK";
 })(EnumValidationStatus = exports.EnumValidationStatus || (exports.EnumValidationStatus = {}));
 var EnumCodeUssdResponse;
 (function (EnumCodeUssdResponse) {
@@ -119,6 +120,7 @@ var EnumCodeUssdResponse;
     EnumCodeUssdResponse["ERROR"] = "ERROR";
     EnumCodeUssdResponse["NO_SET"] = "NO_SET";
     EnumCodeUssdResponse["TIME_OUT"] = "TIME_OUT";
+    EnumCodeUssdResponse["TIME_OUT_WITH_ACK"] = "TIME_OUT_WITH_ACK";
 })(EnumCodeUssdResponse = exports.EnumCodeUssdResponse || (exports.EnumCodeUssdResponse = {}));
 var SOUS_SERVICE_ENUM;
 (function (SOUS_SERVICE_ENUM) {

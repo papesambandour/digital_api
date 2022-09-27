@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "43e1625bfeb72f88b07268a000c0394bbc89dc9deb9866e9d3899925dd7612fb",
-        "signature": "f5e5eb3e7e65ccf393efb5f825f65c289413604093aa0eca3c0e9902ed6e86d5",
+        "version": "70f69ecacfcb892498ec8b790326c944d149269e16f3d48a02730cd74cece888",
+        "signature": "0d15ed9a807a4ba8e69cde8d24fb47f9bfd05c76b21cfc9be072a41208d6f67f",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4567,12 +4567,12 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "8e6ba7ff4df8d2972a70f2f90edf7563bb9c4f1db9ba410c8432f41e53ed030f",
+        "version": "2142cdad0021de694f24e532093896c4e0ba311ea06f6118ef9432fa318f61f8",
         "signature": "ecfdade2ce750f00b2c1f371589b0e4009aa8b4c843886a8ea755e077c5cab3c",
         "affectsGlobalScope": false
       },
       "../src/sockets/sockets.gateway.ts": {
-        "version": "54dae93178524b353d4b173470abf413718fc8cc01739f62303e62949e688edd",
+        "version": "0d87b810f1cc7dd266eede888e874e07c73fcd17151ac9ece00e7f1d593910c9",
         "signature": "8a52bca14e245ddc4ae08e4fe6da22f6715a904f9a9cc71d06984b4647f9fe80",
         "affectsGlobalScope": false
       },
@@ -5782,7 +5782,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "a54272859bf3a098d41f7c131466c0aa1fc496c5c254dafb09dfcb63b86d0496",
+        "version": "dc36b786a1b1b4cfe9401f14043970d6a92ee159e7be5ba80e5bde3486f97520",
         "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },
@@ -11235,10 +11235,10 @@
       ],
       "../src/sockets/socketservice.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/node/v8.d.ts",
         "../node_modules/socket.io/dist/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/helper.service.ts",
+        "../src/main.ts",
         "../src/models/custom/socketmodels.ts",
         "../src/models/dto/dtoactivitiesphones.ts",
         "../src/models/dto/dtomessageussds.ts",

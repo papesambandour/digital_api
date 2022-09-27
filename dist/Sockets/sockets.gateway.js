@@ -23,7 +23,9 @@ let SocketsGateway = class SocketsGateway {
         var _a;
         console.log('this.socket.sockets');
         const sockets = this.socket.sockets;
-        return sockets.get((_a = this.socketInternals.find((socket) => socket.room == room)) === null || _a === void 0 ? void 0 : _a.id);
+        const fetchSocket = sockets.get((_a = this.socketInternals.find((socket) => socket.room == room)) === null || _a === void 0 ? void 0 : _a.id);
+        console.log(fetchSocket.connected, 'fetch_socket');
+        return fetchSocket.connected ? fetchSocket : null;
     }
     async smsReceivedPhone(client, socketBody) {
         await this.socketServiceService.smsReceived(client, socketBody);
@@ -71,7 +73,7 @@ __decorate([
 SocketsGateway = __decorate([
     websockets_1.WebSocketGateway({
         namespace: '/phone',
-        pingTimeout: 5000,
+        pingTimeout: 1000,
         pingInterval: 2000,
     }),
     __metadata("design:paramtypes", [SocketService_service_1.SocketServiceService])
