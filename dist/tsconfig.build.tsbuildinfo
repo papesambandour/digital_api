@@ -4572,7 +4572,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/sockets.gateway.ts": {
-        "version": "0d87b810f1cc7dd266eede888e874e07c73fcd17151ac9ece00e7f1d593910c9",
+        "version": "44bac802a7333dea2c8f5537a64f3c63b64cda8cfd5b1077b090645ffc0ce448",
         "signature": "8a52bca14e245ddc4ae08e4fe6da22f6715a904f9a9cc71d06984b4647f9fe80",
         "affectsGlobalScope": false
       },
