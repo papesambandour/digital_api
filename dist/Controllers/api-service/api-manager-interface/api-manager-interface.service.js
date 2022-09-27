@@ -181,12 +181,15 @@ class ApiManagerInterface {
     async activePhone(phoneId, phoneNumber) {
         console.log('activing phone', phoneId, phoneNumber);
         await this.helper.waitSome(1);
+        console.log('after wait');
         Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phoneNumber]['used'] = false;
         const query = `UPDATE phones
                        set phone_state= '${Enum_entity_1.PhoneState.UNUSED}',
                            last_unused= '${this.helper.mysqlDate(new Date())}'
                        where number = '${phoneNumber}'`;
-        this.apiService.connection.query(query).then((value) => console.log(value));
+        console.log('updating query');
+        await this.apiService.connection.query(query);
+        console.log('updated query phone active ok');
     }
     async disablePhone(phoneId, phoneNumber) {
         const query = `UPDATE phones

@@ -4107,7 +4107,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "cc96eed7599f2712ade433ba49a8241d42edde14022fdb03acb4ee0cb13134ab",
+        "version": "3d70e250b8313a54eb0cca3f13d3bd1078de8d2cc63c4498fd9d7939f34c4bea",
         "signature": "7ca7a1288810d98ad88ee4904be83e2e125ccd2c303d83b058255841bc721faf",
         "affectsGlobalScope": false
       },
@@ -5782,7 +5782,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "dc36b786a1b1b4cfe9401f14043970d6a92ee159e7be5ba80e5bde3486f97520",
+        "version": "3389e33727a3a9926c33c8cc49b6cbe6da6f3527c19ce82ca6d4c41faa838772",
         "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },

@@ -36,7 +36,13 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             runSuccess = await this.executeSms(transaction, phone, params);
         }
         else {
-            runSuccess = await this.executeUssdCall(phone, transaction);
+            try {
+                runSuccess = await this.executeUssdCall(phone, transaction);
+            }
+            catch (e) {
+                console.log(e);
+            }
+            this.activePhone(phone.id, phone.number).then();
         }
         if (!runSuccess) {
             return Object.assign({
