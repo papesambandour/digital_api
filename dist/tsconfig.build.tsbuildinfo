@@ -4107,7 +4107,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "82fa5df17a2742927dd724d360ce57fd47ea6a34cdc542d8a8b2f65e5e3825da",
+        "version": "4a310a9adc1bf37e9e78cc93a7e4e4bc32f793d9843e0591e6fd03e668324cef",
         "signature": "7ca7a1288810d98ad88ee4904be83e2e125ccd2c303d83b058255841bc721faf",
         "affectsGlobalScope": false
       },
@@ -5412,7 +5412,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-service.service.ts": {
-        "version": "6291db8fc7f7f81011e536a507ed744efe627a3f80ad5b5c7b97f3714db6d431",
+        "version": "6f76e6be8c39003403f7d88d43e4965176e15fd1647f29e569b32640412daa7a",
         "signature": "c494567b7b09d583fce28e26d6780ef3925d511381ccdb13996702a6882479e1",
         "affectsGlobalScope": false
       },

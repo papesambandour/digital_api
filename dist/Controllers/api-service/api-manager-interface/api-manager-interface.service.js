@@ -179,7 +179,7 @@ class ApiManagerInterface {
         return phone;
     }
     async activePhone(phoneId, phoneNumber) {
-        await this.helper.waitSome(3);
+        await this.helper.waitSome(0.5);
         Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phoneNumber]['used'] = false;
         const query = `UPDATE phones
                        set phone_state= '${Enum_entity_1.PhoneState.UNUSED}',

@@ -235,12 +235,6 @@ let PartnerServiceService = class PartnerServiceService {
                 msg: 'La transaction est introuvable',
             };
         }
-        if (transaction.typeOperation !== Enum_entity_1.TypeOperationEnum.CREDIT) {
-            return {
-                code: -1,
-                msg: 'Seul les operation de CREDIT peuvent faire une retro transaction',
-            };
-        }
         try {
             const partnerAccount = await PartenerComptes_entity_1.PartenerComptes.findOne({
                 where: {
