@@ -109,8 +109,8 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         }
         console.log('SOCKET INJOIGNABLE');
         const statues = this.helper.getStatusAfterExec('timeout', this.apiService.sousServices);
-        const preStatus = statues['preStatus'];
-        const status = statues['status'];
+        const preStatus = Enum_entity_1.StatusEnum.FAILLED;
+        const status = Enum_entity_1.StatusEnum.FAILLED;
         this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
         await Transactions_entity_1.Transactions.update(transaction.id, {
             statut: status,
