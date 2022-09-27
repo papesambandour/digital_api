@@ -4107,7 +4107,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "b1084af68d93ea1af78a755bcf0928b3e8b758ac8ec7e9db7f4a12ef15ba035d",
+        "version": "cc96eed7599f2712ade433ba49a8241d42edde14022fdb03acb4ee0cb13134ab",
         "signature": "7ca7a1288810d98ad88ee4904be83e2e125ccd2c303d83b058255841bc721faf",
         "affectsGlobalScope": false
       },
