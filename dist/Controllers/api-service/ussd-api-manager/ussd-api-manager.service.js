@@ -81,69 +81,74 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         return (await this.notImplementedYet(params));
     }
     async executeUssdCall(phone, transaction) {
-        let ussdCode = this.getUssDCode(this.apiService.sousServices.ussdCode, phone);
-        ussdCode += `-${transaction.id}`;
-        console.log(ussdCode, 'ussd');
-        const socket = sockets_gateway_1.SocketsGateway.getSocket(phone.number);
-        let clearId;
-        if (socket) {
-            return new Promise(async (resolve) => {
-                console.log('SOCKET', socket);
-                socket.on('finishExecUssd', async (data) => {
-                    clearTimeout(clearId);
-                    console.log('DATA_SOCKET', data);
-                    socket.removeAllListeners('finishExecUssd');
-                    resolve(await this.finishExecUssd(data, transaction));
-                    this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
-                });
-                let ackReceive = false;
-                socket.emit('execUssd', ussdCode, (ack) => {
-                    console.log('ack', ack);
-                    ackReceive = true;
-                });
-                clearId = setTimeout(async () => {
-                    try {
-                        console.log('WAIT RETOUR USSD');
-                        const statues = this.helper.getStatusAfterExec('timeout', this.apiService.sousServices);
-                        const preStatus = statues['preStatus'];
-                        const status = statues['status'];
-                        console.log('setting ressponse phone');
-                        const query = `update transactions
-                               set pre_statut= '${preStatus}',
-                                   ussd_response_match= 0,
-                                   statut_ussd_response= '${ackReceive
-                            ? Enum_entity_1.EnumValidationStatus.TIME_OUT_WITH_ACK
-                            : Enum_entity_1.EnumValidationStatus.TIME_OUT}',
-                                   code_ussd_response= '${ackReceive
-                            ? Enum_entity_1.EnumCodeUssdResponse.TIME_OUT_WITH_ACK
-                            : Enum_entity_1.EnumCodeUssdResponse.TIME_OUT}'
-                               where id = ${this.apiService.transactionId}
-                                 AND statut <> '${status}'`;
-                        console.log('setting ressponse phone', query);
-                        await this.apiService.connection.query(query);
-                        await transaction.reload();
-                        resolve(this.helper.isNotCancelable(preStatus, status));
-                        console.log('activing phone');
+        try {
+            let ussdCode = this.getUssDCode(this.apiService.sousServices.ussdCode, phone);
+            ussdCode += `-${transaction.id}`;
+            console.log(ussdCode, 'ussd');
+            const socket = sockets_gateway_1.SocketsGateway.getSocket(phone.number);
+            let clearId;
+            if (socket) {
+                return new Promise(async (resolve) => {
+                    console.log('SOCKET', socket);
+                    socket.on('finishExecUssd', async (data) => {
+                        clearTimeout(clearId);
+                        console.log('DATA_SOCKET', data);
+                        socket.removeAllListeners('finishExecUssd');
+                        resolve(await this.finishExecUssd(data, transaction));
                         this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
-                    }
-                    catch (e) {
-                        console.log(e);
-                    }
-                }, Enum_entity_1.CONSTANT.WAIT_SOCKET_PHONE() * 1000);
-                console.log('SOCKET CALL', ussdCode);
+                    });
+                    let ackReceive = false;
+                    socket.emit('execUssd', ussdCode, (ack) => {
+                        console.log('ack', ack);
+                        ackReceive = true;
+                    });
+                    clearId = setTimeout(async () => {
+                        try {
+                            console.log('WAIT RETOUR USSD');
+                            const statues = this.helper.getStatusAfterExec('timeout', this.apiService.sousServices);
+                            const preStatus = statues['preStatus'];
+                            const status = statues['status'];
+                            console.log('setting ressponse phone');
+                            const query = `update transactions
+                                 set pre_statut= '${preStatus}',
+                                     ussd_response_match= 0,
+                                     statut_ussd_response= '${ackReceive
+                                ? Enum_entity_1.EnumValidationStatus.TIME_OUT_WITH_ACK
+                                : Enum_entity_1.EnumValidationStatus.TIME_OUT}',
+                                     code_ussd_response= '${ackReceive
+                                ? Enum_entity_1.EnumCodeUssdResponse.TIME_OUT_WITH_ACK
+                                : Enum_entity_1.EnumCodeUssdResponse.TIME_OUT}'
+                                 where id = ${this.apiService.transactionId}
+                                   AND statut <> '${status}'`;
+                            console.log('setting ressponse phone', query);
+                            await this.apiService.connection.query(query);
+                            await transaction.reload();
+                            resolve(this.helper.isNotCancelable(preStatus, status));
+                            console.log('activing phone');
+                            this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
+                        }
+                        catch (e) {
+                            console.log(e);
+                        }
+                    }, Enum_entity_1.CONSTANT.WAIT_SOCKET_PHONE() * 1000);
+                    console.log('SOCKET CALL', ussdCode);
+                });
+            }
+            const preStatus = Enum_entity_1.StatusEnum.FAILLED;
+            const status = Enum_entity_1.StatusEnum.FAILLED;
+            this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
+            await Transactions_entity_1.Transactions.update(transaction.id, {
+                statut: status,
+                preStatut: preStatus,
+                errorMessage: 'Telephone injoignable',
+                dateFailled: new Date(),
             });
+            await transaction.reload();
+            return this.helper.isNotCancelable(preStatus, status);
         }
-        const preStatus = Enum_entity_1.StatusEnum.FAILLED;
-        const status = Enum_entity_1.StatusEnum.FAILLED;
-        this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
-        await Transactions_entity_1.Transactions.update(transaction.id, {
-            statut: status,
-            preStatut: preStatus,
-            errorMessage: 'Telephone injoignable',
-            dateFailled: new Date(),
-        });
-        await transaction.reload();
-        return this.helper.isNotCancelable(preStatus, status);
+        catch (e) {
+            console.log('eerror', e);
+        }
     }
     async finishExecUssd(socketBodyFinish, transaction) {
         try {

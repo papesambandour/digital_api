@@ -4572,7 +4572,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/sockets.gateway.ts": {
-        "version": "40d6e8e10fdb1bb3d673041f407ca03964a38cc4bb29a92e14eb272464282468",
+        "version": "578a98054ba2c64729f3ab6304c4f2b0c49bf3974e46b5053dea22e03ffbfbf3",
         "signature": "8a52bca14e245ddc4ae08e4fe6da22f6715a904f9a9cc71d06984b4647f9fe80",
         "affectsGlobalScope": false
       },
@@ -5782,7 +5782,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "0e5bd9161745c71803f956a8ce0d327da306ed7884e4b905eaacdbf063e5df1b",
+        "version": "f109d0447d612e32d0e3630ce9cbe32db51120c2900c024640e99f7d4f745c4e",
         "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },

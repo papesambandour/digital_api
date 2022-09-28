@@ -73,8 +73,8 @@ __decorate([
 SocketsGateway = __decorate([
     websockets_1.WebSocketGateway({
         namespace: '/phone',
-        pingInterval: 5000,
-        pingTimeout: 7500,
+        pingTimeout: 3000,
+        pingInterval: 2000,
     }),
     __metadata("design:paramtypes", [SocketService_service_1.SocketServiceService])
 ], SocketsGateway);
