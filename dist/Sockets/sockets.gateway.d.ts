@@ -10,7 +10,7 @@ export declare class SocketsGateway implements OnGatewayInit, OnGatewayConnectio
     static socketInternals: SocketInternal[];
     server: Server;
     constructor(socketServiceService: SocketServiceService);
-    static getSocket(room: string): any;
+    static getSocket(room: string): Promise<any>;
     smsReceivedPhone(client: Socket, socketBody: SocketBodyMessage): Promise<void>;
     joinRoom(client: Socket, room: string): Promise<void>;
     leaveRoom(client: Socket, room: string): Promise<void>;

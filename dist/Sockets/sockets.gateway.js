@@ -19,13 +19,19 @@ let SocketsGateway = class SocketsGateway {
     constructor(socketServiceService) {
         this.socketServiceService = socketServiceService;
     }
-    static getSocket(room) {
+    static async getSocket(room) {
         var _a;
         console.log('this.socket.sockets');
         const sockets = this.socket.sockets;
         const fetchSocket = sockets.get((_a = this.socketInternals.find((socket) => socket.room == room)) === null || _a === void 0 ? void 0 : _a.id);
-        console.log(fetchSocket.connected, 'fetch_socket');
-        return fetchSocket.connected ? fetchSocket : null;
+        const socketIds = Array.from(await this.socket.to(room).allSockets()).reverse();
+        for (const sIds of socketIds) {
+            const findSocket = sockets.get(sIds);
+            if (findSocket.connected) {
+                return findSocket;
+            }
+        }
+        return null;
     }
     async smsReceivedPhone(client, socketBody) {
         await this.socketServiceService.smsReceived(client, socketBody);
@@ -75,6 +81,7 @@ SocketsGateway = __decorate([
         namespace: '/phone',
         pingTimeout: 5000,
         pingInterval: 2000,
+        transports: ['websocket', 'polling'],
     }),
     __metadata("design:paramtypes", [SocketService_service_1.SocketServiceService])
 ], SocketsGateway);

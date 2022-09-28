@@ -273,7 +273,7 @@ let PartnerServiceService = class PartnerServiceService {
                 id: executeUssdIn.phoneId,
             },
         });
-        const socket = sockets_gateway_1.SocketsGateway.getSocket(phone === null || phone === void 0 ? void 0 : phone.number);
+        const socket = await sockets_gateway_1.SocketsGateway.getSocket(phone === null || phone === void 0 ? void 0 : phone.number);
         if (!phone) {
             return {
                 success: false,
@@ -329,7 +329,7 @@ let PartnerServiceService = class PartnerServiceService {
                 id: rebootPhoneDtoIn.phoneId,
             },
         });
-        const socket = sockets_gateway_1.SocketsGateway.getSocket(phone === null || phone === void 0 ? void 0 : phone.number);
+        const socket = await sockets_gateway_1.SocketsGateway.getSocket(phone === null || phone === void 0 ? void 0 : phone.number);
         if (!phone) {
             return {
                 success: false,

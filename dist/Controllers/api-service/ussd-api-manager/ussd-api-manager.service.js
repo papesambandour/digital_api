@@ -85,7 +85,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             let ussdCode = this.getUssDCode(this.apiService.sousServices.ussdCode, phone);
             ussdCode += `-${transaction.id}`;
             console.log(ussdCode, 'ussd');
-            const socket = sockets_gateway_1.SocketsGateway.getSocket(phone.number);
+            const socket = await sockets_gateway_1.SocketsGateway.getSocket(phone.number);
             let clearId;
             if (socket) {
                 return new Promise(async (resolve) => {
