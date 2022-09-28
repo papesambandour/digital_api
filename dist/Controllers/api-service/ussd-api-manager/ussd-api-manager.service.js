@@ -34,10 +34,14 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         let runSuccess;
         try {
             if (this.apiService.sousServices.executeType === 'SEND_USSD_CODE_SMS') {
-                runSuccess = await this.executeSms(transaction, phone, params);
+                runSuccess = await this.helper.runWithMaxWaitMs(async () => {
+                    return await this.executeSms(transaction, phone, params);
+                }, Enum_entity_1.CONSTANT.WAIT_SOCKET_PHONE() * 1000);
             }
             else {
-                runSuccess = await this.executeUssdCall(phone, transaction);
+                runSuccess = await this.helper.runWithMaxWaitMs(async () => {
+                    return await this.executeUssdCall(phone, transaction);
+                }, Enum_entity_1.CONSTANT.WAIT_SOCKET_PHONE() * 1000);
             }
         }
         catch (e) {

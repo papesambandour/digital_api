@@ -30,7 +30,7 @@ export declare class HelperService {
     setSoldeTableFromValue(value: number, tableName: string, id: number, field: string): Promise<any>;
     incrementSolde(value: number, tableName: string, id: number, field: string): Promise<any>;
     operationPhone(phone: Phones, soldeApi: number, amount: number, transactionId: number, typeOperation: TypeOperationEnum, comment: string, operationId?: number | null, operation?: OperationEnumPhone): Promise<void>;
-    waitSome(seconde: number): Promise<unknown>;
+    waitSome(second: number): Promise<unknown>;
     mysqlDate(d: Date): string;
     getApiManagerInterface(codeService: string, apiService: ApiServiceService): Promise<ApiManagerInterface>;
     getTransactionById(transactionId: number, extraRelation?: any[]): Promise<Transactions>;
@@ -83,4 +83,5 @@ export declare class HelperService {
     waitUntilSecondBetween(min: number, max: number): Promise<unknown>;
     convertCurrency(from: string, to: string, amount: number): number;
     getCurrencyList(): string[];
+    runWithMaxWaitMs(call: () => Promise<any>, maxWaitMs: number): Promise<unknown>;
 }

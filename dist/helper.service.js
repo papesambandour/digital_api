@@ -80,11 +80,11 @@ let HelperService = class HelperService {
             transaction: true,
         });
     }
-    async waitSome(seconde) {
+    async waitSome(second) {
         return new Promise((resolve) => {
             setTimeout(() => {
                 resolve(true);
-            }, seconde * 1000);
+            }, second * 1000);
         });
     }
     mysqlDate(d) {
@@ -1131,6 +1131,23 @@ let HelperService = class HelperService {
     }
     getCurrencyList() {
         return Object.keys(Enum_entity_1.Currencies.rates);
+    }
+    runWithMaxWaitMs(call, maxWaitMs) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const clearId = setTimeout(() => {
+                    resolve(true);
+                    console.log('runWithMaxWaitMs delay arrived');
+                }, maxWaitMs);
+                const result = await call();
+                clearTimeout(clearId);
+                resolve(result);
+            }
+            catch (e) {
+                console.log(e);
+                reject(e);
+            }
+        });
     }
 };
 HelperService = __decorate([
