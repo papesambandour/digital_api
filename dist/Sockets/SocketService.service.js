@@ -244,6 +244,7 @@ let SocketServiceService = class SocketServiceService {
             relations: ['sousServicesPhones'],
         });
         if (!phone) {
+            await this.helper.waitSome(10);
             console.log('Phone not found');
             client.emit('failledToJoinedRoom');
             return false;

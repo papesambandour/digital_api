@@ -180,7 +180,7 @@ class ApiManagerInterface {
     }
     async activePhone(phoneId, phoneNumber) {
         console.log('activing phone', phoneId, phoneNumber);
-        await this.helper.waitSome(1);
+        await this.helper.waitSome(3);
         console.log('after wait');
         Enum_entity_1.PHONES_HOLDERS.AVALABLITY[phoneNumber]['used'] = false;
         const query = `UPDATE phones
