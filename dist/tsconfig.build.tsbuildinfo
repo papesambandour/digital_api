@@ -5858,7 +5858,7 @@
       },
       "../src/sdk/wizall/wizallapiprovider.ts": {
         "version": "6e304df177b7e6ec5cfddeee4c5c477f7afc77906a712e8e53e976a62c90350c",
-        "signature": "e672c53491d54db85dbe871a70a8d44e5148f4894894566d5edfbab904d9f647",
+        "signature": "7a5721dfd88294d10612509ea7c4698d3e2be5f1c9ee25248d6114eb4e6c6f64",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts": {
