@@ -49,6 +49,13 @@ __decorate([
 ], ErrorTypes.prototype, "isCritic", void 0);
 __decorate([
     typeorm_1.Column('tinyint', {
+        name: 'reboot_on_error',
+        default: 0,
+    }),
+    __metadata("design:type", Number)
+], ErrorTypes.prototype, "rebootOnError", void 0);
+__decorate([
+    typeorm_1.Column('tinyint', {
         name: 'is_json',
         default: 0,
     }),

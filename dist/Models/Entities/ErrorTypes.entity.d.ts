@@ -8,6 +8,7 @@ export declare class ErrorTypes extends CustomBaseModel {
     message: string;
     index: string;
     isCritic: number;
+    rebootOnError: number;
     isJson: number;
     sousServicesId: number;
     state: 'ACTIVED' | 'INACTIVED' | 'DELETED';

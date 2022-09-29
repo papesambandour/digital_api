@@ -3122,8 +3122,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/errortypes.entity.ts": {
-        "version": "0d9b1ac2449a51e12a1082b11d2e5d197e725f62b4342f90c7e03d567601fcb7",
-        "signature": "e8103db4bf5ce7c303d0ef485267775d6e11a6f3b53c06e4a4e9d38ae866822a",
+        "version": "8c494c7001a5a88e29eb7c5a5151f6f381d16c3345e2f112d406c395ce0f52a1",
+        "signature": "1df2eceb35c7c359f79653380a8b41869f0c773b1bcc65a6cc070d8f48749a75",
         "affectsGlobalScope": false
       },
       "../src/models/entities/ussdexecutionmessages.entity.ts": {
@@ -4107,7 +4107,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "78eb2b3196467dde92a7d9fbcf25ab0cddafb94baf17bd4f016bea53a7a950e6",
+        "version": "8ccc4d407247283656c223ad67ea3cb9237e3d8e1999ac8798396957b91feb68",
         "signature": "7ca7a1288810d98ad88ee4904be83e2e125ccd2c303d83b058255841bc721faf",
         "affectsGlobalScope": false
       },
@@ -5522,8 +5522,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "68169ff5ba1d0c0d83cfb7a80b664a32256254c5f8375dfd55da953358174c79",
-        "signature": "bd20245ba2b47ae36b15bc865320c89df054e4f3d6263891e8e8f57276ad005d",
+        "version": "c41c855d51a5b881ff958029cf125b0f29dd6113be8dbe6fbe512b665404f700",
+        "signature": "4205d93e3f73129326b6e083e75e301b78d9d7e58cb96996731a878de5210f30",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -5782,7 +5782,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "a85ed9dac118cafca85581bedbc746b3f5e52cc40a372d186908f533c97f8bbd",
+        "version": "ec88527ecc0df395c9e1aeadb94a6023e6193b1301ae6073cf2d96c9f8141c75",
         "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },
@@ -10780,7 +10780,8 @@
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts",
         "../src/sdk/discord/discordapiprovider.ts",
-        "../src/sdk/whatsapp/whatsappapiprovider.ts"
+        "../src/sdk/whatsapp/whatsappapiprovider.ts",
+        "../src/sockets/sockets.gateway.ts"
       ],
       "../src/main.ts": [
         "../node_modules/@nestjs/core/index.d.ts",

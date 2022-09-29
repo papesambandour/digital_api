@@ -218,6 +218,7 @@ class ApiManagerInterface {
         return null;
     }
     async checkServiceSimLimit(intervalsTime, phone, sousService, nextAmount) {
+        return true;
         for (const interval of intervalsTime) {
             const countField = `${interval}_count_limit`;
             const amountField = `${interval}_amount_limit`;
