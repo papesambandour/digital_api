@@ -5782,7 +5782,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "ed542c3c60c3b663681446f9d3e559259570bc1131dd00e1664e4d8fb81a3ee3",
+        "version": "17fdd255321655901b3075746a2c86ea81e37422d0afd2c237ab5347dd0eda6a",
         "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },
