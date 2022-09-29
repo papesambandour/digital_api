@@ -349,7 +349,7 @@ let PartnerServiceService = class PartnerServiceService {
             };
         }
         else {
-            socket.emit('reboot_phone', '');
+            sockets_gateway_1.SocketsGateway.rebootPhone(phone).then();
             return {
                 success: true,
                 message: 'La demande de reboot a été envoyé au téléphone',

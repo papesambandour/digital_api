@@ -177,7 +177,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
         if (!regexMatched) {
             matchError = await this.helper.getErrorType(socketBodyFinish.data, this.apiService.operationInDto.codeService, this.apiService.operationInDto.amount.toString());
             if (matchError.rebootOnError) {
-                this.helper.rebootPhone(this.apiService.phone).then();
+                sockets_gateway_1.SocketsGateway.rebootPhone(this.apiService.phone).then();
             }
             if (matchError) {
                 await this.helper.provideErrorType(transaction, null, matchError);

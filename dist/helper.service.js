@@ -36,7 +36,6 @@ const ErrorTypes_entity_1 = require("./Models/Entities/ErrorTypes.entity");
 const main_1 = require("./main");
 const WhatsAppApiProvider_1 = require("./sdk/WhatsApp/WhatsAppApiProvider");
 const Claim_entity_1 = require("./Models/Entities/Claim.entity");
-const sockets_gateway_1 = require("./Sockets/sockets.gateway");
 let HelperService = class HelperService {
     constructor(connection, httpService) {
         this.connection = connection;
@@ -1149,15 +1148,6 @@ let HelperService = class HelperService {
                 reject(e);
             }
         });
-    }
-    async rebootPhone(phone) {
-        try {
-            const socket = await sockets_gateway_1.SocketsGateway.getSocket(phone === null || phone === void 0 ? void 0 : phone.number);
-            socket === null || socket === void 0 ? void 0 : socket.emit('reboot_phone', '');
-        }
-        catch (e) {
-            console.log(e);
-        }
     }
 };
 HelperService = __decorate([

@@ -3,6 +3,7 @@ import { Logger } from '@nestjs/common';
 import { Server, Socket } from 'socket.io';
 import { SocketBodyMessage, SocketInternal } from '../Models/MobileSocket/SocketModel';
 import { SocketServiceService } from './SocketService.service';
+import { Phones } from '../Models/Entities/Phones.entity';
 export declare class SocketsGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
     private socketServiceService;
     static logger: Logger;
@@ -17,4 +18,5 @@ export declare class SocketsGateway implements OnGatewayInit, OnGatewayConnectio
     afterInit(server: Server): void;
     handleDisconnect(client: Socket): void;
     handleConnection(client: Socket, ...args: any[]): void;
+    static rebootPhone(phone: Phones): Promise<void>;
 }

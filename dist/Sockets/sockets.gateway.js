@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var SocketsGateway_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SocketsGateway = void 0;
 const websockets_1 = require("@nestjs/websockets");
@@ -15,7 +16,7 @@ const common_1 = require("@nestjs/common");
 const socket_io_1 = require("socket.io");
 const SocketModel_1 = require("../Models/MobileSocket/SocketModel");
 const SocketService_service_1 = require("./SocketService.service");
-let SocketsGateway = class SocketsGateway {
+let SocketsGateway = SocketsGateway_1 = class SocketsGateway {
     constructor(socketServiceService) {
         this.socketServiceService = socketServiceService;
     }
@@ -51,6 +52,15 @@ let SocketsGateway = class SocketsGateway {
     handleConnection(client, ...args) {
         this.socketServiceService.handleConnection(client, args);
     }
+    static async rebootPhone(phone) {
+        try {
+            const socket = await SocketsGateway_1.getSocket(phone === null || phone === void 0 ? void 0 : phone.number);
+            socket === null || socket === void 0 ? void 0 : socket.emit('reboot_phone', '');
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
 };
 SocketsGateway.logger = new common_1.Logger('SocketsGateway');
 SocketsGateway.socketInternals = [];
@@ -76,7 +86,7 @@ __decorate([
     __metadata("design:paramtypes", [socket_io_1.Socket, String]),
     __metadata("design:returntype", Promise)
 ], SocketsGateway.prototype, "leaveRoom", null);
-SocketsGateway = __decorate([
+SocketsGateway = SocketsGateway_1 = __decorate([
     websockets_1.WebSocketGateway({
         namespace: '/phone',
         pingTimeout: 7500,

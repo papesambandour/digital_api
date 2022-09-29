@@ -4572,8 +4572,8 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/sockets.gateway.ts": {
-        "version": "01b650035685c0f74d400dcd7635b6cd73299b978b0ac91fbecb3f11000998a8",
-        "signature": "a33ce1e614736b448ccc1f04512328c1301acfd80f7f2f97b154cc0f40ac2b29",
+        "version": "4d59003ec17dbeb8062e0e344b08605f9fab685ca23943c4e7f10d80bfd76e9f",
+        "signature": "a3d206e85eb79eda3ad5879627c6f675f68e074c56bdb0013d2c52ad526b38ec",
         "affectsGlobalScope": false
       },
       "../src/sockets/sockets.module.ts": {
@@ -5412,7 +5412,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-service.service.ts": {
-        "version": "7469f173dbb58dd8550ce8774f2f6f5c80a60e1dd96d7b0ff4897e8ad1e6ab33",
+        "version": "d86bee8bb3e87db43a14e5fee42bf94c91b5e001d99a4cfb6a0be9db02c18561",
         "signature": "c494567b7b09d583fce28e26d6780ef3925d511381ccdb13996702a6882479e1",
         "affectsGlobalScope": false
       },
@@ -5432,7 +5432,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "66f267db7befc643a196ebe5c82af13cbea568a11ceb4067c294e33de895839b",
+        "version": "1d37aa82bd57d6f7ccaea5d79c4af6ac7c96db751a5d673a6325830c0d567a04",
         "signature": "22066569de7d8de9b5d783cf47c83e47fea5b20a7a1502f1d1ebc423e88477e9",
         "affectsGlobalScope": false
       },
@@ -5522,8 +5522,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "c41c855d51a5b881ff958029cf125b0f29dd6113be8dbe6fbe512b665404f700",
-        "signature": "4205d93e3f73129326b6e083e75e301b78d9d7e58cb96996731a878de5210f30",
+        "version": "032a941a7b0b8a5e8cbde608855e0852dca03482f49026217f994804faf236f9",
+        "signature": "bd20245ba2b47ae36b15bc865320c89df054e4f3d6263891e8e8f57276ad005d",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -5782,7 +5782,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "ec88527ecc0df395c9e1aeadb94a6023e6193b1301ae6073cf2d96c9f8141c75",
+        "version": "ed542c3c60c3b663681446f9d3e559259570bc1131dd00e1664e4d8fb81a3ee3",
         "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },
@@ -10298,6 +10298,7 @@
         "../src/filters/httpexceptionfilter.ts",
         "../src/helper.service.ts",
         "../src/services/services.module.ts",
+        "../src/sockets/sockets.gateway.ts",
         "../src/sockets/sockets.module.ts"
       ],
       "../src/app.service.ts": [
@@ -11225,6 +11226,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/websockets/index.d.ts",
         "../node_modules/socket.io/dist/index.d.ts",
+        "../src/models/entities/phones.entity.ts",
         "../src/models/mobilesocket/socketmodel.ts",
         "../src/sockets/socketservice.service.ts"
       ],
@@ -15753,6 +15755,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/websockets/index.d.ts",
         "../node_modules/socket.io/dist/index.d.ts",
+        "../src/models/entities/phones.entity.ts",
         "../src/models/mobilesocket/socketmodel.ts",
         "../src/sockets/socketservice.service.ts"
       ],
