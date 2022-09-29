@@ -88,6 +88,8 @@ var TypeEvenEnum;
     TypeEvenEnum["CRON_EXCEPTION"] = "CRON_EXCEPTION";
     TypeEvenEnum["PENDING_AFTER_DELAY"] = "PENDING_AFTER_DELAY";
     TypeEvenEnum["NO_CANAL_AVAILABLE"] = "NO_CANAL_AVAILABLE";
+    TypeEvenEnum["PHONE_DISCONNECTED"] = "PHONE_DISCONNECTED";
+    TypeEvenEnum["PHONE_CONNECTED"] = "PHONE_CONNECTED";
 })(TypeEvenEnum = exports.TypeEvenEnum || (exports.TypeEvenEnum = {}));
 exports.CONSTANT = {
     TIME_OUT_PHONE_SECOND: () => parseInt(process.env.TIME_OUT_PHONE_SECOND) || 20,

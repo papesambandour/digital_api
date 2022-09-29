@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "70f69ecacfcb892498ec8b790326c944d149269e16f3d48a02730cd74cece888",
-        "signature": "0d15ed9a807a4ba8e69cde8d24fb47f9bfd05c76b21cfc9be072a41208d6f67f",
+        "version": "d995a01fa600f718676e4d0f17fb4877025ac16f774f7e79b2d1794d8c5740c0",
+        "signature": "9d21e6b9acf8d5df354c4ef7152532b9f7ee573aac75dfdf6d8201142ba2dd75",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4567,7 +4567,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "9bc30bd0da47d2120db5ce0ad2a6e1752a48270fef5b869cb91e7a438536608d",
+        "version": "497edb37ef8bcc70f5531301864ca535b9314076714c59e9055e76e8742ee604",
         "signature": "ecfdade2ce750f00b2c1f371589b0e4009aa8b4c843886a8ea755e077c5cab3c",
         "affectsGlobalScope": false
       },
@@ -5858,7 +5858,7 @@
       },
       "../src/sdk/wizall/wizallapiprovider.ts": {
         "version": "6e304df177b7e6ec5cfddeee4c5c477f7afc77906a712e8e53e976a62c90350c",
-        "signature": "7a5721dfd88294d10612509ea7c4698d3e2be5f1c9ee25248d6114eb4e6c6f64",
+        "signature": "e672c53491d54db85dbe871a70a8d44e5148f4894894566d5edfbab904d9f647",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts": {
