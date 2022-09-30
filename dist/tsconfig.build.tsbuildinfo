@@ -4842,7 +4842,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts": {
-        "version": "7d3645c44d8c04b26a5ec8d2ab3ea49bd4b85b0696e0af26ca37a0f42b8faba1",
+        "version": "e147ce20cb9c97602b4836a5e4e350500cfa73f093288b80721682156a8ca029",
         "signature": "7bff822c084b633a9d9acb1aee5261ddf1b155bcb7ddda51764c7249dff6460b",
         "affectsGlobalScope": false
       },

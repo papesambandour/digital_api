@@ -39,7 +39,8 @@ let ServiceDailyBalanceAlertService = class ServiceDailyBalanceAlertService {
                 },
             });
             const balance = phone.reduce((acc, cur) => acc + cur.solde, 0);
-            output += `${service.name}: ${this.helper.formatMoney(balance)} CFA\n`;
+            const balanceApi = phone.reduce((acc, cur) => acc + cur.soldeApi, 0);
+            output += `${service.name}: Système(${this.helper.formatMoney(balance)} CFA) / Reél(${this.helper.formatMoney(balanceApi)} CFA)\n`;
         }
         const tos = this.helper.getBalanceAlertTo();
         for (const to of tos) {
