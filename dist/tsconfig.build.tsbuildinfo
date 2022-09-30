@@ -4567,7 +4567,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "497edb37ef8bcc70f5531301864ca535b9314076714c59e9055e76e8742ee604",
+        "version": "77ba96e4268c40ca60bd397a1c60ad63486ef56e90670f65403024c334b31a03",
         "signature": "ecfdade2ce750f00b2c1f371589b0e4009aa8b4c843886a8ea755e077c5cab3c",
         "affectsGlobalScope": false
       },
@@ -4811,11 +4811,6 @@
         "signature": "c9f15e66637d9d2450975b076147317336fe4445467c9cd866ae3c60cf9703f1",
         "affectsGlobalScope": false
       },
-      "../src/controllers/api-service/api-service.module.ts": {
-        "version": "e216e8b27c980b0a6954745ae6dedd9ab58b3f5b5907f2d55e9d9f4e80eb0dc2",
-        "signature": "622f5703fb298ffab0ec97803bb18f89a7c363d1d8cd8b11ef37cf122819523c",
-        "affectsGlobalScope": false
-      },
       "../src/sdk/whatsapp/config.ts": {
         "version": "cbf2d6da8096ff96db30367782afb20fb284307f25c559ee695c453a22ed8f60",
         "signature": "96f270109c5f1b4d2f0be5d6f4373038f99c078fd556fa137f9821a89e997efd",
@@ -4844,6 +4839,16 @@
       "../src/sdk/whatsapp/whatsappapiprovider.ts": {
         "version": "818641492925d7157d53f84ce06a825a9444842b2dffc601117471550c32555f",
         "signature": "6dde8ad12ee3b7469880311cb2e779bee6cdff09064c0166ab6d5cbe0306ff1a",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts": {
+        "version": "7d3645c44d8c04b26a5ec8d2ab3ea49bd4b85b0696e0af26ca37a0f42b8faba1",
+        "signature": "7bff822c084b633a9d9acb1aee5261ddf1b155bcb7ddda51764c7249dff6460b",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/api-service.module.ts": {
+        "version": "b77dd5d9ebdf51df680dfe1b3669b748f2bc747cffcc028271248cf949d663f5",
+        "signature": "622f5703fb298ffab0ec97803bb18f89a7c363d1d8cd8b11ef37cf122819523c",
         "affectsGlobalScope": false
       },
       "../src/bootstrap.service.ts": {
@@ -5522,8 +5527,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "032a941a7b0b8a5e8cbde608855e0852dca03482f49026217f994804faf236f9",
-        "signature": "bd20245ba2b47ae36b15bc865320c89df054e4f3d6263891e8e8f57276ad005d",
+        "version": "8eb53ca09dbb059f042b91b76b604732fb9677ff38067e9de5c0ab99059e5b51",
+        "signature": "804229ee2618b5e7b8df9ebce98e50a4a8415957b841cafd0620697156be785f",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -10375,6 +10380,7 @@
         "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts",
         "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts",
         "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts",
+        "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts",
         "../src/helper.service.ts"
       ],
       "../src/controllers/api-service/api-service.service.ts": [
@@ -10573,6 +10579,17 @@
         "../src/models/entities/enum.entity.ts",
         "../src/sdk/wave/config.ts",
         "../src/sdk/wave/waveapiprovider.ts"
+      ],
+      "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/schedule/index.d.ts",
+        "../src/helper.service.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/phones.entity.ts",
+        "../src/models/entities/services.entity.ts",
+        "../src/models/entities/transactions.entity.ts",
+        "../src/sdk/discord/config.ts",
+        "../src/sdk/whatsapp/whatsappapiprovider.ts"
       ],
       "../src/controllers/api-service/ucad-sn-bill-payment-api-manager/ucad-sn-bill-payment-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -10778,6 +10795,7 @@
         "../src/models/entities/partenercomptes.entity.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/models/entities/phones.entity.ts",
+        "../src/models/entities/services.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts",
         "../src/sdk/discord/discordapiprovider.ts",
@@ -15411,6 +15429,10 @@
       ],
       "../src/controllers/api-service/senelec-sn-bill-payment-api-manager/senelec-sn-bill-payment-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts": [
+        "../node_modules/@nestjs/schedule/index.d.ts",
+        "../src/helper.service.ts"
       ],
       "../src/controllers/api-service/ucad-sn-bill-payment-api-manager/ucad-sn-bill-payment-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"

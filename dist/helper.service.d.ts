@@ -84,4 +84,8 @@ export declare class HelperService {
     convertCurrency(from: string, to: string, amount: number): number;
     getCurrencyList(): string[];
     runWithMaxWaitMs(call: () => Promise<any>, maxWaitMs: number): Promise<unknown>;
+    getBalanceAlertTo(): string[];
+    getSimDisconnectSenegalTo(): string[];
+    getSimDisconnectIvoryCoastTo(): string[];
+    notifySimDisconnected(phone: Phones): Promise<void>;
 }

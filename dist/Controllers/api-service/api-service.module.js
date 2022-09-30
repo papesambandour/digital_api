@@ -15,6 +15,7 @@ const send_callback_task_service_1 = require("./send-callback-task/send-callback
 const check_transaction_status_cron_service_1 = require("./check-transaction-status-cron/check-transaction-status-cron.service");
 const check_transaction_timeout_cron_service_1 = require("./check-transaction-timeout-cron/check-transaction-timeout-cron.service");
 const send_pending_delay_alert_task_service_1 = require("./send-pending-delay-alert-task/send-pending-delay-alert-task.service");
+const service_daily_balance_alert_service_1 = require("./service-daily-balance-alert/service-daily-balance-alert.service");
 let ApiServiceModule = class ApiServiceModule {
 };
 ApiServiceModule = __decorate([
@@ -34,6 +35,7 @@ ApiServiceModule = __decorate([
             check_transaction_status_cron_service_1.CheckTransactionStatusCronService,
             check_transaction_timeout_cron_service_1.CheckTransactionTimeoutCronService,
             send_pending_delay_alert_task_service_1.SendPendingDelayAlertTaskService,
+            service_daily_balance_alert_service_1.ServiceDailyBalanceAlertService,
         ],
     })
 ], ApiServiceModule);

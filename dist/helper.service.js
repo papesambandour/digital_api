@@ -36,6 +36,7 @@ const ErrorTypes_entity_1 = require("./Models/Entities/ErrorTypes.entity");
 const main_1 = require("./main");
 const WhatsAppApiProvider_1 = require("./sdk/WhatsApp/WhatsAppApiProvider");
 const Claim_entity_1 = require("./Models/Entities/Claim.entity");
+const Services_entity_1 = require("./Models/Entities/Services.entity");
 let HelperService = class HelperService {
     constructor(connection, httpService) {
         this.connection = connection;
@@ -1148,6 +1149,37 @@ let HelperService = class HelperService {
                 reject(e);
             }
         });
+    }
+    getBalanceAlertTo() {
+        return process.env.SERVICE_DAILY_BALANCE_ALERT_PHONE.split(';');
+    }
+    getSimDisconnectSenegalTo() {
+        return process.env.SEND_SIM_DISCONNECTED_ALERT_SENEGAL.split(';');
+    }
+    getSimDisconnectIvoryCoastTo() {
+        return process.env.SEND_SIM_DISCONNECTED_ALERT_IVORY_COST.split(';');
+    }
+    async notifySimDisconnected(phone) {
+        var _a, _b;
+        const service = await Services_entity_1.Services.findOne({
+            where: {
+                id: phone.servicesId,
+            },
+            relations: ['operators', 'operators.country'],
+        });
+        let tos = [];
+        if (((_a = service === null || service === void 0 ? void 0 : service.operators) === null || _a === void 0 ? void 0 : _a.country.code) === 'SEN') {
+            tos = this.getSimDisconnectSenegalTo();
+        }
+        else if (((_b = service === null || service === void 0 ? void 0 : service.operators) === null || _b === void 0 ? void 0 : _b.country.code) === 'CIV') {
+            tos = this.getSimDisconnectIvoryCoastTo();
+        }
+        if (tos.length) {
+            const message = `Le téléphone ${phone.number} c'est déconnecté à ${new Date().toISOString().substring(11, 16)}`;
+            for (const to of tos) {
+                await WhatsAppApiProvider_1.default.sendMessageToOne(to, message).then();
+            }
+        }
     }
 };
 HelperService = __decorate([

@@ -285,8 +285,9 @@ let SocketServiceService = class SocketServiceService {
         })
             .then((phone) => {
             this.helper
-                .notifyAdmin(`Le télépho ${phone.number} c'est déconnecté`, Enum_entity_1.TypeEvenEnum.PHONE_DISCONNECTED, {}, true)
+                .notifyAdmin(`Le téléphone ${phone.number} c'est déconnecté à ${new Date().toISOString().substring(11, 16)}`, Enum_entity_1.TypeEvenEnum.PHONE_DISCONNECTED, {}, true)
                 .then();
+            this.helper.notifySimDisconnected(phone).then();
             console.log('|PPP|', phone);
             this.activityPhone(phone.id, Enum_entity_1.EnumActivitiesPhones.LEAVE_ROOM).then((data) => console.log('Activity phone inserted', data));
             Phones_entity_1.Phones.update({
