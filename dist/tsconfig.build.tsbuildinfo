@@ -4567,7 +4567,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "77ba96e4268c40ca60bd397a1c60ad63486ef56e90670f65403024c334b31a03",
+        "version": "e27d71a992b3f0d60660cd81c1a246d58d77ddd456926c7978f5c0a6b9fd8be5",
         "signature": "ecfdade2ce750f00b2c1f371589b0e4009aa8b4c843886a8ea755e077c5cab3c",
         "affectsGlobalScope": false
       },
@@ -5527,8 +5527,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "1541ce0840ac67dbc4bd37c58e633aec494fd72155cca47d06a3b164c16c319e",
-        "signature": "804229ee2618b5e7b8df9ebce98e50a4a8415957b841cafd0620697156be785f",
+        "version": "1af73212751460518c186b0f675a093f76b8e222bbde8fe5b21aa548d4cdce8b",
+        "signature": "d955f4beab5234b41bf98b0b8048e7068542f1b0b51da9826e1c3fa189a67eca",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {

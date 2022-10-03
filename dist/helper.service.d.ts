@@ -88,4 +88,5 @@ export declare class HelperService {
     getSimDisconnectSenegalTo(): string[];
     getSimDisconnectIvoryCoastTo(): string[];
     notifySimDisconnected(phone: Phones): Promise<void>;
+    notifySimConnected(phone: Phones): Promise<void>;
 }

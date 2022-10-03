@@ -249,6 +249,7 @@ let SocketServiceService = class SocketServiceService {
             client.emit('failledToJoinedRoom');
             return false;
         }
+        const oldState = phone.socket;
         sockets_gateway_1.SocketsGateway.logger.log(`Client joinRoom ${room.toUpperCase()} : ${client === null || client === void 0 ? void 0 : client.id} from ${(_b = (_a = client === null || client === void 0 ? void 0 : client.handshake) === null || _a === void 0 ? void 0 : _a.query) === null || _b === void 0 ? void 0 : _b.device}`);
         sockets_gateway_1.SocketsGateway.socketInternals = sockets_gateway_1.SocketsGateway.socketInternals.filter((so) => so.room !== room);
         sockets_gateway_1.SocketsGateway.socketInternals.push({
@@ -262,7 +263,11 @@ let SocketServiceService = class SocketServiceService {
         }, {
             socket: Enum_entity_1.SocketState.CONNECTED,
         });
+        await phone.reload();
         this.activityPhone(phone.id, Enum_entity_1.EnumActivitiesPhones.JOIN_ROOM).then((data) => console.log('Activity phone inserted', data));
+        if (oldState !== 'CONNECTED') {
+            this.helper.notifySimConnected(phone).then();
+        }
         sockets_gateway_1.SocketsGateway.socket
             .to(room)
             .emit('roomJoined', `${phone === null || phone === void 0 ? void 0 : phone.codeSecret}-${phone === null || phone === void 0 ? void 0 : phone.codeSecret}`);
@@ -284,9 +289,6 @@ let SocketServiceService = class SocketServiceService {
             },
         })
             .then((phone) => {
-            this.helper
-                .notifyAdmin(`Le téléphone ${phone.number} c'est déconnecté à ${new Date().toISOString().substring(11, 16)}`, Enum_entity_1.TypeEvenEnum.PHONE_DISCONNECTED, {}, true)
-                .then();
             this.helper.notifySimDisconnected(phone).then();
             console.log('|PPP|', phone);
             this.activityPhone(phone.id, Enum_entity_1.EnumActivitiesPhones.LEAVE_ROOM).then((data) => console.log('Activity phone inserted', data));

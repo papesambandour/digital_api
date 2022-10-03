@@ -1179,6 +1179,8 @@ let HelperService = class HelperService {
     }
     async notifySimDisconnected(phone) {
         var _a, _b;
+        const message = `Le téléphone ${phone.number} c'est déconnecté à ${new Date().toISOString().substring(11, 16)}`;
+        this.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PHONE_DISCONNECTED, {}, true).then();
         const service = await Services_entity_1.Services.findOne({
             where: {
                 id: phone.servicesId,
@@ -1193,7 +1195,31 @@ let HelperService = class HelperService {
             tos = this.getSimDisconnectIvoryCoastTo();
         }
         if (tos.length) {
-            const message = `Le téléphone ${phone.number} c'est déconnecté à ${new Date().toISOString().substring(11, 16)}`;
+            for (const to of tos) {
+                await WhatsAppApiProvider_1.default.sendMessageToOne(to, message).then();
+            }
+        }
+    }
+    async notifySimConnected(phone) {
+        var _a, _b;
+        const message = `Le téléphone ${phone.number} est de nouveau reconnecté à ${new Date()
+            .toISOString()
+            .substring(11, 16)}h`;
+        this.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PHONE_CONNECTED, {}, true).then();
+        const service = await Services_entity_1.Services.findOne({
+            where: {
+                id: phone.servicesId,
+            },
+            relations: ['operators', 'operators.country'],
+        });
+        let tos = [];
+        if (((_a = service === null || service === void 0 ? void 0 : service.operators) === null || _a === void 0 ? void 0 : _a.country.code) === 'SEN') {
+            tos = this.getSimDisconnectSenegalTo();
+        }
+        else if (((_b = service === null || service === void 0 ? void 0 : service.operators) === null || _b === void 0 ? void 0 : _b.country.code) === 'CIV') {
+            tos = this.getSimDisconnectIvoryCoastTo();
+        }
+        if (tos.length) {
             for (const to of tos) {
                 await WhatsAppApiProvider_1.default.sendMessageToOne(to, message).then();
             }
