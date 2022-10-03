@@ -167,5 +167,5 @@ export default class WaveApiProvider {
         asyncResponse?: undefined;
     }>;
     private static fetchAsyncPayment;
-    static refundTransaction(params: RefundParams, sessionId: string, transferId: string): Promise<RefundResponse>;
+    static refundTransaction(params: RefundParams, sessionId: string, transferId: string, type: 'payment' | 'deposit'): Promise<RefundResponse>;
 }

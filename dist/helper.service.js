@@ -357,7 +357,31 @@ let HelperService = class HelperService {
         });
         if (transaction.typeOperation == Enum_entity_1.TypeOperationEnum.DEBIT) {
             if (isRefund) {
-                throw new Error('Refund not implemented yet for DEBIT operation');
+                const amountPartner = transaction.amount;
+                await this.setSoldeTableOnly(amountPartner, 'parteners', partner.id, transaction.isSoldeCommission ? 'solde_commission' : 'solde');
+                const operationParteners = new DtoOperationParteners_1.DtoOperationParteners();
+                operationParteners.commentaire = `Annulation  ${sousService.name} pour l'opérateur ${operator.name}`;
+                operationParteners.amount = amountPartner;
+                operationParteners.typeOperation = Enum_entity_1.TypeOperationEnum.CREDIT;
+                operationParteners.statut = Enum_entity_1.StatusEnum.SUCCESS;
+                operationParteners.partenersId = partner.id;
+                operationParteners.partenersId = partner.id;
+                operationParteners.transactionsId = transaction.id;
+                operationParteners.soldeBefor = partner.solde + partner.soldeCommission;
+                operationParteners.soldeAfter =
+                    partner.solde + partner.soldeCommission + amountPartner;
+                operationParteners.fee = transaction.feeAmount;
+                operationParteners.commission = transaction.commissionAmount;
+                operationParteners.createdAt = new Date();
+                operationParteners.operation = Enum_entity_1.OperationEnum.ANNULATION_TRANSACTION;
+                await OperationParteners_entity_1.OperationParteners.insert(operationParteners, {
+                    transaction: true,
+                });
+                const phone = await Phones_entity_1.Phones.findOne({
+                    where: { id: typeorm_2.Equal(transaction.phonesId) },
+                });
+                await this.operationPhone(phone, phone.soldeApi, transaction.amount + transaction.feeAmountPsn, transaction.id, Enum_entity_1.TypeOperationEnum.CREDIT, `Remboursement  ${sousService.typeOperation} pour ${sousService.name} avec le telephone ${phone.number}`, null, Enum_entity_1.OperationEnumPhone.REFUND_TRANSACTION);
+                await this.setSoldeTableOnly(transaction.amount + transaction.feeAmountPsn, 'phones', transaction.phonesId, 'solde');
             }
             else {
                 const amountPartner = transaction.amount +
@@ -748,7 +772,7 @@ let HelperService = class HelperService {
                 sousServicesId: sousServices.id,
             },
         });
-        return commission.amountFee || 0;
+        return (commission === null || commission === void 0 ? void 0 : commission.amountFee) || 0;
     }
     async provideErrorType(transaction, providedErrorMessage = undefined, providedError = undefined, defaultMessageIfUnknowNoError = undefined) {
         if (!transaction) {
@@ -992,18 +1016,12 @@ let HelperService = class HelperService {
                 message: 'Le transaction a deja ete rembourse',
             };
         }
-        if (transaction.typeOperation !== Enum_entity_1.TypeOperationEnum.CREDIT) {
-            return {
-                allow: false,
-                message: 'Seul les paiement peuvent être remboursé',
-            };
-        }
         const partner = await Parteners_entity_1.Parteners.findOne(transaction === null || transaction === void 0 ? void 0 : transaction.partenersId);
         if (transaction.typeOperation === Enum_entity_1.TypeOperationEnum.CREDIT &&
-            partner.solde < transaction.amount) {
+            partner.solde < transaction.amount + transaction.feeAmount) {
             return {
                 allow: false,
-                message: 'Le solde de votre compte ne vous permet pas de faire ce remboursement',
+                message: 'Le solde du compte du partenaire  permet pas de faire ce remboursement',
             };
         }
         return {

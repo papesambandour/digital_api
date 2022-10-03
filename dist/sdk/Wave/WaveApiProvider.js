@@ -692,8 +692,8 @@ class WaveApiProvider {
         }
         return fetchPending(0);
     }
-    static async refundTransaction(params, sessionId, transferId) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
+    static async refundTransaction(params, sessionId, transferId, type) {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
         const baseResponse = {
             phone: (_b = (_a = params.transaction) === null || _a === void 0 ? void 0 : _a.phone) !== null && _b !== void 0 ? _b : null,
             amount: (_e = (_d = (_c = params.transaction) === null || _c === void 0 ? void 0 : _c.amount) === null || _d === void 0 ? void 0 : _d.toString()) !== null && _e !== void 0 ? _e : null,
@@ -703,9 +703,13 @@ class WaveApiProvider {
             transactionId: (_o = (_m = params.transaction) === null || _m === void 0 ? void 0 : _m.transactionId) !== null && _o !== void 0 ? _o : null,
         };
         try {
-            const refundQuery = '{"query":"mutation RefundDialog_refundMerchantSaleMutation(\\n  $transferId: ID!\\n  $refundPin: String\\n) {\\n  refundMerchantSale(transferId: $transferId, refundPin: $refundPin) {\\n    transfer {\\n      id\\n    }\\n    isRefunded\\n  }\\n}\\n","variables":{"transferId":"' +
+            const refundDepositQuery = '{"query":"mutation RefundDialog_reverseBusinessPaymentMutation(\\n  $transferId: ID!\\n) {\\n  reverseBusinessPayment(transferId: $transferId) {\\n    transfer {\\n      id\\n    }\\n    isRefunded\\n  }\\n}\\n","variables":{"transferId":"' +
+                transferId +
+                '"}}';
+            const refundPaymentQuery = '{"query":"mutation RefundDialog_refundMerchantSaleMutation(\\n  $transferId: ID!\\n  $refundPin: String\\n) {\\n  refundMerchantSale(transferId: $transferId, refundPin: $refundPin) {\\n    transfer {\\n      id\\n    }\\n    isRefunded\\n  }\\n}\\n","variables":{"transferId":"' +
                 transferId +
                 '","refundPin":""}}';
+            const refundQuery = type === 'deposit' ? refundDepositQuery : refundPaymentQuery;
             const refundRequest = await node_fetch_1.default('https://sn.mmapp.wave.com/a/business_graphql', {
                 headers: {
                     accept: '*/*',
@@ -728,11 +732,15 @@ class WaveApiProvider {
             });
             console.log(refundQuery, sessionId);
             const refund = await refundRequest.json();
-            if (((_q = (_p = refund === null || refund === void 0 ? void 0 : refund.data) === null || _p === void 0 ? void 0 : _p.refundMerchantSale) === null || _q === void 0 ? void 0 : _q.isRefunded) === true) {
+            console.log(refund);
+            if ((type === 'payment' &&
+                ((_q = (_p = refund === null || refund === void 0 ? void 0 : refund.data) === null || _p === void 0 ? void 0 : _p.refundMerchantSale) === null || _q === void 0 ? void 0 : _q.isRefunded) === true) ||
+                (type === 'deposit' &&
+                    ((_s = (_r = refund === null || refund === void 0 ? void 0 : refund.data) === null || _r === void 0 ? void 0 : _r.reverseBusinessPayment) === null || _s === void 0 ? void 0 : _s.isRefunded) === true)) {
                 return Object.assign({
                     status: Enum_entity_1.StatusEnum.SUCCESS,
                     codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
-                    partnerMessage: `Le paiement Wave de ${params.transaction.amount} CFA a bien été remboursé`,
+                    partnerMessage: `Le transaction Wave de ${params.transaction.amount} CFA a bien été remboursé`,
                     refund,
                 }, baseResponse);
             }
@@ -740,7 +748,7 @@ class WaveApiProvider {
                 return Object.assign({
                     status: Enum_entity_1.StatusEnum.FAILLED,
                     codeHttp: Controller_1.CODE_HTTP.FAILLED,
-                    partnerMessage: `Le paiement Wave de ${params.transaction.amount} CFA n'as pas pus être remboursé`,
+                    partnerMessage: `Le transaction Wave de ${params.transaction.amount} CFA n'as pas pus être remboursé`,
                     refund,
                 }, baseResponse);
             }
@@ -750,7 +758,7 @@ class WaveApiProvider {
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.FAILLED,
-                partnerMessage: `Le paiement Wave de ${params.transaction.amount} CFA n'as pas pus être remboursé`,
+                partnerMessage: `Le transaction Wave de ${params.transaction.amount} CFA n'as pas pus être remboursé`,
                 refund: e,
             }, baseResponse);
         }

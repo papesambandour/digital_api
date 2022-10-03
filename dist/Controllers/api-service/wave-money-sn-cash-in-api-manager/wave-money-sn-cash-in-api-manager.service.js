@@ -84,7 +84,30 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
         }
     }
     async refundTransaction(params) {
-        return await this.notImplementedYet(params);
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+        const baseResponse = {
+            phone: (_b = (_a = params.transaction) === null || _a === void 0 ? void 0 : _a.phone) !== null && _b !== void 0 ? _b : null,
+            amount: (_e = (_d = (_c = params.transaction) === null || _c === void 0 ? void 0 : _c.amount) === null || _d === void 0 ? void 0 : _d.toString()) !== null && _e !== void 0 ? _e : null,
+            externalTransactionId: (_g = (_f = params.transaction) === null || _f === void 0 ? void 0 : _f.externalTransactionId) !== null && _g !== void 0 ? _g : null,
+            codeService: (_j = (_h = params.transaction) === null || _h === void 0 ? void 0 : _h.codeSousService) !== null && _j !== void 0 ? _j : null,
+            callbackUrl: (_l = (_k = params.transaction) === null || _k === void 0 ? void 0 : _k.urlIpn) !== null && _l !== void 0 ? _l : null,
+            transactionId: (_o = (_m = params.transaction) === null || _m === void 0 ? void 0 : _m.transactionId) !== null && _o !== void 0 ? _o : null,
+        };
+        const canRefund = await this.helper.canRefundOperation(params.transaction);
+        if (!canRefund.allow) {
+            return Object.assign({
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                codeHttp: Controller_1.CODE_HTTP.FAILLED,
+                partnerMessage: canRefund.message,
+            }, baseResponse);
+        }
+        const response = await WaveApiProvider_1.default.refundTransaction(params, config_1.waveBusinessApiConfig(this.constructor.country).sessionId, params.transaction.sousServiceTransactionId, 'deposit');
+        if (response.status === Enum_entity_1.StatusEnum.SUCCESS) {
+            console.log('caaling refund');
+            await this.helper.handleTransactionRefundSuccess(params.transaction);
+            console.log('fater refubd');
+        }
+        return response;
     }
 }
 exports.WaveMoneySnCashInApiManagerService = WaveMoneySnCashInApiManagerService;
