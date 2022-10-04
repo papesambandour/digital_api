@@ -71,6 +71,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
             this.helper
                 .sendSms([to], messageNotification, this.apiService.sousServices.executeSmsSender, true)
                 .then(() => {
+                console.log('sending whatslink only');
                 WhatsAppApiProvider_1.default.sendMessageToOne(to, deepLink).then();
             });
             return Object.assign({

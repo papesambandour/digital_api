@@ -4682,7 +4682,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "0618d03a1461e2ca11c7041085d6c3cacbffa3d11194a3cad5d0b56fe502afbe",
+        "version": "ca58fb0e10426e0a77f8b5f7171d7b915e9b16345080e7d414b853dd4cfad9a7",
         "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
         "affectsGlobalScope": false
       },
@@ -4837,7 +4837,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts": {
-        "version": "1ce35b8e77d0dbfb6b1134f401a3db9eb77a85a5b9fe07c5e855b73e07c8c7a6",
+        "version": "49f1b39e67dc1d6001b7ad79a240b0317de2269a686f62cfdb4e3bf6329af9ed",
         "signature": "c9f15e66637d9d2450975b076147317336fe4445467c9cd866ae3c60cf9703f1",
         "affectsGlobalScope": false
       },
@@ -10558,6 +10558,7 @@
       "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/schedule/index.d.ts",
+        "../node_modules/class-validator/types/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/helper.service.ts",
         "../src/models/entities/enum.entity.ts",
