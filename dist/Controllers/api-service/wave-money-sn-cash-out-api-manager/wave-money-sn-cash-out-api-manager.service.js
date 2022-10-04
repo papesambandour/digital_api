@@ -7,6 +7,7 @@ const WaveApiProvider_1 = require("../../../sdk/Wave/WaveApiProvider");
 const config_1 = require("../../../sdk/Wave/config");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const main_1 = require("../../../main");
+const WhatsAppApiProvider_1 = require("../../../sdk/WhatsApp/WhatsAppApiProvider");
 class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return WaveApiProvider_1.default.apiManagerCheckCashOutStatusTransaction(this, params, this.constructor.country);
@@ -66,11 +67,12 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
             console.log('Send OKK');
             const deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
             const messageNotification = await this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
+            const to = `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`;
             this.helper
-                .sendSms([
-                `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,
-            ], messageNotification, this.apiService.sousServices.executeSmsSender, true)
-                .then();
+                .sendSms([to], messageNotification, this.apiService.sousServices.executeSmsSender, true)
+                .then(() => {
+                WhatsAppApiProvider_1.default.sendMessageToOne(to, deepLink).then();
+            });
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.PENDING,
                 codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,

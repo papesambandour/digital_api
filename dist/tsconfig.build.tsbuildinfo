@@ -4651,8 +4651,38 @@
         "signature": "bd4c9239aaa022ebd3cc04dc3ff9d6db358ed0af2bc9242f318338db5bbc5655",
         "affectsGlobalScope": false
       },
+      "../src/sdk/whatsapp/config.ts": {
+        "version": "cbf2d6da8096ff96db30367782afb20fb284307f25c559ee695c453a22ed8f60",
+        "signature": "96f270109c5f1b4d2f0be5d6f4373038f99c078fd556fa137f9821a89e997efd",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/devtools-protocol/types/protocol.d.ts": {
+        "version": "5e82c491b0995bb42e41a86c86fc30721a71fb9af22478b2a9c82cf6160cf970",
+        "signature": "5e82c491b0995bb42e41a86c86fc30721a71fb9af22478b2a9c82cf6160cf970",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/devtools-protocol/types/protocol-mapping.d.ts": {
+        "version": "13a7b0847883cadf7bd6d8df067bd6b6f8e55daa53b7df480048c90bb603e2a1",
+        "signature": "13a7b0847883cadf7bd6d8df067bd6b6f8e55daa53b7df480048c90bb603e2a1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/puppeteer/lib/types.d.ts": {
+        "version": "10fc14b4e441528c8aac75db5deeb06a00f1dc4265b98724052149e9db2f5eeb",
+        "signature": "10fc14b4e441528c8aac75db5deeb06a00f1dc4265b98724052149e9db2f5eeb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/whatsapp-web.js/index.d.ts": {
+        "version": "6610faf06e2637b7580ddab8fc8bb3eb0d1a4351ba6dfaf49e9f7fccab861d66",
+        "signature": "6610faf06e2637b7580ddab8fc8bb3eb0d1a4351ba6dfaf49e9f7fccab861d66",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/whatsapp/whatsappapiprovider.ts": {
+        "version": "818641492925d7157d53f84ce06a825a9444842b2dffc601117471550c32555f",
+        "signature": "6dde8ad12ee3b7469880311cb2e779bee6cdff09064c0166ab6d5cbe0306ff1a",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "4ba72554146fe17a0c13e6c62836902f9598523132485fa4efe05f1ea97ca89e",
+        "version": "0618d03a1461e2ca11c7041085d6c3cacbffa3d11194a3cad5d0b56fe502afbe",
         "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
         "affectsGlobalScope": false
       },
@@ -4809,36 +4839,6 @@
       "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts": {
         "version": "1ce35b8e77d0dbfb6b1134f401a3db9eb77a85a5b9fe07c5e855b73e07c8c7a6",
         "signature": "c9f15e66637d9d2450975b076147317336fe4445467c9cd866ae3c60cf9703f1",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/whatsapp/config.ts": {
-        "version": "cbf2d6da8096ff96db30367782afb20fb284307f25c559ee695c453a22ed8f60",
-        "signature": "96f270109c5f1b4d2f0be5d6f4373038f99c078fd556fa137f9821a89e997efd",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/devtools-protocol/types/protocol.d.ts": {
-        "version": "5e82c491b0995bb42e41a86c86fc30721a71fb9af22478b2a9c82cf6160cf970",
-        "signature": "5e82c491b0995bb42e41a86c86fc30721a71fb9af22478b2a9c82cf6160cf970",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/devtools-protocol/types/protocol-mapping.d.ts": {
-        "version": "13a7b0847883cadf7bd6d8df067bd6b6f8e55daa53b7df480048c90bb603e2a1",
-        "signature": "13a7b0847883cadf7bd6d8df067bd6b6f8e55daa53b7df480048c90bb603e2a1",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/puppeteer/lib/types.d.ts": {
-        "version": "10fc14b4e441528c8aac75db5deeb06a00f1dc4265b98724052149e9db2f5eeb",
-        "signature": "10fc14b4e441528c8aac75db5deeb06a00f1dc4265b98724052149e9db2f5eeb",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/whatsapp-web.js/index.d.ts": {
-        "version": "6610faf06e2637b7580ddab8fc8bb3eb0d1a4351ba6dfaf49e9f7fccab861d66",
-        "signature": "6610faf06e2637b7580ddab8fc8bb3eb0d1a4351ba6dfaf49e9f7fccab861d66",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/whatsapp/whatsappapiprovider.ts": {
-        "version": "818641492925d7157d53f84ce06a825a9444842b2dffc601117471550c32555f",
-        "signature": "6dde8ad12ee3b7469880311cb2e779bee6cdff09064c0166ab6d5cbe0306ff1a",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts": {
@@ -10642,7 +10642,8 @@
         "../src/main.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/sdk/wave/config.ts",
-        "../src/sdk/wave/waveapiprovider.ts"
+        "../src/sdk/wave/waveapiprovider.ts",
+        "../src/sdk/whatsapp/whatsappapiprovider.ts"
       ],
       "../src/controllers/api-service/whatsapp-message-send-api-manager/whatsapp-message-send-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
