@@ -289,6 +289,9 @@ let SocketServiceService = class SocketServiceService {
             },
         })
             .then((phone) => {
+            if (!phone) {
+                return;
+            }
             this.helper.notifySimDisconnected(phone).then();
             console.log('|PPP|', phone);
             this.activityPhone(phone.id, Enum_entity_1.EnumActivitiesPhones.LEAVE_ROOM).then((data) => console.log('Activity phone inserted', data));

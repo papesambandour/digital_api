@@ -30,9 +30,10 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                 partnerMessage: api_manager_interface_service_1.MANAGER_INIT_DOWN_MESSAGE,
             }, baseResponse);
         }
-        const transaction = await this.createTransaction(phone);
+        let transaction;
         let runSuccess;
         try {
+            transaction = await this.createTransaction(phone);
             if (this.apiService.sousServices.executeType === 'SEND_USSD_CODE_SMS') {
                 runSuccess = await this.helper.runWithMaxWaitMs(async () => {
                     return await this.executeSms(transaction, phone, params);
@@ -45,7 +46,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             }
         }
         catch (e) {
-            console.log(e);
+            console.error(e);
         }
         this.activePhone(phone.id, phone.number).then();
         if (!runSuccess) {
