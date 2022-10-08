@@ -69,7 +69,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
             const messageNotification = await this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
             const to = `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`;
             this.helper
-                .sendSms([to], messageNotification, this.apiService.sousServices.executeSmsSender, true)
+                .sendSms([to], messageNotification, this.apiService.sousServices.executeSmsSender, true, 60)
                 .then(() => {
                 console.log('sending whatslink only');
                 WhatsAppApiProvider_1.default.sendMessageToOne(to, deepLink).then();

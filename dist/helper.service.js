@@ -88,6 +88,13 @@ let HelperService = class HelperService {
             }, second * 1000);
         });
     }
+    async waitSomeMs(ms) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(true);
+            }, ms);
+        });
+    }
     mysqlDate(d) {
         return d.toISOString().substr(0, 19).replace('T', ' ');
     }
@@ -459,22 +466,30 @@ let HelperService = class HelperService {
         const buff = Buffer.from(str);
         return buff.toString('base64');
     }
-    async sendSms(tos, message, sender, whatsappAlso = false) {
-        console.log('sending smss to ', tos);
-        const response = await this.httpService
-            .post('https://gateway.intechsms.sn/api/send-sms', {
-            app_key: process.env.SMS_API_KEY,
-            sender: sender,
-            content: message,
-            msisdn: tos,
-        })
-            .toPromise();
-        if (whatsappAlso) {
-            for (const to of tos) {
-                WhatsAppApiProvider_1.default.sendMessageToOne(to, `${sender}:\n\n${message}`).then();
+    async sendSms(tos, message, sender, whatsappAlso = false, whatsAppDelaySecond = 0) {
+        try {
+            console.log('sending smss to ', tos);
+            const response = await this.httpService
+                .post('https://gateway.intechsms.sn/api/send-sms', {
+                app_key: process.env.SMS_API_KEY,
+                sender: sender,
+                content: message,
+                msisdn: tos,
+            })
+                .toPromise();
+            if (whatsappAlso) {
+                await this.waitSome(whatsAppDelaySecond);
+                for (const to of tos) {
+                    WhatsAppApiProvider_1.default.sendMessageToOne(to, `${sender}:\n\n${message}`).then();
+                }
             }
+            console.log(response.data);
+            return true;
         }
-        console.log(response.data);
+        catch (e) {
+            console.log(e);
+        }
+        return false;
     }
     getStatusAfterExec(execResult, service) {
         let preStatus = null;

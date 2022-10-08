@@ -31,6 +31,7 @@ export declare class HelperService {
     incrementSolde(value: number, tableName: string, id: number, field: string): Promise<any>;
     operationPhone(phone: Phones, soldeApi: number, amount: number, transactionId: number, typeOperation: TypeOperationEnum, comment: string, operationId?: number | null, operation?: OperationEnumPhone): Promise<void>;
     waitSome(second: number): Promise<unknown>;
+    waitSomeMs(ms: number): Promise<unknown>;
     mysqlDate(d: Date): string;
     getApiManagerInterface(codeService: string, apiService: ApiServiceService): Promise<ApiManagerInterface>;
     getTransactionById(transactionId: number, extraRelation?: any[]): Promise<Transactions>;
@@ -47,7 +48,7 @@ export declare class HelperService {
     operationPartnerCancelTransaction(transaction: Transactions, isRefund?: boolean): Promise<boolean>;
     updateApiBalance(apiManager: ApiManagerInterface, usedPhoneId: number): Promise<void>;
     base64(str: any): Promise<string>;
-    sendSms(tos: string[], message: string, sender: string, whatsappAlso?: boolean): Promise<void>;
+    sendSms(tos: string[], message: string, sender: string, whatsappAlso?: boolean, whatsAppDelaySecond?: number): Promise<boolean>;
     getStatusAfterExec(execResult: 'success' | 'timeout' | 'failed', service: SousServices): {
         preStatus: any;
         status: any;
