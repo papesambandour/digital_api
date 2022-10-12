@@ -4567,7 +4567,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "b52b0bb03670808f6a410fcec50c6995136ba1f1155ae4d1246d2f6117c6dd37",
+        "version": "d6e80a160d0f49d835b7fd0f09e03659da82c7e7e8415fa9faca8b9bc79c2e3c",
         "signature": "ecfdade2ce750f00b2c1f371589b0e4009aa8b4c843886a8ea755e077c5cab3c",
         "affectsGlobalScope": false
       },

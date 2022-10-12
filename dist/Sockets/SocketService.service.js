@@ -49,7 +49,7 @@ let SocketServiceService = class SocketServiceService {
         sockets_gateway_1.SocketsGateway.socket.to(room).emit('leaveRoom', phone);
     }
     async smsReceived(client, socketBody) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
         try {
             socketBody = JSON.parse(socketBody
                 .toString()
@@ -185,14 +185,8 @@ let SocketServiceService = class SocketServiceService {
                         this.checkIfMatchWithFailedTransaction(infoTransaction, phone, sms.content).then();
                         return false;
                     }
-                    const senderValid = String(infoTransaction.sousService.senderSmsAuthorize)
-                        .split(',')
-                        .map((op) => op.trim())
-                        .includes((_j = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _j === void 0 ? void 0 : _j.numero);
-                    const centerValid = String(infoTransaction.sousService.centerSmsAuthorize)
-                        .split(',')
-                        .map((op) => op.trim())
-                        .includes((_k = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _k === void 0 ? void 0 : _k.numeroCentre);
+                    const senderValid = (_j = String(infoTransaction.sousService.senderSmsAuthorize)) === null || _j === void 0 ? void 0 : _j.split(/[,;\n]/).map((op) => op.trim()).includes((_k = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _k === void 0 ? void 0 : _k.numero);
+                    const centerValid = (_l = String(infoTransaction.sousService.centerSmsAuthorize)) === null || _l === void 0 ? void 0 : _l.split(/[,;\n]/).map((op) => op.trim()).includes((_m = socketBody === null || socketBody === void 0 ? void 0 : socketBody.data) === null || _m === void 0 ? void 0 : _m.numeroCentre);
                     if (!senderValid || !centerValid) {
                         this.helper
                             .notifyAdmin(`Un sms avec une source inconnu a été recu pour la transaction #${transaction.id},\nSender_recu: ${socketBody.data.numero}, Sender_attendu: ${infoTransaction.sousService.centerSmsAuthorize}\nCentre_recu: ${socketBody.data.numeroCentre}, Centre_attendu: ${infoTransaction.sousService.centerSmsAuthorize}\nMessage: ${sms.content}`, Enum_entity_1.TypeEvenEnum.UN_ALLOWED_SMS_SOURCE, null, true)
@@ -209,7 +203,7 @@ let SocketServiceService = class SocketServiceService {
                     });
                     await transaction.reload();
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
-                        sousServicesId: (_l = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _l === void 0 ? void 0 : _l.id,
+                        sousServicesId: (_o = infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.sousService) === null || _o === void 0 ? void 0 : _o.id,
                         transactionsId: transaction.id,
                         isMatched: 1,
                     });
