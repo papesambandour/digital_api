@@ -44,6 +44,7 @@ const ErrorTypes_entity_1 = require("../../Models/Entities/ErrorTypes.entity");
 const request_mapping_decorator_1 = require("@nestjs/common/decorators/http/request-mapping.decorator");
 const NewClaim_1 = require("./dto/NewClaim");
 const Claim_entity_1 = require("../../Models/Entities/Claim.entity");
+const DtoGetTransactionStatus_1 = require("../../Models/Dto/DtoGetTransactionStatus");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService, helper) {
         super();
@@ -120,6 +121,36 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             currency: 'XOF',
             balance: partnerAccoune.parteners.solde +
                 partnerAccoune.parteners.soldeCommission,
+        });
+    }
+    async getTransactionStatus(headers, dto) {
+        const partnerAccount = await this.apiServiceService.getPartner(headers);
+        console.log('call get-transaction-status ', dto);
+        if (!partnerAccount) {
+            return this.response(this.CODE_HTTP.OPERATION_AUTH_NEED, { secreteKey: 'Invalide secrete key' }, '', true);
+        }
+        const transaction = await Transactions_entity_1.Transactions.findOne({
+            where: {
+                externalTransactionId: typeorm_1.Equal(dto.externalTransactionId || ''),
+                partenerComptesId: partnerAccount.id,
+            },
+            relations: ['errorTypes'],
+        });
+        if (!transaction) {
+            return this.response(this.CODE_HTTP.NOTFOUND, { externalTransactionId: 'Transaction partnaire non trouvé' }, '', true);
+        }
+        return this.response(this.CODE_HTTP.OK_OPERATION, {
+            transactionId: transaction.id,
+            createdAt: transaction.createdAt,
+            updatedAt: transaction.updatedAt,
+            externalTransactionId: transaction.externalTransactionId,
+            status: transaction.statut,
+            errorType: transaction.errorTypes
+                ? {
+                    code: transaction.errorTypes.code,
+                    message: transaction.errorTypes.message,
+                }
+                : null,
         });
     }
     async newClaim(newClaimInDtoIn) {
@@ -296,6 +327,16 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "balance", null);
+__decorate([
+    common_1.Post('get-transaction-status'),
+    ResponseDecorateur_1.ResponseDecorateur(DtoGetTransactionStatus_1.DtoGetTransactionStatusOut, 200, '', false),
+    ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
+    __param(0, common_1.Headers()),
+    __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, DtoGetTransactionStatus_1.DtoGetTransactionStatusIn]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "getTransactionStatus", null);
 __decorate([
     common_1.Post('new-claim'),
     ResponseDecorateur_1.ResponseDecorateur(NewClaim_1.NewClaimInDtoOut, 200, '', false),

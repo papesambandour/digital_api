@@ -4,6 +4,7 @@ import { ApiServiceService } from './api-service.service';
 import { HelperService } from '../../helper.service';
 import { ListPendingBillInDto } from './dto/ListPendingBillInDto';
 import { NewClaimInDtoIn } from './dto/NewClaim';
+import { DtoGetTransactionStatusIn } from '../../Models/Dto/DtoGetTransactionStatus';
 export declare class ApiServiceController extends ControllerBase {
     private readonly apiServiceService;
     private readonly helper;
@@ -27,6 +28,12 @@ export declare class ApiServiceController extends ControllerBase {
         data: object;
     }>;
     balance(headers: any): Promise<{
+        code: number;
+        msg: any;
+        error: boolean;
+        data: object;
+    }>;
+    getTransactionStatus(headers: any, dto: DtoGetTransactionStatusIn): Promise<{
         code: number;
         msg: any;
         error: boolean;

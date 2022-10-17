@@ -158,7 +158,8 @@ let HelperService = class HelperService {
             ((_d = (_c = transaction.sousServices.whenStatusForCallback) === null || _c === void 0 ? void 0 : _c.split('|')) === null || _d === void 0 ? void 0 : _d.includes(transactionStatus))) {
             value = 1;
         }
-        if (transaction.callbackIsSend !== value) {
+        console.log('setting callback', value);
+        if (transaction.callbackReady !== value) {
             if (value) {
                 transaction.nextSendCallbackDate = new Date();
             }

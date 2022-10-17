@@ -4716,9 +4716,14 @@
         "signature": "d578677f38319481cf9d80584800a5c2a344f211bd8d2ea5f57e1d63d76eb6c5",
         "affectsGlobalScope": false
       },
+      "../src/models/dto/dtogettransactionstatus.ts": {
+        "version": "29871dc4e9d3dcc45df3634012637ac2a165bce3d6712b06a2efb1151f5ad817",
+        "signature": "f570831066d3c7ba9bd4db14a4836498727e4ea8ba092e3ef10ea43e596409cd",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "5b198b4ea2b56b2c6a8551f883c9b783fb7777a6acd9fb90a12e1dc5924d6a5a",
-        "signature": "6348e167e6daf5b75199c61f8d69c4a85aa4a3fa3c432b02ecb5256b0cb5d0ca",
+        "version": "d4416ce0f14c2d50c7d2b4fa20f55cb7d5f62950e6c4d1343ad845923dc48c1e",
+        "signature": "c6b2906d69ef49f19feb8ae7f02e0253d7189bc62334c655826f4903dced0ec2",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -4822,7 +4827,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": {
-        "version": "3cfc6e4238e7c082edc84aeaab9ae64fd75ee4d4cb58deebd8857bbd35068ac7",
+        "version": "2dc90701e2aa1946140e6ab90dcb8249dc65023c5c8bd219ad7f0faf698f1592",
         "signature": "042420fe4ce1fd1f71ebaa0d72b161b6f4f134ce8a376fb69e778703cbf2eeaf",
         "affectsGlobalScope": false
       },
@@ -5527,7 +5532,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "431b5f9241aa7c7df236834850aec5d72d34b9eade3bdc8b766d0ce05105a2b6",
+        "version": "1c2dfca5988674ed2bf3246000d08e01b263f66d79605b65581b418fdbe6a6b3",
         "signature": "4f5afdec04c49e46998773e76aac2714643300f8d4455081c9a3847aaa83b0cf",
         "affectsGlobalScope": false
       },
@@ -10359,6 +10364,7 @@
         "../src/models/decorateurs/responseforbidendecorateur.ts",
         "../src/models/decorateurs/responsehttppaginationdecorateur.ts",
         "../src/models/dto/dtobalance.ts",
+        "../src/models/dto/dtogettransactionstatus.ts",
         "../src/models/dto/dtotransactions.ts",
         "../src/models/entities/claim.entity.ts",
         "../src/models/entities/enum.entity.ts",
@@ -10880,6 +10886,9 @@
         "../node_modules/@nestjs/swagger/index.d.ts"
       ],
       "../src/models/dto/dtocountry.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts"
+      ],
+      "../src/models/dto/dtogettransactionstatus.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts"
       ],
       "../src/models/dto/dtomessageussds.ts": [
@@ -15352,6 +15361,7 @@
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/controllers/controller.ts",
         "../src/helper.service.ts",
+        "../src/models/dto/dtogettransactionstatus.ts",
         "../src/models/entities/enum.entity.ts"
       ],
       "../src/controllers/api-service/api-service.service.ts": [
