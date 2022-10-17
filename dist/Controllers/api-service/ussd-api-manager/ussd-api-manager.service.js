@@ -59,6 +59,26 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                 usedPhoneId: phone.id,
             }, baseResponse);
         }
+        if (!transaction) {
+            return Object.assign({
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                codeHttp: Controller_1.CODE_HTTP.UNKNOW_ERROR,
+                transaction: transaction,
+                transactionId: transaction === null || transaction === void 0 ? void 0 : transaction.transactionId,
+                partnerMessage: api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE,
+                usedPhoneId: phone.id,
+            }, baseResponse);
+        }
+        if (!runSuccess) {
+            return Object.assign({
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                codeHttp: Controller_1.CODE_HTTP.SERVICE_DOWN,
+                transaction: transaction,
+                transactionId: transaction === null || transaction === void 0 ? void 0 : transaction.transactionId,
+                partnerMessage: api_manager_interface_service_1.MANAGER_INIT_DOWN_MESSAGE.replace('pho', 'pho-2'),
+                usedPhoneId: phone.id,
+            }, baseResponse);
+        }
         return Object.assign({
             status: Enum_entity_1.StatusEnum.PENDING,
             codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
