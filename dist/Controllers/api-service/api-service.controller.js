@@ -125,7 +125,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
     }
     async getTransactionStatus(headers, dto) {
         const partnerAccount = await this.apiServiceService.getPartner(headers);
-        console.log('call get-transaction-status ', dto);
+        console.log('call get-transaction-status ', dto, partnerAccount === null || partnerAccount === void 0 ? void 0 : partnerAccount.name);
         if (!partnerAccount) {
             return this.response(this.CODE_HTTP.OPERATION_AUTH_NEED, { secreteKey: 'Invalide secrete key' }, '', true);
         }
