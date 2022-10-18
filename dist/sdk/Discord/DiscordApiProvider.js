@@ -43,7 +43,7 @@ class DiscordApiProvider {
         if (channel && channel.isTextBased) {
             const invisibleChar = 'ㅤ' + '\n';
             await channel.send({
-                content: params.message + invisibleChar.repeat(3),
+                content: (params.message + invisibleChar.repeat(3)).substring(0, 1990),
             });
             console.log('message send successfully');
         }

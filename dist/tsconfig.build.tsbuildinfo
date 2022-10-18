@@ -4122,7 +4122,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/discord/discordapiprovider.ts": {
-        "version": "6e8d3c807994a8b050213c04b0e667e205a3aea33ca6637924b7dae3e4255353",
+        "version": "ae96019471206e0da825bfcc221531c922202bf04b901e0e3bf59afc76d76533",
         "signature": "989b44dd29c3a88e30f162a0b3ad5c4d15f99c030d174d1b482dcb4bc03e6caf",
         "affectsGlobalScope": false
       },
