@@ -138,8 +138,7 @@ class ApiManagerInterface {
                               sous_services_phones
                          where phones.id = sous_services_phones.phones_id
                            AND sous_services_phones.sous_services_id = '${this.apiService.sousServices.id}'
-                           AND phones.state = '${Enum_entity_1.StateEnum.ACTIVED}'
-                           ${phoneStateWhere}
+                           AND phones.state = '${Enum_entity_1.StateEnum.ACTIVED}' ${phoneStateWhere}
                            AND phones.services_id = ${this.apiService.service.id}`;
             if (this.apiService.sousServices.typeOperation ===
                 Enum_entity_1.TypeOperationEnum.DEBIT &&
@@ -218,21 +217,27 @@ class ApiManagerInterface {
         return null;
     }
     async checkServiceSimLimit(intervalsTime, phone, sousService, nextAmount) {
-        return true;
         for (const interval of intervalsTime) {
             const countField = `${interval}_count_limit`;
             const amountField = `${interval}_amount_limit`;
-            const countColumn = await this.helper.getColumnMap('Phones', countField);
-            const amountColumn = await this.helper.getColumnMap('Phones', amountField);
-            const maxTrCount = phone[countColumn.propertyName];
-            const maxTrAmount = phone[amountColumn.propertyName];
+            const maxTrCount = phone[countField];
+            const maxTrAmount = phone[amountField];
+            console.log(maxTrCount, countField, 'okk');
+            console.log(maxTrAmount, amountField, 'okk');
+            if (maxTrAmount === -1 && maxTrCount === -1) {
+                console.log('pass if -1', interval, countField, amountField, maxTrAmount, maxTrCount);
+                continue;
+            }
+            const between = this.getBetweenForInterval(interval);
             const transactionWhere = {
                 sousServicesId: sousService.id,
+                phonesId: phone.id,
                 statut: typeorm_1.In([
                     Enum_entity_1.StatusEnum.PENDING,
                     Enum_entity_1.StatusEnum.PROCESSING,
                     Enum_entity_1.StatusEnum.SUCCESS,
                 ]),
+                createdAt: typeorm_1.Between(between.from, between.to),
             };
             const [, countUsage] = await Transactions_entity_1.Transactions.findAndCount({
                 where: transactionWhere,
@@ -241,15 +246,17 @@ class ApiManagerInterface {
                 where: transactionWhere,
             });
             const amountUsage = trx.reduce((acc, cur) => acc + cur.amount, 0);
-            if (maxTrAmount !== -1 && amountUsage + nextAmount >= maxTrAmount) {
-                console.error('passCheckLimit Failed  max amount', amountUsage, maxTrAmount);
+            console.log(interval, countField, countUsage);
+            console.log(interval, amountField, amountUsage);
+            if (maxTrAmount !== -1 && amountUsage + nextAmount > maxTrAmount) {
+                console.error('passCheckLimit Failed  max amount', interval, amountUsage + nextAmount, maxTrAmount);
                 return false;
             }
-            if (maxTrCount !== -1 && countUsage >= maxTrCount) {
-                console.error('passCheckLimit Failed  max count', countUsage, maxTrCount);
+            if (maxTrCount !== -1 && countUsage > maxTrCount) {
+                console.error('passCheckLimit Failed  max count', interval, countUsage, maxTrCount);
                 return false;
             }
-            console.info(`Phone ${phone.number} passCheckLimit Success `, countUsage, amountUsage, maxTrAmount, maxTrCount);
+            console.info(`Phone ${phone.number} passCheckLimit Success `, countUsage, amountUsage, maxTrAmount, maxTrCount, interval);
         }
         console.log('Pass all Check');
         return true;
@@ -264,6 +271,32 @@ class ApiManagerInterface {
         catch (e) {
             return '';
         }
+    }
+    getBetweenForInterval(interval) {
+        const now = new Date();
+        const to = new Date(now);
+        let from;
+        switch (interval) {
+            case 'daily':
+                from = new Date(now);
+                from.setHours(0, 0, 0, 0);
+                break;
+            case 'weekly':
+                const getMonday = (d) => {
+                    d = new Date(d);
+                    const day = d.getDay(), diff = d.getDate() - day + (day == 0 ? -6 : 1);
+                    return new Date(d.setDate(diff));
+                };
+                from = getMonday(now);
+                break;
+            case 'monthly':
+                from = new Date(now.getFullYear(), now.getMonth(), 1);
+                break;
+        }
+        return {
+            from: from,
+            to: to,
+        };
     }
 }
 exports.ApiManagerInterface = ApiManagerInterface;

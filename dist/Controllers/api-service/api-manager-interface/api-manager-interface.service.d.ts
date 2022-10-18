@@ -90,6 +90,7 @@ export declare abstract class ApiManagerInterface {
     activePhone(phoneId: number, phoneNumber: string): Promise<void>;
     disablePhone(phoneId: number, phoneNumber: string): Promise<void>;
     selectPhoneFromBalanceResult(phones: null | Phones[]): Promise<Phones | null>;
-    checkServiceSimLimit(intervalsTime: string[], phone: Phones, sousService: SousServices, nextAmount: number): Promise<boolean>;
+    checkServiceSimLimit(intervalsTime: ('daily' | 'weekly' | 'monthly')[], phone: Phones, sousService: SousServices, nextAmount: number): Promise<boolean>;
     private static stringify;
+    private getBetweenForInterval;
 }

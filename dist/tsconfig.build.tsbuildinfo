@@ -4107,8 +4107,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "8ccc4d407247283656c223ad67ea3cb9237e3d8e1999ac8798396957b91feb68",
-        "signature": "7ca7a1288810d98ad88ee4904be83e2e125ccd2c303d83b058255841bc721faf",
+        "version": "e7aa801f8bd79fa4047994e36639bae579283180f3650f9696fd8fac59847e37",
+        "signature": "3b3153de9d0c025a20ca5561260ce276e056af799b9c53f29fe713e9c2197ed1",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtooperationparteners.ts": {
