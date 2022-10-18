@@ -303,6 +303,7 @@ class ApiManagerInterface {
         const transactionWhere = {
             phonesId: phone.id,
             id: typeorm_1.LessThanOrEqual(lastTrId),
+            statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
         };
         const trx = await Transactions_entity_1.Transactions.find({
             where: transactionWhere,
