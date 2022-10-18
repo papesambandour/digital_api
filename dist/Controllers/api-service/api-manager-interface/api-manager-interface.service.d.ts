@@ -93,4 +93,5 @@ export declare abstract class ApiManagerInterface {
     checkServiceSimLimit(intervalsTime: ('daily' | 'weekly' | 'monthly')[], phone: Phones, sousService: SousServices, nextAmount: number): Promise<boolean>;
     private static stringify;
     private getBetweenForInterval;
+    rebootPhoneIfTimeOutAck(phone: Phones, lastTrId: number, ackReceive: boolean, limit?: number): Promise<void>;
 }

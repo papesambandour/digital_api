@@ -5,6 +5,7 @@ const Transactions_entity_1 = require("../../../Models/Entities/Transactions.ent
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const typeorm_1 = require("typeorm");
 const Controller_1 = require("../../Controller");
+const sockets_gateway_1 = require("../../../Sockets/sockets.gateway");
 exports.MANAGER_INIT_CASH_IN_SUCCESS_MESSAGE = `Votre opération s'est effectuée sans erreur. Veuillez attendre le callback pour avoir l'état final de la transaction`;
 exports.MANAGER_INIT_CASH_OUT_SUCCESS_MESSAGE = `Votre opération s'est effectuée sans erreur, Vous allez recevoir un message de confirmation`;
 exports.MANAGER_INIT_DOWN_MESSAGE = `Le services est indisponible pour le moment(pho)`;
@@ -297,6 +298,30 @@ class ApiManagerInterface {
             from: from,
             to: to,
         };
+    }
+    async rebootPhoneIfTimeOutAck(phone, lastTrId, ackReceive, limit = 3) {
+        const transactionWhere = {
+            phonesId: phone.id,
+            id: typeorm_1.LessThanOrEqual(lastTrId),
+        };
+        const trx = await Transactions_entity_1.Transactions.find({
+            where: transactionWhere,
+            order: {
+                createdAt: 'DESC',
+            },
+            take: limit,
+        });
+        for (const tr of trx) {
+            if (tr.codeUssdResponse === Enum_entity_1.EnumCodeUssdResponse.SUCCESS) {
+                console.log('here if have at leas one with success ussd code if limit last');
+                return;
+            }
+        }
+        console.log('reboot not match success succesive');
+        this.helper
+            .notifyAdmin(`Reboot Phone ${phone.number} Because ${limit} transaction with non success ussd code  occcured`, Enum_entity_1.TypeEvenEnum.SUCCESSIVE_USSD_FAIL)
+            .then();
+        sockets_gateway_1.SocketsGateway.rebootPhone(phone).then();
     }
 }
 exports.ApiManagerInterface = ApiManagerInterface;

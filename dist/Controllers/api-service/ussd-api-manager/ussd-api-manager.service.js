@@ -147,6 +147,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                             resolve(this.helper.isNotCancelable(preStatus, status));
                             console.log('activing phone');
                             this.activePhone(this.apiService.phone.id, this.apiService.phone.number).then((value) => value);
+                            this.rebootPhoneIfTimeOutAck(phone, transaction.id, ackReceive).then();
                         }
                         catch (e) {
                             console.log(e);
