@@ -37,7 +37,9 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
                     concurrency: Enum_entity_1.CONSTANT.CALLBACK_CONCURENCY_SEND(),
                 });
                 const promiseArr = [];
-                const transactions = await SendCallbackTaskService_1.fetchPendingTransaction();
+                let transactions = await SendCallbackTaskService_1.fetchPendingTransaction();
+                this.shuffleArray(transactions);
+                transactions = transactions.slice(0, Enum_entity_1.CONSTANT.CALLBACK_CONCURENCY_SEND());
                 console.log('traansaction for send callback fetched', transactions.length);
                 for (const transaction of transactions) {
                     promiseArr.push(queue.pushTask((resolve) => {
@@ -65,6 +67,14 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
             queue === null || queue === void 0 ? void 0 : queue.end();
         }
     }
+    shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            const temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }
     static async fetchPendingTransaction() {
         return await Transactions_entity_1.Transactions.find({
             where: [
@@ -83,7 +93,6 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
                     dateCreation: typeorm_1.MoreThanOrEqual(new Date(process.env.NEW_CRON_IPN_REF_START_DATE)),
                 },
             ],
-            take: Enum_entity_1.CONSTANT.CALLBACK_CONCURENCY_SEND(),
             relations: ['sousServices'],
         });
     }

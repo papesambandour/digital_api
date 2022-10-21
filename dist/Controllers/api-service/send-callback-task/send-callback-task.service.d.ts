@@ -6,5 +6,6 @@ export declare class SendCallbackTaskService {
     static canHandle: any;
     constructor(helper: HelperService, schedulerRegistry: SchedulerRegistry);
     handleCron(): Promise<void>;
+    shuffleArray(array: any): void;
     private static fetchPendingTransaction;
 }
