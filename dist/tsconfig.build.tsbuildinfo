@@ -4647,8 +4647,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/whatsapp-web.js/index.d.ts": {
-        "version": "6610faf06e2637b7580ddab8fc8bb3eb0d1a4351ba6dfaf49e9f7fccab861d66",
-        "signature": "6610faf06e2637b7580ddab8fc8bb3eb0d1a4351ba6dfaf49e9f7fccab861d66",
+        "version": "a42d87153e360eb911fe64cd00b072ab71d3511b2af59c3f8448d86e7a49a7b5",
+        "signature": "a42d87153e360eb911fe64cd00b072ab71d3511b2af59c3f8448d86e7a49a7b5",
         "affectsGlobalScope": false
       },
       "../src/sdk/discord/discordapiprovider.ts": {
