@@ -71,6 +71,8 @@ class WhatsAppApiProvider {
         });
         client.on('disconnected', () => {
             console.log('disconnected');
+            WhatsAppApiProvider._instance = null;
+            WhatsAppApiProvider.getInstance().then();
         });
         client.on('message', (msg) => {
             if (msg.body == '!ping') {

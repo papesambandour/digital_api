@@ -4657,7 +4657,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/whatsapp/whatsappapiprovider.ts": {
-        "version": "818641492925d7157d53f84ce06a825a9444842b2dffc601117471550c32555f",
+        "version": "b96cb6568e68b4ec4ebc394f1b2a1fcd052de8bb5e0ac911fefa4be8cce7db15",
         "signature": "6dde8ad12ee3b7469880311cb2e779bee6cdff09064c0166ab6d5cbe0306ff1a",
         "affectsGlobalScope": false
       },
