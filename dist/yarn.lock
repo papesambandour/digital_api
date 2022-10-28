@@ -7353,10 +7353,10 @@
     "watchpack" "^2.0.0"
     "webpack-sources" "^2.1.1"
 
-"whatsapp-web.js@^1.18.0":
-  "integrity" "sha512-3cCW28/w7llZmTgiO9osumaopOuBBduvyuW02yfy3q9Rz4Wq9Oe1dRedE/kkq764zB8AZcuTs0tE8OKTq2Zobw=="
-  "resolved" "https://registry.npmjs.org/whatsapp-web.js/-/whatsapp-web.js-1.18.0.tgz"
-  "version" "1.18.0"
+"whatsapp-web.js@^1.18.2":
+  "integrity" "sha512-RMzLgstoS9hLK4ix+RchDxXdpuSXuV8jm7SDb/8xc5Ju09zrkOP11dj/4XYszmuwNR0n1VsxNQGp39pnulmcUA=="
+  "resolved" "https://registry.npmjs.org/whatsapp-web.js/-/whatsapp-web.js-1.18.2.tgz"
+  "version" "1.18.2"
   dependencies:
     "@pedroslopez/moduleraid" "^5.0.2"
     "fluent-ffmpeg" "^2.1.2"
