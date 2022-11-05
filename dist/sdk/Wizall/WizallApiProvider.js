@@ -138,7 +138,7 @@ class WizallApiProvider {
             console.log(option);
             const response = await this.rp(option);
             return {
-                success: false,
+                success: true,
                 newBalance: response === null || response === void 0 ? void 0 : response.solde,
             };
         }
