@@ -118,33 +118,35 @@ class WizallApiProvider {
             };
         }
     }
-    async makeDeposit({ amount, identifier, phoneNumber }) {
+    async getBalance() {
         await this.waitForToken();
         try {
             const option = {
                 method: 'POST',
-                uri: `${this.wizallUrl}/api/partner/cashout/`,
+                uri: `${this.wizallUrl}/api/solde/`,
                 json: true,
                 headers: {
                     Authorization: `Bearer ${this.token}`,
                 },
                 body: {
-                    agentmsisdn: config_1.wizallApiConfig('payment').wizallAgentPhoneNumber,
-                    agentpin: config_1.wizallApiConfig('payment').wizallAgentPin,
-                    amount: amount,
-                    external_id: identifier + '',
-                    usermsisdn: phoneNumber,
+                    agent_msisdn: config_1.wizallApiConfig('payment').wizallAgentPhoneNumber,
+                    agent_pin: config_1.wizallApiConfig('payment').wizallAgentPin,
                     partner_id: config_1.wizallApiConfig('payment').wizallPartnerId,
                     country: 'sn',
                 },
             };
             console.log(option);
-            return await this.rp(option);
+            const response = await this.rp(option);
+            return {
+                success: false,
+                newBalance: response === null || response === void 0 ? void 0 : response.solde,
+            };
         }
         catch (e) {
-            console.log(e.message);
+            console.log(e.message, 'balanceResponse');
             return {
-                message: e.message,
+                success: false,
+                newBalance: null,
             };
         }
     }

@@ -14,10 +14,7 @@ class WizallMoneySnCashOutApiManagerService extends api_manager_interface_servic
         return await this.notImplementedYet(params);
     }
     async getBalance(params) {
-        return Promise.resolve({
-            success: false,
-            newBalance: null,
-        });
+        return WizallApiProvider_1.default.getInstance('payment').getBalance();
     }
     async handleCallbackTransaction(params) {
         return await this.notImplementedYet(params);

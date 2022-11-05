@@ -1,5 +1,5 @@
 import { WizallMoneySnCashOutApiManagerService } from '../../Controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service';
-import { CheckParams, CheckResponse } from '../../Controllers/api-service/api-manager-interface/api-manager-interface.service';
+import { BalanceResponse, CheckParams, CheckResponse } from '../../Controllers/api-service/api-manager-interface/api-manager-interface.service';
 export default class WizallApiProvider {
     private static _paymentInstance;
     private static _billInstance;
@@ -24,11 +24,7 @@ export default class WizallApiProvider {
         identifier: any;
         phoneNumber: any;
     }): Promise<any>;
-    makeDeposit({ amount, identifier, phoneNumber }: {
-        amount: any;
-        identifier: any;
-        phoneNumber: any;
-    }): Promise<any>;
+    getBalance(): Promise<BalanceResponse>;
     static waitSome(seconde: number): Promise<unknown>;
     verifyWizallTransaction(wizallSubmitedId: any, { wizallAgentPhoneNumber, wizallAgentPin }: {
         wizallAgentPhoneNumber: any;
