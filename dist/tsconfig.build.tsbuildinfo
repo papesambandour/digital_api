@@ -4807,7 +4807,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": {
-        "version": "bef53289ec6969c3061d96a42afd3e9c1fc78dccd1ba25521e26ba41e927230c",
+        "version": "97c7dfacb40b0f68cb93a4eb866bf935a7b34bf0f8d65417e26cdef315c902ca",
         "signature": "3e7bd0be6987840edcc901b4efe884d142b3321620394017a2c0df832640679d",
         "affectsGlobalScope": false
       },

@@ -38,7 +38,6 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
                 });
                 const promiseArr = [];
                 let transactions = await SendCallbackTaskService_1.fetchPendingTransaction();
-                this.shuffleArray(transactions);
                 transactions = transactions.slice(0, Enum_entity_1.CONSTANT.CALLBACK_CONCURENCY_SEND());
                 console.log('traansaction for send callback fetched', transactions.length);
                 for (const transaction of transactions) {
@@ -99,7 +98,7 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
 };
 SendCallbackTaskService.canHandle = undefined;
 __decorate([
-    schedule_1.Cron(schedule_1.CronExpression.EVERY_5_SECONDS),
+    schedule_1.Cron(schedule_1.CronExpression.EVERY_SECOND),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
