@@ -37,7 +37,7 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
                     concurrency: Enum_entity_1.CONSTANT.CALLBACK_CONCURENCY_SEND(),
                 });
                 const promiseArr = [];
-                let transactions = await SendCallbackTaskService_1.fetchPendingTransaction();
+                let transactions = await this.fetchPendingTransaction();
                 transactions = transactions.slice(0, Enum_entity_1.CONSTANT.CALLBACK_CONCURENCY_SEND());
                 console.log('traansaction for send callback fetched', transactions.length);
                 for (const transaction of transactions) {
@@ -74,7 +74,7 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
             array[j] = temp;
         }
     }
-    static async fetchPendingTransaction() {
+    async fetchPendingTransaction() {
         return await Transactions_entity_1.Transactions.find({
             where: [
                 {
@@ -89,6 +89,7 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
                     callBackRetryCount: typeorm_1.LessThan(Enum_entity_1.CONSTANT.MAX_RETRY_CALLBACK()),
                     callbackIsSend: typeorm_1.In([0, 2]),
                     statut: typeorm_1.In([Enum_entity_1.StatusEnum.FAILLED, Enum_entity_1.StatusEnum.SUCCESS]),
+                    updatedAt: typeorm_1.LessThanOrEqual(this.helper.addMinuteToDate(new Date(), -1)),
                     dateCreation: typeorm_1.MoreThanOrEqual(new Date(process.env.NEW_CRON_IPN_REF_START_DATE)),
                 },
             ],

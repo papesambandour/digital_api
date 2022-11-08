@@ -4807,8 +4807,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": {
-        "version": "97c7dfacb40b0f68cb93a4eb866bf935a7b34bf0f8d65417e26cdef315c902ca",
-        "signature": "3e7bd0be6987840edcc901b4efe884d142b3321620394017a2c0df832640679d",
+        "version": "3f6ccb0891b4e2978747f28247e032ffdf91a5799fc31c14bdbfe70d2549684e",
+        "signature": "64f2c0bcf07940f5fe99b952cd2cc645225755612d047af218447e39d327e430",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": {
