@@ -36,7 +36,7 @@ export declare class HelperService {
     getApiManagerInterface(codeService: string, apiService: ApiServiceService): Promise<ApiManagerInterface>;
     getTransactionById(transactionId: number, extraRelation?: any[]): Promise<Transactions>;
     getTransactionByGeneratedId(transactionId: string, extraRelation?: any[]): Promise<Transactions>;
-    setIsCallbackReadyValue(transaction: Transactions): Promise<void>;
+    setIsCallbackReadyValue(transaction: Transactions, delaySendCallBackMs?: number): Promise<void>;
     setTimeOutDate(transaction: Transactions): Promise<void>;
     sendCallBack(transaction: Transactions, delayMs?: number): Promise<any>;
     addMinuteToDate(date: Date, minutes: number): Date;

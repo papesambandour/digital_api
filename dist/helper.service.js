@@ -145,7 +145,7 @@ let HelperService = class HelperService {
             relations: extraRelation.concat(['sousServices']),
         });
     }
-    async setIsCallbackReadyValue(transaction) {
+    async setIsCallbackReadyValue(transaction, delaySendCallBackMs = 0) {
         var _a, _b, _c, _d;
         if (!transaction) {
             console.log('no transaction to set setIsCallbackReadyValue');
@@ -162,7 +162,7 @@ let HelperService = class HelperService {
         if (transaction.callbackReady !== value) {
             if (value) {
                 transaction.nextSendCallbackDate = this.addMinuteToDate(new Date(), Enum_entity_1.CONSTANT.WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE());
-                this.sendCallBack(transaction, 5000).then();
+                this.sendCallBack(transaction, delaySendCallBackMs).then();
                 transaction.callbackReady = value;
                 await transaction.save();
             }

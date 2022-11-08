@@ -52,7 +52,7 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
         transaction.preStatut = statues['preStatus'];
         transaction.sousServiceTransactionId = response.reference;
         await transaction.save();
-        await this.helper.setIsCallbackReadyValue(transaction);
+        await this.helper.setIsCallbackReadyValue(transaction, 5000);
         this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (response.success) {
             transaction.message = main_1.serializeData(response);
