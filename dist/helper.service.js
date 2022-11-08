@@ -162,7 +162,7 @@ let HelperService = class HelperService {
         if (transaction.callbackReady !== value) {
             if (value) {
                 transaction.nextSendCallbackDate = this.addMinuteToDate(new Date(), Enum_entity_1.CONSTANT.WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE());
-                this.sendCallBack(transaction).then();
+                this.sendCallBack(transaction, 5000).then();
                 transaction.callbackReady = value;
                 await transaction.save();
             }
@@ -178,8 +178,9 @@ let HelperService = class HelperService {
             await transaction.save();
         }
     }
-    async sendCallBack(transaction) {
+    async sendCallBack(transaction, delayMs = 0) {
         var _a;
+        await this.waitSomeMs(delayMs);
         const errorType = await this.provideErrorType(transaction);
         let data = {};
         try {
