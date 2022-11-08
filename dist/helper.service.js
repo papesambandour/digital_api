@@ -161,10 +161,11 @@ let HelperService = class HelperService {
         console.log('setting callback', value);
         if (transaction.callbackReady !== value) {
             if (value) {
-                transaction.nextSendCallbackDate = new Date();
+                transaction.nextSendCallbackDate = this.addMinuteToDate(new Date(), Enum_entity_1.CONSTANT.WAIT_TIME_FOR_RETRY_CALLBACK_IN_MINUTE());
+                this.sendCallBack(transaction).then();
+                transaction.callbackReady = value;
+                await transaction.save();
             }
-            transaction.callbackReady = value;
-            await transaction.save();
         }
     }
     async setTimeOutDate(transaction) {
