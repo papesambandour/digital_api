@@ -37,14 +37,19 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
             }, baseResponse);
         }
         const transaction = await this.createTransaction(api);
-        const response = await WaveApiProvider_1.default.SendWaveMoneyBusiness({
-            toPhoneNumber: `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,
+        const aggregatorId = await WaveApiProvider_1.default.createAggregatorId(this.apiService.partner, config_1.waveBusinessApiConfig(this.constructor.country).cashInApiKey);
+        const response = await WaveApiProvider_1.default.sendPayOutApi({
+            idemPotency: `${transaction.transactionId}_${transaction.id}`,
+            currency: 'XOF',
+            client_reference: transaction.transactionId,
+            mobile: `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,
             sender: params.dto.sender || '',
-            amount: params.dto.amount,
-            sessionId: config_1.waveBusinessApiConfig(this.constructor.country)
-                .sessionId,
-            walletId: config_1.waveBusinessApiConfig(this.constructor.country)
-                .walletId,
+            receive_amount: params.dto.amount,
+            national_id: null,
+            name: null,
+            token: config_1.waveBusinessApiConfig(this.constructor.country)
+                .cashOutApiKey,
+            aggregated_merchant_id: aggregatorId,
         });
         const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
         console.log(response, 'sttaus', statues);
@@ -56,7 +61,7 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
         this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (response.success) {
             transaction.message = main_1.serializeData(response);
-            transaction.needCheckTransaction = 1;
+            transaction.needCheckTransaction = 0;
             await transaction.save();
             await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');

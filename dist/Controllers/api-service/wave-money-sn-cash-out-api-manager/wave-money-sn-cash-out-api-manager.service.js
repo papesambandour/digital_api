@@ -38,6 +38,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
             }, baseResponse);
         }
         const transaction = await this.createTransaction(api);
+        const aggregatorId = await WaveApiProvider_1.default.createAggregatorId(this.apiService.partner, config_1.waveBusinessApiConfig(this.constructor.country).cashInApiKey);
         const checkout = await WaveApiProvider_1.default.makeCheckout({
             idemPotency: `${transaction.transactionId}_${transaction.id}`,
             amount: transaction.amount,
@@ -46,7 +47,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
             success_url: params.dto.successRedirectUrl,
             error_url: params.dto.errorRedirectUrl,
             client_reference: transaction.transactionId,
-            override_business_name: params.dto.sender,
+            aggregated_merchant_id: aggregatorId,
         });
         if (checkout) {
             checkout.success = !!(checkout === null || checkout === void 0 ? void 0 : checkout.wave_launch_url);

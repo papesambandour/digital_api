@@ -120,19 +120,16 @@ class WaveApiProvider {
             receiveAmount: amount,
         };
     }
-    static async makeCheckout({ idemPotency, amount, token, success_url, error_url, client_reference, override_business_name, }) {
+    static async makeCheckout({ idemPotency, amount, token, success_url, error_url, client_reference, aggregated_merchant_id, }) {
         try {
             amount += '';
-            if (!override_business_name) {
-                override_business_name = 'InTech';
-            }
             const body = {
                 amount,
                 currency: 'XOF',
                 error_url,
                 success_url,
                 client_reference,
-                override_business_name,
+                aggregated_merchant_id,
             };
             console.log('checkout body', body);
             return await rp({
@@ -149,6 +146,86 @@ class WaveApiProvider {
         catch (e) {
             return {
                 error: e.message,
+            };
+        }
+    }
+    static async sendPayOutApi({ idemPotency, currency, client_reference, mobile, sender, receive_amount, national_id, name, token, aggregated_merchant_id, }) {
+        try {
+            receive_amount += '';
+            const body = {
+                payouts: [
+                    {
+                        currency,
+                        client_reference,
+                        mobile,
+                        receive_amount,
+                        national_id,
+                        name,
+                        aggregated_merchant_id,
+                    },
+                ],
+            };
+            console.log('payout body', body);
+            const initResponse = await rp({
+                uri: `${WaveApiProvider.baseUrl}/v1/payout-batch`,
+                method: 'post',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Idempotency-Key': idemPotency,
+                },
+                body,
+                json: true,
+            });
+            const payoutId = initResponse.id;
+            let retryMax = 15;
+            const sleepTimeMs = 1000;
+            do {
+                const checkResponse = await rp({
+                    uri: `${WaveApiProvider.baseUrl}/v1/payout-batch/${payoutId}`,
+                    method: 'get',
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                    json: true,
+                });
+                console.log('sleeep check response', retryMax, checkResponse);
+                if (checkResponse.status === 'complete') {
+                    const firstPayout = checkResponse.payouts[0];
+                    if (firstPayout.status === 'succeeded') {
+                        return {
+                            success: true,
+                            payoutId: firstPayout.id,
+                            reference: firstPayout.id,
+                        };
+                    }
+                    else if (firstPayout.status === 'failed') {
+                        return {
+                            success: false,
+                            payoutId: firstPayout.id,
+                            reference: firstPayout.id,
+                            message: main_1.serializeData(firstPayout.payout_error),
+                        };
+                    }
+                    else {
+                    }
+                }
+                retryMax--;
+                await WaveUtil.sleep(sleepTimeMs);
+            } while (retryMax > 0);
+            return {
+                success: true,
+                payoutId: initResponse.id,
+                reference: initResponse.id,
+                message: 'Le transfert est en cours de traitement',
+                code: '',
+            };
+        }
+        catch (e) {
+            return {
+                success: false,
+                error: e.message,
+                message: e.message,
+                code: '',
             };
         }
     }
@@ -703,7 +780,7 @@ class WaveApiProvider {
             transactionId: (_o = (_m = params.transaction) === null || _m === void 0 ? void 0 : _m.transactionId) !== null && _o !== void 0 ? _o : null,
         };
         try {
-            const refundDepositQuery = '{"query":"mutation RefundDialog_reverseBusinessPaymentMutation(\\n  $transferId: ID!\\n) {\\n  reverseBusinessPayment(transferId: $transferId) {\\n    transfer {\\n      id\\n    }\\n    isRefunded\\n  }\\n}\\n","variables":{"transferId":"' +
+            const refundDepositQuery = '{"query":"mutation RefundDialog_reversePayoutMutation(\\n  $tcid: ID!\\n) {\\n  reversePayout(tcid: $tcid) {\\n    isRefunded\\n  }\\n}\\n","variables":{"tcid":"' +
                 transferId +
                 '"}}';
             const refundPaymentQuery = '{"query":"mutation RefundDialog_refundMerchantSaleMutation(\\n  $transferId: ID!\\n  $refundPin: String\\n) {\\n  refundMerchantSale(transferId: $transferId, refundPin: $refundPin) {\\n    transfer {\\n      id\\n    }\\n    isRefunded\\n  }\\n}\\n","variables":{"transferId":"' +
@@ -732,11 +809,10 @@ class WaveApiProvider {
             });
             console.log(refundQuery, sessionId);
             const refund = await refundRequest.json();
-            console.log(refund);
+            console.log(main_1.serializeData(refund), sessionId);
             if ((type === 'payment' &&
                 ((_q = (_p = refund === null || refund === void 0 ? void 0 : refund.data) === null || _p === void 0 ? void 0 : _p.refundMerchantSale) === null || _q === void 0 ? void 0 : _q.isRefunded) === true) ||
-                (type === 'deposit' &&
-                    ((_s = (_r = refund === null || refund === void 0 ? void 0 : refund.data) === null || _r === void 0 ? void 0 : _r.reverseBusinessPayment) === null || _s === void 0 ? void 0 : _s.isRefunded) === true)) {
+                (type === 'deposit' && ((_s = (_r = refund === null || refund === void 0 ? void 0 : refund.data) === null || _r === void 0 ? void 0 : _r.reversePayout) === null || _s === void 0 ? void 0 : _s.isRefunded) === true)) {
                 return Object.assign({
                     status: Enum_entity_1.StatusEnum.SUCCESS,
                     codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
@@ -761,6 +837,37 @@ class WaveApiProvider {
                 partnerMessage: `Le transaction Wave de ${params.transaction.amount} CFA n'as pas pus être remboursé`,
                 refund: e,
             }, baseResponse);
+        }
+    }
+    static async createAggregatorId(partner, token, update = false) {
+        if (partner.waveBusinessRegistrationId && !update) {
+            return partner.waveBusinessRegistrationId;
+        }
+        const prefix = process.env.MODE === 'production' ? ' INTECH_PROD_' : 'INTECH_DEV_';
+        const body = {
+            name: partner.name,
+            business_registration_identifier: `${prefix}${partner.id}`,
+        };
+        console.log(body);
+        try {
+            const response = await rp({
+                uri: `${WaveApiProvider.baseUrl}/v1/aggregated_merchants`,
+                method: update ? 'put' : 'post',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                body: body,
+                json: true,
+            });
+            console.log(response);
+            partner.waveBusinessRegistrationId = response === null || response === void 0 ? void 0 : response.id;
+            await partner.save();
+            return partner.waveBusinessRegistrationId;
+        }
+        catch (e) {
+            console.log(e);
+            console.log(e.message);
+            return null;
         }
     }
 }

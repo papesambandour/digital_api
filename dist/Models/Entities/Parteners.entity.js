@@ -88,6 +88,14 @@ __decorate([
     __metadata("design:type", String)
 ], Parteners.prototype, "email", void 0);
 __decorate([
+    typeorm_1.Column('varchar', {
+        name: 'wave_business_registration_id',
+        length: 255,
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], Parteners.prototype, "waveBusinessRegistrationId", void 0);
+__decorate([
     typeorm_1.Column('longtext', { name: 'adress', nullable: true }),
     __metadata("design:type", String)
 ], Parteners.prototype, "adress", void 0);

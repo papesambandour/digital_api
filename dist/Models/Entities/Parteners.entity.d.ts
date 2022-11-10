@@ -17,6 +17,7 @@ export declare class Parteners extends CustomBaseModel {
     name: string;
     phone: string;
     email: string;
+    waveBusinessRegistrationId: string;
     adress: string | null;
     password: string;
     firstConnection: number;

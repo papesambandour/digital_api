@@ -1,5 +1,6 @@
 import { WaveMoneySnCashOutApiManagerService } from '../../Controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service';
 import { BalanceParams, BalanceResponse, CheckParams, CheckResponse, RefundParams, RefundResponse } from '../../Controllers/api-service/api-manager-interface/api-manager-interface.service';
+import { Parteners } from '../../Models/Entities/Parteners.entity';
 export declare type WAVE_COUNTRY = 'sn' | 'ci';
 export declare enum WAVE_BILL_ID {
     RAPIDO = "BT_rapido:U_R-mFhH9faepR",
@@ -44,15 +45,55 @@ export default class WaveApiProvider {
         sentAmount: any;
         receiveAmount: any;
     };
-    static makeCheckout({ idemPotency, amount, token, success_url, error_url, client_reference, override_business_name, }: {
+    static makeCheckout({ idemPotency, amount, token, success_url, error_url, client_reference, aggregated_merchant_id, }: {
         idemPotency: any;
         amount: any;
         token: any;
         success_url: any;
         error_url: any;
         client_reference: any;
-        override_business_name: any;
+        aggregated_merchant_id: any;
     }): Promise<any>;
+    static sendPayOutApi({ idemPotency, currency, client_reference, mobile, sender, receive_amount, national_id, name, token, aggregated_merchant_id, }: {
+        idemPotency: any;
+        currency: any;
+        client_reference: any;
+        mobile: any;
+        sender: any;
+        receive_amount: any;
+        national_id: any;
+        name: any;
+        token: any;
+        aggregated_merchant_id: any;
+    }): Promise<{
+        success: boolean;
+        payoutId: any;
+        reference: any;
+        message?: undefined;
+        code?: undefined;
+        error?: undefined;
+    } | {
+        success: boolean;
+        payoutId: any;
+        reference: any;
+        message: string;
+        code?: undefined;
+        error?: undefined;
+    } | {
+        success: boolean;
+        payoutId: any;
+        reference: any;
+        message: string;
+        code: string;
+        error?: undefined;
+    } | {
+        success: boolean;
+        error: any;
+        message: any;
+        code: string;
+        payoutId?: undefined;
+        reference?: undefined;
+    }>;
     static verifyCheckout({ id, token, idemPotency }: {
         id: any;
         token: any;
@@ -168,4 +209,5 @@ export default class WaveApiProvider {
     }>;
     private static fetchAsyncPayment;
     static refundTransaction(params: RefundParams, sessionId: string, transferId: string, type: 'payment' | 'deposit'): Promise<RefundResponse>;
+    static createAggregatorId(partner: Parteners, token: string, update?: boolean): Promise<string>;
 }
