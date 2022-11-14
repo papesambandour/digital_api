@@ -4246,7 +4246,7 @@
         "signature": "3b89266efc5885741d1b7feb49d1e73d5836e3d0fba14c4d8c2eb0f791822019",
         "affectsGlobalScope": false
       },
-      "../node_modules/socket.io-adapter/dist/index.d.ts": {
+      "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts": {
         "version": "8ef692b43546bba3f743f404e14f99d211c587190aad12e736d59701ae5edba4",
         "signature": "8ef692b43546bba3f743f404e14f99d211c587190aad12e736d59701ae5edba4",
         "affectsGlobalScope": false
@@ -8987,10 +8987,6 @@
         "../node_modules/rxjs/internal/operators/zip.d.ts",
         "../node_modules/rxjs/internal/operators/zipall.d.ts"
       ],
-      "../node_modules/socket.io-adapter/dist/index.d.ts": [
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/index.d.ts"
-      ],
       "../node_modules/socket.io-parser/dist/index.d.ts": [
         "../node_modules/@types/component-emitter/index.d.ts"
       ],
@@ -9007,28 +9003,32 @@
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/index.d.ts",
-        "../node_modules/socket.io-adapter/dist/index.d.ts",
         "../node_modules/socket.io-parser/dist/index.d.ts",
         "../node_modules/socket.io/dist/namespace.d.ts",
-        "../node_modules/socket.io/dist/socket.d.ts"
+        "../node_modules/socket.io/dist/socket.d.ts",
+        "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts"
       ],
       "../node_modules/socket.io/dist/namespace.d.ts": [
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/index.d.ts",
-        "../node_modules/socket.io-adapter/dist/index.d.ts",
         "../node_modules/socket.io/dist/client.d.ts",
         "../node_modules/socket.io/dist/index.d.ts",
-        "../node_modules/socket.io/dist/socket.d.ts"
+        "../node_modules/socket.io/dist/socket.d.ts",
+        "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts"
       ],
       "../node_modules/socket.io/dist/socket.d.ts": [
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/querystring.d.ts",
-        "../node_modules/socket.io-adapter/dist/index.d.ts",
         "../node_modules/socket.io-parser/dist/index.d.ts",
         "../node_modules/socket.io/dist/client.d.ts",
-        "../node_modules/socket.io/dist/namespace.d.ts"
+        "../node_modules/socket.io/dist/namespace.d.ts",
+        "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts"
+      ],
+      "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts"
       ],
       "../node_modules/typeorm/cache/queryresultcache.d.ts": [
         "../node_modules/typeorm/cache/queryresultcacheoptions.d.ts",
@@ -14033,10 +14033,6 @@
         "../node_modules/rxjs/internal/operators/zip.d.ts",
         "../node_modules/rxjs/internal/operators/zipall.d.ts"
       ],
-      "../node_modules/socket.io-adapter/dist/index.d.ts": [
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/index.d.ts"
-      ],
       "../node_modules/socket.io-parser/dist/index.d.ts": [
         "../node_modules/@types/component-emitter/index.d.ts"
       ],
@@ -14053,28 +14049,32 @@
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/index.d.ts",
-        "../node_modules/socket.io-adapter/dist/index.d.ts",
         "../node_modules/socket.io-parser/dist/index.d.ts",
         "../node_modules/socket.io/dist/namespace.d.ts",
-        "../node_modules/socket.io/dist/socket.d.ts"
+        "../node_modules/socket.io/dist/socket.d.ts",
+        "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts"
       ],
       "../node_modules/socket.io/dist/namespace.d.ts": [
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/index.d.ts",
-        "../node_modules/socket.io-adapter/dist/index.d.ts",
         "../node_modules/socket.io/dist/client.d.ts",
         "../node_modules/socket.io/dist/index.d.ts",
-        "../node_modules/socket.io/dist/socket.d.ts"
+        "../node_modules/socket.io/dist/socket.d.ts",
+        "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts"
       ],
       "../node_modules/socket.io/dist/socket.d.ts": [
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/querystring.d.ts",
-        "../node_modules/socket.io-adapter/dist/index.d.ts",
         "../node_modules/socket.io-parser/dist/index.d.ts",
         "../node_modules/socket.io/dist/client.d.ts",
-        "../node_modules/socket.io/dist/namespace.d.ts"
+        "../node_modules/socket.io/dist/namespace.d.ts",
+        "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts"
+      ],
+      "../node_modules/socket.io/node_modules/socket.io-adapter/dist/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts"
       ],
       "../node_modules/typeorm/cache/queryresultcache.d.ts": [
         "../node_modules/typeorm/cache/queryresultcacheoptions.d.ts",
