@@ -58,7 +58,8 @@ class ProviderOrangeMoneyApi {
             console.log(formData);
             const apiResponse = await rp(postOption);
             console.log(apiResponse);
-            const success = ['SUCCESS', 'INITIATED', 'PENDING', 'PRE_INITIATED'].includes((_a = apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.status) === null || _a === void 0 ? void 0 : _a.toUpperCase()) || ((_b = main_1.serializeData(apiResponse)) === null || _b === void 0 ? void 0 : _b.includes('internal-server-error'));
+            const success = ['SUCCESS', 'INITIATED', 'PENDING', 'PRE_INITIATED'].includes((_a = apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.status) === null || _a === void 0 ? void 0 : _a.toUpperCase()) ||
+                ((_b = main_1.serializeData(apiResponse)) === null || _b === void 0 ? void 0 : _b.includes('internal-server-error--------'));
             return {
                 success,
                 code: success
