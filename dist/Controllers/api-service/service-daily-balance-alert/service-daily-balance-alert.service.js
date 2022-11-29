@@ -49,7 +49,7 @@ let ServiceDailyBalanceAlertService = class ServiceDailyBalanceAlertService {
     }
 };
 __decorate([
-    schedule_1.Cron(schedule_1.CronExpression.EVERY_DAY_AT_8AM),
+    schedule_1.Cron(schedule_1.CronExpression.EVERY_DAY_AT_MIDNIGHT),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
