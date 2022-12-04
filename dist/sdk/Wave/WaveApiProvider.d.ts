@@ -1,6 +1,7 @@
 import { WaveMoneySnCashOutApiManagerService } from '../../Controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service';
 import { BalanceParams, BalanceResponse, CheckParams, CheckResponse, RefundParams, RefundResponse } from '../../Controllers/api-service/api-manager-interface/api-manager-interface.service';
 import { Parteners } from '../../Models/Entities/Parteners.entity';
+import { OperationInDto } from '../../Controllers/api-service/dto/OperationInDto';
 export declare type WAVE_COUNTRY = 'sn' | 'ci';
 export declare enum WAVE_BILL_ID {
     RAPIDO = "BT_rapido:U_R-mFhH9faepR",
@@ -209,5 +210,5 @@ export default class WaveApiProvider {
     }>;
     private static fetchAsyncPayment;
     static refundTransaction(params: RefundParams, sessionId: string, transferId: string, type: 'payment' | 'deposit'): Promise<RefundResponse>;
-    static createAggregatorId(partner: Parteners, token: string, update?: boolean): Promise<string>;
+    static createAggregatorId(dto: OperationInDto, partner: Parteners, token: string, update?: boolean): Promise<string>;
 }

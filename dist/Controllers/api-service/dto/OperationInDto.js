@@ -62,6 +62,30 @@ __decorate([
 ], OperationInDto.prototype, "externalTransactionId", void 0);
 __decorate([
     swagger_1.ApiProperty(),
+    class_validator_1.IsOptional(),
+    class_validator_1.IsOptional({
+        message: "L'id wave du marchant est incorrect",
+    }),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "waveBusinessRegistrationId", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsOptional(),
+    class_validator_1.IsString({
+        message: 'Le nom wave du marchant est incorrect',
+    }),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "waveBusinessRegistrationName", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsOptional(),
+    class_validator_1.IsString({
+        message: 'Le id  wave external du marchant est incorrect',
+    }),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "waveBusinessRegistrationExternalInTechId", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
     class_validator_1.IsNotEmpty({
         message: 'Le Callback Url est requis',
     }),

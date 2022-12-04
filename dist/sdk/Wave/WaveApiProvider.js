@@ -839,14 +839,19 @@ class WaveApiProvider {
             }, baseResponse);
         }
     }
-    static async createAggregatorId(partner, token, update = false) {
-        if (partner.waveBusinessRegistrationId && !update) {
+    static async createAggregatorId(dto, partner, token, update = false) {
+        if (dto.waveBusinessRegistrationId) {
+            return dto.waveBusinessRegistrationId;
+        }
+        if (!dto.waveBusinessRegistrationName &&
+            partner.waveBusinessRegistrationId &&
+            !update) {
             return partner.waveBusinessRegistrationId;
         }
         const prefix = process.env.MODE === 'production' ? ' INTECH_PROD_' : 'INTECH_DEV_';
         const body = {
-            name: partner.name,
-            business_registration_identifier: `${prefix}${partner.id}`,
+            name: dto.waveBusinessRegistrationName || partner.name,
+            business_registration_identifier: `${prefix}${dto.waveBusinessRegistrationExternalInTechId || partner.id}`,
         };
         console.log(body);
         try {

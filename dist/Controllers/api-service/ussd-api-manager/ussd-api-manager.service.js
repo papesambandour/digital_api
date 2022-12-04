@@ -127,8 +127,12 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                         try {
                             console.log('WAIT RETOUR USSD');
                             const statues = this.helper.getStatusAfterExec('timeout', this.apiService.sousServices);
-                            const preStatus = statues['preStatus'];
-                            const status = statues['status'];
+                            const preStatus = ackReceive
+                                ? statues['preStatus']
+                                : Enum_entity_1.StatusEnum.FAILLED;
+                            const status = ackReceive
+                                ? statues['status']
+                                : Enum_entity_1.StatusEnum.FAILLED;
                             console.log('setting ressponse phone');
                             const query = `update transactions
                                  set pre_statut= '${preStatus}',

@@ -37,7 +37,7 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
             }, baseResponse);
         }
         const transaction = await this.createTransaction(api);
-        const aggregatorId = await WaveApiProvider_1.default.createAggregatorId(this.apiService.partner, config_1.waveBusinessApiConfig(this.constructor.country).cashInApiKey);
+        const aggregatorId = await WaveApiProvider_1.default.createAggregatorId(params.dto, this.apiService.partner, config_1.waveBusinessApiConfig(this.constructor.country).cashInApiKey);
         const response = await WaveApiProvider_1.default.sendPayOutApi({
             idemPotency: `${transaction.transactionId}_${transaction.id}`,
             currency: 'XOF',
@@ -72,6 +72,9 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
+                data: {
+                    waveBusinessRegistrationId: aggregatorId,
+                },
             }, baseResponse);
         }
         else {
@@ -85,6 +88,9 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
+                data: {
+                    waveBusinessRegistrationId: aggregatorId,
+                },
             }, baseResponse);
         }
     }

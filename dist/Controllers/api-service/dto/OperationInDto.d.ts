@@ -6,6 +6,9 @@ export declare class OperationInDto {
     codeService: string;
     motif: string;
     externalTransactionId: string;
+    waveBusinessRegistrationId: string;
+    waveBusinessRegistrationName: string;
+    waveBusinessRegistrationExternalInTechId: string;
     callbackUrl: string;
     data: any;
     apiKey: string;
