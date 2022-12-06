@@ -1214,7 +1214,6 @@ let HelperService = class HelperService {
         }
         if (tos.length) {
             for (const to of tos) {
-                await WhatsAppApiProvider_1.default.sendMessageToOne(to, message).then();
             }
         }
     }
@@ -1239,7 +1238,6 @@ let HelperService = class HelperService {
         }
         if (tos.length) {
             for (const to of tos) {
-                await WhatsAppApiProvider_1.default.sendMessageToOne(to, message).then();
             }
         }
     }
