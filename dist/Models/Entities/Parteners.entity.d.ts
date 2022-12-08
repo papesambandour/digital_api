@@ -30,4 +30,5 @@ export declare class Parteners extends CustomBaseModel {
     partenerSettings: PartenerSettings[];
     sousServicesParteners: SousServicesParteners[];
     transactions: Transactions[];
+    getCanSendWavePaymentLink(): Promise<boolean>;
 }

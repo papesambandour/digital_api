@@ -69,12 +69,18 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
             const deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
             const messageNotification = await this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
             const to = `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`;
-            this.helper
-                .sendSms([to], messageNotification, this.apiService.sousServices.executeSmsSender, true, 30)
-                .then(() => {
-                console.log('sending whatslink only');
-                WhatsAppApiProvider_1.default.sendMessageToOne(to, deepLink).then();
-            });
+            if (await this.apiService.partner.getCanSendWavePaymentLink()) {
+                console.log('can send link');
+                this.helper
+                    .sendSms([to], messageNotification, this.apiService.sousServices.executeSmsSender, false, 30)
+                    .then(() => {
+                    console.log('sending whatslink only');
+                    WhatsAppApiProvider_1.default.sendMessageToOne(to, deepLink).then();
+                });
+            }
+            else {
+                console.log('ignore send link');
+            }
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.PENDING,
                 codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
