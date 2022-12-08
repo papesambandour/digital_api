@@ -27,6 +27,7 @@ class Bank3DSBridgeApiProvider {
                 bankArea: bankArea || '',
             },
         };
+        console.log(params, process.env.INTECH_SECURE_3DS_ACCESS_TOKEN);
         try {
             const paymentResponse = await rp({
                 url: 'https://secure-3ds.intech.sn/api/getPaymentUrl',

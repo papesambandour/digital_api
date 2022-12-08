@@ -122,7 +122,8 @@ class BankCardMoneySnCashOutApiManagerService extends api_manager_interface_serv
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.UNKNOW_ERROR,
-                partnerMessage: 'Impossible de procéder au paiement ressayer plus tard',
+                partnerMessage: (checkout === null || checkout === void 0 ? void 0 : checkout.message) ||
+                    'Impossible de procéder au paiement ressayer plus tard',
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
