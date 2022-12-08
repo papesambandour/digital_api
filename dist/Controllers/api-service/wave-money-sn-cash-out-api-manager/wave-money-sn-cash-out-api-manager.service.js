@@ -7,7 +7,6 @@ const WaveApiProvider_1 = require("../../../sdk/Wave/WaveApiProvider");
 const config_1 = require("../../../sdk/Wave/config");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const main_1 = require("../../../main");
-const WhatsAppApiProvider_1 = require("../../../sdk/WhatsApp/WhatsAppApiProvider");
 class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return WaveApiProvider_1.default.apiManagerCheckCashOutStatusTransaction(this, params, this.constructor.country);
@@ -75,7 +74,6 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
                     .sendSms([to], messageNotification, this.apiService.sousServices.executeSmsSender, false, 30)
                     .then(() => {
                     console.log('sending whatslink only');
-                    WhatsAppApiProvider_1.default.sendMessageToOne(to, deepLink).then();
                 });
             }
             else {
