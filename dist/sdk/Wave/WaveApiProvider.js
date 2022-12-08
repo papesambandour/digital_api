@@ -150,6 +150,7 @@ class WaveApiProvider {
         }
     }
     static async sendPayOutApi({ idemPotency, currency, client_reference, mobile, sender, receive_amount, national_id, name, token, aggregated_merchant_id, }) {
+        var _a;
         try {
             receive_amount += '';
             const body = {
@@ -222,9 +223,11 @@ class WaveApiProvider {
         }
         catch (e) {
             return {
-                success: false,
+                payoutId: '',
+                reference: '',
+                success: !!((_a = e === null || e === void 0 ? void 0 : e.message) === null || _a === void 0 ? void 0 : _a.includes('ETIMEDOUT')),
                 error: e.message,
-                message: e.message,
+                message: 'Le transfert est en cours de traitement apres un timeout',
                 code: '',
             };
         }

@@ -88,12 +88,12 @@ export default class WaveApiProvider {
         code: string;
         error?: undefined;
     } | {
+        payoutId: string;
+        reference: string;
         success: boolean;
         error: any;
-        message: any;
+        message: string;
         code: string;
-        payoutId?: undefined;
-        reference?: undefined;
     }>;
     static verifyCheckout({ id, token, idemPotency }: {
         id: any;

@@ -4667,8 +4667,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "9fcc3b68beb0d3f28db43bd8b75d20f5c0bb0a24914cbe7a0add0bde55ada89c",
-        "signature": "0bf424140bbc5a968e0a9895e1e40e1ab781ea8ee17146575f4e04cb62470669",
+        "version": "1629b5aaadf723d19a6f7f25064bff805c510a9bc2ce35a1fecf15c25f95c78f",
+        "signature": "365c732f926d6ade86bc18886f8f0ff068a1367d3511d7c08feca4b922c50f60",
         "affectsGlobalScope": false
       },
       "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
