@@ -312,6 +312,9 @@ class ApiManagerInterface {
             },
             take: limit,
         });
+        if (!(trx === null || trx === void 0 ? void 0 : trx.length)) {
+            return;
+        }
         for (const tr of trx) {
             if (tr.codeUssdResponse === Enum_entity_1.EnumCodeUssdResponse.SUCCESS) {
                 console.log('here if have at leas one with success ussd code if limit last');
