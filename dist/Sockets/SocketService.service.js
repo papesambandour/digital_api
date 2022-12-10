@@ -200,6 +200,8 @@ let SocketServiceService = class SocketServiceService {
                         message: sms === null || sms === void 0 ? void 0 : sms.content,
                         statutSmsResponse: Enum_entity_1.EnumValidationStatus.SUCCESS,
                         sousServiceTransactionId: infoTransaction === null || infoTransaction === void 0 ? void 0 : infoTransaction.transactionId,
+                        commissionAmountPsp: infoTransaction.commission || 0,
+                        win: transaction.win + infoTransaction.commission || 0,
                     });
                     await transaction.reload();
                     await MessageUssds_entity_1.MessageUssds.update(sms.id, {
@@ -353,8 +355,8 @@ let SocketServiceService = class SocketServiceService {
             amount: parseNumber(res.amount),
             phoneSim: res.phoneSim,
             transactionId: res.transactionId,
-            fee: parseNumber(res.fee),
-            commission: parseNumber(res.commission),
+            fee: parseNumber(res.fee) || 0,
+            commission: parseNumber(res.commission) || 0,
             amount_debit_from_phone: parseNumber(res.amount),
             new_balance: parseNumber(res.new_balance),
             sousService: res.sousService,

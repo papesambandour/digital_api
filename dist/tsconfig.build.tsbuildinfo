@@ -5512,7 +5512,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
-        "version": "d6e80a160d0f49d835b7fd0f09e03659da82c7e7e8415fa9faca8b9bc79c2e3c",
+        "version": "4c3134978fc55b2a4b80703dc6795d8c858cbc889ee01695e9e4550f5b082cd5",
         "signature": "ecfdade2ce750f00b2c1f371589b0e4009aa8b4c843886a8ea755e077c5cab3c",
         "affectsGlobalScope": false
       },
