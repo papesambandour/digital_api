@@ -65,6 +65,7 @@ let ApiServiceService = class ApiServiceService {
     }
     async validatorCustomApi(operationInDto) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w;
+        console.log('cusstom 1', operationInDto, new Date());
         const msg = {
             apiKey: [],
             codeService: [],
@@ -83,16 +84,19 @@ let ApiServiceService = class ApiServiceService {
             callbackUrl: [],
             phone: [],
         };
+        console.log('cusstom 2', operationInDto, new Date());
         let asError = false;
         this.comptePartner = await PartenerComptes_entity_1.PartenerComptes.findOne({
             where: { appKey: typeorm_1.Equal(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.apiKey), state: 'ACTIVED' },
         });
+        console.log('cusstom 2', operationInDto, new Date());
         if (this.comptePartner) {
             this.partner = await Parteners_entity_1.Parteners.findOne((_a = this === null || this === void 0 ? void 0 : this.comptePartner) === null || _a === void 0 ? void 0 : _a.partenersId);
         }
         this.sousServices = await SousServices_entity_1.SousServices.findOne({
             where: { code: typeorm_1.Equal(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.codeService) },
         });
+        console.log('cusstom 4', operationInDto, new Date());
         if (+(operationInDto === null || operationInDto === void 0 ? void 0 : operationInDto.amount) < 1) {
             asError = true;
             msg.amount.push('Le montant doit etre positif ( > 1)!');
@@ -133,7 +137,9 @@ let ApiServiceService = class ApiServiceService {
                     ((_l = this.sousServices) === null || _l === void 0 ? void 0 : _l.minLimitTransaction));
             }
         }
+        console.log('cusstom 5', operationInDto, new Date());
         if ((this === null || this === void 0 ? void 0 : this.comptePartner) && (this === null || this === void 0 ? void 0 : this.sousServices)) {
+            console.log('cusstom 6', operationInDto, new Date());
             this.sousServicesPartner = await SousServicesParteners_entity_1.SousServicesParteners.findOne({
                 where: {
                     partenersId: typeorm_1.Equal(this.comptePartner.partenersId),
@@ -141,6 +147,7 @@ let ApiServiceService = class ApiServiceService {
                     state: typeorm_1.Equal(Enum_entity_1.StateEnum.ACTIVED),
                 },
             });
+            console.log('cusstom 7', operationInDto, new Date());
             if (!(this === null || this === void 0 ? void 0 : this.sousServicesPartner)) {
                 asError = true;
                 msg.codeService.push("Le partenaire n'est pas souscrit au service demandé");
@@ -166,6 +173,7 @@ let ApiServiceService = class ApiServiceService {
                 this.isSoldeComm = false;
             }
         }
+        console.log('cusstom 6', operationInDto, new Date());
         if ((this === null || this === void 0 ? void 0 : this.partner) && (this === null || this === void 0 ? void 0 : this.sousServices)) {
             this.comission = await Commission_entity_1.Commission.findOne({
                 where: [
@@ -183,19 +191,24 @@ let ApiServiceService = class ApiServiceService {
                     },
                 ],
             });
+            console.log('cusstom 9', operationInDto, new Date());
             if (!(this === null || this === void 0 ? void 0 : this.comission)) {
                 asError = true;
                 msg.apiKey.push('Les commissions ne sont pas configurées pour ce montant');
             }
         }
         if (this === null || this === void 0 ? void 0 : this.comission) {
+            console.log('cusstom 10', operationInDto, new Date());
             this.initFeeCommissionPartner(this.comission, +operationInDto.amount);
         }
+        console.log('cusstom 11', operationInDto, new Date());
         if (this === null || this === void 0 ? void 0 : this.sousServices) {
             this.service = await Services_entity_1.Services.findOne(this.sousServices.servicesId);
             this.operator = await Operators_entity_1.Operators.findOne(this.service.operatorsId);
+            console.log('cusstom 12', operationInDto, new Date());
             this.initFeePsp(this.sousServices, +operationInDto.amount);
             const regexPhone = new RegExp(this.sousServices.regexPhone);
+            console.log('cusstom 13', operationInDto, new Date());
             if (!operationInDto.phone.match(regexPhone)) {
                 asError = true;
                 msg.phone.push(`Le numéro est incorrecte. Regex: ${this.sousServices.regexPhone}`);
@@ -209,6 +222,7 @@ let ApiServiceService = class ApiServiceService {
                 msg.codeService.push("Le service n'est pas configurer complètement");
             }
         }
+        console.log('cusstom 14', operationInDto, new Date());
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
                 externalTransactionId: typeorm_1.Equal(operationInDto.externalTransactionId),
@@ -220,6 +234,7 @@ let ApiServiceService = class ApiServiceService {
             asError = true;
             msg.apiKey.push('Duplication du external transaction ID');
         }
+        console.log('cusstom 15', operationInDto, new Date());
         if (this.sousServices && ((_w = this.sousServices) === null || _w === void 0 ? void 0 : _w.limitTimeTransaction) !== -1) {
             const dateTransaction = new Date();
             dateTransaction.setMinutes(dateTransaction.getMinutes() - this.sousServices.limitTimeTransaction);
@@ -238,6 +253,7 @@ let ApiServiceService = class ApiServiceService {
                 msg.apiKey.push(`Une transaction avec le meme numéro et le meme montant est deja en cours, ressayer dans ${this.sousServices.limitTimeTransaction} minutes`);
             }
         }
+        console.log('cusstom 16', operationInDto, new Date());
         this.operationInDto = operationInDto;
         if (!this.validUrl(operationInDto.callbackUrl.toLowerCase())) {
             asError = true;
