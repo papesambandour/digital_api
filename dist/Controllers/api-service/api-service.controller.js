@@ -54,7 +54,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
     async operation(operationInDto, req) {
         var _a, _b, _c;
         const hash2 = this.helper.generateRandomId('I');
-        console.log('start 1', hash2, new Date());
+        console.log('start 1', hash2, operationInDto, new Date());
         if ([Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(operationInDto.codeService)) {
             operationInDto.amount = await this.helper.getAmountForMessenger(operationInDto);
         }
