@@ -3162,7 +3162,7 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "bc21c251ff59473c86a0d4ccd92531a924454ff624f8e1afcc0e3969a844bbea",
+        "version": "959e13e8691371645792b458a09fe5a454f4c98740308037be01cb853eae2308",
         "signature": "fec9389d57e80ba7a315fbdad71f010aeb801061289b3c6ead97f3d2383b403c",
         "affectsGlobalScope": false
       },
@@ -4092,7 +4092,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "27eed11f1105f8ef4d3fdd1d4ed56b03c4f4b20fcc01d1e083ef5f5c1f2c0255",
+        "version": "535385193597bf7eb9da733e45f64c5b3addc2a44008e66a36d5e600740609f8",
         "signature": "68c7d299309bfdecd795c3410516d4a3d201244ace4bc7484f2d186440767f31",
         "affectsGlobalScope": false
       },
@@ -4702,7 +4702,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "2fa6c1a565de222be86e1ffc9adba341e05e5363ab1b1b44c8027bbbc86d3624",
+        "version": "7ac386459a05be5b67464b48bc134514ed9ca78f8db6b4cdc48de509bfec1d7a",
         "signature": "c6b2906d69ef49f19feb8ae7f02e0253d7189bc62334c655826f4903dced0ec2",
         "affectsGlobalScope": false
       },

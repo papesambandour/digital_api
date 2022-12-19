@@ -155,6 +155,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "win", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('datetime', { name: 'created_at' }),
     __metadata("design:type", Date)
 ], Transactions.prototype, "createdAt", void 0);
@@ -182,6 +183,7 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "state", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('enum', {
         name: 'statut',
         enum: [
@@ -197,6 +199,7 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "statut", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('enum', {
         name: 'pre_statut',
         enum: [
@@ -359,6 +362,7 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "data", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('double', {
         name: 'amount',
         comment: 'Montant de transaction en XOF',
@@ -435,6 +439,7 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "ipAddress", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('varchar', {
         name: 'phone',
         comment: 'Le numero de telephone du receveur ou de envoyeur',
@@ -451,6 +456,7 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "dataSended", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('varchar', {
         name: 'code_sous_service',
         nullable: true,

@@ -53,28 +53,21 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
     }
     async operation(operationInDto, req) {
         var _a, _b, _c;
-        const hash2 = this.helper.generateRandomId('I');
-        console.log('start 1', hash2, operationInDto, new Date());
         if ([Enum_entity_1.SOUS_SERVICE_ENUM.WHATSAPP_MESSAGING].includes(operationInDto.codeService)) {
             operationInDto.amount = await this.helper.getAmountForMessenger(operationInDto);
         }
-        console.log('start 2', hash2, new Date());
         operationInDto.currency = (operationInDto.currency || 'XOF').toUpperCase();
         operationInDto.amountInCurrency = operationInDto.amount;
         operationInDto.amount = this.helper.convertCurrency(operationInDto.currency, 'XOF', operationInDto.amount);
-        console.log('start 3', hash2, new Date());
         const isNotValid = await this.validator(this.getInstanceObject(operationInDto, new OperationInDto_1.OperationInDto()));
-        console.log('start 4', hash2, new Date());
         if (isNotValid) {
             return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotValid, '', true);
         }
         const isNotValidLevel2 = await this.apiServiceService.validatorCustomApi(operationInDto);
-        console.log('start 5', hash2, new Date());
         if (isNotValidLevel2) {
             return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotValidLevel2, '', true);
         }
         const isNotConform = this.apiServiceService.allDataIsOk();
-        console.log('start 6', hash2, new Date());
         if (isNotConform) {
             return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotConform, '', true);
         }
