@@ -64,7 +64,7 @@ let ApiServiceService = class ApiServiceService {
         this.commissionAmount = amountCommssion;
     }
     async validatorCustomApi(operationInDto) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v;
         const msg = {
             apiKey: [],
             codeService: [],
@@ -219,23 +219,6 @@ let ApiServiceService = class ApiServiceService {
         if (transaction) {
             asError = true;
             msg.apiKey.push('Duplication du external transaction ID');
-        }
-        if (this.sousServices && ((_w = this.sousServices) === null || _w === void 0 ? void 0 : _w.limitTimeTransaction) !== -1) {
-            const dateTransaction = new Date();
-            dateTransaction.setMinutes(dateTransaction.getMinutes() - this.sousServices.limitTimeTransaction);
-            const transactionTime = await Transactions_entity_1.Transactions.findOne({
-                where: {
-                    amount: typeorm_1.Equal(operationInDto.amount),
-                    phone: typeorm_1.Equal(operationInDto.phone),
-                    codeSousService: typeorm_1.Equal(operationInDto.codeService),
-                    statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
-                    createdAt: typeorm_1.MoreThanOrEqual(dateTransaction),
-                },
-            });
-            if (transactionTime) {
-                asError = true;
-                msg.apiKey.push(`Une transaction avec le meme numéro et le meme montant est deja en cours, ressayer dans ${this.sousServices.limitTimeTransaction} minutes`);
-            }
         }
         this.operationInDto = operationInDto;
         if (!this.validUrl(operationInDto.callbackUrl.toLowerCase())) {
