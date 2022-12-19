@@ -4812,7 +4812,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": {
-        "version": "66b20e66b9ba99fdefccf117a03bf82f11b42935889d882155ddd48792afe033",
+        "version": "1ad75d19ff6d91969d35cc992b1b1de4d776988269479741716cd6a421f1e232",
         "signature": "91c6dc263b1a3a1562d874e5bb613b8fe2137ddf8d9ad16f2431d4e967f83a53",
         "affectsGlobalScope": false
       },
