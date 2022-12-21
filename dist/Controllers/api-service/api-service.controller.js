@@ -194,6 +194,18 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             success: 'ok',
         };
     }
+    async waveCICallback(waveCallbackData) {
+        console.log(waveCallbackData);
+        return {
+            success: 'ok',
+        };
+    }
+    async waveSNCallback(waveCallbackData) {
+        console.log(waveCallbackData);
+        return {
+            success: 'ok',
+        };
+    }
     async services() {
         const services = await SousServices_entity_1.SousServices.find({
             where: {
@@ -352,6 +364,20 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "mtnCallback", null);
+__decorate([
+    common_1.Post('callback/wave-ci'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "waveCICallback", null);
+__decorate([
+    common_1.Post('callback/wave-sn'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "waveSNCallback", null);
 __decorate([
     common_1.Get('services'),
     __metadata("design:type", Function),

@@ -48,6 +48,12 @@ export declare class ApiServiceController extends ControllerBase {
     mtnCallback(): Promise<{
         success: string;
     }>;
+    waveCICallback(waveCallbackData: any): Promise<{
+        success: string;
+    }>;
+    waveSNCallback(waveCallbackData: any): Promise<{
+        success: string;
+    }>;
     services(): Promise<{
         success: boolean;
         services: {
