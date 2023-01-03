@@ -55,6 +55,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "sousServicesId", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('int', { name: 'callback_retry_count', default: 0 }),
     __metadata("design:type", Number)
 ], Transactions.prototype, "callBackRetryCount", void 0);
@@ -480,6 +481,7 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "refundResponse", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('tinyint', {
         name: 'callback_is_send',
         comment: 'letat envoi du callback: 1- envoyee : 0 no envoyer - 2 echeque envoie',
@@ -488,6 +490,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "callbackIsSend", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('tinyint', {
         name: 'need_check_transaction',
         default: 0,
@@ -496,6 +499,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "needCheckTransaction", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('tinyint', {
         name: 'callback_ready',
         default: 0,
@@ -508,6 +512,7 @@ __decorate([
     __metadata("design:type", Date)
 ], Transactions.prototype, "nextSendCallbackDate", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('datetime', { name: 'init_response_end_at', nullable: true }),
     __metadata("design:type", Date)
 ], Transactions.prototype, "initResponseEndAt", void 0);
@@ -560,6 +565,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "canceled", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('datetime', {
         name: 'timeout_at',
         nullable: true,

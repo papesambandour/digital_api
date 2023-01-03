@@ -1,8 +1,12 @@
 import { ApiManagerInterface, BalanceParams, BalanceResponse, CheckParams, CheckResponse } from '../../Controllers/api-service/api-manager-interface/api-manager-interface.service';
+import { Transactions } from '../../Models/Entities/Transactions.entity';
+import { HelperService } from '../../helper.service';
 interface OmApiResponse {
     success: boolean;
     code: OmApiStatusCode | string;
     message: string | undefined;
+    qrCode?: string | undefined;
+    deepLink?: string | undefined;
     transaction?: OmApiTransaction;
     externalReference?: string | null;
     newBalance?: number | null | undefined;
@@ -35,9 +39,10 @@ export default class ProviderOrangeMoneyApi {
     sendTransaction(transaction: OmApiTransaction): Promise<OmApiResponse>;
     changePin(args: any): Promise<OmApiResponse>;
     initMerchantPayment(transaction: OmApiTransaction): Promise<OmApiResponse>;
-    private initQrCodeMerchantPayment;
+    initQrCodeMerchantPayment(transaction: OmApiTransaction, partnerName: string, callbackSuccess: string, callbackFailed: string): Promise<OmApiResponse>;
     getPhoneInfo(transaction: OmApiTransaction): Promise<OmApiResponse>;
     checkTransactionStatus(transaction: OmApiTransaction): Promise<OmApiResponse>;
+    checkQrCodeTransactionStatus(transaction: Transactions, helper: HelperService): Promise<OmApiResponse>;
     getBalance(): Promise<OmApiResponse>;
     private doAuth;
     private getPublicKey;

@@ -35,11 +35,21 @@ class OrangeMoneySnCashOutApiManagerService extends api_manager_interface_servic
         console.log('initing cashout');
         const transaction = await this.createTransaction(api);
         const omApi = ProviderOrangeMoneyApi_1.default.getInstance();
-        const response = await omApi.initMerchantPayment({
-            amount: transaction.amount,
-            phoneNumber: transaction.phone,
-            identifier: transaction.id.toString(),
-        });
+        let response;
+        if (params.dto.useOMQrCode) {
+            response = await omApi.initQrCodeMerchantPayment({
+                amount: transaction.amount,
+                phoneNumber: transaction.phone,
+                identifier: transaction.transactionId.toString(),
+            }, params.dto.sender || this.apiService.partner.name, params.dto.successRedirectUrl, params.dto.errorRedirectUrl);
+        }
+        else {
+            response = await omApi.initMerchantPayment({
+                amount: transaction.amount,
+                phoneNumber: transaction.phone,
+                identifier: transaction.transactionId.toString(),
+            });
+        }
         const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
@@ -47,8 +57,33 @@ class OrangeMoneySnCashOutApiManagerService extends api_manager_interface_servic
         await transaction.save();
         if (response.success) {
             transaction.message = main_1.serializeData(response.apiResponse);
-            transaction.needCheckTransaction = 1;
+            if (params.dto.useOMQrCode) {
+                transaction.needCheckTransaction = 1;
+                transaction.deepLinkUrl = response.deepLink;
+                transaction.successRedirectUrl = params.dto.successRedirectUrl;
+                transaction.errorRedirectUrl = params.dto.errorRedirectUrl;
+            }
+            else {
+                transaction.needCheckTransaction = 1;
+            }
             await transaction.save();
+            let messageNotification;
+            let deepLink;
+            if (params.dto.useOMQrCode) {
+                deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
+                messageNotification = await this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
+                const to = `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`;
+                if (await this.apiService.partner.getCanSendOMSnQrCodePaymentLink()) {
+                    console.log('can send link');
+                    this.helper
+                        .sendSms([to], messageNotification, this.apiService.sousServices.executeSmsSender, false, 30)
+                        .then(() => {
+                    });
+                }
+                else {
+                    console.log('ignore send link');
+                }
+            }
             console.log('Send OKK');
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.PENDING,
@@ -57,6 +92,15 @@ class OrangeMoneySnCashOutApiManagerService extends api_manager_interface_servic
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
+                data: params.dto.useOMQrCode
+                    ? {
+                        notificationMessage: messageNotification,
+                        amount: transaction.amount,
+                        deepLinkUrl: deepLink,
+                        _be_removed_deepLinkUrl_: transaction.deepLinkUrl,
+                        _be_removed_deepQrCode_: response.qrCode,
+                    }
+                    : undefined,
             }, baseResponse);
         }
         else {

@@ -1013,7 +1013,7 @@ let HelperService = class HelperService {
     }
     async getDeepLinkNotificationMessage(transaction, deepLink) {
         const partner = await Parteners_entity_1.Parteners.findOne(transaction.partenersId);
-        return `Cliquez sur le lien suivant pour valider le paiement de ${transaction.amount} CFA sur ${partner.name}.\n${deepLink}\nExpire dans 15 minutes`;
+        return `Cliquez sur le lien suivant pour valider le paiement de ${transaction.amount} CFA sur ${partner.name}.\n\n${deepLink}\n\nExpire dans 15 minutes`;
     }
     async canRefundOperation(transaction) {
         if (!transaction) {

@@ -8,21 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var ServiceDailyBalanceAlertService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ServiceDailyBalanceAlertService = void 0;
 const common_1 = require("@nestjs/common");
 const helper_service_1 = require("../../../helper.service");
 const schedule_1 = require("@nestjs/schedule");
+const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const Services_entity_1 = require("../../../Models/Entities/Services.entity");
 const Phones_entity_1 = require("../../../Models/Entities/Phones.entity");
 const WhatsAppApiProvider_1 = require("../../../sdk/WhatsApp/WhatsAppApiProvider");
-let ServiceDailyBalanceAlertService = class ServiceDailyBalanceAlertService {
+let ServiceDailyBalanceAlertService = ServiceDailyBalanceAlertService_1 = class ServiceDailyBalanceAlertService {
     constructor(helper, schedulerRegistry) {
         this.helper = helper;
         this.schedulerRegistry = schedulerRegistry;
     }
     async handleCron() {
         console.log('sok');
+        if (ServiceDailyBalanceAlertService_1.canHandle === undefined) {
+            ServiceDailyBalanceAlertService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
+        }
         const services = await Services_entity_1.Services.find({
             where: {
                 state: 'ACTIVED',
@@ -48,13 +53,14 @@ let ServiceDailyBalanceAlertService = class ServiceDailyBalanceAlertService {
         }
     }
 };
+ServiceDailyBalanceAlertService.canHandle = undefined;
 __decorate([
     schedule_1.Cron(schedule_1.CronExpression.EVERY_DAY_AT_MIDNIGHT),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], ServiceDailyBalanceAlertService.prototype, "handleCron", null);
-ServiceDailyBalanceAlertService = __decorate([
+ServiceDailyBalanceAlertService = ServiceDailyBalanceAlertService_1 = __decorate([
     common_1.Injectable(),
     __metadata("design:paramtypes", [helper_service_1.HelperService,
         schedule_1.SchedulerRegistry])

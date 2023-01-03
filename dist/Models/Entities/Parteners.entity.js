@@ -29,6 +29,16 @@ let Parteners = class Parteners extends CustomBaseModel_1.CustomBaseModel {
         console.log(this.id, settings, '____set');
         return (settings === null || settings === void 0 ? void 0 : settings.value) !== 'yes';
     }
+    async getCanSendOMSnQrCodePaymentLink() {
+        const settings = await PartenerSettings_entity_1.PartenerSettings.findOne({
+            where: {
+                name: 'DONT_SEND_OM_LINK',
+                partenersId: this.id,
+            },
+        });
+        console.log(this.id, settings, '____set');
+        return (settings === null || settings === void 0 ? void 0 : settings.value) !== 'yes';
+    }
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),

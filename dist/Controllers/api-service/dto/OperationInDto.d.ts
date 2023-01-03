@@ -34,4 +34,5 @@ export declare class OperationInDto {
     attachedMedia?: string;
     attachedMediaName?: string;
     attachedMediaExtension?: string;
+    useOMQrCode: boolean;
 }

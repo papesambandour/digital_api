@@ -200,7 +200,7 @@ class ProviderOrangeMoneyApi {
             };
         }
     }
-    async initQrCodeMerchantPayment(transaction, partnerName) {
+    async initQrCodeMerchantPayment(transaction, partnerName, callbackSuccess, callbackFailed) {
         try {
             await this.doAuth();
             transaction = ProviderOrangeMoneyApi.prepareTransaction(transaction);
@@ -208,6 +208,12 @@ class ProviderOrangeMoneyApi {
             const formData = {
                 code: this.merchantCode,
                 name: partnerName,
+                validity: 60 * 15,
+                callbackCancelUrl: callbackFailed,
+                callbackSuccessUrl: callbackSuccess,
+                metadata: {
+                    reference_id: `${transaction.identifier}`,
+                },
                 customer: {
                     idType: 'MSISDN',
                     id: transaction.phoneNumber,
@@ -233,8 +239,13 @@ class ProviderOrangeMoneyApi {
             console.log(formData);
             const apiResponse = await rp(postOption);
             const success = !!(apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.qrCode);
+            if (success) {
+                apiResponse.transactionId = apiResponse.deepLink.split('/')[4];
+            }
             return {
                 success: success,
+                qrCode: `https://qrcode.orange.sn/${apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.transactionId}`,
+                deepLink: apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.deepLink,
                 code: success
                     ? 'success'
                     : ProviderOrangeMoneyApi.getAPiErrorCode((apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.description) || (apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.detail)),
@@ -333,6 +344,64 @@ class ProviderOrangeMoneyApi {
                 message: 'OK',
                 code: code,
                 apiResponse,
+            };
+        }
+        catch (e) {
+            return {
+                success: false,
+                code: ProviderOrangeMoneyApi.getAPiErrorCode(e.message),
+                message: e.message,
+                transaction,
+                newBalance: null,
+                apiResponse: e.message,
+            };
+        }
+    }
+    async checkQrCodeTransactionStatus(transaction, helper) {
+        var _a, _b, _c;
+        try {
+            await this.doAuth();
+            const startDate = transaction.createdAt.toISOString().substring(0, 19);
+            const endDate = helper
+                .addMinuteToDate(transaction.createdAt, 20)
+                .toISOString()
+                .substring(0, 19);
+            const sendUrl = `${ProviderOrangeMoneyApi.appUrl}/api/eWallet/v1/transactions?fromDateTime=${startDate}&toDateTime=${endDate}`;
+            const postOption = {
+                uri: sendUrl,
+                method: 'GET',
+                json: true,
+                headers: {
+                    Authorization: `Bearer ${this.authToken}`,
+                },
+                simple: false,
+            };
+            const apiResponse = await rp(postOption);
+            console.log('___api', apiResponse);
+            const transactionResponse = Array.from(apiResponse).find((t) => (t === null || t === void 0 ? void 0 : t.metadata.reference_id) ===
+                `INTECH-OM-${transaction.transactionId}`) || {};
+            let success;
+            let code;
+            if (((_a = transactionResponse === null || transactionResponse === void 0 ? void 0 : transactionResponse.status) === null || _a === void 0 ? void 0 : _a.toUpperCase()) === 'SUCCESS') {
+                success = true;
+                code = 'success';
+            }
+            else if (((_b = transactionResponse === null || transactionResponse === void 0 ? void 0 : transactionResponse.status) === null || _b === void 0 ? void 0 : _b.toUpperCase()) === 'INITIATED') {
+                success = true;
+                code = 'pending';
+            }
+            else if (((_c = transactionResponse === null || transactionResponse === void 0 ? void 0 : transactionResponse.status) === null || _c === void 0 ? void 0 : _c.toUpperCase()) === 'FAILED') {
+                success = true;
+                code = 'failed';
+            }
+            return {
+                success: success,
+                transaction_check_status: code,
+                message: 'OK',
+                code: code,
+                apiResponse: Array.isArray(apiResponse)
+                    ? transactionResponse
+                    : 'response_not_save_log',
             };
         }
         catch (e) {
@@ -488,9 +557,11 @@ class ProviderOrangeMoneyApi {
             transactionId: (_o = (_m = params.transaction) === null || _m === void 0 ? void 0 : _m.transactionId) !== null && _o !== void 0 ? _o : null,
         };
         const omApi = ProviderOrangeMoneyApi.getInstance();
-        const response = await omApi.checkTransactionStatus({
-            externalReference: params.transaction.sousServiceTransactionId,
-        });
+        const response = params.transaction.deepLinkUrl
+            ? await omApi.checkQrCodeTransactionStatus(params.transaction, apiManager.helper)
+            : await omApi.checkTransactionStatus({
+                externalReference: params.transaction.sousServiceTransactionId,
+            });
         if (response.success) {
             if (response.transaction_check_status === 'success') {
                 console.log('transaction success');

@@ -118,11 +118,14 @@ __decorate([
     class_validator_1.IsUrl({}, {
         message: 'successRedirectUrl doit être un URL',
     }),
-    class_validator_1.ValidateIf((object) => [
+    class_validator_1.ValidateIf((object) => ([
         Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_OUT,
         Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT,
     ].includes(object['codeService']) &&
-        !String(object['successRedirectUrl']).startsWith('file:///')),
+        !String(object['successRedirectUrl']).startsWith('file:///')) ||
+        (object['codeService'] === Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_SN_API_CASH_OUT &&
+            object['useOMQrCode'] &&
+            !String(object['successRedirectUrl']).startsWith('file:///'))),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "successRedirectUrl", void 0);
 __decorate([
@@ -130,11 +133,14 @@ __decorate([
     class_validator_1.IsUrl({}, {
         message: 'errorRedirectUrl doit être un URL',
     }),
-    class_validator_1.ValidateIf((object) => [
+    class_validator_1.ValidateIf((object) => ([
         Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_OUT,
         Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT,
     ].includes(object['codeService']) &&
-        !String(object['errorRedirectUrl']).startsWith('file:///')),
+        !String(object['errorRedirectUrl']).startsWith('file:///')) ||
+        (object['codeService'] === Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_SN_API_CASH_OUT &&
+            object['useOMQrCode'] &&
+            !String(object['errorRedirectUrl']).startsWith('file:///'))),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "errorRedirectUrl", void 0);
 __decorate([
@@ -328,5 +334,13 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "attachedMediaExtension", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsOptional(),
+    class_validator_1.IsBoolean({
+        message: 'useOMQrCode doit etre un boolean',
+    }),
+    __metadata("design:type", Boolean)
+], OperationInDto.prototype, "useOMQrCode", void 0);
 exports.OperationInDto = OperationInDto;
 //# sourceMappingURL=OperationInDto.js.map

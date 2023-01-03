@@ -127,6 +127,7 @@ class ApiManagerInterface {
             saveTransactions.raw.insertId;
         transaction = await this.helper.getTransactionById(transaction.id);
         await this.helper.operationPartnerDoTransaction(transaction);
+        await this.helper.setTimeOutDate(transaction);
         return transaction;
     }
     async loadBalancingPhone() {

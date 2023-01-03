@@ -54,6 +54,9 @@ export declare class ApiServiceController extends ControllerBase {
     waveSNCallback(waveCallbackData: any): Promise<{
         success: string;
     }>;
+    OmSnQrCodeCallback(): Promise<{
+        success: string;
+    }>;
     services(): Promise<{
         success: boolean;
         services: {

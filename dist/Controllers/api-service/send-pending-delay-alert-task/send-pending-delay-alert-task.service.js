@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var SendPendingDelayAlertTaskService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SendPendingDelayAlertTaskService = void 0;
 const common_1 = require("@nestjs/common");
@@ -17,12 +18,15 @@ const Transactions_entity_1 = require("../../../Models/Entities/Transactions.ent
 const typeorm_1 = require("typeorm");
 const helper_service_1 = require("../../../helper.service");
 const config_1 = require("../../../sdk/Discord/config");
-let SendPendingDelayAlertTaskService = class SendPendingDelayAlertTaskService {
+let SendPendingDelayAlertTaskService = SendPendingDelayAlertTaskService_1 = class SendPendingDelayAlertTaskService {
     constructor(helper, schedulerRegistry) {
         this.helper = helper;
         this.schedulerRegistry = schedulerRegistry;
     }
     async handleCron() {
+        if (SendPendingDelayAlertTaskService_1.canHandle === undefined) {
+            SendPendingDelayAlertTaskService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
+        }
         const transactions = await this.fetchPendingTransaction();
         const trInfo = transactions
             .map((tr) => `TR ID: ${tr.transactionId}: ${tr.codeSousService}`)
@@ -67,13 +71,14 @@ let SendPendingDelayAlertTaskService = class SendPendingDelayAlertTaskService {
         });
     }
 };
+SendPendingDelayAlertTaskService.canHandle = undefined;
 __decorate([
     schedule_1.Cron(schedule_1.CronExpression.EVERY_5_MINUTES),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], SendPendingDelayAlertTaskService.prototype, "handleCron", null);
-SendPendingDelayAlertTaskService = __decorate([
+SendPendingDelayAlertTaskService = SendPendingDelayAlertTaskService_1 = __decorate([
     common_1.Injectable(),
     __metadata("design:paramtypes", [helper_service_1.HelperService,
         schedule_1.SchedulerRegistry])

@@ -86,7 +86,6 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             dto: operationInDto,
         });
         await this.helper.setIsCallbackReadyValue(response.transaction);
-        await this.helper.setTimeOutDate(response.transaction);
         const errorType = await this.helper.provideErrorType(response.transaction, null, null, response.partnerMessage);
         this.helper.updateApiBalance(apiManager, response.usedPhoneId).then();
         console.log('response', response.partnerMessage);
@@ -202,6 +201,11 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
     }
     async waveSNCallback(waveCallbackData) {
         console.log(waveCallbackData);
+        return {
+            success: 'ok',
+        };
+    }
+    async OmSnQrCodeCallback() {
         return {
             success: 'ok',
         };
@@ -378,6 +382,12 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "waveSNCallback", null);
+__decorate([
+    request_mapping_decorator_1.All('callback/om-qr-sn'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "OmSnQrCodeCallback", null);
 __decorate([
     common_1.Get('services'),
     __metadata("design:type", Function),
