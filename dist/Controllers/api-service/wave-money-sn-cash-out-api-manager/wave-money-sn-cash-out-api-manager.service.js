@@ -91,6 +91,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
                     amount: transaction.amount,
                     deepLinkUrl: deepLink,
                     _be_removed_deepLinkUrl_: `wave://capture/${checkout.wave_launch_url}`,
+                    _be_removed_deepQrCode_: `wave://capture/${checkout.wave_launch_url}`,
                     waveBusinessRegistrationId: aggregatorId,
                 },
             }, baseResponse);
