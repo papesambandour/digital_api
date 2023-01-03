@@ -16,11 +16,11 @@
     <meta charset="UTF-8">
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#1DC8FF" />
+    <meta name="theme-color" content="{{ bgColor }}" />
     <style>
         body {
             text-align: center;
-            background-color: #1DC8FF;
+            background-color: {{ bgColor }};
             color: white;
             font-size: min(max(1rem, 5vw), 30px);
             font-family: "SF Pro Display", system-ui;
@@ -91,7 +91,7 @@
         }
 
         .btn-container > a {
-            color: #1DC8FF;
+            color: {{ bgColor }};
             text-decoration: none;
         }
 

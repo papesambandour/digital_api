@@ -99,6 +99,7 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             currentUrl: `https://api.intech.sn/deep/${transaction.transactionId}`,
             mName: transaction.sousServices.executeSmsSender || '',
             logo: transaction.sousServices.icon,
+            bgColor: transaction.sousServices.bgColor,
             title: `Effectuer votre paiement de ${this.helper.formatMoney(transaction.amount)} CFA chez ${partner.name}`,
             body: `Effectuer votre paiement de ${this.helper.formatMoney(transaction.amount)} CFA chez ${partner.name}`,
         });

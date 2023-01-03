@@ -61,6 +61,10 @@ __decorate([
     __metadata("design:type", String)
 ], SousServices.prototype, "positionValidationIndex", void 0);
 __decorate([
+    typeorm_1.Column('varchar', { name: 'bg_color', length: 255, default: '#1DC8FF' }),
+    __metadata("design:type", String)
+], SousServices.prototype, "bgColor", void 0);
+__decorate([
     typeorm_1.Column('int', { name: 'valid_ength', nullable: true }),
     __metadata("design:type", Number)
 ], SousServices.prototype, "validLength", void 0);

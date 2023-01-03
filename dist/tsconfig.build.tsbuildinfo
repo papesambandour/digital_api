@@ -3132,8 +3132,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/sousservices.entity.ts": {
-        "version": "15e333039dcc6112298f568342f92f15dc493682ed7aedb296410510116050e4",
-        "signature": "eb0037630e804d5c5a89d9bd295a79415caddddbbdd6689bc0a3c7b7410def13",
+        "version": "d2203e3c19be67ff80e85607e787dfc7466848307a1f23ce234aa8c2c8bc2db5",
+        "signature": "8ad1fc0ae208ae79d55b8733449a42cbb093ee0b6d366afefb787b0b235b3f6a",
         "affectsGlobalScope": false
       },
       "../src/models/entities/commission.entity.ts": {
@@ -5577,7 +5577,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "e16699b50040af92ea34aa692a47f90a54ba3917dc808343ac5ce638aa7ef5a7",
+        "version": "27a959603ab6607bf3e81702f2ca5cd0419381a12d9cad02e64948ebd4664a02",
         "signature": "f033c727e69ca23ea61f600f9874fb1fd2fe1e2dd45f2a8cd497125173721259",
         "affectsGlobalScope": false
       },

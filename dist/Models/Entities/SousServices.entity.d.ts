@@ -19,6 +19,7 @@ export declare class SousServices extends CustomBaseModel {
     regexMessageValidation: string;
     messageRetourUssd: string;
     positionValidationIndex: string;
+    bgColor: string;
     validLength: number;
     icon: string;
     regexPhone: string;
