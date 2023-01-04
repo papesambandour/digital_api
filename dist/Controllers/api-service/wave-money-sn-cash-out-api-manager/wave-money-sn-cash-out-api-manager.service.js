@@ -21,6 +21,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
         return await this.notImplementedYet(params);
     }
     async initTransaction(params) {
+        var _a, _b, _c, _d;
         const api = await this.loadBalancingPhone();
         const baseResponse = {
             phone: params.dto.phone,
@@ -37,7 +38,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
             }, baseResponse);
         }
         const transaction = await this.createTransaction(api);
-        const aggregatorId = await WaveApiProvider_1.default.createAggregatorId(params.dto, this.apiService.partner, config_1.waveBusinessApiConfig(this.constructor.country).cashInApiKey);
+        const aggregatorId = await WaveApiProvider_1.default.createAggregatorId(params.dto, this.apiService.partner, config_1.waveBusinessApiConfig(this.constructor.country).cashInApiKey, this.constructor.country);
         const checkout = await WaveApiProvider_1.default.makeCheckout({
             idemPotency: `${transaction.transactionId}_${transaction.id}`,
             amount: transaction.amount,
@@ -93,6 +94,8 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
                     _be_removed_deepLinkUrl_: `wave://capture/${checkout.wave_launch_url}`,
                     _be_removed_deepQrCode_: `wave://capture/${checkout.wave_launch_url}`,
                     waveBusinessRegistrationId: aggregatorId,
+                    waveBusinessRegistrationIdSenegal: (_a = this.apiService.partner.waveBusinessRegistrationId) !== null && _a !== void 0 ? _a : null,
+                    waveBusinessRegistrationIdIvory: (_b = this.apiService.partner.waveCIBusinessRegistrationId) !== null && _b !== void 0 ? _b : null,
                 },
             }, baseResponse);
         }
@@ -108,6 +111,8 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
                 usedPhoneId: api.id,
                 data: {
                     waveBusinessRegistrationId: aggregatorId,
+                    waveBusinessRegistrationIdSenegal: (_c = this.apiService.partner.waveBusinessRegistrationId) !== null && _c !== void 0 ? _c : null,
+                    waveBusinessRegistrationIdIvory: (_d = this.apiService.partner.waveCIBusinessRegistrationId) !== null && _d !== void 0 ? _d : null,
                 },
             }, baseResponse);
         }

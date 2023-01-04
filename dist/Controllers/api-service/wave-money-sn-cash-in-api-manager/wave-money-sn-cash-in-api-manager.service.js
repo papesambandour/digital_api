@@ -21,6 +21,7 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
         return await this.notImplementedYet(params);
     }
     async initTransaction(params) {
+        var _a, _b, _c, _d;
         const api = await this.loadBalancingPhone();
         const baseResponse = {
             phone: params.dto.phone,
@@ -37,7 +38,7 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
             }, baseResponse);
         }
         const transaction = await this.createTransaction(api);
-        const aggregatorId = await WaveApiProvider_1.default.createAggregatorId(params.dto, this.apiService.partner, config_1.waveBusinessApiConfig(this.constructor.country).cashInApiKey);
+        const aggregatorId = await WaveApiProvider_1.default.createAggregatorId(params.dto, this.apiService.partner, config_1.waveBusinessApiConfig(this.constructor.country).cashInApiKey, this.constructor.country);
         const response = await WaveApiProvider_1.default.sendPayOutApi({
             idemPotency: `${transaction.transactionId}_${transaction.id}`,
             currency: 'XOF',
@@ -74,6 +75,8 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
                 usedPhoneId: api.id,
                 data: {
                     waveBusinessRegistrationId: aggregatorId,
+                    waveBusinessRegistrationIdSenegal: (_a = this.apiService.partner.waveBusinessRegistrationId) !== null && _a !== void 0 ? _a : null,
+                    waveBusinessRegistrationIdIvory: (_b = this.apiService.partner.waveCIBusinessRegistrationId) !== null && _b !== void 0 ? _b : null,
                 },
             }, baseResponse);
         }
@@ -90,6 +93,8 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
                 usedPhoneId: api.id,
                 data: {
                     waveBusinessRegistrationId: aggregatorId,
+                    waveBusinessRegistrationIdSenegal: (_c = this.apiService.partner.waveBusinessRegistrationId) !== null && _c !== void 0 ? _c : null,
+                    waveBusinessRegistrationIdIvory: (_d = this.apiService.partner.waveCIBusinessRegistrationId) !== null && _d !== void 0 ? _d : null,
                 },
             }, baseResponse);
         }

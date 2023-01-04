@@ -3152,8 +3152,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/parteners.entity.ts": {
-        "version": "16d607a5d031ba8a31d02d887ee0bea5ed87028e6817626da8925751e1d6fa29",
-        "signature": "4d341973331510c78d39fb161eff366115c73c4b253fb8bbb8b21ac90d11ef31",
+        "version": "a26f3460724e9c8ca41788b180980f76b92d84a242ff5fd1d3ff759e0dfb8eaf",
+        "signature": "3c1f72f83123b37f3559b098f6fea58c9c90cb525162001ff66717560dec6ecb",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationparteners.entity.ts": {
@@ -4662,13 +4662,13 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "371aaaa4c7bc8091e6fdf5d3f132e374916b37be79f88bd1c29458b4ed9add12",
+        "version": "aed7ab7ad424f1dea4f9f82f81de552813d66291f46b53ba1086d2fcbdbdc6db",
         "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "1629b5aaadf723d19a6f7f25064bff805c510a9bc2ce35a1fecf15c25f95c78f",
-        "signature": "365c732f926d6ade86bc18886f8f0ff068a1367d3511d7c08feca4b922c50f60",
+        "version": "b36876cd1a6d8195fc5aeedf8bdd8734dd43c7cd8235b3e8382eeb5b2cc60955",
+        "signature": "2e3a421a56cc31848301f81cada18b3f8636a3e92f170c4e1ec0a022c197d24e",
         "affectsGlobalScope": false
       },
       "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
@@ -5842,7 +5842,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": {
-        "version": "0cd603984853bfa633c753a2ab9d29d7b71ba15c477a4c9b06fa9c70aad01702",
+        "version": "8e4a24748d71c292b7e03b993f3439d4b5ffcf47820173ddbaf9ffb9be2061c0",
         "signature": "1c6b491aa811c886b2974970bdf803227ef08dc7e87c410cac942d30ca6e53a3",
         "affectsGlobalScope": false
       },

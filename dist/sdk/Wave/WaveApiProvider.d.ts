@@ -210,5 +210,5 @@ export default class WaveApiProvider {
     }>;
     private static fetchAsyncPayment;
     static refundTransaction(params: RefundParams, sessionId: string, transferId: string, type: 'payment' | 'deposit'): Promise<RefundResponse>;
-    static createAggregatorId(dto: OperationInDto, partner: Parteners, token: string, update?: boolean): Promise<string>;
+    static createAggregatorId(dto: OperationInDto, partner: Parteners, token: string, country: WAVE_COUNTRY, update?: boolean): Promise<string>;
 }

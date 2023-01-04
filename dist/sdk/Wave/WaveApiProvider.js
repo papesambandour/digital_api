@@ -842,16 +842,20 @@ class WaveApiProvider {
             }, baseResponse);
         }
     }
-    static async createAggregatorId(dto, partner, token, update = false) {
+    static async createAggregatorId(dto, partner, token, country, update = false) {
+        const wavePartId = country === 'sn'
+            ? partner.waveBusinessRegistrationId
+            : partner.waveCIBusinessRegistrationId;
+        const waveCountryPrefix = country === 'sn' ? '' : 'CI_';
         if (dto.waveBusinessRegistrationId) {
             return dto.waveBusinessRegistrationId;
         }
-        if (!dto.waveBusinessRegistrationName &&
-            partner.waveBusinessRegistrationId &&
-            !update) {
-            return partner.waveBusinessRegistrationId;
+        if (!dto.waveBusinessRegistrationName && wavePartId && !update) {
+            return wavePartId;
         }
-        const prefix = process.env.MODE === 'production' ? ' INTECH_PROD_' : 'INTECH_DEV_';
+        const prefix = process.env.MODE === 'production'
+            ? `INTECH_PROD_${waveCountryPrefix}`
+            : `INTECH_DEV_${waveCountryPrefix}`;
         const body = {
             name: dto.waveBusinessRegistrationName || partner.name,
             business_registration_identifier: `${prefix}${dto.waveBusinessRegistrationExternalInTechId || partner.id}`,
@@ -868,9 +872,16 @@ class WaveApiProvider {
                 json: true,
             });
             console.log(response);
-            partner.waveBusinessRegistrationId = response === null || response === void 0 ? void 0 : response.id;
+            if (country === 'sn') {
+                partner.waveBusinessRegistrationId = response === null || response === void 0 ? void 0 : response.id;
+            }
+            else {
+                partner.waveCIBusinessRegistrationId = response === null || response === void 0 ? void 0 : response.id;
+            }
             await partner.save();
-            return partner.waveBusinessRegistrationId;
+            return country === 'sn'
+                ? partner.waveBusinessRegistrationId
+                : partner.waveCIBusinessRegistrationId;
         }
         catch (e) {
             console.log(e);
