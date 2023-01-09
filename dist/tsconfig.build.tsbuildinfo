@@ -4662,7 +4662,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "aed7ab7ad424f1dea4f9f82f81de552813d66291f46b53ba1086d2fcbdbdc6db",
+        "version": "d31fe3d734c9a3ac4b189fa832c82e08f6f5f6f1862470015d9132199cd7c7de",
         "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
         "affectsGlobalScope": false
       },
