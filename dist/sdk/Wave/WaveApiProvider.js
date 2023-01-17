@@ -10,7 +10,7 @@ const config_1 = require("./config");
 const main_1 = require("../../main");
 const userAgent = `Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:99.0) Gecko/20100101 Firefox/99.0`;
 const BILL_MAX_RETRY = 5;
-const FETCH_ASYNC_MAX_RETRY = 10;
+const FETCH_ASYNC_MAX_RETRY = 30;
 var WAVE_BILL_ID;
 (function (WAVE_BILL_ID) {
     WAVE_BILL_ID["RAPIDO"] = "BT_rapido:U_R-mFhH9faepR";
@@ -696,13 +696,14 @@ class WaveApiProvider {
     static async fetchAsyncPayment({ sessionId, walletId, paymentId, startDate, billAccountId, amount }, searchInSummary = '') {
         console.log('always null', paymentId);
         amount = parseFloat(amount);
-        const start = startDate.toISOString().replace('T', ' ').substring(0, 10);
+        const start = startDate.toISOString().replace('T', 'T').substring(0, 10);
         const checkLimitEnd = new Date(startDate);
         const maxRetry = FETCH_ASYNC_MAX_RETRY;
-        const sleepTime = 2000;
+        const sleepTime = 1000;
         checkLimitEnd.setDate(checkLimitEnd.getDate() + 1);
         const end = checkLimitEnd.toISOString().replace('T', ' ').substring(0, 10);
         async function fetchPending(counter = 0) {
+            var _a, _b, _c, _d, _e;
             try {
                 console.log('fetching async pending: ', counter, new Date());
                 const response = await node_fetch_1.default('https://sn.mmapp.wave.com/a/business_graphql', {
@@ -718,19 +719,13 @@ class WaveApiProvider {
                         'Sec-Fetch-Site': 'same-site',
                     },
                     referrer: 'https://business.wave.com/',
-                    body: '{"query":"query HistoryEntries_BusinessWalletHistoryQuery(\\n  $start: Date!\\n  $end: Date!\\n  $walletOpaqueId: String!\\n) {\\n  me {\\n    businessUser {\\n      role\\n      user {\\n        merchant {\\n          needsPinToRefund\\n          id\\n        }\\n        id\\n      }\\n      business {\\n        name\\n        showGrossAmount\\n        walletHistory(start: $start, end: $end, walletOpaqueId: $walletOpaqueId) {\\n          batches {\\n            __typename\\n            id\\n            totalCost\\n            whenCreated\\n            senderName\\n            senderMobile\\n          }\\n          historyEntries {\\n            __typename\\n            id\\n            summary\\n            whenEntered\\n            amount\\n            isPending\\n            isCancelled\\n            ... on AgentTransactionEntry {\\n              isDeposit\\n              agentName\\n              customerName\\n              customerMobile\\n            }\\n            ... on BillPaymentEntry {\\n              billName\\n              billAccount\\n            }\\n            ... on MerchantSaleEntry {\\n              isRefunded\\n              isCheckout\\n              clientReference\\n              transferId\\n              customerMobile: senderMobile\\n              customerName: senderName\\n              cashierName: merchantUName\\n              grossAmount\\n              feeAmount\\n              actionSource\\n            }\\n            ... on MerchantRefundEntry {\\n              merchantUName\\n              customerMobile: senderMobile\\n              customerName: senderName\\n              cashierName: merchantUName\\n            }\\n            ... on TransferSentEntry {\\n              isRefunded\\n              recipientName\\n              recipientMobile\\n              transferOpaqueId: transferId\\n            }\\n            ... on TransferSentReversalEntry {\\n              senderName\\n              senderMobile\\n            }\\n          }\\n        }\\n        id\\n      }\\n      id\\n    }\\n    id\\n  }\\n}\\n","variables":{"start":"' +
-                        start +
-                        '","end":"' +
-                        end +
-                        '","walletOpaqueId":"' +
-                        walletId +
-                        '"}}',
+                    body: `{"query":"query HistoryEntries_BusinessWalletHistoryQuery(\\n  $start: Date!\\n  $end: Date!\\n  $walletOpaqueId: String!\\n  $limit: Int\\n  $transactionId: String\\n  $customerMobileStr: String\\n  $includePending: Boolean\\n) {\\n  me {\\n    businessUser {\\n      rolePermissions\\n      user {\\n        merchant {\\n          needsPinToRefund\\n          id\\n        }\\n        id\\n      }\\n      business {\\n        name\\n        showGrossAmount\\n        walletHistory(start: $start, end: $end, walletOpaqueId: $walletOpaqueId, limit: $limit, transactionId: $transactionId, customerMobileStr: $customerMobileStr, includePending: $includePending) {\\n          batches {\\n            __typename\\n            id\\n            totalCost\\n            whenCreated\\n            senderName\\n            senderMobile\\n          }\\n          historyEntries {\\n            __typename\\n            id\\n            summary\\n            whenEntered\\n            amount\\n            isPending\\n            isCancelled\\n            ... on AgentTransactionEntry {\\n              agentTransactionId\\n              isDeposit\\n              agentName\\n              type\\n              atxCashierName: counterpartyNameOnly\\n              atxCashierMobile: customerMobile\\n            }\\n            ... on BillPaymentEntry {\\n              billName\\n              billAccount\\n              transferOpaqueId: transferId\\n            }\\n            ... on MerchantSaleEntry {\\n              isRefunded\\n              isCheckout\\n              clientReference\\n              transferId\\n              customerMobile: unmaskedSenderMobile\\n              customerName: senderName\\n              cashierName: merchantUName\\n              grossAmount\\n              feeAmount\\n              actionSource\\n              overrideBusinessName\\n              customFields {\\n                label\\n                value\\n              }\\n            }\\n            ... on MerchantRefundEntry {\\n              merchantUName\\n              transferId\\n              customerMobile: unmaskedSenderMobile\\n              customerName: senderName\\n              cashierName: merchantUName\\n            }\\n            ... on PayoutTransferEntry {\\n              tcid\\n              maybeRecipientName: recipientName\\n              recipientMobile\\n              isReversal\\n            }\\n            ... on TransferReceivedReversalEntry {\\n              transferOpaqueId: transferId\\n              senderName\\n              senderMobile\\n            }\\n            ... on TransferSentEntry {\\n              isRefunded\\n              recipientName\\n              recipientMobile\\n              transferOpaqueId: transferId\\n            }\\n            ... on TransferSentReversalEntry {\\n              transferOpaqueId: transferId\\n              senderName\\n              senderMobile\\n            }\\n          }\\n        }\\n        id\\n      }\\n      id\\n    }\\n    id\\n  }\\n}\\n","variables":{"start":"${start}","end":"${end}","walletOpaqueId":"${walletId}","limit":50,"transactionId":null,"customerMobileStr":null,"includePending":false}}`,
                     method: 'POST',
                     mode: 'cors',
                 });
                 const jsonResponse = await response.json();
-                const histories = jsonResponse.data.me.businessUser.business.walletHistory
-                    .historyEntries;
+                const histories = ((_e = (_d = (_c = (_b = (_a = jsonResponse === null || jsonResponse === void 0 ? void 0 : jsonResponse.data) === null || _a === void 0 ? void 0 : _a.me) === null || _b === void 0 ? void 0 : _b.businessUser) === null || _c === void 0 ? void 0 : _c.business) === null || _d === void 0 ? void 0 : _d.walletHistory) === null || _e === void 0 ? void 0 : _e.historyEntries) || [];
+                console.log(histories.length, 'histories.length');
                 const targetPayment = histories.find((b) => {
                     return (b.billAccount === billAccountId &&
                         Math.abs(parseFloat(b.amount.substring(4))) === amount &&
@@ -746,7 +741,7 @@ class WaveApiProvider {
                 else {
                     console.log(`sleeping ${sleepTime / 1000} s`);
                     await WaveUtil.sleep(sleepTime);
-                    console.log('after sleep', counter, maxRetry, counter <= maxRetry);
+                    console.log('after sleep', counter, maxRetry, counter <= maxRetry, start);
                     if (counter < maxRetry) {
                         return fetchPending(++counter);
                     }
