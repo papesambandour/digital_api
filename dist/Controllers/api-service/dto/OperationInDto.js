@@ -275,7 +275,7 @@ __decorate([
         Enum_entity_1.SOUS_SERVICE_ENUM.DER_FJ_SN_BILL_RELOAD,
         Enum_entity_1.SOUS_SERVICE_ENUM.CAMPUS_SN_BILL_PAY,
     ].includes(object['codeService'])),
-    class_validator_1.Length(8, 20, {
+    class_validator_1.Length(5, 20, {
         message: 'billAccountNumber doit être un string composé de minimum 5 et maximum 20 caractères',
     }),
     __metadata("design:type", String)
