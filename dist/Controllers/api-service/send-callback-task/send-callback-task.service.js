@@ -25,7 +25,8 @@ let SendCallbackTaskService = SendCallbackTaskService_1 = class SendCallbackTask
     }
     async handleCron() {
         if (SendCallbackTaskService_1.canHandle === undefined) {
-            SendCallbackTaskService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
+            SendCallbackTaskService_1.canHandle =
+                Enum_entity_1.CONSTANT.ACTIVATE_CRON() && process.env.RUNTIME_ENV === 'CRON';
         }
         console.debug('SendCallbackTaskService when the current occure ', this.helper.mysqlDate(new Date()), SendCallbackTaskService_1.canHandle);
         let queue;

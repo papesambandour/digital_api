@@ -4657,7 +4657,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/whatsapp/whatsappapiprovider.ts": {
-        "version": "6f71cf292bea89e455a82c589d02c68bf73ef40174cd0b6d5881013bd4771983",
+        "version": "b8a41915b7afe2aca2f3066b005037c34a810fb2c8e9e01745481f93dfb4866d",
         "signature": "6dde8ad12ee3b7469880311cb2e779bee6cdff09064c0166ab6d5cbe0306ff1a",
         "affectsGlobalScope": false
       },
@@ -4807,27 +4807,27 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": {
-        "version": "432a326fe57f16a3a34635da9b8c1a673ec8f5e49419c0c10cb07ecafdc08a7f",
+        "version": "83d77dfdc6d8321f31f58798af6c9eebcae5a13c41b8d68696d2086ec5b24513",
         "signature": "64f2c0bcf07940f5fe99b952cd2cc645225755612d047af218447e39d327e430",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": {
-        "version": "5d48c3e5b72239025cea5a1977d6d75428d2d389969eb78aca0ef945a6d54065",
+        "version": "12e7b169b56d0e0f25d86593b728f007bde189afae664aa48349195748372cca",
         "signature": "91c6dc263b1a3a1562d874e5bb613b8fe2137ddf8d9ad16f2431d4e967f83a53",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts": {
-        "version": "e8348c404796a9208b633f6fe1cb557c1f29423e395e6abf617c27576b235f8f",
+        "version": "93f3482092c72189f1c0b5c7e6081339525e7970523c0f7ebbab34262e73b8fa",
         "signature": "b5337e2f47ada37883533431aefa64103570a64d30cb4a2b5dad36b2aa0108c3",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts": {
-        "version": "938c90caf4e5d146cca36f3e651af82419e43432980933090428460ebb450336",
+        "version": "464b2aeac2fe7d96a6bdfaf518d3597195c00c9f5605b3b40c5cb182c113923c",
         "signature": "e22c819e64e984f8a08c92f23711f969dbdfd73e73782c4d38a83d17bfdc28dd",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts": {
-        "version": "b2a1e1333dae7100fdd4ff67d8d43118d5e1093169dedecda6246feb280aae5a",
+        "version": "494baa999632d438da973fdd88b7de4b13490ba6fc0bc5cb09f362cb9987dd3d",
         "signature": "f10a38bc5efaf303d679ffc97fda78b9a72bc181165c04d6e8faed553edd693a",
         "affectsGlobalScope": false
       },
@@ -5422,7 +5422,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "1d37aa82bd57d6f7ccaea5d79c4af6ac7c96db751a5d673a6325830c0d567a04",
+        "version": "daeb9bb20a3de219fa61ba83bee2934a70649dc4a10488080b3d3f45755c75b3",
         "signature": "22066569de7d8de9b5d783cf47c83e47fea5b20a7a1502f1d1ebc423e88477e9",
         "affectsGlobalScope": false
       },
@@ -5507,7 +5507,7 @@
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "5268badb5cdcaeeaea322c847319bba7065436464292595e5861d0c414de9bc9",
+        "version": "75976f0f0aeafd37eae95bbf27043f4f43514d2ea4271937984df797c340de86",
         "signature": "0438c3f72cf811e58bac561ea2051f19eb63d57782ccb0b3178fe64d36cb6709",
         "affectsGlobalScope": false
       },

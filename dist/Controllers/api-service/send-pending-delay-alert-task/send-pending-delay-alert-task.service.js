@@ -25,7 +25,8 @@ let SendPendingDelayAlertTaskService = SendPendingDelayAlertTaskService_1 = clas
     }
     async handleCron() {
         if (SendPendingDelayAlertTaskService_1.canHandle === undefined) {
-            SendPendingDelayAlertTaskService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
+            SendPendingDelayAlertTaskService_1.canHandle =
+                Enum_entity_1.CONSTANT.ACTIVATE_CRON() && process.env.RUNTIME_ENV === 'CRON';
         }
         const transactions = await this.fetchPendingTransaction();
         const trInfo = transactions

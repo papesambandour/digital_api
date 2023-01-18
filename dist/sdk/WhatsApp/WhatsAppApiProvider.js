@@ -12,6 +12,9 @@ class WhatsAppApiProvider {
         return this._client;
     }
     static async getInstance() {
+        if (process.env.RUNTIME_ENV === 'CRON') {
+            return null;
+        }
         if (!WhatsAppApiProvider._instance) {
             WhatsAppApiProvider._instance = new WhatsAppApiProvider(config_1.whatsAppApiConfig());
         }
@@ -91,6 +94,9 @@ class WhatsAppApiProvider {
             };
         }
         const instance = await WhatsAppApiProvider.getInstance();
+        if (!instance) {
+            return {};
+        }
         const client = instance.client;
         console.log(recipient, message, attachedMediaPath);
         const numberDetails = await client.getNumberId(recipient.replace('+', '').replace(/\s/g, ''));

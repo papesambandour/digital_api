@@ -32,7 +32,11 @@ async function bootstrap() {
     app.useStaticAssets(path_1.join(__dirname, '..', 'static'));
     app.setViewEngine('hbs');
     app.enableCors();
-    await app.listen(process.env.PORT || 3000);
+    const port = process.env.RUNTIME_ENV === 'CRON'
+        ? parseInt(process.env.PORT) + 1
+        : parseInt(process.env.PORT);
+    console.log('running on port', port);
+    await app.listen(port);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

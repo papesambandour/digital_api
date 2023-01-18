@@ -47,10 +47,13 @@ AppModule = __decorate([
                 password: process.env.DATABASE_PASSWORD,
                 database: process.env.DATABASE_NAME,
                 entities: [__dirname + '/**/*.entity{.ts,.js}'],
-                synchronize: process.env.SYNC_DATABASE === 'SYNC',
+                synchronize: process.env.SYNC_DATABASE === 'SYNC' &&
+                    process.env.RUNTIME_ENV !== 'CRON',
                 autoLoadEntities: true,
                 extra: {
-                    connectionLimit: +process.env.POOL_CONNECTION_LIMIT || 10,
+                    connectionLimit: (process.env.RUNTIME_ENV === 'CRON'
+                        ? parseInt(process.env.CRON_POOL_CONNECTION_LIMIT)
+                        : parseInt(process.env.POOL_CONNECTION_LIMIT)) || 10,
                 },
             }),
             services_module_1.ServicesModule,

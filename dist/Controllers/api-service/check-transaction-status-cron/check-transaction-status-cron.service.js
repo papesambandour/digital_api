@@ -26,7 +26,8 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
     }
     async handleCron() {
         if (CheckTransactionStatusCronService_1.canHandle === undefined) {
-            CheckTransactionStatusCronService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
+            CheckTransactionStatusCronService_1.canHandle =
+                Enum_entity_1.CONSTANT.ACTIVATE_CRON() && process.env.RUNTIME_ENV === 'CRON';
         }
         console.debug('CheckTransactionStatusCronService when the current occure ', this.helper.mysqlDate(new Date()), CheckTransactionStatusCronService_1.canHandle);
         let queue;
