@@ -73,16 +73,18 @@ class OrangeMoneySnCashOutApiManagerService extends api_manager_interface_servic
                 deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
                 messageNotification = await this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
                 const to = `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`;
-                if (await this.apiService.partner.getCanSendOMSnQrCodePaymentLink()) {
-                    console.log('can send link');
-                    this.helper
-                        .sendSms([to], messageNotification, this.apiService.sousServices.executeSmsSender, false, 30)
-                        .then(() => {
-                    });
-                }
-                else {
-                    console.log('ignore send link');
-                }
+                setTimeout(async () => {
+                    if (await this.apiService.partner.getCanSendOMSnQrCodePaymentLink()) {
+                        console.log('can send link');
+                        this.helper
+                            .sendSms([to], messageNotification, this.apiService.sousServices.executeSmsSender, false, 30)
+                            .then(() => {
+                        });
+                    }
+                    else {
+                        console.log('ignore send link');
+                    }
+                }, 0);
             }
             console.log('Send OKK');
             return Object.assign({

@@ -85,7 +85,7 @@ let CheckTransactionTimeoutCronService = CheckTransactionTimeoutCronService_1 = 
 };
 CheckTransactionTimeoutCronService.canHandle = undefined;
 __decorate([
-    schedule_1.Cron(schedule_1.CronExpression.EVERY_5_SECONDS),
+    schedule_1.Cron(schedule_1.CronExpression.EVERY_30_SECONDS),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
