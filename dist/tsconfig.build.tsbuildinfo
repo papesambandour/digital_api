@@ -3162,7 +3162,7 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "db555a79f201b0c28634e45ca0d8c0c2710cab129d05a6bfdf56365df2847044",
+        "version": "fa73b24e95e3380c3c027e5309ef1680b929fce7979abcbc8980fb790f0355ba",
         "signature": "fec9389d57e80ba7a315fbdad71f010aeb801061289b3c6ead97f3d2383b403c",
         "affectsGlobalScope": false
       },

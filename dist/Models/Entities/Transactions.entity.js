@@ -303,10 +303,12 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "errorMessage", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('varchar', { name: 'transaction_id', length: 255, unique: true }),
     __metadata("design:type", String)
 ], Transactions.prototype, "transactionId", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('varchar', {
         name: 'external_transaction_id',
         length: 255,
@@ -533,6 +535,7 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "errorRedirectUrl", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('tinyint', {
         name: 'transaction_is_finish',
         default: 0,
@@ -541,6 +544,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "transactionIsFinish", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('tinyint', {
         name: 'transaction_refund_is_finished',
         default: 0,
@@ -549,6 +553,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Transactions.prototype, "transactionRefundFinished", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column('tinyint', {
         name: 'reached_timeout',
         comment: '0: non , 1: yes',
