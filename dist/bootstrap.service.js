@@ -27,6 +27,7 @@ let BootstrapService = BootstrapService_1 = class BootstrapService {
         this.helper = helper;
     }
     async init() {
+        console.log(process.env);
         this.redefineLog();
         await this.testConfig();
         await this.initExternalService();
