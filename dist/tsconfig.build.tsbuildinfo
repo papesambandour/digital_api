@@ -5577,8 +5577,8 @@
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "27a959603ab6607bf3e81702f2ca5cd0419381a12d9cad02e64948ebd4664a02",
-        "signature": "f033c727e69ca23ea61f600f9874fb1fd2fe1e2dd45f2a8cd497125173721259",
+        "version": "c81a75799f4b03adb337131d2b697a43678f3f6ca1ac07294e03d9658bb0970e",
+        "signature": "96d9ebd3807e45d0a2350bfe24ba08d65ca7a3a0dccdf4e7ce842d478b2f583c",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/server.d.ts": {
@@ -10281,6 +10281,7 @@
       "../src/app.controller.ts": [
         "../node_modules/@nestjs/common/decorators/http/request-mapping.decorator.d.ts",
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/@types/express/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
@@ -15328,6 +15329,7 @@
       ],
       "../src/app.controller.ts": [
         "../node_modules/@types/express/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
         "../src/app.service.ts",
         "../src/controllers/api-service/dto/confirm3dsindto.ts",
         "../src/controllers/controller.ts",

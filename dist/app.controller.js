@@ -24,11 +24,13 @@ const Parteners_entity_1 = require("./Models/Entities/Parteners.entity");
 const Transactions_entity_1 = require("./Models/Entities/Transactions.entity");
 const request_mapping_decorator_1 = require("@nestjs/common/decorators/http/request-mapping.decorator");
 const main_1 = require("./main");
+const typeorm_2 = require("@nestjs/typeorm");
 let AppController = class AppController extends Controller_1.ControllerBase {
-    constructor(appService, helper) {
+    constructor(appService, helper, connection) {
         super();
         this.appService = appService;
         this.helper = helper;
+        this.connection = connection;
     }
     async getHello(request) {
         try {
@@ -49,6 +51,16 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         catch (e) {
             return e.message;
         }
+    }
+    async cleanDataBase() {
+        let result = {};
+        do {
+            result = await this.connection.query("UPDATE `transactions` SET data_sended_callback= null,check_transaction_response=null, message = null, data_response_callback=null, error_message = null WHERE `created_at` <= '2023-01-15' ORDER BY RAND() LIMIT 100");
+            console.log(result);
+        } while (result.changedRows > 0);
+        return {
+            ok: 'ok',
+        };
     }
     async deepLink(transactionId, res) {
         console.log('in deep link method');
@@ -213,6 +225,12 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "apkVersion", null);
 __decorate([
+    request_mapping_decorator_1.All('cleanDataBase/CSHSHHSHSHhd'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "cleanDataBase", null);
+__decorate([
     request_mapping_decorator_1.All('deep/:transactionId'),
     __param(0, common_1.Param('transactionId')),
     __param(1, common_1.Res()),
@@ -239,8 +257,10 @@ __decorate([
 ], AppController.prototype, "confirm3dsAuth", null);
 AppController = __decorate([
     common_1.Controller(),
+    __param(2, typeorm_2.InjectConnection()),
     __metadata("design:paramtypes", [app_service_1.AppService,
-        helper_service_1.HelperService])
+        helper_service_1.HelperService,
+        typeorm_1.Connection])
 ], AppController);
 exports.AppController = AppController;
 //# sourceMappingURL=app.controller.js.map
