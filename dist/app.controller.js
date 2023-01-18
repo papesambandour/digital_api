@@ -55,7 +55,7 @@ let AppController = class AppController extends Controller_1.ControllerBase {
     async cleanDataBase() {
         let result = {};
         do {
-            result = await this.connection.query("UPDATE `transactions` SET data_sended_callback= null,check_transaction_response=null, message = null, data_response_callback=null, error_message = null WHERE `created_at` <= '2023-01-15' ORDER BY RAND() LIMIT 100");
+            result = await this.connection.query("UPDATE `transactions` SET data_sended_callback= null,check_transaction_response=null, message = null, data_response_callback=null, error_message = null WHERE `created_at` <= '2023-01-15' ORDER BY RAND() LIMIT 1000");
             console.log(result);
         } while (result.changedRows > 0);
         return {
