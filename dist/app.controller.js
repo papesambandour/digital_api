@@ -62,7 +62,7 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             "' ORDER BY RAND() LIMIT 1000";
         do {
             result = await this.connection.query(query);
-            console.log(result);
+            console.log(result, '___update_refresh');
         } while (result.changedRows > 0);
         return {
             ok: 'ok',

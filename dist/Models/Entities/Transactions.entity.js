@@ -303,12 +303,12 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "errorMessage", void 0);
 __decorate([
-    typeorm_1.Index(),
+    typeorm_1.Index({ fulltext: true }),
     typeorm_1.Column('varchar', { name: 'transaction_id', length: 255, unique: true }),
     __metadata("design:type", String)
 ], Transactions.prototype, "transactionId", void 0);
 __decorate([
-    typeorm_1.Index(),
+    typeorm_1.Index({ fulltext: true }),
     typeorm_1.Column('varchar', {
         name: 'external_transaction_id',
         length: 255,
@@ -442,7 +442,7 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "ipAddress", void 0);
 __decorate([
-    typeorm_1.Index(),
+    typeorm_1.Index({ fulltext: true }),
     typeorm_1.Column('varchar', {
         name: 'phone',
         comment: 'Le numero de telephone du receveur ou de envoyeur',
@@ -459,7 +459,7 @@ __decorate([
     __metadata("design:type", String)
 ], Transactions.prototype, "dataSended", void 0);
 __decorate([
-    typeorm_1.Index(),
+    typeorm_1.Index({ fulltext: true }),
     typeorm_1.Column('varchar', {
         name: 'code_sous_service',
         nullable: true,
