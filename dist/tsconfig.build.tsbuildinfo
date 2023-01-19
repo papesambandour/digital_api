@@ -4831,8 +4831,13 @@
         "signature": "f10a38bc5efaf303d679ffc97fda78b9a72bc181165c04d6e8faed553edd693a",
         "affectsGlobalScope": false
       },
+      "../src/controllers/api-service/daily-partner-balance-alert/daily-partner-balance-alert.service.ts": {
+        "version": "01c80794e973cd24bb8af497ae6afbc85b136f58f9f60f60dec7594e15aabac2",
+        "signature": "e8df65f0cff0747ea587df42f8daa6a8782e90fe470ac601d0f78a8c9bd671e1",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.module.ts": {
-        "version": "b77dd5d9ebdf51df680dfe1b3669b748f2bc747cffcc028271248cf949d663f5",
+        "version": "b15d4708bc4389d82e96f20cc6f197805828fde0546c1192ae852fe78fe082ed",
         "signature": "622f5703fb298ffab0ec97803bb18f89a7c363d1d8cd8b11ef37cf122819523c",
         "affectsGlobalScope": false
       },
@@ -10386,6 +10391,7 @@
         "../src/controllers/api-service/api-service.service.ts",
         "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts",
         "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts",
+        "../src/controllers/api-service/daily-partner-balance-alert/daily-partner-balance-alert.service.ts",
         "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts",
         "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts",
         "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts",
@@ -10459,6 +10465,16 @@
         "../src/helper.service.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/transactions.entity.ts"
+      ],
+      "../src/controllers/api-service/daily-partner-balance-alert/daily-partner-balance-alert.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/schedule/index.d.ts",
+        "../src/helper.service.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/models/entities/phones.entity.ts",
+        "../src/models/entities/services.entity.ts",
+        "../src/sdk/whatsapp/whatsappapiprovider.ts"
       ],
       "../src/controllers/api-service/der-fj-sn-bill-reload-api-manager/der-fj-sn-bill-reload-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -15402,6 +15418,10 @@
         "../src/helper.service.ts"
       ],
       "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts": [
+        "../node_modules/@nestjs/schedule/index.d.ts",
+        "../src/helper.service.ts"
+      ],
+      "../src/controllers/api-service/daily-partner-balance-alert/daily-partner-balance-alert.service.ts": [
         "../node_modules/@nestjs/schedule/index.d.ts",
         "../src/helper.service.ts"
       ],
