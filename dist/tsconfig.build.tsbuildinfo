@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "cf1a2a8103a95c63d61cdd5ea2e8239354eab75daf388a6469b74307428691e0",
-        "signature": "0ec16fd4864afa09e62ea4bbca8bb308b9082da3daaac210aba18dc06b447299",
+        "version": "e3c7c8cd9e91800b2c2ab3f881753d3a9ee393120724b08158d75f7202b48b03",
+        "signature": "0eb1a294c07b816e1426d6b9ed8598f76e47a5f73ba44935e262a70550188e5d",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4827,12 +4827,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts": {
-        "version": "494baa999632d438da973fdd88b7de4b13490ba6fc0bc5cb09f362cb9987dd3d",
+        "version": "5845121b0052de9bfd8e52b45639f46485b65861ee4e3eefdafd0cc287cad2a1",
         "signature": "f10a38bc5efaf303d679ffc97fda78b9a72bc181165c04d6e8faed553edd693a",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/daily-partner-balance-alert/daily-partner-balance-alert.service.ts": {
-        "version": "01c80794e973cd24bb8af497ae6afbc85b136f58f9f60f60dec7594e15aabac2",
+        "version": "7db669f7aa39caec11cddde71f91e2913e56f6943113a917b7698a0fc6ebc6a3",
         "signature": "e8df65f0cff0747ea587df42f8daa6a8782e90fe470ac601d0f78a8c9bd671e1",
         "affectsGlobalScope": false
       },
@@ -10612,8 +10612,6 @@
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/services.entity.ts",
-        "../src/models/entities/transactions.entity.ts",
-        "../src/sdk/discord/config.ts",
         "../src/sdk/whatsapp/whatsappapiprovider.ts"
       ],
       "../src/controllers/api-service/ucad-sn-bill-payment-api-manager/ucad-sn-bill-payment-api-manager.service.ts": [

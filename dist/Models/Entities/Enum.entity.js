@@ -73,6 +73,8 @@ var PhoneState;
 var TypeEvenEnum;
 (function (TypeEvenEnum) {
     TypeEvenEnum["SOLD_OUT_PHONE"] = "SOLD_OUT_PHONE";
+    TypeEvenEnum["SOLDE_SERVICE"] = "SOLDE_SERVICE";
+    TypeEvenEnum["SOLDE_PARTNER"] = "SOLDE_PARTNER";
     TypeEvenEnum["UNUSED"] = "UNUSED";
     TypeEvenEnum["NO_MATCH_SMS"] = "NO_MATCH_SMS";
     TypeEvenEnum["NO_SERVICE_CONFIGURE_TO_PHONE"] = "NO_SERVICE_CONFIGURE_TO_PHONE";

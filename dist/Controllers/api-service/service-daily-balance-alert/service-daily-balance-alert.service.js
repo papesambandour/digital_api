@@ -26,7 +26,8 @@ let ServiceDailyBalanceAlertService = ServiceDailyBalanceAlertService_1 = class 
     async handleCron() {
         console.log('sok');
         if (ServiceDailyBalanceAlertService_1.canHandle === undefined) {
-            ServiceDailyBalanceAlertService_1.canHandle = Enum_entity_1.CONSTANT.ACTIVATE_CRON();
+            ServiceDailyBalanceAlertService_1.canHandle =
+                Enum_entity_1.CONSTANT.ACTIVATE_CRON() && process.env.RUNTIME_ENV !== 'CRON';
         }
         const services = await Services_entity_1.Services.find({
             where: {
@@ -47,6 +48,7 @@ let ServiceDailyBalanceAlertService = ServiceDailyBalanceAlertService_1 = class 
             const balanceApi = phone.reduce((acc, cur) => acc + cur.soldeApi, 0);
             output += `${service.name}: Système(${this.helper.formatMoney(balance)} CFA) / Reél(${this.helper.formatMoney(balanceApi)} CFA)\n\n\n`;
         }
+        this.helper.notifyAdmin(output, Enum_entity_1.TypeEvenEnum.SOLDE_SERVICE).then();
         const tos = this.helper.getBalanceAlertTo();
         for (const to of tos) {
             await WhatsAppApiProvider_1.default.sendMessageToOne(to, output).then();
