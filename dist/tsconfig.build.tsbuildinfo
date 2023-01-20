@@ -5871,8 +5871,13 @@
         "signature": "b0aa09d99ceea41768ec860936a1921599747ed75f1e872e6f0a0a47a52c84cc",
         "affectsGlobalScope": false
       },
+      "../src/models/entities/appsettings.entity.ts": {
+        "version": "c9aa32a9a37708678665bbeb647867601223c62b0476d815a1392f965bd0e981",
+        "signature": "18febe40a7471deb40414a7a547226606269b801900895934785b1b5b7219c45",
+        "affectsGlobalScope": false
+      },
       "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "6163a539a5d07412b5cff08e2f937096138d2d9484fbac30051686cf22bb899f",
+        "version": "7425240e15f88f6251ac332d870439b9c3c641c341325d9fb38e097e9fe20900",
         "signature": "7e4b4b22d3db0822c83760e402377e604c62dde07562ad23758c41714ee22fd6",
         "affectsGlobalScope": false
       },
@@ -10983,6 +10988,11 @@
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/phones.entity.ts"
       ],
+      "../src/models/entities/appsettings.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/models/entities/custombasemodel.ts",
+        "../src/models/entities/parteners.entity.ts"
+      ],
       "../src/models/entities/categoriesservices.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/custombasemodel.ts",
@@ -11231,10 +11241,12 @@
       ],
       "../src/sdk/wizall/wizallapiprovider.ts": [
         "../node_modules/@types/node/util.d.ts",
+        "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts",
         "../src/controllers/controller.ts",
         "../src/main.ts",
+        "../src/models/entities/appsettings.entity.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/sdk/wave/config.ts",
         "../src/sdk/wizall/config.ts"
@@ -15613,6 +15625,9 @@
         "../src/models/entities/custombasemodel.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/phones.entity.ts"
+      ],
+      "../src/models/entities/appsettings.entity.ts": [
+        "../src/models/entities/custombasemodel.ts"
       ],
       "../src/models/entities/categoriesservices.entity.ts": [
         "../src/models/entities/custombasemodel.ts",

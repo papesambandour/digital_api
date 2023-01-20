@@ -6,6 +6,7 @@ const api_manager_interface_service_1 = require("../../Controllers/api-service/a
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 const Controller_1 = require("../../Controllers/Controller");
 const main_1 = require("../../main");
+const AppSettings_entity_1 = require("../../Models/Entities/AppSettings.entity");
 const rpMaker = (wizallInstance) => (option) => new Promise((resolve, reject) => {
     _rp(option)
         .then(resolve)
@@ -55,6 +56,9 @@ class WizallApiProvider {
         }
     }
     async loadToken() {
+        if (process.env.RUNTIME_ENV === 'CRON') {
+            return;
+        }
         console.log('loading wizall token', {
             username: this.wizallLogin,
             grant_type: 'password',
@@ -80,7 +84,22 @@ class WizallApiProvider {
         };
         try {
             const data = await this.rp(option);
-            this.token = data.access_token;
+            let setting = await AppSettings_entity_1.AppSettings.findOne({
+                where: {
+                    name: AppSettings_entity_1.APP_SETTING_WIZALL_TOKEN_NAME,
+                },
+            });
+            if (setting) {
+                setting.value = data.access_token;
+                await setting.save();
+            }
+            else {
+                setting = new AppSettings_entity_1.AppSettings();
+                setting.name = AppSettings_entity_1.APP_SETTING_WIZALL_TOKEN_NAME;
+                setting.value = data.access_token;
+                setting.createdAt = new Date();
+                await setting.save();
+            }
             console.log('wizall token loaded', this.token);
         }
         catch (e) {
@@ -415,7 +434,13 @@ class WizallApiProvider {
     }
     async waitForToken() {
         return new Promise((resolve) => {
-            const intervalId = setInterval(() => {
+            const intervalId = setInterval(async () => {
+                const setting = await AppSettings_entity_1.AppSettings.findOne({
+                    where: {
+                        name: AppSettings_entity_1.APP_SETTING_WIZALL_TOKEN_NAME,
+                    },
+                });
+                this.token = setting === null || setting === void 0 ? void 0 : setting.value;
                 if (this.token) {
                     resolve(true);
                     clearInterval(intervalId);
