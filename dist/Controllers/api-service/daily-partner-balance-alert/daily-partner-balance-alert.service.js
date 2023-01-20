@@ -38,7 +38,7 @@ let DailyPartnerBalanceAlertService = DailyPartnerBalanceAlertService_1 = class 
             .replace('T', '')
             .substring(0, 19)}\n\n`;
         for (const partner of partners) {
-            const balance = partner.soldeCommission + partner.soldeCommission;
+            const balance = partner.solde + partner.soldeCommission;
             output += `${partner.name}: ${this.helper.formatMoney(balance)} CFA\n\n\n`;
         }
         this.helper.notifyAdmin(output, Enum_entity_1.TypeEvenEnum.SOLDE_PARTNER).then();

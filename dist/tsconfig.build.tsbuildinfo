@@ -4832,7 +4832,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/daily-partner-balance-alert/daily-partner-balance-alert.service.ts": {
-        "version": "7db669f7aa39caec11cddde71f91e2913e56f6943113a917b7698a0fc6ebc6a3",
+        "version": "30428adc93a08b7fa430bbd79da3d9514cf68b6b8ea814d1b2967f692f78999d",
         "signature": "e8df65f0cff0747ea587df42f8daa6a8782e90fe470ac601d0f78a8c9bd671e1",
         "affectsGlobalScope": false
       },
