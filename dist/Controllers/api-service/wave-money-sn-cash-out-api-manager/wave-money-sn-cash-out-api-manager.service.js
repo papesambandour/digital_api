@@ -52,7 +52,7 @@ class WaveMoneySnCashOutApiManagerService extends api_manager_interface_service_
         if (checkout) {
             checkout.success = !!(checkout === null || checkout === void 0 ? void 0 : checkout.wave_launch_url);
         }
-        const statues = this.helper.getStatusAfterExec('success', this.apiService.sousServices);
+        const statues = this.helper.getStatusAfterExec(checkout.success ? 'success' : 'failed', this.apiService.sousServices);
         console.log(checkout, 'sttaus', statues);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
