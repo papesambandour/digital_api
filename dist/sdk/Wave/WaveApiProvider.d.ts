@@ -6,7 +6,7 @@ export declare type WAVE_COUNTRY = 'sn' | 'ci';
 export declare enum WAVE_BILL_ID {
     RAPIDO = "BT_rapido:U_R-mFhH9faepR",
     WOYOFAL = "BT_woyofal:U_2Tp0QIvJu9ar",
-    SENEAU = "BT_sde:U_2Tp0QIvJu9ar",
+    SENEAU = "BT_sde:U_cjGgzHOfIp4k",
     SENELEC = "BT_senelec:U_R-mFhH9faepR",
     XEWEUL = "BT_xeweul:U_2Tp0QIvJu9ar",
     AQUATECH = "BT_aquatech:U_2Tp0QIvJu9ar",

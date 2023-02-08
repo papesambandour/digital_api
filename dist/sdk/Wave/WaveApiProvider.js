@@ -15,7 +15,7 @@ var WAVE_BILL_ID;
 (function (WAVE_BILL_ID) {
     WAVE_BILL_ID["RAPIDO"] = "BT_rapido:U_R-mFhH9faepR";
     WAVE_BILL_ID["WOYOFAL"] = "BT_woyofal:U_2Tp0QIvJu9ar";
-    WAVE_BILL_ID["SENEAU"] = "BT_sde:U_2Tp0QIvJu9ar";
+    WAVE_BILL_ID["SENEAU"] = "BT_sde:U_cjGgzHOfIp4k";
     WAVE_BILL_ID["SENELEC"] = "BT_senelec:U_R-mFhH9faepR";
     WAVE_BILL_ID["XEWEUL"] = "BT_xeweul:U_2Tp0QIvJu9ar";
     WAVE_BILL_ID["AQUATECH"] = "BT_aquatech:U_2Tp0QIvJu9ar";
@@ -500,6 +500,10 @@ class WaveApiProvider {
         }
         const allFields = [];
         for (const field of targetBill.confirms) {
+            if (field.name === 'amount' ||
+                field.name === billAccountNumberFieldName) {
+                continue;
+            }
             allFields.push({
                 name: field.name,
                 value: field.value,
@@ -517,10 +521,8 @@ class WaveApiProvider {
             billAccountNumberFieldName +
             '","value":"' +
             billAccountNumber +
-            '"},{"name":"__amount__","value":"CFA ' +
+            '"},{"name":"invoice_reference","value":""},{"name":"__amount__","value":"CFA 0"},{"name":"__amount__","value":"CFA ' +
             amount +
-            '"},{"name":"invoice_reference","value":"' +
-            invoiceId +
             '"},' +
             allFields
                 .map((a) => `{"name":"${a.name}","value":"${a.value}"}`)
@@ -530,21 +532,17 @@ class WaveApiProvider {
             '"}}';
         console.log(confirmationQuery);
         const jsonResponse = await node_fetch_1.default('https://sn.mmapp.wave.com/a/business_graphql', {
-            credentials: 'omit',
             headers: {
-                'User-Agent': userAgent,
-                Accept: '*/*',
-                'Accept-Language': 'fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3',
-                'Content-Type': 'application/json',
-                'Session-Id': sessionId,
-                'Sec-Fetch-Dest': 'empty',
-                'Sec-Fetch-Mode': 'cors',
-                'Sec-Fetch-Site': 'cross-site',
+                'content-type': 'application/json',
+                'sec-ch-ua': '"Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"macOS"',
+                'session-id': sessionId,
+                Referer: 'https://business.wave.com/',
+                'Referrer-Policy': 'strict-origin-when-cross-origin',
             },
-            referrer: 'https://business.wave.com/',
             body: confirmationQuery,
             method: 'POST',
-            mode: 'cors',
         });
         console.log(JSON.stringify(jsonResponse));
         if (WaveUtil.isSuccess(jsonResponse)) {

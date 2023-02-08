@@ -29,7 +29,6 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
             CheckTransactionStatusCronService_1.canHandle =
                 Enum_entity_1.CONSTANT.ACTIVATE_CRON() && process.env.RUNTIME_ENV === 'CRON';
         }
-        console.debug('CheckTransactionStatusCronService when the current occure ', this.helper.mysqlDate(new Date()), CheckTransactionStatusCronService_1.canHandle);
         let queue;
         try {
             if (CheckTransactionStatusCronService_1.canHandle) {
