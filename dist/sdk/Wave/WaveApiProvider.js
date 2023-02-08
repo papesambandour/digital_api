@@ -500,7 +500,7 @@ class WaveApiProvider {
         }
         const allFields = [];
         for (const field of targetBill.confirms) {
-            if (field.name === 'amount' ||
+            if (field.name === '__amount__' ||
                 field.name === billAccountNumberFieldName) {
                 continue;
             }
@@ -531,20 +531,27 @@ class WaveApiProvider {
             clientId +
             '"}}';
         console.log(confirmationQuery);
-        const jsonResponse = await node_fetch_1.default('https://sn.mmapp.wave.com/a/business_graphql', {
+        const postOption = {
+            uri: 'https://sn.mmapp.wave.com/a/business_graphql',
+            method: 'POST',
+            body: confirmationQuery,
             headers: {
+                'user-agent': userAgent,
+                'User-Agent': userAgent,
+                'Session-Id': sessionId,
+                'session-id': sessionId,
+                accept: '*/*',
+                'accept-language': 'fr-FR,fr;q=0.9',
                 'content-type': 'application/json',
-                'sec-ch-ua': '"Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"',
                 'sec-ch-ua-mobile': '?0',
                 'sec-ch-ua-platform': '"macOS"',
-                'session-id': sessionId,
-                Referer: 'https://business.wave.com/',
-                'Referrer-Policy': 'strict-origin-when-cross-origin',
+                'sec-fetch-dest': 'empty',
+                'sec-fetch-mode': 'cors',
             },
-            body: confirmationQuery,
-            method: 'POST',
-        });
-        console.log(JSON.stringify(jsonResponse));
+            simple: true,
+        };
+        const jsonResponse = JSON.parse(await rp(postOption));
+        console.log(jsonResponse, '__json');
         if (WaveUtil.isSuccess(jsonResponse)) {
             const asyncResponse = await WaveApiProvider.fetchAsyncPayment({
                 sessionId,
