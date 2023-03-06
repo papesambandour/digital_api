@@ -5,6 +5,8 @@ import { OperationInDto } from '../../Controllers/api-service/dto/OperationInDto
 export declare type WAVE_COUNTRY = 'sn' | 'ci';
 export declare enum WAVE_BILL_ID {
     RAPIDO = "BT_rapido:U_R-mFhH9faepR",
+    TOUBA_CA_KANAM = "BT_toubacakanam:U_cjGgzHOfIp4k",
+    TIVAOUNE_MOSQUE = "BT_tivaouane:U_cjGgzHOfIp4k",
     WOYOFAL = "BT_woyofal:U_2Tp0QIvJu9ar",
     SENEAU = "BT_sde:U_cjGgzHOfIp4k",
     SENELEC = "BT_senelec:U_R-mFhH9faepR",
@@ -179,7 +181,7 @@ export default class WaveApiProvider {
         targetBill?: undefined;
         asyncResponse?: undefined;
     }>;
-    static makeDirectBillPay({ sessionId, walletId, amount, billId, billAccountNumberFieldName, billAccountNumber, label, otherFields, searchInSummary, }: {
+    static makeDirectBillPay({ sessionId, walletId, amount, billId, billAccountNumberFieldName, billAccountNumber, label, successMessage, otherFields, searchInSummary, }: {
         sessionId: any;
         walletId: any;
         amount: any;
@@ -187,6 +189,7 @@ export default class WaveApiProvider {
         billAccountNumberFieldName: any;
         billAccountNumber: any;
         label: any;
+        successMessage?: any;
         otherFields?: any;
         searchInSummary?: string;
     }): Promise<{

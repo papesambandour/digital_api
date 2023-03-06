@@ -4667,8 +4667,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "dd4b975b87616c5d06e31db2bb91ff0f38adb90f4a432b4ab319f805ac80d992",
-        "signature": "131e6a3dd23859ec613a14e0716cf1ff28e5d3cac6acbc09c3d6dc3e2c196ef6",
+        "version": "67752657812b195abaa03fe95371d097a911753b5402c87a965f51feb8bb0a33",
+        "signature": "f987f7ee30be8859f57aef9812bfd41d3ed68bcf0ecaed7cbef5306557da2fa4",
         "affectsGlobalScope": false
       },
       "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
@@ -4836,8 +4836,18 @@
         "signature": "e8df65f0cff0747ea587df42f8daa6a8782e90fe470ac601d0f78a8c9bd671e1",
         "affectsGlobalScope": false
       },
+      "../src/controllers/api-service/touba-ca-kanam-bill-reload-api-manager/touba-ca-kanam-bill-reload-api-manager.service.ts": {
+        "version": "1144effa5fb2d08d2dab87092d180b1c907718f610f015f0386952a849400838",
+        "signature": "a495bc43cc93005974d28ac66ce9bbb05a913aef074da81ea8f39d1c6c1d90ff",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/tivaoune-mosque-bill-reload-api-manager/tivaoune-mosque-bill-reload-api-manager.service.ts": {
+        "version": "770faa1de42feeff6caac258b671303287ddbcaab730323d73108de7cd690a07",
+        "signature": "6c5d6d8e1c1411e926d6c0e157de55aa5f55709134f0ef581e4171e4f33351ad",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.module.ts": {
-        "version": "b15d4708bc4389d82e96f20cc6f197805828fde0546c1192ae852fe78fe082ed",
+        "version": "b534b31822c0e7cbff6a0f80baddbeedb29b6f42bf3dc1e8bd21cd1097a7eb43",
         "signature": "622f5703fb298ffab0ec97803bb18f89a7c363d1d8cd8b11ef37cf122819523c",
         "affectsGlobalScope": false
       },
@@ -10400,6 +10410,8 @@
         "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts",
         "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts",
         "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts",
+        "../src/controllers/api-service/tivaoune-mosque-bill-reload-api-manager/tivaoune-mosque-bill-reload-api-manager.service.ts",
+        "../src/controllers/api-service/touba-ca-kanam-bill-reload-api-manager/touba-ca-kanam-bill-reload-api-manager.service.ts",
         "../src/helper.service.ts"
       ],
       "../src/controllers/api-service/api-service.service.ts": [
@@ -10618,6 +10630,24 @@
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/services.entity.ts",
         "../src/sdk/whatsapp/whatsappapiprovider.ts"
+      ],
+      "../src/controllers/api-service/tivaoune-mosque-bill-reload-api-manager/tivaoune-mosque-bill-reload-api-manager.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/sdk/wave/config.ts",
+        "../src/sdk/wave/waveapiprovider.ts"
+      ],
+      "../src/controllers/api-service/touba-ca-kanam-bill-reload-api-manager/touba-ca-kanam-bill-reload-api-manager.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/sdk/wave/config.ts",
+        "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/controllers/api-service/ucad-sn-bill-payment-api-manager/ucad-sn-bill-payment-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -15481,6 +15511,12 @@
       "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts": [
         "../node_modules/@nestjs/schedule/index.d.ts",
         "../src/helper.service.ts"
+      ],
+      "../src/controllers/api-service/tivaoune-mosque-bill-reload-api-manager/tivaoune-mosque-bill-reload-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/touba-ca-kanam-bill-reload-api-manager/touba-ca-kanam-bill-reload-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/controllers/api-service/ucad-sn-bill-payment-api-manager/ucad-sn-bill-payment-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"

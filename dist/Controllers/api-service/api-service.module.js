@@ -17,6 +17,8 @@ const check_transaction_timeout_cron_service_1 = require("./check-transaction-ti
 const send_pending_delay_alert_task_service_1 = require("./send-pending-delay-alert-task/send-pending-delay-alert-task.service");
 const service_daily_balance_alert_service_1 = require("./service-daily-balance-alert/service-daily-balance-alert.service");
 const daily_partner_balance_alert_service_1 = require("./daily-partner-balance-alert/daily-partner-balance-alert.service");
+const touba_ca_kanam_bill_reload_api_manager_service_1 = require("./touba-ca-kanam-bill-reload-api-manager/touba-ca-kanam-bill-reload-api-manager.service");
+const tivaoune_mosque_bill_reload_api_manager_service_1 = require("./tivaoune-mosque-bill-reload-api-manager/tivaoune-mosque-bill-reload-api-manager.service");
 let ApiServiceModule = class ApiServiceModule {
 };
 ApiServiceModule = __decorate([
@@ -38,6 +40,8 @@ ApiServiceModule = __decorate([
             send_pending_delay_alert_task_service_1.SendPendingDelayAlertTaskService,
             service_daily_balance_alert_service_1.ServiceDailyBalanceAlertService,
             daily_partner_balance_alert_service_1.DailyPartnerBalanceAlertService,
+            touba_ca_kanam_bill_reload_api_manager_service_1.ToubaCaKanamBillReloadApiManagerService,
+            tivaoune_mosque_bill_reload_api_manager_service_1.TivaouneMosqueBillReloadApiManagerService,
         ],
     })
 ], ApiServiceModule);
