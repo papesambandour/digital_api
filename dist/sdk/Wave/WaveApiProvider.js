@@ -601,10 +601,12 @@ class WaveApiProvider {
         const clientId = WaveUtil.uid5();
         const startDate = new Date();
         const allFields = otherFields || [];
-        allFields.push({
-            name: billAccountNumberFieldName,
-            value: billAccountNumber,
-        });
+        if (billAccountNumber && billAccountNumberFieldName) {
+            allFields.push({
+                name: billAccountNumberFieldName,
+                value: billAccountNumber,
+            });
+        }
         const graphQuery = '{"query":"mutation BillInput_PayBill2_Mutation(\\n  $id: ID!\\n  $billAmount: Money\\n  $sendAmount: Money\\n  $fields: [BillFieldInput!]!\\n  $clientId: String!\\n) {\\n  payBill2(id: $id, billAmount: $billAmount, sendAmount: $sendAmount, fields: $fields, clientId: $clientId, userInterface: BUSINESS_PORTAL) {\\n    __typename\\n    response {\\n      __typename\\n      ... on PayBill {\\n        payment {\\n          __typename\\n          sendAmount\\n          clientId\\n          billType\\n          whenCreated\\n          id\\n        }\\n      }\\n      ... on AsyncPending {\\n        clientId\\n      }\\n    }\\n  }\\n}\\n","variables":{"id":"' +
             billId +
             '","billAmount":"CFA ' +
@@ -615,7 +617,8 @@ class WaveApiProvider {
             allFields
                 .map((a) => `{"name":"${a.name}","value":"${a.value}"}`)
                 .join(',') +
-            ',{"name":"__amount__","value":"' +
+            (allFields.length ? ',' : '') +
+            '{"name":"__amount__","value":"' +
             amount +
             '"}],"clientId":"' +
             clientId +
