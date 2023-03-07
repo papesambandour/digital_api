@@ -881,16 +881,16 @@ class WaveApiProvider {
                 json: true,
             });
             console.log(response);
-            if (country === 'sn') {
-                partner.waveBusinessRegistrationId = response === null || response === void 0 ? void 0 : response.id;
+            if (!dto.waveBusinessRegistrationName) {
+                if (country === 'sn') {
+                    partner.waveBusinessRegistrationId = response === null || response === void 0 ? void 0 : response.id;
+                }
+                else {
+                    partner.waveCIBusinessRegistrationId = response === null || response === void 0 ? void 0 : response.id;
+                }
+                await partner.save();
             }
-            else {
-                partner.waveCIBusinessRegistrationId = response === null || response === void 0 ? void 0 : response.id;
-            }
-            await partner.save();
-            return country === 'sn'
-                ? partner.waveBusinessRegistrationId
-                : partner.waveCIBusinessRegistrationId;
+            return response === null || response === void 0 ? void 0 : response.id;
         }
         catch (e) {
             console.log(e);
