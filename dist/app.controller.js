@@ -195,7 +195,12 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         transaction.shipCardType = (_g = (_f = meta === null || meta === void 0 ? void 0 : meta.checkResponse) === null || _f === void 0 ? void 0 : _f.payment) === null || _g === void 0 ? void 0 : _g.shipCardType;
         transaction.checkTransactionResponse = main_1.serializeData(meta);
         await transaction.save();
-        await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
+        if (transaction.statut === Enum_entity_1.StatusEnum.SUCCESS) {
+            await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
+        }
+        else {
+            await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
+        }
         await apiManagerService.helper.setIsCallbackReadyValue(transaction);
         console.log(checkResult.meta, 'meta__check');
         if ((checkResult === null || checkResult === void 0 ? void 0 : checkResult.status) === 'SUCCESS') {
@@ -207,7 +212,6 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             }));
         }
         else {
-            await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
             return res.redirect(this.helper.appendQueryParams(transaction.errorRedirectUrl, {
                 message: checkResult === null || checkResult === void 0 ? void 0 : checkResult.partnerMessage,
                 approvalCode: transaction.approvalCode,
