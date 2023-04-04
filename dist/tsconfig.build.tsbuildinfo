@@ -4647,8 +4647,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/whatsapp-web.js/index.d.ts": {
-        "version": "a42d87153e360eb911fe64cd00b072ab71d3511b2af59c3f8448d86e7a49a7b5",
-        "signature": "a42d87153e360eb911fe64cd00b072ab71d3511b2af59c3f8448d86e7a49a7b5",
+        "version": "9a47be0ba8ac5195b3f6d7a0a77a9aa5c78abdd51c06530453067bdf0da04574",
+        "signature": "9a47be0ba8ac5195b3f6d7a0a77a9aa5c78abdd51c06530453067bdf0da04574",
         "affectsGlobalScope": false
       },
       "../src/sdk/discord/discordapiprovider.ts": {
@@ -6222,8 +6222,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/ws/index.d.ts": {
-        "version": "b4358a89fcd9c579f84a6c68e2ce44ca91b07e4db3f8f403c2b7a72c1a1e04b6",
-        "signature": "b4358a89fcd9c579f84a6c68e2ce44ca91b07e4db3f8f403c2b7a72c1a1e04b6",
+        "version": "77c5c7f8578d139c74102a29384f5f4f0792a12d819ddcdcaf8307185ff2d45d",
+        "signature": "77c5c7f8578d139c74102a29384f5f4f0792a12d819ddcdcaf8307185ff2d45d",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/yargs-parser/index.d.ts": {
