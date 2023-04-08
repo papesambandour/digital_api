@@ -8,7 +8,7 @@ const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 const Controller_1 = require("../../Controllers/Controller");
 const config_1 = require("./config");
 const main_1 = require("../../main");
-const userAgent = `Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:99.0) Gecko/20100101 Firefox/99.0`;
+const userAgent = `Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/112.0`;
 const BILL_MAX_RETRY = 5;
 const FETCH_ASYNC_MAX_RETRY = 30;
 var WAVE_BILL_ID;
@@ -799,6 +799,7 @@ class WaveApiProvider {
                 transferId +
                 '","refundPin":""}}';
             const refundQuery = type === 'deposit' ? refundDepositQuery : refundPaymentQuery;
+            console.log(refundQuery);
             const refundRequest = await node_fetch_1.default('https://sn.mmapp.wave.com/a/business_graphql', {
                 headers: {
                     accept: '*/*',
