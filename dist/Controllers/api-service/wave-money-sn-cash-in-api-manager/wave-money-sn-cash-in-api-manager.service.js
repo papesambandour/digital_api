@@ -52,7 +52,11 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
                 .cashOutApiKey,
             aggregated_merchant_id: aggregatorId,
         });
-        const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
+        const statues = this.helper.getStatusAfterExec(response.success
+            ? response.alsoPending
+                ? 'timeout'
+                : 'success'
+            : 'failed', this.apiService.sousServices);
         console.log(response, 'sttaus', statues);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];

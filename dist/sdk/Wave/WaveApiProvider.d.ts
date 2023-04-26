@@ -74,6 +74,7 @@ export default class WaveApiProvider {
         reference: any;
         message?: undefined;
         code?: undefined;
+        alsoPending?: undefined;
         error?: undefined;
     } | {
         success: boolean;
@@ -81,6 +82,7 @@ export default class WaveApiProvider {
         reference: any;
         message: string;
         code?: undefined;
+        alsoPending?: undefined;
         error?: undefined;
     } | {
         success: boolean;
@@ -88,11 +90,13 @@ export default class WaveApiProvider {
         reference: any;
         message: string;
         code: string;
+        alsoPending?: undefined;
         error?: undefined;
     } | {
         payoutId: string;
         reference: string;
         success: boolean;
+        alsoPending: boolean;
         error: any;
         message: string;
         code: string;

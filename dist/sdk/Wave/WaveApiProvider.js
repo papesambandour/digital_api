@@ -152,7 +152,7 @@ class WaveApiProvider {
         }
     }
     static async sendPayOutApi({ idemPotency, currency, client_reference, mobile, sender, receive_amount, national_id, name, token, aggregated_merchant_id, }) {
-        var _a;
+        var _a, _b;
         try {
             receive_amount += '';
             const body = {
@@ -224,12 +224,28 @@ class WaveApiProvider {
             };
         }
         catch (e) {
+            let isSuccess = false;
+            let errorMessage = 'La transaction a échoué suite a une erreur interne de Wave';
+            let alsoPending = false;
+            if ((_a = e === null || e === void 0 ? void 0 : e.message) === null || _a === void 0 ? void 0 : _a.includes('ETIMEDOUT')) {
+                isSuccess = true;
+                alsoPending = true;
+                errorMessage =
+                    "Le transfert est en cours de traitement après un délai d'expiration";
+            }
+            else if ((_b = e === null || e === void 0 ? void 0 : e.message) === null || _b === void 0 ? void 0 : _b.includes('502 Server Error')) {
+                isSuccess = true;
+                alsoPending = true;
+                errorMessage =
+                    'Le transfert est en cours de traitement après une erreur serveur temporaire (502)';
+            }
             return {
                 payoutId: '',
                 reference: '',
-                success: !!((_a = e === null || e === void 0 ? void 0 : e.message) === null || _a === void 0 ? void 0 : _a.includes('ETIMEDOUT')),
+                success: isSuccess,
+                alsoPending: alsoPending,
                 error: e.message,
-                message: 'Le transfert est en cours de traitement apres un timeout',
+                message: errorMessage,
                 code: '',
             };
         }
@@ -799,7 +815,6 @@ class WaveApiProvider {
                 transferId +
                 '","refundPin":""}}';
             const refundQuery = type === 'deposit' ? refundDepositQuery : refundPaymentQuery;
-            console.log(refundQuery);
             const refundRequest = await node_fetch_1.default('https://sn.mmapp.wave.com/a/business_graphql', {
                 headers: {
                     accept: '*/*',

@@ -4667,8 +4667,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "5e3d7b21c28f9c500af4571c448f7ebbce23be86abbe4d56d159d14c04dc8965",
-        "signature": "f987f7ee30be8859f57aef9812bfd41d3ed68bcf0ecaed7cbef5306557da2fa4",
+        "version": "924ba61bbf53db34e451a4b938679814380e4f6fa924cbece6f6cb5d1e841294",
+        "signature": "8844c51a3b4105eb8ba42d004327e5ff13df242f551dffdbabb778c8aa9f1097",
         "affectsGlobalScope": false
       },
       "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
@@ -5857,7 +5857,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": {
-        "version": "8e4a24748d71c292b7e03b993f3439d4b5ffcf47820173ddbaf9ffb9be2061c0",
+        "version": "6f842219c706a8d537933aa417fd5271ce07c6187e21efecba4dc1d3ee3205a0",
         "signature": "1c6b491aa811c886b2974970bdf803227ef08dc7e87c410cac942d30ca6e53a3",
         "affectsGlobalScope": false
       },
