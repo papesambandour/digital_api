@@ -45,6 +45,10 @@ const request_mapping_decorator_1 = require("@nestjs/common/decorators/http/requ
 const NewClaim_1 = require("./dto/NewClaim");
 const Claim_entity_1 = require("../../Models/Entities/Claim.entity");
 const DtoGetTransactionStatus_1 = require("../../Models/Dto/DtoGetTransactionStatus");
+const ConfirmKPay_1 = require("./dto/ConfirmKPay");
+const main_1 = require("../../main");
+const FreeCallback_1 = require("./dto/FreeCallback");
+const process = require("process");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService, helper) {
         super();
@@ -86,7 +90,9 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             dto: operationInDto,
         });
         await this.helper.setIsCallbackReadyValue(response.transaction);
+        console.log('checking errorType', response.partnerMessage);
         const errorType = await this.helper.provideErrorType(response.transaction, null, null, response.partnerMessage);
+        console.log(errorType);
         this.helper.updateApiBalance(apiManager, response.usedPhoneId).then();
         console.log('response', response.partnerMessage);
         if (response.status === Enum_entity_1.StatusEnum.FAILLED) {
@@ -102,6 +108,82 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         return {
             msg: 'Acces',
         };
+    }
+    async confirmKPayDto(confirmKPayDto) {
+        const isNotValid = await this.validator(this.getInstanceObject(confirmKPayDto, new ConfirmKPay_1.ConfirmKPayDto()));
+        if (isNotValid) {
+            return this.response(this.CODE_HTTP.OPERATION_BADREQUEST, isNotValid, '', true);
+        }
+        const comptePartner = await PartenerComptes_entity_1.PartenerComptes.findOne({
+            where: { appKey: typeorm_1.Equal(confirmKPayDto === null || confirmKPayDto === void 0 ? void 0 : confirmKPayDto.apiKey) },
+        });
+        let partner;
+        if (comptePartner) {
+            partner = await Parteners_entity_1.Parteners.findOne(comptePartner === null || comptePartner === void 0 ? void 0 : comptePartner.partenersId);
+        }
+        if (!partner || !comptePartner) {
+            return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: 'Non authentifié',
+                transactionId: confirmKPayDto.transactionId,
+            }, 'Non authentifié', true);
+        }
+        const transaction = await Transactions_entity_1.Transactions.findOne({
+            where: {
+                transactionId: confirmKPayDto.transactionId,
+                partenerComptesId: comptePartner.id,
+                statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
+            },
+            relations: ['sousServices'],
+        });
+        if (!transaction) {
+            return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: 'Aucune transaction en attente de validation  trouvé',
+                transactionId: confirmKPayDto.transactionId,
+            }, 'Aucune transaction en attente de validation  trouvé', true);
+        }
+        const apiManagerService = await this.helper.getApiManagerInterface(transaction.codeSousService, null);
+        if (!apiManagerService) {
+            return this.response(this.CODE_HTTP.SERVICE_DOWN, {
+                message: 'Api Service Manager non configuré',
+            }, 'Api Service Manager non configuré', true);
+        }
+        const checkResult = await apiManagerService.confirmTransaction({
+            transaction: transaction,
+            meta: {
+                otp: confirmKPayDto.otp,
+            },
+        });
+        if ((checkResult === null || checkResult === void 0 ? void 0 : checkResult.status) === 'SUCCESS') {
+            transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+        }
+        else {
+            transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+        }
+        transaction.checkTransactionResponse = main_1.serializeData(checkResult.meta);
+        await transaction.save();
+        await apiManagerService.helper.setIsCallbackReadyValue(transaction, 0);
+        apiManagerService.helper
+            .updateApiBalance(apiManagerService, transaction.phonesId)
+            .then();
+        if ((checkResult === null || checkResult === void 0 ? void 0 : checkResult.status) === 'SUCCESS') {
+            await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
+            return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
+                status: Enum_entity_1.StatusEnum.SUCCESS,
+                transactionId: confirmKPayDto.transactionId,
+                message: checkResult === null || checkResult === void 0 ? void 0 : checkResult.partnerMessage,
+            }, checkResult.partnerMessage, false);
+        }
+        else {
+            await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
+            return this.response(Controller_1.CODE_HTTP.FAILLED, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: checkResult === null || checkResult === void 0 ? void 0 : checkResult.partnerMessage,
+            }, checkResult.partnerMessage, true);
+        }
     }
     async transactions() {
         return {
@@ -192,6 +274,79 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         return {
             success: 'ok',
         };
+    }
+    async FreeCallback(freeCallbackData, req) {
+        var _a;
+        console.log(req.headers['x-forwarded-for']);
+        let fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
+        fromIp = '154.65.34.55';
+        const correctIps = process.env.FREE_WHITELIST_IPS.split(';').filter((ip) => ip);
+        console.log('IN FreeCallbackData', freeCallbackData, fromIp, correctIps);
+        if (!correctIps.includes(fromIp)) {
+            console.log('in ip mismatch');
+            return {
+                success: false,
+                message: `ip mismatch got ${fromIp}, want ${correctIps.join('|')}`,
+            };
+        }
+        const transaction = await Transactions_entity_1.Transactions.findOne({
+            where: {
+                transactionId: freeCallbackData.externalId,
+                statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
+                codeSousService: typeorm_1.In([
+                    Enum_entity_1.SOUS_SERVICE_ENUM.FREE_SN_WALLET_CASH_OUT,
+                    Enum_entity_1.SOUS_SERVICE_ENUM.FREE_SN_WALLET_CASH_IN,
+                ]),
+            },
+            relations: ['sousServices'],
+        });
+        if (!transaction) {
+            return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: 'Aucune transaction en attente de validation  trouvé',
+                transactionId: freeCallbackData.externalId,
+            }, 'Aucune transaction en attente de validation  trouvé', true);
+        }
+        const apiManagerService = await this.helper.getApiManagerInterface(transaction.codeSousService, null);
+        if (!apiManagerService) {
+            return this.response(this.CODE_HTTP.SERVICE_DOWN, {
+                message: 'Api Service Manager non configuré',
+            }, 'Api Service Manager non configuré', true);
+        }
+        const success = freeCallbackData.status === 'APPROVED';
+        if (success) {
+            transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+        }
+        else {
+            transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+        }
+        transaction.checkTransactionResponse = main_1.serializeData(freeCallbackData);
+        await transaction.save();
+        await apiManagerService.helper.setIsCallbackReadyValue(transaction, 0);
+        apiManagerService.helper
+            .updateApiBalance(apiManagerService, transaction.phonesId)
+            .then();
+        if (success) {
+            await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
+            return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
+                status: Enum_entity_1.StatusEnum.SUCCESS,
+                transactionId: freeCallbackData.externalId,
+                message: 'OK_CALLBACK',
+            }, 'OK_CALLBACK', false);
+        }
+        else {
+            await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
+            apiManagerService.helper
+                .updateApiBalance(apiManagerService, transaction.phonesId)
+                .then();
+            await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
+            return this.response(Controller_1.CODE_HTTP.FAILLED, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: 'FAILED_CALLBACK',
+            }, 'FAILED_CALLBACK', true);
+        }
     }
     async waveCICallback(waveCallbackData) {
         console.log(waveCallbackData);
@@ -319,6 +474,15 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "transaction", null);
 __decorate([
+    common_1.Post('confirm-payment-request'),
+    ResponseDecorateur_1.ResponseDecorateur(OperationOutDto_1.OperationOutDto, 201, "Ce Services permet d'effectué tous les operations que offres cet api "),
+    ResponseDecorateur_1.ResponseDecorateur(OperationBadParamsDto_1.OperationBadParamsDto, 400, 'Les parametres envoyés sont invalides'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [ConfirmKPay_1.ConfirmKPayDto]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "confirmKPayDto", null);
+__decorate([
     common_1.Get('transactions'),
     ResponseHttpPaginationDecorateur_1.ResponseHttpPaginationDecorateur(DtoTransactions_1.DtoTransactions),
     ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
@@ -368,6 +532,14 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "mtnCallback", null);
+__decorate([
+    common_1.Post('callback/freemoney/live'),
+    common_1.Post('callback/freemoney/test'),
+    __param(0, common_1.Body()), __param(1, common_1.Req()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [FreeCallback_1.FreeCallbackData, Object]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "FreeCallback", null);
 __decorate([
     common_1.Post('callback/wave-ci'),
     __param(0, common_1.Body()),

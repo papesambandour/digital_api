@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "e3c7c8cd9e91800b2c2ab3f881753d3a9ee393120724b08158d75f7202b48b03",
-        "signature": "0eb1a294c07b816e1426d6b9ed8598f76e47a5f73ba44935e262a70550188e5d",
+        "version": "130749bcbd23552972969746b1aac30b8c6bef1c338f05b875526c8ebcaa397b",
+        "signature": "7d0023dcb02b851ff0df8ea0747711cf6383c5cf277bcad43a16a1d1db62e9fc",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3162,7 +3162,7 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "e5424d1a9e1000514edaee390f0410e61df13cecc397ccf626a0a63f9c045f7d",
+        "version": "9ce9fbad40c41ff12dfec75071599ecfb99e81b2ca1d7b235caa98a8cc072e99",
         "signature": "fec9389d57e80ba7a315fbdad71f010aeb801061289b3c6ead97f3d2383b403c",
         "affectsGlobalScope": false
       },
@@ -4701,9 +4701,19 @@
         "signature": "f570831066d3c7ba9bd4db14a4836498727e4ea8ba092e3ef10ea43e596409cd",
         "affectsGlobalScope": false
       },
+      "../src/controllers/api-service/dto/confirmkpay.ts": {
+        "version": "4252fd0f5250e6d08c12e65ac912a93146c7810b0f536c95ad0e7eebf774c1ad",
+        "signature": "9bb96e7b8e23e0bc728f3db38b848bed27f233d2b11e1905554570f0db6c4ecf",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/dto/freecallback.ts": {
+        "version": "e56e83725bf04f968c914dedc120bb273ef4b5a76368b3c737dfe7ba960ef440",
+        "signature": "37f97b1b061eb65c90e0a3e93465b18cdefb89a7e0f5fbc7c38a830c92b8c7fe",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "271baff58c10cac8d86b83ad31a4894dbc02a2bc32253bf956b930f5e9474e33",
-        "signature": "7bec85506d09fbef0cc87d5e8c3327d5e441b1d1d3cc5fc5238c1be19e05ba54",
+        "version": "ec54f71e5ccc69c603fd7b25a101d5add64c1c338be45a739a011a9531fc44bc",
+        "signature": "ad688fbb84ea466d5214fb92557ba662ae54ff395de3b8bc3b0e79ea62f518ee",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -4822,7 +4832,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts": {
-        "version": "464b2aeac2fe7d96a6bdfaf518d3597195c00c9f5605b3b40c5cb182c113923c",
+        "version": "e0d9db997a044692c535cded9a3a60a943351ca11ff65ecb18d7686eafd5f3df",
         "signature": "e22c819e64e984f8a08c92f23711f969dbdfd73e73782c4d38a83d17bfdc28dd",
         "affectsGlobalScope": false
       },
@@ -5537,7 +5547,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "1e0cf939a216b0d62102e91a8e97a7a9241cbb1a4e3b88c580bca6ddfcc02dfa",
+        "version": "0cc0356db0b54bb994ee7d1e29c0c9a6862f999a5fd02b82e2741a5df964dca2",
         "signature": "10f952b0a4916be5ebc2c73362b91025d47f22de8142b8a97014d502c6e37345",
         "affectsGlobalScope": false
       },
@@ -5547,7 +5557,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "dd96c27a2900c6a035a00079b3f82cad28e86edceefa34807b2098795c00d05b",
+        "version": "f28cfc68034148bbc36e49a17bd4e937e00a0e854c231f5ddbb579f6d5c0c3c0",
         "signature": "b103471fb9ec12963e975cd0a34cb11417bda9b5c589b8dad724bb0592d713a6",
         "affectsGlobalScope": false
       },
@@ -5752,23 +5762,83 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/mtn/config.ts": {
-        "version": "0ccca53a72c0dcdae827381471c03e67daabef4424cc3ac8ba4bff3405150a39",
-        "signature": "bf4b7222057a860d0a1fb17ad37b95c949bea41de086a987874d31f1132a27b3",
+        "version": "af7dff8bf65ac34d84745ca36f2e7d59c9c9275c3adc8d874f490abe3b71b0d2",
+        "signature": "55b223fa02a2a8adf31b3461f785b0a7fb2c1162d0757df74191afd303843218",
         "affectsGlobalScope": false
       },
-      "../src/controllers/api-service/mtn-ci-cash-out-api-manager/mtn-ci-cash-out-api-manager.service.ts": {
-        "version": "c90c643846352350a7504dc67a8741ebcbec30e40e0cf924f502a3349dad6145",
-        "signature": "a0b1c060309906755ac0df2a7d43a9b7528cfab06cc422afbc14d38c5d33f530",
+      "../node_modules/mtn-momo/node_modules/axios/index.d.ts": {
+        "version": "3154a026075044aa102298fe9e6a7a14aaa26a06270680c7478a1765af8ffb09",
+        "signature": "3154a026075044aa102298fe9e6a7a14aaa26a06270680c7478a1765af8ffb09",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/mtn-momo/lib/common.d.ts": {
+        "version": "3c8a6bc0f20051eadff446f0050c004257b9a42b6f712daa2afc7d3b3c40ad73",
+        "signature": "3c8a6bc0f20051eadff446f0050c004257b9a42b6f712daa2afc7d3b3c40ad73",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/mtn-momo/lib/collections.d.ts": {
+        "version": "eacecb8cb9ed6d8bec6ba63cdbcd628613a3224c0d1943566d0e556e53b9c032",
+        "signature": "eacecb8cb9ed6d8bec6ba63cdbcd628613a3224c0d1943566d0e556e53b9c032",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/mtn-momo/lib/disbursements.d.ts": {
+        "version": "6ebef6bb084b82a6d99e9d08ceba63cbd13c601bacb5186a7f71e078a684758c",
+        "signature": "6ebef6bb084b82a6d99e9d08ceba63cbd13c601bacb5186a7f71e078a684758c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/mtn-momo/lib/errors.d.ts": {
+        "version": "bab872bdb0c7806c2ffe0dc03f33dd94a2fda1ade8303bc97e324f3017183120",
+        "signature": "bab872bdb0c7806c2ffe0dc03f33dd94a2fda1ade8303bc97e324f3017183120",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/mtn-momo/lib/users.d.ts": {
+        "version": "de0a7c73d7b2a7143d848b6f71f3ce9abd49fa19756917f7ae0e047cdfdcd178",
+        "signature": "de0a7c73d7b2a7143d848b6f71f3ce9abd49fa19756917f7ae0e047cdfdcd178",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/mtn-momo/lib/index.d.ts": {
+        "version": "25527cb332258e34049e46753b751dd6455643968cd647a0b0117dff4a15f346",
+        "signature": "25527cb332258e34049e46753b751dd6455643968cd647a0b0117dff4a15f346",
         "affectsGlobalScope": false
       },
       "../src/sdk/mtn/mtnapiprovider.ts": {
-        "version": "72b5d88a78dae99d17133dd6c0601860b2a16e84295315a6d6477fe999dda8ee",
-        "signature": "3b0c796c84757a4b29e2ac8925f90e350327126efd0aead9e50a085b478008b7",
+        "version": "5055a7e3a44a1783cbc8f4085a87990ccb2cb64e91243407603772c5ac82d5a7",
+        "signature": "1eddde839124a4896c6609de51dc4a4bdda6af8545b7b1829b159c185a38f3b1",
         "affectsGlobalScope": false
       },
-      "../src/controllers/api-service/mtn-ci-cash-in-api-manager/mtn-ci-cash-in-api-manager.service.ts": {
-        "version": "28622e1b1ea66d3846296cff3a41af1b78108dd1a41838e1b289e4b8b868e0b6",
-        "signature": "7a55985877c0552cbac7b1ef1f2bf6eb3c35e057bef64af13f4fb2d336385d88",
+      "../src/sdk/freemoney/freemoneyapiprovider.ts": {
+        "version": "0c0563309d93cf6d73d094485e6c5541076f50096de048239e34e481dc44abfa",
+        "signature": "9bc141ca7977a3c5b0fbd3812fc7ca3cce9529e40de205e1bb455cb35622fc51",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/free-money-cash-in-api-manager/free-money-cash-in-api-manager.service.ts": {
+        "version": "ac129c073f6c790f76384a2441a23aec6e435db7ea2bb9d8402b0fb03e7b7a87",
+        "signature": "59673a7d2157d2ef9241bf34f75992367d9a08525c1f7642fc8e8ebb965e1f99",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/free-money-cash-out-api-manager/free-money-cash-out-api-manager.service.ts": {
+        "version": "b3af333b417751572200fe786ad40284107de3a24ad9db352901f3ffe5747ef0",
+        "signature": "a162bdc92fbc1b08e673f2640bc2c3dfac6bffe68c230d0db54086a6d55c81f3",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/kpay/kpaycashout.ts": {
+        "version": "d46af08383cfff338bf712325dfb73f0113dc90590e2b2d116a13bcece70065a",
+        "signature": "4ecdfb9e94d7e10287886e92c6f3429acb6a199c066c56594f9e480d879766e2",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/kpay-sn-cash-out-api-manager/kpay-sn-cash-out-api-manager.service.ts": {
+        "version": "01e3db95517c4b478584f4ccc98b5178c694838a16f8455730e8c1c451fd592c",
+        "signature": "97e3d1a0b9148e0ae9c144230011f148ecf44c529a79efaced9c1a3bffd2456b",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": {
+        "version": "49328cd0754b6ef23d719d3f66fa36483c1d634dc1353f2d5455188b62e60bd0",
+        "signature": "37cf25cc9f2ba3d6f17542cdbb862f4d7154e660490adf82f73be8e42298edfb",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/mtn-bj-cash-out-api-manager/mtn-bj-cash-out-api-manager.service.ts": {
+        "version": "560d937257f0007325cc644916427839e05369ea1def5ce1945f47c186021984",
+        "signature": "2c7180f87cfada70bdcf5b1ec483560c2ec3d58b9766df92eed8acb6bfd846d8",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/oolusolar-sn-bill-reload-api-manager/oolusolar-sn-bill-reload-api-manager.service.ts": {
@@ -5807,7 +5877,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "b14d914bed6bb700216a62a5da0461f58e12f6701a50831fff4811374ee24a14",
+        "version": "e5be9fe3e767225e12a651051e4a54a40ed5020dddf81240938c7e4e5f808e3e",
         "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },
@@ -8224,6 +8294,31 @@
       "../node_modules/libphonenumber-js/index.d.ts": [
         "../node_modules/libphonenumber-js/types.d.ts"
       ],
+      "../node_modules/mtn-momo/lib/collections.d.ts": [
+        "../node_modules/mtn-momo/lib/common.d.ts",
+        "../node_modules/mtn-momo/node_modules/axios/index.d.ts"
+      ],
+      "../node_modules/mtn-momo/lib/disbursements.d.ts": [
+        "../node_modules/mtn-momo/lib/common.d.ts",
+        "../node_modules/mtn-momo/node_modules/axios/index.d.ts"
+      ],
+      "../node_modules/mtn-momo/lib/errors.d.ts": [
+        "../node_modules/mtn-momo/lib/collections.d.ts",
+        "../node_modules/mtn-momo/lib/common.d.ts",
+        "../node_modules/mtn-momo/lib/disbursements.d.ts",
+        "../node_modules/mtn-momo/node_modules/axios/index.d.ts"
+      ],
+      "../node_modules/mtn-momo/lib/index.d.ts": [
+        "../node_modules/mtn-momo/lib/collections.d.ts",
+        "../node_modules/mtn-momo/lib/common.d.ts",
+        "../node_modules/mtn-momo/lib/disbursements.d.ts",
+        "../node_modules/mtn-momo/lib/errors.d.ts",
+        "../node_modules/mtn-momo/lib/users.d.ts"
+      ],
+      "../node_modules/mtn-momo/lib/users.d.ts": [
+        "../node_modules/mtn-momo/lib/common.d.ts",
+        "../node_modules/mtn-momo/node_modules/axios/index.d.ts"
+      ],
       "../node_modules/pretty-format/build/index.d.ts": [
         "../node_modules/pretty-format/build/types.d.ts"
       ],
@@ -10366,12 +10461,15 @@
         "../node_modules/@nestjs/common/decorators/http/request-mapping.decorator.d.ts",
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/@types/node/process.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/api-service.service.ts",
         "../src/controllers/api-service/bank-card-money-sn-cash-out-api-manager/bank-card-money-sn-cash-out-api-manager.service.ts",
         "../src/controllers/api-service/dto/confirm3dsindto.ts",
+        "../src/controllers/api-service/dto/confirmkpay.ts",
+        "../src/controllers/api-service/dto/freecallback.ts",
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
         "../src/controllers/api-service/dto/newclaim.ts",
         "../src/controllers/api-service/dto/operationbadparamsdto.ts",
@@ -10381,6 +10479,7 @@
         "../src/controllers/controller.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
         "../src/helper.service.ts",
+        "../src/main.ts",
         "../src/models/decorateurs/responsedecorateur.ts",
         "../src/models/decorateurs/responsedetailsdecorateur.ts",
         "../src/models/decorateurs/responseforbidendecorateur.ts",
@@ -10505,6 +10604,14 @@
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts"
       ],
+      "../src/controllers/api-service/dto/confirmkpay.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
+      "../src/controllers/api-service/dto/freecallback.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
       "../src/controllers/api-service/dto/listpendingbillindto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts",
@@ -10537,7 +10644,38 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
-      "../src/controllers/api-service/mtn-ci-cash-in-api-manager/mtn-ci-cash-in-api-manager.service.ts": [
+      "../src/controllers/api-service/free-money-cash-in-api-manager/free-money-cash-in-api-manager.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/freemoney/freemoneyapiprovider.ts",
+        "../src/sdk/mtn/config.ts",
+        "../src/sdk/mtn/mtnapiprovider.ts"
+      ],
+      "../src/controllers/api-service/free-money-cash-out-api-manager/free-money-cash-out-api-manager.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/mtn/config.ts",
+        "../src/sdk/mtn/mtnapiprovider.ts"
+      ],
+      "../src/controllers/api-service/kpay-sn-cash-out-api-manager/kpay-sn-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/kpay/kpaycashout.ts"
+      ],
+      "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/controller.ts",
@@ -10548,7 +10686,7 @@
         "../src/sdk/mtn/mtnapiprovider.ts",
         "../src/sdk/orange/providerorangemoneyapi.ts"
       ],
-      "../src/controllers/api-service/mtn-ci-cash-out-api-manager/mtn-ci-cash-out-api-manager.service.ts": [
+      "../src/controllers/api-service/mtn-bj-cash-out-api-manager/mtn-bj-cash-out-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/controller.ts",
         "../src/main.ts",
@@ -11226,13 +11364,21 @@
       "../src/sdk/discord/discordapiprovider.ts": [
         "../src/sdk/discord/config.ts"
       ],
+      "../src/sdk/freemoney/freemoneyapiprovider.ts": [
+        "../node_modules/@types/node/process.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/sdk/kpay/kpaycashout.ts": [
+        "../node_modules/@types/node/process.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
       "../src/sdk/mtn/config.ts": [
         "../src/sdk/mtn/mtnapiprovider.ts"
       ],
       "../src/sdk/mtn/mtnapiprovider.ts": [
         "../node_modules/@types/node/util.d.ts",
+        "../node_modules/mtn-momo/lib/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
-        "../src/controllers/api-service/mtn-ci-cash-out-api-manager/mtn-ci-cash-out-api-manager.service.ts",
         "../src/controllers/controller.ts",
         "../src/main.ts",
         "../src/models/entities/enum.entity.ts",
@@ -13308,6 +13454,31 @@
       ],
       "../node_modules/libphonenumber-js/index.d.ts": [
         "../node_modules/libphonenumber-js/types.d.ts"
+      ],
+      "../node_modules/mtn-momo/lib/collections.d.ts": [
+        "../node_modules/mtn-momo/lib/common.d.ts",
+        "../node_modules/mtn-momo/node_modules/axios/index.d.ts"
+      ],
+      "../node_modules/mtn-momo/lib/disbursements.d.ts": [
+        "../node_modules/mtn-momo/lib/common.d.ts",
+        "../node_modules/mtn-momo/node_modules/axios/index.d.ts"
+      ],
+      "../node_modules/mtn-momo/lib/errors.d.ts": [
+        "../node_modules/mtn-momo/lib/collections.d.ts",
+        "../node_modules/mtn-momo/lib/common.d.ts",
+        "../node_modules/mtn-momo/lib/disbursements.d.ts",
+        "../node_modules/mtn-momo/node_modules/axios/index.d.ts"
+      ],
+      "../node_modules/mtn-momo/lib/index.d.ts": [
+        "../node_modules/mtn-momo/lib/collections.d.ts",
+        "../node_modules/mtn-momo/lib/common.d.ts",
+        "../node_modules/mtn-momo/lib/disbursements.d.ts",
+        "../node_modules/mtn-momo/lib/errors.d.ts",
+        "../node_modules/mtn-momo/lib/users.d.ts"
+      ],
+      "../node_modules/mtn-momo/lib/users.d.ts": [
+        "../node_modules/mtn-momo/lib/common.d.ts",
+        "../node_modules/mtn-momo/node_modules/axios/index.d.ts"
       ],
       "../node_modules/pretty-format/build/index.d.ts": [
         "../node_modules/pretty-format/build/types.d.ts"
@@ -15418,6 +15589,8 @@
       ],
       "../src/controllers/api-service/api-service.controller.ts": [
         "../src/controllers/api-service/api-service.service.ts",
+        "../src/controllers/api-service/dto/confirmkpay.ts",
+        "../src/controllers/api-service/dto/freecallback.ts",
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
         "../src/controllers/api-service/dto/newclaim.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
@@ -15474,11 +15647,20 @@
       "../src/controllers/api-service/empty-model-service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
-      "../src/controllers/api-service/mtn-ci-cash-in-api-manager/mtn-ci-cash-in-api-manager.service.ts": [
+      "../src/controllers/api-service/free-money-cash-in-api-manager/free-money-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/free-money-cash-out-api-manager/free-money-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/kpay-sn-cash-out-api-manager/kpay-sn-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
       ],
-      "../src/controllers/api-service/mtn-ci-cash-out-api-manager/mtn-ci-cash-out-api-manager.service.ts": [
+      "../src/controllers/api-service/mtn-bj-cash-out-api-manager/mtn-bj-cash-out-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
       ],
@@ -15818,6 +16000,12 @@
         "../src/models/response/paginateddto.ts"
       ],
       "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/sdk/freemoney/freemoneyapiprovider.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/sdk/kpay/kpaycashout.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/sdk/mtn/config.ts": [

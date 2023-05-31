@@ -47,6 +47,7 @@
     "husky": "^4.3.7",
     "moment": "^2.29.4",
     "moneysafe": "^2.2.1",
+    "mtn-momo": "^2.0.0",
     "mysql2": "^2.3.3",
     "node-fetch": "2",
     "qrcode-terminal": "^0.12.0",

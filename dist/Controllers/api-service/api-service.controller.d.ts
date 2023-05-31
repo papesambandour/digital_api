@@ -5,6 +5,8 @@ import { HelperService } from '../../helper.service';
 import { ListPendingBillInDto } from './dto/ListPendingBillInDto';
 import { NewClaimInDtoIn } from './dto/NewClaim';
 import { DtoGetTransactionStatusIn } from '../../Models/Dto/DtoGetTransactionStatus';
+import { ConfirmKPayDto } from './dto/ConfirmKPay';
+import { FreeCallbackData } from './dto/FreeCallback';
 export declare class ApiServiceController extends ControllerBase {
     private readonly apiServiceService;
     private readonly helper;
@@ -17,6 +19,12 @@ export declare class ApiServiceController extends ControllerBase {
     }>;
     transaction(id: string): Promise<{
         msg: string;
+    }>;
+    confirmKPayDto(confirmKPayDto: ConfirmKPayDto): Promise<{
+        code: number;
+        msg: any;
+        error: boolean;
+        data: object;
     }>;
     transactions(): Promise<{
         message: string;
@@ -47,6 +55,15 @@ export declare class ApiServiceController extends ControllerBase {
     }>;
     mtnCallback(): Promise<{
         success: string;
+    }>;
+    FreeCallback(freeCallbackData: FreeCallbackData, req: any): Promise<{
+        code: number;
+        msg: any;
+        error: boolean;
+        data: object;
+    } | {
+        success: boolean;
+        message: string;
     }>;
     waveCICallback(waveCallbackData: any): Promise<{
         success: string;

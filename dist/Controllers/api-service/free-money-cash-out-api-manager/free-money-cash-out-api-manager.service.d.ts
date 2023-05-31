@@ -1,7 +1,5 @@
 import { ApiManagerInterface, BalanceParams, BalanceResponse, CallbackParams, CheckParams, CheckResponse, ConfirmParams, ConfirmResponse, InitParams, InitResponse, RefundParams, RefundResponse, CallbackResponse } from '../api-manager-interface/api-manager-interface.service';
-import { MtnCountry } from '../../../sdk/Mtn/MtnApiProvider';
-export declare class MtnCiCashOutApiManagerService extends ApiManagerInterface {
-    static country: MtnCountry;
+export declare class FreeMoneyCashOutApiManagerService extends ApiManagerInterface {
     checkStatusTransaction(params: CheckParams): Promise<CheckResponse>;
     confirmTransaction(params: ConfirmParams): Promise<ConfirmResponse>;
     getBalance(params: BalanceParams): Promise<BalanceResponse>;

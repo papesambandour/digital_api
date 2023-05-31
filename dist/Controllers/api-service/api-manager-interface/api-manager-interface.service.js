@@ -68,7 +68,7 @@ class ApiManagerInterface {
         transaction.phoneSolde = phone.solde;
         transaction.phoneSoldeApi = phone.soldeApi;
         transaction.userAgent = this.apiService.headers['user-agent'];
-        transaction.ipAddress = this.apiService.headers['x-forwarded-for'];
+        transaction.ipAddress = this.apiService.headers['x-forwarded-for'] || '';
         transaction.feeAmount = this.apiService.feeAmount;
         transaction.commissionAmountPsp = this.apiService.commissionAmountPsp;
         transaction.feeAmountPsn = this.apiService.feeAmountPsp;

@@ -461,7 +461,7 @@ let HelperService = class HelperService {
         }
         const balanceInfo = await apiManager.getBalance({});
         if (balanceInfo.success) {
-            const balanceInfo = await apiManager.getBalance({});
+            console.log('fetch success');
             await this.setSoldeTableFromValue(balanceInfo.newBalance, 'phones', usedPhoneId, 'solde_api');
         }
     }

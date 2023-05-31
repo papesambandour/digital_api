@@ -168,6 +168,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
                 preStatut: preStatus,
                 errorMessage: 'Telephone injoignable',
                 dateFailled: new Date(),
+                dateCanceled: new Date(),
             });
             await transaction.reload();
             return this.helper.isNotCancelable(preStatus, status);

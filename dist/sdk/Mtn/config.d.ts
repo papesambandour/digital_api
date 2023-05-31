@@ -3,6 +3,7 @@ export declare type MtnConfig = {
     primaryKey: string;
     secondaryKey: string;
     apiUserId: string;
+    callback: string;
     apiUserKey: string;
     envTarget: string;
     ressource: MtnApiRessource;
