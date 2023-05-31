@@ -275,13 +275,12 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             success: 'ok',
         };
     }
-    async FreeCallback(freeCallbackData, req) {
+    async FreeCallback(mode, freeCallbackData, req) {
         var _a;
-        console.log(req.headers['x-forwarded-for']);
         let fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
         fromIp = '154.65.34.55';
         const correctIps = process.env.FREE_WHITELIST_IPS.split(';').filter((ip) => ip);
-        console.log('IN FreeCallbackData', freeCallbackData, fromIp, correctIps);
+        console.log('IN FreeCallbackData', freeCallbackData, fromIp, correctIps, 'p', req.headers['x-forwarded-for']);
         if (!correctIps.includes(fromIp)) {
             console.log('in ip mismatch');
             return {
@@ -533,11 +532,12 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "mtnCallback", null);
 __decorate([
-    common_1.Post('callback/freemoney/live'),
-    common_1.Post('callback/freemoney/test'),
-    __param(0, common_1.Body()), __param(1, common_1.Req()),
+    common_1.Post('callback/freemoney/:mode'),
+    __param(0, common_1.Param('mode')),
+    __param(1, common_1.Body()),
+    __param(2, common_1.Req()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [FreeCallback_1.FreeCallbackData, Object]),
+    __metadata("design:paramtypes", [String, FreeCallback_1.FreeCallbackData, Object]),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "FreeCallback", null);
 __decorate([
