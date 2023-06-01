@@ -288,6 +288,13 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                 message: `ip mismatch got ${fromIp}, want ${correctIps.join('|')}`,
             };
         }
+        if (mode !== 'live') {
+            return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
+                status: Enum_entity_1.StatusEnum.SUCCESS,
+                transactionId: freeCallbackData.externalId,
+                message: 'OK_CALLBACK_IGNORE_TEST',
+            }, 'OK_CALLBACK_IGNORE_TEST', false);
+        }
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
                 transactionId: freeCallbackData.externalId,
