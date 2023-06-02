@@ -28,29 +28,20 @@ let SendPendingDelayAlertTaskService = SendPendingDelayAlertTaskService_1 = clas
             SendPendingDelayAlertTaskService_1.canHandle =
                 Enum_entity_1.CONSTANT.ACTIVATE_CRON() && process.env.RUNTIME_ENV === 'CRON';
         }
-        console.debug('SendPendingDelayAlertTaskService when the current occure ', this.helper.mysqlDate(new Date()), SendPendingDelayAlertTaskService_1.canHandle);
-        try {
-            if (SendPendingDelayAlertTaskService_1.canHandle) {
-                SendPendingDelayAlertTaskService_1.canHandle = false;
-                const transactions = await this.fetchPendingTransaction();
-                const trInfo = transactions
-                    .map((tr) => `TR ID: ${tr.transactionId}: ${tr.codeSousService}`)
-                    .join('\n');
-                const trIdResume = transactions
-                    .map((tr) => `${tr.transactionId}`)
-                    .join(',');
-                const message = `Transaction en pending apres le délais:\n${trInfo}\n${trIdResume}`;
-                console.log(message, transactions.length);
-                if (transactions.length) {
-                    await this.helper.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PENDING_AFTER_DELAY, {}, null, config_1.discordApiConfig().pendingAfterDelayChannelName);
-                    console.log('---------');
-                    SendPendingDelayAlertTaskService_1.canHandle = true;
-                }
-            }
+        const transactions = await this.fetchPendingTransaction();
+        const trInfo = transactions
+            .map((tr) => `TR ID: ${tr.transactionId}: ${tr.codeSousService}`)
+            .join('\n');
+        const trIdResume = transactions
+            .map((tr) => `${tr.transactionId}`)
+            .join(',');
+        const message = `Transaction en pending apres le délais:\n${trInfo}\n${trIdResume}`;
+        console.log(message, transactions.length);
+        if (!transactions.length) {
+            return;
         }
-        catch (e) {
-            SendPendingDelayAlertTaskService_1.canHandle = true;
-        }
+        await this.helper.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PENDING_AFTER_DELAY, {}, null, config_1.discordApiConfig().pendingAfterDelayChannelName);
+        console.log('---------');
     }
     async fetchPendingTransaction() {
         const timeBeforeCashin = this.helper.addMinuteToDate(new Date(), -parseInt(process.env.CASHIN_DELAY_PENDING_TRANSACTION_MINUTE_BEFORE_ALERT));
