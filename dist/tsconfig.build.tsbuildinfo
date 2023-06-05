@@ -4667,7 +4667,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "924ba61bbf53db34e451a4b938679814380e4f6fa924cbece6f6cb5d1e841294",
+        "version": "d82b5b39c258f94fda476af21fd175ae04296802b3692587c1be4b2a902347f3",
         "signature": "8844c51a3b4105eb8ba42d004327e5ff13df242f551dffdbabb778c8aa9f1097",
         "affectsGlobalScope": false
       },
@@ -4712,7 +4712,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "babb3ee08ab4e5e6244f5d6a099ef08d133cf4b04b4fd05e743f42d84c09e6e4",
+        "version": "1baa043774af9bfc7aa347f0789c88342ce73d3301ba20131448541fbea1d891",
         "signature": "43a7fe83081bf36a7ffa9da5bc015d47e6d5fca4a79ff8f824a74c86d59c6928",
         "affectsGlobalScope": false
       },
@@ -5737,7 +5737,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/orange/providerorangemoneyapi.ts": {
-        "version": "14b513d4063d6cee5b769e1ac222ce951bb770ff0b6ee5b384c6400e4f1eb726",
+        "version": "4dc5c8dbec67047d67b0346b9690dde4556bf71adcff55b0395937cd645b772a",
         "signature": "609e601977f558a9e0d51589d86808a3eb9c25c02eec247b4453aa81a4cf2a9c",
         "affectsGlobalScope": false
       },
@@ -5957,7 +5957,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "7425240e15f88f6251ac332d870439b9c3c641c341325d9fb38e097e9fe20900",
+        "version": "9066e063c5e81de4f9140e096fd1bd1ee177f7ab9d3f1b7bf661e658736b5ed9",
         "signature": "7e4b4b22d3db0822c83760e402377e604c62dde07562ad23758c41714ee22fd6",
         "affectsGlobalScope": false
       },

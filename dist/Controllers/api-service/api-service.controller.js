@@ -281,7 +281,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         fromIp = '154.65.34.55';
         const correctIps = process.env.FREE_WHITELIST_IPS.split(';').filter((ip) => ip);
         console.log('IN FreeCallbackData', freeCallbackData, fromIp, correctIps, 'p', req.headers['x-forwarded-for']);
-        if (!correctIps.includes(fromIp)) {
+        if (!correctIps.some((ip) => ip.startsWith(fromIp.substring(0, fromIp.lastIndexOf('.'))))) {
             console.log('in ip mismatch');
             return {
                 success: false,

@@ -191,6 +191,7 @@ class WizallApiProvider {
                     agent_pin: wizallAgentPin,
                     country: 'sn',
                 },
+                timeout: 60000,
             };
             const transactions = await this.rp(option);
             console.log(transactions.length, 'wizal check get list');
