@@ -376,6 +376,7 @@ class ProviderOrangeMoneyApi {
                     Authorization: `Bearer ${this.authToken}`,
                 },
                 simple: false,
+                timeout: 60000,
             };
             const apiResponse = await rp(postOption);
             console.log('___api', apiResponse);
