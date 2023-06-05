@@ -5802,8 +5802,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/mtn/mtnapiprovider.ts": {
-        "version": "5055a7e3a44a1783cbc8f4085a87990ccb2cb64e91243407603772c5ac82d5a7",
-        "signature": "1eddde839124a4896c6609de51dc4a4bdda6af8545b7b1829b159c185a38f3b1",
+        "version": "cd3d29fb3e45c23332e2e25f1cfc8e975f14a9f3c617d0e87122034783ca203f",
+        "signature": "9695c43e3bf9e98eebdc54c805bfb3266e529c4a1a1a7448e40fa345d8bc5f02",
         "affectsGlobalScope": false
       },
       "../src/sdk/freemoney/freemoneyapiprovider.ts": {

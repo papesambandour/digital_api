@@ -105,6 +105,19 @@ class MtnApiProvider {
             };
         }
     }
+    static wait(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+    static async getTransactionWithTimeout(mtnManager, transactionId, timeout) {
+        const transactionPromise = mtnManager.getTransaction(transactionId);
+        const timeoutPromise = new Promise((resolve, reject) => {
+            const timeoutId = setTimeout(() => {
+                clearTimeout(timeoutId);
+                reject(new Error('Timeout: Transaction took too long to return.'));
+            }, timeout);
+        });
+        return Promise.race([transactionPromise, timeoutPromise]);
+    }
     static async checkOperationStatus(apiManager, params, mtnManager) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
         const baseResponse = {
@@ -116,7 +129,7 @@ class MtnApiProvider {
             transactionId: (_o = (_m = params.transaction) === null || _m === void 0 ? void 0 : _m.transactionId) !== null && _o !== void 0 ? _o : null,
         };
         try {
-            const apiResponse = await mtnManager.getTransaction(params.transaction.sousServiceTransactionId);
+            const apiResponse = await MtnApiProvider.getTransactionWithTimeout(mtnManager, params.transaction.sousServiceTransactionId, 60000);
             console.log(apiResponse);
             if ((apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.status) === 'SUCCESSFUL' &&
                 ((_p = apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.externalId) === null || _p === void 0 ? void 0 : _p.toString()) ===

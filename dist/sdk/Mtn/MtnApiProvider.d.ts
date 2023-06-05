@@ -18,6 +18,8 @@ export declare class MtnApiProvider {
         reference: string;
         externalId: string;
     }, config: MtnConfig, payerNote: string, payeeNote: string): Promise<any>;
+    static wait(ms: any): Promise<unknown>;
+    static getTransactionWithTimeout(mtnManager: any, transactionId: any, timeout: any): Promise<any>;
     static checkOperationStatus(apiManager: ApiManagerInterface, params: CheckParams, mtnManager: any): Promise<CheckResponse>;
     static getCollection(country: MtnCountry): Promise<any>;
     static getRemittance(country: MtnCountry): Promise<any>;
