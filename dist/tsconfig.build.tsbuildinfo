@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "130749bcbd23552972969746b1aac30b8c6bef1c338f05b875526c8ebcaa397b",
-        "signature": "7d0023dcb02b851ff0df8ea0747711cf6383c5cf277bcad43a16a1d1db62e9fc",
+        "version": "dc06d64e5bd958d287a1bb3380ab116c0e841ae9d71e24c6b4adc200013d0ae9",
+        "signature": "5e93bc010e3c95b5165fa0eb4b126d7c857826d49c13835ab9584c1662868120",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4707,12 +4707,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/freecallback.ts": {
-        "version": "e56e83725bf04f968c914dedc120bb273ef4b5a76368b3c737dfe7ba960ef440",
-        "signature": "37f97b1b061eb65c90e0a3e93465b18cdefb89a7e0f5fbc7c38a830c92b8c7fe",
+        "version": "39db9870cac1e2e277293a3a0c6c55eb42d47186f3bf02b03e18ba0656a8250b",
+        "signature": "455d6c20aa4dd6d10043706112cd49c9849ec2469a9420435fe5b1495111582a",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "1baa043774af9bfc7aa347f0789c88342ce73d3301ba20131448541fbea1d891",
+        "version": "86ef33f80de85032ef1a5ecca99d78258b0d7d8ac9ccd0a6aaf2751d9fadd88c",
         "signature": "43a7fe83081bf36a7ffa9da5bc015d47e6d5fca4a79ff8f824a74c86d59c6928",
         "affectsGlobalScope": false
       },
@@ -5557,7 +5557,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "f28cfc68034148bbc36e49a17bd4e937e00a0e854c231f5ddbb579f6d5c0c3c0",
+        "version": "c6310e543a1890ecd1ba6fd007e60d0f44bb6f67319d6cf012525f13c0440c22",
         "signature": "b103471fb9ec12963e975cd0a34cb11417bda9b5c589b8dad724bb0592d713a6",
         "affectsGlobalScope": false
       },

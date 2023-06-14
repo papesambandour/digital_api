@@ -328,7 +328,10 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
             transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
         }
-        transaction.checkTransactionResponse = main_1.serializeData(freeCallbackData);
+        transaction.checkTransactionResponse = main_1.serializeData(Object.assign({
+            mode,
+            fromIp,
+        }, freeCallbackData));
         await transaction.save();
         await apiManagerService.helper.setIsCallbackReadyValue(transaction, 0);
         apiManagerService.helper
@@ -343,7 +346,6 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             }, 'OK_CALLBACK', false);
         }
         else {
-            await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
             apiManagerService.helper
                 .updateApiBalance(apiManagerService, transaction.phonesId)
                 .then();

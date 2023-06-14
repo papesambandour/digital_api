@@ -1,5 +1,5 @@
 export declare class FreeCallbackData {
-    operationType: 'DEBIT' | 'CASHOUT';
+    operationType: 'DEBIT' | 'CASHOUT' | 'MERCHPAY';
     status: 'APPROVED' | 'REJECTED';
     amount: string;
     fId: string;

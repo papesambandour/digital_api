@@ -51,7 +51,15 @@ let HelperService = class HelperService {
         }
     }
     async setSoldeTableOnly(value, tableName, id, field) {
-        return this.connection.query(`update ${tableName} set ${field} =  ${field} + ${value} where id=${id}`);
+        const query = `update ${tableName} set ${field} =  ${field} + ${value} where id=${id}`;
+        try {
+            return this.connection.query(query);
+        }
+        catch (e) {
+            this.notifyAdmin(`Partner solde query fail: "${query}"`, Enum_entity_1.TypeEvenEnum.UPDATE_SOLDE_ERROR, {
+                query: query,
+            }, true).then();
+        }
     }
     async setSoldeTableFromValue(value, tableName, id, field) {
         return this.connection.query(`update ${tableName} set ${field} =  ${value} where id=${id}`);
