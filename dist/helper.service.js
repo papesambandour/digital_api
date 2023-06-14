@@ -1099,7 +1099,7 @@ let HelperService = class HelperService {
     }
     async verseComissionForTransaction(transaction, partner) {
         await partner.reload();
-        if (transaction.commissionAmount > 0) {
+        if (transaction.commissionAmount > 0 && !transaction.isSoldeCommission) {
             await this.setSoldeTableOnly(transaction.commissionAmount, 'parteners', transaction.partenersId, 'solde_commission');
             const operationParteners = new DtoOperationParteners_1.DtoOperationParteners();
             operationParteners.commentaire = `Versement comission pour la transaction #${transaction.transactionId}`;

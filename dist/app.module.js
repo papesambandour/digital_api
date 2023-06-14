@@ -47,6 +47,7 @@ AppModule = __decorate([
                 password: process.env.DATABASE_PASSWORD,
                 database: process.env.DATABASE_NAME,
                 entities: [__dirname + '/**/*.entity{.ts,.js}'],
+                logging: false,
                 synchronize: process.env.SYNC_DATABASE === 'SYNC' &&
                     process.env.RUNTIME_ENV !== 'CRON',
                 autoLoadEntities: true,

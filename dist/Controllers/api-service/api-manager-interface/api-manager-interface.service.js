@@ -251,11 +251,11 @@ class ApiManagerInterface {
             console.log(interval, countField, countUsage);
             console.log(interval, amountField, amountUsage);
             if (maxTrAmount !== -1 && amountUsage + nextAmount > maxTrAmount) {
-                console.error('passCheckLimit Failed  max amount', interval, amountUsage + nextAmount, maxTrAmount);
+                console.error('passCheckLimit ailed  max amount', interval, amountUsage + nextAmount, maxTrAmount);
                 return false;
             }
             if (maxTrCount !== -1 && countUsage > maxTrCount) {
-                console.error('passCheckLimit Failed  max count', interval, countUsage, maxTrCount);
+                console.error('passCheckLimit ailed  max count', interval, countUsage, maxTrCount);
                 return false;
             }
             console.info(`Phone ${phone.number} passCheckLimit Success `, countUsage, amountUsage, maxTrAmount, maxTrCount, interval);

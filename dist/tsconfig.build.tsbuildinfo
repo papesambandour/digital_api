@@ -3812,7 +3812,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "ef368abcd8991259c19daaca090669d7d424cb78ae8f7befba6bb1f4867d9fc2",
+        "version": "2af989dd47be60feeff69cf5ff3e2995a604e656b016859fdf6e2d6082849c1b",
         "signature": "ddccd1931c6e72091ee9a26ba9b08b3aa4fc1071d1922f4f4ebca1be0ac1b546",
         "affectsGlobalScope": false
       },
@@ -5447,7 +5447,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "daeb9bb20a3de219fa61ba83bee2934a70649dc4a10488080b3d3f45755c75b3",
+        "version": "9da957b625b6fc6e5265a2fd0b88b63453b2d99506d5e23ad99264cfb1250ca2",
         "signature": "22066569de7d8de9b5d783cf47c83e47fea5b20a7a1502f1d1ebc423e88477e9",
         "affectsGlobalScope": false
       },
@@ -5547,7 +5547,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "0cc0356db0b54bb994ee7d1e29c0c9a6862f999a5fd02b82e2741a5df964dca2",
+        "version": "8e211516e5737bc2621779eab98dc73dff1092e501b470f2e3a960c6407e9015",
         "signature": "10f952b0a4916be5ebc2c73362b91025d47f22de8142b8a97014d502c6e37345",
         "affectsGlobalScope": false
       },
@@ -5557,7 +5557,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "e27abf6237a2b307dd4eaf625a9f4df31b4178dfbb3da879f6e770d2163683da",
+        "version": "337b9d9fd11de731c203c6fb21a845a9c438faff81c565694f63a0882473b292",
         "signature": "b103471fb9ec12963e975cd0a34cb11417bda9b5c589b8dad724bb0592d713a6",
         "affectsGlobalScope": false
       },

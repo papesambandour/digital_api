@@ -107,10 +107,7 @@ __decorate([
     class_validator_1.IsString({
         message: 'Le sender doit être un un string',
     }),
-    class_validator_1.ValidateIf((object) => [
-        Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_OUT,
-        Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_IN,
-    ].includes(object['codeService'])),
+    class_validator_1.ValidateIf((object) => [].includes(object['codeService'])),
     __metadata("design:type", String)
 ], OperationInDto.prototype, "sender", void 0);
 __decorate([
