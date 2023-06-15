@@ -26,7 +26,7 @@ export declare class HelperService {
     private httpService;
     constructor(connection: Connection, httpService: HttpService);
     notifyAdmin(message: string, typeEvent: TypeEvenEnum, data?: {}, isCritic?: boolean, channelName?: any): Promise<void>;
-    setSoldeTableOnly(value: number, tableName: string, id: number, field: string): Promise<void>;
+    setSoldeTableOnly(value: number, tableName: string, id: number, field: string): Promise<any>;
     setSoldeTableFromValue(value: number, tableName: string, id: number, field: string): Promise<any>;
     incrementSolde(value: number, tableName: string, id: number, field: string): Promise<any>;
     operationPhone(phone: Phones, soldeApi: number, amount: number, transactionId: number, typeOperation: TypeOperationEnum, comment: string, operationId?: number | null, operation?: OperationEnumPhone): Promise<void>;
