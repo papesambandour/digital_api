@@ -29,7 +29,9 @@ let AppModule = class AppModule {
         this.bootstrapService = bootstrapService;
     }
     async onModuleInit() {
-        console.log(`Initialization...`);
+        console.log(`Initialization...`, (process.env.RUNTIME_ENV === 'CRON'
+            ? parseInt(process.env.CRON_POOL_CONNECTION_LIMIT)
+            : parseInt(process.env.POOL_CONNECTION_LIMIT)) || 10);
         await this.bootstrapService.init();
     }
 };
