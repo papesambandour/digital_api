@@ -5557,8 +5557,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "337b9d9fd11de731c203c6fb21a845a9c438faff81c565694f63a0882473b292",
-        "signature": "b103471fb9ec12963e975cd0a34cb11417bda9b5c589b8dad724bb0592d713a6",
+        "version": "fe6812f2a16c88ce5311479417485b9370448fc4b301e6b48b29ac352bc49ab8",
+        "signature": "e5febdf17fd4b88d30b5d8567a0bebf7576453402b8e43442b116f69f0f92d05",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -5877,7 +5877,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "43847103840dbf95e8c69a1eeb70da20e3a63d076b6890b36314d39fdba8eb84",
+        "version": "1a9d57c141fd1e9e2bff25ceb7d9ea77da72b8a46ffb9041e5a2cdb1e9510028",
         "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },

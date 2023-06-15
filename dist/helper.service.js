@@ -51,9 +51,22 @@ let HelperService = class HelperService {
         }
     }
     async setSoldeTableOnly(value, tableName, id, field) {
-        const query = `update ${tableName} set ${field} =  ${field} + ${value} where id=${id}`;
+        const query = `
+    UPDATE ${tableName}
+      SET ${field} = ${field} + ${value}
+      WHERE id = ${id};
+    `;
         try {
-            return await this.connection.query(query);
+            return await this.connection.transaction('SERIALIZABLE', async (transactionalEntityManager) => {
+                try {
+                    await transactionalEntityManager.query(query);
+                }
+                catch (e) {
+                    this.notifyAdmin(`Partner solde query transaction fail: "${query}"`, Enum_entity_1.TypeEvenEnum.UPDATE_SOLDE_ERROR, {
+                        query: query,
+                    }, true).then();
+                }
+            });
         }
         catch (e) {
             this.notifyAdmin(`Partner solde query fail: "${query}"`, Enum_entity_1.TypeEvenEnum.UPDATE_SOLDE_ERROR, {
