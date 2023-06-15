@@ -57,7 +57,16 @@ let HelperService = class HelperService {
       WHERE id = ${id};
     `;
         try {
-            return await this.connection.query(query);
+            return await this.connection.transaction('SERIALIZABLE', async (transactionalEntityManager) => {
+                try {
+                    await transactionalEntityManager.query(query);
+                }
+                catch (e) {
+                    this.notifyAdmin(`Partner solde query transaction fail: "${query}"`, Enum_entity_1.TypeEvenEnum.UPDATE_SOLDE_ERROR, {
+                        query: query,
+                    }, true).then();
+                }
+            });
         }
         catch (e) {
             this.notifyAdmin(`Partner solde query fail: "${query}"`, Enum_entity_1.TypeEvenEnum.UPDATE_SOLDE_ERROR, {
