@@ -63,6 +63,7 @@ let HelperService = class HelperService {
             else {
                 return await this.connection.transaction('SERIALIZABLE', async (transactionalEntityManager) => {
                     try {
+                        console.log('running query in serialize mode', query);
                         await transactionalEntityManager.query(query);
                     }
                     catch (e) {
