@@ -152,7 +152,7 @@ class WaveApiProvider {
         }
     }
     static async sendPayOutApi({ idemPotency, currency, client_reference, mobile, sender, receive_amount, national_id, name, token, aggregated_merchant_id, }) {
-        var _a, _b;
+        var _a, _b, _c;
         try {
             receive_amount += '';
             const body = {
@@ -233,11 +233,11 @@ class WaveApiProvider {
                 errorMessage =
                     "Le transfert est en cours de traitement après un délai d'expiration";
             }
-            else if ((_b = e === null || e === void 0 ? void 0 : e.message) === null || _b === void 0 ? void 0 : _b.includes('502 Server Error')) {
+            else if (((_b = e === null || e === void 0 ? void 0 : e.message) === null || _b === void 0 ? void 0 : _b.includes('502 Server Error')) ||
+                ((_c = e === null || e === void 0 ? void 0 : e.message) === null || _c === void 0 ? void 0 : _c.includes('502 Bad Gateway'))) {
                 isSuccess = true;
                 alsoPending = true;
-                errorMessage =
-                    'Le transfert est en cours de traitement après une erreur serveur temporaire (502)';
+                errorMessage = `Le transfert est en cours de traitement après une erreur serveur temporaire (502): "${e === null || e === void 0 ? void 0 : e.message}"`;
             }
             return {
                 payoutId: '',

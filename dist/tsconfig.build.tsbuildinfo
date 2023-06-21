@@ -4667,7 +4667,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "d82b5b39c258f94fda476af21fd175ae04296802b3692587c1be4b2a902347f3",
+        "version": "8550305886c3e9ed7762ea196888b51366a484774eb1daf89867f9e2d433e86d",
         "signature": "8844c51a3b4105eb8ba42d004327e5ff13df242f551dffdbabb778c8aa9f1097",
         "affectsGlobalScope": false
       },
