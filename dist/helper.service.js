@@ -245,6 +245,10 @@ let HelperService = class HelperService {
                 errorType: errorType,
             },
         };
+        await transaction.reload();
+        if (transaction.callbackIsSend === 1) {
+            return Promise.resolve({ alreadySend: true });
+        }
         try {
             await Transactions_entity_1.Transactions.update(transaction.id, {
                 callbackIsSend: 1,
