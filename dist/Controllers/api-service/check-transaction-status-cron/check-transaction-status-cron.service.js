@@ -63,7 +63,7 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
                 }
                 await Promise.all(promiseArr);
                 console.log('wating for next loop check status ');
-                await this.helper.waitSome(3);
+                await this.helper.waitSome(1);
                 console.log('end wait');
                 CheckTransactionStatusCronService_1.canHandle = true;
                 queue === null || queue === void 0 ? void 0 : queue.end();
