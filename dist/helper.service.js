@@ -246,6 +246,10 @@ let HelperService = class HelperService {
             },
         };
         try {
+            await Transactions_entity_1.Transactions.update(transaction.id, {
+                callbackIsSend: 1,
+                callbackSendedAt: new Date(),
+            });
             const dataResponse = await this.httpService
                 .post(transaction.urlIpn, dataSended)
                 .toPromise();
@@ -256,7 +260,6 @@ let HelperService = class HelperService {
                     data: main_1.serializeData(dataResponse.data),
                 }),
                 callbackIsSend: 1,
-                callbackSendedAt: new Date(),
             });
             await transaction.reload();
             return dataResponse.data;
