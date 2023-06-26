@@ -264,6 +264,7 @@ let HelperService = class HelperService {
                     data: main_1.serializeData(dataResponse.data),
                 }),
                 callbackIsSend: 1,
+                callbackSendedAt: new Date(),
             });
             await transaction.reload();
             return dataResponse.data;
