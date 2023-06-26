@@ -62,6 +62,9 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
                     }));
                 }
                 await Promise.all(promiseArr);
+                console.log('wating for next loop check status ');
+                await this.helper.waitSome(3);
+                console.log('end wait');
                 CheckTransactionStatusCronService_1.canHandle = true;
                 queue === null || queue === void 0 ? void 0 : queue.end();
             }
@@ -98,7 +101,7 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
 };
 CheckTransactionStatusCronService.canHandle = undefined;
 __decorate([
-    schedule_1.Cron('*/3 * * * * *'),
+    schedule_1.Cron(schedule_1.CronExpression.EVERY_SECOND),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
