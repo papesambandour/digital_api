@@ -70,14 +70,14 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
             };
         }
         try {
-            paymentResponse = JSON.parse(paymentResponse.body);
+            if (typeof paymentResponse === 'string') {
+                paymentResponse = JSON.parse(paymentResponse);
+            }
         }
         catch (e) {
-            if (typeof paymentResponse.body === 'string') {
-                paymentResponse = {
-                    description: paymentResponse.body,
-                };
-            }
+            paymentResponse = {
+                description: e.messagey,
+            };
         }
         const statues = this.helper.getStatusAfterExec(paymentResponse.status === 'SUCCESS' ? 'success' : 'failed', this.apiService.sousServices);
         transaction.statut = statues['status'];
@@ -109,7 +109,7 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
                 codeHttp: Controller_1.CODE_HTTP.UNKNOW_ERROR,
                 partnerMessage: paymentResponse.message ||
                     paymentResponse.description ||
-                    'Impossible de procéder au paiement ressayer plus tard',
+                    'Impossible de procéder au transfer ressayer plus tard',
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
