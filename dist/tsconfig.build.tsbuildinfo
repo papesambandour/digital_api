@@ -5557,7 +5557,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "0c65387c4f340c87651edcf70f9a36e83207306a226574d9c7f7586fd24ec9a4",
+        "version": "b298c87519d4609ca67b2e865d31b1760b1f40bb480434cccb41d6d5b08d4dfc",
         "signature": "b103471fb9ec12963e975cd0a34cb11417bda9b5c589b8dad724bb0592d713a6",
         "affectsGlobalScope": false
       },
@@ -5817,7 +5817,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/free-money-cash-out-api-manager/free-money-cash-out-api-manager.service.ts": {
-        "version": "896b41ef2f7f72c76a78693fa2d02594ba0dbd9866c9151811c45a2b5e5ebfc1",
+        "version": "c7a5cb09edb32f87ca49b739e4439effc1f61112893383d47bb4c5c230b6e192",
         "signature": "a162bdc92fbc1b08e673f2640bc2c3dfac6bffe68c230d0db54086a6d55c81f3",
         "affectsGlobalScope": false
       },
@@ -10664,6 +10664,7 @@
         "../src/main.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/freemoney/freemoneyapiprovider.ts",
         "../src/sdk/mtn/config.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
       ],

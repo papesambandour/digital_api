@@ -491,10 +491,12 @@ let HelperService = class HelperService {
         }
     }
     async updateApiBalance(apiManager, usedPhoneId) {
+        var _a;
         if (!usedPhoneId) {
             return;
         }
         const balanceInfo = await apiManager.getBalance({});
+        console.log('Balance', (_a = apiManager === null || apiManager === void 0 ? void 0 : apiManager.constructor) === null || _a === void 0 ? void 0 : _a.name, balanceInfo);
         if (balanceInfo.success) {
             console.log('fetch success');
             await this.setSoldeTableFromValue(balanceInfo.newBalance, 'phones', usedPhoneId, 'solde_api');

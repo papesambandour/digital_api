@@ -7,6 +7,7 @@ const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const Controller_1 = require("../../Controller");
 const main_1 = require("../../../main");
 const process = require("process");
+const FreeMoneyApiProvider_1 = require("../../../sdk/FreeMoney/FreeMoneyApiProvider");
 class FreeMoneyCashOutApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return await this.notImplementedYet(params);
@@ -15,7 +16,7 @@ class FreeMoneyCashOutApiManagerService extends api_manager_interface_service_1.
         return await this.notImplementedYet(params);
     }
     async getBalance(params) {
-        return await this.notImplementedYet(params);
+        return FreeMoneyApiProvider_1.default.getBalance(params);
     }
     async handleCallbackTransaction(params) {
         return await this.notImplementedYet(params);
