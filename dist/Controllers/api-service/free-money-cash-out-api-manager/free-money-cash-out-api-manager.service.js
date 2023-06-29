@@ -68,16 +68,6 @@ class FreeMoneyCashOutApiManagerService extends api_manager_interface_service_1.
                 description: e.message,
             };
         }
-        try {
-            if (typeof paymentResponse === 'string') {
-                paymentResponse = JSON.parse(paymentResponse);
-            }
-        }
-        catch (e) {
-            paymentResponse = {
-                description: e.message,
-            };
-        }
         const statues = this.helper.getStatusAfterExec(paymentResponse.status === 'PENDING' ? 'success' : 'failed', this.apiService.sousServices);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];

@@ -69,16 +69,6 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
                 description: e.message,
             };
         }
-        try {
-            if (typeof paymentResponse === 'string') {
-                paymentResponse = JSON.parse(paymentResponse);
-            }
-        }
-        catch (e) {
-            paymentResponse = {
-                description: e.messagey,
-            };
-        }
         const statues = this.helper.getStatusAfterExec(paymentResponse.status === 'SUCCESS' ? 'success' : 'failed', this.apiService.sousServices);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
