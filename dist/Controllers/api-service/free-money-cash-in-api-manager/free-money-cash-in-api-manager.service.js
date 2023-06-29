@@ -49,9 +49,9 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
             username: process.env.FREE_MSISDN_NUMBER,
             password: process.env.FREE_MSISDN_PASSWORD,
         };
-        let paymentResponse;
+        let depositResponse;
         try {
-            paymentResponse = await rp({
+            depositResponse = await rp({
                 url: `https://gateway.free.sn/Live/Cashin`,
                 method: 'POST',
                 rejectUnauthorized: false,
@@ -65,19 +65,32 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
             });
         }
         catch (e) {
-            paymentResponse = {
+            depositResponse = {
                 description: e.message,
             };
         }
-        const statues = this.helper.getStatusAfterExec(paymentResponse.status === 'SUCCESS' ? 'success' : 'failed', this.apiService.sousServices);
+        try {
+            if (typeof depositResponse.body !== 'object') {
+                depositResponse = JSON.parse(depositResponse.body);
+            }
+            else if (typeof depositResponse.body) {
+                depositResponse = depositResponse.body;
+            }
+        }
+        catch (e) {
+            depositResponse = {
+                description: e.message,
+            };
+        }
+        const statues = this.helper.getStatusAfterExec(depositResponse.status === 'SUCCESS' ? 'success' : 'failed', this.apiService.sousServices);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
-        transaction.sousServiceTransactionId = paymentResponse.transactionid;
+        transaction.sousServiceTransactionId = depositResponse.transactionid;
         await transaction.save();
         await this.helper.setIsCallbackReadyValue(transaction, 5000);
         this.helper.updateApiBalance(this, transaction.phonesId).then();
-        if (paymentResponse.status === 'SUCCESS') {
-            transaction.message = main_1.serializeData(paymentResponse);
+        if (depositResponse.status === 'SUCCESS') {
+            transaction.message = main_1.serializeData(depositResponse);
             await transaction.save();
             await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');
@@ -91,14 +104,14 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
             }, baseResponse);
         }
         else {
-            transaction.errorMessage = main_1.serializeData(paymentResponse);
+            transaction.errorMessage = main_1.serializeData(depositResponse);
             await transaction.save();
             await this.helper.operationPartnerCancelTransaction(transaction);
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.UNKNOW_ERROR,
-                partnerMessage: paymentResponse.message ||
-                    paymentResponse.description ||
+                partnerMessage: depositResponse.message ||
+                    depositResponse.description ||
                     'Impossible de procéder au transfer ressayer plus tard',
                 transaction: transaction,
                 transactionId: transaction.transactionId,
