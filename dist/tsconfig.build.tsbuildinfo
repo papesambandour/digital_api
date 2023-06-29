@@ -5812,12 +5812,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/free-money-cash-in-api-manager/free-money-cash-in-api-manager.service.ts": {
-        "version": "b9ed6f4e31c087b03e40d94cf823fe41196b078149d9517f1c9b57f9a5cc17ff",
+        "version": "f2d31ab8509b47afa0042ccd102a847a8e32f414fad7baab077d36469dac481c",
         "signature": "59673a7d2157d2ef9241bf34f75992367d9a08525c1f7642fc8e8ebb965e1f99",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/free-money-cash-out-api-manager/free-money-cash-out-api-manager.service.ts": {
-        "version": "9c44ff8932a5e2a2d0a98bcf1ef91051b934a90e367cbb5d0e33833d6dd79cf0",
+        "version": "33360313722ba1f52a9526a6e64b09247481b39c92ebbd1ffb3f1b936bc4296b",
         "signature": "a162bdc92fbc1b08e673f2640bc2c3dfac6bffe68c230d0db54086a6d55c81f3",
         "affectsGlobalScope": false
       },
