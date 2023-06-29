@@ -8,10 +8,6 @@ class FreeMoneyApiProvider {
             const postOption = {
                 uri: url,
                 method: 'GET',
-                qs: {
-                    msisdn: process.env.FREE_MSISDN_NUMBER,
-                    pin: process.env.FREE_MSISDN_NUMBER,
-                },
                 json: true,
                 simple: true,
             };
