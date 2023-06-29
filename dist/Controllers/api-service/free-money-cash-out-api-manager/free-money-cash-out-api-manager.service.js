@@ -51,7 +51,7 @@ class FreeMoneyCashOutApiManagerService extends api_manager_interface_service_1.
         let paymentResponse;
         try {
             paymentResponse = await rp({
-                url: `https://gateway.free.sn/${process.env.FREE_ENV_PREFIX}/${process.env.FREE_PAYMENT_TYPE_USE}`,
+                url: `https://gateway.free.sn/Live/Cashout`,
                 method: 'POST',
                 rejectUnauthorized: false,
                 body: data,
@@ -68,16 +68,6 @@ class FreeMoneyCashOutApiManagerService extends api_manager_interface_service_1.
                 description: e.message,
             };
         }
-        paymentResponse = {
-            body: JSON.stringify(Object.assign({}, {
-                status: 'PENDING',
-                amount: 100,
-                currency: 'XOF',
-                customermsisdn: 762969701,
-                transactionid: 'MP230527.1615.FAKE' + this.helper.generateRandomId('', 5),
-                externaltransactionid: transaction.transactionId,
-            })),
-        };
         try {
             paymentResponse = JSON.parse(paymentResponse.body);
         }

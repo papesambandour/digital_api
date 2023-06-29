@@ -52,7 +52,7 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
         let paymentResponse;
         try {
             paymentResponse = await rp({
-                url: `https://gateway.free.sn/${process.env.FREE_ENV_PREFIX}/Cashin`,
+                url: `https://gateway.free.sn/Live/Cashin`,
                 method: 'POST',
                 rejectUnauthorized: false,
                 body: data,
@@ -69,15 +69,6 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
                 description: e.message,
             };
         }
-        paymentResponse = {
-            body: JSON.stringify(Object.assign({}, {
-                status: 'SUCCESS',
-                amount: 100,
-                currency: 'XOF',
-                customermsisdn: 762969701,
-                transactionid: 'MP230527.1615.FAKE' + this.helper.generateRandomId('', 5),
-            })),
-        };
         try {
             paymentResponse = JSON.parse(paymentResponse.body);
         }

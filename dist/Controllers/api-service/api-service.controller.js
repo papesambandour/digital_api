@@ -277,8 +277,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
     }
     async FreeCallback(mode, freeCallbackData, req) {
         var _a;
-        let fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
-        fromIp = '154.65.34.55';
+        const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
         const correctIps = process.env.FREE_WHITELIST_IPS.split(';').filter((ip) => ip);
         console.log('IN FreeCallbackData', freeCallbackData, fromIp, correctIps, 'p', req.headers['x-forwarded-for']);
         if (!correctIps.some((ip) => ip.startsWith(fromIp.substring(0, fromIp.lastIndexOf('.'))))) {

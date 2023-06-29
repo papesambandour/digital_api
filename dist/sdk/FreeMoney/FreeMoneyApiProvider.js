@@ -5,7 +5,7 @@ const rp = require("request-promise");
 class FreeMoneyApiProvider {
     static async getBalance(params) {
         try {
-            const url = `https://secure-3ds.intech.sn/ping?msisdn=${process_1.default.env.FREE_MSISDN_NUMBER}&pin=${process_1.default.env.FREE_MSISDN_PASSWORD}`;
+            const url = `https://gateway.free.sn/services/freemoney/balance?msisdn=${process_1.default.env.FREE_MSISDN_NUMBER}&pin=${process_1.default.env.FREE_MSISDN_PASSWORD}`;
             const postOption = {
                 uri: url,
                 method: 'GET',
