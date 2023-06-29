@@ -17,6 +17,7 @@ class FreeMoneyApiProvider {
                 simple: true,
             };
             const apiResponse = await rp(postOption);
+            console.log('FreeGetBalance', apiResponse);
             if (Number(apiResponse.balance)) {
                 return Promise.resolve({
                     success: true,
@@ -31,6 +32,7 @@ class FreeMoneyApiProvider {
             }
         }
         catch (e) {
+            console.log(e);
             return Promise.resolve({
                 success: false,
                 newBalance: null,

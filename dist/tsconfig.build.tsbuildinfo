@@ -4707,8 +4707,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/freecallback.ts": {
-        "version": "39db9870cac1e2e277293a3a0c6c55eb42d47186f3bf02b03e18ba0656a8250b",
-        "signature": "455d6c20aa4dd6d10043706112cd49c9849ec2469a9420435fe5b1495111582a",
+        "version": "e99cdbd9ef9abf57a2dc5975cd8a474edf67e0af57f26926bd9dee8bdde403f4",
+        "signature": "0ae0f0752a2eefafc3c1024a4b63e43839a2c429cfbc7b57b75d1619a2eb7eb3",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
@@ -5807,7 +5807,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/freemoney/freemoneyapiprovider.ts": {
-        "version": "3518b3a897951c21868652b9a18c75202be99af50ba7946dd87ce7779331f8b4",
+        "version": "f332e5ce43b09e51301835262b0aa18512f333f5a78a5847ee66902518b79643",
         "signature": "9bc141ca7977a3c5b0fbd3812fc7ca3cce9529e40de205e1bb455cb35622fc51",
         "affectsGlobalScope": false
       },
