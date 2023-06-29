@@ -1,18 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const process_1 = require("process");
 const rp = require("request-promise");
 class FreeMoneyApiProvider {
     static async getBalance(params) {
         try {
-            console.log('frre balance', process_1.default, process_1.default.env);
-            const url = `https://gateway.free.sn/services/freemoney/balance?msisdn=${process_1.default.env.FREE_MSISDN_NUMBER}&pin=${process_1.default.env.FREE_MSISDN_PASSWORD}`;
+            const url = `https://gateway.free.sn/services/freemoney/balance?msisdn=${process.env.FREE_MSISDN_NUMBER}&pin=${process.env.FREE_MSISDN_PASSWORD}`;
             const postOption = {
                 uri: url,
                 method: 'GET',
                 qs: {
-                    msisdn: process_1.default.env.FREE_MSISDN_NUMBER,
-                    pin: process_1.default.env.FREE_MSISDN_NUMBER,
+                    msisdn: process.env.FREE_MSISDN_NUMBER,
+                    pin: process.env.FREE_MSISDN_NUMBER,
                 },
                 json: true,
                 simple: true,

@@ -5807,7 +5807,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/freemoney/freemoneyapiprovider.ts": {
-        "version": "fbe87c995ce56f509204771bb944dd89a8eeef6ea2ef255ea60cb35ac309dfec",
+        "version": "23ba03b3be0d94d3e74d83cc167679314f5246d9cee67ced125cfb899499fd74",
         "signature": "9bc141ca7977a3c5b0fbd3812fc7ca3cce9529e40de205e1bb455cb35622fc51",
         "affectsGlobalScope": false
       },
@@ -11366,7 +11366,6 @@
         "../src/sdk/discord/config.ts"
       ],
       "../src/sdk/freemoney/freemoneyapiprovider.ts": [
-        "../node_modules/@types/node/process.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/sdk/kpay/kpaycashout.ts": [
