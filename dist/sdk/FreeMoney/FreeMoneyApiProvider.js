@@ -32,7 +32,7 @@ class FreeMoneyApiProvider {
             }
         }
         catch (e) {
-            console.log(e);
+            console.log(e, e.stack);
             return Promise.resolve({
                 success: false,
                 newBalance: null,
