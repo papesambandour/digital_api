@@ -5807,7 +5807,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/freemoney/freemoneyapiprovider.ts": {
-        "version": "b172d81f1746de8027847e73320a2993d8acade586cf08267f82e915e1ffb247",
+        "version": "fbe87c995ce56f509204771bb944dd89a8eeef6ea2ef255ea60cb35ac309dfec",
         "signature": "9bc141ca7977a3c5b0fbd3812fc7ca3cce9529e40de205e1bb455cb35622fc51",
         "affectsGlobalScope": false
       },
