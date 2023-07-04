@@ -219,8 +219,9 @@ class WaveApiProvider {
                 success: true,
                 payoutId: initResponse.id,
                 reference: initResponse.id,
-                message: 'Le transfert est en cours de traitement',
+                message: 'Le transfert est en cours de traitement après un timeout de Wave',
                 code: '',
+                alsoPending: true,
             };
         }
         catch (e) {

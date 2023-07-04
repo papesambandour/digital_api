@@ -22,6 +22,7 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
         return await this.notImplementedYet(params);
     }
     async initTransaction(params) {
+        var _a, _b, _c, _d;
         const api = await this.loadBalancingPhone();
         const baseResponse = {
             phone: params.dto.phone,
@@ -67,6 +68,9 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
         catch (e) {
             depositResponse = {
                 description: e.message,
+                body: `${(_a = e === null || e === void 0 ? void 0 : e.response) === null || _a === void 0 ? void 0 : _a.body}|${e === null || e === void 0 ? void 0 : e.body}|${(_b = e === null || e === void 0 ? void 0 : e.response) === null || _b === void 0 ? void 0 : _b.statusMessage}`,
+                transactionid: null,
+                status: 'INTERNAL_ERROR',
             };
         }
         try {
@@ -80,9 +84,16 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
         catch (e) {
             depositResponse = {
                 description: e.message,
+                body: `${((_c = e === null || e === void 0 ? void 0 : e.response) === null || _c === void 0 ? void 0 : _c.body) || ''}|${(e === null || e === void 0 ? void 0 : e.body) || ''}|${((_d = e === null || e === void 0 ? void 0 : e.response) === null || _d === void 0 ? void 0 : _d.statusMessage) || ''}`,
+                transactionid: null,
+                status: 'INTERNAL_ERROR',
             };
         }
-        const statues = this.helper.getStatusAfterExec(depositResponse.status === 'SUCCESS' ? 'success' : 'failed', this.apiService.sousServices);
+        const statues = this.helper.getStatusAfterExec(depositResponse.status === 'SUCCESS'
+            ? 'success'
+            : depositResponse.status === 'INTERNAL_ERROR'
+                ? 'timeout'
+                : 'failed', this.apiService.sousServices);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
         transaction.sousServiceTransactionId = depositResponse.transactionid;

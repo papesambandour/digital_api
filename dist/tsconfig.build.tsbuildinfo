@@ -4667,8 +4667,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "8550305886c3e9ed7762ea196888b51366a484774eb1daf89867f9e2d433e86d",
-        "signature": "8844c51a3b4105eb8ba42d004327e5ff13df242f551dffdbabb778c8aa9f1097",
+        "version": "2998242f07b63c7b5151d551484415bdea55ce5f722522923484bf4a5005079b",
+        "signature": "5a6acd22867c37757dab7701286c3380973e41664575d72da0ad4d527c1c8509",
         "affectsGlobalScope": false
       },
       "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
@@ -5807,12 +5807,12 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/freemoney/freemoneyapiprovider.ts": {
-        "version": "2533b535502104d38ab905ed8d60cd0fb912add8c165416a68b88a20fe122453",
+        "version": "69baeb341f44ba8bca12d2045cb6a473803b7b5243d3ffb5acaef3d70baeddb4",
         "signature": "9bc141ca7977a3c5b0fbd3812fc7ca3cce9529e40de205e1bb455cb35622fc51",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/free-money-cash-in-api-manager/free-money-cash-in-api-manager.service.ts": {
-        "version": "225e0e70513b2d502526533cc5cc150cb17ec80ed76a126714cae08102e72966",
+        "version": "3a1d9a86ed8977e5e6d397f5d3e9c4ef266fad5f61d9ae728bbc66e039973f88",
         "signature": "59673a7d2157d2ef9241bf34f75992367d9a08525c1f7642fc8e8ebb965e1f99",
         "affectsGlobalScope": false
       },

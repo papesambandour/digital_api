@@ -90,7 +90,7 @@ export default class WaveApiProvider {
         reference: any;
         message: string;
         code: string;
-        alsoPending?: undefined;
+        alsoPending: boolean;
         error?: undefined;
     } | {
         payoutId: string;
