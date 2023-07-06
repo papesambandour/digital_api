@@ -100,7 +100,8 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
         await transaction.save();
         await this.helper.setIsCallbackReadyValue(transaction, 5000);
         this.helper.updateApiBalance(this, transaction.phonesId).then();
-        if (depositResponse.status === 'SUCCESS') {
+        if (depositResponse.status === 'SUCCESS' ||
+            depositResponse.status === 'INTERNAL_ERROR') {
             transaction.message = main_1.serializeData(depositResponse);
             await transaction.save();
             await this.helper.handleSuccessTransactionCreditDebit(transaction);
