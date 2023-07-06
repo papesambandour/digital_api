@@ -68,7 +68,9 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
             transaction.message = main_1.serializeData(response);
             transaction.needCheckTransaction = 0;
             await transaction.save();
-            await this.helper.handleSuccessTransactionCreditDebit(transaction);
+            if (!response.alsoPending) {
+                await this.helper.handleSuccessTransactionCreditDebit(transaction);
+            }
             console.log('Send OKK');
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.PENDING,

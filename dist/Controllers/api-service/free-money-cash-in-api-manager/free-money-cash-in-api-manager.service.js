@@ -104,7 +104,9 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
             depositResponse.status === 'INTERNAL_ERROR') {
             transaction.message = main_1.serializeData(depositResponse);
             await transaction.save();
-            await this.helper.handleSuccessTransactionCreditDebit(transaction);
+            if (depositResponse.status === 'SUCCESS') {
+                await this.helper.handleSuccessTransactionCreditDebit(transaction);
+            }
             console.log('Send OKK');
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.PENDING,

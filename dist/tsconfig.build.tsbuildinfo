@@ -5812,7 +5812,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/free-money-cash-in-api-manager/free-money-cash-in-api-manager.service.ts": {
-        "version": "ab0f0472c92bbb2482d5d7de974fa10a35c3432ff28e012b2059b5f69335acd3",
+        "version": "a8ae7a80e8d3e1517cdfeafb8c52f4b650bb0684c8762117511a7105893ce1c9",
         "signature": "59673a7d2157d2ef9241bf34f75992367d9a08525c1f7642fc8e8ebb965e1f99",
         "affectsGlobalScope": false
       },
@@ -5927,7 +5927,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": {
-        "version": "6f842219c706a8d537933aa417fd5271ce07c6187e21efecba4dc1d3ee3205a0",
+        "version": "f50b838940249dc93c5bb8275e5d3c0d6e3ad0b73474b0d3f052705102e3715e",
         "signature": "1c6b491aa811c886b2974970bdf803227ef08dc7e87c410cac942d30ca6e53a3",
         "affectsGlobalScope": false
       },
