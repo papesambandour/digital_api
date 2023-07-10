@@ -59,6 +59,7 @@ export declare enum PhoneState {
 }
 export declare enum TypeEvenEnum {
     SOLD_OUT_PHONE = "SOLD_OUT_PHONE",
+    FREE_MONEY_CALLBACK = "FREE_MONEY_CALLBACK",
     SOLDE_SERVICE = "SOLDE_SERVICE",
     SOLDE_PARTNER = "SOLDE_PARTNER",
     UNUSED = "UNUSED",

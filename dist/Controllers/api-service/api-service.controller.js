@@ -280,6 +280,14 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
         const correctIps = process.env.FREE_WHITELIST_IPS.split(';').filter((ip) => ip);
         console.log('IN FreeCallbackData', freeCallbackData, fromIp, correctIps, 'p', req.headers['x-forwarded-for']);
+        this.helper
+            .notifyAdmin('New Free Money callback', Enum_entity_1.TypeEvenEnum.FREE_MONEY_CALLBACK, {
+            freeCallbackData,
+            fromIp,
+            correctIps,
+            headers_forwarded: req.headers['x-forwarded-for'],
+        })
+            .then();
         if (!correctIps.some((ip) => ip.startsWith(fromIp.substring(0, fromIp.lastIndexOf('.'))))) {
             console.log('in ip mismatch');
             return {

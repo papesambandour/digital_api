@@ -73,6 +73,7 @@ var PhoneState;
 var TypeEvenEnum;
 (function (TypeEvenEnum) {
     TypeEvenEnum["SOLD_OUT_PHONE"] = "SOLD_OUT_PHONE";
+    TypeEvenEnum["FREE_MONEY_CALLBACK"] = "FREE_MONEY_CALLBACK";
     TypeEvenEnum["SOLDE_SERVICE"] = "SOLDE_SERVICE";
     TypeEvenEnum["SOLDE_PARTNER"] = "SOLDE_PARTNER";
     TypeEvenEnum["UNUSED"] = "UNUSED";

@@ -46,7 +46,7 @@ let HelperService = class HelperService {
         console.log(`CONTACTA ADMIN TO ${message} for EVENT: ${typeEvent}. Data:`, data, isCritic);
         if (parseInt(process.env.SEND_NOTIFY) === 1) {
             DiscordApiProvider_1.default.sendMessageStatic({
-                message: `NEW ALERT MESSAGE:\n${message}\nEVENT : ${typeEvent}`,
+                message: `NEW ALERT MESSAGE:\n${message}\nEVENT : ${typeEvent}\nDATA: ${main_1.serializeData(data)}`,
             }, channelName).then();
         }
     }
