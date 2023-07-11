@@ -5812,7 +5812,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/free-money-cash-in-api-manager/free-money-cash-in-api-manager.service.ts": {
-        "version": "a8ae7a80e8d3e1517cdfeafb8c52f4b650bb0684c8762117511a7105893ce1c9",
+        "version": "b69d7075c1d7a459c52324b59e14a3c86e2ee675d8e7b78b9bbbce524b3ef425",
         "signature": "59673a7d2157d2ef9241bf34f75992367d9a08525c1f7642fc8e8ebb965e1f99",
         "affectsGlobalScope": false
       },
