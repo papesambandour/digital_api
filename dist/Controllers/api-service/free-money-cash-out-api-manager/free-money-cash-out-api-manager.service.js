@@ -44,8 +44,8 @@ class FreeMoneyCashOutApiManagerService extends api_manager_interface_service_1.
             currency: 'XOF',
             agentmsisdn: process.env.FREE_MSISDN_NUMBER,
             customermsisdn: transaction.phone,
-            externaltransactionid: transaction.transactionId,
-            externalid: transaction.transactionId,
+            externaltransactionid: transaction.id.toString(),
+            externalid: transaction.id.toString(),
             username: process.env.FREE_MSISDN_NUMBER,
             password: process.env.FREE_MSISDN_PASSWORD,
         };
