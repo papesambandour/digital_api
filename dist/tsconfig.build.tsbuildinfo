@@ -5817,7 +5817,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/free-money-cash-out-api-manager/free-money-cash-out-api-manager.service.ts": {
-        "version": "28afc098ceb8d1ec8dd118c336c3345385ba5fd5d501438a178b906ca645d194",
+        "version": "f79d457c7d95e512ff009c7ebe5e135a5332872c6a6a08a68c4add7c2cf805fa",
         "signature": "a162bdc92fbc1b08e673f2640bc2c3dfac6bffe68c230d0db54086a6d55c81f3",
         "affectsGlobalScope": false
       },
