@@ -45,7 +45,6 @@ class FreeMoneyCashInApiManagerService extends api_manager_interface_service_1.A
             currency: 'XOF',
             agentmsisdn: process.env.FREE_MSISDN_NUMBER,
             customermsisdn: transaction.phone,
-            externaltransactionid: transaction.transactionId,
             externalid: transaction.transactionId,
             username: process.env.FREE_MSISDN_NUMBER,
             password: process.env.FREE_MSISDN_PASSWORD,
