@@ -304,7 +304,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         }
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
-                id: freeCallbackData.externalId,
+                transactionId: freeCallbackData.externalId,
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
                 codeSousService: typeorm_1.In([
                     Enum_entity_1.SOUS_SERVICE_ENUM.FREE_SN_WALLET_CASH_OUT,

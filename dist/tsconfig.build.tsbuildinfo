@@ -4702,7 +4702,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "aac54c1b4582cabb0f99b49360b8b5be3ad2aa517f063571cc9a70a4cd06e59e",
+        "version": "993a6ee2b9f12641959580815e4ae174808f8c436eeb2ae908dbcb82b58a5539",
         "signature": "43a7fe83081bf36a7ffa9da5bc015d47e6d5fca4a79ff8f824a74c86d59c6928",
         "affectsGlobalScope": false
       },
@@ -5812,12 +5812,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/free-money-cash-in-api-manager/free-money-cash-in-api-manager.service.ts": {
-        "version": "b69d7075c1d7a459c52324b59e14a3c86e2ee675d8e7b78b9bbbce524b3ef425",
+        "version": "a8ae7a80e8d3e1517cdfeafb8c52f4b650bb0684c8762117511a7105893ce1c9",
         "signature": "59673a7d2157d2ef9241bf34f75992367d9a08525c1f7642fc8e8ebb965e1f99",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/free-money-cash-out-api-manager/free-money-cash-out-api-manager.service.ts": {
-        "version": "b14173d20049e8c7c4774be9f103003ac756a68838164a71472a675544e95012",
+        "version": "28afc098ceb8d1ec8dd118c336c3345385ba5fd5d501438a178b906ca645d194",
         "signature": "a162bdc92fbc1b08e673f2640bc2c3dfac6bffe68c230d0db54086a6d55c81f3",
         "affectsGlobalScope": false
       },
