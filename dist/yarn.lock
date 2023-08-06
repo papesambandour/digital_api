@@ -7256,10 +7256,10 @@ webpack@5.28.0:
     watchpack "^2.0.0"
     webpack-sources "^2.1.1"
 
-whatsapp-web.js@^1.19.5:
-  version "1.19.5"
-  resolved "https://registry.yarnpkg.com/whatsapp-web.js/-/whatsapp-web.js-1.19.5.tgz#a8fd66b00accea924d2861f6095ef89b2870732c"
-  integrity sha512-tavnhcQEbmlTzzLDVqqxIjWllsOwM0/5hhASame3bKEUT7Wk+q0z8g3cYMk43Eqdip1bK1rqUvwzzD3lDNfwCA==
+whatsapp-web.js@^1.21.0:
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/whatsapp-web.js/-/whatsapp-web.js-1.21.0.tgz#82b4d20077ff14df739503ef95da14765009ded1"
+  integrity sha512-IkxWyNUrfQeg951FDOr80d6zoBL9qE9G63zVr64l+hSA8Td7qV/LBOofk6OjvREnSCMi30rTTjxtJvX8UbaP/g==
   dependencies:
     "@pedroslopez/moduleraid" "^5.0.2"
     fluent-ffmpeg "^2.1.2"

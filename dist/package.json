@@ -61,7 +61,7 @@
     "socket.io-redis": "^6.1.0",
     "swagger-ui-express": "^4.1.6",
     "typeorm": "^0.2.32",
-    "whatsapp-web.js": "^1.19.5"
+    "whatsapp-web.js": "^1.21.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.6.0",
