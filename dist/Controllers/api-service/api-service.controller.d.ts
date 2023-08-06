@@ -54,7 +54,7 @@ export declare class ApiServiceController extends ControllerBase {
         error: boolean;
         data: object;
     }>;
-    mtnCallback(req: any, freeCallbackData: MtnBjCallbackData): Promise<{
+    mtnCallback(req: any, mtnCallbackData: MtnBjCallbackData): Promise<{
         success: string;
     }>;
     FreeCallback(mode: string, freeCallbackData: FreeCallbackData, req: any): Promise<{

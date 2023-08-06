@@ -271,10 +271,10 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             claim: claim,
         });
     }
-    async mtnCallback(req, freeCallbackData) {
+    async mtnCallback(req, mtnCallbackData) {
         this.helper
             .notifyAdmin('New Mtn Money callback', Enum_entity_1.TypeEvenEnum.MTN_MONEY_BJ_CALLBACK, {
-            freeCallbackData,
+            freeCallbackData: mtnCallbackData,
             headers_forwarded: req.headers['x-forwarded-for'],
         })
             .then();
