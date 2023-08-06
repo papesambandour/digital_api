@@ -7,6 +7,7 @@ import { NewClaimInDtoIn } from './dto/NewClaim';
 import { DtoGetTransactionStatusIn } from '../../Models/Dto/DtoGetTransactionStatus';
 import { ConfirmKPayDto } from './dto/ConfirmKPay';
 import { FreeCallbackData } from './dto/FreeCallback';
+import { MtnBjCallbackData } from './dto/MtnBjCallback';
 export declare class ApiServiceController extends ControllerBase {
     private readonly apiServiceService;
     private readonly helper;
@@ -53,7 +54,7 @@ export declare class ApiServiceController extends ControllerBase {
         error: boolean;
         data: object;
     }>;
-    mtnCallback(): Promise<{
+    mtnCallback(req: any, freeCallbackData: MtnBjCallbackData): Promise<{
         success: string;
     }>;
     FreeCallback(mode: string, freeCallbackData: FreeCallbackData, req: any): Promise<{

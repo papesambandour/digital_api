@@ -53,7 +53,7 @@ class MtnBjCashOutApiManagerService extends api_manager_interface_service_1.ApiM
                 externalId: transaction.transactionId.toString(),
                 payer: {
                     partyIdType: 'MSISDN',
-                    partyId: '256774290781',
+                    partyId: transaction.phone,
                 },
                 payerMessage: `Paiement de ${transaction.amount} CFA pour ${partner.name} vers ${transaction.phone}`,
                 payeeNote: `Reception de ${transaction.amount} sur le ${transaction.phone} CFA de ${partner.name}`,

@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MtnApiProvider = void 0;
 const config_1 = require("./config");
-const rp = require("request-promise");
 const main_1 = require("../../main");
 const Controller_1 = require("../../Controllers/Controller");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
@@ -10,34 +9,6 @@ class MtnApiProvider {
     static base64(str) {
         const buff = Buffer.from(str);
         return buff.toString('base64');
-    }
-    static async getAuthToken(config, from) {
-        const url = `${MtnApiProvider.apiBaseUrl}/${config.ressource}/token/`;
-        console.log(config, 'config', from);
-        try {
-            const postOption = {
-                uri: url,
-                method: 'POST',
-                json: {},
-                headers: {
-                    Authorization: 'Basic ' +
-                        MtnApiProvider.base64(`${config.apiUserId}:${config.apiUserKey}`),
-                    'Ocp-Apim-Subscription-Key': config.primaryKey,
-                },
-                simple: true,
-            };
-            console.log(postOption);
-            const apiResponse = await rp(postOption);
-            console.log(apiResponse);
-            apiResponse.success = true;
-            return apiResponse;
-        }
-        catch (e) {
-            return {
-                success: false,
-                message: e.message,
-            };
-        }
     }
     static async getBalance(mtnManager) {
         try {
@@ -54,54 +25,6 @@ class MtnApiProvider {
             return {
                 success: false,
                 newBalance: null,
-            };
-        }
-    }
-    static async initOperation(param, config, payerNote, payeeNote) {
-        return {
-            success: false,
-            message: `nothing`,
-        };
-        try {
-            const authToken = await MtnApiProvider.getAuthToken(config, 'here 1');
-            const url = `${MtnApiProvider.apiBaseUrl}/${config.ressource}/v1_0/${config.operation}`;
-            console.log(url, '_url');
-            const postOption = {
-                uri: url,
-                method: 'POST',
-                json: {
-                    payeeNote: payeeNote,
-                    externalId: param.externalId,
-                    amount: param.amount,
-                    currency: config.currency,
-                    payer: {
-                        partyIdType: 'MSISDN',
-                        partyId: '46733123453',
-                    },
-                    payerMessage: payerNote,
-                },
-                headers: {
-                    Authorization: `Bearer ${authToken.access_token}`,
-                    'Ocp-Apim-Subscription-Key': config.primaryKey,
-                    'X-Reference-Id': param.reference,
-                    'X-Target-Environment': config.envTarget,
-                },
-                simple: true,
-                resolveWithFullResponse: true,
-            };
-            console.log(postOption, '____');
-            const apiResponse = await rp(postOption);
-            console.log(apiResponse.statusCode, 'oskkk', apiResponse.statusMessage);
-            return {
-                success: apiResponse.statusCode === 202,
-                apiResponse: apiResponse.body,
-            };
-        }
-        catch (e) {
-            console.log(e.message, e.body, e, e.response.statusMessage, '¡¡¡¡¡¡¡¡');
-            return {
-                success: false,
-                message: `${e.response.statusCode} - ${e.response.statusMessage}`,
             };
         }
     }
@@ -197,6 +120,8 @@ class MtnApiProvider {
         const momo = require('mtn-momo');
         const { Collections } = momo.create({
             callbackHost: config_1.mtnApiConfig(country).collection.callback,
+            baseUrl: config_1.mtnApiConfig(country).collection.baseUrl,
+            environment: config_1.mtnApiConfig(country).collection.envTarget,
         });
         return Collections({
             userSecret: config_1.mtnApiConfig(country).collection.apiUserKey,
@@ -207,7 +132,9 @@ class MtnApiProvider {
     static async getRemittance(country) {
         const momo = require('mtn-momo');
         const { Disbursements } = momo.create({
-            callbackHost: config_1.mtnApiConfig(country).collection.callback,
+            callbackHost: config_1.mtnApiConfig(country).remittance.callback,
+            baseUrl: config_1.mtnApiConfig(country).remittance.baseUrl,
+            environment: config_1.mtnApiConfig(country).remittance.envTarget,
         });
         return Disbursements({
             userSecret: config_1.mtnApiConfig(country).remittance.apiUserKey,
@@ -257,5 +184,4 @@ class MtnApiProvider {
     }
 }
 exports.MtnApiProvider = MtnApiProvider;
-MtnApiProvider.apiBaseUrl = 'https://sandbox.momodeveloper.mtn.com';
 //# sourceMappingURL=MtnApiProvider.js.map

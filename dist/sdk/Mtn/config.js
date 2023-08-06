@@ -14,6 +14,7 @@ const mtnApiConfig = (country) => {
                 ressource: 'disbursement',
                 operation: 'transfer',
                 callback: process.env.MTN_BJ_CALLBACK,
+                baseUrl: process.env.MTN_BJ_BASE_URL,
             },
             collection: {
                 primaryKey: process.env.MTN_BJ_COLLECTION_PRIMARY_KEY,
@@ -25,6 +26,7 @@ const mtnApiConfig = (country) => {
                 ressource: 'collection',
                 operation: 'requesttopay',
                 callback: process.env.MTN_BJ_CALLBACK,
+                baseUrl: process.env.MTN_BJ_BASE_URL,
             },
         };
     }

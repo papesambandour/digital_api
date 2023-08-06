@@ -49,6 +49,7 @@ const ConfirmKPay_1 = require("./dto/ConfirmKPay");
 const main_1 = require("../../main");
 const FreeCallback_1 = require("./dto/FreeCallback");
 const process = require("process");
+const MtnBjCallback_1 = require("./dto/MtnBjCallback");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService, helper) {
         super();
@@ -270,7 +271,13 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             claim: claim,
         });
     }
-    async mtnCallback() {
+    async mtnCallback(req, freeCallbackData) {
+        this.helper
+            .notifyAdmin('New Mtn Money callback', Enum_entity_1.TypeEvenEnum.MTN_MONEY_BJ_CALLBACK, {
+            freeCallbackData,
+            headers_forwarded: req.headers['x-forwarded-for'],
+        })
+            .then();
         return {
             success: 'ok',
         };
@@ -544,8 +551,9 @@ __decorate([
 ], ApiServiceController.prototype, "newClaim", null);
 __decorate([
     request_mapping_decorator_1.All('callback/mtn-momo'),
+    __param(0, common_1.Req()), __param(1, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object, MtnBjCallback_1.MtnBjCallbackData]),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "mtnCallback", null);
 __decorate([

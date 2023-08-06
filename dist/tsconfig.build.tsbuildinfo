@@ -221,11 +221,6 @@
         "signature": "0996ff06f64cb05b6dac158a6ada2e16f8c2ccd20f9ff6f3c3e871f1ba5fb6d9",
         "affectsGlobalScope": false
       },
-      "../node_modules/rxjs/internal/observable/throwerror.d.ts": {
-        "version": "5c492d01a19fea5ebfff9d27e786bc533e5078909521ca17ae41236f16f9686a",
-        "signature": "5c492d01a19fea5ebfff9d27e786bc533e5078909521ca17ae41236f16f9686a",
-        "affectsGlobalScope": false
-      },
       "../node_modules/rxjs/internal/observable.d.ts": {
         "version": "a6ee930b81c65ec79aca49025b797817dde6f2d2e9b0e0106f0844e18e2cc819",
         "signature": "a6ee930b81c65ec79aca49025b797817dde6f2d2e9b0e0106f0844e18e2cc819",
@@ -464,41 +459,6 @@
       "../node_modules/rxjs/internal/observable/onerrorresumenext.d.ts": {
         "version": "4e5dc89fa22ff43da3dee1db97d5add0591ebaff9e4adef6c8b6f0b41f0f60f0",
         "signature": "4e5dc89fa22ff43da3dee1db97d5add0591ebaff9e4adef6c8b6f0b41f0f60f0",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/rxjs/internal/observable/pairs.d.ts": {
-        "version": "ec4e82cb42a902fe83dc13153c7a260bee95684541f8d7ef26cb0629a2f4ca31",
-        "signature": "ec4e82cb42a902fe83dc13153c7a260bee95684541f8d7ef26cb0629a2f4ca31",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/rxjs/internal/observable/partition.d.ts": {
-        "version": "5f36e24cd92b0ff3e2a243685a8a780c9413941c36739f04b428cc4e15de629d",
-        "signature": "5f36e24cd92b0ff3e2a243685a8a780c9413941c36739f04b428cc4e15de629d",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/rxjs/internal/observable/race.d.ts": {
-        "version": "40a26494e6ab10a91851791169582ab77fed4fbd799518968177e7eefe08c7a9",
-        "signature": "40a26494e6ab10a91851791169582ab77fed4fbd799518968177e7eefe08c7a9",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/rxjs/internal/observable/range.d.ts": {
-        "version": "208e125b45bc561765a74f6f1019d88e44e94678769824cf93726e1bac457961",
-        "signature": "208e125b45bc561765a74f6f1019d88e44e94678769824cf93726e1bac457961",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/rxjs/internal/observable/timer.d.ts": {
-        "version": "b3985971de086ef3aa698ef19009a53527b72e65851b782dc188ac341a1e1390",
-        "signature": "b3985971de086ef3aa698ef19009a53527b72e65851b782dc188ac341a1e1390",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/rxjs/internal/observable/using.d.ts": {
-        "version": "c81d421aabb6113cd98b9d4f11e9a03273b363b841f294b457f37c15d513151d",
-        "signature": "c81d421aabb6113cd98b9d4f11e9a03273b363b841f294b457f37c15d513151d",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/rxjs/internal/observable/zip.d.ts": {
-        "version": "30063e3a184ff31254bbafa782c78a2d6636943dfe59e1a34f451827fd7a68dc",
-        "signature": "30063e3a184ff31254bbafa782c78a2d6636943dfe59e1a34f451827fd7a68dc",
         "affectsGlobalScope": false
       },
       "../node_modules/rxjs/internal/scheduled/scheduled.d.ts": {
@@ -3027,8 +2987,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "5b9e6f08c4f923d72c9830730969639097e0a7976c74f6ad0597433954a8b82e",
-        "signature": "eb7f4ad80a27a7f63d68868c869317e7e729534f52254446caf7d8b7c0afcd5a",
+        "version": "79fe6325e075c5e52a4a36991ac4f72d2ff429567ef55f937442c830f838ab32",
+        "signature": "bcc96206709f314c90fd39c001336ae699db7463758d560528df123fea750133",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4701,9 +4661,14 @@
         "signature": "0ae0f0752a2eefafc3c1024a4b63e43839a2c429cfbc7b57b75d1619a2eb7eb3",
         "affectsGlobalScope": false
       },
+      "../src/controllers/api-service/dto/mtnbjcallback.ts": {
+        "version": "852032d91ba804b5af6255892314b3b3f4344704f736eb3df6b8e2003d6e6ff7",
+        "signature": "05c25ce112814df4a19280766aa30a9b781c8da05e17f4b755d09c4acbff61d4",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "993a6ee2b9f12641959580815e4ae174808f8c436eeb2ae908dbcb82b58a5539",
-        "signature": "43a7fe83081bf36a7ffa9da5bc015d47e6d5fca4a79ff8f824a74c86d59c6928",
+        "version": "38471a48a8cd7c3a1416add41e930259cbd5f7b3b0edc9ed544241e225c20595",
+        "signature": "ff7d1ecfbb8e762e292f77ce1f32971d2ddb93f8c1c7c8ede9f8f8798daf552b",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -5761,19 +5726,19 @@
         "signature": "cef1e66ac8cd932fd46857ba04670f194cf7ad2c75bdddcf69d44986ade02f3c",
         "affectsGlobalScope": false
       },
+      "../node_modules/mtn-momo/lib/common.d.ts": {
+        "version": "3c8a6bc0f20051eadff446f0050c004257b9a42b6f712daa2afc7d3b3c40ad73",
+        "signature": "3c8a6bc0f20051eadff446f0050c004257b9a42b6f712daa2afc7d3b3c40ad73",
+        "affectsGlobalScope": false
+      },
       "../src/sdk/mtn/config.ts": {
-        "version": "af7dff8bf65ac34d84745ca36f2e7d59c9c9275c3adc8d874f490abe3b71b0d2",
-        "signature": "55b223fa02a2a8adf31b3461f785b0a7fb2c1162d0757df74191afd303843218",
+        "version": "ed3c3f6deae04b0961515d3c02d72b595d18e8731dbe90482ecbe841d4a971eb",
+        "signature": "b251017a85ff9d2e89d4cbe331c255a3ab9c78937754abba9fbc2d9fceb2c8a5",
         "affectsGlobalScope": false
       },
       "../node_modules/mtn-momo/node_modules/axios/index.d.ts": {
         "version": "3154a026075044aa102298fe9e6a7a14aaa26a06270680c7478a1765af8ffb09",
         "signature": "3154a026075044aa102298fe9e6a7a14aaa26a06270680c7478a1765af8ffb09",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/mtn-momo/lib/common.d.ts": {
-        "version": "3c8a6bc0f20051eadff446f0050c004257b9a42b6f712daa2afc7d3b3c40ad73",
-        "signature": "3c8a6bc0f20051eadff446f0050c004257b9a42b6f712daa2afc7d3b3c40ad73",
         "affectsGlobalScope": false
       },
       "../node_modules/mtn-momo/lib/collections.d.ts": {
@@ -5802,8 +5767,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/mtn/mtnapiprovider.ts": {
-        "version": "cd3d29fb3e45c23332e2e25f1cfc8e975f14a9f3c617d0e87122034783ca203f",
-        "signature": "9695c43e3bf9e98eebdc54c805bfb3266e529c4a1a1a7448e40fa345d8bc5f02",
+        "version": "28692982fc1f80648976529977390c056592a2c9f26c0534cde3384e9bef6e11",
+        "signature": "47a0892e5daaf4097362d8abc9f347403963fbe82f57f08b02422b8343753b03",
         "affectsGlobalScope": false
       },
       "../src/sdk/freemoney/freemoneyapiprovider.ts": {
@@ -5832,12 +5797,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": {
-        "version": "49328cd0754b6ef23d719d3f66fa36483c1d634dc1353f2d5455188b62e60bd0",
+        "version": "5e21857a0a012f91d9ed6fbc9c4b04208c945ffed6837490eccf452f6bce2b7c",
         "signature": "37cf25cc9f2ba3d6f17542cdbb862f4d7154e660490adf82f73be8e42298edfb",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-out-api-manager/mtn-bj-cash-out-api-manager.service.ts": {
-        "version": "560d937257f0007325cc644916427839e05369ea1def5ce1945f47c186021984",
+        "version": "dda425b1047014d714b8a0b217e018b21deef6866bd1ea384414f6b2b99d0db7",
         "signature": "2c7180f87cfada70bdcf5b1ec483560c2ec3d58b9766df92eed8acb6bfd846d8",
         "affectsGlobalScope": false
       },
@@ -6292,8 +6257,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/ws/index.d.ts": {
-        "version": "77c5c7f8578d139c74102a29384f5f4f0792a12d819ddcdcaf8307185ff2d45d",
-        "signature": "77c5c7f8578d139c74102a29384f5f4f0792a12d819ddcdcaf8307185ff2d45d",
+        "version": "2dd1d4cea14cead7a7fc9eec8f40593089dff0de8c0199458446143c9b8c4ea9",
+        "signature": "2dd1d4cea14cead7a7fc9eec8f40593089dff0de8c0199458446143c9b8c4ea9",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/yargs-parser/index.d.ts": {
@@ -8353,14 +8318,6 @@
         "../node_modules/rxjs/internal/observable/never.d.ts",
         "../node_modules/rxjs/internal/observable/of.d.ts",
         "../node_modules/rxjs/internal/observable/onerrorresumenext.d.ts",
-        "../node_modules/rxjs/internal/observable/pairs.d.ts",
-        "../node_modules/rxjs/internal/observable/partition.d.ts",
-        "../node_modules/rxjs/internal/observable/race.d.ts",
-        "../node_modules/rxjs/internal/observable/range.d.ts",
-        "../node_modules/rxjs/internal/observable/throwerror.d.ts",
-        "../node_modules/rxjs/internal/observable/timer.d.ts",
-        "../node_modules/rxjs/internal/observable/using.d.ts",
-        "../node_modules/rxjs/internal/observable/zip.d.ts",
         "../node_modules/rxjs/internal/operator.d.ts",
         "../node_modules/rxjs/internal/operators/groupby.d.ts",
         "../node_modules/rxjs/internal/replaysubject.d.ts",
@@ -8410,7 +8367,6 @@
       ],
       "../node_modules/rxjs/internal/observable.d.ts": [
         "../node_modules/rxjs/internal/observable/iif.d.ts",
-        "../node_modules/rxjs/internal/observable/throwerror.d.ts",
         "../node_modules/rxjs/internal/operator.d.ts",
         "../node_modules/rxjs/internal/subscriber.d.ts",
         "../node_modules/rxjs/internal/subscription.d.ts",
@@ -8489,45 +8445,6 @@
       ],
       "../node_modules/rxjs/internal/observable/onerrorresumenext.d.ts": [
         "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/pairs.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/subscriber.d.ts",
-        "../node_modules/rxjs/internal/subscription.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/partition.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/race.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/operator.d.ts",
-        "../node_modules/rxjs/internal/outersubscriber.d.ts",
-        "../node_modules/rxjs/internal/subscriber.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/range.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/throwerror.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/timer.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/using.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/zip.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/operator.d.ts",
-        "../node_modules/rxjs/internal/subscriber.d.ts",
         "../node_modules/rxjs/internal/types.d.ts"
       ],
       "../node_modules/rxjs/internal/operator.d.ts": [
@@ -10469,6 +10386,7 @@
         "../src/controllers/api-service/dto/confirmkpay.ts",
         "../src/controllers/api-service/dto/freecallback.ts",
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
+        "../src/controllers/api-service/dto/mtnbjcallback.ts",
         "../src/controllers/api-service/dto/newclaim.ts",
         "../src/controllers/api-service/dto/operationbadparamsdto.ts",
         "../src/controllers/api-service/dto/operationdictionarydto.ts",
@@ -10613,6 +10531,10 @@
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts",
         "../src/models/entities/enum.entity.ts"
+      ],
+      "../src/controllers/api-service/dto/mtnbjcallback.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
       ],
       "../src/controllers/api-service/dto/newclaim.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
@@ -11370,6 +11292,7 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/sdk/mtn/config.ts": [
+        "../node_modules/mtn-momo/lib/common.d.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
       ],
       "../src/sdk/mtn/mtnapiprovider.ts": [
@@ -13511,14 +13434,6 @@
         "../node_modules/rxjs/internal/observable/never.d.ts",
         "../node_modules/rxjs/internal/observable/of.d.ts",
         "../node_modules/rxjs/internal/observable/onerrorresumenext.d.ts",
-        "../node_modules/rxjs/internal/observable/pairs.d.ts",
-        "../node_modules/rxjs/internal/observable/partition.d.ts",
-        "../node_modules/rxjs/internal/observable/race.d.ts",
-        "../node_modules/rxjs/internal/observable/range.d.ts",
-        "../node_modules/rxjs/internal/observable/throwerror.d.ts",
-        "../node_modules/rxjs/internal/observable/timer.d.ts",
-        "../node_modules/rxjs/internal/observable/using.d.ts",
-        "../node_modules/rxjs/internal/observable/zip.d.ts",
         "../node_modules/rxjs/internal/operator.d.ts",
         "../node_modules/rxjs/internal/operators/groupby.d.ts",
         "../node_modules/rxjs/internal/replaysubject.d.ts",
@@ -13568,7 +13483,6 @@
       ],
       "../node_modules/rxjs/internal/observable.d.ts": [
         "../node_modules/rxjs/internal/observable/iif.d.ts",
-        "../node_modules/rxjs/internal/observable/throwerror.d.ts",
         "../node_modules/rxjs/internal/operator.d.ts",
         "../node_modules/rxjs/internal/subscriber.d.ts",
         "../node_modules/rxjs/internal/subscription.d.ts",
@@ -13647,45 +13561,6 @@
       ],
       "../node_modules/rxjs/internal/observable/onerrorresumenext.d.ts": [
         "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/pairs.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/subscriber.d.ts",
-        "../node_modules/rxjs/internal/subscription.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/partition.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/race.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/operator.d.ts",
-        "../node_modules/rxjs/internal/outersubscriber.d.ts",
-        "../node_modules/rxjs/internal/subscriber.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/range.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/throwerror.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/timer.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/using.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/rxjs/internal/observable/zip.d.ts": [
-        "../node_modules/rxjs/internal/observable.d.ts",
-        "../node_modules/rxjs/internal/operator.d.ts",
-        "../node_modules/rxjs/internal/subscriber.d.ts",
         "../node_modules/rxjs/internal/types.d.ts"
       ],
       "../node_modules/rxjs/internal/operator.d.ts": [
@@ -15589,6 +15464,7 @@
         "../src/controllers/api-service/dto/confirmkpay.ts",
         "../src/controllers/api-service/dto/freecallback.ts",
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
+        "../src/controllers/api-service/dto/mtnbjcallback.ts",
         "../src/controllers/api-service/dto/newclaim.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/controllers/controller.ts",
@@ -16006,11 +15882,11 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/sdk/mtn/config.ts": [
+        "../node_modules/mtn-momo/lib/common.d.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
       ],
       "../src/sdk/mtn/mtnapiprovider.ts": [
-        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
-        "../src/sdk/mtn/config.ts"
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/sdk/orange/providerorangemoneyapi.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",

@@ -1,11 +1,13 @@
 import { MtnApiOperation, MtnApiRessource, MtnCountry } from './MtnApiProvider';
+import { Environment } from 'mtn-momo/lib/common';
 export declare type MtnConfig = {
     primaryKey: string;
     secondaryKey: string;
     apiUserId: string;
     callback: string;
+    baseUrl: string;
     apiUserKey: string;
-    envTarget: string;
+    envTarget: Environment;
     ressource: MtnApiRessource;
     operation: MtnApiOperation;
     currency: 'EUR' | 'XOF';
