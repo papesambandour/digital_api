@@ -4611,6 +4611,21 @@
         "signature": "ba8815529cee9690a805b60ea2fb715bcfe51cbab3abf50aaf9f632de402d1f2",
         "affectsGlobalScope": false
       },
+      "../node_modules/form-data/index.d.ts": {
+        "version": "736097ddbb2903bef918bb3b5811ef1c9c5656f2a73bd39b22a91b9cc2525e50",
+        "signature": "736097ddbb2903bef918bb3b5811ef1c9c5656f2a73bd39b22a91b9cc2525e50",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/node-fetch/externals.d.ts": {
+        "version": "626bccaba2f61f03abe558a39501631565389a748bc47dd52b305c80176333c1",
+        "signature": "626bccaba2f61f03abe558a39501631565389a748bc47dd52b305c80176333c1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/node-fetch/index.d.ts": {
+        "version": "3663d1b50f356656a314e5df169bb51cb9d5fd75905fa703f75db6bb32030568",
+        "signature": "3663d1b50f356656a314e5df169bb51cb9d5fd75905fa703f75db6bb32030568",
+        "affectsGlobalScope": false
+      },
       "../node_modules/moment/ts3.1-typings/moment.d.ts": {
         "version": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
         "signature": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
@@ -4662,7 +4677,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "2998242f07b63c7b5151d551484415bdea55ce5f722522923484bf4a5005079b",
+        "version": "a94d52521ef3f855bc5a88e47e4c16b0dde66c7e1fbdc75e1b0ab078b6ec6151",
         "signature": "5a6acd22867c37757dab7701286c3380973e41664575d72da0ad4d527c1c8509",
         "affectsGlobalScope": false
       },
@@ -7507,6 +7522,13 @@
       "../node_modules/@types/luxon/src/settings.d.ts": [
         "../node_modules/@types/luxon/src/zone.d.ts"
       ],
+      "../node_modules/@types/node-fetch/index.d.ts": [
+        "../node_modules/@types/node-fetch/externals.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/form-data/index.d.ts"
+      ],
       "../node_modules/@types/node/assert.d.ts": [
         "../node_modules/@types/node/assert.d.ts"
       ],
@@ -8281,6 +8303,11 @@
       ],
       "../node_modules/devtools-protocol/types/protocol-mapping.d.ts": [
         "../node_modules/devtools-protocol/types/protocol.d.ts"
+      ],
+      "../node_modules/form-data/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
       ],
       "../node_modules/jest-diff/build/difflines.d.ts": [
         "../node_modules/jest-diff/build/cleanupsemantic.d.ts",
@@ -10391,6 +10418,7 @@
         "../node_modules/typeorm/query-runner/queryrunner.d.ts"
       ],
       "../node_modules/whatsapp-web.js/index.d.ts": [
+        "../node_modules/@types/node-fetch/index.d.ts",
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/puppeteer/lib/types.d.ts"
       ],
@@ -11407,6 +11435,7 @@
         "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/sdk/wave/waveapiprovider.ts": [
+        "../node_modules/@types/node-fetch/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/moment/ts3.1-typings/moment.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -12671,6 +12700,13 @@
       "../node_modules/@types/luxon/src/settings.d.ts": [
         "../node_modules/@types/luxon/src/zone.d.ts"
       ],
+      "../node_modules/@types/node-fetch/index.d.ts": [
+        "../node_modules/@types/node-fetch/externals.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/form-data/index.d.ts"
+      ],
       "../node_modules/@types/node/assert.d.ts": [
         "../node_modules/@types/node/assert.d.ts"
       ],
@@ -13445,6 +13481,11 @@
       ],
       "../node_modules/devtools-protocol/types/protocol-mapping.d.ts": [
         "../node_modules/devtools-protocol/types/protocol.d.ts"
+      ],
+      "../node_modules/form-data/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
       ],
       "../node_modules/jest-diff/build/difflines.d.ts": [
         "../node_modules/jest-diff/build/cleanupsemantic.d.ts",
@@ -15555,6 +15596,7 @@
         "../node_modules/typeorm/query-runner/queryrunner.d.ts"
       ],
       "../node_modules/whatsapp-web.js/index.d.ts": [
+        "../node_modules/@types/node-fetch/index.d.ts",
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/puppeteer/lib/types.d.ts"
       ],
