@@ -57,6 +57,8 @@ class MtnBjCashInApiManagerService extends api_manager_interface_service_1.ApiMa
                 },
                 payerMessage: `Envoi de ${transaction.amount} CFA vers le numero ${transaction.phone} depuis ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
                 payeeNote: `Reception de ${transaction.amount} CFA par ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
+                callbackUrl: config_1.mtnApiConfig(MtnBjCashInApiManagerService.country)
+                    .collection.callback,
             });
             const transactionInfo = await remittances.getTransaction(transactionId);
             console.log(transactionId, transactionInfo, 'heree');

@@ -11,4 +11,5 @@ export declare class MtnApiProvider {
     static getCollection(country: MtnCountry): Promise<any>;
     static getRemittance(country: MtnCountry): Promise<any>;
     static getMessageFromCode(reason: any): string;
+    private static getHostFromUrl;
 }

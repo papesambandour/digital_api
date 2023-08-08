@@ -119,8 +119,9 @@ class MtnApiProvider {
     }
     static async getCollection(country) {
         const momo = require('mtn-momo');
+        console.log('host url', MtnApiProvider.getHostFromUrl(config_1.mtnApiConfig(country).collection.callback));
         const { Collections } = momo.create({
-            callbackHost: config_1.mtnApiConfig(country).collection.callback,
+            callbackHost: MtnApiProvider.getHostFromUrl(config_1.mtnApiConfig(country).collection.callback),
             baseUrl: config_1.mtnApiConfig(country).collection.baseUrl,
             environment: config_1.mtnApiConfig(country).collection.envTarget,
         });
@@ -133,7 +134,7 @@ class MtnApiProvider {
     static async getRemittance(country) {
         const momo = require('mtn-momo');
         const { Disbursements } = momo.create({
-            callbackHost: config_1.mtnApiConfig(country).remittance.callback,
+            callbackHost: MtnApiProvider.getHostFromUrl(config_1.mtnApiConfig(country).remittance.callback),
             baseUrl: config_1.mtnApiConfig(country).remittance.baseUrl,
             environment: config_1.mtnApiConfig(country).remittance.envTarget,
         });
@@ -184,6 +185,16 @@ class MtnApiProvider {
                 return 'La transaction a été annulée.' + suffixe;
             default:
                 return 'Erreur inconnue :' + suffixe;
+        }
+    }
+    static getHostFromUrl(url) {
+        try {
+            const parsedUrl = new URL(url);
+            return parsedUrl.host;
+        }
+        catch (error) {
+            console.error('Invalid URL:', error);
+            return '';
         }
     }
 }

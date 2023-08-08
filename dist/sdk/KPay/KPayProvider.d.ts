@@ -1,5 +1,5 @@
-import { BalanceResponse, ConfirmParams } from '../../Controllers/api-service/api-manager-interface/api-manager-interface.service';
-export declare class KPayCashOut {
+import { BalanceResponse, ConfirmParams, RefundParams, RefundResponse } from '../../Controllers/api-service/api-manager-interface/api-manager-interface.service';
+export declare class KPayProvider {
     static getToken(): Promise<string>;
     static requestToPay(param: {
         correlationReference: string;
@@ -10,4 +10,5 @@ export declare class KPayCashOut {
     }): Promise<any>;
     static confirmPaymentFunction(params: ConfirmParams): Promise<any>;
     static getBalance(): Promise<BalanceResponse>;
+    static refundTransaction(params: RefundParams): Promise<RefundResponse>;
 }

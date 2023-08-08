@@ -58,6 +58,8 @@ class MtnBjCashOutApiManagerService extends api_manager_interface_service_1.ApiM
                 },
                 payerMessage: `Paiement de ${transaction.amount} CFA pour ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
                 payeeNote: `Reception de ${transaction.amount} du numero ${transaction.phone} depuis ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
+                callbackUrl: config_1.mtnApiConfig(MtnBjCashOutApiManagerService.country)
+                    .collection.callback,
             });
             const transactionInfo = await collections.getTransaction(transactionId);
             console.log(transactionId, transactionInfo, 'heree');
