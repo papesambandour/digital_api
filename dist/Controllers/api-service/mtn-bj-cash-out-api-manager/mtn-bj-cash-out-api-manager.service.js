@@ -45,18 +45,19 @@ class MtnBjCashOutApiManagerService extends api_manager_interface_service_1.ApiM
         const transaction = await this.createTransaction(api);
         const partner = await Parteners_entity_1.Parteners.findOne(transaction.partenersId);
         const collections = await MtnApiProvider_1.MtnApiProvider.getCollection(MtnBjCashOutApiManagerService.country);
+        let transactionId;
         try {
-            const transactionId = await collections.requestToPay({
+            transactionId = await collections.requestToPay({
                 amount: transaction.amount,
                 currency: config_1.mtnApiConfig(MtnBjCashOutApiManagerService.country).collection
                     .currency,
                 externalId: transaction.transactionId.toString(),
                 payer: {
                     partyIdType: 'MSISDN',
-                    partyId: transaction.phone,
+                    partyId: '229' + transaction.phone,
                 },
-                payerMessage: `Paiement de ${transaction.amount} CFA pour ${partner.name} vers ${transaction.phone}`,
-                payeeNote: `Reception de ${transaction.amount} sur le ${transaction.phone} CFA de ${partner.name}`,
+                payerMessage: `Paiement de ${transaction.amount} CFA pour ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
+                payeeNote: `Reception de ${transaction.amount} du numero ${transaction.phone} depuis ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
             });
             const transactionInfo = await collections.getTransaction(transactionId);
             console.log(transactionId, transactionInfo, 'heree');
@@ -84,6 +85,7 @@ class MtnBjCashOutApiManagerService extends api_manager_interface_service_1.ApiM
             const statues = this.helper.getStatusAfterExec('failed', this.apiService.sousServices);
             transaction.statut = statues['status'];
             transaction.preStatut = statues['preStatus'];
+            transaction.sousServiceTransactionId = transactionId;
             await transaction.save();
             transaction.errorMessage = main_1.serializeData(e.transaction || e.message);
             await transaction.save();

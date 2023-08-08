@@ -5547,7 +5547,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "8e211516e5737bc2621779eab98dc73dff1092e501b470f2e3a960c6407e9015",
+        "version": "2b5835ca82926e927aabd40089bb74b9bcbd16a8be328ba7fa7a3b208f1503a6",
         "signature": "10f952b0a4916be5ebc2c73362b91025d47f22de8142b8a97014d502c6e37345",
         "affectsGlobalScope": false
       },
@@ -5807,7 +5807,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/mtn/mtnapiprovider.ts": {
-        "version": "28692982fc1f80648976529977390c056592a2c9f26c0534cde3384e9bef6e11",
+        "version": "63642d007293733116e423d899e45a2148cbcdcaf73ce7a51e5f2e2153e8f258",
         "signature": "47a0892e5daaf4097362d8abc9f347403963fbe82f57f08b02422b8343753b03",
         "affectsGlobalScope": false
       },
@@ -5837,12 +5837,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": {
-        "version": "5e21857a0a012f91d9ed6fbc9c4b04208c945ffed6837490eccf452f6bce2b7c",
+        "version": "f8630cb61b2c4abae734ac7feacdbe6283d82d8dcab96c2457ed85eb56b95a8b",
         "signature": "37cf25cc9f2ba3d6f17542cdbb862f4d7154e660490adf82f73be8e42298edfb",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-out-api-manager/mtn-bj-cash-out-api-manager.service.ts": {
-        "version": "dda425b1047014d714b8a0b217e018b21deef6866bd1ea384414f6b2b99d0db7",
+        "version": "a718e82c6f2eefc9747deb9248a6dc6854e8017e63a45b3dd017b2360c5b3cee",
         "signature": "2c7180f87cfada70bdcf5b1ec483560c2ec3d58b9766df92eed8acb6bfd846d8",
         "affectsGlobalScope": false
       },

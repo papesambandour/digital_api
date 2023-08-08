@@ -53,10 +53,10 @@ class MtnBjCashInApiManagerService extends api_manager_interface_service_1.ApiMa
                 externalId: transaction.transactionId.toString(),
                 payee: {
                     partyIdType: 'MSISDN',
-                    partyId: transaction.phone,
+                    partyId: '229' + transaction.phone,
                 },
-                payerMessage: `Paiement de ${transaction.amount} CFA pour ${partner.name} `,
-                payeeNote: `Reception de ${transaction.amount} CFA depuis ${partner.name} de  ${transaction.phone}`,
+                payerMessage: `Envoi de ${transaction.amount} CFA vers le numero ${transaction.phone} depuis ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
+                payeeNote: `Reception de ${transaction.amount} CFA par ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
             });
             const transactionInfo = await remittances.getTransaction(transactionId);
             console.log(transactionId, transactionInfo, 'heree');

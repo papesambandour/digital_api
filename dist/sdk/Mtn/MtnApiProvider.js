@@ -14,14 +14,15 @@ class MtnApiProvider {
         try {
             console.log('geting balance');
             const accountBalance = await mtnManager.getBalance();
+            console.log('accountBalance', accountBalance);
             accountBalance.success = Number.isFinite(parseFloat(accountBalance.availableBalance));
             accountBalance.newBalance =
                 parseFloat(accountBalance.availableBalance) || 0;
-            console.log(accountBalance);
+            console.log(accountBalance, 'accountBalance_');
             return accountBalance;
         }
         catch (e) {
-            console.log(e.message);
+            console.log(e, e.message, 'error balance');
             return {
                 success: false,
                 newBalance: null,
@@ -143,43 +144,46 @@ class MtnApiProvider {
         });
     }
     static getMessageFromCode(reason) {
+        const suffixe = ' ' + reason;
         switch (reason) {
             case 'APPROVAL_REJECTED':
-                return "La demande de paiement a été rejetée par l'utilisateur.";
+                return ("La demande de paiement a été rejetée par l'utilisateur." + suffixe);
             case 'EXPIRED':
-                return 'La demande de paiement a expiré.';
+                return 'La demande de paiement a expiré.' + suffixe;
             case 'INTERNAL_PROCESSING_ERROR':
-                return 'Une erreur interne est survenue.';
+                return 'Une erreur interne est survenue.' + suffixe;
             case 'INVALID_CALLBACK_URL_HOST':
-                return "L'URL de rappel fournie n'est pas valide.";
+                return "L'URL de rappel fournie n'est pas valide." + suffixe;
             case 'INVALID_CURRENCY':
-                return "La devise fournie n'est pas valide.";
+                return "La devise fournie n'est pas valide." + suffixe;
             case 'NOT_ALLOWED':
-                return "L'utilisateur n'est pas autorisé à effectuer cette action.";
+                return ("L'utilisateur n'est pas autorisé à effectuer cette action." + suffixe);
             case 'NOT_ALLOWED_TARGET_ENVIRONMENT':
-                return "L'environnement cible n'est pas autorisé.";
+                return "L'environnement cible n'est pas autorisé." + suffixe;
             case 'NOT_ENOUGH_FUNDS':
-                return "L'utilisateur n'a pas assez de fonds pour effectuer cette action.";
+                return ("L'utilisateur n'a pas assez de fonds pour effectuer cette action." +
+                    suffixe);
             case 'PAYEE_NOT_FOUND':
-                return 'Le bénéficiaire du paiement est introuvable.';
+                return 'Le bénéficiaire du paiement est introuvable.' + suffixe;
             case 'PAYEE_NOT_ALLOWED_TO_RECEIVE':
-                return "Le bénéficiaire n'est pas autorisé à recevoir des paiements.";
+                return ("Le bénéficiaire n'est pas autorisé à recevoir des paiements." +
+                    suffixe);
             case 'PAYER_LIMIT_REACHED':
-                return 'Le payeur a atteint sa limite.';
+                return 'Le payeur a atteint sa limite.' + suffixe;
             case 'PAYER_NOT_FOUND':
-                return 'Le payeur est introuvable.';
+                return 'Le payeur est introuvable.' + suffixe;
             case 'PAYMENT_NOT_APPROVED':
-                return "Le paiement n'a pas été approuvé par l'utilisateur.";
+                return "Le paiement n'a pas été approuvé par l'utilisateur." + suffixe;
             case 'RESOURCE_ALREADY_EXIST':
-                return 'La ressource existe déjà.';
+                return 'La ressource existe déjà.' + suffixe;
             case 'RESOURCE_NOT_FOUND':
-                return 'La ressource est introuvable.';
+                return 'La ressource est introuvable.' + suffixe;
             case 'SERVICE_UNAVAILABLE':
-                return 'Le service MTN Mobile Money est indisponible.';
+                return 'Le service MTN Mobile Money est indisponible.' + suffixe;
             case 'TRANSACTION_CANCELED':
-                return 'La transaction a été annulée.';
+                return 'La transaction a été annulée.' + suffixe;
             default:
-                return 'Erreur inconnue : ' + reason;
+                return 'Erreur inconnue :' + suffixe;
         }
     }
 }
