@@ -276,7 +276,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
     async mtnCallback(req, mtnCallbackData) {
         var _a;
         const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
-        const correctIps = process.env.FREE_WHITELIST_IPS.split(';').filter((ip) => ip);
+        const correctIps = process.env.MTN_BJ_WHITELIST_IPS.split(';').filter((ip) => ip);
         this.helper
             .notifyAdmin('New Mtn Money callback', Enum_entity_1.TypeEvenEnum.MTN_MONEY_BJ_CALLBACK, {
             mtnCallbackData: mtnCallbackData,
