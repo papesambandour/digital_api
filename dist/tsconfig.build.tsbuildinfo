@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "79fe6325e075c5e52a4a36991ac4f72d2ff429567ef55f937442c830f838ab32",
-        "signature": "bcc96206709f314c90fd39c001336ae699db7463758d560528df123fea750133",
+        "version": "2a70291cac16ce3324d0e499f854b1a9ade17563a34b972de44a1a139bb2c4f3",
+        "signature": "c6d173dfc8784c3ca40e0d01e6c3a9009dd07f5e2b017c9a45fda0d1800bf417",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4702,13 +4702,13 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/mtnbjcallback.ts": {
-        "version": "852032d91ba804b5af6255892314b3b3f4344704f736eb3df6b8e2003d6e6ff7",
-        "signature": "05c25ce112814df4a19280766aa30a9b781c8da05e17f4b755d09c4acbff61d4",
+        "version": "03f84918b7d3652b772f27831d959991c58889ea01e1e07220962f9657c2633e",
+        "signature": "5e53a8e950fea70f1461cda0273f898844eda8e2fb9102d0932d3f82fe9b1ffe",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "32629c933b0ef7189a847f8778024d16fe88b2f2ef4088c35e3ee7d2c85f62fe",
-        "signature": "8164befbd3366dd82e1ddd90976a8e2979ecbcd5ae83b040c42e71f13a30164c",
+        "version": "215fc0fc154105027e7c5a4eb91afcf711bdfe31ccef6b91e5578ffe5f926a98",
+        "signature": "b4f4ff55ff0aa9a83c8790aff2b8121ae26842b45b15a52e3073b8ba9554d02a",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -5797,22 +5797,27 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/kpay/kpayprovider.ts": {
-        "version": "96fe6cc122cbeffdc1e26bdff0b780bdbea4b01d0f7ed537a462cc081ecda663",
-        "signature": "a345d74233e3f2d23fc290fe0f2ad0c99f616ef7e9bb060877e2eb65eca59e0e",
+        "version": "2840eacea289a8b62882225d002b3d209c5b7fd19fd169e02993391eb14315bd",
+        "signature": "19d4600631083f5749d7bd2580fdfbfcc6201eec430b2638d23d00716e7f928c",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/kpay-sn-cash-in-api-manager/kpay-sn-cash-in-api-manager.service.ts": {
+        "version": "bf14561d5d512ccf9fc623aace7ad626c2001e5c8de74f3b16ec8b0abf47f576",
+        "signature": "9342215c69b09ce539ac2d167c6e079ce74b0d4c47a4dccd00b7c1409f0002e2",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/kpay-sn-cash-out-api-manager/kpay-sn-cash-out-api-manager.service.ts": {
-        "version": "c495d6a1d8b667cc8080620e7e5c62e20595760b0ad3f091cedb96312260b7c8",
+        "version": "980fb9225f2decc2bbd9e8922b8c84e2714fc4a7b09dee0d4af91c867db1dfbf",
         "signature": "97e3d1a0b9148e0ae9c144230011f148ecf44c529a79efaced9c1a3bffd2456b",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": {
-        "version": "1de94380cb0539736f59d569eff1c9cea95345728f58c343899033f81befa6d8",
+        "version": "5841a77830af45a42578193bf068452e46f3a764d9d82caa6e42767d9195b63a",
         "signature": "37cf25cc9f2ba3d6f17542cdbb862f4d7154e660490adf82f73be8e42298edfb",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-out-api-manager/mtn-bj-cash-out-api-manager.service.ts": {
-        "version": "043622cfddb64bcbd7cf1717b62c9bbe6baa499c9becf341480054aa52c73dbe",
+        "version": "faeacd30bd435661fc34108b743228b9dfff8043189a0051a14590c10b1f7be1",
         "signature": "2c7180f87cfada70bdcf5b1ec483560c2ec3d58b9766df92eed8acb6bfd846d8",
         "affectsGlobalScope": false
       },
@@ -10619,6 +10624,15 @@
         "../src/sdk/freemoney/freemoneyapiprovider.ts",
         "../src/sdk/mtn/config.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
+      ],
+      "../src/controllers/api-service/kpay-sn-cash-in-api-manager/kpay-sn-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/kpay/kpayprovider.ts",
+        "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/controllers/api-service/kpay-sn-cash-out-api-manager/kpay-sn-cash-out-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -15582,6 +15596,9 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/controllers/api-service/free-money-cash-out-api-manager/free-money-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/kpay-sn-cash-in-api-manager/kpay-sn-cash-in-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/controllers/api-service/kpay-sn-cash-out-api-manager/kpay-sn-cash-out-api-manager.service.ts": [

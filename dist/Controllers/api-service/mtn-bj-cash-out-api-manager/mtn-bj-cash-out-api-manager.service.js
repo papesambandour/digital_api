@@ -69,7 +69,6 @@ class MtnBjCashOutApiManagerService extends api_manager_interface_service_1.ApiM
             transaction.sousServiceTransactionId = transactionId;
             await transaction.save();
             transaction.message = main_1.serializeData(transactionInfo);
-            transaction.needCheckTransaction = 1;
             await transaction.save();
             console.log('Send OKK');
             return Object.assign({

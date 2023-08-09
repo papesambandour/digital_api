@@ -1,41 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.KPaySnCashOutApiManagerService = void 0;
+exports.KPaySnCashInApiManagerService = void 0;
 const api_manager_interface_service_1 = require("../api-manager-interface/api-manager-interface.service");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const Controller_1 = require("../../Controller");
 const main_1 = require("../../../main");
 const Parteners_entity_1 = require("../../../Models/Entities/Parteners.entity");
 const KPayProvider_1 = require("../../../sdk/KPay/KPayProvider");
-class KPaySnCashOutApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
+class KPaySnCashInApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return await this.notImplementedYet(params);
     }
     async confirmTransaction(params) {
-        const baseResponse = {
-            phone: params.transaction.phone,
-            amount: params.transaction.amount.toString(),
-            externalTransactionId: params.transaction.externalTransactionId,
-            codeService: params.transaction.codeSousService,
-            callbackUrl: params.transaction.urlIpn,
-        };
-        const check = await KPayProvider_1.KPayProvider.confirmPaymentFunction(params);
-        if (check === null || check === void 0 ? void 0 : check.success) {
-            return Object.assign({
-                status: Enum_entity_1.StatusEnum.SUCCESS,
-                codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
-                partnerMessage: check === null || check === void 0 ? void 0 : check.message,
-                meta: check,
-            }, baseResponse);
-        }
-        else {
-            return Object.assign({
-                status: Enum_entity_1.StatusEnum.FAILLED,
-                codeHttp: Controller_1.CODE_HTTP.FAILLED,
-                partnerMessage: check === null || check === void 0 ? void 0 : check.message,
-                meta: check,
-            }, baseResponse);
-        }
+        return await this.notImplementedYet(params);
     }
     async getBalance(params) {
         return KPayProvider_1.KPayProvider.getBalance();
@@ -62,7 +39,7 @@ class KPaySnCashOutApiManagerService extends api_manager_interface_service_1.Api
         console.log('initing cashout');
         const transaction = await this.createTransaction(api);
         const partner = await Parteners_entity_1.Parteners.findOne(transaction.partenersId);
-        const response = await KPayProvider_1.KPayProvider.requestToPay({
+        const response = await KPayProvider_1.KPayProvider.makeTransfer({
             amount: transaction.amount,
             correlationReference: transaction.transactionId.toString(),
             description: params.dto.motif || '',
@@ -72,12 +49,15 @@ class KPaySnCashOutApiManagerService extends api_manager_interface_service_1.Api
         const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
-        transaction.sousServiceTransactionId = response.kpayReference;
+        transaction.sousServiceTransactionId = response.transactionId;
         await transaction.save();
+        await this.helper.setIsCallbackReadyValue(transaction, 5000);
+        this.helper.updateApiBalance(this, transaction.phonesId).then();
         if (response.success) {
             transaction.message = main_1.serializeData(response);
             transaction.needCheckTransaction = 0;
             await transaction.save();
+            await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.PENDING,
@@ -119,7 +99,7 @@ class KPaySnCashOutApiManagerService extends api_manager_interface_service_1.Api
                 partnerMessage: canRefund.message,
             }, baseResponse);
         }
-        const response = await KPayProvider_1.KPayProvider.refundTransaction(params, 'payment');
+        const response = await KPayProvider_1.KPayProvider.refundTransaction(params, 'transfer');
         if (response.status === Enum_entity_1.StatusEnum.SUCCESS) {
             console.log('caaling refund');
             await this.helper.handleTransactionRefundSuccess(params.transaction);
@@ -128,5 +108,5 @@ class KPaySnCashOutApiManagerService extends api_manager_interface_service_1.Api
         return response;
     }
 }
-exports.KPaySnCashOutApiManagerService = KPaySnCashOutApiManagerService;
-//# sourceMappingURL=kpay-sn-cash-out-api-manager.service.js.map
+exports.KPaySnCashInApiManagerService = KPaySnCashInApiManagerService;
+//# sourceMappingURL=kpay-sn-cash-in-api-manager.service.js.map

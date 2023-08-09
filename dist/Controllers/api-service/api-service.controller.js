@@ -272,15 +272,86 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         });
     }
     async mtnCallback(req, mtnCallbackData) {
+        var _a;
+        const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
+        const correctIps = process.env.FREE_WHITELIST_IPS.split(';').filter((ip) => ip);
         this.helper
             .notifyAdmin('New Mtn Money callback', Enum_entity_1.TypeEvenEnum.MTN_MONEY_BJ_CALLBACK, {
-            freeCallbackData: mtnCallbackData,
+            mtnCallbackData: mtnCallbackData,
+            correctIps,
+            fromIp,
             headers_forwarded: req.headers['x-forwarded-for'],
         })
             .then();
-        return {
-            success: 'ok',
-        };
+        if (!correctIps.some((ip) => ip.startsWith(fromIp.substring(0, fromIp.lastIndexOf('.'))))) {
+            console.log('in ip mismatch');
+            return {
+                success: false,
+                message: `ip mismatch got ${fromIp}, want ${correctIps.join('|')}`,
+            };
+        }
+        const transaction = await Transactions_entity_1.Transactions.findOne({
+            where: {
+                transactionId: mtnCallbackData.externalId,
+                statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
+                codeSousService: typeorm_1.In([
+                    Enum_entity_1.SOUS_SERVICE_ENUM.MTN_BJ_API_CASH_IN,
+                    Enum_entity_1.SOUS_SERVICE_ENUM.MTN_BJ_API_CASH_OUT,
+                ]),
+            },
+            relations: ['sousServices'],
+        });
+        if (!transaction) {
+            return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: 'Aucune transaction en attente de validation  trouvé',
+                transactionId: mtnCallbackData.externalId,
+            }, 'Aucune transaction en attente de validation  trouvé', true);
+        }
+        const apiManagerService = await this.helper.getApiManagerInterface(transaction.codeSousService, null);
+        if (!apiManagerService) {
+            return this.response(this.CODE_HTTP.SERVICE_DOWN, {
+                message: 'Api Service Manager non configuré',
+            }, 'Api Service Manager non configuré', true);
+        }
+        const success = mtnCallbackData.status === 'SUCCESSFUL';
+        if (success) {
+            transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+        }
+        else {
+            transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+        }
+        transaction.sousServiceTransactionId = transaction.sousServiceTransactionId
+            ? `${transaction.sousServiceTransactionId}|${mtnCallbackData.financialTransactionId}`
+            : `none|${mtnCallbackData.financialTransactionId}`;
+        transaction.checkTransactionResponse = main_1.serializeData(Object.assign({
+            fromIp,
+        }, mtnCallbackData));
+        await transaction.save();
+        await apiManagerService.helper.setIsCallbackReadyValue(transaction, 0);
+        apiManagerService.helper
+            .updateApiBalance(apiManagerService, transaction.phonesId)
+            .then();
+        if (success) {
+            await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
+            return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
+                status: Enum_entity_1.StatusEnum.SUCCESS,
+                transactionId: mtnCallbackData.externalId,
+                message: 'OK_CALLBACK',
+            }, 'OK_CALLBACK', false);
+        }
+        else {
+            apiManagerService.helper
+                .updateApiBalance(apiManagerService, transaction.phonesId)
+                .then();
+            await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
+            return this.response(Controller_1.CODE_HTTP.FAILLED, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: 'FAILED_CALLBACK',
+            }, 'FAILED_CALLBACK', true);
+        }
     }
     async FreeCallback(mode, freeCallbackData, req) {
         var _a;

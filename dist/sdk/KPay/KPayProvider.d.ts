@@ -8,7 +8,14 @@ export declare class KPayProvider {
         phone: string;
         partnerName: string;
     }): Promise<any>;
+    static makeTransfer(param: {
+        correlationReference: string;
+        amount: number;
+        description: string;
+        phone: string;
+        partnerName: string;
+    }): Promise<any>;
     static confirmPaymentFunction(params: ConfirmParams): Promise<any>;
     static getBalance(): Promise<BalanceResponse>;
-    static refundTransaction(params: RefundParams): Promise<RefundResponse>;
+    static refundTransaction(params: RefundParams, mode: 'transfer' | 'payment'): Promise<RefundResponse>;
 }
