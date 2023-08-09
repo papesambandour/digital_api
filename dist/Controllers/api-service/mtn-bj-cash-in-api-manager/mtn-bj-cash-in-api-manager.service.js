@@ -66,7 +66,6 @@ class MtnBjCashInApiManagerService extends api_manager_interface_service_1.ApiMa
             transaction.statut = statues['status'];
             transaction.preStatut = statues['preStatus'];
             transaction.sousServiceTransactionId = transactionId;
-            await transaction.save();
             transaction.message = main_1.serializeData(transactionInfo);
             await transaction.save();
             console.log('Send OKK');

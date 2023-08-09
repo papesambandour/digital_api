@@ -5812,7 +5812,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": {
-        "version": "5841a77830af45a42578193bf068452e46f3a764d9d82caa6e42767d9195b63a",
+        "version": "1601f501da770f18d00f03b80010a6305e7a7a3e75d72eb166bcea9057e3a2bb",
         "signature": "37cf25cc9f2ba3d6f17542cdbb862f4d7154e660490adf82f73be8e42298edfb",
         "affectsGlobalScope": false
       },
