@@ -50,6 +50,7 @@ const main_1 = require("../../main");
 const FreeCallback_1 = require("./dto/FreeCallback");
 const process = require("process");
 const MtnBjCallback_1 = require("./dto/MtnBjCallback");
+const MtnApiProvider_1 = require("../../sdk/Mtn/MtnApiProvider");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService, helper) {
         super();
@@ -159,12 +160,13 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         if ((checkResult === null || checkResult === void 0 ? void 0 : checkResult.status) === 'SUCCESS') {
             transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
             transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.checkTransactionResponse = main_1.serializeData(checkResult.meta);
         }
         else {
             transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
             transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.errorMessage = transaction.checkTransactionResponse = main_1.serializeData(checkResult.meta);
         }
-        transaction.checkTransactionResponse = main_1.serializeData(checkResult.meta);
         await transaction.save();
         await apiManagerService.helper.setIsCallbackReadyValue(transaction, 0);
         apiManagerService.helper
@@ -318,17 +320,22 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         if (success) {
             transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
             transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.checkTransactionResponse = main_1.serializeData(Object.assign({
+                fromIp,
+            }, mtnCallbackData));
         }
         else {
             transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
             transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.checkTransactionResponse = main_1.serializeData(Object.assign({
+                fromIp,
+            }, mtnCallbackData));
+            transaction.errorMessage = MtnApiProvider_1.MtnApiProvider.getMessageFromCode(mtnCallbackData.reason);
+            await transaction.save();
         }
         transaction.sousServiceTransactionId = transaction.sousServiceTransactionId
             ? `${transaction.sousServiceTransactionId}|${mtnCallbackData.financialTransactionId}`
             : `none|${mtnCallbackData.financialTransactionId}`;
-        transaction.checkTransactionResponse = main_1.serializeData(Object.assign({
-            fromIp,
-        }, mtnCallbackData));
         await transaction.save();
         await apiManagerService.helper.setIsCallbackReadyValue(transaction, 0);
         apiManagerService.helper
@@ -408,16 +415,20 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         if (success) {
             transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
             transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.checkTransactionResponse = main_1.serializeData(Object.assign({
+                mode,
+                fromIp,
+            }, freeCallbackData));
         }
         else {
             transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
             transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.errorMessage = transaction.checkTransactionResponse = main_1.serializeData(Object.assign({
+                mode,
+                fromIp,
+            }, freeCallbackData));
         }
         transaction.sousServiceTransactionId = freeCallbackData.fId;
-        transaction.checkTransactionResponse = main_1.serializeData(Object.assign({
-            mode,
-            fromIp,
-        }, freeCallbackData));
         await transaction.save();
         await apiManagerService.helper.setIsCallbackReadyValue(transaction, 0);
         apiManagerService.helper

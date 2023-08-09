@@ -145,46 +145,49 @@ class MtnApiProvider {
         });
     }
     static getMessageFromCode(reason) {
-        const suffixe = ' ' + reason;
+        const suffix = ' ' + reason;
         switch (reason) {
             case 'APPROVAL_REJECTED':
-                return ("La demande de paiement a été rejetée par l'utilisateur." + suffixe);
+                return ("La demande de paiement a été rejetée par l'utilisateur." + suffix);
             case 'EXPIRED':
-                return 'La demande de paiement a expiré.' + suffixe;
+                return 'La demande de paiement a expiré.' + suffix;
             case 'INTERNAL_PROCESSING_ERROR':
-                return 'Une erreur interne est survenue.' + suffixe;
+                return 'Une erreur interne est survenue.' + suffix;
             case 'INVALID_CALLBACK_URL_HOST':
-                return "L'URL de rappel fournie n'est pas valide." + suffixe;
+                return "L'URL de rappel fournie n'est pas valide." + suffix;
             case 'INVALID_CURRENCY':
-                return "La devise fournie n'est pas valide." + suffixe;
+                return "La devise fournie n'est pas valide." + suffix;
             case 'NOT_ALLOWED':
-                return ("L'utilisateur n'est pas autorisé à effectuer cette action." + suffixe);
+                return ("L'utilisateur n'est pas autorisé à effectuer cette action." + suffix);
             case 'NOT_ALLOWED_TARGET_ENVIRONMENT':
-                return "L'environnement cible n'est pas autorisé." + suffixe;
+                return "L'environnement cible n'est pas autorisé." + suffix;
             case 'NOT_ENOUGH_FUNDS':
                 return ("L'utilisateur n'a pas assez de fonds pour effectuer cette action." +
-                    suffixe);
+                    suffix);
             case 'PAYEE_NOT_FOUND':
-                return 'Le bénéficiaire du paiement est introuvable.' + suffixe;
+                return 'Le bénéficiaire du paiement est introuvable.' + suffix;
             case 'PAYEE_NOT_ALLOWED_TO_RECEIVE':
                 return ("Le bénéficiaire n'est pas autorisé à recevoir des paiements." +
-                    suffixe);
+                    suffix);
             case 'PAYER_LIMIT_REACHED':
-                return 'Le payeur a atteint sa limite.' + suffixe;
+                return 'Le payeur a atteint sa limite.' + suffix;
+            case 'COULD_NOT_PERFORM_TRANSACTION':
+                return ("Le payeur a mis un pin invalide ou l'operateur ne peut pas taiter la demande" +
+                    suffix);
             case 'PAYER_NOT_FOUND':
-                return 'Le payeur est introuvable.' + suffixe;
+                return 'Le payeur est introuvable.' + suffix;
             case 'PAYMENT_NOT_APPROVED':
-                return "Le paiement n'a pas été approuvé par l'utilisateur." + suffixe;
+                return "Le paiement n'a pas été approuvé par l'utilisateur." + suffix;
             case 'RESOURCE_ALREADY_EXIST':
-                return 'La ressource existe déjà.' + suffixe;
+                return 'La ressource existe déjà.' + suffix;
             case 'RESOURCE_NOT_FOUND':
-                return 'La ressource est introuvable.' + suffixe;
+                return 'La ressource est introuvable.' + suffix;
             case 'SERVICE_UNAVAILABLE':
-                return 'Le service MTN Mobile Money est indisponible.' + suffixe;
+                return 'Le service MTN Mobile Money est indisponible.' + suffix;
             case 'TRANSACTION_CANCELED':
-                return 'La transaction a été annulée.' + suffixe;
+                return 'La transaction a été annulée.' + suffix;
             default:
-                return 'Erreur inconnue :' + suffixe;
+                return 'Erreur inconnue :' + suffix;
         }
     }
     static getHostFromUrl(url) {

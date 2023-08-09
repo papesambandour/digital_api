@@ -4706,8 +4706,23 @@
         "signature": "5e53a8e950fea70f1461cda0273f898844eda8e2fb9102d0932d3f82fe9b1ffe",
         "affectsGlobalScope": false
       },
+      "../node_modules/mtn-momo/lib/common.d.ts": {
+        "version": "3c8a6bc0f20051eadff446f0050c004257b9a42b6f712daa2afc7d3b3c40ad73",
+        "signature": "3c8a6bc0f20051eadff446f0050c004257b9a42b6f712daa2afc7d3b3c40ad73",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/mtn/config.ts": {
+        "version": "ed3c3f6deae04b0961515d3c02d72b595d18e8731dbe90482ecbe841d4a971eb",
+        "signature": "b251017a85ff9d2e89d4cbe331c255a3ab9c78937754abba9fbc2d9fceb2c8a5",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/mtn/mtnapiprovider.ts": {
+        "version": "f692dcc114dd4d60f0d4560dde77d38047bcd50036cbb3f771b94e354869b552",
+        "signature": "f723c30f90a5fc346a40c509d9785fe8181ab0b9d3de8a3e08a1334c838d1aa1",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "215fc0fc154105027e7c5a4eb91afcf711bdfe31ccef6b91e5578ffe5f926a98",
+        "version": "bc7a6c2a2eebf01d95d9f45f3ab2384220abfb85e67447777898e4ea3b142cd6",
         "signature": "b4f4ff55ff0aa9a83c8790aff2b8121ae26842b45b15a52e3073b8ba9554d02a",
         "affectsGlobalScope": false
       },
@@ -5764,21 +5779,6 @@
       "../src/controllers/api-service/dto/required-for-service.decorator.ts": {
         "version": "a0b9d66d428e3a2ac519375f9c3848886f1ab96a5a9b4b5e2dc8ff243afc13c1",
         "signature": "cef1e66ac8cd932fd46857ba04670f194cf7ad2c75bdddcf69d44986ade02f3c",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/mtn-momo/lib/common.d.ts": {
-        "version": "3c8a6bc0f20051eadff446f0050c004257b9a42b6f712daa2afc7d3b3c40ad73",
-        "signature": "3c8a6bc0f20051eadff446f0050c004257b9a42b6f712daa2afc7d3b3c40ad73",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/mtn/config.ts": {
-        "version": "ed3c3f6deae04b0961515d3c02d72b595d18e8731dbe90482ecbe841d4a971eb",
-        "signature": "b251017a85ff9d2e89d4cbe331c255a3ab9c78937754abba9fbc2d9fceb2c8a5",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/mtn/mtnapiprovider.ts": {
-        "version": "91f31736b4672c92468edd1dfa05a51895a36336dd4464d702c1dcbfa2f1a69c",
-        "signature": "f723c30f90a5fc346a40c509d9785fe8181ab0b9d3de8a3e08a1334c838d1aa1",
         "affectsGlobalScope": false
       },
       "../src/sdk/freemoney/freemoneyapiprovider.ts": {
@@ -10450,7 +10450,8 @@
         "../src/models/response/paginateddto.ts",
         "../src/models/response/responseforbidden.ts",
         "../src/models/response/responsehttp.ts",
-        "../src/models/response/responsehttpdefaultdata.ts"
+        "../src/models/response/responsehttpdefaultdata.ts",
+        "../src/sdk/mtn/mtnapiprovider.ts"
       ],
       "../src/controllers/api-service/api-service.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
