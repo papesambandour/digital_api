@@ -4,4 +4,6 @@ export declare const discordApiConfig: () => {
     pendingAfterDelayChannelName: string;
     mismatchMessageAlertChanelName: string;
     noSimAndCriticAlertChanelName: string;
+    delayedConfirmationSmsCashoutAlertChanelName: string;
+    simDisconnectedConnectedAlertChanelName: string;
 };

@@ -4297,8 +4297,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/discord/config.ts": {
-        "version": "5d2196857f3a9c6721a70eb5cfe10511028db35c12160d4ce8c15145d2dfdc0f",
-        "signature": "7a6b7bc10cbf09968e06744e81a4e004e8913f806ca4ca5a793b041255132d0b",
+        "version": "1094596f1ce2fdf9951b44d926fe3baab22ee93127c2b57c195b0680b0bfc606",
+        "signature": "21b052c5d3d09c891c496625dd82bff499357089e9c20cc4ef971c66332330b1",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -5572,7 +5572,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "7d98c941473b606de42b5d9bdd50083aee7c9177b165fe268222ec69c7ce14d7",
+        "version": "c16757640aa68173cbcdbdcc856e65f51db5ce89288b665134c54d8d88b51d79",
         "signature": "b103471fb9ec12963e975cd0a34cb11417bda9b5c589b8dad724bb0592d713a6",
         "affectsGlobalScope": false
       },

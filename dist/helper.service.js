@@ -1124,7 +1124,7 @@ let HelperService = class HelperService {
         claim.partenersId = transaction.partenersId;
         claim.claimRef = this.generateRandomId('C');
         await claim.save();
-        this.notifyAdmin(content, Enum_entity_1.TypeEvenEnum.NEW_CLAIM).then();
+        this.notifyAdmin(content, Enum_entity_1.TypeEvenEnum.NEW_CLAIM, {}, true, config_1.discordApiConfig().delayedConfirmationSmsCashoutAlertChanelName).then();
         return claim;
     }
     async verseComissionForTransaction(transaction, partner) {
@@ -1235,8 +1235,17 @@ let HelperService = class HelperService {
     }
     async notifySimDisconnected(phone) {
         var _a, _b;
+        await this.waitSome(60 * 3);
+        phone = await Phones_entity_1.Phones.findOne({
+            where: {
+                id: phone.id,
+            },
+        });
+        if (phone.socket === Enum_entity_1.SocketState.CONNECTED) {
+            return;
+        }
         const message = `Le téléphone ${phone.number} c'est déconnecté à ${new Date().toISOString().substring(11, 16)}`;
-        this.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PHONE_DISCONNECTED, {}, false).then();
+        this.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PHONE_DISCONNECTED, {}, false, config_1.discordApiConfig().simDisconnectedConnectedAlertChanelName).then();
         const service = await Services_entity_1.Services.findOne({
             where: {
                 id: phone.servicesId,
@@ -1260,7 +1269,7 @@ let HelperService = class HelperService {
         const message = `Le téléphone ${phone.number} est de nouveau reconnecté à ${new Date()
             .toISOString()
             .substring(11, 16)}h`;
-        this.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PHONE_CONNECTED, {}, false).then();
+        this.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PHONE_CONNECTED, {}, false, config_1.discordApiConfig().simDisconnectedConnectedAlertChanelName).then();
         const service = await Services_entity_1.Services.findOne({
             where: {
                 id: phone.servicesId,
