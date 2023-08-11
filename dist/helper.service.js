@@ -37,6 +37,7 @@ const main_1 = require("./main");
 const WhatsAppApiProvider_1 = require("./sdk/WhatsApp/WhatsAppApiProvider");
 const Claim_entity_1 = require("./Models/Entities/Claim.entity");
 const Services_entity_1 = require("./Models/Entities/Services.entity");
+const config_1 = require("./sdk/Discord/config");
 let HelperService = class HelperService {
     constructor(connection, httpService) {
         this.connection = connection;
@@ -943,7 +944,7 @@ let HelperService = class HelperService {
             return null;
         }
         if (error.isCritic) {
-            this.notifyAdmin(`Une erreur critique c'est produit pour le service ${codeSousService}: ${error.id}/${error.code}\n${error.regex} ${error.message}`, Enum_entity_1.TypeEvenEnum.CRITICAL_ERROR, {}, true).then();
+            this.notifyAdmin(`Une erreur critique c'est produit pour le service ${codeSousService}: ${error.id}/${error.code}\n${error.regex} ${error.message}`, Enum_entity_1.TypeEvenEnum.CRITICAL_ERROR, {}, true, config_1.discordApiConfig().noSimAndCriticAlertChanelName).then();
         }
         error.message = error.message.replace('__amount__', amount === null || amount === void 0 ? void 0 : amount.toString());
         return error;
@@ -1235,7 +1236,7 @@ let HelperService = class HelperService {
     async notifySimDisconnected(phone) {
         var _a, _b;
         const message = `Le téléphone ${phone.number} c'est déconnecté à ${new Date().toISOString().substring(11, 16)}`;
-        this.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PHONE_DISCONNECTED, {}, true).then();
+        this.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PHONE_DISCONNECTED, {}, false).then();
         const service = await Services_entity_1.Services.findOne({
             where: {
                 id: phone.servicesId,
@@ -1259,7 +1260,7 @@ let HelperService = class HelperService {
         const message = `Le téléphone ${phone.number} est de nouveau reconnecté à ${new Date()
             .toISOString()
             .substring(11, 16)}h`;
-        this.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PHONE_CONNECTED, {}, true).then();
+        this.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PHONE_CONNECTED, {}, false).then();
         const service = await Services_entity_1.Services.findOne({
             where: {
                 id: phone.servicesId,

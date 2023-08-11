@@ -4297,8 +4297,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/discord/config.ts": {
-        "version": "11f11a26726fb26a74a5666faa5607054f609fd5d315e45274175439af83ad74",
-        "signature": "0201a8c7de8c73ce2f338d6e83cb414c33c546a01a66ed9ba403ffdb2a49b7a6",
+        "version": "5d2196857f3a9c6721a70eb5cfe10511028db35c12160d4ce8c15145d2dfdc0f",
+        "signature": "7a6b7bc10cbf09968e06744e81a4e004e8913f806ca4ca5a793b041255132d0b",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -4832,7 +4832,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": {
-        "version": "cd065ab98741f1317da0ea369f81ee0c8e4ce31f5a56e349d33224bb68d10935",
+        "version": "8e254bb00f53008238e26141bc08203d55bd85d620b8a342bd99e6fee6b68393",
         "signature": "91c6dc263b1a3a1562d874e5bb613b8fe2137ddf8d9ad16f2431d4e967f83a53",
         "affectsGlobalScope": false
       },
@@ -4842,7 +4842,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-pending-delay-alert-task/send-pending-delay-alert-task.service.ts": {
-        "version": "464b2aeac2fe7d96a6bdfaf518d3597195c00c9f5605b3b40c5cb182c113923c",
+        "version": "104ddc0a036ca8a7d400c97aa7b957dae7a101fd8503b10bcb1d2b6050299150",
         "signature": "e22c819e64e984f8a08c92f23711f969dbdfd73e73782c4d38a83d17bfdc28dd",
         "affectsGlobalScope": false
       },
@@ -5562,7 +5562,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "2b5835ca82926e927aabd40089bb74b9bcbd16a8be328ba7fa7a3b208f1503a6",
+        "version": "b1a8fac793961f8a444ebef314ecd28f082117b2c214adf32c3a7fed8aee7bb5",
         "signature": "10f952b0a4916be5ebc2c73362b91025d47f22de8142b8a97014d502c6e37345",
         "affectsGlobalScope": false
       },
@@ -5572,7 +5572,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "e3f3078519ce086e5804a07563e2e4c1322cc5a97037c80b31ca9ec1df8cb666",
+        "version": "7d98c941473b606de42b5d9bdd50083aee7c9177b165fe268222ec69c7ce14d7",
         "signature": "b103471fb9ec12963e975cd0a34cb11417bda9b5c589b8dad724bb0592d713a6",
         "affectsGlobalScope": false
       },
@@ -10410,6 +10410,7 @@
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts",
+        "../src/sdk/discord/config.ts",
         "../src/sockets/sockets.gateway.ts"
       ],
       "../src/controllers/api-service/api-service.controller.ts": [
@@ -10964,6 +10965,7 @@
         "../src/models/entities/services.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts",
+        "../src/sdk/discord/config.ts",
         "../src/sdk/discord/discordapiprovider.ts",
         "../src/sdk/whatsapp/whatsappapiprovider.ts",
         "../src/sockets/sockets.gateway.ts"

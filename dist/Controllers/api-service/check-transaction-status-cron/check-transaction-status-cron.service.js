@@ -56,7 +56,7 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
                             .catch(async (error) => {
                             resolve(error);
                             this.helper
-                                .notifyAdmin(`Un CheckStatusTransaction resout avec une erreur\n${error === null || error === void 0 ? void 0 : error.message}\n\n${error === null || error === void 0 ? void 0 : error.stack}\n${main_1.serializeData(error)}`, Enum_entity_1.TypeEvenEnum.CRON_EXCEPTION, {}, true)
+                                .notifyAdmin(`Un CheckStatusTransaction resout avec une erreur\n${error === null || error === void 0 ? void 0 : error.message}\n\n${error === null || error === void 0 ? void 0 : error.stack}\n${main_1.serializeData(error)}`, Enum_entity_1.TypeEvenEnum.CRON_EXCEPTION, {}, false)
                                 .then();
                         });
                     }));
@@ -72,7 +72,7 @@ let CheckTransactionStatusCronService = CheckTransactionStatusCronService_1 = cl
         catch (e) {
             console.error(e);
             this.helper
-                .notifyAdmin(`Une exception c'est produite dans le cron Check Status\n${e.message}\n${e.stack}`, Enum_entity_1.TypeEvenEnum.CRON_EXCEPTION, {}, true)
+                .notifyAdmin(`Une exception c'est produite dans le cron Check Status\n${e.message}\n${e.stack}`, Enum_entity_1.TypeEvenEnum.CRON_EXCEPTION, {}, false)
                 .then();
             CheckTransactionStatusCronService_1.canHandle = true;
             queue === null || queue === void 0 ? void 0 : queue.end();

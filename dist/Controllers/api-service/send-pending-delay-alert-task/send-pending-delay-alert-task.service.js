@@ -40,7 +40,7 @@ let SendPendingDelayAlertTaskService = SendPendingDelayAlertTaskService_1 = clas
         if (!transactions.length) {
             return;
         }
-        await this.helper.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PENDING_AFTER_DELAY, {}, null, config_1.discordApiConfig().pendingAfterDelayChannelName);
+        await this.helper.notifyAdmin(message, Enum_entity_1.TypeEvenEnum.PENDING_AFTER_DELAY, {}, false, config_1.discordApiConfig().pendingAfterDelayChannelName);
         console.log('---------');
     }
     async fetchPendingTransaction() {
