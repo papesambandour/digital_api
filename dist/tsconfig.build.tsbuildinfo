@@ -5557,7 +5557,7 @@
         "affectsGlobalScope": false
       },
       "../src/sockets/sockets.gateway.ts": {
-        "version": "4d59003ec17dbeb8062e0e344b08605f9fab685ca23943c4e7f10d80bfd76e9f",
+        "version": "40dfd861e1b84440c8ab16203b6398d96859846cc340202923c5684ab60385c0",
         "signature": "a3d206e85eb79eda3ad5879627c6f675f68e074c56bdb0013d2c52ad526b38ec",
         "affectsGlobalScope": false
       },
@@ -5857,7 +5857,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "1a9d57c141fd1e9e2bff25ceb7d9ea77da72b8a46ffb9041e5a2cdb1e9510028",
+        "version": "c68f492dd6906fd92e6c7abf511abf330a0d41b5507d7163a53e7d549acf3bb7",
         "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },
@@ -11435,6 +11435,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/websockets/index.d.ts",
         "../node_modules/socket.io/dist/index.d.ts",
+        "../src/models/entities/enum.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/mobilesocket/socketmodel.ts",
         "../src/sockets/socketservice.service.ts"
