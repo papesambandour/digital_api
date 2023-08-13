@@ -921,7 +921,17 @@ let HelperService = class HelperService {
         const allErrorTypes = await ErrorTypes_entity_1.ErrorTypes.find({
             where: {},
         });
-        const error = allErrorTypes.find((el) => {
+        const error = allErrorTypes
+            .sort((a, b) => {
+            if (!a.sousServicesId && !b.sousServicesId)
+                return 0;
+            if (!a.sousServicesId)
+                return 1;
+            if (!b.sousServicesId)
+                return -1;
+            return b.sousServicesId - a.sousServicesId;
+        })
+            .find((el) => {
             try {
                 if (el.sousServicesId && el.sousServicesId !== sousServices.id) {
                     return false;
