@@ -176,7 +176,7 @@ class ApiManagerInterface {
         });
         if (!phone) {
             this.helper
-                .notifyAdmin(`Pas de canal disponible pour le service ${this.apiService.sousServices.code}. DTO: ${main_1.serializeData(this.apiService.operationInDto)}`, Enum_entity_1.TypeEvenEnum.NO_CANAL_AVAILABLE, {}, true, config_1.discordApiConfig().noSimAndCriticAlertChanelName)
+                .notifyAdmin(`Pas de canal disponible pour le service ${this.apiService.sousServices.code}. DTO: ${main_1.serializeData(this.apiService.operationInDto.amount)} XOF`, Enum_entity_1.TypeEvenEnum.NO_CANAL_AVAILABLE, {}, true, config_1.discordApiConfig().noSimAndCriticAlertChanelName)
                 .then();
         }
         return phone;
