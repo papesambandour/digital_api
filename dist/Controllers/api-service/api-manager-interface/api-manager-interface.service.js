@@ -7,6 +7,7 @@ const typeorm_1 = require("typeorm");
 const Controller_1 = require("../../Controller");
 const sockets_gateway_1 = require("../../../Sockets/sockets.gateway");
 const config_1 = require("../../../sdk/Discord/config");
+const main_1 = require("../../../main");
 exports.MANAGER_INIT_CASH_IN_SUCCESS_MESSAGE = `Votre opération s'est effectuée sans erreur. Veuillez attendre le callback pour avoir l'état final de la transaction`;
 exports.MANAGER_INIT_CASH_OUT_SUCCESS_MESSAGE = `Votre opération s'est effectuée sans erreur, Vous allez recevoir un message de confirmation`;
 exports.MANAGER_INIT_DOWN_MESSAGE = `Le services est indisponible pour le moment(pho)`;
@@ -175,7 +176,7 @@ class ApiManagerInterface {
         });
         if (!phone) {
             this.helper
-                .notifyAdmin(`Pas de canal disponible pour le service ${this.apiService.sousServices.code}`, Enum_entity_1.TypeEvenEnum.NO_CANAL_AVAILABLE, {}, true, config_1.discordApiConfig().noSimAndCriticAlertChanelName)
+                .notifyAdmin(`Pas de canal disponible pour le service ${this.apiService.sousServices.code}. DTO: ${main_1.serializeData(this.apiService.operationInDto)}`, Enum_entity_1.TypeEvenEnum.NO_CANAL_AVAILABLE, {}, true, config_1.discordApiConfig().noSimAndCriticAlertChanelName)
                 .then();
         }
         return phone;

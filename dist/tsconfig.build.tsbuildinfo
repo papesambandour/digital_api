@@ -5562,7 +5562,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "b1a8fac793961f8a444ebef314ecd28f082117b2c214adf32c3a7fed8aee7bb5",
+        "version": "218747f809b7aba63bd2eebf167ba5f85702ccf46537d58439d3741f29bdabcc",
         "signature": "10f952b0a4916be5ebc2c73362b91025d47f22de8142b8a97014d502c6e37345",
         "affectsGlobalScope": false
       },
@@ -10406,6 +10406,7 @@
         "../src/controllers/api-service/dto/operationoutdto.ts",
         "../src/controllers/controller.ts",
         "../src/helper.service.ts",
+        "../src/main.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
