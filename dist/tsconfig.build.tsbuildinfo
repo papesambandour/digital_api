@@ -5937,7 +5937,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "9066e063c5e81de4f9140e096fd1bd1ee177f7ab9d3f1b7bf661e658736b5ed9",
+        "version": "42dca8c982c3c3aa04d67d625e36255163da8349fa99b34ac8115828e2c9d20f",
         "signature": "7e4b4b22d3db0822c83760e402377e604c62dde07562ad23758c41714ee22fd6",
         "affectsGlobalScope": false
       },

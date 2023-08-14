@@ -39,7 +39,7 @@ class WizallApiProvider {
         this.loadToken().then().catch(console.error);
         setInterval(() => {
             this.loadToken().then().catch(console.error);
-        }, 1000 * 60 * 5);
+        }, 1000 * 60 * 60);
     }
     static getInstance(type) {
         if (type === 'bill') {
@@ -131,6 +131,7 @@ class WizallApiProvider {
             return await this.rp(option);
         }
         catch (e) {
+            this.loadToken();
             console.log(e.message);
             return {
                 message: e.message,
