@@ -5917,7 +5917,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/moov/moovprovider.ts": {
-        "version": "e8ec32e2cea46143a1d8a372a7f419f417bac84258deb72a2ea40b73771f1a56",
+        "version": "5048713a69278ccf263d15926d9dcee437a8c352f47448de110dd2037e65177d",
         "signature": "de8cf8f0a7a836f8d53865273088cee09f1f68708610488ca6f3e395d807e62a",
         "affectsGlobalScope": false
       },

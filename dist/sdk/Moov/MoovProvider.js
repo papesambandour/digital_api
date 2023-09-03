@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MoovProvider = void 0;
-const crypto_1 = require("crypto");
 const process = require("process");
 const soap = require("soap");
+const crypto = require("crypto");
 const https = require("https");
 const api_manager_interface_service_1 = require("../../Controllers/api-service/api-manager-interface/api-manager-interface.service");
 const moov_bj_cash_in_api_manager_service_1 = require("../../Controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service");
@@ -34,7 +34,7 @@ class MoovProvider {
         console.log('Plain Hex = ' + plain.toString('hex'));
         const key = Buffer.from(process.env.MOOV_BJ_AUTH_ENCRYPTION_KEY, 'utf-8');
         const iv = Buffer.alloc(16);
-        const cipher = crypto_1.default.createCipheriv('aes-256-cbc', key, iv);
+        const cipher = crypto.createCipheriv('aes-256-cbc', key, iv);
         let encrypted = cipher.update(plain);
         encrypted = Buffer.concat([encrypted, cipher.final()]);
         console.log('Encrypted Hex = ' + encrypted.toString('hex'));
@@ -43,6 +43,7 @@ class MoovProvider {
         return encode;
     }
     static async makeTransferTo(param) {
+        console.log(MoovProvider.getAuthToken());
         const url = process.env.MOOV_BJ_WSDL_API_URL;
         try {
             const createClientPromise = soap.createClientAsync(url, clientOption);
