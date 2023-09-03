@@ -4,6 +4,7 @@ exports.MoovProvider = void 0;
 const crypto_1 = require("crypto");
 const process = require("process");
 const soap = require("soap");
+const https = require("https");
 const api_manager_interface_service_1 = require("../../Controllers/api-service/api-manager-interface/api-manager-interface.service");
 const moov_bj_cash_in_api_manager_service_1 = require("../../Controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service");
 const moov_bj_cash_out_api_manager_service_1 = require("../../Controllers/api-service/moov-bj-cash-out-api-manager/moov-bj-cash-out-api-manager.service");
@@ -13,6 +14,16 @@ const Controller_1 = require("../../Controllers/Controller");
 const cashinTimeOutMs = 30000;
 const cashOutTimeOutMs = 5000;
 const checkTimeOutMs = 10000;
+const clientOption = {
+    requestCert: false,
+    rejectUnauthorized: false,
+    strictSSL: false,
+    wsdl_options: {
+        httpsAgent: new https.Agent({
+            rejectUnauthorized: false,
+        }),
+    },
+};
 class MoovProvider {
     static getAuthToken() {
         const username = process.env.MOOV_BJ_USERNAME;
@@ -34,7 +45,7 @@ class MoovProvider {
     static async makeTransferTo(param) {
         const url = process.env.MOOV_BJ_WSDL_API_URL;
         try {
-            const createClientPromise = soap.createClientAsync(url);
+            const createClientPromise = soap.createClientAsync(url, clientOption);
             const clientCreationTimeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Client creation timed out')), cashinTimeOutMs));
             const client = await Promise.race([
                 createClientPromise,
@@ -112,7 +123,7 @@ class MoovProvider {
         };
         try {
             const url = process.env.MOOV_BJ_WSDL_API_URL;
-            const clientPromise = soap.createClientAsync(url);
+            const clientPromise = soap.createClientAsync(url, clientOption);
             const requestParams = {
                 token: MoovProvider.getAuthToken(),
                 request: {
@@ -179,7 +190,7 @@ class MoovProvider {
     static async makeCheckout(params) {
         try {
             const url = process.env.MOOV_BJ_WSDL_API_URL;
-            const createClientPromise = soap.createClientAsync(url);
+            const createClientPromise = soap.createClientAsync(url, clientOption);
             const clientCreationTimeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Client creation timed out')), cashOutTimeOutMs + 5000));
             const client = await Promise.race([
                 createClientPromise,

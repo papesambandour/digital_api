@@ -1056,7 +1056,7 @@
         "signature": "b9c89b4a2435c171e0a9a56668f510a376cb7991eaecef08b619e6d484841735",
         "affectsGlobalScope": false
       },
-      "../node_modules/axios/index.d.ts": {
+      "../node_modules/@nestjs/common/node_modules/axios/index.d.ts": {
         "version": "0d892f035dbee4534f0ba096407136877595ca592f67ec9bb8a5c912b9c967e8",
         "signature": "0d892f035dbee4534f0ba096407136877595ca592f67ec9bb8a5c912b9c967e8",
         "affectsGlobalScope": false
@@ -4647,8 +4647,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/whatsapp-web.js/index.d.ts": {
-        "version": "c3125dab0c49449a19a007cf36af456c6517cb7323ec7e95c3be9a16bd89cd5c",
-        "signature": "c3125dab0c49449a19a007cf36af456c6517cb7323ec7e95c3be9a16bd89cd5c",
+        "version": "fe5a1bc51701056f5f6aa20133a8e204f106f42c69452aae0020399719a819a5",
+        "signature": "fe5a1bc51701056f5f6aa20133a8e204f106f42c69452aae0020399719a819a5",
         "affectsGlobalScope": false
       },
       "../src/sdk/discord/discordapiprovider.ts": {
@@ -5816,6 +5816,11 @@
         "signature": "97e3d1a0b9148e0ae9c144230011f148ecf44c529a79efaced9c1a3bffd2456b",
         "affectsGlobalScope": false
       },
+      "../node_modules/axios/index.d.ts": {
+        "version": "df23705fd32cee6822fc57b5eb5ca88dba0552aae08c4eeff02acde07ea2bf28",
+        "signature": "df23705fd32cee6822fc57b5eb5ca88dba0552aae08c4eeff02acde07ea2bf28",
+        "affectsGlobalScope": false
+      },
       "../node_modules/soap/lib/types.d.ts": {
         "version": "81ed9a20b676bd535cd2bb9be1ffeae3db368666e45e063f3882653dd2e159eb",
         "signature": "81ed9a20b676bd535cd2bb9be1ffeae3db368666e45e063f3882653dd2e159eb",
@@ -5912,7 +5917,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/moov/moovprovider.ts": {
-        "version": "5baceebbc3f0dfe636633803997bbd6bbfc5dd0216ab58bf768edb54ca1741d4",
+        "version": "e8ec32e2cea46143a1d8a372a7f419f417bac84258deb72a2ea40b73771f1a56",
         "signature": "de8cf8f0a7a836f8d53865273088cee09f1f68708610488ca6f3e395d807e62a",
         "affectsGlobalScope": false
       },
@@ -6626,7 +6631,7 @@
         "../node_modules/@nestjs/common/interfaces/index.d.ts"
       ],
       "../node_modules/@nestjs/common/http/http.service.d.ts": [
-        "../node_modules/axios/index.d.ts",
+        "../node_modules/@nestjs/common/node_modules/axios/index.d.ts",
         "../node_modules/rxjs/index.d.ts"
       ],
       "../node_modules/@nestjs/common/http/index.d.ts": [
@@ -6636,7 +6641,7 @@
       ],
       "../node_modules/@nestjs/common/http/interfaces/http-module.interface.d.ts": [
         "../node_modules/@nestjs/common/interfaces/index.d.ts",
-        "../node_modules/axios/index.d.ts"
+        "../node_modules/@nestjs/common/node_modules/axios/index.d.ts"
       ],
       "../node_modules/@nestjs/common/http/interfaces/index.d.ts": [
         "../node_modules/@nestjs/common/http/interfaces/http-module.interface.d.ts"
@@ -11565,6 +11570,7 @@
       ],
       "../src/sdk/moov/moovprovider.ts": [
         "../node_modules/@types/node/crypto.d.ts",
+        "../node_modules/@types/node/https.d.ts",
         "../node_modules/@types/node/process.d.ts",
         "../node_modules/soap/lib/soap.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -11906,7 +11912,7 @@
         "../node_modules/@nestjs/common/interfaces/index.d.ts"
       ],
       "../node_modules/@nestjs/common/http/http.service.d.ts": [
-        "../node_modules/axios/index.d.ts",
+        "../node_modules/@nestjs/common/node_modules/axios/index.d.ts",
         "../node_modules/rxjs/index.d.ts"
       ],
       "../node_modules/@nestjs/common/http/index.d.ts": [
@@ -11916,7 +11922,7 @@
       ],
       "../node_modules/@nestjs/common/http/interfaces/http-module.interface.d.ts": [
         "../node_modules/@nestjs/common/interfaces/index.d.ts",
-        "../node_modules/axios/index.d.ts"
+        "../node_modules/@nestjs/common/node_modules/axios/index.d.ts"
       ],
       "../node_modules/@nestjs/common/http/interfaces/index.d.ts": [
         "../node_modules/@nestjs/common/http/interfaces/http-module.interface.d.ts"
