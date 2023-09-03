@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppSettings = exports.APP_SETTING_WIZALL_TOKEN_NAME = void 0;
+exports.AppSettings = exports.WAVE_CI_SESSION_ID = exports.WAVE_SESSION_ID = exports.APP_SETTING_WIZALL_TOKEN_NAME = void 0;
 const typeorm_1 = require("typeorm");
 const CustomBaseModel_1 = require("./CustomBaseModel");
 exports.APP_SETTING_WIZALL_TOKEN_NAME = 'APP_SETTING_WIZALL_TOKEN_NAME';
+exports.WAVE_SESSION_ID = 'WAVE_SESSION_ID';
+exports.WAVE_CI_SESSION_ID = 'WAVE_CI_SESSION_ID';
 let AppSettings = class AppSettings extends CustomBaseModel_1.CustomBaseModel {
 };
 __decorate([

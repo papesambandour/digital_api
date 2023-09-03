@@ -4616,9 +4616,14 @@
         "signature": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
         "affectsGlobalScope": false
       },
+      "../src/models/entities/appsettings.entity.ts": {
+        "version": "be0e32f83f96904532d83444e006c558827905f4441365eb2806dc3276417342",
+        "signature": "27bf24110f6dd36362d2197ef5e3e5d8733b12749958672fb9da342b5f513ed1",
+        "affectsGlobalScope": false
+      },
       "../src/sdk/wave/config.ts": {
-        "version": "9e3189eea87b8335d29900b390d9989cbb3a0e39bfb2a9c5934810d26ab76982",
-        "signature": "0f60762a505cb913b7624d4a15a726b3df2f2627fcbec5aecd410f102fb39a63",
+        "version": "7a895c0dd3b50ab32bc9d13345abade554d7bae23822b01a8706c6d6cd839033",
+        "signature": "9beb87403bcbb659cdb0fa74d8d723134f8cd4d7aa8d7013200c4d76defced6e",
         "affectsGlobalScope": false
       },
       "../src/sdk/whatsapp/config.ts": {
@@ -4657,7 +4662,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "03df80a6062d91b8f3199c4308bb318344d436cd40c8969a046288fc9cf20b1e",
+        "version": "e0482b43b81a62447839ad38455f55dc516c655d342d41adde8c9ace8ba05b4f",
         "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
         "affectsGlobalScope": false
       },
@@ -4857,12 +4862,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/touba-ca-kanam-bill-reload-api-manager/touba-ca-kanam-bill-reload-api-manager.service.ts": {
-        "version": "1144effa5fb2d08d2dab87092d180b1c907718f610f015f0386952a849400838",
+        "version": "21b93a0362df41a3c310779e21f9a811632d4f5904be5f71ef9a04b40f3a6041",
         "signature": "a495bc43cc93005974d28ac66ce9bbb05a913aef074da81ea8f39d1c6c1d90ff",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/tivaoune-mosque-bill-reload-api-manager/tivaoune-mosque-bill-reload-api-manager.service.ts": {
-        "version": "770faa1de42feeff6caac258b671303287ddbcaab730323d73108de7cd690a07",
+        "version": "3b2342b075d62e58259bb044f05e0c2158975733deecb798d354e1c8d97f782f",
         "signature": "6c5d6d8e1c1411e926d6c0e157de55aa5f55709134f0ef581e4171e4f33351ad",
         "affectsGlobalScope": false
       },
@@ -5747,7 +5752,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/aquatech-sn-bill-payment-api-manager/aquatech-sn-bill-payment-api-manager.service.ts": {
-        "version": "e6eb1debf2195aed62490dac8d405970bdfeb6059f941da5a7d52f946c5133dc",
+        "version": "867e95bfbef7f013982a80849d336d5ded598652193d669e5d5e7630d674d3d2",
         "signature": "7cd10d9c309912ffe06f27439addcc4f69cfe69e02710d051f59a58cf206c25c",
         "affectsGlobalScope": false
       },
@@ -5767,12 +5772,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/baobabplus-sn-bill-reload-api-manager/baobabplus-sn-bill-reload-api-manager.service.ts": {
-        "version": "8ce31ef9350b78f9b8fd097e1f14a3c3aa57a48053764e26e606b26bbe1d2427",
+        "version": "011fca82fa0e4d2d21b328fae02a41c0efc2b8e1ad717b8b861a6ce536686dba",
         "signature": "797ee221581d943e6b992b35691b581c09ba2a2d74d4a5d9977b50d3726dbe2e",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/der-fj-sn-bill-reload-api-manager/der-fj-sn-bill-reload-api-manager.service.ts": {
-        "version": "3360991c5e7555dc441d5f70808654c45dc72c15f9bb70189aaac6da86c9f828",
+        "version": "c8150f7e4e6987a6cc0b9416b811b6dca345c532e765efa2bf2955fcd9f59655",
         "signature": "3455d53c7d877ffe6468ec928a4f7e40b85f07f302a5a59e23f8cd6a9f501f5a",
         "affectsGlobalScope": false
       },
@@ -5797,8 +5802,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/kpay/kpayprovider.ts": {
-        "version": "2840eacea289a8b62882225d002b3d209c5b7fd19fd169e02993391eb14315bd",
-        "signature": "19d4600631083f5749d7bd2580fdfbfcc6201eec430b2638d23d00716e7f928c",
+        "version": "f64d17898a3bfdb6b3dec9f300f3ab138400f96c7f1ea9d51c6b661275cb886b",
+        "signature": "aff52ec9fc8f456f8e485261a4ded946aeae0447a704465533b178af8fd8da59",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/kpay-sn-cash-in-api-manager/kpay-sn-cash-in-api-manager.service.ts": {
@@ -5809,6 +5814,111 @@
       "../src/controllers/api-service/kpay-sn-cash-out-api-manager/kpay-sn-cash-out-api-manager.service.ts": {
         "version": "980fb9225f2decc2bbd9e8922b8c84e2714fc4a7b09dee0d4af91c867db1dfbf",
         "signature": "97e3d1a0b9148e0ae9c144230011f148ecf44c529a79efaced9c1a3bffd2456b",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/types.d.ts": {
+        "version": "81ed9a20b676bd535cd2bb9be1ffeae3db368666e45e063f3882653dd2e159eb",
+        "signature": "81ed9a20b676bd535cd2bb9be1ffeae3db368666e45e063f3882653dd2e159eb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/nscontext.d.ts": {
+        "version": "88942ba174e8dbe55b367b73653fdba16cccf260e808746fc6f3c249d98d8be4",
+        "signature": "88942ba174e8dbe55b367b73653fdba16cccf260e808746fc6f3c249d98d8be4",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/wsdl/elements.d.ts": {
+        "version": "5a873a1fc57a1b10218b80dbac1e0517a64d24e2e373cf324065a3d501fa004e",
+        "signature": "5a873a1fc57a1b10218b80dbac1e0517a64d24e2e373cf324065a3d501fa004e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/wsdl/index.d.ts": {
+        "version": "f999764fcbf66486ac9ff1c248a3c068836b3f00d974fadf8c0d1c33dfe7b8a9",
+        "signature": "f999764fcbf66486ac9ff1c248a3c068836b3f00d974fadf8c0d1c33dfe7b8a9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/client.d.ts": {
+        "version": "a6dc6255edeb74044534495b6cfdc5fad431e05ee4c0a9e37140a1af6190e43a",
+        "signature": "a6dc6255edeb74044534495b6cfdc5fad431e05ee4c0a9e37140a1af6190e43a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/basicauthsecurity.d.ts": {
+        "version": "7d64373ce65cbb99be5cc1799646865fd94e5bc18f7e83e9c41ce7c03989a068",
+        "signature": "7d64373ce65cbb99be5cc1799646865fd94e5bc18f7e83e9c41ce7c03989a068",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/bearersecurity.d.ts": {
+        "version": "2eeb02a34bdabb885ba8c5c23efcebeb851fc2554bef7164272ac1631c4f9121",
+        "signature": "2eeb02a34bdabb885ba8c5c23efcebeb851fc2554bef7164272ac1631c4f9121",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/clientsslsecurity.d.ts": {
+        "version": "7b83a67c38308e72211c3051da6908bb256a4cee2bf331c26a69893fb45f36d1",
+        "signature": "7b83a67c38308e72211c3051da6908bb256a4cee2bf331c26a69893fb45f36d1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/clientsslsecuritypfx.d.ts": {
+        "version": "55b9dda8bf8585576673dc2cd8691fa46c8dd3d8d494501a77f41e517253d6c6",
+        "signature": "55b9dda8bf8585576673dc2cd8691fa46c8dd3d8d494501a77f41e517253d6c6",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/ntlmsecurity.d.ts": {
+        "version": "162f412490dc0da52cb5e01d823a19190c8ef744407c4616648f919bc6daf83e",
+        "signature": "162f412490dc0da52cb5e01d823a19190c8ef744407c4616648f919bc6daf83e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/wssecurity.d.ts": {
+        "version": "7722280c780021d92af7808100179a7b0f94326808e83c5d7b857d37b42e9781",
+        "signature": "7722280c780021d92af7808100179a7b0f94326808e83c5d7b857d37b42e9781",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/wssecuritycert.d.ts": {
+        "version": "fda6d924fa69fffd7be25ec2278879d91fb0a6c5f00f5d14082451ae108fa667",
+        "signature": "fda6d924fa69fffd7be25ec2278879d91fb0a6c5f00f5d14082451ae108fa667",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/wssecuritypluscert.d.ts": {
+        "version": "d404053912c5b1ce3e55a8779403a09558919446f3e50a154cac39a70b7e2906",
+        "signature": "d404053912c5b1ce3e55a8779403a09558919446f3e50a154cac39a70b7e2906",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/index.d.ts": {
+        "version": "a257859010b21e7fcd55dc2e0a7107a8a74a34b56c6c60c0f49fe95032bc2645",
+        "signature": "a257859010b21e7fcd55dc2e0a7107a8a74a34b56c6c60c0f49fe95032bc2645",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/server.d.ts": {
+        "version": "6da027d290561760d0993076a53c646eeeb94f6c4104bf43687f3c171b9f5044",
+        "signature": "6da027d290561760d0993076a53c646eeeb94f6c4104bf43687f3c171b9f5044",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/http.d.ts": {
+        "version": "b9e3c63bee8aced2a42babb43fc4827d2ce0e0e5809e8f03bc596c04b58093d8",
+        "signature": "b9e3c63bee8aced2a42babb43fc4827d2ce0e0e5809e8f03bc596c04b58093d8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/utils.d.ts": {
+        "version": "afec295f6bc364795a85f6a43ca7f1ca5bba2f8e6fe66fd417493605ff936b4f",
+        "signature": "afec295f6bc364795a85f6a43ca7f1ca5bba2f8e6fe66fd417493605ff936b4f",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/soap.d.ts": {
+        "version": "6474eeeea26ca752c113c8c66871d112755fa8e45a42097aa6eca106b83c7e9b",
+        "signature": "6474eeeea26ca752c113c8c66871d112755fa8e45a42097aa6eca106b83c7e9b",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/moov-bj-cash-out-api-manager/moov-bj-cash-out-api-manager.service.ts": {
+        "version": "4a294bc0dbc715ebc462754d0308d52f68f8939967b462241e6f2b63ba0673f5",
+        "signature": "205a217fb17c7a6243915a0f1695c093e118dfaa276015888cc9f010b3d6bced",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/moov/moovprovider.ts": {
+        "version": "5baceebbc3f0dfe636633803997bbd6bbfc5dd0216ab58bf768edb54ca1741d4",
+        "signature": "de8cf8f0a7a836f8d53865273088cee09f1f68708610488ca6f3e395d807e62a",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service.ts": {
+        "version": "3f8736f0e0967d489ec5d44143364cae78b1f392daf3827a693f7430ab3d92ba",
+        "signature": "50b6ac50960becd848e0e12909cd1f0ff724c5e4749187a3dbbfc56b1e07ccf6",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": {
@@ -5822,7 +5932,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/oolusolar-sn-bill-reload-api-manager/oolusolar-sn-bill-reload-api-manager.service.ts": {
-        "version": "2e83b64a44136313039e263ecf69cdcc1f8e6ee2156a335c0574e92e19b8bf61",
+        "version": "a3cb949e6d820de41762f24030bed4f187126f2018952f9a6945abe2ea2e0cf5",
         "signature": "6dc129b0d1bc14d45fe44a1246d7d25e9e36d0a69c55f484c8a6b52f318e41c1",
         "affectsGlobalScope": false
       },
@@ -5837,32 +5947,32 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/rapido-sn-bill-reload-api-manager/rapido-sn-bill-reload-api-manager.service.ts": {
-        "version": "779037ef3e11e6f4666ec71ebc892c7bbc9b667cc446962e48730a3c2f935db2",
+        "version": "0b4428b0d99927e6d6846ce709ab77b89f6d9ce4000fc75f33c74bcdc5c8b707",
         "signature": "4c5d9b3cc5fa359c5f491ae89e8451f9b85d36e1f64dd25f20f58ade0eea8541",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/seneau-sn-bill-payment-api-manager/seneau-sn-bill-payment-api-manager.service.ts": {
-        "version": "d592129a996c26331f131b4d9959138b0e8253929d47707e6e93986cc69eb796",
+        "version": "343e6bab9aaf3c2189aed62e73e143eba730de50e26701dc6951cd693b7bfc68",
         "signature": "02900d749208c489a8936b745377b02f4eff484c9bdd390089fdd59f798513af",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/senelec-sn-bill-payment-api-manager/senelec-sn-bill-payment-api-manager.service.ts": {
-        "version": "287e723d06b8464ef83355fa961e1644e6d06abdbb89df0c95cbff41001b53e1",
+        "version": "b5b94fed5b8a29a29e30338cfa9db7f0d66a60284f05eb01de1059817c5367c4",
         "signature": "d8122d06397dece910ded0cc2e317e90717b40bb8eab5c25aaa3fcf4e528e5a2",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ucad-sn-bill-payment-api-manager/ucad-sn-bill-payment-api-manager.service.ts": {
-        "version": "ad82dc9336d6b65a97b0e1e85d8f687857db9f7d34e715293a4d2f65bae9c4de",
+        "version": "e86492f09de6816a1db089e0401f7d0a672a0af9ae120f02e1346a9914f172a4",
         "signature": "2f2cfa3c3b1843b803cff80b9a9b522c0111866a53277d95ee546cf0ab983e65",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/ussd-api-manager/ussd-api-manager.service.ts": {
-        "version": "c68f492dd6906fd92e6c7abf511abf330a0d41b5507d7163a53e7d549acf3bb7",
+        "version": "ba240ec13cced299010adda0edb94aa1d58fff29fe231e6fd282cfcd5c83f175",
         "signature": "be2b06847b30f311a43bd57fa179c609b6cc4c1c81a98e08d6d7a9af8a635597",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/uvs-sn-bill-payment-api-manager/uvs-sn-bill-payment-api-manager.service.ts": {
-        "version": "2cbfc1a8ab7f3242e12d756b8fd64e3d9f2078ff32617c71076089ff8961d9ee",
+        "version": "a1c9ed682b2c31e243d932e9169c571863f9625bbc3e7dad15af0784ff422849",
         "signature": "86035eb2d2e3ba11cada6ee15e397a3044b74192e143932063936743ea60dbdb",
         "affectsGlobalScope": false
       },
@@ -5907,7 +6017,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": {
-        "version": "9a192cde5b41bb8b8345c02944fccee0f298644cb16f128c095f001774f5087f",
+        "version": "156ac0f864583bd8417b77be736ed027b337e86bed6d094c835d572a39357dae",
         "signature": "1c6b491aa811c886b2974970bdf803227ef08dc7e87c410cac942d30ca6e53a3",
         "affectsGlobalScope": false
       },
@@ -5931,11 +6041,6 @@
         "signature": "b0aa09d99ceea41768ec860936a1921599747ed75f1e872e6f0a0a47a52c84cc",
         "affectsGlobalScope": false
       },
-      "../src/models/entities/appsettings.entity.ts": {
-        "version": "c9aa32a9a37708678665bbeb647867601223c62b0476d815a1392f965bd0e981",
-        "signature": "18febe40a7471deb40414a7a547226606269b801900895934785b1b5b7219c45",
-        "affectsGlobalScope": false
-      },
       "../src/sdk/wizall/wizallapiprovider.ts": {
         "version": "42dca8c982c3c3aa04d67d625e36255163da8349fa99b34ac8115828e2c9d20f",
         "signature": "7e4b4b22d3db0822c83760e402377e604c62dde07562ad23758c41714ee22fd6",
@@ -5947,12 +6052,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/woyofal-sn-bill-reload-api-manager/woyofal-sn-bill-reload-api-manager.service.ts": {
-        "version": "cf9b2607224ecd79b960f196e90f69652c1a5bb706d689a26fe5cbb8117964d6",
+        "version": "01da4a593ba58c36fe18782a3bf7cf8573293393a58ca5978c38a6b90950efd5",
         "signature": "f76c2c42be68078400f4d9a0cd4337ae66d28faa6bc342903671de623517cf01",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/xeweul-sn-bill-reload-api-manager/xeweul-sn-bill-reload-api-manager.service.ts": {
-        "version": "ae9631d678528e55ef41917345857fcf4a3590167e8eda27417e250af1f3e0f3",
+        "version": "ea42a80578f89f228e373609f08216e14a486f2028b9bdd1de4f9d8831efb85d",
         "signature": "4a49b0b8252ef38a5db6f2df4c64230d2ae54e4e3b77bf8f1112d7a3c4584c03",
         "affectsGlobalScope": false
       },
@@ -9057,6 +9162,90 @@
         "../node_modules/rxjs/internal/operators/zip.d.ts",
         "../node_modules/rxjs/internal/operators/zipall.d.ts"
       ],
+      "../node_modules/soap/lib/client.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/soap/lib/types.d.ts",
+        "../node_modules/soap/lib/wsdl/index.d.ts"
+      ],
+      "../node_modules/soap/lib/http.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/axios/index.d.ts",
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/basicauthsecurity.d.ts": [
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/bearersecurity.d.ts": [
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/clientsslsecurity.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/clientsslsecuritypfx.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/index.d.ts": [
+        "../node_modules/soap/lib/security/basicauthsecurity.d.ts",
+        "../node_modules/soap/lib/security/bearersecurity.d.ts",
+        "../node_modules/soap/lib/security/clientsslsecurity.d.ts",
+        "../node_modules/soap/lib/security/clientsslsecuritypfx.d.ts",
+        "../node_modules/soap/lib/security/ntlmsecurity.d.ts",
+        "../node_modules/soap/lib/security/wssecurity.d.ts",
+        "../node_modules/soap/lib/security/wssecuritycert.d.ts",
+        "../node_modules/soap/lib/security/wssecuritypluscert.d.ts"
+      ],
+      "../node_modules/soap/lib/security/ntlmsecurity.d.ts": [
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/wssecurity.d.ts": [
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/wssecuritycert.d.ts": [
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/wssecuritypluscert.d.ts": [
+        "../node_modules/soap/lib/security/wssecurity.d.ts",
+        "../node_modules/soap/lib/security/wssecuritycert.d.ts",
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/server.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/soap/lib/types.d.ts",
+        "../node_modules/soap/lib/wsdl/index.d.ts"
+      ],
+      "../node_modules/soap/lib/soap.d.ts": [
+        "../node_modules/soap/lib/client.d.ts",
+        "../node_modules/soap/lib/http.d.ts",
+        "../node_modules/soap/lib/security/index.d.ts",
+        "../node_modules/soap/lib/server.d.ts",
+        "../node_modules/soap/lib/types.d.ts",
+        "../node_modules/soap/lib/utils.d.ts",
+        "../node_modules/soap/lib/wsdl/index.d.ts"
+      ],
+      "../node_modules/soap/lib/types.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/axios/index.d.ts"
+      ],
+      "../node_modules/soap/lib/utils.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/wsdl/elements.d.ts": [
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/wsdl/index.d.ts": [
+        "../node_modules/soap/lib/nscontext.d.ts",
+        "../node_modules/soap/lib/types.d.ts",
+        "../node_modules/soap/lib/wsdl/elements.d.ts"
+      ],
       "../node_modules/socket.io-parser/dist/index.d.ts": [
         "../node_modules/@types/component-emitter/index.d.ts"
       ],
@@ -10647,6 +10836,33 @@
         "../src/sdk/wave/config.ts",
         "../src/sdk/wave/waveapiprovider.ts"
       ],
+      "../src/controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/moov/moovprovider.ts",
+        "../src/sdk/mtn/config.ts",
+        "../src/sdk/mtn/mtnapiprovider.ts",
+        "../src/sdk/orange/providerorangemoneyapi.ts",
+        "../src/sdk/wave/config.ts",
+        "../src/sdk/wave/waveapiprovider.ts"
+      ],
+      "../src/controllers/api-service/moov-bj-cash-out-api-manager/moov-bj-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/moov/moovprovider.ts",
+        "../src/sdk/mtn/config.ts",
+        "../src/sdk/mtn/mtnapiprovider.ts",
+        "../src/sdk/orange/providerorangemoneyapi.ts",
+        "../src/sdk/wave/config.ts",
+        "../src/sdk/wave/waveapiprovider.ts"
+      ],
       "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -10796,6 +11012,7 @@
         "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts"
       ],
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": [
+        "../node_modules/@types/node/process.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/controller.ts",
         "../src/main.ts",
@@ -11346,6 +11563,18 @@
         "../src/controllers/controller.ts",
         "../src/models/entities/enum.entity.ts"
       ],
+      "../src/sdk/moov/moovprovider.ts": [
+        "../node_modules/@types/node/crypto.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/soap/lib/soap.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service.ts",
+        "../src/controllers/api-service/moov-bj-cash-out-api-manager/moov-bj-cash-out-api-manager.service.ts",
+        "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts"
+      ],
       "../src/sdk/mtn/config.ts": [
         "../node_modules/mtn-momo/lib/common.d.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
@@ -11369,6 +11598,7 @@
         "../src/sdk/orange/config.ts"
       ],
       "../src/sdk/wave/config.ts": [
+        "../src/models/entities/appsettings.entity.ts",
         "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/sdk/wave/waveapiprovider.ts": [
@@ -14212,6 +14442,90 @@
         "../node_modules/rxjs/internal/operators/zip.d.ts",
         "../node_modules/rxjs/internal/operators/zipall.d.ts"
       ],
+      "../node_modules/soap/lib/client.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/soap/lib/types.d.ts",
+        "../node_modules/soap/lib/wsdl/index.d.ts"
+      ],
+      "../node_modules/soap/lib/http.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/axios/index.d.ts",
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/basicauthsecurity.d.ts": [
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/bearersecurity.d.ts": [
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/clientsslsecurity.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/clientsslsecuritypfx.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/index.d.ts": [
+        "../node_modules/soap/lib/security/basicauthsecurity.d.ts",
+        "../node_modules/soap/lib/security/bearersecurity.d.ts",
+        "../node_modules/soap/lib/security/clientsslsecurity.d.ts",
+        "../node_modules/soap/lib/security/clientsslsecuritypfx.d.ts",
+        "../node_modules/soap/lib/security/ntlmsecurity.d.ts",
+        "../node_modules/soap/lib/security/wssecurity.d.ts",
+        "../node_modules/soap/lib/security/wssecuritycert.d.ts",
+        "../node_modules/soap/lib/security/wssecuritypluscert.d.ts"
+      ],
+      "../node_modules/soap/lib/security/ntlmsecurity.d.ts": [
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/wssecurity.d.ts": [
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/wssecuritycert.d.ts": [
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/security/wssecuritypluscert.d.ts": [
+        "../node_modules/soap/lib/security/wssecurity.d.ts",
+        "../node_modules/soap/lib/security/wssecuritycert.d.ts",
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/server.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/soap/lib/types.d.ts",
+        "../node_modules/soap/lib/wsdl/index.d.ts"
+      ],
+      "../node_modules/soap/lib/soap.d.ts": [
+        "../node_modules/soap/lib/client.d.ts",
+        "../node_modules/soap/lib/http.d.ts",
+        "../node_modules/soap/lib/security/index.d.ts",
+        "../node_modules/soap/lib/server.d.ts",
+        "../node_modules/soap/lib/types.d.ts",
+        "../node_modules/soap/lib/utils.d.ts",
+        "../node_modules/soap/lib/wsdl/index.d.ts"
+      ],
+      "../node_modules/soap/lib/types.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/axios/index.d.ts"
+      ],
+      "../node_modules/soap/lib/utils.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/wsdl/elements.d.ts": [
+        "../node_modules/soap/lib/types.d.ts"
+      ],
+      "../node_modules/soap/lib/wsdl/index.d.ts": [
+        "../node_modules/soap/lib/nscontext.d.ts",
+        "../node_modules/soap/lib/types.d.ts",
+        "../node_modules/soap/lib/wsdl/elements.d.ts"
+      ],
       "../node_modules/socket.io-parser/dist/index.d.ts": [
         "../node_modules/@types/component-emitter/index.d.ts"
       ],
@@ -15609,6 +15923,12 @@
       "../src/controllers/api-service/kpay-sn-cash-out-api-manager/kpay-sn-cash-out-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
+      "../src/controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/moov-bj-cash-out-api-manager/moov-bj-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
       "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
@@ -15960,6 +16280,10 @@
       ],
       "../src/sdk/kpay/kpayprovider.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/sdk/moov/moovprovider.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/api-service/moov-bj-cash-out-api-manager/moov-bj-cash-out-api-manager.service.ts"
       ],
       "../src/sdk/mtn/config.ts": [
         "../node_modules/mtn-momo/lib/common.d.ts",

@@ -1,6 +1,6 @@
 import { BalanceResponse, ConfirmParams, RefundParams, RefundResponse } from '../../Controllers/api-service/api-manager-interface/api-manager-interface.service';
 export declare class KPayProvider {
-    static getToken(): Promise<string>;
+    static getToken(type: 'CASHIN' | 'CASHOUT'): Promise<string>;
     static requestToPay(param: {
         correlationReference: string;
         amount: number;

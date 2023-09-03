@@ -40,7 +40,7 @@ class OolusolarSnBillReloadApiManagerService extends api_manager_interface_servi
         const rapido = await WaveApiProvider_1.default.makeDirectBillPay({
             amount: params.dto.amount,
             billAccountNumber: params.dto.billAccountNumber,
-            sessionId: config_1.waveBusinessApiConfig('sn').sessionId,
+            sessionId: await config_1.waveBusinessApiConfig('sn').sessionId(),
             walletId: config_1.waveBusinessApiConfig('sn').walletId,
             billAccountNumberFieldName: 'account_number',
             label: 'Le compte OoluSolar',

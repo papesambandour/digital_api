@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RapidoSnBillReloadApiManagerService = void 0;
+exports.MoovBjCashInApiManagerService = void 0;
 const api_manager_interface_service_1 = require("../api-manager-interface/api-manager-interface.service");
-const WaveApiProvider_1 = require("../../../sdk/Wave/WaveApiProvider");
-const config_1 = require("../../../sdk/Wave/config");
-const Controller_1 = require("../../Controller");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
+const Controller_1 = require("../../Controller");
 const main_1 = require("../../../main");
-class RapidoSnBillReloadApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
+const Parteners_entity_1 = require("../../../Models/Entities/Parteners.entity");
+const MoovProvider_1 = require("../../../sdk/Moov/MoovProvider");
+class MoovBjCashInApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return await this.notImplementedYet(params);
     }
@@ -15,7 +15,7 @@ class RapidoSnBillReloadApiManagerService extends api_manager_interface_service_
         return await this.notImplementedYet(params);
     }
     async getBalance(params) {
-        return WaveApiProvider_1.default.getBalance(params, config_1.waveBusinessApiConfig('sn').cashOutApiKey, WaveApiProvider_1.default.now());
+        return await MoovProvider_1.MoovProvider.getBalance(MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE_MESSAGE);
     }
     async handleCallbackTransaction(params) {
         return await this.notImplementedYet(params);
@@ -37,52 +37,47 @@ class RapidoSnBillReloadApiManagerService extends api_manager_interface_service_
             }, baseResponse);
         }
         const transaction = await this.createTransaction(api);
-        const rapido = await WaveApiProvider_1.default.makeDirectBillPay({
-            amount: params.dto.amount,
-            billAccountNumber: params.dto.billAccountNumber,
-            sessionId: await config_1.waveBusinessApiConfig('sn').sessionId(),
-            walletId: config_1.waveBusinessApiConfig('sn').walletId,
-            billAccountNumberFieldName: 'rapido_card_number',
-            label: 'La carte rapido',
-            billId: WaveApiProvider_1.WAVE_BILL_ID.RAPIDO,
+        const partner = await Parteners_entity_1.Parteners.findOne(transaction.partenersId);
+        const response = await MoovProvider_1.MoovProvider.makeTransferTo({
+            phone: `229${params.dto.phone}`,
+            amount: transaction.amount,
+            externalId: transaction.transactionId.toString(),
+            payeeMessage: `Reception de ${transaction.amount} CFA par ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
         });
-        const statues = this.helper.getStatusAfterExec((rapido === null || rapido === void 0 ? void 0 : rapido.success) ? 'success' : 'failed', this.apiService.sousServices);
-        console.log(rapido, 'sttaus', statues);
+        const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
+        console.log(response, 'sttaus', statues);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
-        transaction.sousServiceTransactionId = rapido === null || rapido === void 0 ? void 0 : rapido.paymentId;
+        transaction.sousServiceTransactionId = response.referenceId;
         await transaction.save();
-        await this.helper.setIsCallbackReadyValue(transaction);
+        await this.helper.setIsCallbackReadyValue(transaction, 5000);
         this.helper.updateApiBalance(this, transaction.phonesId).then();
-        if (rapido.success) {
-            transaction.message = main_1.serializeData(rapido);
+        if (response.success) {
+            transaction.message = main_1.serializeData(response);
+            transaction.needCheckTransaction = 0;
             await transaction.save();
             await this.helper.handleSuccessTransactionCreditDebit(transaction);
             console.log('Send OKK');
             return Object.assign({
-                status: Enum_entity_1.StatusEnum.SUCCESS,
+                status: Enum_entity_1.StatusEnum.PENDING,
                 codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
                 partnerMessage: api_manager_interface_service_1.MANAGER_INIT_CASH_IN_SUCCESS_MESSAGE,
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
-                data: {
-                    notificationMessage: rapido.message,
-                },
             }, baseResponse);
         }
         else {
-            transaction.errorMessage = main_1.serializeData(rapido);
+            transaction.errorMessage = main_1.serializeData(response);
             await transaction.save();
             await this.helper.operationPartnerCancelTransaction(transaction);
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.UNKNOW_ERROR,
-                partnerMessage: rapido.message,
+                partnerMessage: response.message,
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
-                refundOnFailed: true,
             }, baseResponse);
         }
     }
@@ -90,5 +85,6 @@ class RapidoSnBillReloadApiManagerService extends api_manager_interface_service_
         return await this.notImplementedYet(params);
     }
 }
-exports.RapidoSnBillReloadApiManagerService = RapidoSnBillReloadApiManagerService;
-//# sourceMappingURL=rapido-sn-bill-reload-api-manager.service.js.map
+exports.MoovBjCashInApiManagerService = MoovBjCashInApiManagerService;
+MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE_MESSAGE = '';
+//# sourceMappingURL=moov-bj-cash-in-api-manager.service.js.map

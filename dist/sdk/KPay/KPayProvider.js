@@ -6,10 +6,10 @@ const process = require("process");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 const Controller_1 = require("../../Controllers/Controller");
 class KPayProvider {
-    static async getToken() {
-        const clientId = process.env.KPAY_CASHOUT_CLIENT_ID;
-        const clientSecret = process.env.KPAY_CASHOUT_CLIENT_SECRET;
-        const url = `${process.env.KPAY_CASHOUT_BASE_API_URL}/auth/token?clientId=${clientId}&clientSecret=${clientSecret}`;
+    static async getToken(type) {
+        const url = type === 'CASHOUT' || true
+            ? `${process.env.KPAY_CASHOUT_BASE_API_URL}/auth/token?clientId=${process.env.KPAY_CASHOUT_CLIENT_ID}&clientSecret=${process.env.KPAY_CASHOUT_CLIENT_SECRET}`
+            : `${process.env.KPAY_CASHIN_BASE_API_URL}/auth/token?clientId=${process.env.KPAY_CASHIN_CLIENT_ID}&clientSecret=${process.env.KPAY_CASHIN_CLIENT_SECRET}`;
         const options = {
             uri: url,
             headers: {
@@ -31,7 +31,7 @@ class KPayProvider {
     static async requestToPay(param) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
         const url = `${process.env.KPAY_CASHOUT_BASE_API_URL}/payment/initiate_payment`;
-        const authToken = await KPayProvider.getToken();
+        const authToken = await KPayProvider.getToken('CASHOUT');
         const requestData = {
             merchant: {
                 fullName: param.partnerName,
@@ -74,7 +74,7 @@ class KPayProvider {
     static async makeTransfer(param) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
         const url = `${process.env.KPAY_CASHIN_BASE_API_URL}/transaction/sendTranfer`;
-        const authToken = await KPayProvider.getToken();
+        const authToken = await KPayProvider.getToken('CASHIN');
         const requestData = {
             sender: {
                 firstName: param.partnerName,
@@ -123,7 +123,7 @@ class KPayProvider {
     static async confirmPaymentFunction(params) {
         var _a, _b, _c, _d, _e, _f, _g;
         const url = `${process.env.KPAY_CASHOUT_BASE_API_URL}/payment/confirm_payment`;
-        const authToken = 'Bearer ' + (await KPayProvider.getToken());
+        const authToken = 'Bearer ' + (await KPayProvider.getToken('CASHOUT'));
         const requestData = {
             otp: params.meta.otp,
             kpayReference: params.transaction.sousServiceTransactionId,
@@ -158,7 +158,7 @@ class KPayProvider {
     static async getBalance() {
         var _a, _b, _c, _d, _e, _f, _g;
         const url = `${process.env.KPAY_CASHOUT_BASE_API_URL}/info/balance`;
-        const authToken = 'Bearer ' + (await KPayProvider.getToken());
+        const authToken = 'Bearer ' + (await KPayProvider.getToken('CASHOUT'));
         const options = {
             method: 'GET',
             uri: url,
@@ -196,7 +196,7 @@ class KPayProvider {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t;
         const url = `${process.env.KPAY_CASHOUT_BASE_API_URL}/${mode === 'payment' ? 'payment/refund_payment' : 'transaction/refund'}?correlation_reference=${params.transaction.transactionId}`;
         console.log(url);
-        const authToken = await KPayProvider.getToken();
+        const authToken = await KPayProvider.getToken('CASHOUT');
         const baseResponse = {
             phone: (_b = (_a = params.transaction) === null || _a === void 0 ? void 0 : _a.phone) !== null && _b !== void 0 ? _b : null,
             amount: (_e = (_d = (_c = params.transaction) === null || _c === void 0 ? void 0 : _c.amount) === null || _d === void 0 ? void 0 : _d.toString()) !== null && _e !== void 0 ? _e : null,

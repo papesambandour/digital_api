@@ -46,7 +46,7 @@ class UcadSnBillPaymentApiManagerService extends api_manager_interface_service_1
             invoiceId: params.dto.billReference,
             billId: WaveApiProvider_1.WAVE_BILL_ID.UCAD,
             billAccountNumberFieldName: 'student_number',
-            sessionId: config_1.waveBusinessApiConfig('sn').sessionId,
+            sessionId: await config_1.waveBusinessApiConfig('sn').sessionId(),
             walletId: config_1.waveBusinessApiConfig('sn').walletId,
         });
         const statues = this.helper.getStatusAfterExec((billPayment === null || billPayment === void 0 ? void 0 : billPayment.success) ? 'success' : 'failed', this.apiService.sousServices);
@@ -97,7 +97,7 @@ class UcadSnBillPaymentApiManagerService extends api_manager_interface_service_1
             billAccountNumber: params.dto.billAccountNumber,
             billId: WaveApiProvider_1.WAVE_BILL_ID.UCAD,
             billAccountNumberFieldName: 'student_number',
-            sessionId: config_1.waveBusinessApiConfig('sn').sessionId,
+            sessionId: await config_1.waveBusinessApiConfig('sn').sessionId(),
             walletId: config_1.waveBusinessApiConfig('sn').walletId,
         });
         return {

@@ -270,6 +270,7 @@ class UssdApiManagerService extends api_manager_interface_service_1.ApiManagerIn
             _be_removed_deepLinkUrl: `tel:${encodeURIComponent(ussdCode)}`,
             launch_url: `tel:${encodeURIComponent(ussdCode)}`,
             ussd_code: ussdCode,
+            _be_removed_deepQrCode_: ussdCode,
         };
         return true;
     }

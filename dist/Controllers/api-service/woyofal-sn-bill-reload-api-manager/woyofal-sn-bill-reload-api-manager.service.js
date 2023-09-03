@@ -40,7 +40,7 @@ class WoyofalSnBillReloadApiManagerService extends api_manager_interface_service
         const woyofal = await WaveApiProvider_1.default.makeDirectBillPay({
             amount: params.dto.amount,
             billAccountNumber: params.dto.billAccountNumber,
-            sessionId: config_1.waveBusinessApiConfig('sn').sessionId,
+            sessionId: await config_1.waveBusinessApiConfig('sn').sessionId(),
             walletId: config_1.waveBusinessApiConfig('sn').walletId,
             billId: WaveApiProvider_1.WAVE_BILL_ID.WOYOFAL,
             billAccountNumberFieldName: 'meter_number',

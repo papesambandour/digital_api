@@ -40,7 +40,7 @@ class DerFjSnBillReloadApiManagerService extends api_manager_interface_service_1
         const rapido = await WaveApiProvider_1.default.makeDirectBillPay({
             amount: params.dto.amount,
             billAccountNumber: params.dto.billAccountNumber,
-            sessionId: config_1.waveBusinessApiConfig('sn').sessionId,
+            sessionId: await config_1.waveBusinessApiConfig('sn').sessionId(),
             walletId: config_1.waveBusinessApiConfig('sn').walletId,
             billAccountNumberFieldName: 'cni_number',
             otherFields: [

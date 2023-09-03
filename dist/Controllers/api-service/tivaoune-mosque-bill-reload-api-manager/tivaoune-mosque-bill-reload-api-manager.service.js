@@ -40,7 +40,7 @@ class TivaouneMosqueBillReloadApiManagerService extends api_manager_interface_se
         const rapido = await WaveApiProvider_1.default.makeDirectBillPay({
             amount: params.dto.amount,
             billAccountNumber: '',
-            sessionId: config_1.waveBusinessApiConfig('sn').sessionId,
+            sessionId: await config_1.waveBusinessApiConfig('sn').sessionId(),
             walletId: config_1.waveBusinessApiConfig('sn').walletId,
             billAccountNumberFieldName: '',
             label: 'La carte rapido',

@@ -123,7 +123,7 @@ class WaveMoneySnCashInApiManagerService extends api_manager_interface_service_1
                 partnerMessage: canRefund.message,
             }, baseResponse);
         }
-        const response = await WaveApiProvider_1.default.refundTransaction(params, config_1.waveBusinessApiConfig(this.constructor.country).sessionId, params.transaction.sousServiceTransactionId, 'deposit');
+        const response = await WaveApiProvider_1.default.refundTransaction(params, await config_1.waveBusinessApiConfig(this.constructor.country).sessionId(), params.transaction.sousServiceTransactionId, 'deposit');
         if (response.status === Enum_entity_1.StatusEnum.SUCCESS) {
             console.log('caaling refund');
             await this.helper.handleTransactionRefundSuccess(params.transaction);
