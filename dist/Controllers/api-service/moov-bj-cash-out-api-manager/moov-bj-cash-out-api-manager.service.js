@@ -38,13 +38,9 @@ class MoovBjCashOutApiManagerService extends api_manager_interface_service_1.Api
         }
         const transaction = await this.createTransaction(api);
         const partner = await Parteners_entity_1.Parteners.findOne(transaction.partenersId);
-        const checkout = await MoovProvider_1.MoovProvider.makeCheckout({
-            phone: `229${params.dto.phone}`,
-            amount: transaction.amount,
-            externalId: transaction.transactionId.toString(),
-            payerMessage: `Paiement de ${transaction.amount} CFA pour ${params.dto.sender || partner.name}. Veuillez
-saisir votre code secret pour confirmer ou tapez 0 pour annuler.`,
-        });
+        const message = `Paiement de ${transaction.amount} CFA pour ${params.dto.sender || partner.name}. Veuillez
+saisir votre code secret pour confirmer ou tapez 0 pour annuler.`;
+        const checkout = await MoovProvider_1.MoovProvider.makeCheckout(`229${params.dto.phone}`, transaction.amount, transaction.transactionId.toString(), message);
         const statues = this.helper.getStatusAfterExec(checkout.success ? 'success' : 'failed', this.apiService.sousServices);
         console.log(checkout, 'sttaus', statues);
         transaction.statut = statues['status'];

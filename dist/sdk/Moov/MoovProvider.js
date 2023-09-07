@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MoovProvider = void 0;
 const process = require("process");
-const soap = require("soap");
-const crypto = require("crypto");
+const node_fetch_1 = require("node-fetch");
+const xml2js = require("xml2js");
 const https = require("https");
 const api_manager_interface_service_1 = require("../../Controllers/api-service/api-manager-interface/api-manager-interface.service");
 const moov_bj_cash_in_api_manager_service_1 = require("../../Controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service");
@@ -11,78 +11,95 @@ const moov_bj_cash_out_api_manager_service_1 = require("../../Controllers/api-se
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 const main_1 = require("../../main");
 const Controller_1 = require("../../Controllers/Controller");
-const cashinTimeOutMs = 30000;
-const cashOutTimeOutMs = 5000;
-const checkTimeOutMs = 10000;
-const clientOption = {
-    requestCert: false,
-    rejectUnauthorized: false,
-    strictSSL: false,
-    wsdl_options: {
-        httpsAgent: new https.Agent({
-            rejectUnauthorized: false,
-        }),
-    },
-};
+const cashinTimeOutMs = 0;
+const cashOutTimeOutMs = 10000;
+const checkTimeOutMs = 30000;
 class MoovProvider {
     static getAuthToken() {
-        const username = process.env.MOOV_BJ_USERNAME;
-        const password = process.env.MOOV_BJ_PASSWORD;
-        const plaintext = `0:${username}:${password}`;
-        console.log('Plain Text = ' + plaintext);
-        const plain = Buffer.from(plaintext, 'utf-8');
-        console.log('Plain Hex = ' + plain.toString('hex'));
-        const key = Buffer.from(process.env.MOOV_BJ_AUTH_ENCRYPTION_KEY, 'utf-8');
-        const iv = Buffer.alloc(16);
-        const cipher = crypto.createCipheriv('aes-256-cbc', key, iv);
-        let encrypted = cipher.update(plain);
-        encrypted = Buffer.concat([encrypted, cipher.final()]);
-        console.log('Encrypted Hex = ' + encrypted.toString('hex'));
-        const encode = encrypted.toString('base64');
-        console.log('Token Text = ' + encode);
-        return encode;
+        return process.env.MOOV_BJ_AUTH_TOKEN;
     }
-    static async makeTransferTo(param) {
-        console.log(MoovProvider.getAuthToken());
-        const url = process.env.MOOV_BJ_WSDL_API_URL;
+    static async makeTransferTo(phone, amount, referenceid, message) {
         try {
-            const createClientPromise = soap.createClientAsync(url, clientOption);
-            const clientCreationTimeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Client creation timed out')), cashinTimeOutMs));
-            const client = await Promise.race([
-                createClientPromise,
-                clientCreationTimeout,
-            ]);
-            const requestParams = {
-                token: MoovProvider.getAuthToken(),
-                request: {
-                    amount: param.amount,
-                    destination: param.phone,
-                    referenceid: param.externalId,
-                    remarks: param.payeeMessage,
+            const url = process.env.MOOV_BJ_WSDL_API_URL;
+            const token = MoovProvider.getAuthToken();
+            const xmlData = `<?xml version="1.0" encoding="utf-8"?>
+      <soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:tns="http://api.merchant.tlc.com/">
+        <soap:Body>
+          <tns:transferFlooz>
+            <token>${token}</token>
+            <request>
+              <amount>${amount}</amount>
+              <destination>${phone}</destination>
+              <referenceid>${referenceid}</referenceid>
+              <walletid>0</walletid>
+              <extendeddata>${message}</extendeddata>
+            </request>
+          </tns:transferFlooz>
+        </soap:Body>
+      </soap:Envelope>`;
+            const response = await node_fetch_1.default(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/xml',
                 },
-            };
-            const soapRequest = client.cashintransAsync(requestParams);
-            const soapRequestTimeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Request timed out')), cashinTimeOutMs));
-            const response = await Promise.race([soapRequest, soapRequestTimeout]);
-            const responseData = (response === null || response === void 0 ? void 0 : response[0].return) || {};
-            const success = responseData.status === '0';
-            if (success) {
-                moov_bj_cash_in_api_manager_service_1.MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE_MESSAGE = moov_bj_cash_out_api_manager_service_1.MoovBjCashOutApiManagerService.MOOV_BJ_LAST_BALANCE_MESSAGE =
-                    responseData.message;
+                body: xmlData,
+                agent: new https.Agent({
+                    rejectUnauthorized: false,
+                }),
+                timeout: cashinTimeOutMs,
+            });
+            if (response.ok) {
+                const responseXmlText = await response.text();
+                return new Promise((resolve, reject) => {
+                    const parser = new xml2js.Parser({
+                        explicitArray: false,
+                        ignoreAttrs: true,
+                    });
+                    parser.parseString(responseXmlText, (err, jsonData) => {
+                        var _a, _b;
+                        if (err) {
+                            return resolve({
+                                success: false,
+                                rawData: responseXmlText,
+                                error: err,
+                                referenceId: '',
+                            });
+                        }
+                        else {
+                            const responseBody = (_b = (_a = jsonData === null || jsonData === void 0 ? void 0 : jsonData['soap:Envelope']) === null || _a === void 0 ? void 0 : _a['soap:Body']) === null || _b === void 0 ? void 0 : _b['ns2:transferFloozResponse'];
+                            const responseData = (responseBody === null || responseBody === void 0 ? void 0 : responseBody.return) || {};
+                            const success = responseData.status === '0';
+                            if (success) {
+                                moov_bj_cash_in_api_manager_service_1.MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE_MESSAGE = moov_bj_cash_out_api_manager_service_1.MoovBjCashOutApiManagerService.MOOV_BJ_LAST_BALANCE_MESSAGE =
+                                    responseData.message;
+                            }
+                            return resolve({
+                                success: success,
+                                rawData: responseXmlText,
+                                referenceId: responseData.referenceid || '',
+                                message: responseData.message ||
+                                    MoovProvider.getErrorMessage(responseData.status),
+                            });
+                        }
+                    });
+                });
             }
-            return {
-                success,
-                data: response,
-                referenceId: responseData.transid,
-                message: MoovProvider.getErrorMessage(responseData.status),
-            };
+            else {
+                const errorData = await response.text();
+                throw new Error('Failed to send cash flooz. Status: ' +
+                    response.status +
+                    '\nError Body: ' +
+                    errorData);
+            }
         }
         catch (error) {
-            console.error('SOAP request failed:', error);
             return {
                 success: false,
-                data: error.message,
-                message: MoovProvider.getErrorMessage(''),
+                rawData: null,
+                error: error.message,
             };
         }
     }
@@ -123,34 +140,8 @@ class MoovProvider {
             transactionId: (_o = (_m = params.transaction) === null || _m === void 0 ? void 0 : _m.transactionId) !== null && _o !== void 0 ? _o : null,
         };
         try {
-            const url = process.env.MOOV_BJ_WSDL_API_URL;
-            const clientPromise = soap.createClientAsync(url, clientOption);
-            const requestParams = {
-                token: MoovProvider.getAuthToken(),
-                request: {
-                    transid: params.transaction.transactionId.toString(),
-                },
-            };
-            const timeoutPromise = new Promise((_, reject) => {
-                setTimeout(() => {
-                    reject(new Error('Timeout after 3000 ms'));
-                }, checkTimeOutMs);
-            });
-            const client = (await Promise.race([
-                clientPromise,
-                timeoutPromise,
-            ]));
-            const soapCallPromise = client.getTransactionStatusAsync(requestParams);
-            const soapCallTimeoutPromise = new Promise((_, reject) => {
-                setTimeout(() => {
-                    reject(new Error('SOAP call timeout after 3000 ms'));
-                }, checkTimeOutMs);
-            });
-            const response = await Promise.race([
-                soapCallPromise,
-                soapCallTimeoutPromise,
-            ]);
-            const responseData = (response === null || response === void 0 ? void 0 : response[0].response) || {};
+            const response = await MoovProvider._checkTransactionById(params.transaction.transactionId.toString());
+            const responseData = (response === null || response === void 0 ? void 0 : response.response) || {};
             if (responseData.status === '0' &&
                 responseData.description === 'SUCCESS') {
                 params.transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
@@ -188,75 +179,111 @@ class MoovProvider {
             }, baseResponse);
         }
     }
-    static async makeCheckout(params) {
+    static async makeCheckout(phone, amount, referenceid, message) {
         try {
             const url = process.env.MOOV_BJ_WSDL_API_URL;
-            const createClientPromise = soap.createClientAsync(url, clientOption);
-            const clientCreationTimeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Client creation timed out')), cashOutTimeOutMs + 5000));
-            const client = await Promise.race([
-                createClientPromise,
-                clientCreationTimeout,
-            ]);
-            const requestParams = {
-                token: MoovProvider.getAuthToken(),
-                msisdn: params.phone,
-                message: params.payerMessage,
-                amount: params.amount,
-                externaldata1: params.externalId,
-                externaldata2: params.externalId,
-                fee: 0,
-            };
-            const responsePromise = client.PushWithPendingAsync(requestParams);
-            const pendingMessage = api_manager_interface_service_1.MANAGER_INIT_CASH_OUT_SUCCESS_MESSAGE;
-            const timeoutPromise = new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    resolve(new Error(pendingMessage));
-                }, cashOutTimeOutMs);
+            const token = MoovProvider.getAuthToken();
+            const xmlData = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+      <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+        <SOAP-ENV:Header/>
+        <S:Body>
+          <ns2:PushWithPending xmlns:ns2="http://api.merchant.tlc.com/">
+            <token>${token}</token>
+            <msisdn>${phone}</msisdn>
+            <message>${message}</message>
+            <amount>${amount}</amount>
+            <externaldata1>${referenceid}</externaldata1>
+            <externaldata2>${referenceid}</externaldata2>
+            <fee>0</fee>
+          </ns2:PushWithPending>
+        </S:Body>
+      </S:Envelope>`;
+            const response = await node_fetch_1.default(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/xml',
+                },
+                body: xmlData,
+                agent: new https.Agent({
+                    rejectUnauthorized: false,
+                }),
+                timeout: cashOutTimeOutMs,
             });
-            const response = await Promise.race([responsePromise, timeoutPromise]);
-            if (response instanceof Error && response.message === pendingMessage) {
-                return {
-                    success: !!'pending',
-                    data: {
-                        internalTimeout: true,
-                    },
-                    referenceId: '',
-                    message: pendingMessage,
-                };
+            if (response.ok) {
+                const responseXmlText = await response.text();
+                return new Promise((resolve, reject) => {
+                    const parser = new xml2js.Parser({
+                        explicitArray: false,
+                        ignoreAttrs: true,
+                    });
+                    parser.parseString(responseXmlText, (err, jsonData) => {
+                        var _a, _b;
+                        if (err) {
+                            return resolve({
+                                success: true,
+                                rawData: responseXmlText,
+                                error: err,
+                            });
+                        }
+                        else {
+                            const responseBody = (_b = (_a = jsonData === null || jsonData === void 0 ? void 0 : jsonData['soap:Envelope']) === null || _a === void 0 ? void 0 : _a['soap:Body']) === null || _b === void 0 ? void 0 : _b['ns2:PushWithPendingResponse'];
+                            const responseData = (responseBody === null || responseBody === void 0 ? void 0 : responseBody.result) || {};
+                            console.log('heree', responseBody);
+                            if (responseData.status === '0' &&
+                                responseData.description === 'SUCCESS') {
+                                return resolve({
+                                    success: !!'success',
+                                    rawData: responseXmlText,
+                                    referenceId: responseData.referenceid || '',
+                                    message: responseData.message ||
+                                        MoovProvider.getErrorMessage(responseData.status),
+                                });
+                            }
+                            else if (responseData.status === '100') {
+                                return resolve({
+                                    success: !!'pending',
+                                    rawData: responseXmlText,
+                                    referenceId: '',
+                                    message: responseData.message ||
+                                        MoovProvider.getErrorMessage(responseData.status),
+                                });
+                            }
+                            else {
+                                return resolve({
+                                    success: !'failed',
+                                    rawData: responseXmlText,
+                                    message: responseData.message ||
+                                        MoovProvider.getErrorMessage(responseData.status),
+                                });
+                            }
+                        }
+                    });
+                });
             }
-            const responseData = (response === null || response === void 0 ? void 0 : response[0].result) || {};
-            if (responseData.status === '0' &&
-                responseData.description === 'SUCCESS') {
-                return {
-                    success: !!'success',
-                    data: response,
-                    referenceId: responseData.referenceid,
-                    message: MoovProvider.getErrorMessage(responseData.status),
-                };
+            else {
+                const errorData = await response.text();
+                throw new Error('Failed to make checkout. Status: ' +
+                    response.status +
+                    '\nError Body: ' +
+                    errorData);
             }
-            else if (responseData.status === '100') {
+        }
+        catch (error) {
+            if (error.name === 'FetchError' &&
+                String(error.message).includes('timeout')) {
                 return {
-                    success: !!'pending',
-                    data: response,
-                    referenceId: '',
-                    message: MoovProvider.getErrorMessage(responseData.status),
+                    success: true,
+                    error: undefined,
+                    rawData: 'timeout pending',
                 };
             }
             else {
                 return {
-                    success: !'failed',
-                    data: response,
-                    message: MoovProvider.getErrorMessage(responseData.status),
+                    success: false,
+                    error: error.message,
+                    rawData: null,
                 };
             }
-        }
-        catch (error) {
-            console.error('SOAP request failed:', error);
-            return {
-                success: !'failed',
-                data: error.message,
-                message: MoovProvider.getErrorMessage(''),
-            };
         }
     }
     static getErrorMessage(statusCode) {
@@ -309,6 +336,8 @@ class MoovProvider {
                 return 'Identifiants invalides';
             case '98':
                 return "Erreur interne de l'interface";
+            case '101':
+                return 'Limite Depassé';
             case '99':
             case '-1':
                 return 'Erreur de connexion à la base de données';
@@ -316,6 +345,69 @@ class MoovProvider {
                 return "Le destinataire n'est pas enregistré sur Moov Money";
             default:
                 return api_manager_interface_service_1.MANAGER_INIT_UNKNOWN_MESSAGE;
+        }
+    }
+    static async _checkTransactionById(transid) {
+        try {
+            const url = process.env.MOOV_BJ_WSDL_API_URL;
+            const token = MoovProvider.getAuthToken();
+            const xmlData = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+      <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+        <SOAP-ENV:Header/>
+        <S:Body>
+          <ns2:getTransactionStatus xmlns:ns2="http://api.merchant.tlc.com/">
+            <token>${token}</token>
+           <request>
+              <transid>${transid}</transid>
+           </request>
+          </ns2:getTransactionStatus>
+        </S:Body>
+      </S:Envelope>`;
+            console.log(xmlData);
+            const response = await node_fetch_1.default(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/xml',
+                },
+                body: xmlData,
+                agent: new https.Agent({
+                    rejectUnauthorized: false,
+                }),
+                timeout: checkTimeOutMs,
+            });
+            if (response.ok) {
+                const responseXmlText = await response.text();
+                return new Promise((resolve, reject) => {
+                    const parser = new xml2js.Parser({
+                        explicitArray: false,
+                        ignoreAttrs: true,
+                    });
+                    parser.parseString(responseXmlText, (err, jsonData) => {
+                        var _a, _b;
+                        if (err) {
+                            return resolve({
+                                response: err,
+                            });
+                        }
+                        else {
+                            const responseBody = (_b = (_a = jsonData === null || jsonData === void 0 ? void 0 : jsonData['soap:Envelope']) === null || _a === void 0 ? void 0 : _a['soap:Body']) === null || _b === void 0 ? void 0 : _b['ns2:getTransactionStatusResponse'];
+                            return resolve(responseBody);
+                        }
+                    });
+                });
+            }
+            else {
+                const errorData = await response.text();
+                throw new Error('Failed to check transaction status. Status: ' +
+                    response.status +
+                    '\nError Body: ' +
+                    errorData);
+            }
+        }
+        catch (error) {
+            return {
+                response: error.message,
+            };
         }
     }
 }

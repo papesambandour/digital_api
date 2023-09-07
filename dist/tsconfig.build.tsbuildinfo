@@ -5912,17 +5912,17 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/moov-bj-cash-out-api-manager/moov-bj-cash-out-api-manager.service.ts": {
-        "version": "4a294bc0dbc715ebc462754d0308d52f68f8939967b462241e6f2b63ba0673f5",
+        "version": "89b1e2d7fb21121130aef1f19fbe8baefe3f35126b6b1774cdade74e97ae7377",
         "signature": "205a217fb17c7a6243915a0f1695c093e118dfaa276015888cc9f010b3d6bced",
         "affectsGlobalScope": false
       },
       "../src/sdk/moov/moovprovider.ts": {
-        "version": "5048713a69278ccf263d15926d9dcee437a8c352f47448de110dd2037e65177d",
-        "signature": "de8cf8f0a7a836f8d53865273088cee09f1f68708610488ca6f3e395d807e62a",
+        "version": "0b9a804f106ec6b218a8556eaa9d8d7c3e7a93fc6bbe877051a829fa0b1dc25d",
+        "signature": "2f704b5858bc52ec1c52fcaaa879880fd2f25e5cf5514337106117c16c6f2a3f",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service.ts": {
-        "version": "3f8736f0e0967d489ec5d44143364cae78b1f392daf3827a693f7430ab3d92ba",
+        "version": "87d33cdafe85182b310017500fc94b806131b2e40b1d687a9292d1016b8d3a6d",
         "signature": "50b6ac50960becd848e0e12909cd1f0ff724c5e4749187a3dbbfc56b1e07ccf6",
         "affectsGlobalScope": false
       },
@@ -11576,7 +11576,6 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service.ts",
         "../src/controllers/api-service/moov-bj-cash-out-api-manager/moov-bj-cash-out-api-manager.service.ts",
-        "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts",
         "../src/controllers/controller.ts",
         "../src/main.ts",
         "../src/models/entities/enum.entity.ts"

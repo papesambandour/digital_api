@@ -2,29 +2,22 @@ import { BalanceResponse, CheckParams, CheckResponse } from '../../Controllers/a
 import { MoovBjCashOutApiManagerService } from '../../Controllers/api-service/moov-bj-cash-out-api-manager/moov-bj-cash-out-api-manager.service';
 export declare class MoovProvider {
     static getAuthToken(): string;
-    static makeTransferTo(param: {
-        amount: number;
-        phone: string;
-        externalId: string;
-        payeeMessage: string;
-    }): Promise<{
+    static makeTransferTo(phone: any, amount: any, referenceid: any, message: any): Promise<{
         success: boolean;
-        data?: any;
-        referenceId?: string;
-        message?: string;
+        rawData?: any;
+        error?: any;
+        message?: any;
+        referenceId?: any;
     }>;
     static getBalance(message: string): Promise<BalanceResponse>;
     static checkTransaction(params: CheckParams, apiManagerService: MoovBjCashOutApiManagerService): Promise<CheckResponse>;
-    static makeCheckout(params: {
-        amount: number;
-        phone: string;
-        externalId: string;
-        payerMessage: string;
-    }): Promise<{
+    static makeCheckout(phone: any, amount: any, referenceid: any, message: any): Promise<{
         success: boolean;
-        data?: any;
+        rawData?: any;
+        error?: any;
         referenceId?: string;
         message?: string;
     }>;
     private static getErrorMessage;
+    static _checkTransactionById(transid: any): Promise<any>;
 }

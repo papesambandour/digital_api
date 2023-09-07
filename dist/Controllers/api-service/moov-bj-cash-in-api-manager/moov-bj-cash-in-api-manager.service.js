@@ -38,12 +38,8 @@ class MoovBjCashInApiManagerService extends api_manager_interface_service_1.ApiM
         }
         const transaction = await this.createTransaction(api);
         const partner = await Parteners_entity_1.Parteners.findOne(transaction.partenersId);
-        const response = await MoovProvider_1.MoovProvider.makeTransferTo({
-            phone: `229${params.dto.phone}`,
-            amount: transaction.amount,
-            externalId: transaction.transactionId.toString(),
-            payeeMessage: `Reception de ${transaction.amount} CFA par ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
-        });
+        const message = `Reception de ${transaction.amount} CFA par ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`;
+        const response = await MoovProvider_1.MoovProvider.makeTransferTo(`229${params.dto.phone}`, transaction.amount, transaction.transactionId.toString(), message);
         const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
         console.log(response, 'sttaus', statues);
         transaction.statut = statues['status'];
