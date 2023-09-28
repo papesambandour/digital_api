@@ -4727,7 +4727,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "8d510fbbdea364ccd05ee77dc5d5a907eeefef65c5942a75d0531812e51e3852",
+        "version": "2f0e05cdeab33619fd1dad15961531afd70bce5c572ee875553bb58f417a0a22",
         "signature": "b4f4ff55ff0aa9a83c8790aff2b8121ae26842b45b15a52e3073b8ba9554d02a",
         "affectsGlobalScope": false
       },
@@ -5917,7 +5917,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/moov/moovprovider.ts": {
-        "version": "0b9a804f106ec6b218a8556eaa9d8d7c3e7a93fc6bbe877051a829fa0b1dc25d",
+        "version": "4ad5cfc54e73d960787424e44b1316d70cbd473999b79d790f5f18db04b10a36",
         "signature": "2f704b5858bc52ec1c52fcaaa879880fd2f25e5cf5514337106117c16c6f2a3f",
         "affectsGlobalScope": false
       },

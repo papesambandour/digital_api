@@ -99,7 +99,7 @@ class MoovProvider {
             return {
                 success: false,
                 rawData: null,
-                error: error.message,
+                error: error.message || null,
             };
         }
     }
@@ -273,14 +273,14 @@ class MoovProvider {
                 String(error.message).includes('timeout')) {
                 return {
                     success: true,
-                    error: undefined,
+                    error: null,
                     rawData: 'timeout pending',
                 };
             }
             else {
                 return {
                     success: false,
-                    error: error.message,
+                    error: error.message || null,
                     rawData: null,
                 };
             }
@@ -406,7 +406,7 @@ class MoovProvider {
         }
         catch (error) {
             return {
-                response: error.message,
+                response: error.message || null,
             };
         }
     }

@@ -224,7 +224,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             return this.response(this.CODE_HTTP.NOTFOUND, { externalTransactionId: 'Transaction partnaire non trouvé' }, '', true);
         }
         return this.response(this.CODE_HTTP.OK_OPERATION, {
-            transactionId: transaction.id,
+            transactionId: transaction.transactionId,
             createdAt: transaction.createdAt,
             updatedAt: transaction.updatedAt,
             externalTransactionId: transaction.externalTransactionId,
