@@ -7,7 +7,7 @@ const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 const Controller_1 = require("../../Controllers/Controller");
 class KPayProvider {
     static async getToken(type) {
-        const url = type === 'CASHOUT' || true
+        const url = type === 'CASHOUT'
             ? `${process.env.KPAY_CASHOUT_BASE_API_URL}/auth/token?clientId=${process.env.KPAY_CASHOUT_CLIENT_ID}&clientSecret=${process.env.KPAY_CASHOUT_CLIENT_SECRET}`
             : `${process.env.KPAY_CASHIN_BASE_API_URL}/auth/token?clientId=${process.env.KPAY_CASHIN_CLIENT_ID}&clientSecret=${process.env.KPAY_CASHIN_CLIENT_SECRET}`;
         const options = {
@@ -77,12 +77,20 @@ class KPayProvider {
         const authToken = await KPayProvider.getToken('CASHIN');
         const requestData = {
             sender: {
-                firstName: param.partnerName,
-                lastName: ' ',
+                city: 'Dakar',
+                address: 'Dakar',
+                idType: '',
+                idNo: '',
                 country: 'Senegal',
+                firstName: param.partnerName.split(' ')[0],
+                lastName: param.partnerName.split(' ')[1] || param.partnerName.split(' ')[0],
                 phone: '221338259080',
             },
             receiver: {
+                firstName: 'Client',
+                lastName: 'Intech',
+                city: 'Dakar',
+                address: 'Dakar',
                 country: 'Senegal',
                 phone: '221' + param.phone,
             },
@@ -106,7 +114,7 @@ class KPayProvider {
         try {
             const response = await rp(options);
             console.log('resonse', response);
-            response.success = !!response.transactionId;
+            response.success = response.status === 'succeeded';
             return response;
         }
         catch (error) {
@@ -194,9 +202,15 @@ class KPayProvider {
     }
     static async refundTransaction(params, mode) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t;
-        const url = `${process.env.KPAY_CASHOUT_BASE_API_URL}/${mode === 'payment' ? 'payment/refund_payment' : 'transaction/refund'}?correlation_reference=${params.transaction.transactionId}`;
-        console.log(url);
-        const authToken = await KPayProvider.getToken('CASHOUT');
+        let url;
+        if (mode === 'payment') {
+            url = `${process.env.KPAY_CASHOUT_BASE_API_URL}/payment/refund_payment?correlation_reference=${params.transaction.transactionId}`;
+        }
+        else {
+            url = `${process.env.KPAY_CASHIN_BASE_API_URL}/transaction/refund?correlationReference=${params.transaction.transactionId}`;
+        }
+        console.log(url, mode);
+        const authToken = await KPayProvider.getToken(mode === 'payment' ? 'CASHOUT' : 'CASHIN');
         const baseResponse = {
             phone: (_b = (_a = params.transaction) === null || _a === void 0 ? void 0 : _a.phone) !== null && _b !== void 0 ? _b : null,
             amount: (_e = (_d = (_c = params.transaction) === null || _c === void 0 ? void 0 : _c.amount) === null || _d === void 0 ? void 0 : _d.toString()) !== null && _e !== void 0 ? _e : null,

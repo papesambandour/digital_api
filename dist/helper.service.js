@@ -43,6 +43,37 @@ let HelperService = class HelperService {
         this.connection = connection;
         this.httpService = httpService;
     }
+    async refund(refundDtoIn, typeId, partnerAccount = null) {
+        const transaction = typeId === 'admin'
+            ? await this.getTransactionById(refundDtoIn.transactionId, [])
+            : await Transactions_entity_1.Transactions.findOne({
+                where: {
+                    transactionId: typeorm_2.Equal(refundDtoIn.transactionId),
+                    partenerComptesId: partnerAccount.id,
+                },
+                relations: ['sousServices'],
+            });
+        const canRefund = await this.canRefundOperation(transaction);
+        if (!canRefund.allow) {
+            return {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: canRefund.message,
+            };
+        }
+        const apiManager = (await this.getApiManagerInterface(transaction.codeSousService, null));
+        const refund = await apiManager.refundTransaction({
+            transaction: transaction,
+        });
+        transaction.refundResponse = main_1.serializeData(refund);
+        await transaction.save();
+        if (refund.status === Enum_entity_1.StatusEnum.SUCCESS) {
+            await this.handleTransactionRefundSuccess(transaction);
+        }
+        return {
+            status: refund.status,
+            message: refund.partnerMessage,
+        };
+    }
     async notifyAdmin(message, typeEvent, data = {}, isCritic = false, channelName = undefined) {
         console.log(`CONTACTA ADMIN TO ${message} for EVENT: ${typeEvent}. Data:`, data, isCritic);
         if (parseInt(process.env.SEND_NOTIFY) === 1) {

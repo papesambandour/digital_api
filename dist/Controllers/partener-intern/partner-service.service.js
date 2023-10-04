@@ -26,27 +26,7 @@ let PartnerServiceService = class PartnerServiceService {
         this.httpService = httpService;
     }
     async refund(refundDtoIn) {
-        const transaction = await this.helper.getTransactionById(refundDtoIn.transactionId, []);
-        const canRefund = await this.helper.canRefundOperation(transaction);
-        if (!canRefund.allow) {
-            return {
-                status: Enum_entity_1.StatusEnum.FAILLED,
-                message: canRefund.message,
-            };
-        }
-        const apiManager = (await this.helper.getApiManagerInterface(transaction.codeSousService, null));
-        const refund = await apiManager.refundTransaction({
-            transaction: transaction,
-        });
-        transaction.refundResponse = main_1.serializeData(refund);
-        await transaction.save();
-        if (refund.status === Enum_entity_1.StatusEnum.SUCCESS) {
-            await this.helper.handleTransactionRefundSuccess(transaction);
-        }
-        return {
-            status: refund.status,
-            message: refund.partnerMessage,
-        };
+        return this.helper.refund(refundDtoIn, 'admin');
     }
     async importBankTransfer(importBankTransferBulkDto) {
         const outResult = [];

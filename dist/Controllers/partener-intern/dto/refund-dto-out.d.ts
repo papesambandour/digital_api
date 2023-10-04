@@ -1,6 +1,7 @@
 import { StatusEnum } from '../../../Models/Entities/Enum.entity';
 export declare class RefundDtoIn {
-    transactionId: number;
+    transactionId: number | string;
+    apiKey: string;
 }
 export declare class RefundDtoOut {
     status: StatusEnum;

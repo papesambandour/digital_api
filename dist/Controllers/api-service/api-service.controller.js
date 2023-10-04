@@ -51,6 +51,7 @@ const FreeCallback_1 = require("./dto/FreeCallback");
 const process = require("process");
 const MtnBjCallback_1 = require("./dto/MtnBjCallback");
 const MtnApiProvider_1 = require("../../sdk/Mtn/MtnApiProvider");
+const refund_dto_out_1 = require("../partener-intern/dto/refund-dto-out");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService, helper) {
         super();
@@ -236,6 +237,33 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                 }
                 : null,
         });
+    }
+    async refund(refundDtoIn) {
+        const partnerAccount = await PartenerComptes_entity_1.PartenerComptes.findOne({
+            where: {
+                appKey: typeorm_1.Equal(refundDtoIn.apiKey),
+                state: 'ACTIVED',
+            },
+            relations: ['parteners'],
+        });
+        if (!partnerAccount) {
+            return this.response(this.CODE_HTTP.OPERATION_AUTH_NEED, { secreteKey: 'Invalide secrete key' }, '', true);
+        }
+        const refund = await this.helper.refund(refundDtoIn, 'partner', partnerAccount);
+        if (refund.status === Enum_entity_1.StatusEnum.SUCCESS) {
+            return {
+                status: undefined,
+                message: refund.message,
+                statutTreatment: 'SUCCESS',
+            };
+        }
+        else {
+            return {
+                status: undefined,
+                message: refund.message,
+                statutTreatment: 'FAILED',
+            };
+        }
     }
     async newClaim(newClaimInDtoIn) {
         const partnerAccount = await PartenerComptes_entity_1.PartenerComptes.findOne({
@@ -622,6 +650,15 @@ __decorate([
     __metadata("design:paramtypes", [Object, DtoGetTransactionStatus_1.DtoGetTransactionStatusIn]),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "getTransactionStatus", null);
+__decorate([
+    common_1.Post('transaction/refund-cancel'),
+    ResponseDecorateur_1.ResponseDecorateur(refund_dto_out_1.RefundDtoOut, 201, 'Home service partner intern '),
+    ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [refund_dto_out_1.RefundDtoIn]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "refund", null);
 __decorate([
     common_1.Post('new-claim'),
     ResponseDecorateur_1.ResponseDecorateur(NewClaim_1.NewClaimInDtoOut, 200, '', false),

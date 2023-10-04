@@ -7,9 +7,11 @@ import { ApiManagerInterface } from './Controllers/api-service/api-manager-inter
 import { SousServices } from './Models/Entities/SousServices.entity';
 import { ApiServiceService } from './Controllers/api-service/api-service.service';
 import { OperationInDto } from './Controllers/api-service/dto/OperationInDto';
+import { PartenerComptes } from './Models/Entities/PartenerComptes.entity';
 import { ErrorTypes } from './Models/Entities/ErrorTypes.entity';
 import { ColumnMetadata } from 'typeorm/metadata/ColumnMetadata';
 import { Claim } from './Models/Entities/Claim.entity';
+import { RefundDtoIn, RefundDtoOut } from './Controllers/partener-intern/dto/refund-dto-out';
 export declare type Rib = {
     bankCode: RibItem;
     ribKey: RibItem;
@@ -25,6 +27,7 @@ export declare class HelperService {
     private readonly connection;
     private httpService;
     constructor(connection: Connection, httpService: HttpService);
+    refund(refundDtoIn: RefundDtoIn, typeId: 'partner' | 'admin', partnerAccount?: PartenerComptes): Promise<RefundDtoOut>;
     notifyAdmin(message: string, typeEvent: TypeEvenEnum, data?: {}, isCritic?: boolean, channelName?: any): Promise<void>;
     setSoldeTableOnly(value: number, tableName: string, id: number, field: string): Promise<any>;
     setSoldeTableFromValue(value: number, tableName: string, id: number, field: string): Promise<any>;

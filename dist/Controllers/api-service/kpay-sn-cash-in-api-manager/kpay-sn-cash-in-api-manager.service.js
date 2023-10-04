@@ -49,7 +49,7 @@ class KPaySnCashInApiManagerService extends api_manager_interface_service_1.ApiM
         const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
-        transaction.sousServiceTransactionId = response.transactionId;
+        transaction.sousServiceTransactionId = response.kpayReference;
         await transaction.save();
         await this.helper.setIsCallbackReadyValue(transaction, 5000);
         this.helper.updateApiBalance(this, transaction.phonesId).then();

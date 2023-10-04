@@ -16,7 +16,7 @@ class RefundDtoIn {
 }
 __decorate([
     swagger_1.ApiProperty(),
-    __metadata("design:type", Number)
+    __metadata("design:type", Object)
 ], RefundDtoIn.prototype, "transactionId", void 0);
 exports.RefundDtoIn = RefundDtoIn;
 class RefundDtoOut {

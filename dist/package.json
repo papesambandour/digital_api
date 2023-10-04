@@ -63,7 +63,7 @@
     "socket.io-redis": "^6.1.0",
     "swagger-ui-express": "^4.1.6",
     "typeorm": "^0.2.32",
-    "whatsapp-web.js": "^1.22.1",
+    "whatsapp-web.js": "1.22.1",
     "xml2js": "^0.6.2"
   },
   "devDependencies": {

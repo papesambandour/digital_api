@@ -8,6 +8,7 @@ import { DtoGetTransactionStatusIn } from '../../Models/Dto/DtoGetTransactionSta
 import { ConfirmKPayDto } from './dto/ConfirmKPay';
 import { FreeCallbackData } from './dto/FreeCallback';
 import { MtnBjCallbackData } from './dto/MtnBjCallback';
+import { RefundDtoIn } from '../partener-intern/dto/refund-dto-out';
 export declare class ApiServiceController extends ControllerBase {
     private readonly apiServiceService;
     private readonly helper;
@@ -47,6 +48,16 @@ export declare class ApiServiceController extends ControllerBase {
         msg: any;
         error: boolean;
         data: object;
+    }>;
+    refund(refundDtoIn: RefundDtoIn): Promise<{
+        code: number;
+        msg: any;
+        error: boolean;
+        data: object;
+    } | {
+        status: any;
+        message: string;
+        statutTreatment: string;
     }>;
     newClaim(newClaimInDtoIn: NewClaimInDtoIn): Promise<{
         code: number;

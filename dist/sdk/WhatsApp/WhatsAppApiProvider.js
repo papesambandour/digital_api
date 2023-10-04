@@ -29,7 +29,7 @@ class WhatsAppApiProvider {
             takeoverOnConflict: true,
             authStrategy: new whatsapp_web_js_1.LocalAuth({
                 dataPath: `${process.env.WHATSAPP_DATA_PATH}`,
-                clientId: 'v2',
+                clientId: 'vv2',
             }),
             puppeteer: {
                 headless: true,
