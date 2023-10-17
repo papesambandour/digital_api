@@ -46,7 +46,7 @@ let ServiceDailyBalanceAlertService = ServiceDailyBalanceAlertService_1 = class 
             });
             const balance = phone.reduce((acc, cur) => acc + cur.solde, 0);
             const balanceApi = phone.reduce((acc, cur) => acc + cur.soldeApi, 0);
-            output += `${service.name}: Système(${this.helper.formatMoney(balance)} CFA) / Reél(${this.helper.formatMoney(balanceApi)} CFA)\n\n\n`;
+            output += `${service.name}: Système(${this.helper.formatMoney(balance)} CFA) / Reél(${this.helper.formatMoney(balanceApi)} CFA)\n`;
         }
         this.helper.notifyAdmin(output, Enum_entity_1.TypeEvenEnum.SOLDE_SERVICE).then();
         const tos = this.helper.getBalanceAlertTo();

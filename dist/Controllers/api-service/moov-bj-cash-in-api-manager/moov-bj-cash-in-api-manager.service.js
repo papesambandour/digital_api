@@ -83,4 +83,5 @@ class MoovBjCashInApiManagerService extends api_manager_interface_service_1.ApiM
 }
 exports.MoovBjCashInApiManagerService = MoovBjCashInApiManagerService;
 MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE_MESSAGE = '';
+MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE = undefined;
 //# sourceMappingURL=moov-bj-cash-in-api-manager.service.js.map

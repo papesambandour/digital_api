@@ -4857,12 +4857,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts": {
-        "version": "5845121b0052de9bfd8e52b45639f46485b65861ee4e3eefdafd0cc287cad2a1",
+        "version": "a12c0f02c708287a919ca646bf2f7a5220f958b9e2c4b10045a86d5b8cac5e78",
         "signature": "f10a38bc5efaf303d679ffc97fda78b9a72bc181165c04d6e8faed553edd693a",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/daily-partner-balance-alert/daily-partner-balance-alert.service.ts": {
-        "version": "30428adc93a08b7fa430bbd79da3d9514cf68b6b8ea814d1b2967f692f78999d",
+        "version": "b00ede9d7f813e80cc268d08ca1041f486a47c29f563985108c6dfbf9f905b54",
         "signature": "e8df65f0cff0747ea587df42f8daa6a8782e90fe470ac601d0f78a8c9bd671e1",
         "affectsGlobalScope": false
       },
@@ -5912,18 +5912,18 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/moov-bj-cash-out-api-manager/moov-bj-cash-out-api-manager.service.ts": {
-        "version": "89b1e2d7fb21121130aef1f19fbe8baefe3f35126b6b1774cdade74e97ae7377",
-        "signature": "205a217fb17c7a6243915a0f1695c093e118dfaa276015888cc9f010b3d6bced",
+        "version": "2a215401170ea30c9e0d7597c53e5de2f48d1282e1c5400409a4769aefcbb5bf",
+        "signature": "14202ba747e13d0101b28f9c6fa829ea4d24092dc1a4197cec182f831ac19b54",
         "affectsGlobalScope": false
       },
       "../src/sdk/moov/moovprovider.ts": {
-        "version": "4ad5cfc54e73d960787424e44b1316d70cbd473999b79d790f5f18db04b10a36",
+        "version": "6ff9df343788e89ae95c99d2c9085b0360063e97651fb3255af661fedeba49e6",
         "signature": "2f704b5858bc52ec1c52fcaaa879880fd2f25e5cf5514337106117c16c6f2a3f",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service.ts": {
-        "version": "87d33cdafe85182b310017500fc94b806131b2e40b1d687a9292d1016b8d3a6d",
-        "signature": "50b6ac50960becd848e0e12909cd1f0ff724c5e4749187a3dbbfc56b1e07ccf6",
+        "version": "448354f40015dcd380bd6df4350fc215e8fab883a0fef141f0f570acc3b19b12",
+        "signature": "68592c42a9a7fc4333eb836a8d87894f037546500fa695f6164d4226dfabddd6",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": {
@@ -6047,7 +6047,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "42dca8c982c3c3aa04d67d625e36255163da8349fa99b34ac8115828e2c9d20f",
+        "version": "5365500abf20f66b2c0692bfcd5045961fa16458ac36c56310a272718db3bb3b",
         "signature": "7e4b4b22d3db0822c83760e402377e604c62dde07562ad23758c41714ee22fd6",
         "affectsGlobalScope": false
       },

@@ -75,6 +75,9 @@ class MoovProvider {
                             if (success) {
                                 moov_bj_cash_in_api_manager_service_1.MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE_MESSAGE = moov_bj_cash_out_api_manager_service_1.MoovBjCashOutApiManagerService.MOOV_BJ_LAST_BALANCE_MESSAGE =
                                     responseData.message;
+                                if (Number.isFinite(parseFloat(responseData.senderbalanceafter))) {
+                                    moov_bj_cash_in_api_manager_service_1.MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE = moov_bj_cash_out_api_manager_service_1.MoovBjCashOutApiManagerService.MOOV_BJ_LAST_BALANCE = parseFloat(responseData.senderbalanceafter);
+                                }
                             }
                             return resolve({
                                 success: success,
@@ -105,24 +108,24 @@ class MoovProvider {
     }
     static async getBalance(message) {
         try {
-            const regex = /Votre nouveau solde ([^ ]+) FCFA/i;
+            const regex = /Votre nouveau solde Flooz est de ([\d.,]+) FCFA/i;
             const match = message.match(regex);
             if (match && match[1]) {
-                const balanceAmount = parseFloat(match[1].replace(',', ''));
+                const balanceAmount = parseFloat(match[1].replace(',', '').replace('.', ''));
                 return {
-                    success: Number.isFinite(balanceAmount),
+                    success: !isNaN(balanceAmount),
                     newBalance: balanceAmount,
                 };
             }
             else {
                 return {
-                    success: false,
-                    newBalance: null,
+                    success: !isNaN(moov_bj_cash_in_api_manager_service_1.MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE),
+                    newBalance: moov_bj_cash_in_api_manager_service_1.MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE,
                 };
             }
         }
         catch (e) {
-            console.log(e, 'fetch baalnce moov');
+            console.log(e, 'fetch balance moov');
             return {
                 success: false,
                 newBalance: null,

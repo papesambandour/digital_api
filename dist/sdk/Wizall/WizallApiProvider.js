@@ -11,7 +11,7 @@ const rpMaker = (wizallInstance) => (option) => new Promise((resolve, reject) =>
     _rp(option)
         .then(resolve)
         .catch((error) => {
-        if (error.status === 401) {
+        if (error.status === 401 || error.status === 400) {
             wizallInstance.loadToken().then(() => {
                 return wizallInstance.rp(option).then(resolve).catch(reject);
             });

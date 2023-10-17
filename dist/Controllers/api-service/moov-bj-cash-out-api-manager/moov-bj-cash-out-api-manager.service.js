@@ -79,4 +79,5 @@ saisir votre code secret pour confirmer ou tapez 0 pour annuler.`;
 }
 exports.MoovBjCashOutApiManagerService = MoovBjCashOutApiManagerService;
 MoovBjCashOutApiManagerService.MOOV_BJ_LAST_BALANCE_MESSAGE = '';
+MoovBjCashOutApiManagerService.MOOV_BJ_LAST_BALANCE = undefined;
 //# sourceMappingURL=moov-bj-cash-out-api-manager.service.js.map
