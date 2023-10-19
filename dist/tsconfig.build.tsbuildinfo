@@ -5762,7 +5762,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/orange/providerorangemoneyapi.ts": {
-        "version": "e99bb1bbcc2185a45d6666c3f87fac780bcfef48cd15ca67cace9aed14b7d0d6",
+        "version": "6f2f73d113088dc93179866d1e3fa500da3b9e4c528c41d2f33a28478480af17",
         "signature": "609e601977f558a9e0d51589d86808a3eb9c25c02eec247b4453aa81a4cf2a9c",
         "affectsGlobalScope": false
       },
