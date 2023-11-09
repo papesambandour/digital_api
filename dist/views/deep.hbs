@@ -132,7 +132,10 @@
     <script>
         window.cleanTimeOut = null;
         function clicked(a) {
-            //cleanTimeOut(window.cleanTimeOut);
+          {{#if isHttpLink}}
+            clearTimeout(window.cleanTimeOut);
+          {{/if}}
+
             a.disabled=true;
             a.text='En ouverture …';
             setTimeout(function () {
