@@ -114,7 +114,7 @@ let AppController = class AppController extends Controller_1.ControllerBase {
         return res.render('deep', {
             success: true,
             link,
-            isHttpLink: link.startsWith('https'),
+            isExternalHttpLink: link.startsWith('https://secure-3ds.intech.sn'),
             currentUrl: `https://api.intech.sn/deep/${transaction.transactionId}`,
             mName: transaction.sousServices.executeSmsSender || '',
             logo: transaction.sousServices.icon,

@@ -132,7 +132,7 @@
     <script>
         window.cleanTimeOut = null;
         function clicked(a) {
-          {{#if isHttpLink}}
+          {{#if isExternalHttpLink}}
             clearTimeout(window.cleanTimeOut);
           {{/if}}
 
