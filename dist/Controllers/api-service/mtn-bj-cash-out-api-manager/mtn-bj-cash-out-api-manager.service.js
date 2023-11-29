@@ -19,7 +19,14 @@ class MtnBjCashOutApiManagerService extends api_manager_interface_service_1.ApiM
     async getBalance(params) {
         console.log('geting balance');
         const collections = await MtnApiProvider_1.MtnApiProvider.getCollection(MtnBjCashOutApiManagerService.country);
-        return await MtnApiProvider_1.MtnApiProvider.getBalance(collections);
+        const remittances = await MtnApiProvider_1.MtnApiProvider.getRemittance(MtnBjCashOutApiManagerService.country);
+        const balanceCollection = await MtnApiProvider_1.MtnApiProvider.getBalance(collections);
+        const balanceRemittance = await MtnApiProvider_1.MtnApiProvider.getBalance(remittances);
+        return {
+            success: balanceCollection.success || balanceRemittance.success,
+            newBalance: (parseFloat(balanceCollection.newBalance) || 0) +
+                (parseFloat(balanceRemittance.newBalance) || 0),
+        };
     }
     async handleCallbackTransaction(params) {
         return await this.notImplementedYet(params);

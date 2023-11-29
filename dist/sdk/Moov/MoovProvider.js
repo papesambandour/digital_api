@@ -108,19 +108,16 @@ class MoovProvider {
     }
     static async getBalance(message) {
         try {
-            const regex = /Votre nouveau solde Flooz est de ([\d.,]+) FCFA/i;
-            const match = message.match(regex);
-            if (match && match[1]) {
-                const balanceAmount = parseFloat(match[1].replace(',', '').replace('.', ''));
+            if (Number.isFinite(moov_bj_cash_in_api_manager_service_1.MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE)) {
                 return {
-                    success: !isNaN(balanceAmount),
-                    newBalance: balanceAmount,
+                    success: true,
+                    newBalance: moov_bj_cash_in_api_manager_service_1.MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE,
                 };
             }
             else {
                 return {
-                    success: !isNaN(moov_bj_cash_in_api_manager_service_1.MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE),
-                    newBalance: moov_bj_cash_in_api_manager_service_1.MoovBjCashInApiManagerService.MOOV_BJ_LAST_BALANCE,
+                    success: false,
+                    newBalance: null,
                 };
             }
         }
@@ -149,7 +146,7 @@ class MoovProvider {
                 responseData.description === 'SUCCESS') {
                 params.transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
                 params.transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
-                params.transaction.sousServiceTransactionId = responseData.transid;
+                params.transaction.sousServiceTransactionId = responseData.referenceid;
                 params.transaction.needCheckTransaction = 0;
                 params.transaction.checkTransactionResponse = main_1.serializeData(response);
                 await params.transaction.save();

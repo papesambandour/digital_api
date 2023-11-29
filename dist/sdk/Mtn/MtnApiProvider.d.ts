@@ -1,5 +1,5 @@
 import { ApiManagerInterface, CheckParams, CheckResponse } from '../../Controllers/api-service/api-manager-interface/api-manager-interface.service';
-export declare type MtnCountry = 'bj';
+export declare type MtnCountry = 'bj' | 'ci';
 export declare type MtnApiRessource = 'disbursement' | 'collection';
 export declare type MtnApiOperation = 'requesttopay' | 'transfer';
 export declare class MtnApiProvider {

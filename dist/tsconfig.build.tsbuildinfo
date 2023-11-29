@@ -4722,8 +4722,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/mtn/mtnapiprovider.ts": {
-        "version": "f692dcc114dd4d60f0d4560dde77d38047bcd50036cbb3f771b94e354869b552",
-        "signature": "f723c30f90a5fc346a40c509d9785fe8181ab0b9d3de8a3e08a1334c838d1aa1",
+        "version": "83cd0d14e464bcb5b1e6d92b753ba2209f7f390dd2c6fb646d78d1e808c38046",
+        "signature": "139e7b9664827fa5ffb62b8bb6fa727c05917154456ad7ba71138666313b564b",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/dto/refund-dto-out.ts": {
@@ -5912,27 +5912,27 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/moov-bj-cash-out-api-manager/moov-bj-cash-out-api-manager.service.ts": {
-        "version": "2a215401170ea30c9e0d7597c53e5de2f48d1282e1c5400409a4769aefcbb5bf",
+        "version": "84bc7ad55074ed49007f094b4339c6e2c904ba8b817bb055878f491b8dece995",
         "signature": "14202ba747e13d0101b28f9c6fa829ea4d24092dc1a4197cec182f831ac19b54",
         "affectsGlobalScope": false
       },
       "../src/sdk/moov/moovprovider.ts": {
-        "version": "6ff9df343788e89ae95c99d2c9085b0360063e97651fb3255af661fedeba49e6",
+        "version": "cfcd8eee818e5a697d691968357552529516845ac960178d9144441985086c16",
         "signature": "2f704b5858bc52ec1c52fcaaa879880fd2f25e5cf5514337106117c16c6f2a3f",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service.ts": {
-        "version": "448354f40015dcd380bd6df4350fc215e8fab883a0fef141f0f570acc3b19b12",
+        "version": "5092f1fda5629eefab6daa7dcbb912b2ad989a9d19ce966b77d27771790d5785",
         "signature": "68592c42a9a7fc4333eb836a8d87894f037546500fa695f6164d4226dfabddd6",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": {
-        "version": "1601f501da770f18d00f03b80010a6305e7a7a3e75d72eb166bcea9057e3a2bb",
+        "version": "9b04f4d345ba91fa125cb9f24499f295d9aead63d8edda084947c5cfa6a27c0d",
         "signature": "37cf25cc9f2ba3d6f17542cdbb862f4d7154e660490adf82f73be8e42298edfb",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-out-api-manager/mtn-bj-cash-out-api-manager.service.ts": {
-        "version": "faeacd30bd435661fc34108b743228b9dfff8043189a0051a14590c10b1f7be1",
+        "version": "1ce28b11af2b9ebea59d1e92d8b1e44bd0dcb52ce005156d673ea8aa8f2d1469",
         "signature": "2c7180f87cfada70bdcf5b1ec483560c2ec3d58b9766df92eed8acb6bfd846d8",
         "affectsGlobalScope": false
       },

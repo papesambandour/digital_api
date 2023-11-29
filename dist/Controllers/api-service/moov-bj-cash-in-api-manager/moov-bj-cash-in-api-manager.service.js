@@ -70,7 +70,7 @@ class MoovBjCashInApiManagerService extends api_manager_interface_service_1.ApiM
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.UNKNOW_ERROR,
-                partnerMessage: response.message,
+                partnerMessage: 'Impossible de procéder au transfer: ' + response.message,
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,

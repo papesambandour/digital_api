@@ -66,7 +66,8 @@ saisir votre code secret pour confirmer ou tapez 0 pour annuler.`;
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 codeHttp: Controller_1.CODE_HTTP.UNKNOW_ERROR,
-                partnerMessage: 'Impossible de procéder au paiement ressayer plus tard',
+                partnerMessage: 'Impossible de procéder au paiement ressayer plus tard: ' +
+                    checkout.message,
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
