@@ -10,7 +10,7 @@ const main_1 = require("../../../main");
 const Parteners_entity_1 = require("../../../Models/Entities/Parteners.entity");
 class MtnBjCashInApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
-        const remittances = await MtnApiProvider_1.MtnApiProvider.getRemittance(MtnBjCashInApiManagerService.country);
+        const remittances = await MtnApiProvider_1.MtnApiProvider.getRemittance(this.constructor.country);
         return await MtnApiProvider_1.MtnApiProvider.checkOperationStatus(this, params, remittances);
     }
     async confirmTransaction(params) {
@@ -19,8 +19,8 @@ class MtnBjCashInApiManagerService extends api_manager_interface_service_1.ApiMa
     async getBalance(params) {
         console.log('geting balance');
         console.log('geting balance');
-        const remittances = await MtnApiProvider_1.MtnApiProvider.getRemittance(MtnBjCashInApiManagerService.country);
-        const collections = await MtnApiProvider_1.MtnApiProvider.getCollection(MtnBjCashInApiManagerService.country);
+        const remittances = await MtnApiProvider_1.MtnApiProvider.getRemittance(this.constructor.country);
+        const collections = await MtnApiProvider_1.MtnApiProvider.getCollection(this.constructor.country);
         const balanceRemittance = await MtnApiProvider_1.MtnApiProvider.getBalance(remittances);
         const balanceCollection = await MtnApiProvider_1.MtnApiProvider.getBalance(collections);
         return {
@@ -52,21 +52,22 @@ class MtnBjCashInApiManagerService extends api_manager_interface_service_1.ApiMa
         console.log('initing cashout');
         const transaction = await this.createTransaction(api);
         const partner = await Parteners_entity_1.Parteners.findOne(transaction.partenersId);
-        const remittances = await MtnApiProvider_1.MtnApiProvider.getRemittance(MtnBjCashInApiManagerService.country);
+        const remittances = await MtnApiProvider_1.MtnApiProvider.getRemittance(this.constructor.country);
         try {
             const transactionId = await remittances.transfer({
                 amount: transaction.amount,
-                currency: config_1.mtnApiConfig(MtnBjCashInApiManagerService.country).remittance
+                currency: config_1.mtnApiConfig(this.constructor.country).remittance
                     .currency,
                 externalId: transaction.transactionId.toString(),
                 payee: {
                     partyIdType: 'MSISDN',
-                    partyId: '229' + transaction.phone,
+                    partyId: this.apiService.sousServices.executeCountryCallCodeWithoutPlus +
+                        transaction.phone,
                 },
                 payerMessage: `Envoi de ${transaction.amount} CFA vers le numero ${transaction.phone} depuis ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
                 payeeNote: `Reception de ${transaction.amount} CFA par ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
-                callbackUrl: config_1.mtnApiConfig(MtnBjCashInApiManagerService.country)
-                    .collection.callback,
+                callbackUrl: config_1.mtnApiConfig(this.constructor.country).collection
+                    .callback,
             });
             const transactionInfo = await remittances.getTransaction(transactionId);
             console.log(transactionId, transactionInfo, 'heree');

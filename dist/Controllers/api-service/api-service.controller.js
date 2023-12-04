@@ -306,7 +306,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
         const correctIps = process.env.MTN_BJ_WHITELIST_IPS.split(';').filter((ip) => ip);
         this.helper
-            .notifyAdmin('New Mtn Money callback', Enum_entity_1.TypeEvenEnum.MTN_MONEY_BJ_CALLBACK, {
+            .notifyAdmin('New Mtn Money callback', Enum_entity_1.TypeEvenEnum.MTN_MONEY_CALLBACK, {
             mtnCallbackData: mtnCallbackData,
             correctIps,
             fromIp,
@@ -327,6 +327,8 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                 codeSousService: typeorm_1.In([
                     Enum_entity_1.SOUS_SERVICE_ENUM.MTN_BJ_API_CASH_IN,
                     Enum_entity_1.SOUS_SERVICE_ENUM.MTN_BJ_API_CASH_OUT,
+                    Enum_entity_1.SOUS_SERVICE_ENUM.MTN_CI_API_CASH_IN,
+                    Enum_entity_1.SOUS_SERVICE_ENUM.MTN_CI_API_CASH_OUT,
                 ]),
             },
             relations: ['sousServices'],

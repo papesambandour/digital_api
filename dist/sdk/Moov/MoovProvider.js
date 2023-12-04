@@ -339,6 +339,7 @@ class MoovProvider {
             case '101':
                 return 'Limite Depassé';
             case '99':
+                return 'Destinataire introuvabe';
             case '-1':
                 return 'Erreur de connexion à la base de données';
             case '555':

@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "2a70291cac16ce3324d0e499f854b1a9ade17563a34b972de44a1a139bb2c4f3",
-        "signature": "c6d173dfc8784c3ca40e0d01e6c3a9009dd07f5e2b017c9a45fda0d1800bf417",
+        "version": "9bc6890f5def1ea4d0981cb06ee615e5aed6b231e6984e307a5fafbc7a4cbb02",
+        "signature": "17bb545f59b9619f745248469ba379e0b96ec6ac2af4ea9268cf28444e1fb82d",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4717,12 +4717,12 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/mtn/config.ts": {
-        "version": "ed3c3f6deae04b0961515d3c02d72b595d18e8731dbe90482ecbe841d4a971eb",
+        "version": "3f1b8b2d764bc5da78794240f8569a3e5fe9da21ee2b7d5dc3b8963a22cd0c71",
         "signature": "b251017a85ff9d2e89d4cbe331c255a3ab9c78937754abba9fbc2d9fceb2c8a5",
         "affectsGlobalScope": false
       },
       "../src/sdk/mtn/mtnapiprovider.ts": {
-        "version": "83cd0d14e464bcb5b1e6d92b753ba2209f7f390dd2c6fb646d78d1e808c38046",
+        "version": "67499d74c0a1da49157e6eee9a1bceead9e017a77d1a5bcb8ffc01e6b68bcd19",
         "signature": "139e7b9664827fa5ffb62b8bb6fa727c05917154456ad7ba71138666313b564b",
         "affectsGlobalScope": false
       },
@@ -4732,7 +4732,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "89106816681a1b3f97c98d5af1cad5e9af550cd3f51d1384663f316aaaef686a",
+        "version": "92ae457f06f768f229e6004a25322ac250356dcc4743de71f196822f047f53a0",
         "signature": "f8aa7a3020b072f77a39740f53b4a7e552462d61d0a6b81f6eb0c75dcaa56ef6",
         "affectsGlobalScope": false
       },
@@ -5917,7 +5917,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/moov/moovprovider.ts": {
-        "version": "cfcd8eee818e5a697d691968357552529516845ac960178d9144441985086c16",
+        "version": "7b21b77e065d78aae1200906cdf70e401b173b02de238839fcba1ea8e883e7f3",
         "signature": "2f704b5858bc52ec1c52fcaaa879880fd2f25e5cf5514337106117c16c6f2a3f",
         "affectsGlobalScope": false
       },
@@ -5927,13 +5927,63 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts": {
-        "version": "9b04f4d345ba91fa125cb9f24499f295d9aead63d8edda084947c5cfa6a27c0d",
+        "version": "8745ca818afd50925198653271120f5380b946b15d4f081d0d32246f832411ff",
         "signature": "37cf25cc9f2ba3d6f17542cdbb862f4d7154e660490adf82f73be8e42298edfb",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-bj-cash-out-api-manager/mtn-bj-cash-out-api-manager.service.ts": {
-        "version": "1ce28b11af2b9ebea59d1e92d8b1e44bd0dcb52ce005156d673ea8aa8f2d1469",
+        "version": "f4a123ff32ff99612c6605ee6a5386dd3b149c92b666ef836cab1902c82f7469",
         "signature": "2c7180f87cfada70bdcf5b1ec483560c2ec3d58b9766df92eed8acb6bfd846d8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/constructor.d.ts": {
+        "version": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
+        "signature": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/clone-class.d.ts": {
+        "version": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
+        "signature": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/instance-to-class.d.ts": {
+        "version": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
+        "signature": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts": {
+        "version": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
+        "signature": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts": {
+        "version": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
+        "signature": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/version.d.ts": {
+        "version": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
+        "signature": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/config.d.ts": {
+        "version": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
+        "signature": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/mod.d.ts": {
+        "version": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
+        "signature": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/mtn-ci-cash-in-api-manager/mtn-ci-cash-in-api-manager.service.ts": {
+        "version": "14383048af08ded557beda1b3159a47d2d53850cf421219ea74fdb8df51d742f",
+        "signature": "4b6e5160abb5f41b56995f1efdcff74dfdc54b5d2b28f4218c10f784799ea087",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/mtn-ci-cash-out-api-manager/mtn-ci-cash-out-api-manager.service.ts": {
+        "version": "1372aec6746e177d782c8c2d88e7c9a7e007b06131868f3699d3b5e5aee458e1",
+        "signature": "bbf2fe9a6841e5b12994e8d914c5575443b94f5a0df65d93c3e11e609cda5962",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/oolusolar-sn-bill-reload-api-manager/oolusolar-sn-bill-reload-api-manager.service.ts": {
@@ -5979,46 +6029,6 @@
       "../src/controllers/api-service/uvs-sn-bill-payment-api-manager/uvs-sn-bill-payment-api-manager.service.ts": {
         "version": "a1c9ed682b2c31e243d932e9169c571863f9625bbc3e7dad15af0784ff422849",
         "signature": "86035eb2d2e3ba11cada6ee15e397a3044b74192e143932063936743ea60dbdb",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/constructor.d.ts": {
-        "version": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
-        "signature": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/clone-class.d.ts": {
-        "version": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
-        "signature": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/instance-to-class.d.ts": {
-        "version": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
-        "signature": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts": {
-        "version": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
-        "signature": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts": {
-        "version": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
-        "signature": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/version.d.ts": {
-        "version": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
-        "signature": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/config.d.ts": {
-        "version": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
-        "signature": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/mod.d.ts": {
-        "version": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
-        "signature": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": {
@@ -10889,6 +10899,14 @@
         "../src/sdk/mtn/config.ts",
         "../src/sdk/mtn/mtnapiprovider.ts",
         "../src/sdk/orange/providerorangemoneyapi.ts"
+      ],
+      "../src/controllers/api-service/mtn-ci-cash-in-api-manager/mtn-ci-cash-in-api-manager.service.ts": [
+        "../node_modules/clone-class/dist/esm/src/mod.d.ts",
+        "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts"
+      ],
+      "../src/controllers/api-service/mtn-ci-cash-out-api-manager/mtn-ci-cash-out-api-manager.service.ts": [
+        "../node_modules/clone-class/dist/esm/src/mod.d.ts",
+        "../src/controllers/api-service/mtn-bj-cash-out-api-manager/mtn-bj-cash-out-api-manager.service.ts"
       ],
       "../src/controllers/api-service/oolusolar-sn-bill-reload-api-manager/oolusolar-sn-bill-reload-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -15944,6 +15962,12 @@
       "../src/controllers/api-service/mtn-bj-cash-out-api-manager/mtn-bj-cash-out-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
+      ],
+      "../src/controllers/api-service/mtn-ci-cash-in-api-manager/mtn-ci-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/mtn-bj-cash-in-api-manager/mtn-bj-cash-in-api-manager.service.ts"
+      ],
+      "../src/controllers/api-service/mtn-ci-cash-out-api-manager/mtn-ci-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/mtn-bj-cash-out-api-manager/mtn-bj-cash-out-api-manager.service.ts"
       ],
       "../src/controllers/api-service/oolusolar-sn-bill-reload-api-manager/oolusolar-sn-bill-reload-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
