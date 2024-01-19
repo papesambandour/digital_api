@@ -39,7 +39,7 @@ class WizallMoneySnCashInApiManagerService extends api_manager_interface_service
         const response = await WizallApiProvider_1.default.getInstance('payment').makeCashin({
             amount: transaction.amount,
             phoneNumber: transaction.phone,
-            identifier: WizallApiProvider_1.default.getWizallExternalFromInternalId(transaction.id.toString(), 'cashin'),
+            identifier: WizallApiProvider_1.default.getWizallExternalFromInternalId(transaction.transactionId.toString(), 'cashin'),
         });
         const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
         console.log(response, 'sttaus', statues);

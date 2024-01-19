@@ -6017,7 +6017,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "3f70a88256210590e3af697f50c88ecb3945712787160a669c030014051a3aae",
+        "version": "8b069300799d71ad7124a4497e028aeb13260e7e4efd0fcbbfa5620929d06499",
         "signature": "c0015568569fbc027487e8e219d5e1eb22d21b7abdcef0d1efaaf8b351acabd0",
         "affectsGlobalScope": false
       },
@@ -6067,7 +6067,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wizall-money-sn-cash-in-api-manager/wizall-money-sn-cash-in-api-manager.service.ts": {
-        "version": "136164a526a196cb8148474888bacf607545949be2096795bcd7168698c786c0",
+        "version": "540bcd59bcc51be898951f174a034c1bd46dadd4d04e2da9b477c3f30733b535",
         "signature": "dec6efc789ff50c26d1970db0feb5284962e039ed6e55d2e63c9b53b3c9dbc2f",
         "affectsGlobalScope": false
       },
