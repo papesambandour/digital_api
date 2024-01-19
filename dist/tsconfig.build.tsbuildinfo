@@ -6012,7 +6012,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts": {
-        "version": "b3fc804eec6a0ee561b4d64eec67c7eb6206b4350421993c3f6697c9b9de5b76",
+        "version": "9ed3ae75def845bd0e52cb2420fc5b44aa1e4432554d6a73dc46cf9c32314074",
         "signature": "ec49566336f28f84a98d7b6af20a9db5667befcb2d8fc886bd7a1e02ced75827",
         "affectsGlobalScope": false
       },
