@@ -6017,7 +6017,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "c32918cb36160c33931a3635df67971c559829bfe8ff3408f4e014a20aef0419",
+        "version": "3f70a88256210590e3af697f50c88ecb3945712787160a669c030014051a3aae",
         "signature": "c0015568569fbc027487e8e219d5e1eb22d21b7abdcef0d1efaaf8b351acabd0",
         "affectsGlobalScope": false
       },

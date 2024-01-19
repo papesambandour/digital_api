@@ -629,7 +629,7 @@ class WizallApiProvider {
             callbackUrl: (_l = (_k = params.transaction) === null || _k === void 0 ? void 0 : _k.urlIpn) !== null && _l !== void 0 ? _l : null,
             transactionId: (_o = (_m = params.transaction) === null || _m === void 0 ? void 0 : _m.transactionId) !== null && _o !== void 0 ? _o : null,
         };
-        const checkout = await WizallApiProvider.getInstance('payment').verifyWizallTransaction(WizallApiProvider.getWizallExternalFromInternalId(params.transaction.id, 'payment'), {
+        const checkout = await WizallApiProvider.getInstance('payment').verifyWizallTransaction(WizallApiProvider.getWizallExternalFromInternalId(params.transaction.transactionId, 'payment'), {
             wizallAgentPhoneNumber: config_1.wizallApiConfig('payment')
                 .wizallAgentPhoneNumber,
             wizallAgentPin: config_1.wizallApiConfig('payment').wizallAgentPin,
