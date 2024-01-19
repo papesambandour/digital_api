@@ -6006,13 +6006,28 @@
         "signature": "4c5d9b3cc5fa359c5f491ae89e8451f9b85d36e1f64dd25f20f58ade0eea8541",
         "affectsGlobalScope": false
       },
+      "../src/sdk/wizall/config.ts": {
+        "version": "3f56c517931bd8c71ff1f3e633548bb6e6a18bf07b1aefbcd2c214649b007b25",
+        "signature": "b0aa09d99ceea41768ec860936a1921599747ed75f1e872e6f0a0a47a52c84cc",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts": {
+        "version": "b3fc804eec6a0ee561b4d64eec67c7eb6206b4350421993c3f6697c9b9de5b76",
+        "signature": "ec49566336f28f84a98d7b6af20a9db5667befcb2d8fc886bd7a1e02ced75827",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/wizall/wizallapiprovider.ts": {
+        "version": "c32918cb36160c33931a3635df67971c559829bfe8ff3408f4e014a20aef0419",
+        "signature": "c0015568569fbc027487e8e219d5e1eb22d21b7abdcef0d1efaaf8b351acabd0",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/seneau-sn-bill-payment-api-manager/seneau-sn-bill-payment-api-manager.service.ts": {
-        "version": "343e6bab9aaf3c2189aed62e73e143eba730de50e26701dc6951cd693b7bfc68",
+        "version": "841f98fc8259fd66dd55b2f13f148bcfa1e6eb727d4f6a5a1da0196d89347186",
         "signature": "02900d749208c489a8936b745377b02f4eff484c9bdd390089fdd59f798513af",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/senelec-sn-bill-payment-api-manager/senelec-sn-bill-payment-api-manager.service.ts": {
-        "version": "b5b94fed5b8a29a29e30338cfa9db7f0d66a60284f05eb01de1059817c5367c4",
+        "version": "90a51570033729b7ad062997aad272b507d15bae1547a38b2b5f5170b1ac0214",
         "signature": "d8122d06397dece910ded0cc2e317e90717b40bb8eab5c25aaa3fcf4e528e5a2",
         "affectsGlobalScope": false
       },
@@ -6051,19 +6066,9 @@
         "signature": "c99a88a98b055adf7c9ee059144d1f224ba086d64ea38cdd981bb6894727714b",
         "affectsGlobalScope": false
       },
-      "../src/sdk/wizall/config.ts": {
-        "version": "3f56c517931bd8c71ff1f3e633548bb6e6a18bf07b1aefbcd2c214649b007b25",
-        "signature": "b0aa09d99ceea41768ec860936a1921599747ed75f1e872e6f0a0a47a52c84cc",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "5365500abf20f66b2c0692bfcd5045961fa16458ac36c56310a272718db3bb3b",
-        "signature": "7e4b4b22d3db0822c83760e402377e604c62dde07562ad23758c41714ee22fd6",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts": {
-        "version": "b44a5d1ce118b7ba1256dd7a73ab9e84af9413b25527c9b2980cad34e8217ce8",
-        "signature": "ec49566336f28f84a98d7b6af20a9db5667befcb2d8fc886bd7a1e02ced75827",
+      "../src/controllers/api-service/wizall-money-sn-cash-in-api-manager/wizall-money-sn-cash-in-api-manager.service.ts": {
+        "version": "136164a526a196cb8148474888bacf607545949be2096795bcd7168698c786c0",
+        "signature": "dec6efc789ff50c26d1970db0feb5284962e039ed6e55d2e63c9b53b3c9dbc2f",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/woyofal-sn-bill-reload-api-manager/woyofal-sn-bill-reload-api-manager.service.ts": {
@@ -10961,8 +10966,8 @@
         "../src/controllers/controller.ts",
         "../src/main.ts",
         "../src/models/entities/enum.entity.ts",
-        "../src/sdk/wave/config.ts",
-        "../src/sdk/wave/waveapiprovider.ts"
+        "../src/sdk/wizall/config.ts",
+        "../src/sdk/wizall/wizallapiprovider.ts"
       ],
       "../src/controllers/api-service/senelec-sn-bill-payment-api-manager/senelec-sn-bill-payment-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -10970,7 +10975,9 @@
         "../src/main.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/sdk/wave/config.ts",
-        "../src/sdk/wave/waveapiprovider.ts"
+        "../src/sdk/wave/waveapiprovider.ts",
+        "../src/sdk/wizall/config.ts",
+        "../src/sdk/wizall/wizallapiprovider.ts"
       ],
       "../src/controllers/api-service/service-daily-balance-alert/service-daily-balance-alert.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -11059,6 +11066,13 @@
         "../src/main.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/sdk/whatsapp/whatsappapiprovider.ts"
+      ],
+      "../src/controllers/api-service/wizall-money-sn-cash-in-api-manager/wizall-money-sn-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/sdk/wizall/wizallapiprovider.ts"
       ],
       "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -16032,6 +16046,9 @@
         "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/controllers/api-service/whatsapp-message-send-api-manager/whatsapp-message-send-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/wizall-money-sn-cash-in-api-manager/wizall-money-sn-cash-in-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/controllers/api-service/wizall-money-sn-cash-out-api-manager/wizall-money-sn-cash-out-api-manager.service.ts": [

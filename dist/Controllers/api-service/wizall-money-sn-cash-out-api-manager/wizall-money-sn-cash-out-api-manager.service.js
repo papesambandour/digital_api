@@ -41,7 +41,7 @@ class WizallMoneySnCashOutApiManagerService extends api_manager_interface_servic
         const response = await wizallApi.makePayment({
             amount: transaction.amount,
             phoneNumber: transaction.phone,
-            identifier: WizallApiProvider_1.default.getWizallExternalFromInternalId(transaction.id.toString()),
+            identifier: WizallApiProvider_1.default.getWizallExternalFromInternalId(transaction.id.toString(), 'payment'),
         });
         response.success = (response === null || response === void 0 ? void 0 : response.Status) === 'PENDING';
         const statues = this.helper.getStatusAfterExec((response === null || response === void 0 ? void 0 : response.success) ? 'success' : 'failed', this.apiService.sousServices);

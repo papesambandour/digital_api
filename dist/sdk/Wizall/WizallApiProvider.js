@@ -7,16 +7,29 @@ const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
 const Controller_1 = require("../../Controllers/Controller");
 const main_1 = require("../../main");
 const AppSettings_entity_1 = require("../../Models/Entities/AppSettings.entity");
-const rpMaker = (wizallInstance) => (option) => new Promise((resolve, reject) => {
+const rpMaker = (wizallInstance, ignoreRetry = false) => (option) => new Promise((resolve, reject) => {
+    option['timeout'] = option['timeout'] || 30000;
     _rp(option)
         .then(resolve)
-        .catch((error) => {
-        if (error.status === 401 || error.status === 400) {
-            wizallInstance.loadToken().then(() => {
-                return wizallInstance.rp(option).then(resolve).catch(reject);
-            });
+        .catch(async (error) => {
+        if (String(error.message).includes('Unauthorized') &&
+            ignoreRetry === false) {
+            try {
+                console.log(error.message);
+                await wizallInstance.loadToken();
+                option['headers']['Authorization'] = `Bearer ${wizallInstance.token}`;
+                console.log('loaded ok', option, wizallInstance.token);
+                const result = await wizallInstance.rp(option, true);
+                console.log('pusing resole');
+                return resolve(result);
+            }
+            catch (e) {
+                console.log('reject e');
+                return reject(e);
+            }
         }
         else {
+            console.log('reject');
             return reject(error);
         }
     });
@@ -81,14 +94,16 @@ class WizallApiProvider {
                 country: 'sn',
             },
             json: true,
+            timeout: 10000,
         };
         try {
-            const data = await this.rp(option);
+            const data = await this.rp(option, true);
             let setting = await AppSettings_entity_1.AppSettings.findOne({
                 where: {
                     name: AppSettings_entity_1.APP_SETTING_WIZALL_TOKEN_NAME,
                 },
             });
+            this.token = data.access_token;
             if (setting) {
                 setting.value = data.access_token;
                 await setting.save();
@@ -131,10 +146,44 @@ class WizallApiProvider {
             return await this.rp(option);
         }
         catch (e) {
-            this.loadToken();
             console.log(e.message);
             return {
                 message: e.message,
+            };
+        }
+    }
+    async makeCashin({ amount, identifier, phoneNumber }) {
+        await this.waitForToken();
+        try {
+            const option = {
+                method: 'POST',
+                uri: `${this.wizallUrl}/api/agent/cashin/`,
+                json: true,
+                headers: {
+                    Authorization: `Bearer ${this.token}`,
+                },
+                body: {
+                    agent_msisdn: config_1.wizallApiConfig('payment').wizallAgentPhoneNumber,
+                    agent_pin: config_1.wizallApiConfig('payment').wizallAgentPin,
+                    amount: amount + '',
+                    external_id: identifier + '',
+                    msisdn: phoneNumber,
+                    country: 'sn',
+                },
+            };
+            console.log(option);
+            const response = await this.rp(option, false);
+            return {
+                success: !!response.transactionid,
+                reference: response.transactionid,
+                response,
+            };
+        }
+        catch (e) {
+            console.log(e.message);
+            return {
+                message: e.message,
+                success: false,
             };
         }
     }
@@ -156,7 +205,7 @@ class WizallApiProvider {
                 },
             };
             console.log(option);
-            const response = await this.rp(option);
+            const response = await this.rp(option, false);
             return {
                 success: true,
                 newBalance: response === null || response === void 0 ? void 0 : response.solde,
@@ -293,6 +342,7 @@ class WizallApiProvider {
         };
         const option = {
             method: 'POST',
+            timeout: 10000,
             uri: `${this.wizallUrl}/api/senelec/bill/get/`,
             json: true,
             headers: {
@@ -300,17 +350,202 @@ class WizallApiProvider {
             },
             body,
         };
-        return await this.rp(option);
+        console.log(option);
+        try {
+            console.log('start request');
+            const response = await this.rp(option);
+            console.log(response);
+            return {
+                success: Array.isArray(response),
+                message: `${response.length} en attente(s) non payée pour cette facture`,
+                pendingBills: response
+                    .filter((b) => !b.statuspayment)
+                    .map((b) => {
+                    return {
+                        amount: parseInt(b.total),
+                        billReference: b.numfacture,
+                        infos: [
+                            {
+                                label: 'Nom client',
+                                value: b.client || 'N/A',
+                            },
+                            {
+                                label: 'Montant de base',
+                                value: parseInt(b.montant),
+                            },
+                            {
+                                label: 'Frais',
+                                value: parseInt(b.frais),
+                            },
+                            {
+                                label: "Date d'échéance",
+                                value: b.dateecheance,
+                            },
+                        ],
+                        baseAmount: b.montant,
+                    };
+                }),
+            };
+        }
+        catch (e) {
+            console.log(e.message);
+            return {
+                success: false,
+                message: e.message,
+                pendingBills: [],
+            };
+        }
     }
-    async makeSenelecBillPay(police, amount, external_id, { wizallAgentPhoneNumber, wizallAgentPin }) {
+    async getSenEauBillPayment(reference_client, { wizallAgentPhoneNumber, wizallAgentPin }) {
         await this.waitForToken();
         const body = {
             agent_msisdn: wizallAgentPhoneNumber,
             agent_pin: wizallAgentPin,
+            reference_client,
+            country: 'SN',
+        };
+        const option = {
+            method: 'POST',
+            uri: `${this.wizallUrl}/api/sde/bill/get/`,
+            json: true,
+            headers: {
+                Authorization: `Bearer ${this.token}`,
+            },
+            body,
+            timeout: 10000,
+        };
+        console.log(option);
+        try {
+            const response = await this.rp(option);
+            console.log(response);
+            return {
+                success: Array.isArray(response),
+                message: `${response.length} en attente(s) non payée pour cette facture`,
+                pendingBills: response
+                    .filter((b) => !b.statuspayment)
+                    .map((b) => {
+                    return {
+                        amount: parseInt(b.total),
+                        billReference: b.reference_facture,
+                        infos: [
+                            {
+                                label: 'Nom client',
+                                value: `${b.prenom || 'N/A'}` + ' ' + `${b.nom || 'N/A'}`,
+                            },
+                            {
+                                label: 'Montant de base',
+                                value: parseInt(b.montant),
+                            },
+                            {
+                                label: 'Frais',
+                                value: parseInt(b.frais),
+                            },
+                            {
+                                label: "Date d'échéance",
+                                value: b.date_echeance,
+                            },
+                        ],
+                        baseAmount: b.montant,
+                    };
+                }),
+            };
+        }
+        catch (e) {
+            console.log(e.message);
+            if (String(e.message).includes('Aucune facture impayée')) {
+                return {
+                    success: true,
+                    message: 'Aucune facture impayée',
+                    pendingBills: [],
+                };
+            }
+            return {
+                success: false,
+                message: e.message,
+                pendingBills: [],
+            };
+        }
+    }
+    async confirmBillSenEau(reference_client, amount, reference_facture, { wizallAgentPhoneNumber, wizallAgentPin }) {
+        await this.waitForToken();
+        const pendingBills = await this.getSenEauBillPayment(reference_client, {
+            wizallAgentPhoneNumber,
+            wizallAgentPin,
+        });
+        const find = pendingBills.pendingBills.find((b) => b.billReference === reference_facture);
+        if (!find) {
+            return {
+                success: false,
+                message: 'La facture que vous essayer de payer est introuvable',
+            };
+        }
+        if (parseInt(find.amount) !== amount) {
+            return {
+                success: false,
+                message: `Le montant de la facture #${reference_facture} (${find.amount} CFA) est different du montant soumis (${amount} CFA)`,
+            };
+        }
+        const body = {
+            agent_msisdn: wizallAgentPhoneNumber,
+            agent_pin: wizallAgentPin,
             country: 'sn',
-            montant: amount,
+            montant: find.baseAmount,
+            reference_client,
+            reference_facture,
+        };
+        const option = {
+            method: 'POST',
+            uri: `${this.wizallUrl}/api/sde/bill/pay/`,
+            json: true,
+            headers: {
+                Authorization: `Bearer ${this.token}`,
+            },
+            body,
+        };
+        try {
+            console.log(option);
+            const response = await this.rp(option);
+            return {
+                success: (response === null || response === void 0 ? void 0 : response.statuspayment) === true,
+                response: response,
+                message: `La facture  SenEau #${reference_facture} du montant de ${amount} CFA a été payé avec succès"`,
+                paymentId: response.payment_transaction_number + '|' + response.transactionid,
+            };
+        }
+        catch (e) {
+            return {
+                success: false,
+                response: e.message,
+                message: 'Votre facture ne peut etre payee:  ' + e.message,
+            };
+        }
+    }
+    async confirmBillSenelec(police, amount, numfacture, { wizallAgentPhoneNumber, wizallAgentPin }) {
+        await this.waitForToken();
+        const pendingBills = await this.getSenelecBillPayment(police, {
+            wizallAgentPhoneNumber,
+            wizallAgentPin,
+        });
+        const find = pendingBills.pendingBills.find((b) => b.billReference === numfacture);
+        if (!find) {
+            return {
+                success: false,
+                message: 'La facture que vous essayer de payer est introuvable',
+            };
+        }
+        if (parseInt(find.amount) !== amount) {
+            return {
+                success: false,
+                message: `Le montant de la facture #${numfacture} (${find.amount} CFA) est different du montant soumis (${amount} CFA)`,
+            };
+        }
+        const body = {
+            agent_msisdn: wizallAgentPhoneNumber,
+            agent_pin: wizallAgentPin,
+            country: 'sn',
+            montant: find.baseAmount,
+            numfacture,
             police,
-            numfacture: external_id,
         };
         const option = {
             method: 'POST',
@@ -321,7 +556,27 @@ class WizallApiProvider {
             },
             body,
         };
-        return await this.rp(option);
+        try {
+            console.log(option);
+            const response = await this.rp(option);
+            return {
+                success: (response === null || response === void 0 ? void 0 : response.statuspayment) === true,
+                response: response,
+                message: `La facture  Senelec #${null} du montant de ${amount} CFA a été payé avec succès"`,
+                paymentId: response.PAYMENT_TRANSACTION_NUMBER +
+                    '|' +
+                    response.transactionid +
+                    '|' +
+                    response.senelecid,
+            };
+        }
+        catch (e) {
+            return {
+                success: false,
+                response: e.message,
+                message: 'Votre facture ne peut etre payee:  ' + e.message,
+            };
+        }
     }
     async getWotofalBillAccount(compteur, { wizallAgentPhoneNumber, wizallAgentPin }) {
         await this.waitForToken();
@@ -374,7 +629,7 @@ class WizallApiProvider {
             callbackUrl: (_l = (_k = params.transaction) === null || _k === void 0 ? void 0 : _k.urlIpn) !== null && _l !== void 0 ? _l : null,
             transactionId: (_o = (_m = params.transaction) === null || _m === void 0 ? void 0 : _m.transactionId) !== null && _o !== void 0 ? _o : null,
         };
-        const checkout = await WizallApiProvider.getInstance('payment').verifyWizallTransaction(WizallApiProvider.getWizallExternalFromInternalId(params.transaction.id), {
+        const checkout = await WizallApiProvider.getInstance('payment').verifyWizallTransaction(WizallApiProvider.getWizallExternalFromInternalId(params.transaction.id, 'payment'), {
             wizallAgentPhoneNumber: config_1.wizallApiConfig('payment')
                 .wizallAgentPhoneNumber,
             wizallAgentPin: config_1.wizallApiConfig('payment').wizallAgentPin,
@@ -444,18 +699,23 @@ class WizallApiProvider {
                 });
                 this.token = setting === null || setting === void 0 ? void 0 : setting.value;
                 if (this.token) {
+                    console.log('resolve true');
                     resolve(true);
                     clearInterval(intervalId);
                     clearTimeout(timeoutId);
                 }
+                else {
+                    console.log('waitigng for token');
+                }
             }, 500);
             const timeoutId = setTimeout(() => {
+                console.log('resolve false timeout');
                 resolve(false);
             }, 5000);
         });
     }
-    static getWizallExternalFromInternalId(s) {
-        return `INTECH-${s}`;
+    static getWizallExternalFromInternalId(s, type) {
+        return type === 'cashin' ? `INTECH-CASHIN-${s}` : `INTECH-PAYMENT-${s}`;
     }
     static getMessageFromCode(response) {
         var _a;

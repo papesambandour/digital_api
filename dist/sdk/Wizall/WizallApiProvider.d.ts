@@ -24,6 +24,21 @@ export default class WizallApiProvider {
         identifier: any;
         phoneNumber: any;
     }): Promise<any>;
+    makeCashin({ amount, identifier, phoneNumber }: {
+        amount: any;
+        identifier: any;
+        phoneNumber: any;
+    }): Promise<{
+        success: boolean;
+        reference: any;
+        response: any;
+        message?: undefined;
+    } | {
+        message: any;
+        success: boolean;
+        reference?: undefined;
+        response?: undefined;
+    }>;
     getBalance(): Promise<BalanceResponse>;
     static waitSome(seconde: number): Promise<unknown>;
     verifyWizallTransaction(wizallSubmitedId: any, { wizallAgentPhoneNumber, wizallAgentPin }: {
@@ -57,11 +72,65 @@ export default class WizallApiProvider {
     getSenelecBillPayment(police: any, { wizallAgentPhoneNumber, wizallAgentPin }: {
         wizallAgentPhoneNumber: any;
         wizallAgentPin: any;
-    }): Promise<any>;
-    makeSenelecBillPay(police: any, amount: any, external_id: any, { wizallAgentPhoneNumber, wizallAgentPin }: {
+    }): Promise<{
+        success: boolean;
+        message: string;
+        pendingBills: any;
+    } | {
+        success: boolean;
+        message: any;
+        pendingBills: any[];
+    }>;
+    getSenEauBillPayment(reference_client: any, { wizallAgentPhoneNumber, wizallAgentPin }: {
         wizallAgentPhoneNumber: any;
         wizallAgentPin: any;
-    }): Promise<any>;
+    }): Promise<{
+        success: boolean;
+        message: string;
+        pendingBills: any;
+    } | {
+        success: boolean;
+        message: any;
+        pendingBills: any[];
+    }>;
+    confirmBillSenEau(reference_client: any, amount: any, reference_facture: any, { wizallAgentPhoneNumber, wizallAgentPin }: {
+        wizallAgentPhoneNumber: any;
+        wizallAgentPin: any;
+    }): Promise<{
+        success: boolean;
+        message: string;
+        response?: undefined;
+        paymentId?: undefined;
+    } | {
+        success: boolean;
+        response: any;
+        message: string;
+        paymentId: string;
+    } | {
+        success: boolean;
+        response: any;
+        message: string;
+        paymentId?: undefined;
+    }>;
+    confirmBillSenelec(police: any, amount: any, numfacture: any, { wizallAgentPhoneNumber, wizallAgentPin }: {
+        wizallAgentPhoneNumber: any;
+        wizallAgentPin: any;
+    }): Promise<{
+        success: boolean;
+        message: string;
+        response?: undefined;
+        paymentId?: undefined;
+    } | {
+        success: boolean;
+        response: any;
+        message: string;
+        paymentId: string;
+    } | {
+        success: boolean;
+        response: any;
+        message: string;
+        paymentId?: undefined;
+    }>;
     getWotofalBillAccount(compteur: any, { wizallAgentPhoneNumber, wizallAgentPin }: {
         wizallAgentPhoneNumber: any;
         wizallAgentPin: any;
@@ -72,6 +141,6 @@ export default class WizallApiProvider {
     }): Promise<any>;
     static apiManagerCheckCashOutStatusTransaction(apiManagerService: WizallMoneySnCashOutApiManagerService, params: CheckParams): Promise<CheckResponse>;
     private waitForToken;
-    static getWizallExternalFromInternalId(s: any): string;
+    static getWizallExternalFromInternalId(s: any, type: 'cashin' | 'payment'): string;
     static getMessageFromCode(response: any): "Votre opération n'a pas pu être traitée pour le moment, réessayez plus tard." | "Ce numero n'a pas de compte wizall actif";
 }

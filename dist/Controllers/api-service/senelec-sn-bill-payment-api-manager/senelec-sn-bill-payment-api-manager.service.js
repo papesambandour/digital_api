@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SenelecSnBillPaymentApiManagerService = void 0;
 const api_manager_interface_service_1 = require("../api-manager-interface/api-manager-interface.service");
-const WaveApiProvider_1 = require("../../../sdk/Wave/WaveApiProvider");
-const config_1 = require("../../../sdk/Wave/config");
 const Controller_1 = require("../../Controller");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const main_1 = require("../../../main");
+const WizallApiProvider_1 = require("../../../sdk/Wizall/WizallApiProvider");
+const config_1 = require("../../../sdk/Wizall/config");
 class SenelecSnBillPaymentApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return await this.notImplementedYet(params);
@@ -40,14 +40,10 @@ class SenelecSnBillPaymentApiManagerService extends api_manager_interface_servic
             }, baseResponse);
         }
         const transaction = await this.createTransaction(api);
-        const billPayment = await WaveApiProvider_1.default.confirmBill({
-            amount: params.dto.amount,
-            billAccountNumber: params.dto.billAccountNumber,
-            invoiceId: params.dto.billReference,
-            billId: WaveApiProvider_1.WAVE_BILL_ID.SENELEC,
-            billAccountNumberFieldName: 'contract_account_number',
-            sessionId: await config_1.waveBusinessApiConfig('sn').sessionId(),
-            walletId: config_1.waveBusinessApiConfig('sn').walletId,
+        const billPayment = await WizallApiProvider_1.default.getInstance('payment').confirmBillSenelec(params.dto.billAccountNumber, params.dto.amount, params.dto.billReference, {
+            wizallAgentPhoneNumber: config_1.wizallApiConfig('payment')
+                .wizallAgentPhoneNumber,
+            wizallAgentPin: config_1.wizallApiConfig('payment').wizallAgentPin,
         });
         const statues = this.helper.getStatusAfterExec((billPayment === null || billPayment === void 0 ? void 0 : billPayment.success) ? 'success' : 'failed', this.apiService.sousServices);
         console.log(billPayment, 'sttaus', statues);
@@ -93,17 +89,14 @@ class SenelecSnBillPaymentApiManagerService extends api_manager_interface_servic
         return await this.notImplementedYet(params);
     }
     async getPendingBillTransaction(params) {
-        const response = await WaveApiProvider_1.default.listPendingBill({
-            billAccountNumber: params.dto.billAccountNumber,
-            billId: WaveApiProvider_1.WAVE_BILL_ID.SENELEC,
-            billAccountNumberFieldName: 'contract_account_number',
-            sessionId: await config_1.waveBusinessApiConfig('sn').sessionId(),
-            walletId: config_1.waveBusinessApiConfig('sn').walletId,
+        const response = await WizallApiProvider_1.default.getInstance('payment').getSenelecBillPayment(params.dto.billAccountNumber, {
+            wizallAgentPhoneNumber: config_1.wizallApiConfig('payment').wizallAgentPhoneNumber,
+            wizallAgentPin: config_1.wizallApiConfig('payment').wizallAgentPin,
         });
         return {
             success: response.success,
             message: response.message,
-            pendingBills: response.bills,
+            pendingBills: response.pendingBills,
             billAccountNumber: params.dto.billAccountNumber,
         };
     }
