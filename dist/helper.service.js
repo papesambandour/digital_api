@@ -408,6 +408,14 @@ let HelperService = class HelperService {
                 transactionIsFinish: 1,
                 canceled: 1,
             };
+            const rows = await Transactions_entity_1.Transactions.update({
+                id: transaction.id,
+                transactionIsFinish: 0,
+            }, transactionData);
+            console.log(rows, rows.affected, 'affected cancel');
+            if (rows.affected == 0) {
+                return;
+            }
         }
         else {
             transactionData = {
@@ -416,8 +424,15 @@ let HelperService = class HelperService {
                 statut: Enum_entity_1.StatusEnum.REFUNDED,
                 preStatut: Enum_entity_1.StatusEnum.REFUNDED,
             };
+            const rows = await Transactions_entity_1.Transactions.update({
+                id: transaction.id,
+                transactionRefundFinished: 0,
+            }, transactionData);
+            console.log(rows, rows.affected, 'affected cancel refund');
+            if (rows.affected == 0) {
+                return;
+            }
         }
-        await Transactions_entity_1.Transactions.update(transaction.id, transactionData);
         await transaction.reload();
         console.log('updating refund finish ok', transactionData);
         const sousService = await SousServices_entity_1.SousServices.findOne({
@@ -723,6 +738,7 @@ let HelperService = class HelperService {
         }
     }
     async handleSuccessTransactionCreditDebit(transaction, sousServiceTransactionId = null) {
+        console.log('_handleSuccessTransactionCreditDebit');
         const partner = await Parteners_entity_1.Parteners.findOne({
             where: {
                 id: typeorm_2.Equal(transaction.partenersId),
@@ -739,7 +755,14 @@ let HelperService = class HelperService {
         if (sousServiceTransactionId) {
             transactionData['sousServiceTransactionId'] = sousServiceTransactionId;
         }
-        await Transactions_entity_1.Transactions.update(transaction.id, transactionData);
+        const rows = await Transactions_entity_1.Transactions.update({
+            transactionIsFinish: 0,
+            id: transaction.id,
+        }, transactionData);
+        console.log(rows, rows.affected, 'affected');
+        if (rows.affected == 0) {
+            return;
+        }
         await transaction.reload();
         const phone = await Phones_entity_1.Phones.findOne({
             where: {
