@@ -386,11 +386,15 @@ let HelperService = class HelperService {
         else if (transaction.typeOperation === Enum_entity_1.TypeOperationEnum.CREDIT) {
         }
     }
+    sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
     async operationPartnerCancelTransaction(transaction, isRefund = false) {
         if (!transaction) {
             console.log('No transaction for operation cancel');
             return;
         }
+        await transaction.reload();
         console.log('before', transaction === null || transaction === void 0 ? void 0 : transaction.transactionRefundFinished);
         console.log('caling refund', transaction.transactionRefundFinished, isRefund);
         if (!isRefund && transaction.transactionIsFinish) {
@@ -402,6 +406,7 @@ let HelperService = class HelperService {
             return false;
         }
         let transactionData;
+        await this.sleep(Math.random() * 500);
         if (!isRefund) {
             transactionData = {
                 dateCanceled: new Date(),
@@ -755,6 +760,7 @@ let HelperService = class HelperService {
         if (sousServiceTransactionId) {
             transactionData['sousServiceTransactionId'] = sousServiceTransactionId;
         }
+        await this.sleep(Math.random() * 500);
         const rows = await Transactions_entity_1.Transactions.update({
             transactionIsFinish: 0,
             id: transaction.id,

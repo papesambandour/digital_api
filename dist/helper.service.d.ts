@@ -48,6 +48,7 @@ export declare class HelperService {
     generateTransactionId(): string;
     generateRandomId(prefix: any, length?: number): string;
     operationPartnerDoTransaction(transaction: Transactions): Promise<void>;
+    sleep(ms: any): Promise<unknown>;
     operationPartnerCancelTransaction(transaction: Transactions, isRefund?: boolean): Promise<boolean>;
     updateApiBalance(apiManager: ApiManagerInterface, usedPhoneId: number): Promise<void>;
     base64(str: any): Promise<string>;

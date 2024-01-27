@@ -5577,8 +5577,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "7499c80c3f4bcb4a4916ef3fbe3e17a59e05fe403e40387c1b836144925c7674",
-        "signature": "73dce063a8d18a24ffa9037b675e08a0e63e93429ad0717b823a6bbf7c4f755b",
+        "version": "6119bedd953ad40b056c098c0c859c568494da04fc15b9feaff11e257dc40edd",
+        "signature": "f1ef6fbcba356768cb16415e9aca2e038246991b71ae368770ae18ca81900617",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -6017,8 +6017,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "8b069300799d71ad7124a4497e028aeb13260e7e4efd0fcbbfa5620929d06499",
-        "signature": "c0015568569fbc027487e8e219d5e1eb22d21b7abdcef0d1efaaf8b351acabd0",
+        "version": "f554a07f83450216b3e681eab63609ad786dcf7a5262cd086e7b4d5381ff96e2",
+        "signature": "2ca9133fa5a19fa0ca9614c7dffe66e992e2c33d054ed3ce7df072f85757b5b8",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/seneau-sn-bill-payment-api-manager/seneau-sn-bill-payment-api-manager.service.ts": {

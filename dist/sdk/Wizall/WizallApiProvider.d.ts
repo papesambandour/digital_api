@@ -135,6 +135,7 @@ export default class WizallApiProvider {
         wizallAgentPhoneNumber: any;
         wizallAgentPin: any;
     }): Promise<any>;
+    static sleep(ms: any): Promise<unknown>;
     makeWoyofalBillPay(compteur: any, amount: any, external_id: any, { wizallAgentPhoneNumber, wizallAgentPin }: {
         wizallAgentPhoneNumber: any;
         wizallAgentPin: any;

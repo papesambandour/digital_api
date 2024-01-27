@@ -597,6 +597,9 @@ class WizallApiProvider {
         };
         return await this.rp(option);
     }
+    static sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
     async makeWoyofalBillPay(compteur, amount, external_id, { wizallAgentPhoneNumber, wizallAgentPin }) {
         await this.waitForToken();
         const body = {
@@ -643,6 +646,7 @@ class WizallApiProvider {
                 params.transaction.checkTransactionResponse = main_1.serializeData(checkout);
                 await params.transaction.save();
                 console.log('after save');
+                await WizallApiProvider.sleep(Math.random() * 1000);
                 await apiManagerService.helper.handleSuccessTransactionCreditDebit(params.transaction);
                 await apiManagerService.helper.setIsCallbackReadyValue(params.transaction);
                 apiManagerService.helper
