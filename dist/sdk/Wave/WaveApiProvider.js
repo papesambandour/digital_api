@@ -615,7 +615,7 @@ class WaveApiProvider {
         }
     }
     static async makeDirectBillPay({ sessionId, walletId, amount, billId, billAccountNumberFieldName, billAccountNumber, label, successMessage = undefined, otherFields = undefined, searchInSummary = '', }) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+        var _a, _b, _c, _d, _e, _f, _g;
         const clientId = WaveUtil.uid5();
         const startDate = new Date();
         const allFields = otherFields || [];
@@ -677,8 +677,13 @@ class WaveApiProvider {
                 let woyofalCode;
                 let message = '';
                 if (billId === WAVE_BILL_ID.WOYOFAL) {
-                    woyofalCode = (_e = (_d = asyncResponse['summary']) === null || _d === void 0 ? void 0 : _d.match(/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}/)) === null || _e === void 0 ? void 0 : _e[0];
-                    woyofalKWh = parseFloat((_j = (_h = (_g = (_f = asyncResponse['summary']) === null || _f === void 0 ? void 0 : _f.match(/\(.*\)/)) === null || _g === void 0 ? void 0 : _g[0]) === null || _h === void 0 ? void 0 : _h.replace('(', '')) === null || _j === void 0 ? void 0 : _j.replace(')', ''));
+                    try {
+                        woyofalCode = (_e = (_d = asyncResponse['summary']) === null || _d === void 0 ? void 0 : _d.match(/[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}/)) === null || _e === void 0 ? void 0 : _e[0];
+                        woyofalKWh = parseFloat((_g = (_f = asyncResponse['summary']) === null || _f === void 0 ? void 0 : _f.match(/\(([\d.]+) kWh\)/)) === null || _g === void 0 ? void 0 : _g[1]);
+                    }
+                    catch (e) {
+                        console.log(e);
+                    }
                     message =
                         successMessage ||
                             `${label} #"${billAccountNumber}" a été rechargé de ${amount} CFA (${woyofalKWh} kWh), votre code de recharge est "${woyofalCode}"`;
