@@ -29,6 +29,7 @@ export declare class HelperService {
     constructor(connection: Connection, httpService: HttpService);
     refund(refundDtoIn: RefundDtoIn, typeId: 'partner' | 'admin', partnerAccount?: PartenerComptes): Promise<RefundDtoOut>;
     notifyAdmin(message: string, typeEvent: TypeEvenEnum, data?: {}, isCritic?: boolean, channelName?: any): Promise<void>;
+    splitMessage(message: any, chunkSize: any): any[];
     setSoldeTableOnly(value: number, tableName: string, id: number, field: string): Promise<any>;
     setSoldeTableFromValue(value: number, tableName: string, id: number, field: string): Promise<any>;
     incrementSolde(value: number, tableName: string, id: number, field: string): Promise<any>;

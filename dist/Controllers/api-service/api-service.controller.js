@@ -52,6 +52,8 @@ const process = require("process");
 const MtnBjCallback_1 = require("./dto/MtnBjCallback");
 const MtnApiProvider_1 = require("../../sdk/Mtn/MtnApiProvider");
 const refund_dto_out_1 = require("../partener-intern/dto/refund-dto-out");
+const Hub2Callback_1 = require("./dto/Hub2Callback");
+const Hub2Provider_1 = require("../../sdk/Hub2/Hub2Provider");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService, helper) {
         super();
@@ -390,6 +392,73 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             }, 'FAILED_CALLBACK', true);
         }
     }
+    async hub2Callback(req, hub2CallbackData) {
+        var _a, _b, _c, _d, _e, _f;
+        const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
+        this.helper
+            .notifyAdmin('New Mtn Money callback', Enum_entity_1.TypeEvenEnum.MTN_MONEY_CALLBACK, {
+            mtnCallbackData: hub2CallbackData,
+            fromIp,
+            headers_forwarded: req.headers['x-forwarded-for'],
+        })
+            .then();
+        const transaction = await Transactions_entity_1.Transactions.findOne({
+            where: {
+                transactionId: (_b = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _b === void 0 ? void 0 : _b.reference,
+                statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
+            },
+            relations: ['sousServices'],
+        });
+        if (!transaction) {
+            return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: 'Aucune transaction en attente de validation  trouvé',
+                transactionId: (_c = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _c === void 0 ? void 0 : _c.reference,
+            }, 'Aucune transaction en attente de validation  trouvé', true);
+        }
+        const apiManagerService = await this.helper.getApiManagerInterface(transaction.codeSousService, null);
+        if (!apiManagerService) {
+            return this.response(this.CODE_HTTP.SERVICE_DOWN, {
+                message: 'Api Service Manager non configuré',
+            }, 'Api Service Manager non configuré', true);
+        }
+        const success = ((_d = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _d === void 0 ? void 0 : _d.status) === 'successful' ||
+            ((_e = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === null || _e === void 0 ? void 0 : _e.includes('succeeded'));
+        if (success) {
+            transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.checkTransactionResponse = main_1.serializeData(hub2CallbackData);
+        }
+        else {
+            transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.checkTransactionResponse = main_1.serializeData(hub2CallbackData);
+            transaction.errorMessage = Hub2Provider_1.default.getMessageFromResponse(hub2CallbackData);
+        }
+        await transaction.save();
+        await apiManagerService.helper.setIsCallbackReadyValue(transaction, 0);
+        apiManagerService.helper
+            .updateApiBalance(apiManagerService, transaction.phonesId)
+            .then();
+        if (success) {
+            await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
+            return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
+                status: Enum_entity_1.StatusEnum.SUCCESS,
+                transactionId: (_f = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _f === void 0 ? void 0 : _f.reference,
+                message: 'OK_CALLBACK',
+            }, 'OK_CALLBACK', false);
+        }
+        else {
+            apiManagerService.helper
+                .updateApiBalance(apiManagerService, transaction.phonesId)
+                .then();
+            await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
+            return this.response(Controller_1.CODE_HTTP.FAILLED, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: 'FAILED_CALLBACK',
+            }, 'FAILED_CALLBACK', true);
+        }
+    }
     async FreeCallback(mode, freeCallbackData, req) {
         var _a;
         const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
@@ -677,6 +746,13 @@ __decorate([
     __metadata("design:paramtypes", [Object, MtnBjCallback_1.MtnBjCallbackData]),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "mtnCallback", null);
+__decorate([
+    request_mapping_decorator_1.All('callback/hub2'),
+    __param(0, common_1.Req()), __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Hub2Callback_1.Hub2CallbackData]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "hub2Callback", null);
 __decorate([
     common_1.Post('callback/freemoney/:mode'),
     __param(0, common_1.Param('mode')),

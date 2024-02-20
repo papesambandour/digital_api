@@ -77,10 +77,23 @@ let HelperService = class HelperService {
     async notifyAdmin(message, typeEvent, data = {}, isCritic = false, channelName = undefined) {
         console.log(`CONTACTA ADMIN TO ${message} for EVENT: ${typeEvent}. Data:`, data, isCritic);
         if (parseInt(process.env.SEND_NOTIFY) === 1) {
-            DiscordApiProvider_1.default.sendMessageStatic({
-                message: `NEW ALERT MESSAGE:\n${message}\nEVENT : ${typeEvent}\nDATA: ${main_1.serializeData(data)}`,
-            }, channelName).then();
+            const sendedMessage = `NEW ALERT MESSAGE:\n${message}\nEVENT : ${typeEvent}\nDATA: ${main_1.serializeData(data)}`;
+            const messageChunks = this.splitMessage(sendedMessage, 3900);
+            messageChunks.forEach((chunk, index) => {
+                DiscordApiProvider_1.default.sendMessageStatic({
+                    message: chunk,
+                }, channelName).then(() => {
+                    console.log(`Part ${index + 1} sent`);
+                });
+            });
         }
+    }
+    splitMessage(message, chunkSize) {
+        const chunks = [];
+        for (let i = 0; i < message.length; i += chunkSize) {
+            chunks.push(message.substring(i, i + chunkSize));
+        }
+        return chunks;
     }
     async setSoldeTableOnly(value, tableName, id, field) {
         const query = `

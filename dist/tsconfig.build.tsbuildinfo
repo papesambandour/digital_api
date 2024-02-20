@@ -4731,9 +4731,19 @@
         "signature": "3a5df30f8a9cd8204ed9d6125b5c9f49a843303017d4ccad2e3b0b029e771e5d",
         "affectsGlobalScope": false
       },
+      "../src/controllers/api-service/dto/hub2callback.ts": {
+        "version": "e85f061635734ec9e3a7a506b1a363c310ff1d39f3c98044a6e514f118202436",
+        "signature": "4fd8e1c28d686997ab7ff30a295b3e02c398a2fd5afaed218e8c7063bc2c9718",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/hub2/hub2provider.ts": {
+        "version": "7f67062346668b84a0066cfcd85b2dcdf3ba0594c9bc79afea30903b284c6347",
+        "signature": "97a63aa8fcc10525342e42d071f41553cfff5f79c1b01f0d734621432a4621ca",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "92ae457f06f768f229e6004a25322ac250356dcc4743de71f196822f047f53a0",
-        "signature": "f8aa7a3020b072f77a39740f53b4a7e552462d61d0a6b81f6eb0c75dcaa56ef6",
+        "version": "0175f6f4a6716cc09e4bad433ec27079fa571aeb5a6c2a87b65380a3716b9a44",
+        "signature": "792e5e41bfee443bb50e4a0c053a44422396f734d084b9e68a6fb6029ebc7683",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -5577,8 +5587,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "6119bedd953ad40b056c098c0c859c568494da04fc15b9feaff11e257dc40edd",
-        "signature": "f1ef6fbcba356768cb16415e9aca2e038246991b71ae368770ae18ca81900617",
+        "version": "aa6d90a8e99d4915cabb47360470e574e2c26e3cac8cdcb556d21b02ecccf84c",
+        "signature": "2ea6100de5c448a3ddae46ee5ff09b7ac8f3969e2857ebe197671aa6dcb4efae",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -5799,6 +5809,16 @@
       "../src/controllers/api-service/free-money-cash-out-api-manager/free-money-cash-out-api-manager.service.ts": {
         "version": "f79d457c7d95e512ff009c7ebe5e135a5332872c6a6a08a68c4add7c2cf805fa",
         "signature": "a162bdc92fbc1b08e673f2640bc2c3dfac6bffe68c230d0db54086a6d55c81f3",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/hub2-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": {
+        "version": "d372dc6209c9c0d2d7549c3b97bc4f24bf8797c44c519c56d8948048f8615a18",
+        "signature": "d5a1a63b4b3204fd66227264266bbee17b07dd6ca8b84b302919096e7829d78f",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/hub2-sn-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": {
+        "version": "b7f4aa37bd8f371c88e9db2ab490c626d797606222b8cde0ca400cc7074f9e00",
+        "signature": "2b42256fada2bc42c539f47fed21b5c2cd56c7ee7823660c21b0b80b1bc5b7c5",
         "affectsGlobalScope": false
       },
       "../src/sdk/kpay/kpayprovider.ts": {
@@ -10634,6 +10654,7 @@
         "../src/controllers/api-service/bank-card-money-sn-cash-out-api-manager/bank-card-money-sn-cash-out-api-manager.service.ts",
         "../src/controllers/api-service/dto/confirmkpay.ts",
         "../src/controllers/api-service/dto/freecallback.ts",
+        "../src/controllers/api-service/dto/hub2callback.ts",
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
         "../src/controllers/api-service/dto/mtnbjcallback.ts",
         "../src/controllers/api-service/dto/newclaim.ts",
@@ -10663,6 +10684,7 @@
         "../src/models/response/responseforbidden.ts",
         "../src/models/response/responsehttp.ts",
         "../src/models/response/responsehttpdefaultdata.ts",
+        "../src/sdk/hub2/hub2provider.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
       ],
       "../src/controllers/api-service/api-service.module.ts": [
@@ -10778,6 +10800,10 @@
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts"
       ],
+      "../src/controllers/api-service/dto/hub2callback.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
       "../src/controllers/api-service/dto/listpendingbillindto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts",
@@ -10837,6 +10863,22 @@
         "../src/sdk/freemoney/freemoneyapiprovider.ts",
         "../src/sdk/mtn/config.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
+      ],
+      "../src/controllers/api-service/hub2-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/hub2/hub2provider.ts"
+      ],
+      "../src/controllers/api-service/hub2-sn-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/hub2/hub2provider.ts"
       ],
       "../src/controllers/api-service/kpay-sn-cash-in-api-manager/kpay-sn-cash-in-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -11595,6 +11637,10 @@
       ],
       "../src/sdk/freemoney/freemoneyapiprovider.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/sdk/hub2/hub2provider.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/main.ts"
       ],
       "../src/sdk/kpay/kpayprovider.ts": [
         "../node_modules/@types/node/process.d.ts",
@@ -15893,6 +15939,7 @@
         "../src/controllers/api-service/api-service.service.ts",
         "../src/controllers/api-service/dto/confirmkpay.ts",
         "../src/controllers/api-service/dto/freecallback.ts",
+        "../src/controllers/api-service/dto/hub2callback.ts",
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
         "../src/controllers/api-service/dto/mtnbjcallback.ts",
         "../src/controllers/api-service/dto/newclaim.ts",
@@ -15955,6 +16002,12 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/controllers/api-service/free-money-cash-out-api-manager/free-money-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/hub2-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/hub2-sn-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/controllers/api-service/kpay-sn-cash-in-api-manager/kpay-sn-cash-in-api-manager.service.ts": [
@@ -16327,6 +16380,9 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/sdk/freemoney/freemoneyapiprovider.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/sdk/hub2/hub2provider.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/sdk/kpay/kpayprovider.ts": [
