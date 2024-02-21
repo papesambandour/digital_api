@@ -76,16 +76,19 @@ let HelperService = class HelperService {
     }
     async notifyAdmin(message, typeEvent, data = {}, isCritic = false, channelName = undefined) {
         console.log(`CONTACTA ADMIN TO ${message} for EVENT: ${typeEvent}. Data:`, data, isCritic);
+        if (typeEvent === Enum_entity_1.TypeEvenEnum.SOLDE_PARTNER ||
+            typeEvent === Enum_entity_1.TypeEvenEnum.SOLDE_SERVICE) {
+            await this.sleep(Math.random() * 5000);
+        }
         if (parseInt(process.env.SEND_NOTIFY) === 1) {
             const sendedMessage = `NEW ALERT MESSAGE:\n${message}\nEVENT : ${typeEvent}\nDATA: ${main_1.serializeData(data)}`;
-            const messageChunks = this.splitMessage(sendedMessage, 3900);
-            messageChunks.forEach((chunk, index) => {
-                DiscordApiProvider_1.default.sendMessageStatic({
+            const messageChunks = this.splitMessage(sendedMessage, 1800);
+            for (const chunk of messageChunks) {
+                await DiscordApiProvider_1.default.sendMessageStatic({
                     message: chunk,
-                }, channelName).then(() => {
-                    console.log(`Part ${index + 1} sent`);
-                });
-            });
+                }, channelName);
+                await this.sleep(Math.random() * 1000);
+            }
         }
     }
     splitMessage(message, chunkSize) {
