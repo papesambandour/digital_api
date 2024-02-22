@@ -246,6 +246,7 @@ class ProviderOrangeMoneyApi {
                 success: success,
                 qrCode: `https://qrcode.orange.sn/${(apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.transactionId) || (apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.qrId)}`,
                 deepLink: apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.deepLink,
+                deepLinks: apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.deepLinks,
                 code: success
                     ? 'success'
                     : ProviderOrangeMoneyApi.getAPiErrorCode((apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.description) || (apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.detail)),

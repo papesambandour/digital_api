@@ -68,6 +68,9 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             ok: 'ok',
         };
     }
+    async fuckFavicon() {
+        return '';
+    }
     async deepLink(transactionId, res) {
         console.log('in deep link method');
         const transaction = await this.helper.getTransactionByGeneratedId(transactionId);
@@ -116,6 +119,8 @@ let AppController = class AppController extends Controller_1.ControllerBase {
             link,
             isExternalHttpLink: link.startsWith('https://secure-3ds.intech.sn'),
             currentUrl: `https://api.intech.sn/deep/${transaction.transactionId}`,
+            is_array: link.includes('|'),
+            array_link: link.includes('|') ? link.split('|') : [link],
             mName: transaction.sousServices.executeSmsSender || '',
             logo: transaction.sousServices.icon,
             bgColor: transaction.sousServices.bgColor,
@@ -241,6 +246,12 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "cleanDataBase", null);
+__decorate([
+    request_mapping_decorator_1.All('favicon.ico'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "fuckFavicon", null);
 __decorate([
     request_mapping_decorator_1.All('deep/:transactionId'),
     __param(0, common_1.Param('transactionId')),

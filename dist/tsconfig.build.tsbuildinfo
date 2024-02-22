@@ -5637,8 +5637,8 @@
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "965eacd075e15be7b0b730083c22cdbf19a92b395bdb35b568b5afcf43328e9f",
-        "signature": "96d9ebd3807e45d0a2350bfe24ba08d65ca7a3a0dccdf4e7ce842d478b2f583c",
+        "version": "a7370f7295eef5bad1510515d0ea9021d9b103b0b49563a9fc931ce17f412080",
+        "signature": "07fc212fdd24558641fd6e9e718ad3217fa47fc8cd6c42451e50eb39973fc746",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/platform-socket.io/node_modules/engine.io/build/server.d.ts": {
@@ -5772,8 +5772,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/orange/providerorangemoneyapi.ts": {
-        "version": "6f2f73d113088dc93179866d1e3fa500da3b9e4c528c41d2f33a28478480af17",
-        "signature": "609e601977f558a9e0d51589d86808a3eb9c25c02eec247b4453aa81a4cf2a9c",
+        "version": "83ea70460f2f204374e28a1b8af3fe4e992030f8996fcb243c983d1d586896c3",
+        "signature": "e9f88ad91ba3a1f130cd7898c9dab420015c87609fed5421ce09a2a4d6ea8cb3",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/bank-transfer-sn-cash-in-api-manager/bank-transfer-sn-cash-in-api-manager.service.ts": {
@@ -6017,7 +6017,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/orange-money-sn-cash-out-api-manager/orange-money-sn-cash-out-api-manager.service.ts": {
-        "version": "fa82a2181b7d321b176b0af351dc69035fa89db4786310fba12449ab96322791",
+        "version": "b2e58138d948c967d17b43a3971768e1fb93457fd9029e7e14046bc5cf6591c3",
         "signature": "b683f19c16f076f51da09f1968e6c4b300ebb3b05551e37f0b01bf65f599a61e",
         "affectsGlobalScope": false
       },

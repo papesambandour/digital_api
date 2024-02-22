@@ -7,6 +7,7 @@ interface OmApiResponse {
     message: string | undefined;
     qrCode?: string | undefined;
     deepLink?: string | undefined;
+    deepLinks?: any | undefined;
     transaction?: OmApiTransaction;
     externalReference?: string | null;
     newBalance?: number | null | undefined;

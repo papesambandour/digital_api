@@ -17,6 +17,7 @@ class OrangeMoneySnCashOutApiManagerService extends api_manager_interface_servic
         return (await this.notImplementedYet(params));
     }
     async initTransaction(params) {
+        var _a, _b;
         const api = await this.loadBalancingPhone();
         const baseResponse = {
             phone: params.dto.phone,
@@ -59,7 +60,7 @@ class OrangeMoneySnCashOutApiManagerService extends api_manager_interface_servic
             transaction.message = main_1.serializeData(response.apiResponse);
             if (params.dto.useOMQrCode) {
                 transaction.needCheckTransaction = 1;
-                transaction.deepLinkUrl = response.deepLink;
+                transaction.deepLinkUrl = `${response.deepLinks.OM}|${response.deepLinks.MAXIT}`;
                 transaction.successRedirectUrl = params.dto.successRedirectUrl;
                 transaction.errorRedirectUrl = params.dto.errorRedirectUrl;
             }
@@ -99,7 +100,8 @@ class OrangeMoneySnCashOutApiManagerService extends api_manager_interface_servic
                         notificationMessage: messageNotification,
                         amount: transaction.amount,
                         deepLinkUrl: deepLink,
-                        _be_removed_deepLinkUrl_: transaction.deepLinkUrl,
+                        _be_removed_deepLinkUrl_: (_a = response === null || response === void 0 ? void 0 : response.deepLinks) === null || _a === void 0 ? void 0 : _a.OM,
+                        _be_removed_alternative_deepLinkUrl_: (_b = response === null || response === void 0 ? void 0 : response.deepLinks) === null || _b === void 0 ? void 0 : _b.MAXIT,
                         _be_removed_deepQrCode_: response.qrCode,
                     }
                     : undefined,

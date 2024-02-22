@@ -14,6 +14,7 @@ export declare class AppController extends ControllerBase {
     cleanDataBase(): Promise<{
         ok: string;
     }>;
+    fuckFavicon(): Promise<string>;
     deepLink(transactionId: string, res: Response): Promise<void>;
     home(res: Response, message: string | undefined): Promise<void>;
     confirm3dsAuth(confirm3dsAuthInDto: Confirm3dsInDto, transactionId: string, res: Response): Promise<void | Response<any, Record<string, any>> | {

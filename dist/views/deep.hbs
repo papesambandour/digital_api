@@ -90,10 +90,22 @@
             left: calc(50% - 127px);
         }
 
+        .btn-container:nth-child(1) {
+            top: 42%;
+            left: calc(50% - 127px);
+        }
+
         .btn-container > a {
             color: {{ bgColor }};
             text-decoration: none;
         }
+
+      {{#if is_array}}
+        .description-text{
+          top: calc(50% - 140px);
+        }
+      {{/if}}
+
 
         .cbutton{
             color: white;
@@ -119,12 +131,39 @@
     <div class="description-text">
         <span>{{ body }}</span>
     </div>
-    <div class="btn-container">
-        <a href="{{ link}}" onclick="clicked(this)">
-            Cliquez pour payer
-        </a>
 
+  {{#if is_array}}
+
+    <div class="btn-container" style="top: calc(50% - 60px)">
+
+      <a href="{{ array_link.[0]}}" onclick="clicked(this)">
+        Par Orange Money
+      </a>
     </div>
+  <br>
+    <div class="btn-container" >
+
+      <a href="{{ array_link.[1]}}" onclick="clicked(this)">
+        Par l'app MAXIT &nbsp;&nbsp;&nbsp;&nbsp;
+      </a>
+    </div>
+  {{else}}
+    <div class="btn-container">
+
+      <a href="{{ link}}" onclick="clicked(this)">
+        Cliquez pour payer
+      </a>
+    </div>
+  {{/if}}
+
+
+
+
+
+
+
+
+
 
     <div class="copyright-container">
         <!--<a href="https://paytech.sn/" class="cbutton" target="_blank" >{{ mName }} </a> --><span  style="color: white"> by </span> <a  class="cbutton" href="https://intech.sn/" target="_blank">INTech</a>
