@@ -396,6 +396,25 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
     async hub2Callback(req, hub2CallbackData) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
+        function sign(json, secret) {
+            const hmac = crypto_1.createHmac('sha256', secret);
+            hmac.update(json);
+            return hmac.digest('hex');
+        }
+        const hub2Header = (_d = (_c = (_b = (req.headers['Hub2-Signature'] ||
+            req.headers['hub2-signature'] ||
+            '')
+            .split(',')) === null || _b === void 0 ? void 0 : _b.map((pair) => pair.split('='))) === null || _c === void 0 ? void 0 : _c.find((pair) => pair[0] === 's1')) === null || _d === void 0 ? void 0 : _d[1];
+        const signedData = sign(JSON.stringify(hub2CallbackData), process.env.HUB_2_LIVE_WEBHOOK_KEY);
+        this.helper
+            .notifyAdmin('New Hub 2  callback', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK, {
+            HUB2_CALLBACK: hub2CallbackData,
+            fromIp,
+            headers_forwarded: req.headers['x-forwarded-for'],
+            sign: req.headers['Hub2-Signature'] || req.headers['hub2-signature'],
+            signedData,
+        })
+            .then();
         if (![
             'transfer.succeeded',
             'transfer.failed',
@@ -407,24 +426,6 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                 message: `callback received`,
             };
         }
-        this.helper
-            .notifyAdmin('New Hub 2  callback', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK, {
-            HUB2_CALLBACK: hub2CallbackData,
-            fromIp,
-            headers_forwarded: req.headers['x-forwarded-for'],
-            sign: req.headers['Hub2-Signature'] || req.headers['hub2-signature'],
-        })
-            .then();
-        function sign(json, secret) {
-            const hmac = crypto_1.createHmac('sha256', secret);
-            hmac.update(json);
-            return hmac.digest('hex');
-        }
-        const hub2Header = (_d = (_c = (_b = (req.headers['Hub2-Signature'] ||
-            req.headers['hub2-signature'] ||
-            '')
-            .split(',')) === null || _b === void 0 ? void 0 : _b.map((pair) => pair.split('='))) === null || _c === void 0 ? void 0 : _c.find((pair) => pair[0] === 's1')) === null || _d === void 0 ? void 0 : _d[1];
-        const signedData = sign(JSON.stringify(hub2CallbackData), process.env.HUB_2_LIVE_WEBHOOK_KEY);
         if (hub2Header !== signedData) {
             this.helper
                 .notifyAdmin('New Mtn Money callback', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK, {
