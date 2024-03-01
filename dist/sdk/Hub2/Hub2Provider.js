@@ -232,7 +232,7 @@ class Hub2Provider {
             const paymentResponse = await rp(paymentRequestOptions);
             console.log(paymentResponse, 'paymentResponse', extra.workflow);
             let deepLink = undefined;
-            let count = 10;
+            let count = 20;
             if (extra.workflow === 'redirection') {
                 do {
                     await Hub2Provider.sleep(500);

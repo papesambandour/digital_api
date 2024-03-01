@@ -4737,7 +4737,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/hub2/hub2provider.ts": {
-        "version": "049ced2d9a87e030542bbc971c91da9e4e445f23f28f03aa1aa32f44c1a8a723",
+        "version": "8dcc3eeb2be2d6a309007be21257eada2c481c8393fcb436b764b52e879ebb3d",
         "signature": "7e8fcb09a773c2036f65ec375a31a4f2dbd5991561af81e751f0446ff0f1eb00",
         "affectsGlobalScope": false
       },
