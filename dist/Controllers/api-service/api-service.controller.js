@@ -32,6 +32,7 @@ const OperationDictionaryDto_1 = require("./dto/OperationDictionaryDto");
 const ResponseHttpDefaultData_1 = require("../../Models/Response/ResponseHttpDefaultData");
 const DtoBalance_1 = require("../../Models/Dto/DtoBalance");
 const PartenerComptes_entity_1 = require("../../Models/Entities/PartenerComptes.entity");
+const crypto_1 = require("crypto");
 const api_manager_interface_service_1 = require("./api-manager-interface/api-manager-interface.service");
 const helper_service_1 = require("../../helper.service");
 const Enum_entity_1 = require("../../Models/Entities/Enum.entity");
@@ -393,18 +394,54 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         }
     }
     async hub2Callback(req, hub2CallbackData) {
-        var _a, _b, _c, _d, _e, _f;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
+        if (![
+            'transfer.succeeded',
+            'transfer.failed',
+            'payment.succeeded',
+            'payment.failed',
+        ].includes(hub2CallbackData.type)) {
+            return {
+                success: true,
+                message: `callback received`,
+            };
+        }
         this.helper
-            .notifyAdmin('New Mtn Money callback', Enum_entity_1.TypeEvenEnum.MTN_MONEY_CALLBACK, {
-            mtnCallbackData: hub2CallbackData,
+            .notifyAdmin('New Hub 2  callback', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK, {
+            HUB2_CALLBACK: hub2CallbackData,
             fromIp,
             headers_forwarded: req.headers['x-forwarded-for'],
+            sign: req.headers['Hub2-Signature'] || req.headers['hub2-signature'],
         })
             .then();
+        function sign(json, secret) {
+            const hmac = crypto_1.createHmac('sha256', secret);
+            hmac.update(json);
+            return hmac.digest('hex');
+        }
+        const hub2Header = (_d = (_c = (_b = (req.headers['Hub2-Signature'] ||
+            req.headers['hub2-signature'] ||
+            '')
+            .split(',')) === null || _b === void 0 ? void 0 : _b.map((pair) => pair.split('='))) === null || _c === void 0 ? void 0 : _c.find((pair) => pair[0] === 's1')) === null || _d === void 0 ? void 0 : _d[1];
+        const signedData = sign(JSON.stringify(hub2CallbackData), process.env.HUB_2_LIVE_WEBHOOK_KEY);
+        if (hub2Header !== signedData) {
+            this.helper
+                .notifyAdmin('New Mtn Money callback', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK, {
+                mtnCallbackData: hub2CallbackData,
+                fromIp,
+                headers_forwarded: req.headers['x-forwarded-for'],
+            })
+                .then();
+            console.log('secret ip mismatch');
+            return {
+                success: false,
+                message: `hash mismatch, receved from hub2 : ${hub2Header}, intech sign: ${signedData}`,
+            };
+        }
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
-                transactionId: (_b = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _b === void 0 ? void 0 : _b.reference,
+                transactionId: (_e = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _e === void 0 ? void 0 : _e.reference,
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
             },
             relations: ['sousServices'],
@@ -413,7 +450,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 message: 'Aucune transaction en attente de validation  trouvé',
-                transactionId: (_c = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _c === void 0 ? void 0 : _c.reference,
+                transactionId: (_f = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _f === void 0 ? void 0 : _f.reference,
             }, 'Aucune transaction en attente de validation  trouvé', true);
         }
         const apiManagerService = await this.helper.getApiManagerInterface(transaction.codeSousService, null);
@@ -422,8 +459,8 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                 message: 'Api Service Manager non configuré',
             }, 'Api Service Manager non configuré', true);
         }
-        const success = ((_d = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _d === void 0 ? void 0 : _d.status) === 'successful' ||
-            ((_e = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === null || _e === void 0 ? void 0 : _e.includes('succeeded'));
+        const success = ((_g = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _g === void 0 ? void 0 : _g.status) === 'successful' ||
+            ((_h = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === null || _h === void 0 ? void 0 : _h.includes('succeeded'));
         if (success) {
             transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
             transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
@@ -444,7 +481,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
             return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
                 status: Enum_entity_1.StatusEnum.SUCCESS,
-                transactionId: (_f = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _f === void 0 ? void 0 : _f.reference,
+                transactionId: (_j = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _j === void 0 ? void 0 : _j.reference,
                 message: 'OK_CALLBACK',
             }, 'OK_CALLBACK', false);
         }

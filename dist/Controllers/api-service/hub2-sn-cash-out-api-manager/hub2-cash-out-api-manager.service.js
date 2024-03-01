@@ -36,23 +36,40 @@ class Hub2CashOutApiManagerService extends api_manager_interface_service_1.ApiMa
         console.log('initing cashout');
         const transaction = await this.createTransaction(api);
         const partner = await Parteners_entity_1.Parteners.findOne(transaction.partenersId);
+        const extra = {};
+        console.log(Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_CI_API_CASH_OUT === params.dto.codeService, Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_CI_API_CASH_OUT, params.dto.codeService);
+        if (Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_CI_API_CASH_OUT === params.dto.codeService) {
+            extra.workflow = 'redirection';
+            extra.onCancelRedirectionUrl = params.dto.errorRedirectUrl;
+            extra.onFinishRedirectionUrl = params.dto.successRedirectUrl;
+        }
+        console.log(extra);
         const response = await Hub2Provider_1.default.initPayment({
             amount: transaction.amount,
             msisdn: `+${this.apiService.sousServices.executeCountryCallCodeWithoutPlus}${params.dto.phone}`,
             reference: transaction.transactionId.toString(),
             meta: JSON.parse(this.apiService.sousServices.executeSmsSender),
             overrideBusinessName: params.dto.sender || partner.name,
+            extra: extra,
         });
         const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
         transaction.sousServiceTransactionId = response === null || response === void 0 ? void 0 : response.externalReference;
         await transaction.save();
+        let messageNotification;
+        let deepLink;
         if (response.success) {
             transaction.message = main_1.serializeData(response.apiResponse);
             transaction.needCheckTransaction = 0;
+            if (Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_CI_API_CASH_OUT === params.dto.codeService) {
+                transaction.deepLinkUrl = response.apiResponse.deepLinkUrl;
+                transaction.successRedirectUrl = params.dto.successRedirectUrl;
+                transaction.errorRedirectUrl = params.dto.errorRedirectUrl;
+                deepLink = `${process.env.APP_INTERNAL_URL}/deep/${transaction.transactionId}`;
+                messageNotification = await this.helper.getDeepLinkNotificationMessage(transaction, deepLink);
+            }
             await transaction.save();
-            console.log('Send OKK');
             return Object.assign({
                 status: Enum_entity_1.StatusEnum.PENDING,
                 codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
@@ -60,6 +77,11 @@ class Hub2CashOutApiManagerService extends api_manager_interface_service_1.ApiMa
                 transaction: transaction,
                 transactionId: transaction.transactionId,
                 usedPhoneId: api.id,
+                data: {
+                    notificationMessage: messageNotification,
+                    amount: transaction.amount,
+                    deepLinkUrl: deepLink,
+                },
             }, baseResponse);
         }
         else {

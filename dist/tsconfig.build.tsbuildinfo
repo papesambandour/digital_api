@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "9bc6890f5def1ea4d0981cb06ee615e5aed6b231e6984e307a5fafbc7a4cbb02",
-        "signature": "17bb545f59b9619f745248469ba379e0b96ec6ac2af4ea9268cf28444e1fb82d",
+        "version": "34b73d91b77e459d57ffcaf609f07824aeb14214ddb600dceb117eadbc77e5cc",
+        "signature": "0514085c333c04f8756a25d96e5043fed66ea8c5cafbe75a06cf3895835fdbe2",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3812,7 +3812,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "2af989dd47be60feeff69cf5ff3e2995a604e656b016859fdf6e2d6082849c1b",
+        "version": "195ece08031319f5a6e5f217b8ee11104255977f4825b7cd73ce11bb5ddb9e6b",
         "signature": "ddccd1931c6e72091ee9a26ba9b08b3aa4fc1071d1922f4f4ebca1be0ac1b546",
         "affectsGlobalScope": false
       },
@@ -4737,13 +4737,13 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/hub2/hub2provider.ts": {
-        "version": "7f67062346668b84a0066cfcd85b2dcdf3ba0594c9bc79afea30903b284c6347",
-        "signature": "97a63aa8fcc10525342e42d071f41553cfff5f79c1b01f0d734621432a4621ca",
+        "version": "dac1a29c613d2bc145430bcf143b64e5a98da8735402b60e4b8f1c6f9146c92c",
+        "signature": "7e8fcb09a773c2036f65ec375a31a4f2dbd5991561af81e751f0446ff0f1eb00",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "0175f6f4a6716cc09e4bad433ec27079fa571aeb5a6c2a87b65380a3716b9a44",
-        "signature": "792e5e41bfee443bb50e4a0c053a44422396f734d084b9e68a6fb6029ebc7683",
+        "version": "aab3faba6300172aba8712c4914056ae91f68b5858e536723c915456b00557e1",
+        "signature": "cb1c5369be2464defaba549f7c8b3b5e9735b865a5fafb40951640828bf154c6",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -5817,7 +5817,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/hub2-sn-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": {
-        "version": "b7f4aa37bd8f371c88e9db2ab490c626d797606222b8cde0ca400cc7074f9e00",
+        "version": "e59c03b8800b0227ac21c8823c74efc96e937ee2583c06da5d65de3c7f40648d",
         "signature": "2b42256fada2bc42c539f47fed21b5c2cd56c7ee7823660c21b0b80b1bc5b7c5",
         "affectsGlobalScope": false
       },
@@ -10647,6 +10647,7 @@
         "../node_modules/@nestjs/common/decorators/http/request-mapping.decorator.d.ts",
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/@types/node/crypto.d.ts",
         "../node_modules/@types/node/process.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",

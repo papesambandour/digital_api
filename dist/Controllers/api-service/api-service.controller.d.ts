@@ -80,6 +80,9 @@ export declare class ApiServiceController extends ControllerBase {
         msg: any;
         error: boolean;
         data: object;
+    } | {
+        success: boolean;
+        message: string;
     }>;
     FreeCallback(mode: string, freeCallbackData: FreeCallbackData, req: any): Promise<{
         code: number;

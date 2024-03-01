@@ -117,6 +117,7 @@ __decorate([
     }),
     class_validator_1.ValidateIf((object) => ([
         Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_OUT,
+        Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_CI_API_CASH_OUT,
         Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT,
     ].includes(object['codeService']) &&
         !String(object['successRedirectUrl']).startsWith('file:///')) ||
@@ -133,6 +134,7 @@ __decorate([
     class_validator_1.ValidateIf((object) => ([
         Enum_entity_1.SOUS_SERVICE_ENUM.WAVE_SN_API_CASH_OUT,
         Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT,
+        Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_CI_API_CASH_OUT,
     ].includes(object['codeService']) &&
         !String(object['errorRedirectUrl']).startsWith('file:///')) ||
         (object['codeService'] === Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_SN_API_CASH_OUT &&
