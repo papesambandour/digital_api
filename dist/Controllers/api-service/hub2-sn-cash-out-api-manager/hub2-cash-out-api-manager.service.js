@@ -18,6 +18,7 @@ class Hub2CashOutApiManagerService extends api_manager_interface_service_1.ApiMa
         return (await this.notImplementedYet(params));
     }
     async initTransaction(params) {
+        var _a, _b;
         const api = await this.loadBalancingPhone();
         const baseResponse = {
             phone: params.dto.phone,
@@ -81,6 +82,8 @@ class Hub2CashOutApiManagerService extends api_manager_interface_service_1.ApiMa
                     notificationMessage: messageNotification,
                     amount: transaction.amount,
                     deepLinkUrl: deepLink,
+                    _be_removed_deepLinkUrl_: (_a = response === null || response === void 0 ? void 0 : response.apiResponse) === null || _a === void 0 ? void 0 : _a.deepLinkUrl,
+                    _be_removed_deepQrCode_: (_b = response === null || response === void 0 ? void 0 : response.apiResponse) === null || _b === void 0 ? void 0 : _b.deepLinkUrl,
                 },
             }, baseResponse);
         }

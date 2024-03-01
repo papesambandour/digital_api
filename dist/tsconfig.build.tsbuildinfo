@@ -5817,7 +5817,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/hub2-sn-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": {
-        "version": "e59c03b8800b0227ac21c8823c74efc96e937ee2583c06da5d65de3c7f40648d",
+        "version": "bb2429c6642732deb28e95984290262bcf5f560e1605c863736c2ebf67d2480c",
         "signature": "2b42256fada2bc42c539f47fed21b5c2cd56c7ee7823660c21b0b80b1bc5b7c5",
         "affectsGlobalScope": false
       },
