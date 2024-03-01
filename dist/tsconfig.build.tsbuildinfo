@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "34b73d91b77e459d57ffcaf609f07824aeb14214ddb600dceb117eadbc77e5cc",
-        "signature": "0514085c333c04f8756a25d96e5043fed66ea8c5cafbe75a06cf3895835fdbe2",
+        "version": "770a683c6294165ebfdf5301ea46fa5fcb9557eb2083052f7db043b8976693f8",
+        "signature": "69019789accbb3e75caaec0487db24ea38604f0aee4f433da5d6d1b5989961f8",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4732,8 +4732,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/hub2callback.ts": {
-        "version": "e85f061635734ec9e3a7a506b1a363c310ff1d39f3c98044a6e514f118202436",
-        "signature": "4fd8e1c28d686997ab7ff30a295b3e02c398a2fd5afaed218e8c7063bc2c9718",
+        "version": "fd4486c6703ce489532e3b083de2f15f940c6e16d2c8735ac2a5b6ff19bc9857",
+        "signature": "b6293604a7478dd45f543f659841960c51c1e00b161cfe2d0b2b43305b729a4c",
         "affectsGlobalScope": false
       },
       "../src/sdk/hub2/hub2provider.ts": {
@@ -4742,7 +4742,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "961e19ced5fd68bd7d9c0e35121b56b8b5b3b07815a8756ed6ae8b4a81deccab",
+        "version": "5d825647850a4597c5204322d4b995a1c29fffbaf2f8a3f237c548bcb4e5c9ce",
         "signature": "cb1c5369be2464defaba549f7c8b3b5e9735b865a5fafb40951640828bf154c6",
         "affectsGlobalScope": false
       },
@@ -4892,8 +4892,8 @@
         "affectsGlobalScope": false
       },
       "../src/bootstrap.service.ts": {
-        "version": "ab502145b0674305bb90de55aaaaa706268ecca378159d05d784490cd1efc135",
-        "signature": "9ccf4b7071c123fa1b1372d0be96d252a46817da69805af55ae8100dff6e1bc5",
+        "version": "e85e15cac355c14a541947acea6e85c1f6949ecd7053c372ab0ccd30ba441373",
+        "signature": "7cb6adcff4a936c5d767abe1936950605d958ecdcc214369f27186c5e99359f7",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/dto/home-dto-out.ts": {
@@ -5587,8 +5587,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "841d33a321ee4536598dfaf28a573b8214b02ab1059a3ab17036173bcc8a7fc5",
-        "signature": "2ea6100de5c448a3ddae46ee5ff09b7ac8f3969e2857ebe197671aa6dcb4efae",
+        "version": "cc4d7622c76441931783d213f89abb51541627db4f48803424b64f533a1a1839",
+        "signature": "ade3aa72f5a2d0ccf6d9cc01d21dbf438952a9e44fe64e4bf1e86fc66f5a333a",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {

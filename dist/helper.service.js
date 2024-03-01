@@ -702,57 +702,6 @@ let HelperService = class HelperService {
         const column = columnInfo.find((c) => c.givenDatabaseName === dbKeyName);
         return column;
     }
-    async checkServiceConfig() {
-        const correctServiceConfig = require('../service.config.json');
-        const mismatch = {};
-        const uniform = (value) => {
-            if (value !== null && value !== undefined) {
-                return String(value).replace('.0000', '').replace('.0000', '');
-            }
-            return null;
-        };
-        for (const serviceConfig of correctServiceConfig) {
-            const dbService = await SousServices_entity_1.SousServices.findOne({
-                where: {
-                    code: typeorm_2.Equal(serviceConfig.code),
-                },
-            });
-            if (!dbService) {
-                mismatch[serviceConfig.code] = mismatch[serviceConfig.code] || [];
-                mismatch[serviceConfig.code].push({
-                    field: serviceConfig.code,
-                    dbValue: serviceConfig.code,
-                    fileValue: serviceConfig.code,
-                });
-                continue;
-            }
-            console.log(dbService);
-            for (const key in serviceConfig) {
-                if (serviceConfig.hasOwnProperty(key)) {
-                    const column = await this.getColumnMap('SousServices', key);
-                    if (uniform(serviceConfig[key]) !==
-                        uniform(dbService[column.propertyName])) {
-                        console.log(column.givenDatabaseName, 'mapped to => ', column.propertyName, serviceConfig[key], dbService[column.propertyName], 'failed');
-                        mismatch[serviceConfig.code] = mismatch[serviceConfig.code] || [];
-                        mismatch[serviceConfig.code].push({
-                            field: key,
-                            dbValue: dbService[key],
-                            fileValue: serviceConfig[key],
-                        });
-                        this.disableSousService(dbService.id, `Le service ${dbService.name} n'est pas bien configuré`, Enum_entity_1.TypeEvenEnum.SERVICE_CONFIG_MISMATCH).then();
-                    }
-                }
-            }
-            if (Object.keys(mismatch).length > 0) {
-                console.log('---- START SERVICE CONFIG MISMATCH -----');
-                console.log(mismatch);
-                console.log('---- END SERVICE CONFIG MISMATCH -----');
-            }
-            else {
-                console.log('ALL SERVICE ARE WELL CONFIGURED');
-            }
-        }
-    }
     async disableSousService(serviceId, message, type) {
         if (message) {
             this.notifyAdmin(message, type).then();

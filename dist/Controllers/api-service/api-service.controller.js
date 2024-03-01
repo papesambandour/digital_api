@@ -394,8 +394,9 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         }
     }
     async hub2Callback(req, hub2CallbackData) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
         const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
+        await this.helper.sleep(3000);
         function sign(json, secret) {
             const hmac = crypto_1.createHmac('sha256', secret);
             hmac.update(json);
@@ -408,11 +409,12 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         const signedData = sign(JSON.stringify(hub2CallbackData), process.env.HUB_2_LIVE_WEBHOOK_KEY);
         this.helper
             .notifyAdmin('New Hub 2  callback', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK, {
-            HUB2_CALLBACK: hub2CallbackData,
+            hub2CallbackData: hub2CallbackData,
             fromIp,
             headers_forwarded: req.headers['x-forwarded-for'],
             sign: req.headers['Hub2-Signature'] || req.headers['hub2-signature'],
             signedData,
+            hub2Header,
         })
             .then();
         if (![
@@ -428,8 +430,8 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         }
         if (hub2Header !== signedData) {
             this.helper
-                .notifyAdmin('New Mtn Money callback', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK, {
-                mtnCallbackData: hub2CallbackData,
+                .notifyAdmin('New Hub2 callback WITH MISMATCH KEY', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK_SIGN_MISMATCH, {
+                hub2CallbackData: hub2CallbackData,
                 fromIp,
                 headers_forwarded: req.headers['x-forwarded-for'],
             })
@@ -442,7 +444,8 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         }
         const transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
-                transactionId: (_e = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _e === void 0 ? void 0 : _e.reference,
+                transactionId: ((_e = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _e === void 0 ? void 0 : _e.reference) ||
+                    ((_f = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _f === void 0 ? void 0 : _f.purchaseReference),
                 statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
             },
             relations: ['sousServices'],
@@ -451,7 +454,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 message: 'Aucune transaction en attente de validation  trouvé',
-                transactionId: (_f = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _f === void 0 ? void 0 : _f.reference,
+                transactionId: (_g = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _g === void 0 ? void 0 : _g.reference,
             }, 'Aucune transaction en attente de validation  trouvé', true);
         }
         const apiManagerService = await this.helper.getApiManagerInterface(transaction.codeSousService, null);
@@ -460,8 +463,8 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                 message: 'Api Service Manager non configuré',
             }, 'Api Service Manager non configuré', true);
         }
-        const success = ((_g = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _g === void 0 ? void 0 : _g.status) === 'successful' ||
-            ((_h = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === null || _h === void 0 ? void 0 : _h.includes('succeeded'));
+        const success = ((_h = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _h === void 0 ? void 0 : _h.status) === 'successful' ||
+            ((_j = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === null || _j === void 0 ? void 0 : _j.includes('succeeded'));
         if (success) {
             transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
             transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
@@ -482,7 +485,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
             return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
                 status: Enum_entity_1.StatusEnum.SUCCESS,
-                transactionId: (_j = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _j === void 0 ? void 0 : _j.reference,
+                transactionId: (_k = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _k === void 0 ? void 0 : _k.reference,
                 message: 'OK_CALLBACK',
             }, 'OK_CALLBACK', false);
         }

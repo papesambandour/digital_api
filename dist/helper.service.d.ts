@@ -59,7 +59,6 @@ export declare class HelperService {
         status: any;
     };
     getColumnMap(model: string, dbKeyName: string): Promise<ColumnMetadata>;
-    checkServiceConfig(): Promise<void>;
     private disableSousService;
     handleSuccessTransactionCreditDebit(transaction: Transactions, sousServiceTransactionId?: any): Promise<boolean>;
     isNotCancelable(preStatus: StatusEnum | any | string, status: StatusEnum | any | string): boolean;

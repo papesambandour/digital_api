@@ -43,9 +43,7 @@ let BootstrapService = BootstrapService_1 = class BootstrapService {
         }
     }
     async testConfig() {
-        if (process.env.ACTIVE_TEST_CONFIG === 'true') {
-            await this.helper.checkServiceConfig();
-        }
+        return null;
     }
     redefineLog() {
         if (process.env.MODE != 'dev' && false) {

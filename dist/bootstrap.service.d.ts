@@ -7,7 +7,7 @@ export declare class BootstrapService {
     static logger: Logger;
     constructor(connection: Connection, helper: HelperService);
     init(): Promise<void>;
-    testConfig(): Promise<void>;
+    testConfig(): Promise<any>;
     redefineLog(): void;
     private initExternalService;
 }
