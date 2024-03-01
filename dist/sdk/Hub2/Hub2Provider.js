@@ -21,13 +21,13 @@ class Hub2Provider {
             },
             body: {
                 reference: reference,
-                amount: 0,
+                amount: amount,
                 currency: 'XOF',
                 description: '',
                 destination: {
                     type: meta.type,
                     country: meta.country,
-                    recipientName: '',
+                    recipientName: `Client ${msisdn} ${overrideBusinessName}`,
                     msisdn: environment === 'sandbox' ? '00000001' : msisdn,
                     provider: meta.provider,
                 },
@@ -41,10 +41,10 @@ class Hub2Provider {
             const response = await rp(requestOptions);
             console.log(response);
             return {
-                success: (response === null || response === void 0 ? void 0 : response.status) === 'created',
+                success: (response === null || response === void 0 ? void 0 : response.status) === 'created' || (response === null || response === void 0 ? void 0 : response.status) === 'successful',
                 externalReference: response === null || response === void 0 ? void 0 : response.id,
                 apiResponse: response,
-                errorMessage: (response === null || response === void 0 ? void 0 : response.status) === 'created'
+                errorMessage: (response === null || response === void 0 ? void 0 : response.status) === 'created' || (response === null || response === void 0 ? void 0 : response.status) === 'successful'
                     ? null
                     : Hub2Provider.getMessageFromResponse(response),
             };

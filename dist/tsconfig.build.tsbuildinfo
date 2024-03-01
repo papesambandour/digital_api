@@ -4737,12 +4737,12 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/hub2/hub2provider.ts": {
-        "version": "dac1a29c613d2bc145430bcf143b64e5a98da8735402b60e4b8f1c6f9146c92c",
+        "version": "049ced2d9a87e030542bbc971c91da9e4e445f23f28f03aa1aa32f44c1a8a723",
         "signature": "7e8fcb09a773c2036f65ec375a31a4f2dbd5991561af81e751f0446ff0f1eb00",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "5d825647850a4597c5204322d4b995a1c29fffbaf2f8a3f237c548bcb4e5c9ce",
+        "version": "f834fdb8372f6fcfecc6fbd4a29d0770ef44d331b51f1b917cf803089ab508cc",
         "signature": "cb1c5369be2464defaba549f7c8b3b5e9735b865a5fafb40951640828bf154c6",
         "affectsGlobalScope": false
       },
