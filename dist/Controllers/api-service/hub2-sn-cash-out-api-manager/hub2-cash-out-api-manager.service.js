@@ -52,6 +52,7 @@ class Hub2CashOutApiManagerService extends api_manager_interface_service_1.ApiMa
             meta: JSON.parse(this.apiService.sousServices.executeSmsSender),
             overrideBusinessName: params.dto.sender || partner.name,
             extra: extra,
+            description: `Paiement de ${transaction.amount} CFA pour ${params.dto.sender || partner.name}. ID: ${transaction.transactionId}`,
         });
         const statues = this.helper.getStatusAfterExec(response.success ? 'success' : 'failed', this.apiService.sousServices);
         transaction.statut = statues['status'];

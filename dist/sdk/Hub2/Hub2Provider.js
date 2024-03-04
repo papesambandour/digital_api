@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const rp = require("request-promise");
 const main_1 = require("../../main");
 class Hub2Provider {
-    static async sendTransfer({ amount, msisdn, reference, meta, overrideBusinessName, }) {
+    static async sendTransfer({ amount, msisdn, reference, meta, description, overrideBusinessName, }) {
         const apiUrl = 'https://api.hub2.io/transfers';
         const merchantId = process.env.HUB_2_MERCHEND_ID;
         const environment = process.env.HUB_2_ENV;
@@ -23,7 +23,7 @@ class Hub2Provider {
                 reference: reference,
                 amount: amount,
                 currency: 'XOF',
-                description: '',
+                description: description,
                 destination: {
                     type: meta.type,
                     country: meta.country,
@@ -32,6 +32,7 @@ class Hub2Provider {
                     provider: meta.provider,
                 },
                 overrideBusinessName: overrideBusinessName,
+                sender: overrideBusinessName,
             },
             json: true,
             simple: false,
@@ -172,7 +173,7 @@ class Hub2Provider {
             };
         }
     }
-    static async initPayment({ amount, msisdn, reference, meta, overrideBusinessName, extra, }) {
+    static async initPayment({ amount, msisdn, reference, meta, overrideBusinessName, description, extra, }) {
         var _a, _b;
         const paymentIntentUrl = 'https://api.hub2.io/payment-intents';
         const merchantId = process.env.HUB_2_MERCHEND_ID;
@@ -186,6 +187,7 @@ class Hub2Provider {
                 purchaseReference: reference,
                 amount: amount,
                 currency: 'XOF',
+                overrideBusinessName: overrideBusinessName,
             };
             const paymentIntentRequestOptions = {
                 method: 'POST',

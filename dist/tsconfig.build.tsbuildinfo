@@ -4737,12 +4737,12 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/hub2/hub2provider.ts": {
-        "version": "8dcc3eeb2be2d6a309007be21257eada2c481c8393fcb436b764b52e879ebb3d",
-        "signature": "7e8fcb09a773c2036f65ec375a31a4f2dbd5991561af81e751f0446ff0f1eb00",
+        "version": "d81a92f98fd381ab026e0a021c634ea69228322b9244e1e1ee289f55d74e2c59",
+        "signature": "b596534409229ffe35d4c5ff1c7b38538bd988bcf7428f24e0c372c75d1fc957",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "f834fdb8372f6fcfecc6fbd4a29d0770ef44d331b51f1b917cf803089ab508cc",
+        "version": "9f34889eb406efa8a1130f7211bed4449a2b8d6204144cfc135c522cc7b8af00",
         "signature": "cb1c5369be2464defaba549f7c8b3b5e9735b865a5fafb40951640828bf154c6",
         "affectsGlobalScope": false
       },
@@ -5812,12 +5812,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/hub2-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": {
-        "version": "d372dc6209c9c0d2d7549c3b97bc4f24bf8797c44c519c56d8948048f8615a18",
+        "version": "56805a8b0ee73b272e08a033039124b2d13bd000420c1b5a2dd032804283567c",
         "signature": "d5a1a63b4b3204fd66227264266bbee17b07dd6ca8b84b302919096e7829d78f",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/hub2-sn-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": {
-        "version": "bb2429c6642732deb28e95984290262bcf5f560e1605c863736c2ebf67d2480c",
+        "version": "13ca4c8236e6a26cd5ed6b6b5f3d3cdd6c507f9e181bc409606604283d83a7bc",
         "signature": "2b42256fada2bc42c539f47fed21b5c2cd56c7ee7823660c21b0b80b1bc5b7c5",
         "affectsGlobalScope": false
       },
