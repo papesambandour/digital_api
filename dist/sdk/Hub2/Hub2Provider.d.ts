@@ -39,7 +39,7 @@ export default class Hub2Provider {
         externalReference?: undefined;
     } | {
         success: boolean;
-        externalReference: string;
+        externalReference: any;
         apiResponse: {
             paymentResponse: any;
             paymentIntentResponse: any;

@@ -394,7 +394,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         }
     }
     async hub2Callback(req, hub2CallbackData) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
         const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
         await this.helper.sleep(2000 + Math.random() * 500);
         function sign(json, secret) {
@@ -423,6 +423,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             'payment.succeeded',
             'payment.failed',
             'payment_intent.succeeded',
+            'payment_intent.failed',
         ].includes(hub2CallbackData.type)) {
             return {
                 success: true,
@@ -443,7 +444,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                 message: `hash mismatch, receved from hub2 : ${hub2Header}, intech sign: ${signedData}`,
             };
         }
-        const transaction = await Transactions_entity_1.Transactions.findOne({
+        let transaction = await Transactions_entity_1.Transactions.findOne({
             where: {
                 transactionId: ((_e = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _e === void 0 ? void 0 : _e.reference) ||
                     ((_f = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _f === void 0 ? void 0 : _f.purchaseReference),
@@ -452,10 +453,19 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             relations: ['sousServices'],
         });
         if (!transaction) {
+            transaction = await Transactions_entity_1.Transactions.findOne({
+                where: {
+                    sousServiceTransactionId: ((_g = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _g === void 0 ? void 0 : _g.intentId) || ((_h = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _h === void 0 ? void 0 : _h.id),
+                    statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
+                },
+                relations: ['sousServices'],
+            });
+        }
+        if (!transaction) {
             return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
                 status: Enum_entity_1.StatusEnum.FAILLED,
                 message: 'Aucune transaction en attente de validation  trouvé',
-                transactionId: (_g = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _g === void 0 ? void 0 : _g.reference,
+                transactionId: (_j = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _j === void 0 ? void 0 : _j.reference,
             }, 'Aucune transaction en attente de validation  trouvé', true);
         }
         const apiManagerService = await this.helper.getApiManagerInterface(transaction.codeSousService, null);
@@ -464,7 +474,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                 message: 'Api Service Manager non configuré',
             }, 'Api Service Manager non configuré', true);
         }
-        const success = ((_h = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _h === void 0 ? void 0 : _h.status) === 'successful' &&
+        const success = ((_k = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _k === void 0 ? void 0 : _k.status) === 'successful' &&
             ((hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === 'payment.succeeded' ||
                 (hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === 'payment_intent.succeeded' ||
                 (hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === 'transfer.succeeded');
@@ -488,7 +498,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
             return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
                 status: Enum_entity_1.StatusEnum.SUCCESS,
-                transactionId: (_j = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _j === void 0 ? void 0 : _j.reference,
+                transactionId: (_l = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _l === void 0 ? void 0 : _l.reference,
                 message: 'OK_CALLBACK',
             }, 'OK_CALLBACK', false);
         }

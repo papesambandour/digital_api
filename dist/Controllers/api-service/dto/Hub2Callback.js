@@ -34,6 +34,11 @@ __decorate([
     class_validator_1.IsString(),
     __metadata("design:type", String)
 ], Hub2Data.prototype, "status", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsString(),
+    __metadata("design:type", String)
+], Hub2Data.prototype, "intentId", void 0);
 exports.Hub2Data = Hub2Data;
 class Hub2CallbackData {
 }

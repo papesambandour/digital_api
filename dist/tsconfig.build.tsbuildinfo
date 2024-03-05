@@ -4732,17 +4732,17 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/hub2callback.ts": {
-        "version": "fd4486c6703ce489532e3b083de2f15f940c6e16d2c8735ac2a5b6ff19bc9857",
-        "signature": "b6293604a7478dd45f543f659841960c51c1e00b161cfe2d0b2b43305b729a4c",
+        "version": "756a2312c4d9167b5afefa76915398b78a1058fdf941e782b29f57ee8fbabd7d",
+        "signature": "9c10d08788d9280824a616c242aa0096aad5588a44567fc8fcc07d50843d5983",
         "affectsGlobalScope": false
       },
       "../src/sdk/hub2/hub2provider.ts": {
-        "version": "d81a92f98fd381ab026e0a021c634ea69228322b9244e1e1ee289f55d74e2c59",
-        "signature": "b596534409229ffe35d4c5ff1c7b38538bd988bcf7428f24e0c372c75d1fc957",
+        "version": "bc5a77a7efe6618d0696d22c32d7947e9bc1bba24f35bf988f48d3a606d5ac94",
+        "signature": "8e7d5c64e2243602b6404fdba0b47827c4b9faa7126fa5f8dd5baae2ebb2e20e",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "a5d0bc23224c8c5c1025fd7f10d9d09312ab73b4cc1b9df6daf6af838e7a05d6",
+        "version": "24b74e3b844681c07147f842f27906e9be6d193bdd4ce362fd5cc1e2a1f1a209",
         "signature": "cb1c5369be2464defaba549f7c8b3b5e9735b865a5fafb40951640828bf154c6",
         "affectsGlobalScope": false
       },

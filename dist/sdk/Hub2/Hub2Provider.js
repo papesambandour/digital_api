@@ -174,7 +174,6 @@ class Hub2Provider {
         }
     }
     static async initPayment({ amount, msisdn, reference, meta, overrideBusinessName, description, extra, }) {
-        var _a, _b;
         const paymentIntentUrl = 'https://api.hub2.io/payment-intents';
         const merchantId = process.env.HUB_2_MERCHEND_ID;
         const environment = process.env.HUB_2_ENV;
@@ -256,7 +255,7 @@ class Hub2Provider {
             }
             return {
                 success: (paymentResponse === null || paymentResponse === void 0 ? void 0 : paymentResponse.status) === 'processing',
-                externalReference: (paymentResponse === null || paymentResponse === void 0 ? void 0 : paymentResponse.id) + ';' + ((_b = (_a = paymentResponse === null || paymentResponse === void 0 ? void 0 : paymentResponse.payments) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.id),
+                externalReference: paymentResponse === null || paymentResponse === void 0 ? void 0 : paymentResponse.id,
                 apiResponse: {
                     paymentResponse,
                     paymentIntentResponse,

@@ -3,6 +3,7 @@ export declare class Hub2Data {
     reference: string;
     purchaseReference: string;
     status: string;
+    intentId: string;
 }
 export declare class Hub2CallbackData {
     data: Hub2Data;
