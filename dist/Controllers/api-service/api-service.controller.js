@@ -396,7 +396,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
     async hub2Callback(req, hub2CallbackData) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
-        await this.helper.sleep(2000);
+        await this.helper.sleep(2000 + Math.random() * 500);
         function sign(json, secret) {
             const hmac = crypto_1.createHmac('sha256', secret);
             hmac.update(json);
@@ -422,6 +422,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             'transfer.failed',
             'payment.succeeded',
             'payment.failed',
+            'payment_intent.succeeded',
         ].includes(hub2CallbackData.type)) {
             return {
                 success: true,
@@ -465,6 +466,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         }
         const success = ((_h = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _h === void 0 ? void 0 : _h.status) === 'successful' &&
             ((hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === 'payment.succeeded' ||
+                (hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === 'payment_intent.succeeded' ||
                 (hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === 'transfer.succeeded');
         if (success) {
             transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
