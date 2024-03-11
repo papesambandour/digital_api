@@ -393,6 +393,12 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             }, 'FAILED_CALLBACK', true);
         }
     }
+    async _hub2CallbackTransfer(req, hub2CallbackData) {
+        return await this.hub2Callback(req, hub2CallbackData);
+    }
+    async _hub2CallbackPayment(req, hub2CallbackData) {
+        return await this.hub2Callback(req, hub2CallbackData);
+    }
     async hub2Callback(req, hub2CallbackData) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
         try {
@@ -521,6 +527,10 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                 error_hub2_stack: e.stack,
             })
                 .then();
+            return this.response(Controller_1.CODE_HTTP.FAILLED, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: 'FAILED_CALLBACK',
+            }, e.message, true);
         }
     }
     async FreeCallback(mode, freeCallbackData, req) {
@@ -811,7 +821,22 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "mtnCallback", null);
 __decorate([
-    request_mapping_decorator_1.All('callback/hub2'),
+    request_mapping_decorator_1.All('callback/hub2/transfer'),
+    __param(0, common_1.Req()),
+    __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Hub2Callback_1.Hub2CallbackData]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "_hub2CallbackTransfer", null);
+__decorate([
+    request_mapping_decorator_1.All('callback/hub2/payment'),
+    __param(0, common_1.Req()),
+    __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Hub2Callback_1.Hub2CallbackData]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "_hub2CallbackPayment", null);
+__decorate([
     __param(0, common_1.Req()), __param(1, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Hub2Callback_1.Hub2CallbackData]),
