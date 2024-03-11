@@ -413,14 +413,17 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                 req.headers['hub2-signature'] ||
                 '')
                 .split(',')) === null || _b === void 0 ? void 0 : _b.map((pair) => pair.split('='))) === null || _c === void 0 ? void 0 : _c.find((pair) => pair[0] === 's1')) === null || _d === void 0 ? void 0 : _d[1];
-            const signedData = sign(JSON.stringify(hub2CallbackData), process.env.HUB_2_LIVE_WEBHOOK_KEY);
+            const signedDatas = [
+                sign(JSON.stringify(hub2CallbackData), process.env.HUB_2_LIVE_WEBHOOK_KEY_TRANSFER_KEY),
+                sign(JSON.stringify(hub2CallbackData), process.env.HUB_2_LIVE_WEBHOOK_KEY_PAYMENT_KEY),
+            ];
             this.helper
                 .notifyAdmin('New Hub 2  callback', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK, {
                 hub2CallbackData: hub2CallbackData,
                 fromIp,
                 headers_forwarded: req.headers['x-forwarded-for'],
                 sign: req.headers['Hub2-Signature'] || req.headers['hub2-signature'],
-                signedData,
+                signedDatas,
                 hub2Header,
             })
                 .then();
@@ -437,7 +440,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                     message: `callback received`,
                 };
             }
-            if (hub2Header !== signedData) {
+            if (hub2Header !== signedDatas[0] && hub2Header !== signedDatas[1]) {
                 this.helper
                     .notifyAdmin('New Hub2 callback WITH MISMATCH KEY', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK_SIGN_MISMATCH, {
                     hub2CallbackData: hub2CallbackData,
@@ -448,7 +451,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                 console.log('secret ip mismatch');
                 return {
                     success: false,
-                    message: `hash mismatch, receved from hub2 : ${hub2Header}, intech sign: ${signedData}`,
+                    message: `hash mismatch, receved from hub2 : ${hub2Header}, intech sign: ${signedDatas.join(' | ')}`,
                 };
             }
             let transaction = await Transactions_entity_1.Transactions.findOne({
