@@ -395,122 +395,132 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
     }
     async hub2Callback(req, hub2CallbackData) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
-        const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
-        await this.helper.sleep(2000);
-        function sign(json, secret) {
-            const hmac = crypto_1.createHmac('sha256', secret);
-            hmac.update(json);
-            return hmac.digest('hex');
-        }
-        const hub2Header = (_d = (_c = (_b = (req.headers['Hub2-Signature'] ||
-            req.headers['hub2-signature'] ||
-            '')
-            .split(',')) === null || _b === void 0 ? void 0 : _b.map((pair) => pair.split('='))) === null || _c === void 0 ? void 0 : _c.find((pair) => pair[0] === 's1')) === null || _d === void 0 ? void 0 : _d[1];
-        const signedData = sign(JSON.stringify(hub2CallbackData), process.env.HUB_2_LIVE_WEBHOOK_KEY);
-        this.helper
-            .notifyAdmin('New Hub 2  callback', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK, {
-            hub2CallbackData: hub2CallbackData,
-            fromIp,
-            headers_forwarded: req.headers['x-forwarded-for'],
-            sign: req.headers['Hub2-Signature'] || req.headers['hub2-signature'],
-            signedData,
-            hub2Header,
-        })
-            .then();
-        if (![
-            'transfer.succeeded',
-            'transfer.failed',
-            'payment.succeeded',
-            'payment.failed',
-            'payment_intent.succeeded',
-            'payment_intent.failed',
-        ].includes(hub2CallbackData.type)) {
-            return {
-                success: true,
-                message: `callback received`,
-            };
-        }
-        if (hub2Header !== signedData) {
+        try {
+            const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
+            await this.helper.sleep(2000);
+            function sign(json, secret) {
+                const hmac = crypto_1.createHmac('sha256', secret);
+                hmac.update(json);
+                return hmac.digest('hex');
+            }
+            const hub2Header = (_d = (_c = (_b = (req.headers['Hub2-Signature'] ||
+                req.headers['hub2-signature'] ||
+                '')
+                .split(',')) === null || _b === void 0 ? void 0 : _b.map((pair) => pair.split('='))) === null || _c === void 0 ? void 0 : _c.find((pair) => pair[0] === 's1')) === null || _d === void 0 ? void 0 : _d[1];
+            const signedData = sign(JSON.stringify(hub2CallbackData), process.env.HUB_2_LIVE_WEBHOOK_KEY);
             this.helper
-                .notifyAdmin('New Hub2 callback WITH MISMATCH KEY', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK_SIGN_MISMATCH, {
+                .notifyAdmin('New Hub 2  callback', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK, {
                 hub2CallbackData: hub2CallbackData,
                 fromIp,
                 headers_forwarded: req.headers['x-forwarded-for'],
+                sign: req.headers['Hub2-Signature'] || req.headers['hub2-signature'],
+                signedData,
+                hub2Header,
             })
                 .then();
-            console.log('secret ip mismatch');
-            return {
-                success: false,
-                message: `hash mismatch, receved from hub2 : ${hub2Header}, intech sign: ${signedData}`,
-            };
-        }
-        let transaction = await Transactions_entity_1.Transactions.findOne({
-            where: {
-                transactionId: ((_e = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _e === void 0 ? void 0 : _e.reference) ||
-                    ((_f = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _f === void 0 ? void 0 : _f.purchaseReference),
-                statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
-            },
-            relations: ['sousServices'],
-        });
-        if (!transaction) {
-            transaction = await Transactions_entity_1.Transactions.findOne({
+            if (![
+                'transfer.succeeded',
+                'transfer.failed',
+                'payment.succeeded',
+                'payment.failed',
+                'payment_intent.succeeded',
+                'payment_intent.failed',
+            ].includes(hub2CallbackData.type)) {
+                return {
+                    success: true,
+                    message: `callback received`,
+                };
+            }
+            if (hub2Header !== signedData) {
+                this.helper
+                    .notifyAdmin('New Hub2 callback WITH MISMATCH KEY', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK_SIGN_MISMATCH, {
+                    hub2CallbackData: hub2CallbackData,
+                    fromIp,
+                    headers_forwarded: req.headers['x-forwarded-for'],
+                })
+                    .then();
+                console.log('secret ip mismatch');
+                return {
+                    success: false,
+                    message: `hash mismatch, receved from hub2 : ${hub2Header}, intech sign: ${signedData}`,
+                };
+            }
+            let transaction = await Transactions_entity_1.Transactions.findOne({
                 where: {
-                    sousServiceTransactionId: ((_g = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _g === void 0 ? void 0 : _g.intentId) || ((_h = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _h === void 0 ? void 0 : _h.id),
+                    transactionId: ((_e = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _e === void 0 ? void 0 : _e.reference) ||
+                        ((_f = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _f === void 0 ? void 0 : _f.purchaseReference),
                     statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
                 },
                 relations: ['sousServices'],
             });
-        }
-        if (!transaction) {
-            return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
-                status: Enum_entity_1.StatusEnum.FAILLED,
-                message: 'Aucune transaction en attente de validation  trouvé',
-                transactionId: (_j = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _j === void 0 ? void 0 : _j.reference,
-            }, 'Aucune transaction en attente de validation  trouvé', true);
-        }
-        const apiManagerService = await this.helper.getApiManagerInterface(transaction.codeSousService, null);
-        if (!apiManagerService) {
-            return this.response(this.CODE_HTTP.SERVICE_DOWN, {
-                message: 'Api Service Manager non configuré',
-            }, 'Api Service Manager non configuré', true);
-        }
-        const success = ((_k = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _k === void 0 ? void 0 : _k.status) === 'successful' &&
-            ((hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === 'payment.succeeded' ||
-                (hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === 'payment_intent.succeeded' ||
-                (hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === 'transfer.succeeded');
-        if (success) {
-            transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
-            transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
-            transaction.checkTransactionResponse = main_1.serializeData(hub2CallbackData);
-        }
-        else {
-            transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
-            transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
-            transaction.checkTransactionResponse = main_1.serializeData(hub2CallbackData);
-            transaction.errorMessage = Hub2Provider_1.default.getMessageFromResponse(hub2CallbackData);
-        }
-        await transaction.save();
-        await apiManagerService.helper.setIsCallbackReadyValue(transaction, 0);
-        apiManagerService.helper
-            .updateApiBalance(apiManagerService, transaction.phonesId)
-            .then();
-        if (success) {
-            await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
-            return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
-                status: Enum_entity_1.StatusEnum.SUCCESS,
-                transactionId: (_l = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _l === void 0 ? void 0 : _l.reference,
-                message: 'OK_CALLBACK',
-            }, 'OK_CALLBACK', false);
-        }
-        else {
+            if (!transaction) {
+                transaction = await Transactions_entity_1.Transactions.findOne({
+                    where: {
+                        sousServiceTransactionId: ((_g = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _g === void 0 ? void 0 : _g.intentId) || ((_h = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _h === void 0 ? void 0 : _h.id),
+                        statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
+                    },
+                    relations: ['sousServices'],
+                });
+            }
+            if (!transaction) {
+                return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
+                    status: Enum_entity_1.StatusEnum.FAILLED,
+                    message: 'Aucune transaction en attente de validation  trouvé',
+                    transactionId: (_j = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _j === void 0 ? void 0 : _j.reference,
+                }, 'Aucune transaction en attente de validation  trouvé', true);
+            }
+            const apiManagerService = await this.helper.getApiManagerInterface(transaction.codeSousService, null);
+            if (!apiManagerService) {
+                return this.response(this.CODE_HTTP.SERVICE_DOWN, {
+                    message: 'Api Service Manager non configuré',
+                }, 'Api Service Manager non configuré', true);
+            }
+            const success = ((_k = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _k === void 0 ? void 0 : _k.status) === 'successful' &&
+                ((hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === 'payment.succeeded' ||
+                    (hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === 'payment_intent.succeeded' ||
+                    (hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.type) === 'transfer.succeeded');
+            if (success) {
+                transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
+                transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+                transaction.checkTransactionResponse = main_1.serializeData(hub2CallbackData);
+            }
+            else {
+                transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
+                transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+                transaction.checkTransactionResponse = main_1.serializeData(hub2CallbackData);
+                transaction.errorMessage = Hub2Provider_1.default.getMessageFromResponse(hub2CallbackData);
+            }
+            await transaction.save();
+            await apiManagerService.helper.setIsCallbackReadyValue(transaction, 0);
             apiManagerService.helper
                 .updateApiBalance(apiManagerService, transaction.phonesId)
                 .then();
-            await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
-            return this.response(Controller_1.CODE_HTTP.FAILLED, {
-                status: Enum_entity_1.StatusEnum.FAILLED,
-                message: 'FAILED_CALLBACK',
-            }, 'FAILED_CALLBACK', true);
+            if (success) {
+                await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
+                return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
+                    status: Enum_entity_1.StatusEnum.SUCCESS,
+                    transactionId: (_l = hub2CallbackData === null || hub2CallbackData === void 0 ? void 0 : hub2CallbackData.data) === null || _l === void 0 ? void 0 : _l.reference,
+                    message: 'OK_CALLBACK',
+                }, 'OK_CALLBACK', false);
+            }
+            else {
+                apiManagerService.helper
+                    .updateApiBalance(apiManagerService, transaction.phonesId)
+                    .then();
+                await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
+                return this.response(Controller_1.CODE_HTTP.FAILLED, {
+                    status: Enum_entity_1.StatusEnum.FAILLED,
+                    message: 'FAILED_CALLBACK',
+                }, 'FAILED_CALLBACK', true);
+            }
+        }
+        catch (e) {
+            this.helper
+                .notifyAdmin('New Hub 2  callback ERROR', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK, {
+                error_hub2: e.message,
+                error_hub2_stack: e.stack,
+            })
+                .then();
         }
     }
     async FreeCallback(mode, freeCallbackData, req) {
