@@ -403,7 +403,6 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
         try {
             const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
-            await this.helper.sleep(2000);
             function sign(json, secret) {
                 const hmac = crypto_1.createHmac('sha256', secret);
                 hmac.update(json);
