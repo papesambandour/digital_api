@@ -394,10 +394,18 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         }
     }
     async _hub2CallbackTransfer(req, hub2CallbackData) {
-        return await this.hub2Callback(req, hub2CallbackData);
+        this.hub2Callback(req, hub2CallbackData);
+        return {
+            status: 'OK',
+            message: 'hub2Callback Transfer',
+        };
     }
     async _hub2CallbackPayment(req, hub2CallbackData) {
-        return await this.hub2Callback(req, hub2CallbackData);
+        this.hub2Callback(req, hub2CallbackData);
+        return {
+            status: 'OK',
+            message: 'hub2Callback Payment',
+        };
     }
     async hub2Callback(req, hub2CallbackData) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;

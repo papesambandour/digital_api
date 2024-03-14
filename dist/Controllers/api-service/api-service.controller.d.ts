@@ -76,21 +76,11 @@ export declare class ApiServiceController extends ControllerBase {
         message: string;
     }>;
     _hub2CallbackTransfer(req: any, hub2CallbackData: Hub2CallbackData): Promise<{
-        code: number;
-        msg: any;
-        error: boolean;
-        data: object;
-    } | {
-        success: boolean;
+        status: string;
         message: string;
     }>;
     _hub2CallbackPayment(req: any, hub2CallbackData: Hub2CallbackData): Promise<{
-        code: number;
-        msg: any;
-        error: boolean;
-        data: object;
-    } | {
-        success: boolean;
+        status: string;
         message: string;
     }>;
     hub2Callback(req: any, hub2CallbackData: Hub2CallbackData): Promise<{

@@ -4742,8 +4742,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "42e6bf3bcecd6fe37b6017ea8aef7d0cff088d498cdceae0c2b30907a8927bad",
-        "signature": "cbf9b834a4f8d12103b0a9f34a143db2d3cf47cda665f58afbf5410540b942ce",
+        "version": "5e7d5ab5de255f913b67c2539a521ec64156d6b72a25f915b4f4b5601cda90c9",
+        "signature": "dc562a5520b61c5c57d5da04ab1b89332c240fafc9a8ad7e483986c1247039ac",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
