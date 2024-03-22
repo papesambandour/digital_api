@@ -151,6 +151,34 @@ let PartnerServiceService = class PartnerServiceService {
             messageTreatment: treatmentMessage,
         };
     }
+    async resendCallback(resendCallbackDtoIn) {
+        const transaction = await this.helper.getTransactionById(resendCallbackDtoIn.id);
+        if (!transaction) {
+            return {
+                id: resendCallbackDtoIn.id,
+                statutTreatment: 'FAILED',
+                messageTreatment: 'La transaction est introuvable',
+            };
+        }
+        if (![Enum_entity_1.StatusEnum.SUCCESS.toString(), Enum_entity_1.StatusEnum.FAILLED.toString()].includes(transaction.statut)) {
+            return {
+                id: resendCallbackDtoIn.id,
+                statutTreatment: 'FAILED',
+                messageTreatment: `Le statut transaction (${transaction.statut}) ne permet pas de renvoyer son callback`,
+            };
+        }
+        await Transactions_entity_1.Transactions.update(transaction.id, {
+            dataResponseCallback: null,
+            callbackIsSend: 0,
+        });
+        const responseCallback = await this.helper.sendCallBack(transaction);
+        return {
+            id: resendCallbackDtoIn.id,
+            statutTreatment: 'SUCCESS',
+            messageTreatment: '',
+            responseCallback: responseCallback,
+        };
+    }
     async sendNotification(sendNotificationDtoIn) {
         this.helper
             .notifyAdmin(sendNotificationDtoIn.message, sendNotificationDtoIn.event, null, sendNotificationDtoIn.isCritic)

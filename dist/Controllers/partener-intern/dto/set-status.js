@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SetSuccessFailedDtoOut = exports.SetSuccessDtoIn = exports.SetFailedDtoIn = void 0;
+exports.ResendCallbackDtoOut = exports.SetSuccessFailedDtoOut = exports.ResendCallbackDtoIn = exports.SetSuccessDtoIn = exports.SetFailedDtoIn = void 0;
 const swagger_1 = require("@nestjs/swagger");
 class SetFailedDtoIn {
 }
@@ -33,6 +33,13 @@ __decorate([
     __metadata("design:type", String)
 ], SetSuccessDtoIn.prototype, "message", void 0);
 exports.SetSuccessDtoIn = SetSuccessDtoIn;
+class ResendCallbackDtoIn {
+}
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], ResendCallbackDtoIn.prototype, "id", void 0);
+exports.ResendCallbackDtoIn = ResendCallbackDtoIn;
 class SetSuccessFailedDtoOut {
 }
 __decorate([
@@ -48,4 +55,23 @@ __decorate([
     __metadata("design:type", String)
 ], SetSuccessFailedDtoOut.prototype, "messageTreatment", void 0);
 exports.SetSuccessFailedDtoOut = SetSuccessFailedDtoOut;
+class ResendCallbackDtoOut {
+}
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], ResendCallbackDtoOut.prototype, "id", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], ResendCallbackDtoOut.prototype, "statutTreatment", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], ResendCallbackDtoOut.prototype, "messageTreatment", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Object)
+], ResendCallbackDtoOut.prototype, "responseCallback", void 0);
+exports.ResendCallbackDtoOut = ResendCallbackDtoOut;
 //# sourceMappingURL=set-status.js.map

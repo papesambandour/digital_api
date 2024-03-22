@@ -2,7 +2,7 @@ import { RefundDtoIn } from './dto/refund-dto-out';
 import { StatusEnum } from '../../Models/Entities/Enum.entity';
 import { ImportBankTransfertBulkDtoIn, ImportBankTransfertBulkDtoOut } from './dto/import-bank-transfert-bulk-dto-in';
 import { ServicesBalanceDtoOut } from './dto/services-balance';
-import { SetFailedDtoIn, SetSuccessDtoIn, SetSuccessFailedDtoOut } from './dto/set-status';
+import { ResendCallbackDtoIn, ResendCallbackDtoOut, SetFailedDtoIn, SetSuccessDtoIn, SetSuccessFailedDtoOut } from './dto/set-status';
 import { SendNotificationDtoIn, SendNotificationDtoOut } from './dto/notification-dto';
 import { RetroDtoIn } from './dto/retro-dto';
 import { ExecuteUssdIn } from './dto/execute-ussd-dto';
@@ -50,6 +50,7 @@ export declare class PartnerControllerController {
     }>;
     setSuccess(setSuccessDtoIn: SetSuccessDtoIn): Promise<SetSuccessFailedDtoOut>;
     setFailed(setFailedDtoIn: SetFailedDtoIn): Promise<SetSuccessFailedDtoOut>;
+    resendCallback(resendCallbackDtoIn: ResendCallbackDtoIn): Promise<ResendCallbackDtoOut>;
     sendNotification(sendNotificationDtoIn: SendNotificationDtoIn): Promise<SendNotificationDtoOut>;
     servicesBalance(): Promise<ServicesBalanceDtoOut[]>;
     importBankTransfer(importBankTransferBulkDtoIn: ImportBankTransfertBulkDtoIn[]): Promise<ImportBankTransfertBulkDtoOut[]>;
