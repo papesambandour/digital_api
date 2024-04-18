@@ -311,8 +311,26 @@ let HelperService = class HelperService {
                 callbackIsSend: 1,
                 callbackSendedAt: new Date(),
             });
+            let hmacSignature = '';
+            const timestamp = new Date().getTime().toString();
+            if (partner.useHmacSign) {
+                const httpMethod = 'POST';
+                const dataString = JSON.stringify(dataSended);
+                const hmacData = `${httpMethod}:${timestamp}:${dataString}`;
+                hmacSignature = crypto
+                    .createHmac('sha256', partner.hmacSignKey)
+                    .update(hmacData)
+                    .digest('hex');
+            }
             const dataResponse = await this.httpService
-                .post(transaction.urlIpn, dataSended)
+                .post(transaction.urlIpn, dataSended, partner.useHmacSign
+                ? {
+                    headers: {
+                        'Hmac-Signature': hmacSignature,
+                        Timestamp: timestamp,
+                    },
+                }
+                : undefined)
                 .toPromise();
             await Transactions_entity_1.Transactions.update(transaction.id, {
                 dataSended: JSON.stringify(dataSended),
