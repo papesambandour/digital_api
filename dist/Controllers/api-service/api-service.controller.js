@@ -55,6 +55,7 @@ const MtnApiProvider_1 = require("../../sdk/Mtn/MtnApiProvider");
 const refund_dto_out_1 = require("../partener-intern/dto/refund-dto-out");
 const Hub2Callback_1 = require("./dto/Hub2Callback");
 const Hub2Provider_1 = require("../../sdk/Hub2/Hub2Provider");
+const HmacInterceptor_1 = require("./HmacInterceptor");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService, helper) {
         super();
@@ -201,7 +202,18 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         return this.response(this.CODE_HTTP.OK, this.getCodeOperation());
     }
     async balance(headers) {
-        const partnerAccoune = await this.apiServiceService.getPartner(headers);
+        const partnerAccoune = await this.apiServiceService.getPartner(headers, null);
+        if (!partnerAccoune) {
+            return this.response(this.CODE_HTTP.OPERATION_AUTH_NEED, { secreteKey: 'Invalide secrete key' }, '', true);
+        }
+        return this.response(this.CODE_HTTP.OK_OPERATION, {
+            currency: 'XOF',
+            balance: partnerAccoune.parteners.solde +
+                partnerAccoune.parteners.soldeCommission,
+        });
+    }
+    async balancePost(headers, dto) {
+        const partnerAccoune = await this.apiServiceService.getPartner(headers, dto);
         if (!partnerAccoune) {
             return this.response(this.CODE_HTTP.OPERATION_AUTH_NEED, { secreteKey: 'Invalide secrete key' }, '', true);
         }
@@ -212,7 +224,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         });
     }
     async getTransactionStatus(headers, dto) {
-        const partnerAccount = await this.apiServiceService.getPartner(headers);
+        const partnerAccount = await this.apiServiceService.getPartner(headers, dto);
         console.log('call get-transaction-status ', dto, partnerAccount === null || partnerAccount === void 0 ? void 0 : partnerAccount.name);
         if (!partnerAccount) {
             return this.response(this.CODE_HTTP.OPERATION_AUTH_NEED, { secreteKey: 'Invalide secrete key' }, '', true);
@@ -745,6 +757,7 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
 };
 __decorate([
     common_1.Post('operation'),
+    common_1.UseInterceptors(HmacInterceptor_1.HmacInterceptor),
     ResponseDecorateur_1.ResponseDecorateur(OperationOutDto_1.OperationOutDto, 201, "Ce Services permet d'effectué tous les operations que offres cet api "),
     ResponseDecorateur_1.ResponseDecorateur(OperationBadParamsDto_1.OperationBadParamsDto, 400, 'Les parametres envoyés sont invalides'),
     __param(0, common_1.Body()), __param(1, common_1.Req()),
@@ -763,6 +776,7 @@ __decorate([
 ], ApiServiceController.prototype, "transaction", null);
 __decorate([
     common_1.Post('confirm-payment-request'),
+    common_1.UseInterceptors(HmacInterceptor_1.HmacInterceptor),
     ResponseDecorateur_1.ResponseDecorateur(OperationOutDto_1.OperationOutDto, 201, "Ce Services permet d'effectué tous les operations que offres cet api "),
     ResponseDecorateur_1.ResponseDecorateur(OperationBadParamsDto_1.OperationBadParamsDto, 400, 'Les parametres envoyés sont invalides'),
     __param(0, common_1.Body()),
@@ -788,6 +802,7 @@ __decorate([
 ], ApiServiceController.prototype, "dictionary", null);
 __decorate([
     common_1.Get('balance'),
+    common_1.UseInterceptors(HmacInterceptor_1.HmacInterceptor),
     ResponseDecorateur_1.ResponseDecorateur(DtoBalance_1.DtoBalance, 200, '', false),
     ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
     __param(0, common_1.Headers()),
@@ -796,7 +811,18 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "balance", null);
 __decorate([
+    common_1.Post('balance'),
+    common_1.UseInterceptors(HmacInterceptor_1.HmacInterceptor),
+    ResponseDecorateur_1.ResponseDecorateur(DtoBalance_1.DtoBalance, 200, '', false),
+    ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
+    __param(0, common_1.Headers()), __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "balancePost", null);
+__decorate([
     common_1.Post('get-transaction-status'),
+    common_1.UseInterceptors(HmacInterceptor_1.HmacInterceptor),
     ResponseDecorateur_1.ResponseDecorateur(DtoGetTransactionStatus_1.DtoGetTransactionStatusOut, 200, '', false),
     ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
     __param(0, common_1.Headers()),
@@ -807,6 +833,7 @@ __decorate([
 ], ApiServiceController.prototype, "getTransactionStatus", null);
 __decorate([
     common_1.Post('transaction/refund-cancel'),
+    common_1.UseInterceptors(HmacInterceptor_1.HmacInterceptor),
     ResponseDecorateur_1.ResponseDecorateur(refund_dto_out_1.RefundDtoOut, 201, 'Home service partner intern '),
     ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
     __param(0, common_1.Body()),
@@ -816,6 +843,7 @@ __decorate([
 ], ApiServiceController.prototype, "refund", null);
 __decorate([
     common_1.Post('new-claim'),
+    common_1.UseInterceptors(HmacInterceptor_1.HmacInterceptor),
     ResponseDecorateur_1.ResponseDecorateur(NewClaim_1.NewClaimInDtoOut, 200, '', false),
     ResponseForbidenDecorateur_1.ResponseForbidenDecorateur(ResponseForbidden_1.ResponseForbidden),
     __param(0, common_1.Body()),
@@ -895,6 +923,7 @@ __decorate([
 ], ApiServiceController.prototype, "errors", null);
 __decorate([
     common_1.Post('list-pending-bills'),
+    common_1.UseInterceptors(HmacInterceptor_1.HmacInterceptor),
     ResponseDecorateur_1.ResponseDecorateur(OperationOutDto_1.OperationOutDto, 201, "Ce Services permet d'effectué tous les operations que offres cet api "),
     ResponseDecorateur_1.ResponseDecorateur(OperationBadParamsDto_1.OperationBadParamsDto, 400, 'Les parametres envoyés sont invalides'),
     __param(0, common_1.Body()),

@@ -43,6 +43,15 @@ let HelperService = class HelperService {
         this.connection = connection;
         this.httpService = httpService;
     }
+    async getPartner(headers, dto) {
+        return await PartenerComptes_entity_1.PartenerComptes.findOne({
+            where: {
+                appKey: typeorm_2.Equal((headers === null || headers === void 0 ? void 0 : headers.secretkey) || (headers === null || headers === void 0 ? void 0 : headers['secret-key']) || (dto === null || dto === void 0 ? void 0 : dto.apiKey)),
+                state: 'ACTIVED',
+            },
+            relations: ['parteners'],
+        });
+    }
     async refund(refundDtoIn, typeId, partnerAccount = null) {
         const transaction = typeId === 'admin'
             ? await this.getTransactionById(refundDtoIn.transactionId, [])

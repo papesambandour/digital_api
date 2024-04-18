@@ -44,6 +44,12 @@ export declare class ApiServiceController extends ControllerBase {
         error: boolean;
         data: object;
     }>;
+    balancePost(headers: any, dto: any): Promise<{
+        code: number;
+        msg: any;
+        error: boolean;
+        data: object;
+    }>;
     getTransactionStatus(headers: any, dto: DtoGetTransactionStatusIn): Promise<{
         code: number;
         msg: any;

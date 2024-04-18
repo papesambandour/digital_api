@@ -302,10 +302,10 @@ let ApiServiceService = class ApiServiceService {
             errorType: errorType,
         }, (response === null || response === void 0 ? void 0 : response['data']) || {});
     }
-    async getPartner(headers) {
+    async getPartner(headers, dto) {
         return await PartenerComptes_entity_1.PartenerComptes.findOne({
             where: {
-                appKey: typeorm_1.Equal(headers === null || headers === void 0 ? void 0 : headers.secretkey),
+                appKey: typeorm_1.Equal((headers === null || headers === void 0 ? void 0 : headers.secretkey) || (headers === null || headers === void 0 ? void 0 : headers['secret-key']) || (dto === null || dto === void 0 ? void 0 : dto.apiKey)),
                 state: 'ACTIVED',
             },
             relations: ['parteners'],

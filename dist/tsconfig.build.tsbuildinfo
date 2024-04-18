@@ -3152,8 +3152,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/parteners.entity.ts": {
-        "version": "a26f3460724e9c8ca41788b180980f76b92d84a242ff5fd1d3ff759e0dfb8eaf",
-        "signature": "3c1f72f83123b37f3559b098f6fea58c9c90cb525162001ff66717560dec6ecb",
+        "version": "f58768d730b628f79806677b6f38bf909998a7e543756b5f57d1f0c77b7d2694",
+        "signature": "3e1e205ff02a9a9d2658efd24b5c138d753d19a3a959e7db7507430cada4aa43",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationparteners.entity.ts": {
@@ -4092,8 +4092,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "3bb77b512113f25ba47b4154f65941b8a88e6ed57cf9eaab77a2bfc2a8404fc9",
-        "signature": "68c7d299309bfdecd795c3410516d4a3d201244ace4bc7484f2d186440767f31",
+        "version": "8235863f72d2dc58eb1eddc14dab924a06810e60c6a2c079d7bc098ec38a832c",
+        "signature": "361f7f682f825c90845a48862c6ccf8e31759ffc51149579f7b6951ef8dc4cf1",
         "affectsGlobalScope": false
       },
       "../src/controllers/controller.ts": {
@@ -4657,7 +4657,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/whatsapp/whatsappapiprovider.ts": {
-        "version": "8dc2eced3b4dce2f6e4f0e8dff8e7833732c5afa2fe8516ca34ae863f61199e4",
+        "version": "9ac39b0fe226b810ce50a7867aca66146fcb69ac57e84383d5d7ec5d912b04cd",
         "signature": "6dde8ad12ee3b7469880311cb2e779bee6cdff09064c0166ab6d5cbe0306ff1a",
         "affectsGlobalScope": false
       },
@@ -4692,8 +4692,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtogettransactionstatus.ts": {
-        "version": "29871dc4e9d3dcc45df3634012637ac2a165bce3d6712b06a2efb1151f5ad817",
-        "signature": "f570831066d3c7ba9bd4db14a4836498727e4ea8ba092e3ef10ea43e596409cd",
+        "version": "d80cba503309bafe4cc2c9e35e06de3f677d1fc6ae9abcb26716997e6edc3da0",
+        "signature": "fdcdb6100d03ab457269a9466901631d8f89f2dff09f7aea87b43d0c5fce78cf",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/confirmkpay.ts": {
@@ -4741,9 +4741,14 @@
         "signature": "8e7d5c64e2243602b6404fdba0b47827c4b9faa7126fa5f8dd5baae2ebb2e20e",
         "affectsGlobalScope": false
       },
+      "../src/controllers/api-service/hmacinterceptor.ts": {
+        "version": "649ce8e3d44cc89a682e72a6e00cf0e90b4ddf0760fb99973a8421abf4e4a30c",
+        "signature": "2e976f2638ca637b1eaba3171809e78d31a20e161b3cccbee873f3aed4839384",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "5e7d5ab5de255f913b67c2539a521ec64156d6b72a25f915b4f4b5601cda90c9",
-        "signature": "dc562a5520b61c5c57d5da04ab1b89332c240fafc9a8ad7e483986c1247039ac",
+        "version": "80a0648220d15619aa8b02df3a5e981a1128ce7585b9a104f983cc45996ec5ac",
+        "signature": "65b6bf038a768d9d0551946be1489d26aa9ffb3cf2c9226f3df3bba4d9e87275",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -5587,8 +5592,8 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "cc4d7622c76441931783d213f89abb51541627db4f48803424b64f533a1a1839",
-        "signature": "ade3aa72f5a2d0ccf6d9cc01d21dbf438952a9e44fe64e4bf1e86fc66f5a333a",
+        "version": "eb0eb789f4ce02246793d301cf1b67ac22ddeecf77a412f679bfac5fbe04d017",
+        "signature": "9e992288df4ab9b509791770cc0c1024bf62f31d3202a5eb3023fc38bdcd3e79",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
@@ -10663,6 +10668,7 @@
         "../src/controllers/api-service/dto/operationdictionarydto.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/controllers/api-service/dto/operationoutdto.ts",
+        "../src/controllers/api-service/hmacinterceptor.ts",
         "../src/controllers/controller.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
         "../src/helper.service.ts",
@@ -10864,6 +10870,15 @@
         "../src/sdk/freemoney/freemoneyapiprovider.ts",
         "../src/sdk/mtn/config.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
+      ],
+      "../src/controllers/api-service/hmacinterceptor.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/crypto.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/rxjs/index.d.ts",
+        "../src/controllers/api-service/api-service.service.ts",
+        "../src/helper.service.ts",
+        "../src/models/entities/parteners.entity.ts"
       ],
       "../src/controllers/api-service/hub2-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -11349,7 +11364,8 @@
         "../node_modules/@nestjs/swagger/index.d.ts"
       ],
       "../src/models/dto/dtogettransactionstatus.ts": [
-        "../node_modules/@nestjs/swagger/index.d.ts"
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
       ],
       "../src/models/dto/dtomessageussds.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts"
@@ -16004,6 +16020,11 @@
       ],
       "../src/controllers/api-service/free-money-cash-out-api-manager/free-money-cash-out-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/hmacinterceptor.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/rxjs/index.d.ts",
+        "../src/helper.service.ts"
       ],
       "../src/controllers/api-service/hub2-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"

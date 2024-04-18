@@ -124,6 +124,18 @@ __decorate([
     __metadata("design:type", String)
 ], Parteners.prototype, "waveCIBusinessRegistrationId", void 0);
 __decorate([
+    typeorm_1.Column('varchar', {
+        name: 'hmac_sign_key',
+        length: 255,
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], Parteners.prototype, "hmacSignKey", void 0);
+__decorate([
+    typeorm_1.Column('tinyint', { name: 'use_hmac_sign', width: 1 }),
+    __metadata("design:type", Number)
+], Parteners.prototype, "useHmacSign", void 0);
+__decorate([
     typeorm_1.Column('longtext', { name: 'adress', nullable: true }),
     __metadata("design:type", String)
 ], Parteners.prototype, "adress", void 0);

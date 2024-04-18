@@ -12,7 +12,7 @@ class WhatsAppApiProvider {
         return this._client;
     }
     static async getInstance() {
-        if (process.env.RUNTIME_ENV === 'CRON') {
+        if (process.env.RUNTIME_ENV === 'CRON' || true) {
             return null;
         }
         if (!WhatsAppApiProvider._instance) {

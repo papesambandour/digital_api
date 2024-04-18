@@ -27,6 +27,7 @@ export declare class HelperService {
     private readonly connection;
     private httpService;
     constructor(connection: Connection, httpService: HttpService);
+    getPartner(headers: any, dto: any): Promise<PartenerComptes>;
     refund(refundDtoIn: RefundDtoIn, typeId: 'partner' | 'admin', partnerAccount?: PartenerComptes): Promise<RefundDtoOut>;
     notifyAdmin(message: string, typeEvent: TypeEvenEnum, data?: {}, isCritic?: boolean, channelName?: any): Promise<void>;
     splitMessage(message: any, chunkSize: any): any[];

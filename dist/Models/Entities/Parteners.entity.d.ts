@@ -19,6 +19,8 @@ export declare class Parteners extends CustomBaseModel {
     email: string;
     waveBusinessRegistrationId: string;
     waveCIBusinessRegistrationId: string;
+    hmacSignKey: string;
+    useHmacSign: number;
     adress: string | null;
     password: string;
     firstConnection: number;

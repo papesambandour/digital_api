@@ -55,6 +55,6 @@ export declare class ApiServiceService {
     validUrl(str: any): boolean;
     allDataIsOk(): any;
     responseOperation(response: CheckResponse | RefundResponse | InitResponse, operationInDto: OperationInDto, errorType: any): any;
-    getPartner(headers: any): Promise<PartenerComptes>;
+    getPartner(headers: any, dto: any): Promise<PartenerComptes>;
     private initFeePsp;
 }
