@@ -929,7 +929,7 @@ let HelperService = class HelperService {
                 id: null,
                 codeService: null,
                 code: 'unknown_error',
-                message: defaultMessageIfUnknowNoError,
+                message: defaultMessageIfUnknowNoError || 'unknown_error',
             };
         }
         transaction.errorTypes = foundError;
