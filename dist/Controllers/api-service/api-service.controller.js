@@ -406,20 +406,48 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         }
     }
     async _hub2CallbackTransfer(req, hub2CallbackData) {
-        this.hub2Callback(req, hub2CallbackData);
+        this.hub2Callback(req, hub2CallbackData, process.env.HUB_2_LIVE_WEBHOOK_KEY_TRANSFER_KEY, process.env.HUB_2_LIVE_WEBHOOK_KEY_PAYMENT_KEY);
         return {
             status: 'OK',
             message: 'hub2Callback Transfer',
         };
     }
     async _hub2CallbackPayment(req, hub2CallbackData) {
-        this.hub2Callback(req, hub2CallbackData);
+        this.hub2Callback(req, hub2CallbackData, process.env.HUB_2_LIVE_WEBHOOK_KEY_TRANSFER_KEY, process.env.HUB_2_LIVE_WEBHOOK_KEY_PAYMENT_KEY);
         return {
             status: 'OK',
             message: 'hub2Callback Payment',
         };
     }
-    async hub2Callback(req, hub2CallbackData) {
+    async _hub2CMCallbackTransfer(req, hub2CallbackData) {
+        this.hub2Callback(req, hub2CallbackData, process.env.HUB_2_CM_LIVE_WEBHOOK_KEY_TRANSFER_KEY, process.env.HUB_2_CM_LIVE_WEBHOOK_KEY_PAYMENT_KEY);
+        return {
+            status: 'OK',
+            message: 'hub2Callback Transfer',
+        };
+    }
+    async _hub2CMCallbackPayment(req, hub2CallbackData) {
+        this.hub2Callback(req, hub2CallbackData, process.env.HUB_2_CM_LIVE_WEBHOOK_KEY_TRANSFER_KEY, process.env.HUB_2_CM_LIVE_WEBHOOK_KEY_PAYMENT_KEY);
+        return {
+            status: 'OK',
+            message: 'hub2Callback Payment',
+        };
+    }
+    async _hub2BFCallbackTransfer(req, hub2CallbackData) {
+        this.hub2Callback(req, hub2CallbackData, process.env.HUB_2_BF_LIVE_WEBHOOK_KEY_TRANSFER_KEY, process.env.HUB_2_BF_LIVE_WEBHOOK_KEY_PAYMENT_KEY);
+        return {
+            status: 'OK',
+            message: 'hub2Callback Transfer',
+        };
+    }
+    async _hub2BFCallbackPayment(req, hub2CallbackData) {
+        this.hub2Callback(req, hub2CallbackData, process.env.HUB_2_BF_LIVE_WEBHOOK_KEY_TRANSFER_KEY, process.env.HUB_2_BF_LIVE_WEBHOOK_KEY_PAYMENT_KEY);
+        return {
+            status: 'OK',
+            message: 'hub2Callback Payment',
+        };
+    }
+    async hub2Callback(req, hub2CallbackData, transferKey, paymentKey) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
         try {
             const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
@@ -433,8 +461,8 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
                 '')
                 .split(',')) === null || _b === void 0 ? void 0 : _b.map((pair) => pair.split('='))) === null || _c === void 0 ? void 0 : _c.find((pair) => pair[0] === 's1')) === null || _d === void 0 ? void 0 : _d[1];
             const signedDatas = [
-                sign(JSON.stringify(hub2CallbackData), process.env.HUB_2_LIVE_WEBHOOK_KEY_TRANSFER_KEY),
-                sign(JSON.stringify(hub2CallbackData), process.env.HUB_2_LIVE_WEBHOOK_KEY_PAYMENT_KEY),
+                sign(JSON.stringify(hub2CallbackData), transferKey),
+                sign(JSON.stringify(hub2CallbackData), paymentKey),
             ];
             this.helper
                 .notifyAdmin('New Hub 2  callback', Enum_entity_1.TypeEvenEnum.HUB2_CALLBACK, {
@@ -875,9 +903,42 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "_hub2CallbackPayment", null);
 __decorate([
-    __param(0, common_1.Req()), __param(1, common_1.Body()),
+    request_mapping_decorator_1.All('callback/hub2/cm/transfer'),
+    __param(0, common_1.Req()),
+    __param(1, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Hub2Callback_1.Hub2CallbackData]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "_hub2CMCallbackTransfer", null);
+__decorate([
+    request_mapping_decorator_1.All('callback/hub2/cm/payment'),
+    __param(0, common_1.Req()),
+    __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Hub2Callback_1.Hub2CallbackData]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "_hub2CMCallbackPayment", null);
+__decorate([
+    request_mapping_decorator_1.All('callback/hub2/bf/transfer'),
+    __param(0, common_1.Req()),
+    __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Hub2Callback_1.Hub2CallbackData]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "_hub2BFCallbackTransfer", null);
+__decorate([
+    request_mapping_decorator_1.All('callback/hub2/bf/payment'),
+    __param(0, common_1.Req()),
+    __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Hub2Callback_1.Hub2CallbackData]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "_hub2BFCallbackPayment", null);
+__decorate([
+    __param(0, common_1.Req()),
+    __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Hub2Callback_1.Hub2CallbackData, Object, Object]),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "hub2Callback", null);
 __decorate([
