@@ -1,5 +1,7 @@
 import { ApiManagerInterface, BalanceParams, BalanceResponse, CallbackParams, CallbackResponse, CheckParams, CheckResponse, ConfirmParams, ConfirmResponse, InitParams, InitResponse, RefundParams, RefundResponse } from '../api-manager-interface/api-manager-interface.service';
-export declare class Hub2CashOutApiManagerService extends ApiManagerInterface {
+import { HUB2_COUNTRY } from '../../../sdk/Hub2/Hub2Provider';
+export declare class Hub2CICashInApiManagerService extends ApiManagerInterface {
+    static country: HUB2_COUNTRY;
     checkStatusTransaction(params: CheckParams): Promise<CheckResponse>;
     confirmTransaction(params: ConfirmParams): Promise<ConfirmResponse>;
     handleCallbackTransaction(params: CallbackParams): Promise<CallbackResponse>;

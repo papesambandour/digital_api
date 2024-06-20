@@ -1,13 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Hub2CashOutApiManagerService = void 0;
+exports.Hub2CICashOutApiManagerService = void 0;
 const api_manager_interface_service_1 = require("../api-manager-interface/api-manager-interface.service");
 const Controller_1 = require("../../Controller");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const main_1 = require("../../../main");
 const Hub2Provider_1 = require("../../../sdk/Hub2/Hub2Provider");
 const Parteners_entity_1 = require("../../../Models/Entities/Parteners.entity");
-class Hub2CashOutApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
+const process = require("process");
+class Hub2CICashOutApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return this.notImplementedYet(params);
     }
@@ -38,11 +39,14 @@ class Hub2CashOutApiManagerService extends api_manager_interface_service_1.ApiMa
         const transaction = await this.createTransaction(api);
         const partner = await Parteners_entity_1.Parteners.findOne(transaction.partenersId);
         const extra = {};
-        console.log(Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_CI_API_CASH_OUT === params.dto.codeService, Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_CI_API_CASH_OUT, params.dto.codeService);
         if (Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_CI_API_CASH_OUT === params.dto.codeService) {
             extra.workflow = 'redirection';
             extra.onCancelRedirectionUrl = params.dto.errorRedirectUrl;
             extra.onFinishRedirectionUrl = params.dto.successRedirectUrl;
+        }
+        if (Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_BF_API_CASH_OUT === params.dto.codeService) {
+            extra.workflow = 'otp';
+            extra.otpCode = params.dto.otpCode;
         }
         console.log(extra);
         const response = await Hub2Provider_1.default.initPayment({
@@ -106,8 +110,9 @@ class Hub2CashOutApiManagerService extends api_manager_interface_service_1.ApiMa
         return (await this.notImplementedYet(params));
     }
     async getBalance(params) {
-        return Hub2Provider_1.default.apiManagerGetBalance(params);
+        return Hub2Provider_1.default.apiManagerGetBalance(params, this.constructor.country);
     }
 }
-exports.Hub2CashOutApiManagerService = Hub2CashOutApiManagerService;
+exports.Hub2CICashOutApiManagerService = Hub2CICashOutApiManagerService;
+Hub2CICashOutApiManagerService.country = 'ci';
 //# sourceMappingURL=hub2-cash-out-api-manager.service.js.map

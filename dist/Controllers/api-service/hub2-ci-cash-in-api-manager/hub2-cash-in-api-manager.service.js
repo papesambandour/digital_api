@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Hub2CashInApiManagerService = void 0;
+exports.Hub2CICashInApiManagerService = void 0;
 const api_manager_interface_service_1 = require("../api-manager-interface/api-manager-interface.service");
 const Controller_1 = require("../../Controller");
 const Enum_entity_1 = require("../../../Models/Entities/Enum.entity");
 const main_1 = require("../../../main");
 const Hub2Provider_1 = require("../../../sdk/Hub2/Hub2Provider");
 const Parteners_entity_1 = require("../../../Models/Entities/Parteners.entity");
-class Hub2CashInApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
+class Hub2CICashInApiManagerService extends api_manager_interface_service_1.ApiManagerInterface {
     async checkStatusTransaction(params) {
         return await this.notImplementedYet(params);
     }
@@ -81,8 +81,9 @@ class Hub2CashInApiManagerService extends api_manager_interface_service_1.ApiMan
         return (await this.notImplementedYet(params));
     }
     async getBalance(params) {
-        return Hub2Provider_1.default.apiManagerGetBalance(params);
+        return Hub2Provider_1.default.apiManagerGetBalance(params, this.constructor.country);
     }
 }
-exports.Hub2CashInApiManagerService = Hub2CashInApiManagerService;
+exports.Hub2CICashInApiManagerService = Hub2CICashInApiManagerService;
+Hub2CICashInApiManagerService.country = 'ci';
 //# sourceMappingURL=hub2-cash-in-api-manager.service.js.map

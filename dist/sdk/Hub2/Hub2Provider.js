@@ -2,14 +2,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const rp = require("request-promise");
 const main_1 = require("../../main");
+const config_1 = require("./config");
 class Hub2Provider {
     static async sendTransfer({ amount, msisdn, reference, meta, description, overrideBusinessName, }) {
         const apiUrl = 'https://api.hub2.io/transfers';
-        const merchantId = process.env.HUB_2_MERCHEND_ID;
-        const environment = process.env.HUB_2_ENV;
+        const merchantId = config_1.hub2ApiConfig(meta === null || meta === void 0 ? void 0 : meta.country).merchandId;
+        const environment = config_1.hub2ApiConfig(meta === null || meta === void 0 ? void 0 : meta.country).env;
         const apiKey = environment === 'sandbox'
-            ? process.env.HUB_2_SANDBOX_API_KEY
-            : process.env.HUB_2_LIVE_API_KEY;
+            ? config_1.hub2ApiConfig(meta === null || meta === void 0 ? void 0 : meta.country).sandboxApiKey
+            : config_1.hub2ApiConfig(meta === null || meta === void 0 ? void 0 : meta.country).liveApiKey;
         const requestOptions = {
             method: 'POST',
             uri: apiUrl,
@@ -22,7 +23,7 @@ class Hub2Provider {
             body: {
                 reference: reference,
                 amount: amount,
-                currency: 'XOF',
+                currency: config_1.hub2ApiConfig(meta === null || meta === void 0 ? void 0 : meta.country).currency,
                 description: description,
                 destination: {
                     type: meta.type,
@@ -139,14 +140,14 @@ class Hub2Provider {
             return 'Le transfert a échoué, une erreur interne est survenue. Notre service technique est au courant et travaille à sa résolution.';
         }
     }
-    static async apiManagerGetBalance(params) {
+    static async apiManagerGetBalance(params, country) {
         const apiUrl = 'https://api.hub2.io/balance';
-        const merchantId = process.env.HUB_2_MERCHEND_ID;
-        const environment = process.env.HUB_2_ENV;
+        const merchantId = config_1.hub2ApiConfig(country).merchandId;
+        const environment = config_1.hub2ApiConfig(country).env;
         const apiKey = environment === 'sandbox'
-            ? process.env.HUB_2_SANDBOX_API_KEY
-            : process.env.HUB_2_LIVE_API_KEY;
-        const currency = 'XOF';
+            ? config_1.hub2ApiConfig(country).sandboxApiKey
+            : config_1.hub2ApiConfig(country).liveApiKey;
+        const currency = config_1.hub2ApiConfig(country).currency;
         const requestOptions = {
             method: 'GET',
             uri: `${apiUrl}?currency=${currency}`,
@@ -175,17 +176,17 @@ class Hub2Provider {
     }
     static async initPayment({ amount, msisdn, reference, meta, overrideBusinessName, description, extra, }) {
         const paymentIntentUrl = 'https://api.hub2.io/payment-intents';
-        const merchantId = process.env.HUB_2_MERCHEND_ID;
-        const environment = process.env.HUB_2_ENV;
+        const merchantId = config_1.hub2ApiConfig(meta === null || meta === void 0 ? void 0 : meta.country).merchandId;
+        const environment = config_1.hub2ApiConfig(meta === null || meta === void 0 ? void 0 : meta.country).env;
         const apiKey = environment === 'sandbox'
-            ? process.env.HUB_2_SANDBOX_API_KEY
-            : process.env.HUB_2_LIVE_API_KEY;
+            ? config_1.hub2ApiConfig(meta === null || meta === void 0 ? void 0 : meta.country).sandboxApiKey
+            : config_1.hub2ApiConfig(meta === null || meta === void 0 ? void 0 : meta.country).liveApiKey;
         try {
             const paymentIntentRequestBody = {
                 customerReference: `${meta.type}-${meta.country}-${msisdn}`,
                 purchaseReference: reference,
                 amount: amount,
-                currency: 'XOF',
+                currency: config_1.hub2ApiConfig(meta === null || meta === void 0 ? void 0 : meta.country).currency,
                 overrideBusinessName: overrideBusinessName,
             };
             const paymentIntentRequestOptions = {
@@ -233,11 +234,31 @@ class Hub2Provider {
             const paymentResponse = await rp(paymentRequestOptions);
             console.log(paymentResponse, 'paymentResponse', extra.workflow);
             let deepLink = undefined;
+            let typeOtp = undefined;
             let count = 20;
-            if (extra.workflow === 'redirection') {
+            if (extra.workflow === 'otp') {
                 do {
                     await Hub2Provider.sleep(500);
-                    deepLink = await Hub2Provider.getDeepLinkUrl(paymentIntentResponse.id);
+                    typeOtp = await Hub2Provider.waitForOtp(paymentIntentResponse.id, paymentIntentResponse.token, meta.country);
+                    count--;
+                    console.log('count remaining', count);
+                } while (count > 0 && !typeOtp);
+                if (!typeOtp) {
+                    return {
+                        success: false,
+                        errorMessage: "Impossible d'optenir d'envoyer le otp a l'operateur",
+                        apiResponse: {
+                            paymentResponse,
+                            paymentIntentResponse,
+                            deepLinkUrl: null,
+                        },
+                    };
+                }
+            }
+            else if (extra.workflow === 'redirection') {
+                do {
+                    await Hub2Provider.sleep(500);
+                    deepLink = await Hub2Provider.getDeepLinkUrl(paymentIntentResponse.id, meta.country);
                     count--;
                     console.log('count remaining', count);
                 } while (count > 0 && !deepLink);
@@ -252,6 +273,9 @@ class Hub2Provider {
                         },
                     };
                 }
+            }
+            if (typeOtp) {
+                Hub2Provider.sendOtp(paymentIntentResponse.id, paymentIntentResponse.token, extra === null || extra === void 0 ? void 0 : extra.otpCode, meta.country).then();
             }
             return {
                 success: (paymentResponse === null || paymentResponse === void 0 ? void 0 : paymentResponse.status) === 'processing',
@@ -274,15 +298,15 @@ class Hub2Provider {
             };
         }
     }
-    static async getDeepLinkUrl(intentId) {
+    static async getDeepLinkUrl(intentId, country) {
         var _a, _b;
         try {
             const paymentInfo = `https://api.hub2.io/payment-intents/${intentId}`;
-            const merchantId = process.env.HUB_2_MERCHEND_ID;
-            const environment = process.env.HUB_2_ENV;
+            const merchantId = config_1.hub2ApiConfig(country).merchandId;
+            const environment = config_1.hub2ApiConfig(country).env;
             const apiKey = environment === 'sandbox'
-                ? process.env.HUB_2_SANDBOX_API_KEY
-                : process.env.HUB_2_LIVE_API_KEY;
+                ? config_1.hub2ApiConfig(country).sandboxApiKey
+                : config_1.hub2ApiConfig(country).liveApiKey;
             const paymentRequestOptions = {
                 method: 'GET',
                 uri: paymentInfo,
@@ -299,6 +323,73 @@ class Hub2Provider {
             const paymentResponse = await rp(paymentRequestOptions);
             console.log('deep intent', paymentResponse);
             return (_b = (_a = paymentResponse === null || paymentResponse === void 0 ? void 0 : paymentResponse.nextAction) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.url;
+        }
+        catch (e) {
+            console.log('deep intent error', e);
+            return null;
+        }
+    }
+    static async sendOtp(intentId, piToken, otpCode, country) {
+        await Hub2Provider.sleep(3000);
+        try {
+            const paymentInfo = `https://api.hub2.io/payment-intents/${intentId}/confirmationCode`;
+            const merchantId = config_1.hub2ApiConfig(country).merchandId;
+            const environment = config_1.hub2ApiConfig(country).env;
+            const apiKey = environment === 'sandbox'
+                ? config_1.hub2ApiConfig(country).sandboxApiKey
+                : config_1.hub2ApiConfig(country).liveApiKey;
+            const paymentConfirmRequestOptions = {
+                method: 'POST',
+                uri: paymentInfo,
+                headers: {
+                    ApiKey: apiKey,
+                    MerchantId: merchantId,
+                    Environment: environment,
+                    'Content-Type': 'application/json',
+                },
+                body: {
+                    token: piToken,
+                    confirmationCode: otpCode,
+                },
+                json: true,
+                simple: false,
+            };
+            const paymentResponse = await rp(paymentConfirmRequestOptions);
+            console.log(paymentResponse, paymentInfo);
+            return paymentResponse;
+        }
+        catch (e) {
+            console.log('deep intent error', e);
+            return null;
+        }
+    }
+    static async waitForOtp(intentId, piToken, country) {
+        var _a, _b;
+        try {
+            const paymentInfo = `https://api.hub2.io/payment-intents/${intentId}`;
+            const merchantId = config_1.hub2ApiConfig(country).merchandId;
+            const environment = config_1.hub2ApiConfig(country).env;
+            const apiKey = environment === 'sandbox'
+                ? config_1.hub2ApiConfig(country).sandboxApiKey
+                : config_1.hub2ApiConfig(country).liveApiKey;
+            const paymentWaitRequestOptions = {
+                method: 'GET',
+                uri: paymentInfo,
+                headers: {
+                    ApiKey: apiKey,
+                    MerchantId: merchantId,
+                    Environment: environment,
+                    'Content-Type': 'application/json',
+                },
+                json: true,
+                simple: false,
+            };
+            console.log('presend', `https://api.hub2.io/payment-intents/${intentId}`);
+            const paymentResponse = await rp(paymentWaitRequestOptions);
+            console.log('wait for deep intent', paymentResponse);
+            return ((_b = (_a = paymentResponse === null || paymentResponse === void 0 ? void 0 : paymentResponse.nextAction) === null || _a === void 0 ? void 0 : _a.type) === null || _b === void 0 ? void 0 : _b.otp) === 'otp'
+                ? 'ok'
+                : undefined;
         }
         catch (e) {
             console.log('deep intent error', e);

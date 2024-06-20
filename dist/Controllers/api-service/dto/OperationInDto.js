@@ -154,6 +154,12 @@ __decorate([
 __decorate([
     swagger_1.ApiProperty(),
     class_validator_1.IsString(),
+    class_validator_1.ValidateIf((object) => [Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_BF_API_CASH_OUT].includes(object['codeService'])),
+    __metadata("design:type", String)
+], OperationInDto.prototype, "otpCode", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsString(),
     class_validator_1.ValidateIf((object) => [
         Enum_entity_1.SOUS_SERVICE_ENUM.BANK_CARD_API_CASH_OUT,
         Enum_entity_1.SOUS_SERVICE_ENUM.BANK_TRANSFER_SN_API_CASH_IN,

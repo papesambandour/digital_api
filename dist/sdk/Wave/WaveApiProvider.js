@@ -891,6 +891,8 @@ class WaveApiProvider {
         const body = {
             name: dto.waveBusinessRegistrationName || partner.name,
             business_registration_identifier: `${prefix}${dto.waveBusinessRegistrationExternalInTechId || partner.id}`,
+            business_description: 'NULL NULL',
+            business_type: 'other',
         };
         console.log(body);
         try {

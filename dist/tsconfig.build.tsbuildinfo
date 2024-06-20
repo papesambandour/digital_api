@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "770a683c6294165ebfdf5301ea46fa5fcb9557eb2083052f7db043b8976693f8",
-        "signature": "69019789accbb3e75caaec0487db24ea38604f0aee4f433da5d6d1b5989961f8",
+        "version": "2871022c9a631d246e524402301f59ef2c45bde7b354dac5895ff7867106fb5c",
+        "signature": "a21d514cc787be619daebd83c8a9ba38b26c97275936c46a7c77814336d78a0e",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3812,8 +3812,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "195ece08031319f5a6e5f217b8ee11104255977f4825b7cd73ce11bb5ddb9e6b",
-        "signature": "ddccd1931c6e72091ee9a26ba9b08b3aa4fc1071d1922f4f4ebca1be0ac1b546",
+        "version": "048d592158b64257af5ccdc19972f98ad66f3a31794f534f60921315df24949d",
+        "signature": "fe2cabc859a18e7db04a7fbde9c66be45787fd084f6333a5a3c2c8e1f55ec639",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationoutdto.ts": {
@@ -4667,7 +4667,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "dea629c6831ddc7ed00c8a94af046476d19b7b5b4038cbbf22efe7a97e258154",
+        "version": "bbcd475f85d5c73d5d0af985b6ba60c5bbb97661510a8de1caa126f80faf83ba",
         "signature": "5a6acd22867c37757dab7701286c3380973e41664575d72da0ad4d527c1c8509",
         "affectsGlobalScope": false
       },
@@ -4736,9 +4736,14 @@
         "signature": "9c10d08788d9280824a616c242aa0096aad5588a44567fc8fcc07d50843d5983",
         "affectsGlobalScope": false
       },
+      "../src/sdk/hub2/config.ts": {
+        "version": "e211b8d8721890bd3c1dfba079b8bb6afee36effba565b03a9e0de68d5a99ff0",
+        "signature": "e8019f9cc40e1ee823b84e4511559c928f4ec668791245f50de3b74b18f681f4",
+        "affectsGlobalScope": false
+      },
       "../src/sdk/hub2/hub2provider.ts": {
-        "version": "bc5a77a7efe6618d0696d22c32d7947e9bc1bba24f35bf988f48d3a606d5ac94",
-        "signature": "8e7d5c64e2243602b6404fdba0b47827c4b9faa7126fa5f8dd5baae2ebb2e20e",
+        "version": "5a343b8760a5f43be4fd0c036560b177abd07df5ccdcfb7e9b2be6b16319f09f",
+        "signature": "fc30bb83bb46daf6084add43fbc8c90b618a4dd6a93a09455ada3b9c58d6bc24",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/hmacinterceptor.ts": {
@@ -5816,14 +5821,74 @@
         "signature": "a162bdc92fbc1b08e673f2640bc2c3dfac6bffe68c230d0db54086a6d55c81f3",
         "affectsGlobalScope": false
       },
-      "../src/controllers/api-service/hub2-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": {
-        "version": "56805a8b0ee73b272e08a033039124b2d13bd000420c1b5a2dd032804283567c",
-        "signature": "d5a1a63b4b3204fd66227264266bbee17b07dd6ca8b84b302919096e7829d78f",
+      "../node_modules/clone-class/dist/esm/src/constructor.d.ts": {
+        "version": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
+        "signature": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
         "affectsGlobalScope": false
       },
-      "../src/controllers/api-service/hub2-sn-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": {
-        "version": "13ca4c8236e6a26cd5ed6b6b5f3d3cdd6c507f9e181bc409606604283d83a7bc",
-        "signature": "2b42256fada2bc42c539f47fed21b5c2cd56c7ee7823660c21b0b80b1bc5b7c5",
+      "../node_modules/clone-class/dist/esm/src/clone-class.d.ts": {
+        "version": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
+        "signature": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/instance-to-class.d.ts": {
+        "version": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
+        "signature": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts": {
+        "version": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
+        "signature": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts": {
+        "version": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
+        "signature": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/version.d.ts": {
+        "version": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
+        "signature": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/config.d.ts": {
+        "version": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
+        "signature": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/clone-class/dist/esm/src/mod.d.ts": {
+        "version": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
+        "signature": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/hub2-ci-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": {
+        "version": "70e9dcd5036e2e2b29b15f418f8b2ff67eb916d66a575f650bf3c9da7a2ef9fe",
+        "signature": "7442e92a518ba99b7a655b3b3b1e741370825652b80a0d96f051f7d97c4166de",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/hub2-bf-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": {
+        "version": "6c255e8446def44b402833bf804d1b81e4eff06c5c30bdd3995e53004fe9a027",
+        "signature": "0483ffd843ec97ee582b1aa35190b16f7c8d6b029953fd5e955c4041fd3b7d77",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/hub2-ci-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": {
+        "version": "9f03119f38d9be8ed8e3fc9ed9fcf268dbf8cbc018d0a279478f49fe3e868f64",
+        "signature": "23ff14664dfbb9f0ca63b0da86fb417e2fedf85cd742b8d464f6e10cc0b598b5",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/hub2-bf-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": {
+        "version": "d6e1e161a92ac56faa81f062c681379a79832e6781b341333e2ae2ca81ff96e3",
+        "signature": "d7c781ec7ea8b2f9752672ea13018192d9f9286ef04b0116690dda09a9efb0e9",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/hub2-cm-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": {
+        "version": "ad42c2cff8beb7f93fa0c9d37880241629a40fcae44b7973baca3a2e7f83180f",
+        "signature": "e3854b306a11ccd83f4657f834edfe6bda3c4e77a701e5995dba3e68a478996f",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/hub2-cm-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": {
+        "version": "cf5422a9cf997b8576433995a9606d88e130026f3f7558fc189da54aa334bf8b",
+        "signature": "547c86b6db7cda03352ded46e47b93e2886e5ab10d317c675a2609f0223527d0",
         "affectsGlobalScope": false
       },
       "../src/sdk/kpay/kpayprovider.ts": {
@@ -5959,46 +6024,6 @@
       "../src/controllers/api-service/mtn-bj-cash-out-api-manager/mtn-bj-cash-out-api-manager.service.ts": {
         "version": "f4a123ff32ff99612c6605ee6a5386dd3b149c92b666ef836cab1902c82f7469",
         "signature": "2c7180f87cfada70bdcf5b1ec483560c2ec3d58b9766df92eed8acb6bfd846d8",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/constructor.d.ts": {
-        "version": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
-        "signature": "4c176bbc7eecd7df71c0c0d7fd9bf1db341e203d42a75211c0ddf43722ae41d2",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/clone-class.d.ts": {
-        "version": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
-        "signature": "121c4142dcbe64691e97018452f76dc5559be4334603fbc5159d03c5fadbf945",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/instance-to-class.d.ts": {
-        "version": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
-        "signature": "755fbed996d4e161ff26b77ee11dc594a180dd7cb574d5c8077bd2e5d4be6338",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/interface-of-class.d.ts": {
-        "version": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
-        "signature": "2384d80784189aed17ebf441ace582012a3fb839019f838588350455d49aedf4",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/loose-instance-of-class.d.ts": {
-        "version": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
-        "signature": "fe5c683f27c4406743b44ad5a550d4c03003405c7b1760a9ff32a289748515b8",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/version.d.ts": {
-        "version": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
-        "signature": "0c87c2861ad5f50aecb8e3b4f9c8f4f740afd83cc44201f3bad18aab3ff32591",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/config.d.ts": {
-        "version": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
-        "signature": "ed62637ee067048db42a63773cdff36a95c449f5d470777d5c4b53a64b520399",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/clone-class/dist/esm/src/mod.d.ts": {
-        "version": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
-        "signature": "e36d4c69a6db0b763963be6093e58167decbdb64febc00eb39f1f4f2830b25ed",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/mtn-ci-cash-in-api-manager/mtn-ci-cash-in-api-manager.service.ts": {
@@ -6452,8 +6477,8 @@
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/lodash/common/common.d.ts": {
-        "version": "b8442e9db28157344d1bc5d8a5a256f1692de213f0c0ddeb84359834015a008c",
-        "signature": "b8442e9db28157344d1bc5d8a5a256f1692de213f0c0ddeb84359834015a008c",
+        "version": "ff81bffa4ecfceae2e86b5920c3fcb250b66b1d6ed72944dffdf58123be2481b",
+        "signature": "ff81bffa4ecfceae2e86b5920c3fcb250b66b1d6ed72944dffdf58123be2481b",
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/lodash/common/array.d.ts": {
@@ -6472,8 +6497,8 @@
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/lodash/common/function.d.ts": {
-        "version": "febf0b2de54781102b00f61653b21377390a048fbf5262718c91860d11ff34a6",
-        "signature": "febf0b2de54781102b00f61653b21377390a048fbf5262718c91860d11ff34a6",
+        "version": "aa2c18a1b5a086bbcaae10a4efba409cc95ba7287d8cf8f2591b53704fea3dea",
+        "signature": "aa2c18a1b5a086bbcaae10a4efba409cc95ba7287d8cf8f2591b53704fea3dea",
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/lodash/common/lang.d.ts": {
@@ -6492,8 +6517,8 @@
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/lodash/common/object.d.ts": {
-        "version": "4f6baaf93d43c3772ca8bd8bdb7cccfc710e614135ac8491fff3f6f120497488",
-        "signature": "4f6baaf93d43c3772ca8bd8bdb7cccfc710e614135ac8491fff3f6f120497488",
+        "version": "3c221f8328720606c7fdc037039f4803e13b5ee5b758eee4a4ccc34fb872d824",
+        "signature": "3c221f8328720606c7fdc037039f4803e13b5ee5b758eee4a4ccc34fb872d824",
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/lodash/common/seq.d.ts": {
@@ -11148,7 +11173,25 @@
         "../src/helper.service.ts",
         "../src/models/entities/parteners.entity.ts"
       ],
-      "../src/controllers/api-service/hub2-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": [
+      "../src/controllers/api-service/hub2-bf-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": [
+        "../node_modules/clone-class/dist/esm/src/mod.d.ts",
+        "../src/controllers/api-service/hub2-ci-cash-in-api-manager/hub2-cash-in-api-manager.service.ts"
+      ],
+      "../src/controllers/api-service/hub2-bf-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": [
+        "../node_modules/clone-class/dist/esm/src/mod.d.ts",
+        "../src/controllers/api-service/hub2-ci-cash-out-api-manager/hub2-cash-out-api-manager.service.ts"
+      ],
+      "../src/controllers/api-service/hub2-ci-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/hub2/hub2provider.ts",
+        "../src/sdk/wave/waveapiprovider.ts"
+      ],
+      "../src/controllers/api-service/hub2-ci-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": [
+        "../node_modules/@types/node/process.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/controller.ts",
         "../src/main.ts",
@@ -11156,13 +11199,13 @@
         "../src/models/entities/parteners.entity.ts",
         "../src/sdk/hub2/hub2provider.ts"
       ],
-      "../src/controllers/api-service/hub2-sn-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": [
-        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
-        "../src/controllers/controller.ts",
-        "../src/main.ts",
-        "../src/models/entities/enum.entity.ts",
-        "../src/models/entities/parteners.entity.ts",
-        "../src/sdk/hub2/hub2provider.ts"
+      "../src/controllers/api-service/hub2-cm-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": [
+        "../node_modules/clone-class/dist/esm/src/mod.d.ts",
+        "../src/controllers/api-service/hub2-ci-cash-in-api-manager/hub2-cash-in-api-manager.service.ts"
+      ],
+      "../src/controllers/api-service/hub2-cm-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": [
+        "../node_modules/clone-class/dist/esm/src/mod.d.ts",
+        "../src/controllers/api-service/hub2-ci-cash-out-api-manager/hub2-cash-out-api-manager.service.ts"
       ],
       "../src/controllers/api-service/kpay-sn-cash-in-api-manager/kpay-sn-cash-in-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -11923,9 +11966,14 @@
       "../src/sdk/freemoney/freemoneyapiprovider.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
+      "../src/sdk/hub2/config.ts": [
+        "../node_modules/@types/node/process.d.ts",
+        "../src/sdk/hub2/hub2provider.ts"
+      ],
       "../src/sdk/hub2/hub2provider.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
-        "../src/main.ts"
+        "../src/main.ts",
+        "../src/sdk/hub2/config.ts"
       ],
       "../src/sdk/kpay/kpayprovider.ts": [
         "../node_modules/@types/node/process.d.ts",
@@ -16482,11 +16530,25 @@
         "../node_modules/rxjs/index.d.ts",
         "../src/helper.service.ts"
       ],
-      "../src/controllers/api-service/hub2-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": [
-        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      "../src/controllers/api-service/hub2-bf-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/hub2-ci-cash-in-api-manager/hub2-cash-in-api-manager.service.ts"
       ],
-      "../src/controllers/api-service/hub2-sn-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": [
-        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      "../src/controllers/api-service/hub2-bf-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/hub2-ci-cash-out-api-manager/hub2-cash-out-api-manager.service.ts"
+      ],
+      "../src/controllers/api-service/hub2-ci-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/sdk/hub2/hub2provider.ts"
+      ],
+      "../src/controllers/api-service/hub2-ci-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/sdk/hub2/hub2provider.ts"
+      ],
+      "../src/controllers/api-service/hub2-cm-cash-in-api-manager/hub2-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/hub2-ci-cash-in-api-manager/hub2-cash-in-api-manager.service.ts"
+      ],
+      "../src/controllers/api-service/hub2-cm-cash-out-api-manager/hub2-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/hub2-ci-cash-out-api-manager/hub2-cash-out-api-manager.service.ts"
       ],
       "../src/controllers/api-service/kpay-sn-cash-in-api-manager/kpay-sn-cash-in-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
@@ -16859,6 +16921,9 @@
       ],
       "../src/sdk/freemoney/freemoneyapiprovider.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/sdk/hub2/config.ts": [
+        "../src/sdk/hub2/hub2provider.ts"
       ],
       "../src/sdk/hub2/hub2provider.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
