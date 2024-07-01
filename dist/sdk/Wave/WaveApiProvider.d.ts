@@ -72,17 +72,21 @@ export default class WaveApiProvider {
         success: boolean;
         payoutId: any;
         reference: any;
+        initResponse: any;
+        checkResponse: any;
         message?: undefined;
-        code?: undefined;
         alsoPending?: undefined;
+        code?: undefined;
         error?: undefined;
     } | {
         success: boolean;
         payoutId: any;
         reference: any;
         message: string;
+        initResponse: any;
+        checkResponse: any;
+        alsoPending: boolean;
         code?: undefined;
-        alsoPending?: undefined;
         error?: undefined;
     } | {
         success: boolean;
@@ -91,6 +95,8 @@ export default class WaveApiProvider {
         message: string;
         code: string;
         alsoPending: boolean;
+        initResponse: any;
+        checkResponse?: undefined;
         error?: undefined;
     } | {
         payoutId: string;
@@ -100,6 +106,8 @@ export default class WaveApiProvider {
         error: any;
         message: string;
         code: string;
+        initResponse?: undefined;
+        checkResponse?: undefined;
     }>;
     static verifyCheckout({ id, token, idemPotency }: {
         id: any;

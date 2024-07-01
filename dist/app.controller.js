@@ -54,7 +54,7 @@ let AppController = class AppController extends Controller_1.ControllerBase {
     }
     async cleanDataBase() {
         let result = {};
-        const refDate = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000)
+        const refDate = new Date(Date.now() - 10 * 24 * 60 * 60 * 1000)
             .toISOString()
             .substring(0, 10);
         const query = "UPDATE `transactions` SET data_sended_callback= null,check_transaction_response=null, message = null, data_response_callback=null, error_message = null WHERE (`message` IS NOT NULL OR `error_message` IS NOT NULL OR `check_transaction_response` IS NOT NULL OR `data_response_callback` IS NOT NULL) AND `created_at` <= '" +

@@ -199,14 +199,22 @@ class WaveApiProvider {
                             success: true,
                             payoutId: firstPayout.id,
                             reference: firstPayout.id,
+                            initResponse: initResponse,
+                            checkResponse: checkResponse,
                         };
                     }
                     else if (firstPayout.status === 'failed') {
+                        const isSuccess = main_1.serializeData(firstPayout.payout_error).includes('internal-server-error');
                         return {
-                            success: false,
+                            success: isSuccess,
                             payoutId: firstPayout.id,
                             reference: firstPayout.id,
-                            message: main_1.serializeData(firstPayout.payout_error),
+                            message: isSuccess
+                                ? `Le transfert est en cours de traitement après une erreur serveur interne chez wave (500): "${main_1.serializeData(firstPayout.payout_error)}"`
+                                : main_1.serializeData(firstPayout.payout_error),
+                            initResponse: initResponse,
+                            checkResponse: checkResponse,
+                            alsoPending: isSuccess ? true : undefined,
                         };
                     }
                     else {
@@ -222,6 +230,7 @@ class WaveApiProvider {
                 message: 'Le transfert est en cours de traitement après un timeout de Wave',
                 code: '',
                 alsoPending: true,
+                initResponse: initResponse,
             };
         }
         catch (e) {
