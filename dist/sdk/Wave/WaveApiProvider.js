@@ -152,7 +152,7 @@ class WaveApiProvider {
         }
     }
     static async sendPayOutApi({ idemPotency, currency, client_reference, mobile, sender, receive_amount, national_id, name, token, aggregated_merchant_id, }) {
-        var _a, _b, _c, _d;
+        var _a, _b, _c, _d, _e;
         try {
             receive_amount += '';
             const body = {
@@ -193,7 +193,7 @@ class WaveApiProvider {
                 });
                 console.log('sleeep check response', retryMax, checkResponse);
                 if (checkResponse.status === 'complete') {
-                    const firstPayout = checkResponse.payouts[0];
+                    const firstPayout = (_a = checkResponse.payouts[0]) !== null && _a !== void 0 ? _a : {};
                     if (firstPayout.status === 'succeeded') {
                         return {
                             success: true,
@@ -237,15 +237,15 @@ class WaveApiProvider {
             let isSuccess = false;
             let errorMessage = 'La transaction a échoué suite a une erreur interne de Wave';
             let alsoPending = false;
-            if ((_a = e === null || e === void 0 ? void 0 : e.message) === null || _a === void 0 ? void 0 : _a.includes('ETIMEDOUT')) {
+            if ((_b = e === null || e === void 0 ? void 0 : e.message) === null || _b === void 0 ? void 0 : _b.includes('ETIMEDOUT')) {
                 isSuccess = true;
                 alsoPending = true;
                 errorMessage =
                     "Le transfert est en cours de traitement après un délai d'expiration";
             }
-            else if (((_b = e === null || e === void 0 ? void 0 : e.message) === null || _b === void 0 ? void 0 : _b.includes('502 Server Error')) ||
-                ((_c = e === null || e === void 0 ? void 0 : e.message) === null || _c === void 0 ? void 0 : _c.includes('502 Bad Gateway')) ||
-                ((_d = e === null || e === void 0 ? void 0 : e.message) === null || _d === void 0 ? void 0 : _d.includes('Gateway Time-out'))) {
+            else if (((_c = e === null || e === void 0 ? void 0 : e.message) === null || _c === void 0 ? void 0 : _c.includes('502 Server Error')) ||
+                ((_d = e === null || e === void 0 ? void 0 : e.message) === null || _d === void 0 ? void 0 : _d.includes('502 Bad Gateway')) ||
+                ((_e = e === null || e === void 0 ? void 0 : e.message) === null || _e === void 0 ? void 0 : _e.includes('Gateway Time-out'))) {
                 isSuccess = true;
                 alsoPending = true;
                 errorMessage = `Le transfert est en cours de traitement après une erreur serveur temporaire (502): "${e === null || e === void 0 ? void 0 : e.message}"`;
