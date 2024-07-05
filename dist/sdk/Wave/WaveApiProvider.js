@@ -194,7 +194,8 @@ class WaveApiProvider {
                 console.log('sleeep check response', retryMax, checkResponse);
                 if (checkResponse.status === 'complete') {
                     const firstPayout = (_a = checkResponse.payouts[0]) !== null && _a !== void 0 ? _a : {};
-                    if (firstPayout.status === 'succeeded') {
+                    if (firstPayout.status === 'succeeded' ||
+                        firstPayout.status === 'processing') {
                         return {
                             success: true,
                             payoutId: firstPayout.id,
