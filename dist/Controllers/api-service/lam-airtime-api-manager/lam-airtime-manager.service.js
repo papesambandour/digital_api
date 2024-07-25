@@ -45,7 +45,7 @@ class LamAirtimeApiManagerService extends api_manager_interface_service_1.ApiMan
             login: process.env.LAM_LOGIN,
             password: process.env.LAM_PASSWORD,
             montant: params.dto.amount,
-            telephone: `221${params.dto.amount}`,
+            telephone: `221${params.dto.phone}`,
             operateur: this.constructor.operatorCode,
             callback: 'https://api.intech.sn/api-services/callback/lam-airtime',
         };
