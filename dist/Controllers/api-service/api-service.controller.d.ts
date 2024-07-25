@@ -10,6 +10,7 @@ import { FreeCallbackData } from './dto/FreeCallback';
 import { MtnBjCallbackData } from './dto/MtnBjCallback';
 import { RefundDtoIn } from '../partener-intern/dto/refund-dto-out';
 import { Hub2CallbackData } from './dto/Hub2Callback';
+import { LamAirtimeCallbackData } from './dto/LAMCallback';
 export declare class ApiServiceController extends ControllerBase {
     private readonly apiServiceService;
     private readonly helper;
@@ -73,6 +74,15 @@ export declare class ApiServiceController extends ControllerBase {
         data: object;
     }>;
     mtnCallback(req: any, mtnCallbackData: MtnBjCallbackData): Promise<{
+        code: number;
+        msg: any;
+        error: boolean;
+        data: object;
+    } | {
+        success: boolean;
+        message: string;
+    }>;
+    lamAirtime(req: any, lamCallbackData: LamAirtimeCallbackData): Promise<{
         code: number;
         msg: any;
         error: boolean;

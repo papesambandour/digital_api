@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "2871022c9a631d246e524402301f59ef2c45bde7b354dac5895ff7867106fb5c",
-        "signature": "a21d514cc787be619daebd83c8a9ba38b26c97275936c46a7c77814336d78a0e",
+        "version": "1a49bf139e0f4191f2bfb55ef744abbab3576c06d5d1528f4043d631bfd9d64b",
+        "signature": "8de505e59e128f0006b829ba5749ced7ab935e536a49649c54b11018f3fc2366",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3812,7 +3812,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "048d592158b64257af5ccdc19972f98ad66f3a31794f534f60921315df24949d",
+        "version": "5f496098400fa0a928dcbd2f931be9c2aa6ca7fb26fc6b3bc6af747281c6d0f1",
         "signature": "fe2cabc859a18e7db04a7fbde9c66be45787fd084f6333a5a3c2c8e1f55ec639",
         "affectsGlobalScope": false
       },
@@ -4751,9 +4751,24 @@
         "signature": "2e976f2638ca637b1eaba3171809e78d31a20e161b3cccbee873f3aed4839384",
         "affectsGlobalScope": false
       },
+      "../src/controllers/api-service/dto/lamcallback.ts": {
+        "version": "f49128f830aa293174d7df8065e30297c8cfbf1e07ae94916a3cdc2e66ae1db8",
+        "signature": "88edd38d61f33e6fb94dfef2a86134df42409df1abedf1c379fa231b80773ef6",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/freemoney/freemoneyapiprovider.ts": {
+        "version": "69baeb341f44ba8bca12d2045cb6a473803b7b5243d3ffb5acaef3d70baeddb4",
+        "signature": "9bc141ca7977a3c5b0fbd3812fc7ca3cce9529e40de205e1bb455cb35622fc51",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/lam-airtime-api-manager/lam-airtime-manager.service.ts": {
+        "version": "8e668ed21081dd8256939f6a1e71bcb20a3fc462a0f207769310d11ce874474d",
+        "signature": "0d2af46565c6d9d975324d1d60080c5d61bfb0fa8a8524c7bd48ffa2274fc8bc",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "6901119130c2d417364d92c642c7aac400290b05f072b1522ad788015643d444",
-        "signature": "27e0fbda8f3e4657deb77dcd5d4cb9ab1f694ec17c5dd1c58296111835cff970",
+        "version": "4c113d7ef4d5871e6c5396f6a6fbbe0cf73dcaf8f8319f7bd7694a8bd84e4f10",
+        "signature": "27545722e4bf2d1ba001f152a7eaaae65ac867c6b4b3a74bfd61506330956b80",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -5804,11 +5819,6 @@
       "../src/controllers/api-service/dto/required-for-service.decorator.ts": {
         "version": "a0b9d66d428e3a2ac519375f9c3848886f1ab96a5a9b4b5e2dc8ff243afc13c1",
         "signature": "cef1e66ac8cd932fd46857ba04670f194cf7ad2c75bdddcf69d44986ade02f3c",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/freemoney/freemoneyapiprovider.ts": {
-        "version": "69baeb341f44ba8bca12d2045cb6a473803b7b5243d3ffb5acaef3d70baeddb4",
-        "signature": "9bc141ca7977a3c5b0fbd3812fc7ca3cce9529e40de205e1bb455cb35622fc51",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/free-money-cash-in-api-manager/free-money-cash-in-api-manager.service.ts": {
@@ -10954,6 +10964,7 @@
         "../src/controllers/api-service/dto/confirmkpay.ts",
         "../src/controllers/api-service/dto/freecallback.ts",
         "../src/controllers/api-service/dto/hub2callback.ts",
+        "../src/controllers/api-service/dto/lamcallback.ts",
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
         "../src/controllers/api-service/dto/mtnbjcallback.ts",
         "../src/controllers/api-service/dto/newclaim.ts",
@@ -10962,6 +10973,7 @@
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/controllers/api-service/dto/operationoutdto.ts",
         "../src/controllers/api-service/hmacinterceptor.ts",
+        "../src/controllers/api-service/lam-airtime-api-manager/lam-airtime-manager.service.ts",
         "../src/controllers/controller.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
         "../src/helper.service.ts",
@@ -11104,6 +11116,10 @@
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts"
       ],
+      "../src/controllers/api-service/dto/lamcallback.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
       "../src/controllers/api-service/dto/listpendingbillindto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts",
@@ -11225,6 +11241,17 @@
         "../src/sdk/kpay/kpayprovider.ts",
         "../src/sdk/wave/config.ts",
         "../src/sdk/wave/waveapiprovider.ts"
+      ],
+      "../src/controllers/api-service/lam-airtime-api-manager/lam-airtime-manager.service.ts": [
+        "../node_modules/@types/node/process.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/freemoney/freemoneyapiprovider.ts",
+        "../src/sdk/mtn/config.ts",
+        "../src/sdk/mtn/mtnapiprovider.ts"
       ],
       "../src/controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -16461,6 +16488,7 @@
         "../src/controllers/api-service/dto/confirmkpay.ts",
         "../src/controllers/api-service/dto/freecallback.ts",
         "../src/controllers/api-service/dto/hub2callback.ts",
+        "../src/controllers/api-service/dto/lamcallback.ts",
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
         "../src/controllers/api-service/dto/mtnbjcallback.ts",
         "../src/controllers/api-service/dto/newclaim.ts",
@@ -16554,6 +16582,9 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/controllers/api-service/kpay-sn-cash-out-api-manager/kpay-sn-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/lam-airtime-api-manager/lam-airtime-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service.ts": [

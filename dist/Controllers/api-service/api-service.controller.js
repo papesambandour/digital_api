@@ -56,6 +56,8 @@ const refund_dto_out_1 = require("../partener-intern/dto/refund-dto-out");
 const Hub2Callback_1 = require("./dto/Hub2Callback");
 const Hub2Provider_1 = require("../../sdk/Hub2/Hub2Provider");
 const HmacInterceptor_1 = require("./HmacInterceptor");
+const LAMCallback_1 = require("./dto/LAMCallback");
+const lam_airtime_manager_service_1 = require("./lam-airtime-api-manager/lam-airtime-manager.service");
 let ApiServiceController = class ApiServiceController extends Controller_1.ControllerBase {
     constructor(apiServiceService, helper) {
         super();
@@ -391,6 +393,90 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
             return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
                 status: Enum_entity_1.StatusEnum.SUCCESS,
                 transactionId: mtnCallbackData.externalId,
+                message: 'OK_CALLBACK',
+            }, 'OK_CALLBACK', false);
+        }
+        else {
+            apiManagerService.helper
+                .updateApiBalance(apiManagerService, transaction.phonesId)
+                .then();
+            await apiManagerService.helper.operationPartnerCancelTransaction(transaction);
+            return this.response(Controller_1.CODE_HTTP.FAILLED, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: 'FAILED_CALLBACK',
+            }, 'FAILED_CALLBACK', true);
+        }
+    }
+    async lamAirtime(req, lamCallbackData) {
+        var _a;
+        const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
+        const correctIps = process.env.LAM_ALLOWED_IPS.split(';').filter((ip) => ip);
+        this.helper
+            .notifyAdmin('New LAM AIRTIME callback', Enum_entity_1.TypeEvenEnum.MTN_MONEY_CALLBACK, {
+            mtnCallbackData: lamCallbackData,
+            correctIps,
+            fromIp,
+            headers_forwarded: req.headers['x-forwarded-for'],
+        })
+            .then();
+        if (!correctIps.some((ip) => ip.startsWith(fromIp.substring(0, fromIp.lastIndexOf('.'))))) {
+            console.log('in ip mismatch');
+            return {
+                success: false,
+                message: `ip mismatch got ${fromIp}, want ${correctIps.join('|')}`,
+            };
+        }
+        const transaction = await Transactions_entity_1.Transactions.findOne({
+            where: {
+                sousServiceTransactionId: `${lamCallbackData.gu_transaction_id}|${lamCallbackData.partner_transaction_id}`,
+                statut: typeorm_1.In([Enum_entity_1.StatusEnum.PENDING, Enum_entity_1.StatusEnum.PROCESSING]),
+                codeSousService: typeorm_1.In([
+                    Enum_entity_1.SOUS_SERVICE_ENUM.ORANGE_SN_AIRTIME_CREDIT_TELEPHONIQUE,
+                ]),
+            },
+            relations: ['sousServices'],
+        });
+        if (!transaction) {
+            return this.response(Controller_1.CODE_HTTP.OPERATION_BADREQUEST, {
+                status: Enum_entity_1.StatusEnum.FAILLED,
+                message: 'Aucune transaction en attente de validation  trouvé',
+                transactionId: `gu_transaction_id:${lamCallbackData.gu_transaction_id}|partner_transaction_id:${lamCallbackData.partner_transaction_id}`,
+            }, 'Aucune transaction en attente de validation  trouvé', true);
+        }
+        const apiManagerService = await this.helper.getApiManagerInterface(transaction.codeSousService, null);
+        if (!apiManagerService) {
+            return this.response(this.CODE_HTTP.SERVICE_DOWN, {
+                message: 'Api Service Manager non configuré',
+            }, 'Api Service Manager non configuré', true);
+        }
+        const success = lamCallbackData.status === 'SUCCESSFUL';
+        lam_airtime_manager_service_1.LamAirtimeApiManagerService.latestBalance = lamCallbackData.solde;
+        if (success) {
+            transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.checkTransactionResponse = main_1.serializeData(Object.assign({
+                fromIp,
+            }, lamCallbackData));
+        }
+        else {
+            transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.checkTransactionResponse = main_1.serializeData(Object.assign({
+                fromIp,
+            }, lamCallbackData));
+            transaction.errorMessage = lamCallbackData.message;
+            await transaction.save();
+        }
+        await transaction.save();
+        await apiManagerService.helper.setIsCallbackReadyValue(transaction, 0);
+        apiManagerService.helper
+            .updateApiBalance(apiManagerService, transaction.phonesId)
+            .then();
+        if (success) {
+            await apiManagerService.helper.handleSuccessTransactionCreditDebit(transaction);
+            return this.response(Controller_1.CODE_HTTP.OK_OPERATION, {
+                status: Enum_entity_1.StatusEnum.SUCCESS,
+                transactionId: `gu_transaction_id:${lamCallbackData.gu_transaction_id}|partner_transaction_id:${lamCallbackData.partner_transaction_id}`,
                 message: 'OK_CALLBACK',
             }, 'OK_CALLBACK', false);
         }
@@ -886,6 +972,14 @@ __decorate([
     __metadata("design:paramtypes", [Object, MtnBjCallback_1.MtnBjCallbackData]),
     __metadata("design:returntype", Promise)
 ], ApiServiceController.prototype, "mtnCallback", null);
+__decorate([
+    request_mapping_decorator_1.All('callback/lam-airtime'),
+    __param(0, common_1.Req()),
+    __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, LAMCallback_1.LamAirtimeCallbackData]),
+    __metadata("design:returntype", Promise)
+], ApiServiceController.prototype, "lamAirtime", null);
 __decorate([
     request_mapping_decorator_1.All('callback/hub2/transfer'),
     __param(0, common_1.Req()),
