@@ -43,7 +43,7 @@ class LamAirtimeApiManagerService extends api_manager_interface_service_1.ApiMan
         const transaction = await this.createTransaction(api);
         const data = {
             login: process.env.LAM_LOGIN,
-            password: process.env.LAM_LOGIN,
+            password: process.env.LAM_PASSWORD,
             montant: params.dto.amount,
             telephone: `221${params.dto.amount}`,
             operateur: this.constructor.operatorCode,
