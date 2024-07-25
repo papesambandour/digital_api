@@ -68,13 +68,21 @@ class LamAirtimeApiManagerService extends api_manager_interface_service_1.ApiMan
                 status: 'INTERNAL_ERROR_LAM',
             };
         }
+        if (typeof airtimeResponse.body !== 'object') {
+            airtimeResponse = JSON.parse(airtimeResponse.body);
+        }
+        else if (typeof airtimeResponse.body) {
+            airtimeResponse = airtimeResponse.body;
+        }
         const statues = this.helper.getStatusAfterExec(airtimeResponse.status === 'PENDING' ||
             airtimeResponse.status === 'SUCCESSFUL'
             ? 'success'
             : 'failed', this.apiService.sousServices);
         transaction.statut = statues['status'];
         transaction.preStatut = statues['preStatus'];
-        transaction.sousServiceTransactionId = `${airtimeResponse.gu_transaction_id}|${airtimeResponse.partner_transaction_id}`;
+        if (airtimeResponse.gu_transaction_id) {
+            transaction.sousServiceTransactionId = `${airtimeResponse.gu_transaction_id}|${airtimeResponse.partner_transaction_id}`;
+        }
         await transaction.save();
         if (airtimeResponse.status === 'PENDING' ||
             airtimeResponse.status === 'SUCCESSFUL') {

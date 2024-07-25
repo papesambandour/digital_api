@@ -3027,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "1a49bf139e0f4191f2bfb55ef744abbab3576c06d5d1528f4043d631bfd9d64b",
-        "signature": "8de505e59e128f0006b829ba5749ced7ab935e536a49649c54b11018f3fc2366",
+        "version": "fc03844a1e780b42d206a79081f045cec1d9acc70ab98d09a84e6e7739c68ab2",
+        "signature": "d5bc20dc8580e864a228817df3406504a93de7c8d97e637c3cc6dafe8a3f1b11",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -4762,12 +4762,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/lam-airtime-api-manager/lam-airtime-manager.service.ts": {
-        "version": "8e668ed21081dd8256939f6a1e71bcb20a3fc462a0f207769310d11ce874474d",
+        "version": "29a06bdb0360b5bb0db3b7c9235ec23b2125363237385e24af25e1e425df28e2",
         "signature": "0d2af46565c6d9d975324d1d60080c5d61bfb0fa8a8524c7bd48ffa2274fc8bc",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "4c113d7ef4d5871e6c5396f6a6fbbe0cf73dcaf8f8319f7bd7694a8bd84e4f10",
+        "version": "cf0c04da2eb882cdbe7b6434eef27f357160876da40360672fe8f173e592462c",
         "signature": "27545722e4bf2d1ba001f152a7eaaae65ac867c6b4b3a74bfd61506330956b80",
         "affectsGlobalScope": false
       },

@@ -412,8 +412,8 @@ let ApiServiceController = class ApiServiceController extends Controller_1.Contr
         const fromIp = (_a = req.headers['x-forwarded-for']) !== null && _a !== void 0 ? _a : '';
         const correctIps = process.env.LAM_ALLOWED_IPS.split(';').filter((ip) => ip);
         this.helper
-            .notifyAdmin('New LAM AIRTIME callback', Enum_entity_1.TypeEvenEnum.MTN_MONEY_CALLBACK, {
-            mtnCallbackData: lamCallbackData,
+            .notifyAdmin('New LAM AIRTIME callback', Enum_entity_1.TypeEvenEnum.LAM_AIRTIME_CALLBACK, {
+            lamCallbackData: lamCallbackData,
             correctIps,
             fromIp,
             headers_forwarded: req.headers['x-forwarded-for'],
