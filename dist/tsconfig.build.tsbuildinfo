@@ -5797,7 +5797,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/orange/providerorangemoneyapi.ts": {
-        "version": "0aa56416cd2386acaa324f07de48bd0dfafbd55eb35f4edb786db5f104fac0f4",
+        "version": "be37872c9b5a36bee236ba43d1615c96df482368affb6e16e824c8e21803429a",
         "signature": "e9f88ad91ba3a1f130cd7898c9dab420015c87609fed5421ce09a2a4d6ea8cb3",
         "affectsGlobalScope": false
       },
@@ -5902,7 +5902,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/kpay/kpayprovider.ts": {
-        "version": "e2aa477eb875855284c9fa9e13199b63e2d6008e03923529e1e14e8c62c69639",
+        "version": "4ff1b760c837ec24d1aa9b7cbebf72ece993fbffcc6f1aa6eb1c04a05ada5c6b",
         "signature": "aff52ec9fc8f456f8e485261a4ded946aeae0447a704465533b178af8fd8da59",
         "affectsGlobalScope": false
       },

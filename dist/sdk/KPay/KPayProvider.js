@@ -16,6 +16,7 @@ class KPayProvider {
                 Accept: 'application/json',
             },
             json: true,
+            timeout: 5000,
         };
         return rp(options)
             .then((response) => {

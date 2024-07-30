@@ -471,6 +471,7 @@ class ProviderOrangeMoneyApi {
             method: 'POST',
             form: formData,
             json: true,
+            timeout: 5000,
         };
         const authToken = await rp(postOption);
         const success = !!authToken.access_token;
