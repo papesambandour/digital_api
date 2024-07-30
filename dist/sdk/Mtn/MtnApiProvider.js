@@ -53,7 +53,7 @@ class MtnApiProvider {
             transactionId: (_o = (_m = params.transaction) === null || _m === void 0 ? void 0 : _m.transactionId) !== null && _o !== void 0 ? _o : null,
         };
         try {
-            const apiResponse = await MtnApiProvider.getTransactionWithTimeout(mtnManager, params.transaction.sousServiceTransactionId, 60000);
+            const apiResponse = await MtnApiProvider.getTransactionWithTimeout(mtnManager, params.transaction.sousServiceTransactionId, 10000);
             console.log(apiResponse);
             if ((apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.status) === 'SUCCESSFUL' &&
                 ((_p = apiResponse === null || apiResponse === void 0 ? void 0 : apiResponse.externalId) === null || _p === void 0 ? void 0 : _p.toString()) ===

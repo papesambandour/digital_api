@@ -241,7 +241,7 @@ class WizallApiProvider {
                     agent_pin: wizallAgentPin,
                     country: 'sn',
                 },
-                timeout: 60000,
+                timeout: 3000,
             };
             const transactions = await this.rp(option);
             console.log(transactions.length, 'wizal check get list');
@@ -637,6 +637,13 @@ class WizallApiProvider {
                 .wizallAgentPhoneNumber,
             wizallAgentPin: config_1.wizallApiConfig('payment').wizallAgentPin,
         });
+        await params.transaction.reload();
+        if (params.transaction.statut == Enum_entity_1.StatusEnum.SUCCESS) {
+            return Object.assign({
+                status: 'SUCCESS',
+                codeHttp: Controller_1.CODE_HTTP.OK_OPERATION,
+            }, baseResponse);
+        }
         if (checkout === null || checkout === void 0 ? void 0 : checkout.payment_status) {
             if (checkout.payment_status === 'succeeded') {
                 params.transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
@@ -646,7 +653,6 @@ class WizallApiProvider {
                 params.transaction.checkTransactionResponse = main_1.serializeData(checkout);
                 await params.transaction.save();
                 console.log('after save');
-                await WizallApiProvider.sleep(Math.random() * 1000);
                 await apiManagerService.helper.handleSuccessTransactionCreditDebit(params.transaction);
                 await apiManagerService.helper.setIsCallbackReadyValue(params.transaction);
                 apiManagerService.helper

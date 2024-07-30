@@ -272,7 +272,7 @@ class WaveApiProvider {
                     'Idempotency-Key': idemPotency,
                 },
                 json: true,
-                timeout: 60000,
+                timeout: 5000,
             });
             return Object.assign({}, checkout);
         }
