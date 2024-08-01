@@ -179,21 +179,21 @@ class WaveApiProvider {
                 body,
                 json: true,
             });
-            const payoutId = initResponse.id;
+            const payoutBatchId = initResponse.id;
             let retryMax = 15;
             const sleepTimeMs = 1000;
             do {
-                const checkResponse = await rp({
-                    uri: `${WaveApiProvider.baseUrl}/v1/payout-batch/${payoutId}`,
+                const checkBatchStateResponse = await rp({
+                    uri: `${WaveApiProvider.baseUrl}/v1/payout-batch/${payoutBatchId}`,
                     method: 'get',
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                     json: true,
                 });
-                console.log('sleeep check response', retryMax, checkResponse);
-                if (checkResponse.status === 'complete') {
-                    const firstPayout = (_a = checkResponse.payouts[0]) !== null && _a !== void 0 ? _a : {};
+                console.log('sleeep check response', retryMax, checkBatchStateResponse);
+                if (checkBatchStateResponse.status === 'complete') {
+                    const firstPayout = (_a = checkBatchStateResponse.payouts[0]) !== null && _a !== void 0 ? _a : {};
                     if (firstPayout.status === 'succeeded' ||
                         firstPayout.status === 'processing') {
                         return {
@@ -201,7 +201,7 @@ class WaveApiProvider {
                             payoutId: firstPayout.id,
                             reference: firstPayout.id,
                             initResponse: initResponse,
-                            checkResponse: checkResponse,
+                            checkResponse: checkBatchStateResponse,
                         };
                     }
                     else if (firstPayout.status === 'failed') {
@@ -214,7 +214,7 @@ class WaveApiProvider {
                                 ? `Le transfert est en cours de traitement après une erreur serveur interne chez wave (500): "${main_1.serializeData(firstPayout.payout_error)}"`
                                 : main_1.serializeData(firstPayout.payout_error),
                             initResponse: initResponse,
-                            checkResponse: checkResponse,
+                            checkResponse: checkBatchStateResponse,
                             alsoPending: isSuccess ? true : undefined,
                         };
                     }
@@ -932,6 +932,25 @@ class WaveApiProvider {
             console.log(e);
             console.log(e.message);
             return null;
+        }
+    }
+    static async getWaveTransactionDetailByBatchId(paymentBatchId, token) {
+        try {
+            console.log(`${WaveApiProvider.baseUrl}/v1/payout-batch/${paymentBatchId}`);
+            const res = await rp({
+                uri: `${WaveApiProvider.baseUrl}/v1/payout-batch/${paymentBatchId}`,
+                method: 'get',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                json: true,
+            });
+            console.log(res);
+            return res === null || res === void 0 ? void 0 : res.payouts[0];
+        }
+        catch (e) {
+            console.log(e);
+            return {};
         }
     }
 }

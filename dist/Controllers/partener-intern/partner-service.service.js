@@ -20,6 +20,8 @@ const sockets_gateway_1 = require("../../Sockets/sockets.gateway");
 const PartenerComptes_entity_1 = require("../../Models/Entities/PartenerComptes.entity");
 const operators_1 = require("rxjs/operators");
 const Transactions_entity_1 = require("../../Models/Entities/Transactions.entity");
+const WaveApiProvider_1 = require("../../sdk/Wave/WaveApiProvider");
+const config_1 = require("../../sdk/Wave/config");
 let PartnerServiceService = class PartnerServiceService {
     constructor(helper, httpService) {
         this.helper = helper;
@@ -149,6 +151,75 @@ let PartnerServiceService = class PartnerServiceService {
             id: setStatusDtoIn.id,
             statutTreatment: 'SUCCESS',
             messageTreatment: treatmentMessage,
+        };
+    }
+    async setAutoWaveStatus(setAutoStatusIn) {
+        if (!['ci', 'sn'].includes(setAutoStatusIn.country)) {
+            return {
+                statutTreatment: 'FAILED',
+                messageTreatment: 'country doit etre sn ou ci',
+                paymentBatchId: setAutoStatusIn.paymentBatchId,
+                transactionId: null,
+                statusTransaction: null,
+            };
+        }
+        const wavePayout = await WaveApiProvider_1.default.getWaveTransactionDetailByBatchId(setAutoStatusIn.paymentBatchId, config_1.waveBusinessApiConfig(setAutoStatusIn.country).cashInApiKey);
+        console.log('payout.....', wavePayout);
+        const transaction = await this.helper.getTransactionByGeneratedId(wavePayout === null || wavePayout === void 0 ? void 0 : wavePayout.client_reference);
+        if (!transaction) {
+            return {
+                statutTreatment: 'FAILED',
+                messageTreatment: 'La transaction est introuvable',
+                paymentBatchId: setAutoStatusIn.paymentBatchId,
+                transactionId: null,
+                statusTransaction: null,
+            };
+        }
+        if (![
+            Enum_entity_1.StatusEnum.PROCESSING.toString(),
+            Enum_entity_1.StatusEnum.PENDING.toString(),
+        ].includes(transaction.statut)) {
+            return {
+                statutTreatment: 'FAILED',
+                messageTreatment: `Le statut transaction (${transaction.statut}) ne permet pas de changer son etat`,
+                paymentBatchId: setAutoStatusIn.paymentBatchId,
+                transactionId: transaction.transactionId,
+                statusTransaction: transaction.statut,
+            };
+        }
+        let treatmentMessage = '';
+        let statutTreatment = '';
+        if ((wavePayout === null || wavePayout === void 0 ? void 0 : wavePayout.status) === 'failed') {
+            transaction.statut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.preStatut = Enum_entity_1.StatusEnum.FAILLED;
+            transaction.errorMessage = main_1.serializeData(wavePayout);
+            transaction.needCheckTransaction = 0;
+            treatmentMessage = `Le statut transaction a ete marque comme echec`;
+            await transaction.save();
+            await this.helper.operationPartnerCancelTransaction(transaction);
+            statutTreatment = 'SUCCESS';
+        }
+        else if ((wavePayout === null || wavePayout === void 0 ? void 0 : wavePayout.status) === 'succeeded') {
+            transaction.statut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.preStatut = Enum_entity_1.StatusEnum.SUCCESS;
+            transaction.message = main_1.serializeData(wavePayout);
+            transaction.needCheckTransaction = 0;
+            treatmentMessage = `Le statut transaction a ete marque comme reussi`;
+            await transaction.save();
+            await this.helper.handleSuccessTransactionCreditDebit(transaction);
+            statutTreatment = 'SUCCESS';
+        }
+        else {
+            treatmentMessage = `Le statut transaction n'est pas encore definit`;
+            statutTreatment = 'PENDING';
+        }
+        await this.helper.setIsCallbackReadyValue(transaction);
+        return {
+            statutTreatment: statutTreatment,
+            messageTreatment: treatmentMessage,
+            paymentBatchId: setAutoStatusIn.paymentBatchId,
+            transactionId: transaction.transactionId,
+            statusTransaction: transaction.statut,
         };
     }
     async resendCallback(resendCallbackDtoIn) {

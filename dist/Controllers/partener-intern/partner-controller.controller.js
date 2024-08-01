@@ -133,6 +133,9 @@ let PartnerControllerController = class PartnerControllerController {
     async setFailed(setFailedDtoIn) {
         return await this.partnerServiceService.setSuccessOrFailed(setFailedDtoIn, 'failed');
     }
+    async setAutoStatus(setAutoStatusIn) {
+        return await this.partnerServiceService.setAutoWaveStatus(setAutoStatusIn);
+    }
     async resendCallback(resendCallbackDtoIn) {
         return await this.partnerServiceService.resendCallback(resendCallbackDtoIn);
     }
@@ -213,6 +216,14 @@ __decorate([
     __metadata("design:paramtypes", [set_status_1.SetFailedDtoIn]),
     __metadata("design:returntype", Promise)
 ], PartnerControllerController.prototype, "setFailed", null);
+__decorate([
+    common_1.Post('/transaction/wave/auto-set-status-from-pb'),
+    ResponseDecorateur_1.ResponseDecorateur(set_status_1.SetAutoWaveDtoOut, 201, 'Home service partner intern '),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [set_status_1.SetAutoStatusIn]),
+    __metadata("design:returntype", Promise)
+], PartnerControllerController.prototype, "setAutoStatus", null);
 __decorate([
     common_1.Post('/transaction/resend-callback'),
     ResponseDecorateur_1.ResponseDecorateur(set_status_1.ResendCallbackDtoOut, 201, 'Home service partner intern '),

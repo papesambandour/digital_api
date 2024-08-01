@@ -4666,9 +4666,14 @@
         "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
         "affectsGlobalScope": false
       },
+      "../src/controllers/partener-intern/dto/set-status.ts": {
+        "version": "3d1580a496bcb1731ecb14e1e0dadbe36e59a6466c639bcdd7d848044de4fef9",
+        "signature": "45a04ee84a91f32ee076542734a6b581dbb36a56c2b2ededc4cda9c6d48837a4",
+        "affectsGlobalScope": false
+      },
       "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "ddfc825913e193a3f51bce49052c57de457bf952438776e1eb8fba9cade2b64a",
-        "signature": "cfae3738975dee72009c53263430c10f0184575220e10809b61289b881eef507",
+        "version": "81eb18eb6295989f907b8b9597749685f49d7ef373ebafbb90b315fd82aad8c1",
+        "signature": "51ff32b3626f2a624350580efc137321ced34aed034fe00be005faac8bb8d0a7",
         "affectsGlobalScope": false
       },
       "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
@@ -4934,11 +4939,6 @@
       "../src/controllers/partener-intern/dto/services-balance.ts": {
         "version": "59a719934073850eb58ac5b7085612c01ea74586e6e16f213febe3c18d64c7c6",
         "signature": "bb0006bb6d130d5caf5acbd076dfc63684ff273847657ceb55c4975449bfdb16",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/partener-intern/dto/set-status.ts": {
-        "version": "9c6653a701c2be2c4389150b745e02ef0537f86bf386972c6b6f1e40004ac6bd",
-        "signature": "bd607c6426b9085269d23cdcbd523a86d01c7b2a07b08ae310c809eef9bf8634",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/dto/notification-dto.ts": {
@@ -5482,13 +5482,13 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-service.service.ts": {
-        "version": "1a0e6831f9094a29597ee3df9ac9f247abab10d2c565152270c67e9ff6a5ceb5",
-        "signature": "d3d28ba4f53c5049d937730ce724738acd3cc6aa3cb37effa224ac170972a2c5",
+        "version": "ea5cc8db49386f56bf0fa1c0312c60a48971c715e14492a48697a6061dc0a0a0",
+        "signature": "acdf175962e79693550985ddf2e75d3a192e2963d91bcca8db2fdaa329b5e1fc",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-controller.controller.ts": {
-        "version": "5634d5e221c6c86301b36055938f4c8eff9566f17d16052f9b16ec5db05fb802",
-        "signature": "3e1eb96c5e7c54e10cbed8e1f18b5f5c47737ca684f8ec5e0da4ffafa42fee79",
+        "version": "44b14b559fe8a675f9a81fff64fb4c75a6550b88f36a5b28f74e1b31f25dfde7",
+        "signature": "2edfe6c2cb8ebd98886899ad4b79c048c644662562d0821db07aa0b37f1cd0e9",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-middleware.middleware.ts": {
@@ -11582,6 +11582,8 @@
         "../src/models/entities/phones.entity.ts",
         "../src/models/entities/sousservices.entity.ts",
         "../src/models/entities/transactions.entity.ts",
+        "../src/sdk/wave/config.ts",
+        "../src/sdk/wave/waveapiprovider.ts",
         "../src/sockets/sockets.gateway.ts"
       ],
       "../src/exceptions/httpexceptionhandler.ts": [
@@ -12053,6 +12055,7 @@
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts",
         "../src/controllers/controller.ts",
+        "../src/controllers/partener-intern/dto/set-status.ts",
         "../src/main.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/parteners.entity.ts",

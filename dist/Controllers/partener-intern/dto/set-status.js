@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ResendCallbackDtoOut = exports.SetSuccessFailedDtoOut = exports.ResendCallbackDtoIn = exports.SetSuccessDtoIn = exports.SetFailedDtoIn = void 0;
+exports.ResendCallbackDtoOut = exports.SetAutoWaveDtoOut = exports.SetSuccessFailedDtoOut = exports.ResendCallbackDtoIn = exports.SetSuccessDtoIn = exports.SetAutoStatusIn = exports.SetFailedDtoIn = void 0;
 const swagger_1 = require("@nestjs/swagger");
 class SetFailedDtoIn {
 }
@@ -22,6 +22,17 @@ __decorate([
     __metadata("design:type", String)
 ], SetFailedDtoIn.prototype, "message", void 0);
 exports.SetFailedDtoIn = SetFailedDtoIn;
+class SetAutoStatusIn {
+}
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], SetAutoStatusIn.prototype, "paymentBatchId", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], SetAutoStatusIn.prototype, "country", void 0);
+exports.SetAutoStatusIn = SetAutoStatusIn;
 class SetSuccessDtoIn {
 }
 __decorate([
@@ -55,6 +66,29 @@ __decorate([
     __metadata("design:type", String)
 ], SetSuccessFailedDtoOut.prototype, "messageTreatment", void 0);
 exports.SetSuccessFailedDtoOut = SetSuccessFailedDtoOut;
+class SetAutoWaveDtoOut {
+}
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], SetAutoWaveDtoOut.prototype, "transactionId", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], SetAutoWaveDtoOut.prototype, "paymentBatchId", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], SetAutoWaveDtoOut.prototype, "statutTreatment", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], SetAutoWaveDtoOut.prototype, "statusTransaction", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], SetAutoWaveDtoOut.prototype, "messageTreatment", void 0);
+exports.SetAutoWaveDtoOut = SetAutoWaveDtoOut;
 class ResendCallbackDtoOut {
 }
 __decorate([
