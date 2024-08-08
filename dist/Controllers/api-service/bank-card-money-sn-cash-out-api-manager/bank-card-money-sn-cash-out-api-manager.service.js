@@ -76,7 +76,7 @@ class BankCardMoneySnCashOutApiManagerService extends api_manager_interface_serv
             bankAuthRedirectUrl: `${process.env.APP_INTERNAL_URL}/auth_3ds_callback/${transaction.transactionId}`,
             phoneNumber: params.dto.phone,
             clientEmail: params.dto.customerEmail,
-            merchantName: params.dto.merchantName,
+            merchantName: this.apiService.partner.name,
             merchantCat1Code: params.dto.merchantCatCode || '',
             bankProvider: '',
             bankArea: '',
