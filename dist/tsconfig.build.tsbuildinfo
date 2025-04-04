@@ -161,6 +161,11 @@
         "signature": "d2f31f19e1ba6ed59be9259d660a239d9a3fcbbc8e038c6b2009bde34b175fed",
         "affectsGlobalScope": false
       },
+      "../t.ts": {
+        "version": "a0f4014a1afce639b9da865bdb50f2c94a05fa44003f5f372430f22924c8b829",
+        "signature": "dd5af4125c058239a419faca1c668270f1ce245f79e9ba685351655e0c42b888",
+        "affectsGlobalScope": true
+      },
       "../node_modules/reflect-metadata/index.d.ts": {
         "version": "8d6d51a5118d000ed3bfe6e1dd1335bebfff3fef23cd2af2f84a24d30f90cc90",
         "signature": "8d6d51a5118d000ed3bfe6e1dd1335bebfff3fef23cd2af2f84a24d30f90cc90",
@@ -3027,8 +3032,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "fc03844a1e780b42d206a79081f045cec1d9acc70ab98d09a84e6e7739c68ab2",
-        "signature": "d5bc20dc8580e864a228817df3406504a93de7c8d97e637c3cc6dafe8a3f1b11",
+        "version": "830bae73804f16102dbd202e7fec99c6d6e68ec400ac90aba07a2c4c6ff01b2d",
+        "signature": "39ee9c222abe38dbc41f6ba75b15022b01039e1f067280ca9defea9493afd6da",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3152,8 +3157,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/parteners.entity.ts": {
-        "version": "f58768d730b628f79806677b6f38bf909998a7e543756b5f57d1f0c77b7d2694",
-        "signature": "3e1e205ff02a9a9d2658efd24b5c138d753d19a3a959e7db7507430cada4aa43",
+        "version": "acbee4b0252994c6eea9c27179f24088057bf8099157939f3b7cbd621312042b",
+        "signature": "c326e893e9853f27c37fef0b906f38c488df38be6df5486c1ea02a0ef7a32071",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationparteners.entity.ts": {
@@ -3162,8 +3167,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "9ce9fbad40c41ff12dfec75071599ecfb99e81b2ca1d7b235caa98a8cc072e99",
-        "signature": "fec9389d57e80ba7a315fbdad71f010aeb801061289b3c6ead97f3d2383b403c",
+        "version": "64dfd0d038cbb320b63a12453f2239efff2987d435404c54fda5529eb81cbd67",
+        "signature": "e8632205379cc117142374e3498522a4886543cc7106ce37ed31a64e24a0c583",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
@@ -3811,9 +3816,14 @@
         "signature": "441104b363d80fe57eb79a50d495e0b7e3ebeb45a5f0d1a4067d71ef75e8fbfa",
         "affectsGlobalScope": false
       },
+      "../src/sdk/moneygram/moneygraminterface.ts": {
+        "version": "299fa4df1a29b74ce41ab39a45030177457d7ff9b4de4e78808e11eda4765319",
+        "signature": "ab104f9ffc7b2080a60b61b0224f7834cec0fa181057df88b2b497a59d33c5d0",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/dto/operationindto.ts": {
-        "version": "5f496098400fa0a928dcbd2f931be9c2aa6ca7fb26fc6b3bc6af747281c6d0f1",
-        "signature": "fe2cabc859a18e7db04a7fbde9c66be45787fd084f6333a5a3c2c8e1f55ec639",
+        "version": "a23ca1ed9e77dadd1b9eb53f5517eb79bd71d895876b84188b6d605e266c19fd",
+        "signature": "5ed3e4235884aa59f4e40a14ec1e81d2f28cc007470e1214f4495c45387b2801",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationoutdto.ts": {
@@ -4097,13 +4107,13 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/controller.ts": {
-        "version": "787fde9cad8ab1a30ab5f8413dcddb897a5e79dd51d63adf391897d709978a37",
-        "signature": "2b75a660a8a82a378c5aeed5276a65be0ed5bb98e1f69bf9e643b86bad460a8f",
+        "version": "deef85dd3f7f2614f60082a9684a9e1ffe76ccd5ed58983c71ef41e59d1ad813",
+        "signature": "576bec02637ae572ec2011e756062d65a391d4af904951c1ffd9407ef5be6c1e",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/listpendingbillindto.ts": {
-        "version": "7c44a1ef08fb810ea7c875eb111907e80943cb44634f4d8d63873ba4f90edad5",
-        "signature": "2dca2519df20f19b8a4dc79ddb59cb6689a06616b460d4e093be0d55a72faa9a",
+        "version": "984e8f28716a34d32785f010bb0a0ec142650c86fd40a7ac76ef0adeeaa64979",
+        "signature": "d34ad3f8b227c1cf6426c02990402dad954a5d3c66a01d3c782a7553fafc7334",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/websockets/adapters/ws-adapter.d.ts": {
@@ -4611,81 +4621,6 @@
         "signature": "ba8815529cee9690a805b60ea2fb715bcfe51cbab3abf50aaf9f632de402d1f2",
         "affectsGlobalScope": false
       },
-      "../node_modules/moment/ts3.1-typings/moment.d.ts": {
-        "version": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
-        "signature": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
-        "affectsGlobalScope": false
-      },
-      "../src/models/entities/appsettings.entity.ts": {
-        "version": "be0e32f83f96904532d83444e006c558827905f4441365eb2806dc3276417342",
-        "signature": "27bf24110f6dd36362d2197ef5e3e5d8733b12749958672fb9da342b5f513ed1",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/wave/config.ts": {
-        "version": "7a895c0dd3b50ab32bc9d13345abade554d7bae23822b01a8706c6d6cd839033",
-        "signature": "9beb87403bcbb659cdb0fa74d8d723134f8cd4d7aa8d7013200c4d76defced6e",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/whatsapp/config.ts": {
-        "version": "cbf2d6da8096ff96db30367782afb20fb284307f25c559ee695c453a22ed8f60",
-        "signature": "96f270109c5f1b4d2f0be5d6f4373038f99c078fd556fa137f9821a89e997efd",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/devtools-protocol/types/protocol.d.ts": {
-        "version": "5e82c491b0995bb42e41a86c86fc30721a71fb9af22478b2a9c82cf6160cf970",
-        "signature": "5e82c491b0995bb42e41a86c86fc30721a71fb9af22478b2a9c82cf6160cf970",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/devtools-protocol/types/protocol-mapping.d.ts": {
-        "version": "13a7b0847883cadf7bd6d8df067bd6b6f8e55daa53b7df480048c90bb603e2a1",
-        "signature": "13a7b0847883cadf7bd6d8df067bd6b6f8e55daa53b7df480048c90bb603e2a1",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/puppeteer/lib/types.d.ts": {
-        "version": "10fc14b4e441528c8aac75db5deeb06a00f1dc4265b98724052149e9db2f5eeb",
-        "signature": "10fc14b4e441528c8aac75db5deeb06a00f1dc4265b98724052149e9db2f5eeb",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/whatsapp-web.js/index.d.ts": {
-        "version": "fe5a1bc51701056f5f6aa20133a8e204f106f42c69452aae0020399719a819a5",
-        "signature": "fe5a1bc51701056f5f6aa20133a8e204f106f42c69452aae0020399719a819a5",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/discord/discordapiprovider.ts": {
-        "version": "ae96019471206e0da825bfcc221531c922202bf04b901e0e3bf59afc76d76533",
-        "signature": "989b44dd29c3a88e30f162a0b3ad5c4d15f99c030d174d1b482dcb4bc03e6caf",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/whatsapp/whatsappapiprovider.ts": {
-        "version": "9ac39b0fe226b810ce50a7867aca66146fcb69ac57e84383d5d7ec5d912b04cd",
-        "signature": "6dde8ad12ee3b7469880311cb2e779bee6cdff09064c0166ab6d5cbe0306ff1a",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
-        "version": "e0482b43b81a62447839ad38455f55dc516c655d342d41adde8c9ace8ba05b4f",
-        "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/partener-intern/dto/set-status.ts": {
-        "version": "3d1580a496bcb1731ecb14e1e0dadbe36e59a6466c639bcdd7d848044de4fef9",
-        "signature": "45a04ee84a91f32ee076542734a6b581dbb36a56c2b2ededc4cda9c6d48837a4",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/wave/waveapiprovider.ts": {
-        "version": "81eb18eb6295989f907b8b9597749685f49d7ef373ebafbb90b315fd82aad8c1",
-        "signature": "51ff32b3626f2a624350580efc137321ced34aed034fe00be005faac8bb8d0a7",
-        "affectsGlobalScope": false
-      },
-      "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
-        "version": "72d4b00fc9e4644bac131dfb7e6860c49cb8728168fe5f83e00004fa13953a22",
-        "signature": "d35029a4d5c05ffb36370e1c11eb09bd926acb7d6569695653c5c296a250a6c7",
-        "affectsGlobalScope": false
-      },
-      "../src/controllers/api-service/bank-card-money-sn-cash-out-api-manager/bank-card-money-sn-cash-out-api-manager.service.ts": {
-        "version": "941bfb4c64b5cfbf07a7e0d9b5a897ba0aaa31e6c6ba782cc63adb3d77f723b4",
-        "signature": "f77137b7060fda270debc6731c1c8cc834b089076a206f1ca9ba7fc8e00202c0",
-        "affectsGlobalScope": false
-      },
       "../src/controllers/api-service/dto/newclaim.ts": {
         "version": "d2932a64faf180f76c1cd75c457056ff710948c31a7db6d8f5f48c989e8e5acc",
         "signature": "b6f1d5240704ab6461c78f850d8a368e21b0564b4b4af94e07b889b4cdeb7dcc",
@@ -4767,13 +4702,193 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/lam-airtime-api-manager/lam-airtime-manager.service.ts": {
-        "version": "00be9e5a43e920b1401fece883f59de0bd338fe49de4c010ea7811205a9cb0ad",
-        "signature": "0d2af46565c6d9d975324d1d60080c5d61bfb0fa8a8524c7bd48ffa2274fc8bc",
+        "version": "9fb47e438c17e9a9da52ec171264766f0c01b1abca21e39a90b846033eb38561",
+        "signature": "4fbf8690ee53fa6fdc211c0c0250c2a08ec82a1911f91133b9b3db352788c7fd",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/moment/ts3.1-typings/moment.d.ts": {
+        "version": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
+        "signature": "4051f6311deb0ce6052329eeb1cd4b1b104378fe52f882f483130bea75f92197",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/whatsapp/config.ts": {
+        "version": "cbf2d6da8096ff96db30367782afb20fb284307f25c559ee695c453a22ed8f60",
+        "signature": "96f270109c5f1b4d2f0be5d6f4373038f99c078fd556fa137f9821a89e997efd",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/devtools-protocol/types/protocol.d.ts": {
+        "version": "5e82c491b0995bb42e41a86c86fc30721a71fb9af22478b2a9c82cf6160cf970",
+        "signature": "5e82c491b0995bb42e41a86c86fc30721a71fb9af22478b2a9c82cf6160cf970",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/devtools-protocol/types/protocol-mapping.d.ts": {
+        "version": "13a7b0847883cadf7bd6d8df067bd6b6f8e55daa53b7df480048c90bb603e2a1",
+        "signature": "13a7b0847883cadf7bd6d8df067bd6b6f8e55daa53b7df480048c90bb603e2a1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/puppeteer/lib/types.d.ts": {
+        "version": "10fc14b4e441528c8aac75db5deeb06a00f1dc4265b98724052149e9db2f5eeb",
+        "signature": "10fc14b4e441528c8aac75db5deeb06a00f1dc4265b98724052149e9db2f5eeb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/whatsapp-web.js/index.d.ts": {
+        "version": "fe5a1bc51701056f5f6aa20133a8e204f106f42c69452aae0020399719a819a5",
+        "signature": "fe5a1bc51701056f5f6aa20133a8e204f106f42c69452aae0020399719a819a5",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/discord/discordapiprovider.ts": {
+        "version": "ae96019471206e0da825bfcc221531c922202bf04b901e0e3bf59afc76d76533",
+        "signature": "989b44dd29c3a88e30f162a0b3ad5c4d15f99c030d174d1b482dcb4bc03e6caf",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/whatsapp/whatsappapiprovider.ts": {
+        "version": "888c953de6b0cea8db3b1e1368895458490ae87735b8aa63faab83f7fb7c8eb4",
+        "signature": "6dde8ad12ee3b7469880311cb2e779bee6cdff09064c0166ab6d5cbe0306ff1a",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts": {
+        "version": "c537e1a64eb994acb3d97f145289928efbbcf6bc43505ef0cbca09e786b60d3a",
+        "signature": "9d1ff01267e48f4848573523cc038d022dfdf50c38b7b71bfe908f87dd92d2ee",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/wave/waveapiprovider.ts": {
+        "version": "43a1cff3b1430a1a7f85a240d999a69bd3e81496f23a7ae6facb90c458b4dffc",
+        "signature": "ac54655860c74520ba0b2d9782bc68d6318e2bcec2ec9dd2fe4c758e078d4439",
+        "affectsGlobalScope": false
+      },
+      "../src/models/entities/appsettings.entity.ts": {
+        "version": "be0e32f83f96904532d83444e006c558827905f4441365eb2806dc3276417342",
+        "signature": "27bf24110f6dd36362d2197ef5e3e5d8733b12749958672fb9da342b5f513ed1",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/wave/config.ts": {
+        "version": "caf82c0fb8b26c80a8f9404de1c34cc4b9ca647a0fb1411c388ff8403c929916",
+        "signature": "d2f01265af949a9430a060a27237c139929fcb8fceda59ddc53120031a86d1e8",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/dto/wavecallback.ts": {
+        "version": "04f361bb2fa8249dfa25c9d78b58116b480854ea6b52aba36c00f0d067af7790",
+        "signature": "0a56793119179aff39f2cef3190d95af5a2d522970c06ea426d2ac9044ea084d",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/dto/omcallbackdata.ts": {
+        "version": "bcf01f90e62f2b7c8f70bc071a9416e31614ab001168ff76a0bfb74a4d48f36d",
+        "signature": "c1e16832234b6011812b9423489911b6aa47d2123d54103a170389149608a7e6",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/axios/index.d.ts": {
+        "version": "df23705fd32cee6822fc57b5eb5ca88dba0552aae08c4eeff02acde07ea2bf28",
+        "signature": "df23705fd32cee6822fc57b5eb5ca88dba0552aae08c4eeff02acde07ea2bf28",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/types.d.ts": {
+        "version": "81ed9a20b676bd535cd2bb9be1ffeae3db368666e45e063f3882653dd2e159eb",
+        "signature": "81ed9a20b676bd535cd2bb9be1ffeae3db368666e45e063f3882653dd2e159eb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/nscontext.d.ts": {
+        "version": "88942ba174e8dbe55b367b73653fdba16cccf260e808746fc6f3c249d98d8be4",
+        "signature": "88942ba174e8dbe55b367b73653fdba16cccf260e808746fc6f3c249d98d8be4",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/wsdl/elements.d.ts": {
+        "version": "5a873a1fc57a1b10218b80dbac1e0517a64d24e2e373cf324065a3d501fa004e",
+        "signature": "5a873a1fc57a1b10218b80dbac1e0517a64d24e2e373cf324065a3d501fa004e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/wsdl/index.d.ts": {
+        "version": "f999764fcbf66486ac9ff1c248a3c068836b3f00d974fadf8c0d1c33dfe7b8a9",
+        "signature": "f999764fcbf66486ac9ff1c248a3c068836b3f00d974fadf8c0d1c33dfe7b8a9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/client.d.ts": {
+        "version": "a6dc6255edeb74044534495b6cfdc5fad431e05ee4c0a9e37140a1af6190e43a",
+        "signature": "a6dc6255edeb74044534495b6cfdc5fad431e05ee4c0a9e37140a1af6190e43a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/basicauthsecurity.d.ts": {
+        "version": "7d64373ce65cbb99be5cc1799646865fd94e5bc18f7e83e9c41ce7c03989a068",
+        "signature": "7d64373ce65cbb99be5cc1799646865fd94e5bc18f7e83e9c41ce7c03989a068",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/bearersecurity.d.ts": {
+        "version": "2eeb02a34bdabb885ba8c5c23efcebeb851fc2554bef7164272ac1631c4f9121",
+        "signature": "2eeb02a34bdabb885ba8c5c23efcebeb851fc2554bef7164272ac1631c4f9121",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/clientsslsecurity.d.ts": {
+        "version": "7b83a67c38308e72211c3051da6908bb256a4cee2bf331c26a69893fb45f36d1",
+        "signature": "7b83a67c38308e72211c3051da6908bb256a4cee2bf331c26a69893fb45f36d1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/clientsslsecuritypfx.d.ts": {
+        "version": "55b9dda8bf8585576673dc2cd8691fa46c8dd3d8d494501a77f41e517253d6c6",
+        "signature": "55b9dda8bf8585576673dc2cd8691fa46c8dd3d8d494501a77f41e517253d6c6",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/ntlmsecurity.d.ts": {
+        "version": "162f412490dc0da52cb5e01d823a19190c8ef744407c4616648f919bc6daf83e",
+        "signature": "162f412490dc0da52cb5e01d823a19190c8ef744407c4616648f919bc6daf83e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/wssecurity.d.ts": {
+        "version": "7722280c780021d92af7808100179a7b0f94326808e83c5d7b857d37b42e9781",
+        "signature": "7722280c780021d92af7808100179a7b0f94326808e83c5d7b857d37b42e9781",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/wssecuritycert.d.ts": {
+        "version": "fda6d924fa69fffd7be25ec2278879d91fb0a6c5f00f5d14082451ae108fa667",
+        "signature": "fda6d924fa69fffd7be25ec2278879d91fb0a6c5f00f5d14082451ae108fa667",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/wssecuritypluscert.d.ts": {
+        "version": "d404053912c5b1ce3e55a8779403a09558919446f3e50a154cac39a70b7e2906",
+        "signature": "d404053912c5b1ce3e55a8779403a09558919446f3e50a154cac39a70b7e2906",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/security/index.d.ts": {
+        "version": "a257859010b21e7fcd55dc2e0a7107a8a74a34b56c6c60c0f49fe95032bc2645",
+        "signature": "a257859010b21e7fcd55dc2e0a7107a8a74a34b56c6c60c0f49fe95032bc2645",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/server.d.ts": {
+        "version": "6da027d290561760d0993076a53c646eeeb94f6c4104bf43687f3c171b9f5044",
+        "signature": "6da027d290561760d0993076a53c646eeeb94f6c4104bf43687f3c171b9f5044",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/http.d.ts": {
+        "version": "b9e3c63bee8aced2a42babb43fc4827d2ce0e0e5809e8f03bc596c04b58093d8",
+        "signature": "b9e3c63bee8aced2a42babb43fc4827d2ce0e0e5809e8f03bc596c04b58093d8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/utils.d.ts": {
+        "version": "afec295f6bc364795a85f6a43ca7f1ca5bba2f8e6fe66fd417493605ff936b4f",
+        "signature": "afec295f6bc364795a85f6a43ca7f1ca5bba2f8e6fe66fd417493605ff936b4f",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/soap/lib/soap.d.ts": {
+        "version": "6474eeeea26ca752c113c8c66871d112755fa8e45a42097aa6eca106b83c7e9b",
+        "signature": "6474eeeea26ca752c113c8c66871d112755fa8e45a42097aa6eca106b83c7e9b",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/moneygram/moneygramhelper.ts": {
+        "version": "cdefc7480c4ee6c6f94a0966933f7e647fa06345ca1efa8e40be1fb3d2ff09ed",
+        "signature": "028ba18ac205fb4a2d9577520f6af8c40ee86be7f9015d52e28e898677555b51",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/moneygram/moneygramreceiveprovider.ts": {
+        "version": "0ed7ebda1d3dae9c47654e8696554f8095bb15844060b756d00e2a3c8d8a5eaf",
+        "signature": "81e322be8687e3647bf948b65a12546902d4ef10d5804106a6988c4ccf23c0a6",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/moneygram/moneygramsendprovider.ts": {
+        "version": "de649c89ae9a6ee3bca27465cc19be508b4763e2d87a34f6049813587bde754e",
+        "signature": "bd61a77c2ffa5fd3d6dc71b1f1844dcfc3bc4001884485a0c151ff6ae3a8c58f",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "cf0c04da2eb882cdbe7b6434eef27f357160876da40360672fe8f173e592462c",
-        "signature": "27545722e4bf2d1ba001f152a7eaaae65ac867c6b4b3a74bfd61506330956b80",
+        "version": "ee007318f6aae58833ef51f046456ea83bcdf8d8ae9262220ee42e53ef884a49",
+        "signature": "170f373c8171e62a9fbfdccf48f3b11752ed894e4f711872422d538a6d278a17",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -4877,17 +4992,17 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/send-callback-task/send-callback-task.service.ts": {
-        "version": "83d77dfdc6d8321f31f58798af6c9eebcae5a13c41b8d68696d2086ec5b24513",
+        "version": "f270fd94c2ab6dc9b5496eff8c2de3469c0f21645c5550b1915a2bdd81b36358",
         "signature": "64f2c0bcf07940f5fe99b952cd2cc645225755612d047af218447e39d327e430",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": {
-        "version": "8e254bb00f53008238e26141bc08203d55bd85d620b8a342bd99e6fee6b68393",
+        "version": "7ac93c87dba698c8349bf7f600741939094a0bd1888d5bc9d3f7158f7eb099fd",
         "signature": "91c6dc263b1a3a1562d874e5bb613b8fe2137ddf8d9ad16f2431d4e967f83a53",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/check-transaction-timeout-cron/check-transaction-timeout-cron.service.ts": {
-        "version": "93f3482092c72189f1c0b5c7e6081339525e7970523c0f7ebbab34262e73b8fa",
+        "version": "de69f3da1deeadf851b09aa1fa41849db26489fb23e1322ad86219b1be244fba",
         "signature": "b5337e2f47ada37883533431aefa64103570a64d30cb4a2b5dad36b2aa0108c3",
         "affectsGlobalScope": false
       },
@@ -4922,7 +5037,7 @@
         "affectsGlobalScope": false
       },
       "../src/bootstrap.service.ts": {
-        "version": "e85e15cac355c14a541947acea6e85c1f6949ecd7053c372ab0ccd30ba441373",
+        "version": "a41f46a289acfdc04d1a3c11e71bb857b05be93eb5b7785323eeb2d7dd6a3f21",
         "signature": "7cb6adcff4a936c5d767abe1936950605d958ecdcc214369f27186c5e99359f7",
         "affectsGlobalScope": false
       },
@@ -4939,6 +5054,11 @@
       "../src/controllers/partener-intern/dto/services-balance.ts": {
         "version": "59a719934073850eb58ac5b7085612c01ea74586e6e16f213febe3c18d64c7c6",
         "signature": "bb0006bb6d130d5caf5acbd076dfc63684ff273847657ceb55c4975449bfdb16",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/partener-intern/dto/set-status.ts": {
+        "version": "3d1580a496bcb1731ecb14e1e0dadbe36e59a6466c639bcdd7d848044de4fef9",
+        "signature": "45a04ee84a91f32ee076542734a6b581dbb36a56c2b2ededc4cda9c6d48837a4",
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/dto/notification-dto.ts": {
@@ -5482,7 +5602,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/partner-service.service.ts": {
-        "version": "ea5cc8db49386f56bf0fa1c0312c60a48971c715e14492a48697a6061dc0a0a0",
+        "version": "d6ee6ed377ccfc8615f0430c5572bb80eb28e4ef60d7edb3753339f66eec5791",
         "signature": "acdf175962e79693550985ddf2e75d3a192e2963d91bcca8db2fdaa329b5e1fc",
         "affectsGlobalScope": false
       },
@@ -5587,8 +5707,8 @@
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "75976f0f0aeafd37eae95bbf27043f4f43514d2ea4271937984df797c340de86",
-        "signature": "0438c3f72cf811e58bac561ea2051f19eb63d57782ccb0b3178fe64d36cb6709",
+        "version": "f93f47db1df3da553def9b3675da2ad91d23c754846ea5bbdbf18e58066d033f",
+        "signature": "5b53bc4ba8ecacab631de9d68a27d9e439d6089f5245ca0caa1d55db4ed76f4f",
         "affectsGlobalScope": false
       },
       "../src/sockets/socketservice.service.ts": {
@@ -5602,7 +5722,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "fa31068d3558c56848ac128fdd0cb7166f9f5a65136f2f34fd91f3e5d626eae2",
+        "version": "5e977b789b06612f460587c1a22ac70f2013d44606aa4ae0d6175a77d59d98f8",
         "signature": "10f952b0a4916be5ebc2c73362b91025d47f22de8142b8a97014d502c6e37345",
         "affectsGlobalScope": false
       },
@@ -5612,12 +5732,12 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "43841ca954b4b98877ad7e5f12efb7dd2c76e532ce7a23bd43c55a240dadcfed",
-        "signature": "9e992288df4ab9b509791770cc0c1024bf62f31d3202a5eb3023fc38bdcd3e79",
+        "version": "0283e2d0f2a2b1d5438c994f4cc40dd5cf56e8e3746e0b1230f8df609c772a3e",
+        "signature": "a838a59a1caa89338ab76602bbe6dda7b3e5e0db4372c489797f5e3c68b9c97f",
         "affectsGlobalScope": false
       },
       "../src/models/entities/custombasemodel.ts": {
-        "version": "062fe0b199fcd8e9b158da2747dc970f81d8c25ce19d127ff34b60cb352f5715",
+        "version": "4f504bdaf55a7745edec811a41a29059a3b65d6f9f349bec24edc3fa495677c1",
         "signature": "e869a929ba42f8f5b0834bded35ce60c5e4c07c2e8245b25600ab666c341c532",
         "affectsGlobalScope": false
       },
@@ -5659,6 +5779,16 @@
       "../src/controllers/api-service/dto/confirm3dsindto.ts": {
         "version": "b7bf06c1ea02bc7940414887827d5a057817f40b71b47c6ae4d72432a280e1c0",
         "signature": "02afd33acb2c219536ee71881ee4d8b2112b1c8281f41d0e47644d7fc2104005",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/bankcard/bank3dsbridgeapiprovider.ts": {
+        "version": "72d4b00fc9e4644bac131dfb7e6860c49cb8728168fe5f83e00004fa13953a22",
+        "signature": "d35029a4d5c05ffb36370e1c11eb09bd926acb7d6569695653c5c296a250a6c7",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/bank-card-money-sn-cash-out-api-manager/bank-card-money-sn-cash-out-api-manager.service.ts": {
+        "version": "941bfb4c64b5cfbf07a7e0d9b5a897ba0aaa31e6c6ba782cc63adb3d77f723b4",
+        "signature": "f77137b7060fda270debc6731c1c8cc834b089076a206f1ca9ba7fc8e00202c0",
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
@@ -5797,7 +5927,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/orange/providerorangemoneyapi.ts": {
-        "version": "be37872c9b5a36bee236ba43d1615c96df482368affb6e16e824c8e21803429a",
+        "version": "0eb413ea92f5fc05c5257763550565e219d0c480cedd30595ba275776b14220d",
         "signature": "e9f88ad91ba3a1f130cd7898c9dab420015c87609fed5421ce09a2a4d6ea8cb3",
         "affectsGlobalScope": false
       },
@@ -5916,99 +6046,14 @@
         "signature": "97e3d1a0b9148e0ae9c144230011f148ecf44c529a79efaced9c1a3bffd2456b",
         "affectsGlobalScope": false
       },
-      "../node_modules/axios/index.d.ts": {
-        "version": "df23705fd32cee6822fc57b5eb5ca88dba0552aae08c4eeff02acde07ea2bf28",
-        "signature": "df23705fd32cee6822fc57b5eb5ca88dba0552aae08c4eeff02acde07ea2bf28",
+      "../src/controllers/api-service/moneygram-sn-cash-in-api-manager/moneygram-sn-cash-in-api-manager.service.ts": {
+        "version": "390f97d2272b1730d60cba461607785c07ae2d4b0d5b1b063e588f5ab9ccb4e8",
+        "signature": "2c5f78f65933fdf716ffcd6b998443ed29ff2353752b67e2cccf985803bd24e6",
         "affectsGlobalScope": false
       },
-      "../node_modules/soap/lib/types.d.ts": {
-        "version": "81ed9a20b676bd535cd2bb9be1ffeae3db368666e45e063f3882653dd2e159eb",
-        "signature": "81ed9a20b676bd535cd2bb9be1ffeae3db368666e45e063f3882653dd2e159eb",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/nscontext.d.ts": {
-        "version": "88942ba174e8dbe55b367b73653fdba16cccf260e808746fc6f3c249d98d8be4",
-        "signature": "88942ba174e8dbe55b367b73653fdba16cccf260e808746fc6f3c249d98d8be4",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/wsdl/elements.d.ts": {
-        "version": "5a873a1fc57a1b10218b80dbac1e0517a64d24e2e373cf324065a3d501fa004e",
-        "signature": "5a873a1fc57a1b10218b80dbac1e0517a64d24e2e373cf324065a3d501fa004e",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/wsdl/index.d.ts": {
-        "version": "f999764fcbf66486ac9ff1c248a3c068836b3f00d974fadf8c0d1c33dfe7b8a9",
-        "signature": "f999764fcbf66486ac9ff1c248a3c068836b3f00d974fadf8c0d1c33dfe7b8a9",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/client.d.ts": {
-        "version": "a6dc6255edeb74044534495b6cfdc5fad431e05ee4c0a9e37140a1af6190e43a",
-        "signature": "a6dc6255edeb74044534495b6cfdc5fad431e05ee4c0a9e37140a1af6190e43a",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/security/basicauthsecurity.d.ts": {
-        "version": "7d64373ce65cbb99be5cc1799646865fd94e5bc18f7e83e9c41ce7c03989a068",
-        "signature": "7d64373ce65cbb99be5cc1799646865fd94e5bc18f7e83e9c41ce7c03989a068",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/security/bearersecurity.d.ts": {
-        "version": "2eeb02a34bdabb885ba8c5c23efcebeb851fc2554bef7164272ac1631c4f9121",
-        "signature": "2eeb02a34bdabb885ba8c5c23efcebeb851fc2554bef7164272ac1631c4f9121",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/security/clientsslsecurity.d.ts": {
-        "version": "7b83a67c38308e72211c3051da6908bb256a4cee2bf331c26a69893fb45f36d1",
-        "signature": "7b83a67c38308e72211c3051da6908bb256a4cee2bf331c26a69893fb45f36d1",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/security/clientsslsecuritypfx.d.ts": {
-        "version": "55b9dda8bf8585576673dc2cd8691fa46c8dd3d8d494501a77f41e517253d6c6",
-        "signature": "55b9dda8bf8585576673dc2cd8691fa46c8dd3d8d494501a77f41e517253d6c6",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/security/ntlmsecurity.d.ts": {
-        "version": "162f412490dc0da52cb5e01d823a19190c8ef744407c4616648f919bc6daf83e",
-        "signature": "162f412490dc0da52cb5e01d823a19190c8ef744407c4616648f919bc6daf83e",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/security/wssecurity.d.ts": {
-        "version": "7722280c780021d92af7808100179a7b0f94326808e83c5d7b857d37b42e9781",
-        "signature": "7722280c780021d92af7808100179a7b0f94326808e83c5d7b857d37b42e9781",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/security/wssecuritycert.d.ts": {
-        "version": "fda6d924fa69fffd7be25ec2278879d91fb0a6c5f00f5d14082451ae108fa667",
-        "signature": "fda6d924fa69fffd7be25ec2278879d91fb0a6c5f00f5d14082451ae108fa667",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/security/wssecuritypluscert.d.ts": {
-        "version": "d404053912c5b1ce3e55a8779403a09558919446f3e50a154cac39a70b7e2906",
-        "signature": "d404053912c5b1ce3e55a8779403a09558919446f3e50a154cac39a70b7e2906",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/security/index.d.ts": {
-        "version": "a257859010b21e7fcd55dc2e0a7107a8a74a34b56c6c60c0f49fe95032bc2645",
-        "signature": "a257859010b21e7fcd55dc2e0a7107a8a74a34b56c6c60c0f49fe95032bc2645",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/server.d.ts": {
-        "version": "6da027d290561760d0993076a53c646eeeb94f6c4104bf43687f3c171b9f5044",
-        "signature": "6da027d290561760d0993076a53c646eeeb94f6c4104bf43687f3c171b9f5044",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/http.d.ts": {
-        "version": "b9e3c63bee8aced2a42babb43fc4827d2ce0e0e5809e8f03bc596c04b58093d8",
-        "signature": "b9e3c63bee8aced2a42babb43fc4827d2ce0e0e5809e8f03bc596c04b58093d8",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/utils.d.ts": {
-        "version": "afec295f6bc364795a85f6a43ca7f1ca5bba2f8e6fe66fd417493605ff936b4f",
-        "signature": "afec295f6bc364795a85f6a43ca7f1ca5bba2f8e6fe66fd417493605ff936b4f",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/soap/lib/soap.d.ts": {
-        "version": "6474eeeea26ca752c113c8c66871d112755fa8e45a42097aa6eca106b83c7e9b",
-        "signature": "6474eeeea26ca752c113c8c66871d112755fa8e45a42097aa6eca106b83c7e9b",
+      "../src/controllers/api-service/moneygram-sn-cash-out-api-manager/moneygram-sn-cash-out-api-manager.service.ts": {
+        "version": "eef2040688f330ec783c90a627a0befad9e4eeb332c7ed58f07796cf15ca25eb",
+        "signature": "8ca3d6fb02cc47592ceef7f15d1d0f09d122712f2ada0e0bf7ee2642d535d404",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/moov-bj-cash-out-api-manager/moov-bj-cash-out-api-manager.service.ts": {
@@ -6052,12 +6097,12 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/orange-money-sn-cash-in-api-manager/orange-money-sn-cash-in-api-manager.service.ts": {
-        "version": "37e79d80d50f5f5e7b3993f2521c64b6eb06836c3483504c29c60d54ea7199ee",
+        "version": "2c90c78f3c6e9a4d7c29ba4c7294146e216461d3ada69687fc6d7d58a11446ba",
         "signature": "e49ea4e077e6e1a4297a8e6318ebf6eb75a1077786770947235afe9353fcd0a9",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/orange-money-sn-cash-out-api-manager/orange-money-sn-cash-out-api-manager.service.ts": {
-        "version": "b2e58138d948c967d17b43a3971768e1fb93457fd9029e7e14046bc5cf6591c3",
+        "version": "f766eeb0a4b7e3d96c5b946ed60c7e12c753d51bbef4c7a5d52eafd486c336b7",
         "signature": "b683f19c16f076f51da09f1968e6c4b300ebb3b05551e37f0b01bf65f599a61e",
         "affectsGlobalScope": false
       },
@@ -6077,8 +6122,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "6fd6380183c58cf79ae36aacad8128f37724553f41251c8ccb2ce5cb8b7886b5",
-        "signature": "2ca9133fa5a19fa0ca9614c7dffe66e992e2c33d054ed3ce7df072f85757b5b8",
+        "version": "c519be0b3dbde0839c8aab5dddca855ba9d5e70cb2fcb5a085ffae7685b23618",
+        "signature": "45984b02a1243167e11e83b8e4ab9d77f875f70986f38ca53935e159c66ce29d",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/seneau-sn-bill-payment-api-manager/seneau-sn-bill-payment-api-manager.service.ts": {
@@ -6087,7 +6132,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/senelec-sn-bill-payment-api-manager/senelec-sn-bill-payment-api-manager.service.ts": {
-        "version": "90a51570033729b7ad062997aad272b507d15bae1547a38b2b5f5170b1ac0214",
+        "version": "cb93a13e50bc983b513587846af6a06db9d9a5ccd1571c2fa36ce075aba9e6e0",
         "signature": "d8122d06397dece910ded0cc2e317e90717b40bb8eab5c25aaa3fcf4e528e5a2",
         "affectsGlobalScope": false
       },
@@ -6107,7 +6152,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/wave-money-sn-cash-in-api-manager/wave-money-sn-cash-in-api-manager.service.ts": {
-        "version": "156ac0f864583bd8417b77be736ed027b337e86bed6d094c835d572a39357dae",
+        "version": "337bed1f58dd1c09c7534eb1bee3b77970a6280797aacd619bbe88a2fcca5e55",
         "signature": "1c6b491aa811c886b2974970bdf803227ef08dc7e87c410cac942d30ca6e53a3",
         "affectsGlobalScope": false
       },
@@ -6296,6 +6341,16 @@
         "signature": "a52320f73868625a41c94e39993c101b85dd957993928bbd1856d97ddf7f896d",
         "affectsGlobalScope": false
       },
+      "../src/sdk/moneygram/receive.ts": {
+        "version": "f9d8fa98e1c48aeb7acdcaa6b3b6f16fd6b5502a7d5cdda64607b35540e69146",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/moneygram/send.ts": {
+        "version": "811a884fea8126e950a637766802e18ea73f6c87eb39e9c608945c735a60c1b7",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@babel/types/lib/index.d.ts": {
         "version": "4606c6d854002b409744140a996a49c4a607c1eb0396855529836161892abef5",
         "signature": "4606c6d854002b409744140a996a49c4a607c1eb0396855529836161892abef5",
@@ -6480,86 +6535,6 @@
         "version": "70c1b4a47ac88b6a165b57398db4609f1ac8af446e7dbf38939c7c08524d0c1d",
         "signature": "70c1b4a47ac88b6a165b57398db4609f1ac8af446e7dbf38939c7c08524d0c1d",
         "affectsGlobalScope": true
-      },
-      "../../../../node_modules/@types/http-errors/index.d.ts": {
-        "version": "b71c603a539078a5e3a039b20f2b0a0d1708967530cf97dec8850a9ca45baa2b",
-        "signature": "b71c603a539078a5e3a039b20f2b0a0d1708967530cf97dec8850a9ca45baa2b",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/common/common.d.ts": {
-        "version": "ff81bffa4ecfceae2e86b5920c3fcb250b66b1d6ed72944dffdf58123be2481b",
-        "signature": "ff81bffa4ecfceae2e86b5920c3fcb250b66b1d6ed72944dffdf58123be2481b",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/common/array.d.ts": {
-        "version": "458111fc89d11d2151277c822dfdc1a28fa5b6b2493cf942e37d4cd0a6ee5f22",
-        "signature": "458111fc89d11d2151277c822dfdc1a28fa5b6b2493cf942e37d4cd0a6ee5f22",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/common/collection.d.ts": {
-        "version": "da2b6356b84a40111aaecb18304ea4e4fcb43d70efb1c13ca7d7a906445ee0d3",
-        "signature": "da2b6356b84a40111aaecb18304ea4e4fcb43d70efb1c13ca7d7a906445ee0d3",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/common/date.d.ts": {
-        "version": "187119ff4f9553676a884e296089e131e8cc01691c546273b1d0089c3533ce42",
-        "signature": "187119ff4f9553676a884e296089e131e8cc01691c546273b1d0089c3533ce42",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/common/function.d.ts": {
-        "version": "aa2c18a1b5a086bbcaae10a4efba409cc95ba7287d8cf8f2591b53704fea3dea",
-        "signature": "aa2c18a1b5a086bbcaae10a4efba409cc95ba7287d8cf8f2591b53704fea3dea",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/common/lang.d.ts": {
-        "version": "6f294731b495c65ecf46a5694f0082954b961cf05463bea823f8014098eaffa0",
-        "signature": "6f294731b495c65ecf46a5694f0082954b961cf05463bea823f8014098eaffa0",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/common/math.d.ts": {
-        "version": "0aaef8cded245bf5036a7a40b65622dd6c4da71f7a35343112edbe112b348a1e",
-        "signature": "0aaef8cded245bf5036a7a40b65622dd6c4da71f7a35343112edbe112b348a1e",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/common/number.d.ts": {
-        "version": "00baffbe8a2f2e4875367479489b5d43b5fc1429ecb4a4cc98cfc3009095f52a",
-        "signature": "00baffbe8a2f2e4875367479489b5d43b5fc1429ecb4a4cc98cfc3009095f52a",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/common/object.d.ts": {
-        "version": "3c221f8328720606c7fdc037039f4803e13b5ee5b758eee4a4ccc34fb872d824",
-        "signature": "3c221f8328720606c7fdc037039f4803e13b5ee5b758eee4a4ccc34fb872d824",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/common/seq.d.ts": {
-        "version": "3c92b6dfd43cc1c2485d9eba5ff0b74a19bb8725b692773ef1d66dac48cda4bd",
-        "signature": "3c92b6dfd43cc1c2485d9eba5ff0b74a19bb8725b692773ef1d66dac48cda4bd",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/common/string.d.ts": {
-        "version": "b03afe4bec768ae333582915146f48b161e567a81b5ebc31c4d78af089770ac9",
-        "signature": "b03afe4bec768ae333582915146f48b161e567a81b5ebc31c4d78af089770ac9",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/common/util.d.ts": {
-        "version": "df996e25faa505f85aeb294d15ebe61b399cf1d1e49959cdfaf2cc0815c203f9",
-        "signature": "df996e25faa505f85aeb294d15ebe61b399cf1d1e49959cdfaf2cc0815c203f9",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/lodash/index.d.ts": {
-        "version": "4f6a12044ee6f458db11964153830abbc499e73d065c51c329ec97407f4b13dd",
-        "signature": "4f6a12044ee6f458db11964153830abbc499e73d065c51c329ec97407f4b13dd",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/mime/index.d.ts": {
-        "version": "d3f2d715f57df3f04bf7b16dde01dec10366f64fce44503c92b8f78f614c1769",
-        "signature": "d3f2d715f57df3f04bf7b16dde01dec10366f64fce44503c92b8f78f614c1769",
-        "affectsGlobalScope": false
-      },
-      "../../../../node_modules/@types/send/index.d.ts": {
-        "version": "b78cd10245a90e27e62d0558564f5d9a16576294eee724a59ae21b91f9269e4a",
-        "signature": "b78cd10245a90e27e62d0558564f5d9a16576294eee724a59ae21b91f9269e4a",
-        "affectsGlobalScope": false
       }
     },
     "options": {
@@ -6578,194 +6553,6 @@
       "configFilePath": "../tsconfig.build.json"
     },
     "referencedMap": {
-      "../../../../node_modules/@types/lodash/common/array.d.ts": [
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/collection.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/common.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/date.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/function.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/lang.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/math.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/number.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/object.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/seq.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/string.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/util.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/index.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts"
-      ],
-      "../../../../node_modules/@types/send/index.d.ts": [
-        "../../../../node_modules/@types/mime/index.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/index.d.ts",
-        "../node_modules/@types/node/stream.d.ts"
-      ],
       "../node_modules/@babel/parser/typings/babel-parser.d.ts": [
         "../node_modules/@babel/types/lib/index.d.ts"
       ],
@@ -10960,7 +10747,6 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/api-service.service.ts",
-        "../src/controllers/api-service/bank-card-money-sn-cash-out-api-manager/bank-card-money-sn-cash-out-api-manager.service.ts",
         "../src/controllers/api-service/dto/confirmkpay.ts",
         "../src/controllers/api-service/dto/freecallback.ts",
         "../src/controllers/api-service/dto/hub2callback.ts",
@@ -10968,10 +10754,12 @@
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
         "../src/controllers/api-service/dto/mtnbjcallback.ts",
         "../src/controllers/api-service/dto/newclaim.ts",
+        "../src/controllers/api-service/dto/omcallbackdata.ts",
         "../src/controllers/api-service/dto/operationbadparamsdto.ts",
         "../src/controllers/api-service/dto/operationdictionarydto.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/controllers/api-service/dto/operationoutdto.ts",
+        "../src/controllers/api-service/dto/wavecallback.ts",
         "../src/controllers/api-service/hmacinterceptor.ts",
         "../src/controllers/api-service/lam-airtime-api-manager/lam-airtime-manager.service.ts",
         "../src/controllers/controller.ts",
@@ -10996,8 +10784,14 @@
         "../src/models/response/responseforbidden.ts",
         "../src/models/response/responsehttp.ts",
         "../src/models/response/responsehttpdefaultdata.ts",
+        "../src/sdk/discord/config.ts",
         "../src/sdk/hub2/hub2provider.ts",
-        "../src/sdk/mtn/mtnapiprovider.ts"
+        "../src/sdk/moneygram/moneygramhelper.ts",
+        "../src/sdk/moneygram/moneygraminterface.ts",
+        "../src/sdk/moneygram/moneygramreceiveprovider.ts",
+        "../src/sdk/moneygram/moneygramsendprovider.ts",
+        "../src/sdk/mtn/mtnapiprovider.ts",
+        "../src/sdk/wave/config.ts"
       ],
       "../src/controllers/api-service/api-service.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -11078,6 +10872,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/schedule/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/helper.service.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/transactions.entity.ts"
@@ -11123,13 +10918,18 @@
       "../src/controllers/api-service/dto/listpendingbillindto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts",
-        "../src/models/entities/enum.entity.ts"
+        "../src/models/entities/enum.entity.ts",
+        "../src/sdk/moneygram/moneygraminterface.ts"
       ],
       "../src/controllers/api-service/dto/mtnbjcallback.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts"
       ],
       "../src/controllers/api-service/dto/newclaim.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
+      "../src/controllers/api-service/dto/omcallbackdata.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts"
       ],
@@ -11142,7 +10942,8 @@
       "../src/controllers/api-service/dto/operationindto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts",
-        "../src/models/entities/enum.entity.ts"
+        "../src/models/entities/enum.entity.ts",
+        "../src/sdk/moneygram/moneygraminterface.ts"
       ],
       "../src/controllers/api-service/dto/operationoutdto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
@@ -11150,6 +10951,10 @@
       ],
       "../src/controllers/api-service/dto/required-for-service.decorator.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
+      "../src/controllers/api-service/dto/wavecallback.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/types/index.d.ts"
       ],
       "../src/controllers/api-service/empty-model-service.ts": [
@@ -11250,6 +11055,37 @@
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/parteners.entity.ts",
         "../src/sdk/freemoney/freemoneyapiprovider.ts",
+        "../src/sdk/mtn/config.ts",
+        "../src/sdk/mtn/mtnapiprovider.ts"
+      ],
+      "../src/controllers/api-service/moneygram-sn-cash-in-api-manager/moneygram-sn-cash-in-api-manager.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/freemoney/freemoneyapiprovider.ts",
+        "../src/sdk/moneygram/moneygramhelper.ts",
+        "../src/sdk/moneygram/moneygraminterface.ts",
+        "../src/sdk/moneygram/moneygramsendprovider.ts",
+        "../src/sdk/mtn/config.ts",
+        "../src/sdk/mtn/mtnapiprovider.ts"
+      ],
+      "../src/controllers/api-service/moneygram-sn-cash-out-api-manager/moneygram-sn-cash-out-api-manager.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/parteners.entity.ts",
+        "../src/sdk/freemoney/freemoneyapiprovider.ts",
+        "../src/sdk/moneygram/moneygramhelper.ts",
+        "../src/sdk/moneygram/moneygraminterface.ts",
+        "../src/sdk/moneygram/moneygramreceiveprovider.ts",
+        "../src/sdk/moneygram/moneygramsendprovider.ts",
         "../src/sdk/mtn/config.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
       ],
@@ -11603,6 +11439,7 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/api-service.service.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
+        "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
         "../src/main.ts",
         "../src/models/dto/dtooperationparteners.ts",
@@ -12010,6 +11847,32 @@
         "../src/controllers/controller.ts",
         "../src/models/entities/enum.entity.ts"
       ],
+      "../src/sdk/moneygram/moneygramhelper.ts": [
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/soap/lib/soap.d.ts",
+        "../src/sdk/moneygram/moneygraminterface.ts"
+      ],
+      "../src/sdk/moneygram/moneygramreceiveprovider.ts": [
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/soap/lib/soap.d.ts",
+        "../src/sdk/moneygram/moneygramhelper.ts",
+        "../src/sdk/moneygram/moneygraminterface.ts"
+      ],
+      "../src/sdk/moneygram/moneygramsendprovider.ts": [
+        "../node_modules/soap/lib/soap.d.ts",
+        "../src/sdk/moneygram/moneygramhelper.ts",
+        "../src/sdk/moneygram/moneygraminterface.ts"
+      ],
+      "../src/sdk/moneygram/receive.ts": [
+        "../src/sdk/moneygram/moneygramhelper.ts",
+        "../src/sdk/moneygram/moneygraminterface.ts",
+        "../src/sdk/moneygram/moneygramreceiveprovider.ts"
+      ],
+      "../src/sdk/moneygram/send.ts": [
+        "../src/sdk/moneygram/moneygramhelper.ts",
+        "../src/sdk/moneygram/moneygraminterface.ts",
+        "../src/sdk/moneygram/moneygramsendprovider.ts"
+      ],
       "../src/sdk/moov/moovprovider.ts": [
         "../node_modules/@types/node/crypto.d.ts",
         "../node_modules/@types/node/https.d.ts",
@@ -12049,13 +11912,12 @@
         "../src/sdk/wave/waveapiprovider.ts"
       ],
       "../src/sdk/wave/waveapiprovider.ts": [
-        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/process.d.ts",
         "../node_modules/moment/ts3.1-typings/moment.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
         "../src/controllers/api-service/wave-money-sn-cash-out-api-manager/wave-money-sn-cash-out-api-manager.service.ts",
         "../src/controllers/controller.ts",
-        "../src/controllers/partener-intern/dto/set-status.ts",
         "../src/main.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/models/entities/parteners.entity.ts",
@@ -12067,6 +11929,7 @@
         "../src/sdk/whatsapp/config.ts"
       ],
       "../src/sdk/wizall/wizallapiprovider.ts": [
+        "../node_modules/@types/node/process.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -12146,194 +12009,6 @@
       ]
     },
     "exportedModulesMap": {
-      "../../../../node_modules/@types/lodash/common/array.d.ts": [
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/collection.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/common.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/date.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/function.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/lang.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/math.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/number.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/object.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/seq.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/string.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/common/util.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/index.d.ts"
-      ],
-      "../../../../node_modules/@types/lodash/index.d.ts": [
-        "../../../../node_modules/@types/lodash/common/array.d.ts",
-        "../../../../node_modules/@types/lodash/common/collection.d.ts",
-        "../../../../node_modules/@types/lodash/common/common.d.ts",
-        "../../../../node_modules/@types/lodash/common/date.d.ts",
-        "../../../../node_modules/@types/lodash/common/function.d.ts",
-        "../../../../node_modules/@types/lodash/common/lang.d.ts",
-        "../../../../node_modules/@types/lodash/common/math.d.ts",
-        "../../../../node_modules/@types/lodash/common/number.d.ts",
-        "../../../../node_modules/@types/lodash/common/object.d.ts",
-        "../../../../node_modules/@types/lodash/common/seq.d.ts",
-        "../../../../node_modules/@types/lodash/common/string.d.ts",
-        "../../../../node_modules/@types/lodash/common/util.d.ts"
-      ],
-      "../../../../node_modules/@types/send/index.d.ts": [
-        "../../../../node_modules/@types/mime/index.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/index.d.ts",
-        "../node_modules/@types/node/stream.d.ts"
-      ],
       "../node_modules/@babel/parser/typings/babel-parser.d.ts": [
         "../node_modules/@babel/types/lib/index.d.ts"
       ],
@@ -16495,7 +16170,9 @@
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
         "../src/controllers/api-service/dto/mtnbjcallback.ts",
         "../src/controllers/api-service/dto/newclaim.ts",
+        "../src/controllers/api-service/dto/omcallbackdata.ts",
         "../src/controllers/api-service/dto/operationindto.ts",
+        "../src/controllers/api-service/dto/wavecallback.ts",
         "../src/controllers/controller.ts",
         "../src/controllers/partener-intern/dto/refund-dto-out.ts",
         "../src/helper.service.ts",
@@ -16544,6 +16221,12 @@
       "../src/controllers/api-service/der-fj-sn-bill-reload-api-manager/der-fj-sn-bill-reload-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
+      "../src/controllers/api-service/dto/listpendingbillindto.ts": [
+        "../src/sdk/moneygram/moneygraminterface.ts"
+      ],
+      "../src/controllers/api-service/dto/operationindto.ts": [
+        "../src/sdk/moneygram/moneygraminterface.ts"
+      ],
       "../src/controllers/api-service/dto/required-for-service.decorator.ts": [
         "../node_modules/class-validator/types/index.d.ts"
       ],
@@ -16588,6 +16271,12 @@
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/controllers/api-service/lam-airtime-api-manager/lam-airtime-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/moneygram-sn-cash-in-api-manager/moneygram-sn-cash-in-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/moneygram-sn-cash-out-api-manager/moneygram-sn-cash-out-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
       "../src/controllers/api-service/moov-bj-cash-in-api-manager/moov-bj-cash-in-api-manager.service.ts": [
@@ -16964,6 +16653,15 @@
       ],
       "../src/sdk/kpay/kpayprovider.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/sdk/moneygram/moneygramhelper.ts": [
+        "../node_modules/soap/lib/soap.d.ts"
+      ],
+      "../src/sdk/moneygram/moneygramreceiveprovider.ts": [
+        "../src/sdk/moneygram/moneygraminterface.ts"
+      ],
+      "../src/sdk/moneygram/moneygramsendprovider.ts": [
+        "../src/sdk/moneygram/moneygraminterface.ts"
       ],
       "../src/sdk/moov/moovprovider.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
