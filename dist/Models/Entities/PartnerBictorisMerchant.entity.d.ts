@@ -1,0 +1,31 @@
+import { BaseEntity } from 'typeorm';
+import { Parteners } from './Parteners.entity';
+export declare class PartnerBictorisMerchant extends BaseEntity {
+    id: number;
+    partnerId: number;
+    merchantId: string;
+    publicKey: string;
+    accountStatusId: string;
+    merchantEmail: string;
+    merchantUsername: string;
+    merchantPassword: string;
+    merchantName: string;
+    merchantPhone: string;
+    merchantAddress: string;
+    merchantCountry: string;
+    merchantLocale: string;
+    merchantWebsite: string;
+    merchantCategory: string;
+    representativeFirstName: string;
+    representativeLastName: string;
+    representativeEmail: string;
+    representativePhone: string;
+    isEnabled: boolean;
+    waveEnabled: boolean;
+    webhookConfigured: boolean;
+    webhookId: string;
+    createdAt: Date;
+    updatedAt: Date;
+    subMerchantId: string;
+    partner: Parteners;
+}

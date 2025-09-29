@@ -161,11 +161,6 @@
         "signature": "d2f31f19e1ba6ed59be9259d660a239d9a3fcbbc8e038c6b2009bde34b175fed",
         "affectsGlobalScope": false
       },
-      "../t.ts": {
-        "version": "a0f4014a1afce639b9da865bdb50f2c94a05fa44003f5f372430f22924c8b829",
-        "signature": "dd5af4125c058239a419faca1c668270f1ce245f79e9ba685351655e0c42b888",
-        "affectsGlobalScope": true
-      },
       "../node_modules/reflect-metadata/index.d.ts": {
         "version": "8d6d51a5118d000ed3bfe6e1dd1335bebfff3fef23cd2af2f84a24d30f90cc90",
         "signature": "8d6d51a5118d000ed3bfe6e1dd1335bebfff3fef23cd2af2f84a24d30f90cc90",
@@ -3032,8 +3027,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/enum.entity.ts": {
-        "version": "830bae73804f16102dbd202e7fec99c6d6e68ec400ac90aba07a2c4c6ff01b2d",
-        "signature": "39ee9c222abe38dbc41f6ba75b15022b01039e1f067280ca9defea9493afd6da",
+        "version": "c49f45213d42988cb5fe88bd5fc74857ab0ae905e666ae1ff549b2967463de58",
+        "signature": "5e8855ee24fd9296b02e141edd10af91dcc209462f9afe68d4003f26505a3ba1",
         "affectsGlobalScope": false
       },
       "../src/services/httpcrud.service.ts": {
@@ -3156,9 +3151,14 @@
         "signature": "18898310387663c9fab937f5b533d71f1a23d9f313e799443cd3c1f2d3bd7aa5",
         "affectsGlobalScope": false
       },
+      "../src/models/entities/partnerbictorismerchant.entity.ts": {
+        "version": "e6e5c0b20800a320696296b8bc0958cb804e8020ec130f41c64dfd40754e1809",
+        "signature": "b0153299faf7f50accc676d4e5e1c73f1ba933b66bf9b1be47af44575643413e",
+        "affectsGlobalScope": false
+      },
       "../src/models/entities/parteners.entity.ts": {
-        "version": "acbee4b0252994c6eea9c27179f24088057bf8099157939f3b7cbd621312042b",
-        "signature": "c326e893e9853f27c37fef0b906f38c488df38be6df5486c1ea02a0ef7a32071",
+        "version": "6654bc6e07f197c107de311b6f8ae638f554501357722f1ebb3fa348ad978816",
+        "signature": "cf3085f5ae21e789fefa85ce11f3f5459130251541633d84bc322a5f4a11cadb",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationparteners.entity.ts": {
@@ -3167,8 +3167,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/entities/transactions.entity.ts": {
-        "version": "64dfd0d038cbb320b63a12453f2239efff2987d435404c54fda5529eb81cbd67",
-        "signature": "e8632205379cc117142374e3498522a4886543cc7106ce37ed31a64e24a0c583",
+        "version": "a6c48e5099dd9350da1b6238565ed7223ab59521c1b8ad94aa09cfb92f257d69",
+        "signature": "c905b616d2d39cb33458df476034117b30525b270c19b3b6ad760e17f1ab85a3",
         "affectsGlobalScope": false
       },
       "../src/models/entities/operationphones.entity.ts": {
@@ -3817,8 +3817,8 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/moneygram/moneygraminterface.ts": {
-        "version": "299fa4df1a29b74ce41ab39a45030177457d7ff9b4de4e78808e11eda4765319",
-        "signature": "ab104f9ffc7b2080a60b61b0224f7834cec0fa181057df88b2b497a59d33c5d0",
+        "version": "ec24879ba3633b1c9ec272b3e86eac74698f68225d087d304b5f34c4e93426ad",
+        "signature": "dc44da1979dcb4c1b40842e3b41c302779842c87953cd2c1ea21086e215d918c",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/operationindto.ts": {
@@ -4102,7 +4102,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-service.service.ts": {
-        "version": "8235863f72d2dc58eb1eddc14dab924a06810e60c6a2c079d7bc098ec38a832c",
+        "version": "efa94498d187e3b624400e0050bde31b538a23539d793a08853272531c302d14",
         "signature": "361f7f682f825c90845a48862c6ccf8e31759ffc51149579f7b6951ef8dc4cf1",
         "affectsGlobalScope": false
       },
@@ -4667,8 +4667,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/partener-intern/dto/refund-dto-out.ts": {
-        "version": "593bf4b4ae96e7bdefc7a9ba48ee2a4f11fe9fd7344054a08863d32fcdc4f58b",
-        "signature": "3a5df30f8a9cd8204ed9d6125b5c9f49a843303017d4ccad2e3b0b029e771e5d",
+        "version": "27d5ccfe09d065705bf7ccdb9e64d7a24c30f0fae50150fe58c89af262be343b",
+        "signature": "cf6e72de5803c31cfaeab4448d8e9e71941ea8b0fee95ef5bb3aea2bfffe0ccc",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/dto/hub2callback.ts": {
@@ -4872,23 +4872,38 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/moneygram/moneygramhelper.ts": {
-        "version": "cdefc7480c4ee6c6f94a0966933f7e647fa06345ca1efa8e40be1fb3d2ff09ed",
-        "signature": "028ba18ac205fb4a2d9577520f6af8c40ee86be7f9015d52e28e898677555b51",
+        "version": "e4fad8e5d94f36f1afe29ed478740a7bf69d030c744db404b3aea4e8a4199f02",
+        "signature": "032441b981912622c25045e5b288aceef687440806f4789bd2a373f078c10bb9",
         "affectsGlobalScope": false
       },
       "../src/sdk/moneygram/moneygramreceiveprovider.ts": {
-        "version": "0ed7ebda1d3dae9c47654e8696554f8095bb15844060b756d00e2a3c8d8a5eaf",
+        "version": "b0f20d856fb5f83fd55c17f785d0babb0a842592b511bb8a40933b16d78ef5cd",
         "signature": "81e322be8687e3647bf948b65a12546902d4ef10d5804106a6988c4ccf23c0a6",
         "affectsGlobalScope": false
       },
       "../src/sdk/moneygram/moneygramsendprovider.ts": {
-        "version": "de649c89ae9a6ee3bca27465cc19be508b4763e2d87a34f6049813587bde754e",
+        "version": "9abb0cf0c27899b300dd425a2eacb945b9e93389f298070d75fb0475e7924c1b",
         "signature": "bd61a77c2ffa5fd3d6dc71b1f1844dcfc3bc4001884485a0c151ff6ae3a8c58f",
         "affectsGlobalScope": false
       },
+      "../src/controllers/api-service/dto/moneygramcallback.ts": {
+        "version": "c92910d960607916749ee1eff8a1b24ade185229141d846fc0b98560074127f5",
+        "signature": "6691a8a0ebc6257557c7ea165dcb6249402d66f0a654cc8497ce999a5ae5f68c",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/moneygram/moneygramsignatureverifier.ts": {
+        "version": "8b194acf00fbc037c1045e908f685800ce6d3154c6c72a8b472f70593c241d55",
+        "signature": "7ec1a007532614c323ff81c44dbb5f74dbaa4f9d1462f1576fb2ce915636e129",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/dto/bictoriscallback.ts": {
+        "version": "27da95a32a60e6bb75f2956e326ba70ccfc991e50a7cfbb727c53daeac337446",
+        "signature": "b28529f8a556c67a47bd5676c4b7516e73e77969c698d12decd790ffe1cf98ef",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/api-service.controller.ts": {
-        "version": "ee007318f6aae58833ef51f046456ea83bcdf8d8ae9262220ee42e53ef884a49",
-        "signature": "170f373c8171e62a9fbfdccf48f3b11752ed894e4f711872422d538a6d278a17",
+        "version": "1c220b1da46ad0fd3a120b211f7fbd740f59be6138b491d721d2a4285a2cc674",
+        "signature": "ca802c4ef20dbfb4a44b7d4d3ece7fc5a4c12212a1af92e8290b0f0f95e4f5dd",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -5722,8 +5737,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts": {
-        "version": "5e977b789b06612f460587c1a22ac70f2013d44606aa4ae0d6175a77d59d98f8",
-        "signature": "10f952b0a4916be5ebc2c73362b91025d47f22de8142b8a97014d502c6e37345",
+        "version": "4bb4fdb6e85ece29a78b1e292a22f8a9054f9e595ac3efee009e1318ed920495",
+        "signature": "98f1017b0f6a187eb3dbd90e130934b239632bd03256d53b96d464d844968459",
         "affectsGlobalScope": false
       },
       "../src/models/dto/dtooperationparteners.ts": {
@@ -5732,7 +5747,7 @@
         "affectsGlobalScope": false
       },
       "../src/helper.service.ts": {
-        "version": "0283e2d0f2a2b1d5438c994f4cc40dd5cf56e8e3746e0b1230f8df609c772a3e",
+        "version": "a25f8ca7682718db18d29f580d4a33c0ff4c05c90b177d9cbb55e36132b36fc5",
         "signature": "a838a59a1caa89338ab76602bbe6dda7b3e5e0db4372c489797f5e3c68b9c97f",
         "affectsGlobalScope": false
       },
@@ -5792,7 +5807,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "e114be7a41afcbdeb4f78b406e494d4ec8be6ce686be65d9eebb641dc74b2ce2",
+        "version": "038cd23b2ce304f4e0f7b88a9f95d927dec85499915a5135d35635f942aa7773",
         "signature": "07fc212fdd24558641fd6e9e718ad3217fa47fc8cd6c42451e50eb39973fc746",
         "affectsGlobalScope": false
       },
@@ -5927,7 +5942,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/orange/providerorangemoneyapi.ts": {
-        "version": "0eb413ea92f5fc05c5257763550565e219d0c480cedd30595ba275776b14220d",
+        "version": "8f391663caf03f2023fd71648fb249869031395d9a402a8cc6bb4b65e5ac6b2d",
         "signature": "e9f88ad91ba3a1f130cd7898c9dab420015c87609fed5421ce09a2a4d6ea8cb3",
         "affectsGlobalScope": false
       },
@@ -5939,6 +5954,16 @@
       "../src/controllers/api-service/baobabplus-sn-bill-reload-api-manager/baobabplus-sn-bill-reload-api-manager.service.ts": {
         "version": "011fca82fa0e4d2d21b328fae02a41c0efc2b8e1ad717b8b861a6ce536686dba",
         "signature": "797ee221581d943e6b992b35691b581c09ba2a2d74d4a5d9977b50d3726dbe2e",
+        "affectsGlobalScope": false
+      },
+      "../src/sdk/bictoris/bictorisprovider.ts": {
+        "version": "b701d12de829e17d561c2395fb8f4029ad61bb3a7b69cbe861c62983024147e8",
+        "signature": "c819da89389fed5db6ef426fd159d87fc274b58bcfed6336f8a573f4b4815aff",
+        "affectsGlobalScope": false
+      },
+      "../src/controllers/api-service/bictoris-sn-cash-out-api-manager/bictoris-sn-cash-out-api-manager.service.ts": {
+        "version": "51aaaf9286ba5e65c690e11b7a8324df925f8cb79a6fc08baafa77e089c02cd4",
+        "signature": "4859f333bc48912f9e7fd09d79d1f424bd018831e58528b97c24bae9779a28c7",
         "affectsGlobalScope": false
       },
       "../src/controllers/api-service/der-fj-sn-bill-reload-api-manager/der-fj-sn-bill-reload-api-manager.service.ts": {
@@ -6046,8 +6071,13 @@
         "signature": "97e3d1a0b9148e0ae9c144230011f148ecf44c529a79efaced9c1a3bffd2456b",
         "affectsGlobalScope": false
       },
+      "../src/sdk/moneygram/moneygramreversalprovider.ts": {
+        "version": "e91788ad5d21ca98a00f05015ed2d19cff346d1892436f6cfbd91e6dff3e5d76",
+        "signature": "95e53995ffea905de5e63cf7efd77ae2c6cf2779c107b4c1270aae87cea54532",
+        "affectsGlobalScope": false
+      },
       "../src/controllers/api-service/moneygram-sn-cash-in-api-manager/moneygram-sn-cash-in-api-manager.service.ts": {
-        "version": "390f97d2272b1730d60cba461607785c07ae2d4b0d5b1b063e588f5ab9ccb4e8",
+        "version": "9800c99f3e148d2d9cf2e191446dd189410d7d6742e115c4a25845379a81240d",
         "signature": "2c5f78f65933fdf716ffcd6b998443ed29ff2353752b67e2cccf985803bd24e6",
         "affectsGlobalScope": false
       },
@@ -6122,7 +6152,7 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/wizall/wizallapiprovider.ts": {
-        "version": "c519be0b3dbde0839c8aab5dddca855ba9d5e70cb2fcb5a085ffae7685b23618",
+        "version": "3b07d9eea7883ac862793f2b5eee44247a421b1051ad2bb28931e8e1d6fc1b4c",
         "signature": "45984b02a1243167e11e83b8e4ab9d77f875f70986f38ca53935e159c66ce29d",
         "affectsGlobalScope": false
       },
@@ -6342,12 +6372,12 @@
         "affectsGlobalScope": false
       },
       "../src/sdk/moneygram/receive.ts": {
-        "version": "f9d8fa98e1c48aeb7acdcaa6b3b6f16fd6b5502a7d5cdda64607b35540e69146",
+        "version": "98f5a4a09f27b03886a47c93c63445d69cf0a63fd5afecda565c7bbd93b4c0d8",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
       "../src/sdk/moneygram/send.ts": {
-        "version": "811a884fea8126e950a637766802e18ea73f6c87eb39e9c608945c735a60c1b7",
+        "version": "ab70f4a9f1d3f4e967644f4b370c1e1c23b6cfd9ea2e8a224155f55978872bc7",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -10747,11 +10777,13 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
         "../src/controllers/api-service/api-service.service.ts",
+        "../src/controllers/api-service/dto/bictoriscallback.ts",
         "../src/controllers/api-service/dto/confirmkpay.ts",
         "../src/controllers/api-service/dto/freecallback.ts",
         "../src/controllers/api-service/dto/hub2callback.ts",
         "../src/controllers/api-service/dto/lamcallback.ts",
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
+        "../src/controllers/api-service/dto/moneygramcallback.ts",
         "../src/controllers/api-service/dto/mtnbjcallback.ts",
         "../src/controllers/api-service/dto/newclaim.ts",
         "../src/controllers/api-service/dto/omcallbackdata.ts",
@@ -10790,6 +10822,7 @@
         "../src/sdk/moneygram/moneygraminterface.ts",
         "../src/sdk/moneygram/moneygramreceiveprovider.ts",
         "../src/sdk/moneygram/moneygramsendprovider.ts",
+        "../src/sdk/moneygram/moneygramsignatureverifier.ts",
         "../src/sdk/mtn/mtnapiprovider.ts",
         "../src/sdk/wave/config.ts"
       ],
@@ -10858,6 +10891,16 @@
         "../src/sdk/wave/config.ts",
         "../src/sdk/wave/waveapiprovider.ts"
       ],
+      "../src/controllers/api-service/bictoris-sn-cash-out-api-manager/bictoris-sn-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/api-service/dto/bictoriscallback.ts",
+        "../src/controllers/controller.ts",
+        "../src/main.ts",
+        "../src/models/entities/enum.entity.ts",
+        "../src/models/entities/partnerbictorismerchant.entity.ts",
+        "../src/models/entities/transactions.entity.ts",
+        "../src/sdk/bictoris/bictorisprovider.ts"
+      ],
       "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/schedule/index.d.ts",
@@ -10920,6 +10963,10 @@
         "../node_modules/class-validator/types/index.d.ts",
         "../src/models/entities/enum.entity.ts",
         "../src/sdk/moneygram/moneygraminterface.ts"
+      ],
+      "../src/controllers/api-service/dto/moneygramcallback.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
       ],
       "../src/controllers/api-service/dto/mtnbjcallback.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
@@ -11069,6 +11116,7 @@
         "../src/sdk/freemoney/freemoneyapiprovider.ts",
         "../src/sdk/moneygram/moneygramhelper.ts",
         "../src/sdk/moneygram/moneygraminterface.ts",
+        "../src/sdk/moneygram/moneygramreversalprovider.ts",
         "../src/sdk/moneygram/moneygramsendprovider.ts",
         "../src/sdk/mtn/config.ts",
         "../src/sdk/mtn/mtnapiprovider.ts"
@@ -11433,7 +11481,9 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/@types/node/crypto.d.ts",
         "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/https.d.ts",
         "../node_modules/@types/node/os.d.ts",
+        "../node_modules/@types/node/tls.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../node_modules/typeorm/metadata/columnmetadata.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
@@ -11707,12 +11757,17 @@
         "../src/models/entities/operationparteners.entity.ts",
         "../src/models/entities/partenercomptes.entity.ts",
         "../src/models/entities/partenersettings.entity.ts",
+        "../src/models/entities/partnerbictorismerchant.entity.ts",
         "../src/models/entities/sousservicesparteners.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/entities/partenersettings.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/custombasemodel.ts",
+        "../src/models/entities/parteners.entity.ts"
+      ],
+      "../src/models/entities/partnerbictorismerchant.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/parteners.entity.ts"
       ],
       "../src/models/entities/phones.entity.ts": [
@@ -11826,6 +11881,11 @@
         "../node_modules/@types/node/util.d.ts",
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
       ],
+      "../src/sdk/bictoris/bictorisprovider.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/axios/index.d.ts"
+      ],
       "../src/sdk/discord/discordapiprovider.ts": [
         "../src/sdk/discord/config.ts"
       ],
@@ -11853,15 +11913,27 @@
         "../src/sdk/moneygram/moneygraminterface.ts"
       ],
       "../src/sdk/moneygram/moneygramreceiveprovider.ts": [
+        "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/process.d.ts",
         "../node_modules/soap/lib/soap.d.ts",
+        "../src/main.ts",
+        "../src/sdk/moneygram/moneygramhelper.ts",
+        "../src/sdk/moneygram/moneygraminterface.ts"
+      ],
+      "../src/sdk/moneygram/moneygramreversalprovider.ts": [
+        "../node_modules/@types/node/process.d.ts",
         "../src/sdk/moneygram/moneygramhelper.ts",
         "../src/sdk/moneygram/moneygraminterface.ts"
       ],
       "../src/sdk/moneygram/moneygramsendprovider.ts": [
+        "../node_modules/@types/node/fs.d.ts",
         "../node_modules/soap/lib/soap.d.ts",
+        "../src/main.ts",
         "../src/sdk/moneygram/moneygramhelper.ts",
         "../src/sdk/moneygram/moneygraminterface.ts"
+      ],
+      "../src/sdk/moneygram/moneygramsignatureverifier.ts": [
+        "../node_modules/@types/node/crypto.d.ts"
       ],
       "../src/sdk/moneygram/receive.ts": [
         "../src/sdk/moneygram/moneygramhelper.ts",
@@ -16163,11 +16235,13 @@
       ],
       "../src/controllers/api-service/api-service.controller.ts": [
         "../src/controllers/api-service/api-service.service.ts",
+        "../src/controllers/api-service/dto/bictoriscallback.ts",
         "../src/controllers/api-service/dto/confirmkpay.ts",
         "../src/controllers/api-service/dto/freecallback.ts",
         "../src/controllers/api-service/dto/hub2callback.ts",
         "../src/controllers/api-service/dto/lamcallback.ts",
         "../src/controllers/api-service/dto/listpendingbillindto.ts",
+        "../src/controllers/api-service/dto/moneygramcallback.ts",
         "../src/controllers/api-service/dto/mtnbjcallback.ts",
         "../src/controllers/api-service/dto/newclaim.ts",
         "../src/controllers/api-service/dto/omcallbackdata.ts",
@@ -16205,6 +16279,11 @@
       ],
       "../src/controllers/api-service/baobabplus-sn-bill-reload-api-manager/baobabplus-sn-bill-reload-api-manager.service.ts": [
         "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts"
+      ],
+      "../src/controllers/api-service/bictoris-sn-cash-out-api-manager/bictoris-sn-cash-out-api-manager.service.ts": [
+        "../src/controllers/api-service/api-manager-interface/api-manager-interface.service.ts",
+        "../src/controllers/api-service/dto/bictoriscallback.ts",
+        "../src/models/entities/transactions.entity.ts"
       ],
       "../src/controllers/api-service/check-transaction-status-cron/check-transaction-status-cron.service.ts": [
         "../node_modules/@nestjs/schedule/index.d.ts",
@@ -16551,11 +16630,16 @@
         "../src/models/entities/operationparteners.entity.ts",
         "../src/models/entities/partenercomptes.entity.ts",
         "../src/models/entities/partenersettings.entity.ts",
+        "../src/models/entities/partnerbictorismerchant.entity.ts",
         "../src/models/entities/sousservicesparteners.entity.ts",
         "../src/models/entities/transactions.entity.ts"
       ],
       "../src/models/entities/partenersettings.entity.ts": [
         "../src/models/entities/custombasemodel.ts",
+        "../src/models/entities/parteners.entity.ts"
+      ],
+      "../src/models/entities/partnerbictorismerchant.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
         "../src/models/entities/parteners.entity.ts"
       ],
       "../src/models/entities/phones.entity.ts": [
@@ -16658,6 +16742,9 @@
         "../node_modules/soap/lib/soap.d.ts"
       ],
       "../src/sdk/moneygram/moneygramreceiveprovider.ts": [
+        "../src/sdk/moneygram/moneygraminterface.ts"
+      ],
+      "../src/sdk/moneygram/moneygramreversalprovider.ts": [
         "../src/sdk/moneygram/moneygraminterface.ts"
       ],
       "../src/sdk/moneygram/moneygramsendprovider.ts": [
